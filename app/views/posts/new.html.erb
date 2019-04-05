@@ -1,0 +1,56 @@
+<%= stylesheet_link_tag "posts", :media => "all" %>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
+
+<!--
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+-->
+
+<div class="container">
+  <h1>New Post</h1>
+  <%= render 'form', post: @post %>
+  <!--
+  <ul class="nav nav-tabs row" id="media-nav" role="tablist">
+    <li class="nav-item active col-md-3">
+      <a class="nav-link" id="text-tab" data-toggle="tab" href="#text" role="tab" aria-controls="text post">
+        <div class="tab-icon"><i class="material-icons">comment</i></div>
+        Text
+      </a>
+    </li>
+    <li class="nav-item col-md-3">
+      <a class="nav-link" id="image-tab" data-toggle="tab" href="#image" role="tab" aria-controls="image post">
+        <div class="tab-icon"><i class="material-icons">photo</i></div>
+        Image
+      </a>
+    </li>
+    <li class="nav-item col-md-3">
+      <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="video post">
+        <div class="tab-icon"><i class="material-icons">videocam</i></div>
+        Video
+      </a>
+    </li>
+    <li class="nav-item col-md-3">
+      <a class="nav-link" id="link-tab" data-toggle="tab" href="#link" role="tab" aria-controls="link post">
+        <div class="tab-icon"><i class="material-icons">link</i></div>
+        Link
+      </a>
+    </li>
+  </ul>
+  <div class="tab-content" id="media-nav-content">
+    <div class="tab-pane active" id="text" role="text-tab-pane" aria-labelledby="text-tab">
+      <h2>Text</h2>
+    </div>
+    <div class="tab-pane" id="image" role="image-tab-pane" aria-labelledby="image-tab">
+    </div>
+    <div class="tab-pane" id="video" role="video-tab-pane" aria-labelledby="video-tab">
+      <h2>Video</h2>
+    </div>
+    <div class="tab-pane" id="link" role="link-tab-pane" aria-labelledby="link-tab">
+      <h2>Link</h2>
+    </div>
+  </div>
+  -->
+</div>
+
+<%= link_to 'Back', posts_path %>

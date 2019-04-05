@@ -1,0 +1,371 @@
+/*// Place all the styles related to the Sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+#title{
+	position: absolute;
+	display: flex;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 50%;
+	vertical-align: middle;
+}
+
+
+.form-control {
+    border-radius: 3px;
+    border-color: white;
+    border-bottom: 1px black solid !important;
+
+}
+
+
+.form-control:focus{
+	outline: none;
+	box-shadow: 0px 0px 0px 0px !important;
+	border-bottom: 1px #7ea5c0 solid !important;
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+}
+
+nav{
+	display: none;
+}
+
+#logo-parent{
+	margin: auto auto;
+	border: 1px solid #fff;
+}
+
+#logo{
+	height: 300px;
+	min-height: 20px;
+}
+
+
+.imageDiv{
+	text-align: center;
+}
+.mainDiv{
+    padding: 50px;
+    background-color: white;
+    border-radius: 8px;
+	width: 80%;
+	margin: auto auto;
+}
+.form-control{
+    height: 40px;
+    font-size: 18px;
+
+    box-shadow: 0px 0px 0px 0px;
+    border-bottom: 1px black solid;
+    border-radius: 0px;
+}
+
+.backImg{
+	height: 100%;
+}
+
+.backImg{
+	height: 100%;
+}
+
+.logoImg{
+	height: 100px;
+	position: center;
+}
+.titleForms{
+	font-size: 19px;
+	font-weight: 600;
+}
+
+.emailField{
+	margin-top: 30px;
+	margin-bottom: 20px;
+	outline: none !important;
+}
+
+.passField{
+	margin-top: 10px;
+	margin-bottom: 30px;
+
+}
+.titleLog{
+	font-size: 30px;
+	font-weight: 600;
+	text-align: center;
+}
+.signIn{
+	width: 100%;
+	background-color: #7fa6be;
+}
+.signUp{
+	width: 100%;
+	color: #7fa6be;
+	background-color: white;
+}
+.loginSec{
+	margin-top: 15px;
+	margin-bottom: 15px;
+
+}
+.logField, .signUpForm{
+	margin-top: 20px;
+
+}
+
+.logoParent{
+	text-align: center;
+}
+body{
+	overflow-x: hidden;
+	background: #6c94b2 url("/assets/background.png");
+}
+.leftDiv, .rightDiv {
+	position: absolute;
+	top: 0;
+	display: flex;
+	width: 50%;
+	height: fit-content;
+	min-height: 100%;
+	vertical-align: middle;
+}
+.leftDiv{
+	left: 0;
+}
+.rightDiv{
+	right: 0;
+	background: #fff;
+}
+.iconImg{
+	position: fixed;
+	border: 1px #fff solid;
+	width: auto;
+	height: auto;
+	max-width: 15%;
+	max-height: 70%;
+
+	top: 50%;
+	left: 25%;
+	-ms-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+input, input.btn, .fileBtnDiv{
+	font-size: 18px;
+
+}
+.logField, .signUpForm{
+	margin-top: 20px;
+}
+
+
+@media screen and (min-width: 1800px){
+	.logField{
+		width: 70%;
+		text-align: center;
+		margin-left: 16%;
+		margin-right: 16%;
+
+	}
+
+}
+.fileBtnDiv, .form-control{
+	width: 100%;
+	margin: 10px 0;
+
+}
+.fileBtnDiv{
+	border-color: #2e6da4;
+	background-color: #7fa6be;
+	.fileBtn{
+		display: none;
+	}
+}
+.logoParent{
+	width: 100%;
+	text-align: center;
+}
+body{
+	overflow-x: hidden;
+	background: #6c94b2 url("/assets/background.png");
+}
+
+.leftDiv{
+	left: 0;
+}
+.rightDiv{
+	right: 0;
+	background: #fff;
+}
+.iconImg{
+	position: fixed;
+	border: 1px #fff solid;
+	width: auto;
+	height: auto;
+	max-width: 15%;
+	max-height: 70%;
+
+	top: 50%;
+	left: 25%;
+	-ms-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+input, input.btn, .fileBtnDiv{
+	font-size: 18px;
+}
+
+@media screen and (min-width: 1800px){
+	.logField{
+		width: 70%;
+		text-align: center;
+		margin-left: 16%;
+		margin-right: 16%;
+
+	}
+
+	.mainDiv{
+		vertical-align: middle;
+	}
+}
+
+@media screen and (max-width: 776px){
+
+	.logoImg{
+		margin-top: 15%;
+	}
+	.signUp{
+		font-size: 14px;
+		width: 100%;
+		color: #7fa6be;
+		background-color: white;	
+	}	
+	.leftDiv{
+		display: none;
+	}
+	.rightDiv{
+
+		width: 100%;
+		height: fit-content;
+		min-height: 100%;
+		clear: both;
+		display: flex;
+		flex-flow: column;
+	}
+	.mainDiv{
+		width: 100%;
+		margin-top: 0px;
+		padding: 10px;
+		flex: 0 1 auto;
+
+	}
+	.mobileBottom{
+		flex: 1 1 auto;
+		background: #fff url("/assets/bk_inv.png");
+	}
+	.form-control, input.btn, .fileBtnDiv{
+		height: 6vh;
+		min-height: 40px;
+		vertical-align: middle;
+		font-size: 14px;
+	}
+	.logoImg{
+		width: 60%;
+		height: auto;
+	}
+	.fileField{
+		display: table;
+		width: 100%;
+		margin: 10px 0;
+	}
+	.fileBtnDiv{
+		display: table-cell;
+		vertical-align: middle;
+		height: 50px;
+	}
+	.newUser{
+		background: #6c94b2;
+		.mainDiv{
+			background: #6c94b2;
+
+			.logoParent{
+				background: #6c94b2 url("/assets/proximy_inv_t.png") no-repeat;
+				background-size: contain;
+				background-position: center;
+				img{
+					visibility: hidden;
+				}
+			}
+		}
+		.mobileBottom{
+			background: #6c94b2 url("/assets/background.png");
+		}
+	}
+
+	.leftDiv{
+		display: none;
+	}
+	.rightDiv{
+		width: 100%;
+		height: fit-content;
+		min-height: 100%;
+		clear: both;
+		display: flex;
+		flex-flow: column;
+	}
+	.mainDiv{
+		width: 90%;
+		margin-top: 0px;
+		padding: 10px;
+		flex: 0 1 auto;
+	}
+	.mobileBottom{
+		flex: 1 1 auto;
+		background: #fff url("/assets/bk_inv.png");
+	}
+	.form-control, input.btn, .fileBtnDiv{
+		height: 6vh;
+		min-height: 40px;
+		vertical-align: middle;
+	}
+	.logoImg{
+		width: 80%;
+		height: auto;
+	}
+	.fileField{
+		display: table;
+		width: 100%;
+		margin: 10px 0;
+	}
+	.fileBtnDiv{
+		display: table-cell;
+		vertical-align: middle;
+		height: 50px;
+	}
+	.newUser{
+		background: #6c94b2;
+		.mainDiv{
+			background: #6c94b2;
+
+			.logoParent{
+				background: #6c94b2 url("/assets/proximy_inv_t.png") no-repeat;
+				background-size: contain;
+				background-position: center;
+				img{
+					visibility: hidden;
+				}
+			}
+		}
+		.mobileBottom{
+			background: #6c94b2 url("/assets/background.png");
+		}
+	}
+
+}

@@ -1,0 +1,136 @@
+<%= stylesheet_link_tag "events", :media => "all" %>
+<%= form_for(event) do |f| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="fullSec">
+<div class="col-md-6">
+  <div class="field">
+    <div class="labelSide">
+      <%= f.label "Event title" %>
+    </div>
+    <div class="formSide">
+      <%= f.text_field :title, placeholder: "E.g: Bike Riding", class: "form-control", id: "eventTitle" %>
+    </div>
+  </div>
+
+
+
+    <div class="field">
+      <div class="labelSide">
+        <%= f.label :event_date %>
+      </div>
+      <div class="formSide">
+        <%= f.date_field :event_date, class: "form-control" %>
+      </div>
+  </div>
+
+
+<div class="accordion" id="accordionExample">
+
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Multiple day event
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+
+        <div class="field">
+          <div class="labelSide">
+            <%= f.label "Event end date" %>
+          </div>
+          <div class="formSide">
+            <%= f.date_field :event_end_date, class: "form-control" %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+  <div class="field">
+    <div class="labelSide">
+      <%= f.label :event_time %>
+    </div>
+    <div class="formSide">
+      <%= f.time_field :event_time, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="accordion endButton" id="accordionExample">
+
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
+          Event end time
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+
+        <div class="field">
+          <div class="labelSide">
+            <%= f.label "Event end time" %>
+          </div>
+          <div class="formSide">
+            <%= f.time_field :event_end_time, class: "form-control" %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+</div>
+
+<div class="col-md-6">
+    <div class="field fileField">
+      <label class="btn btn-primary fileBtnDiv"><%= f.file_field :image, class: "fileBtn", id: "coverImageUpload"%> Cover Image</label>
+    </div>
+  <div class="field">
+    <%= f.collection_select(:group_id, @groupsFollow, :id, :title, {prompt: "Choose a Group"}, class: "form-control") %>
+  </div>
+  <div class="field">
+    <div class="labelSide">
+      <%= f.label :description %>
+    </div>
+    <div class="formSide">
+      <%= f.text_area :description, class: "form-control textField" %>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12">
+
+  <div class="create">
+    <%= f.submit(class: "btn btn-primary createButton") %>
+  </div>
+</div>
+</div>
+
+<% end %>

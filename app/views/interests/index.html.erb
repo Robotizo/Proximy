@@ -1,0 +1,102 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Interests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @interests.each do |interest| %>
+      <tr>
+
+
+            
+        <% if current_user.followingI?(interest) %>
+          <%= form_for(current_user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
+            <div class="buttonGroupHov">
+                <div class="followingState"><%= f.submit "Following Interest", class: "btn  btn-primary unfollowGroupBtn" %></div>
+            
+      
+              </div>
+          <% end %>
+        <% else %>
+          <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
+            <%= hidden_field_tag :followedI_id, interest.id %>
+            <div class="buttonEventHov">
+              <%= f.submit "Interested", class: "btn btn-primary attendEventBtn" %>
+            </div>
+          <% end %>
+        <% end %>
+     
+        <td><%= interest.name %></td>
+
+        <td><%= link_to 'Show', interest %></td>
+        <td><%= link_to 'Edit', edit_interest_path(interest) %></td>
+        <td><%= link_to 'Destroy', interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="col-md-12">
+
+<hr>
+
+
+</div>
+
+<%= @groupTest.title %>
+    <% @interests.each do |interest| %>
+      <tr>
+
+
+            
+        <% if $group.fgI?(interest) %>
+          <%= form_for($group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
+            <div class="buttonGroupHov">
+                <div class="followingState"><%= f.submit "Group Following Interest", class: "btn  btn-primary unfollowGroupBtn" %></div>
+      
+              </div>
+          <% end %>
+
+        <% else %>
+          <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
+            <%= hidden_field_tag :fdI_id, interest.id %>
+            <div class="buttonEventHov">
+              <%= f.submit "Interested", class: "btn btn-primary attendEventBtn" %>
+            </div>
+          <% end %>
+        <% end %>
+     
+        <td><%= interest.name %></td>
+      </tr>
+    <% end %>
+
+<%= link_to 'New Interest', new_interest_path %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1567 @@
+/*// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+/* Final Edits */
+.bottomSign{
+  padding-right: 3px;
+}
+
+.userImageModal{
+  padding-right: 3px;
+}
+
+.userImageModal img{
+    height: 30px;
+    border-radius: 50%;
+}
+.modal-footer{
+  padding: 0.75rem 1.25rem;
+  text-align: left;
+}
+
+
+div.col-md-6.post-image-background{
+  height: 130px;
+  border-bottom-left-radius: calc(0.25rem - 1px);
+  border-top-left-radius: calc(0.25rem - 1px);
+}
+
+.noPad1{
+  padding-left: 0px !important;
+}
+
+
+.noPad2{
+  padding-right: 0px !important;
+}
+
+
+
+div.scrollEvents {
+  overflow: auto;
+  white-space: nowrap;
+  height: 355px;
+  overflow-y: hidden;
+}
+
+div.scrollEvents .card {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  text-decoration: none;
+
+}
+
+/* Dakota's Edits */
+
+
+.scrollEvents::-webkit-scrollbar-track {
+  background: none;
+}
+
+.scrollEvents::-webkit-scrollbar {
+  height: 5px;
+}
+
+
+.scrollEvents::-webkit-scrollbar:active {
+  height: 30px;
+}
+
+
+
+.scrollEvents::-webkit-scrollbar-thumb {
+  background: rgb(212, 224, 231);
+  border-radius: 5px;
+}
+
+
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  .col, [class*=col-] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.row.no-gutters {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row.no-gutters > .post-image-background {
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center center;
+}
+
+.modal-body {
+  padding: 0;
+}
+
+.modal-header.row {
+  margin: 0;
+}
+
+.modal-title {
+  padding: 0;
+}
+
+#modalPostBody {
+  padding: 15px;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.launch-modal{
+  cursor: pointer;
+}
+
+
+#modalPostImage img {
+  width: 100%;
+  border-radius: 4px 4px 0px 0px;
+}
+
+div#modalPostImage {
+  width: 100%;
+}
+
+body {
+  margin-top: 55px;
+}
+
+
+.fullLength {
+  width: 100%;
+  float: left;
+}
+
+
+.interestCard {
+  border-radius: 3px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+
+.interestImage {
+  width: 100%;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.interestTitleSec {
+  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
+  position: relative;
+  top: -30px;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.interestName {
+  font-size: 14px;
+  padding: 5px;
+  color: white;
+}
+
+
+.buttonEventHov {
+  position: relative;
+  top: -20px;
+}
+
+
+.addedInterest {
+  border: 0px !important;
+  background-color: #2eb930;
+  width: 100%;
+}
+
+
+.addInterest {
+  background-color: white;
+  color: white;
+  border: 0px !important;
+  background-color: #7fa6bd;
+  width: 100%;
+
+}
+
+
+.buttonEventHov {
+  position: relative;
+  top: -20px;
+}
+
+
+.userImage1 {
+  border-radius: 15px;
+  height: 180px;
+  border: 3px white solid;
+}
+
+.mainField {
+  background-color: white;
+  width: 100%;
+  float: left;
+}
+
+.groupImage1 {
+  border-radius: 5px;
+  max-width: 100%;
+}
+
+.eventImage {
+  overflow: hidden;
+  box-shadow: 0px 0px 1px;
+  border-radius: 7px;
+}
+
+.MultiCarousel {
+  float: left;
+  overflow: hidden;
+  padding: 15px;
+  width: 100%;
+  position: relative;
+}
+
+.MultiCarousel .MultiCarousel-inner {
+  transition: 1s ease all;
+  float: left;
+}
+
+.MultiCarousel .MultiCarousel-inner .item {
+  float: left;
+}
+
+.MultiCarousel .MultiCarousel-inner .item > div {
+  text-align: center;
+  margin: 10px;
+  color: #666;
+}
+
+.MultiCarousel .leftLst, .MultiCarousel .rightLst {
+  position: absolute;
+  border-radius: 50%;
+  top: calc(35% - 20px);
+}
+
+.MultiCarousel .leftLst {
+  left: 0;
+}
+
+.MultiCarousel .rightLst {
+  right: 0;
+}
+
+.MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over {
+  pointer-events: none;
+  background: #9e9e9e;
+  color: #fff;
+}
+
+.titleGroups {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.leftLst, .rightLst {
+  background: #6c94b2;
+  border-color: #6c94b2;
+  border-width: 2px;
+  color: #fff;
+  outline: none !important;
+}
+
+.leftLst:hover, .rightLst:hover {
+  color: #fff;
+}
+
+
+/* CARDS */
+img.userImage2 {
+  height: 30px;
+  border-radius: 50%;
+}
+
+/* BOOTSTRAP */
+
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  margin-bottom: 15px;
+}
+
+.card > hr {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.card > .list-group:first-child .list-group-item:first-child {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.card > .list-group:last-child .list-group-item:last-child {
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem;
+}
+
+.card-title {
+  margin-bottom: 0.75rem;
+}
+
+.card-subtitle {
+  margin-top: -0.375rem;
+  margin-bottom: 0;
+}
+
+.card-text:last-child {
+  margin-bottom: 0;
+}
+
+.card-link:hover {
+  text-decoration: none;
+}
+
+.card-link + .card-link {
+  margin-left: 1.25rem;
+}
+
+.card-header {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-header:first-child {
+  border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+}
+
+.card-header + .list-group .list-group-item:first-child {
+  border-top: 0;
+}
+
+.card-footer {
+  padding: 0.75rem 1.25rem;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-footer:last-child {
+  border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
+}
+
+.card-header-tabs {
+  margin-right: -0.625rem;
+  margin-bottom: -0.75rem;
+  margin-left: -0.625rem;
+  border-bottom: 0;
+}
+
+.card-header-pills {
+  margin-right: -0.625rem;
+  margin-left: -0.625rem;
+}
+
+.card-img-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1.25rem;
+}
+
+.card-img {
+  width: 100%;
+  border-radius: calc(0.25rem - 1px);
+}
+
+.card-img-top {
+  width: 100%;
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.card-img-bottom {
+  width: 100%;
+  border-bottom-right-radius: calc(0.25rem - 1px);
+  border-bottom-left-radius: calc(0.25rem - 1px);
+}
+
+.card-deck {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.card-deck .card {
+  margin-bottom: 15px;
+}
+
+@media (min-width: 576px) {
+  .card-deck {
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  .card-deck .card {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex: 1 0 0%;
+    flex: 1 0 0%;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-right: 15px;
+    margin-bottom: 0;
+    margin-left: 15px;
+  }
+}
+
+.card-group {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.card-group > .card {
+  margin-bottom: 15px;
+}
+
+@media (min-width: 576px) {
+  .card-group {
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+  }
+  .card-group > .card {
+    -ms-flex: 1 0 0%;
+    flex: 1 0 0%;
+    margin-bottom: 0;
+  }
+  .card-group > .card + .card {
+    margin-left: 0;
+    border-left: 0;
+  }
+  .card-group > .card:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .card-group > .card:not(:last-child) .card-img-top,
+  .card-group > .card:not(:last-child) .card-header {
+    border-top-right-radius: 0;
+  }
+  .card-group > .card:not(:last-child) .card-img-bottom,
+  .card-group > .card:not(:last-child) .card-footer {
+    border-bottom-right-radius: 0;
+  }
+  .card-group > .card:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .card-group > .card:not(:first-child) .card-img-top,
+  .card-group > .card:not(:first-child) .card-header {
+    border-top-left-radius: 0;
+  }
+  .card-group > .card:not(:first-child) .card-img-bottom,
+  .card-group > .card:not(:first-child) .card-footer {
+    border-bottom-left-radius: 0;
+  }
+}
+
+.card-columns .card {
+  margin-bottom: 0.75rem;
+}
+
+@media (min-width: 576px) {
+  .card-columns {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-gap: 1.25rem;
+    -moz-column-gap: 1.25rem;
+    column-gap: 1.25rem;
+    orphans: 1;
+    widows: 1;
+  }
+  .card-columns .card {
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+.accordion > .card {
+  overflow: hidden;
+}
+
+.accordion > .card:not(:first-of-type) .card-header:first-child {
+  border-radius: 0;
+}
+
+.accordion > .card:not(:first-of-type):not(:last-of-type) {
+  border-bottom: 0;
+  border-radius: 0;
+}
+
+.accordion > .card:first-of-type {
+  border-bottom: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.accordion > .card:last-of-type {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.accordion > .card .card-header {
+  margin-bottom: -1px;
+}
+
+/* END CARDS */
+
+
+/* End Edits */
+
+body {
+  margin-top: 55px;
+}
+
+.mobInt{
+  display: none;
+}
+
+
+.heightControl{
+  height: 180px;
+}
+
+
+.fullLength{
+	width: 100%;
+	float: left;
+}
+
+
+.interestCard{
+	border-radius: 3px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+
+.interestImage{
+	width: 100%;
+	border-radius: 5px 5px 5px 5px;
+}
+
+.interestTitleSec{
+	background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
+	position: relative;
+	top: -30px;
+	border-radius: 0px 0px 5px 5px;
+}
+
+.interestName{
+	font-size: 14px;
+	padding: 5px;	
+	color: white;
+}
+
+
+.buttonEventHov{
+	position: relative;
+	top: -20px;
+}
+
+
+.addedInterest{
+	border: 0px !important;
+	background-color: #2eb930;
+	width: 100%;
+}
+
+
+.addInterest{
+	background-color: white;
+	color: white;
+	border: 0px !important;
+	background-color: #7fa6bd;
+	width: 100%;
+
+}
+
+
+.buttonEventHov{
+	position: relative;
+	top: -20px;
+}
+.module1 {
+  padding-bottom: 20px;
+  height: 450px;
+  background-color: white ;
+}
+
+.userImage1 {
+  border-radius: 15px;
+  height: 180px;
+  border: 3px rgb(242, 242, 242) solid;
+}
+
+.mainField {
+  background-color: white;
+  width: 100%;
+  float: left;
+}
+
+.groupImage1 {
+  border-radius: 5px;
+  max-width: 100%;
+}
+
+.eventImage {
+  overflow: hidden;
+  box-shadow: 0px 0px 1px;
+  border-radius: 7px;
+}
+
+.MultiCarousel {
+  float: left;
+  overflow: hidden;
+  padding: 15px;
+  width: 100%;
+  position: relative;
+}
+
+.MultiCarousel .MultiCarousel-inner {
+  transition: 1s ease all;
+  float: left;
+}
+
+.MultiCarousel .MultiCarousel-inner .item {
+  float: left;
+}
+
+.MultiCarousel .MultiCarousel-inner .item > div {
+  text-align: center;
+  margin: 10px;
+  color: #666;
+}
+
+.MultiCarousel .leftLst, .MultiCarousel .rightLst {
+  position: absolute;
+  border-radius: 50%;
+  top: calc(35% - 20px);
+}
+
+.MultiCarousel .leftLst {
+  left: 0;
+}
+
+.MultiCarousel .rightLst {
+  right: 0;
+}
+
+.MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over {
+  pointer-events: none;
+  background: #9e9e9e;
+  color: #fff;
+}
+
+.titleGroups {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.leftLst, .rightLst {
+  background: #6c94b2;
+  border-color: #6c94b2;
+  border-width: 2px;
+  color: #fff;
+  outline: none !important;
+}
+
+.leftLst:hover, .rightLst:hover{
+  color: #fff;
+}
+
+/* End Edits */
+
+
+.specialC {
+  text-decoration: none !important;
+  color: black !important;
+}
+
+.specialC:hover {
+  color: #337ab7 !important;
+}
+
+.titleGroups {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.groupTitleI {
+  text-align: left;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+  font-weight: 600;
+  margin: 5px;
+  top: -75px;
+  font-size: 20px;
+  white-space: normal;
+}
+
+.eventContent {
+  padding: 10px 5px 5px 5px;
+}
+
+.eventOverall {
+  position: relative;
+  top: -70px;
+}
+
+.bold {
+  font-weight: 900;
+}
+
+.interests {
+  float: left;
+}
+
+.eventDateI {
+  text-align: left;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  white-space: normal;
+  color: white;
+}
+
+.eventContent1 {
+  position: relative;
+  top: -68px;
+  /* background-color: #00000054; */
+  padding: 10px;
+  /* opacity: 0.8; */
+  border-radius: 0px 0px 5px 5px;
+  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
+}
+
+
+.createActions {
+  margin: 5px;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+}
+
+.imageMini {
+  padding-right: 3px;
+  padding-left: 3px;
+}
+
+.btnShowAll {
+  background-color: white !important;
+  color: black !important;
+  outline: none !important;
+}
+
+.showAllPosts {
+  padding: 10px;
+  text-align: center;
+}
+
+.creatorSign {
+  width: 100%;
+  height: 42px;
+  text-align: left;
+  padding: 6px;
+}
+
+.imageUserGroup {
+  width: 14%;
+  float: left;
+}
+
+.contentUserPost {
+  width: 85%;
+  float: left;
+  margin-top: 4px;
+
+}
+
+.userSignMini {
+  margin-left: 5px;
+}
+
+.imageUserEvent {
+  width: 10%;
+  float: left;
+
+}
+
+.userGroups {
+  margin: 5px;
+  border-radius: 5px
+}
+
+.userEvents {
+  margin: 5px;
+}
+
+.eventsSection {
+  margin-bottom: 25px;
+  float: left;
+  width: 100%;
+}
+
+.newsfeed {
+  float: left;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.posterDate2 {
+  font-size: 10px;
+  margin-left: 5px;
+  margin-top: 28px;
+  color: #6d6d6d;
+}
+
+.postContent2 {
+  font-size: 14px;
+  margin: 15px;
+  margin-left: 10px;
+
+  height: 80px;
+}
+
+.postTitle2 {
+  font-weight: 300;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+
+}
+
+.postImageCover2 {
+  width: 100%;
+  border-radius: 4px 0px 0px 4px;
+}
+
+.imageSubPost {
+  width: 50%;
+  float: left;
+}
+
+.contentSubPost {
+  width: 50%;
+  float: left;
+}
+
+.laterPostBox {
+  margin-top: 5px;
+  margin-bottom: 22px;
+  box-shadow: 0px 0px 0px 1px #dedddd;
+  border-radius: 5px;
+  float: left;
+  width: 100%;
+}
+
+.contentUserPost {
+  width: 70%;
+  float: left;
+  color: #6d6d6d;
+}
+
+.imageUserPost {
+  width: 8%;
+  float: left;
+}
+
+.postUserSec {
+  float: left;
+  width: 100%;
+}
+
+.posterDate {
+  font-size: 12px;
+  color: #6d6d6d;
+}
+
+.poster {
+  font-size: 12px;
+  color: #6d6d6d;
+}
+
+.userSignWithin {
+  padding: 6px;
+  height: 42px;
+}
+
+.infoSection {
+  padding: 15px;
+}
+
+.latestPostSec {
+  box-shadow: 0px 0px 0px 1px #dedddd;
+  border-radius: 5px;
+
+}
+
+.postImageCover {
+  width: 100%;
+  border-radius: 4px 4px 0px 0px;
+}
+
+.postContent {
+  font-size: 16px;
+}
+
+.postTitle {
+  font-weight: 300;
+  font-size: 22px;
+}
+
+.titleSec {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 10px 15px;
+}
+
+.innerModule {
+  position: relative;
+  width: 100%;
+  float: left;
+  height: 370px;
+}
+
+.userImageCover {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.connArea {
+  position: relative;
+  top: -130px;
+}
+
+.addImage {
+  height: 40px;
+  float: right;
+  position: absolute;
+  right: 160px;
+  top: 137px;
+  outline: none;
+}
+
+.module2 {
+  margin-top: 20em;
+}
+
+.specialA {
+  color: black !important;
+  text-decoration: none !important;
+}
+
+.userImage2 {
+  border-radius: 300px;
+  height: 30px;
+  border: 1px black solid;
+}
+
+
+.userImage3 {
+  border-radius: 300px;
+  height: 15px;
+  border: 1px black solid;
+}
+
+.userSec1 {
+  margin-top: 5px;
+}
+
+.userName {
+  font-size: 32px;
+  font-weight: 200;
+}
+
+.userMail {
+  font-size: 25px;
+  font-weight: 300;
+}
+
+
+.userPosts {
+  margin: 20px;
+}
+
+
+.titlePosts1 {
+  font-size: 25px;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+
+
+.titlePosts2 {
+  font-size: 25px;
+  font-weight: 300;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+
+.createButton {
+  background-color: white;
+  box-shadow: 0px 0px 2px 0px;
+  height: 100px;
+  width: 130px;
+  font-size: 15px;
+  font-weight: 300;
+  margin: 5px;
+}
+
+.userGroupsSec {
+  float: left;
+}
+
+
+.groupTitleSec {
+  margin: 10px;
+}
+
+
+.groupTitle {
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 10px;
+  padding-top: 5px;
+  float: left;
+}
+
+
+.groupsCol {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+
+.createSec {
+  width: 14%;
+  float: left;
+}
+
+
+.listSec {
+  float: left;
+  padding-bottom: 14px;
+}
+
+
+.moreSec {
+  width: 12%;
+  float: left;
+}
+
+
+.subTitle {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+
+.userInf {
+  margin-top: 15px;
+}
+
+.subArea {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.showAction {
+  padding: 10px;
+  text-align: center;
+}
+
+
+.infoText {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.gJoined {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 100%;
+}
+
+.noFollowSec {
+  margin: 5px;
+  border-radius: 5px;
+  height: 100px;
+  width: 260px;
+  text-align: center;
+}
+
+.noFollowSecText {
+  padding-top: 30px;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.buttonsField {
+  background-color: white;
+  border-radius: 4px 4px 0px 0px;
+  box-shadow: 0px 0px 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  height: 50px;
+}
+
+.btnGrouped {
+  width: 25%;
+  height: 100%;
+  outline: none !important;
+  border-left: 1px solid #d2d5d7;
+  background-color: white;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.btnGrouped:active {
+  background-color: #00bbff;
+  color: black;
+}
+
+.btnGrouped:first-child {
+  border-left: 0px solid black;
+}
+
+
+.grouped {
+  width: 100%;
+  height: 100%;
+}
+
+
+.buttonsActionMob {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.btn-group .btn + .btn, .btn-group .btn + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-group {
+  margin-left: 0px;
+}
+
+.btn:active {
+  box-shadow: 0px 0px 0px;
+}
+
+div.scrollGroups {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+div.scrollGroups a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  text-decoration: none;
+}
+
+
+div.scrollEvents {
+  overflow: auto;
+  white-space: nowrap;
+  height: 355px;
+  overflow-y: hidden;
+}
+
+div.scrollEvents a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  text-decoration: none;
+
+}
+
+
+
+.btnActions {
+  font-size: 12px;
+  background-color: white !important;
+  color: black !important;
+  outline: none !important;
+
+}
+
+
+.showAllIcon {
+  display: none;
+}
+
+.iconMob {
+  display: none;
+}
+
+.posterMini {
+  font-size: 12px;
+}
+
+
+@media screen and (max-width: 776px) {
+  .subPost{
+    width: 200px;
+  }
+
+  .noPad1{
+    padding-left: 3px !important;
+    padding-right: 3px !important;
+  }
+
+  .noPad2{
+    padding-left: 3px !important;
+    padding-right: 3px !important;
+  }
+  .eventDateI {
+    font-size: 16px;
+  }
+  .eventOverall {
+    top: -64px;
+  }
+  .eventContent1 {
+    position: relative;
+    top: -62px;
+    /* background-color: #00000054; */
+    padding: 10px;
+    /* opacity: 0.8; */
+    border-radius: 0px 0px 5px 5px;
+    background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
+  }
+  .posterMini {
+    font-size: 10px;
+  }
+  .iconMob {
+    display: block;
+  }
+
+  .btnShowAll {
+    font-size: 20px;
+  }
+  .showAllIcon {
+    height: 120px;
+    display: block;
+    margin: auto;
+    width: 50%;
+    padding-top: 15px !important;
+    padding-bottom: 10px !important;
+
+  }
+
+  .imageUserGroup {
+    width: 17%;
+  }
+
+  .userSignMini {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .poster {
+    font-size: 12px;
+  }
+  .postContent2 {
+    white-space: normal;
+    text-align: left;
+    height: auto;
+    margin: 10px;
+    height: 65px;
+  }
+  .postTitle2 {
+    margin: 10px !important;
+    text-align: left;
+  }
+  .posterDate2 {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    text-align: left;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .postImageCover2 {
+    width: 100%;
+    border-radius: 4px 4px 0px 0px;
+  }
+  .contentSubPost {
+    float: none;
+    width: 100%;
+  }
+  .imageSubPost {
+    float: none;
+    width: 100%;
+  }
+  .postContent {
+    font-size: 14px;
+  }
+  .postTitle {
+    font-size: 18px;
+  }
+  .laterPostBox {
+    margin-bottom: 0px;
+  }
+  .latestPostMain1 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .addImage {
+    height: 40px;
+    float: right;
+    position: absolute;
+    right: 74px;
+    outline: none;
+    top: 115px;
+  }
+  .latestPostSec {
+    margin-bottom: 20px;
+    border-radius: 5px;
+    margin: 8px !important;
+  }
+  .imageUserPost {
+    width: 11%;
+  }
+  .postImageCover {
+    border-radius: 5px 5px 0px 0px;
+  }
+  .postMob {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .titleSec {
+    font-size: 22px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+  }
+
+  .innerModule {
+    position: relative;
+    width: 100%;
+    float: left;
+    height: 280px;
+  }
+  .mainField {
+    border-radius: 0px;
+  }
+  .userImageCover {
+    border-radius: 0px 0px 0px 0px;
+    height: 160px;
+    object-fit: cover;
+  }
+
+  .mobileArea {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .connArea {
+    top: -84px;
+    position: relative;
+  }
+  .userImage1 {
+    border-radius: 15px;
+    height: 150px;
+  }
+  .module1 {
+    border-radius: 0px;
+    height: 280px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .subArea {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 0px;
+  }
+  .connArea {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .gJoined {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .userPosts {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .createSec {
+    width: 100%;
+    float: left;
+    text-align: center;
+  }
+
+  .createButton {
+    width: 97%;
+    height: 60px;
+  }
+
+  .gJoinedMob {
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+  }
+
+  .moreSec {
+    width: 100%;
+    float: left;
+    padding-bottom: 20px;
+  }
+
+  .listSec {
+    padding-bottom: 0px;
+  }
+
+  .groupTitle {
+    text-align: left;
+  }
+
+
+  div.latestPostSec2 {
+    overflow: auto;
+    white-space: nowrap;
+  }
+
+
+  div.latestPostSec2 .card {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 8px;
+    padding-top: 10px;
+    text-decoration: none;
+    width: 60%;
+  }
+
+  div.scrollEvents {
+    overflow: auto;
+    white-space: nowrap;
+    height: 265px;
+    overflow-y: hidden;
+  }
+
+  div.scrollEvents a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+  }
+
+
+  div.scrollGroups {
+    overflow: auto;
+    white-space: nowrap;
+  }
+
+  div.scrollGroups a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+  }
+  .imageUserEvent {
+    width: 14%;
+  }
+
+  .groupImage1 {
+    height: 170px;
+
+  }
+
+  .btnActions {
+    font-size: 12px;
+
+  }
+
+
+  .btnShowAll {
+    font-size: 20px;
+  }
+
+  .postTitle2 {
+    font-size: 16px;
+  }
+
+  .postContent2 {
+    font-size: 12px;
+  }
+  .userName {
+    font-size: 26px;
+  }
+  .titleGroups {
+    font-size: 16px;
+  }
+
+  .buttonsActionMob {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+  }
+
+  .mainField {
+    box-shadow: 0px 0px 0px;
+  }
+
+  .module1 {
+    box-shadow: 0px 0px 0px;
+  }
+}

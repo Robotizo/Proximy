@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag "sessions", :media => "all" %>
+
+<div class="leftDiv">
+    <%= image_tag("logo_inv_square.png", class: "iconImg") %>
+</div>
+<div class="rightDiv">
+    <div class="mainDiv">
+        <div class="logoParent">
+            <%= image_tag("proximy-logo.jpg", class: "logoImg") %>
+        </div>
+        <div class="text-center logField">
+            <%= form_for(:session, url: login_path) do |f| %>
+            <div class="emailField">
+                <%= f.email_field :email, class: 'form-control' , placeholder: "Email" %>
+            </div>
+            <div class="passField">
+                <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
+            </div>
+            <div class="text-center loginSec">
+                <%= f.submit "Log in", class: "btn btn-primary signIn " %>
+            </div>
+
+            <div class="text-center loginSec">
+                <%= link_to "Sign up", signup_path, class: "btn btn-primary signUp " %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+    <div class="mobileBottom"></div>
+</div>

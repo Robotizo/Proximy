@@ -1,0 +1,360 @@
+
+<script>
+    $(document).ready(function () {
+        var itemsMainDiv = ('.MultiCarousel');
+        var itemsDiv = ('.MultiCarousel-inner');
+        var itemWidth = "";
+        $('.leftLst, .rightLst').click(function () {
+            var condition = $(this).hasClass("leftLst");
+            if (condition)
+                click(0, this);
+            else
+                click(1, this)
+        });
+        ResCarouselSize();
+        $(window).resize(function () {
+            ResCarouselSize();
+        });
+        function ResCarouselSize() {
+            var incno = 0;
+            var dataItems = ("data-items");
+            var itemClass = ('.item');
+            var id = 0;
+            var btnParentSb = '';
+            var itemsSplit = '';
+            var sampwidth = $(itemsMainDiv).width();
+            var bodyWidth = $('body').width();
+            $(itemsDiv).each(function () {
+                id = id + 1;
+                var itemNumbers = $(this).find(itemClass).length;
+                btnParentSb = $(this).parent().attr(dataItems);
+                itemsSplit = btnParentSb.split(',');
+                $(this).parent().attr("id", "MultiCarousel" + id);
+                $(this).parent().parent().attr("id", "wrap-MultiCarousel" + id);
+                if (bodyWidth >= 1200) {
+                    incno = itemsSplit[3];
+                    itemWidth = sampwidth / incno;
+                } else if (bodyWidth >= 992) {
+                    incno = itemsSplit[2];
+                    itemWidth = sampwidth / incno;
+                } else if (bodyWidth >= 768) {
+                    incno = itemsSplit[1];
+                    itemWidth = sampwidth / incno;
+                } else {
+                    incno = itemsSplit[0];
+                    itemWidth = sampwidth / incno;
+                }
+                $(this).css({
+                    'transform': 'translateX(0px)',
+                    'width': itemWidth * itemNumbers
+                });
+                $(this).find(itemClass).each(function () {
+                    $(this).outerWidth(itemWidth);
+                });
+                $(".leftLst").addClass("over");
+                $(".rightLst").removeClass("over");
+            });
+        }
+        function ResCarousel(e, el, s) {
+            var leftBtn = ('.leftLst');
+            var rightBtn = ('.rightLst');
+            var translateXval = '';
+            var divStyle = $(el + ' ' + itemsDiv).css('transform');
+            var values = divStyle.match(/-?[\d\.]+/g);
+            var xds = Math.abs(values[4]);
+            if (e == 0) {
+                translateXval = parseInt(xds) - parseInt(itemWidth * s);
+                $("#wrap-" + el.slice(1) + ' ' + rightBtn).removeClass("over");
+                if (translateXval <= itemWidth / 2) {
+                    translateXval = 0;
+                    $("#wrap-" + el.slice(1) + ' ' + leftBtn).addClass("over");
+                }
+            } else if (e == 1) {
+                var itemsCondition = $(el).find(itemsDiv).width() - $(el).width();
+                translateXval = parseInt(xds) + parseInt(itemWidth * s);
+                $("#wrap-" + el.slice(1) + ' ' + leftBtn).removeClass("over");
+                if (translateXval >= itemsCondition - itemWidth / 2) {
+                    translateXval = itemsCondition;
+                    $("#wrap-" + el.slice(1) + ' ' + rightBtn).addClass("over");
+                }
+            }
+            $(el + ' ' + itemsDiv).css('transform', 'translateX(' + -translateXval + 'px)');
+        }
+        function click(ell, ee) {
+            var Parent = "#" + $(ee).parent().attr("id").slice(5);
+            var slide = $(Parent).attr("data-slide");
+            ResCarousel(ell, Parent, slide);
+        }
+    });
+</script>
+
+
+
+
+<script>
+    $(document).ready(function() {
+        var itemsMainDiv = ('.MultiCarousel');
+        var itemsDiv = ('.MultiCarousel-inner');
+        var itemWidth = "";
+        $('.leftLst, .rightLst').click(function() {
+            var condition = $(this).hasClass("leftLst");
+            if (condition)
+                click(0, this);
+            else
+                click(1, this)
+        });
+        ResCarouselSize();
+        $(window).resize(function() {
+            ResCarouselSize();
+        });
+        //this function define the size of the items
+        function ResCarouselSize() {
+            var incno = 0;
+            var dataItems = ("data-items");
+            var itemClass = ('.item');
+            var id = 0;
+            var btnParentSb = '';
+            var itemsSplit = '';
+            var sampwidth = $(itemsMainDiv).width();
+            var bodyWidth = $('body').width();
+            $(itemsDiv).each(function() {
+                id = id + 1;
+                var itemNumbers = $(this).find(itemClass).length;
+                btnParentSb = $(this).parent().attr(dataItems);
+                itemsSplit = btnParentSb.split(',');
+                $(this).parent().attr("id", "MultiCarousel" + id);
+                if (bodyWidth >= 1200) {
+                    incno = itemsSplit[3];
+                    itemWidth = sampwidth / incno;
+                } else if (bodyWidth >= 992) {
+                    incno = itemsSplit[2];
+                    itemWidth = sampwidth / incno;
+                } else if (bodyWidth >= 768) {
+                    incno = itemsSplit[1];
+                    itemWidth = sampwidth / incno;
+                } else {
+                    incno = itemsSplit[0];
+                    itemWidth = sampwidth / incno;
+                }
+                $(this).css({
+                    'transform': 'translateX(0px)',
+                    'width': itemWidth * itemNumbers
+                });
+                $(this).find(itemClass).each(function() {
+                    $(this).outerWidth(itemWidth);
+                });
+                $(".leftLst").addClass("over");
+                $(".rightLst").removeClass("over");
+            });
+        }
+        //this function used to move the items
+        function ResCarousel(e, el, s) {
+            var leftBtn = ('.leftLst');
+            var rightBtn = ('.rightLst');
+            var translateXval = '';
+            var divStyle = $(el + ' ' + itemsDiv).css('transform');
+            var values = divStyle.match(/-?[\d\.]+/g);
+            var xds = Math.abs(values[4]);
+            if (e == 0) {
+                translateXval = parseInt(xds) - parseInt(itemWidth * s);
+                $(el + ' ' + rightBtn).removeClass("over");
+                if (translateXval <= itemWidth / 2) {
+                    translateXval = 0;
+                    $(el + ' ' + leftBtn).addClass("over");
+                }
+            } else if (e == 1) {
+                var itemsCondition = $(el).find(itemsDiv).width() - $(el).width();
+                translateXval = parseInt(xds) + parseInt(itemWidth * s);
+                $(el + ' ' + leftBtn).removeClass("over");
+                if (translateXval >= itemsCondition - itemWidth / 2) {
+                    translateXval = itemsCondition;
+                    $(el + ' ' + rightBtn).addClass("over");
+                }
+            }
+            $(el + ' ' + itemsDiv).css('transform', 'translateX(' + -translateXval + 'px)');
+        }
+        //It is used to get some elements from btn
+        function click(ell, ee) {
+            var Parent = "#" + $(ee).parent().attr("id");
+            var slide = $(Parent).attr("data-slide");
+            ResCarousel(ell, Parent, slide);
+        }
+    });
+</script>
+
+
+class AddFollowInterestsToGroups < ActiveRecord::Migration[5.0]
+  def change
+    add_column :interests_relationships, :followerI2G_id, :integer
+    add_column :interests_relationships, :followedI2G_id, :integer
+  end
+end
+
+
+
+  def change
+    add_column :interests_relationships, :followerIG_id, :integer
+    add_column :interests_relationships, :followedIG_id, :integer
+  end]
+
+
+  <!--
+<hr>
+<div class="col-md-12">
+    <% @interests.each do |interest| %>
+    <div class="col-md-2">
+    <div class="interestCard">
+        <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+        <div class="interestTitleSec">
+        
+            <div class="interestName"><%= interest.name %></div>
+        
+        </div>
+
+
+        <% if current_user.followingI?(interest) %>
+          <%= form_for(current_user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
+            <div class="buttonEventHov">
+                <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+            </div>
+          <% end %>
+        <% else %>
+          <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
+            <%= hidden_field_tag :followedI_id, interest.id %>
+            <div class="buttonEventHov">
+              <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+            </div>
+          <% end %>
+        <% end %>
+    </div>
+    </div>
+    <% end %>
+
+</div>
+
+</div>
+
+
+<!--
+<div class="fullLength">
+
+    <hr>
+
+</div>
+
+
+
+    <hr>
+        <%= @userIds %>
+
+    <hr>
+        <%= @into5Nums %>
+    <hr>
+
+        <%= @into5Nums2 %>
+    <hr>
+
+
+        <%= @into5NumsSorted %>
+
+    <hr>
+
+
+        <%= @currentUserInts %>
+
+
+    <hr>
+
+        <%= @userInts %>
+
+    <hr>
+
+        <%= @userIntsInto5 %>
+    <hr>
+    <% @users.each_with_index do |user, index| %>
+        <div class="bold"><%= user.name %></div>
+        <% user.followingI.each do |interest| %>
+            <%= interest.name %><br>
+        <% end %>
+        <br>
+        <br>
+    <% end %>
+    <hr>    
+        <%= @userIntsInto5 %>
+
+    <hr>
+        <%= @currentUserInts %>
+    <hr>
+        <%= @johnMarston %>
+    <hr>
+
+    <% @johnMarstonFound.each do |johnFound| %>
+        <%= johnFound.name %><br>
+    <% end %>
+    
+    <hr>
+
+    <% @johnMarstonCollide.each do |johnCollide| %>
+        <%= johnCollide.name %><br>
+    <% end %>
+
+    <hr>
+
+        <%= @vsJohn %>
+
+    <hr>
+        <%= @currentUserInts %>
+    <hr>
+        <%= @kakacarrotcake %>
+    <hr>
+
+    <% @kakacarrotcakeFound.each do |kakaFound| %>
+        <%= kakaFound.name %><br>
+    <% end %>
+
+    <hr>
+
+    <% @kakacarrotcakeCollide.each do |kakaCollide| %>
+        <%= kakaCollide.name %><br>
+    <% end %>
+
+    <hr>
+        <%= @vsKaka %>
+
+    <hr>
+
+        <%= @numTest %>
+
+    <hr>
+    
+        <%= @numTestSorted %>
+    <hr>
+
+    <% @hunterNameCollide.each do |hunterCollide| %>
+        <%= hunterCollide.name %><br>
+    <% end %>
+
+
+    <hr>
+
+        <%= @vsHunter %>
+    <hr>
+
+    <% @vaporNameCollide.each do |vaporCollide| %>
+        <%= vaporCollide.name %><br>
+    <% end %>
+
+    <hr>
+        <%= @vsVapor %>
+    <hr>
+
+
+    <hr>
+
+
+
+
+
+
+</div>
+-->

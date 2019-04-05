@@ -1,0 +1,9 @@
+<%= stylesheet_link_tag "events", :media => "all" %>
+
+
+<%= form_for(current_user.active_relationships_events.find_by(followedE_id: @event.id), html: { method: :delete }) do |f| %>
+  <div class="buttonEventHov">
+      <div class="attendingState"><%= f.submit "Attending Event", class: "btn  btn-primary unAttendGroupBtn greenAttend" %></div>
+      <div class="notAttendingState"><%= f.submit "Cancel", class: "btn  btn-primary unAttendGroupBtn" %></div>
+  </div> 
+<% end %>

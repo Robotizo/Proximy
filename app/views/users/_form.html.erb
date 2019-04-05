@@ -1,0 +1,47 @@
+<%= form_for(user) do |f| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field fileField">
+    <label class="btn btn-primary fileBtnDiv"><%= f.file_field :avatar, class: "fileBtn"%> Avatar</label>
+  </div>
+
+  <div class="field fileField">
+    <label class="btn btn-primary fileBtnDiv"><%= f.file_field :image, class: "fileBtn" %> Cover Photo</label>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_area :bio, class: "form-control", placeholder: "Bio" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Password" %>
+  </div>
+
+  <br />
+
+  <div class="actions">
+    <%= f.submit "Create User", class: "btn btn-primary signIn " %>
+  </div>
+<% end %>

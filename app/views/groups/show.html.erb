@@ -1,0 +1,227 @@
+<%= javascript_include_tag 'groups', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag "groups", :media => "all" %>
+<p id="notice"><%= notice %></p>
+
+
+<div class="container mobileArea">
+  <div class="text-center module1">
+    <%= image_tag(@group.cover_image_url, class: "groupImageCover") if @group.cover_image? %>
+  <div class="col-md-12 col-xs-12 titleInfo">
+    <div class="col-md-3 col-xs-6 connArea">
+      <div class="groupImageSec1">
+        <%= image_tag(@group.image_url(:thumb),  class: "groupImage1") if @group.image? %>
+      </div>
+    </div>
+    <div class="col-md-5 groupInfoSec">
+      <div>
+        <div class="groupTitle"><%= @group.title %></div>  
+
+          <% if current_user.followingG?(@group) %>
+            <div id="follow_form">
+              <%= render partial: "unfollowGroup" %>
+            </div>
+            <% else %>
+              <div id="follow_form">
+                <%= render partial: "followGroup" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+<div class="col-md-12 mobInt">
+<div class="fullLength heightControl">
+  <% @group.fgI.each do |groupInterest| %>
+    <div class="col-md-2 col-xs-2">
+      <div class="interestCard">
+      <%= image_tag(groupInterest.image_url(:thumb), class: "interestImage") if groupInterest.image? %>
+      <div class="interestTitleSec">
+      
+        <div class="interestName"><%= groupInterest.name %></div>
+
+      
+      </div>
+
+      </div>
+    </div>
+  <% end %>
+
+</div>
+</div>
+    
+
+<div class="mainField">
+  <div class="newsfeed">
+    <div class="titleSec">Newsfeed</div>
+      <div class="col-md-6 col-xs-12 postMob">
+      <% if !@group.group_posts.empty? %>
+        <div class="latestPostSec">
+          <%  @group.group_posts.last(1).each do |group_post| %>
+            <%= image_tag(group_post.image_url(:post), class: "postImageCover") if group_post.image? %>
+            <div class="infoSection">
+              <div class="postContent"><%= group_post.content %></div>
+            </div>
+            <div class="userSig">
+            <div class="userSignWithin">
+              <div class="postUserSec">
+                <div class="imageUserPost">
+                <%= link_to group_post.group, method: :get, class: "specialA" do %>
+                  <%= image_tag(group_post.group.image_url(:thumb), class: "userImage2") if group_post.group.image? %>
+                <% end %> 
+                </div>
+                <div class="contentUserPost">
+                  <span class="poster"><%= group_post.group.title %> |</span> 
+                  <span class="posterDate"><%= group_post.updated_at.to_time.strftime('%B %e') %></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="noFollowSec">
+          <div class="noFollowSecText">There are no posts yet.</div>
+        </div>
+
+      <% end %>
+      </div>
+
+  <% if @group.group_posts.length > 1 %>
+  <div class="col-md-6 col-xs-12 latestPostMain1 postMob">
+    <div class="latestPostSec2">
+      <% @group.group_posts.last(3).reverse.each_with_index do |group_post, index| %>
+      <% unless index == 0 %>
+        <%= link_to group_post, method: :get, class: "specialA" do %>
+          <div class="laterPostBox">
+            <div class="imageSubPost">
+              <%= image_tag(group_post.image_url(:subpost), class: "postImageCover2") if group_post.image? %>
+            </div>
+            <div class="contentSubPost">
+              <div class="postContent2"><%= truncate(group_post.content, length: 120) %></div> 
+
+
+              <div class="userSignMini">
+                <span class="imageMini">
+                  <%= image_tag(group_post.group.image_url(:thumb), class: "userImage3") if group_post.group.image? %>
+                </span>
+                <span class="posterMini"><%= group_post.group.title %> </span> 
+                <span class="posterDateMini posterDateMob">| <%= group_post.updated_at.to_time.strftime('%B %e') %></span>
+              </div>
+
+
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+      <% end %>
+      <%= link_to group_posts_path, method: :get, class: "specialC" do %>
+      <div class="laterPostBox">
+        <div class="showAllPosts iconMob"><%= image_tag("viewAll.png", class: "showAllIcon") %></div>
+        <div class="showAllPosts"><%= button_tag "Show All", class: "btn  btnShowAll" %></div>
+      </div>
+      <% end %>
+    
+    </div>
+  </div>
+  <% else %>
+
+  <% end %>
+
+
+</div>
+  
+<div class="newsfeed">
+    <div class="titleSec">Upcoming Events</div>
+  <div class="scrollEvents">
+    <% if !@group.events.empty? %>
+      <% @group.events.each do |group_events| %>
+      <%= link_to group_events, method: :get, class: "specialA" do %>
+  
+        <div class="userEvents">
+        
+            <div class="eventImage">
+              <%= image_tag(group_events.image_url(:event), class: "eventImage1") if group_events.image? %>
+            </div>
+                <div class="eventContent1">
+                    <div class="eventDateI"><%= group_events.event_date.strftime('%B %e') %></div>
+                  </div>
+             <div class="eventOverall">
+                <div class="eventContent">
+                  <div class="titleGroups"><%= truncate(group_events.title, length: 40)%></div> 
+                </div>
+
+
+                <div class="creatorSign">
+                  <div class="imageUserEvent">
+
+                    <%= image_tag(group_events.user.avatar_url(:thumb), class: "userImage2") if group_events.user.avatar? %>
+                  </div>
+                  <div class="contentUserPost">
+                    <span class="poster"><%= group_events.user.name %></span>
+                  </div>
+                </div>
+            </div>
+            
+        
+        </div>
+  
+      <% end %>
+      <% end %>
+    <% else %>
+      <div class="noFollowSec">
+        <div class="noFollowSecText">There are no upcoming events.</div>
+      </div>
+    <% end %>
+    
+    </div>
+</div>
+
+
+<div class="newsfeed">
+
+    <div class="titleSec">Group Members</div>
+    <div class="scrollMembers">
+    <% if !@groupFollowers.empty? %>
+      <%  @groupFollowers.first(5).reverse.each do |groupFollower| %>
+      <%= link_to groupFollower, method: :get, class: "specialA" do %>
+  
+        <div class="followersSec">
+        
+            <div class="eImage">
+              <div class="followerImageSec"><%= image_tag(groupFollower.avatar_url(:thumb), class: "groupImage2") if groupFollower.avatar? %></div>
+              <div class="followerNameSec"><%= truncate(groupFollower.name, length: 20) %></div>
+            </div>
+        
+        </div>
+  
+      <% end %>
+      <% end %>
+    <% else %>
+      <div class="noFollowSec">
+        <div class="noFollowSecText">This group has no members.</div>
+      </div>
+    <% end %>
+
+
+    
+    </div>
+    <%= link_to posts_path, method: :get, class: "specialC" do %>
+      <div class="showFollowersBtn">
+        <div class="followersBtn"><%= button_tag "Show All Users", class: "btn  btnShowAll" %></div>
+      </div>
+      <% end %>
+</div>
+
+</div>
+</div>
+
+
+
+
+
+<div class="col-md-12 col-xs-12">
+<br>
+</div>
+
+

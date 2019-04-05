@@ -1,0 +1,337 @@
+<%= stylesheet_link_tag "users", :media => "all" %>
+<%= javascript_include_tag 'users', 'data-turbolinks-track': 'reload' %>
+<p id="notice"><%= notice %></p>
+
+<div class="text-center module1">
+  <div class="innerModule">
+    <div class="userImageSec1">
+      <%= image_tag(@user.image_url, class: "userImageCover") if @user.image? %>
+    </div>
+    <div class="col-md-6 col-xs-12 connArea">
+      <div class="userImageSec1">
+        <%= image_tag(@user.avatar_url(:thumb), class: "userImage1") if @user.avatar? %>
+      </div>
+      <div class="userSec1">
+        <div class="userName">
+          <%= @user.name %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!--
+<hr>
+<div class="col-md-12">
+    <% @interests.each do |interest| %>
+    <div class="col-md-2">
+    <div class="interestCard">
+        <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+        <div class="interestTitleSec">
+        
+            <div class="interestName"><%= interest.name %></div>
+        
+        </div>
+
+
+        <% if current_user.followingI?(interest) %>
+          <%= form_for(current_user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
+            <div class="buttonEventHov">
+                <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+            </div>
+          <% end %>
+        <% else %>
+          <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
+            <%= hidden_field_tag :followedI_id, interest.id %>
+            <div class="buttonEventHov">
+              <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+            </div>
+          <% end %>
+        <% end %>
+    </div>
+    </div>
+    <% end %>
+
+</div>
+
+</div>
+
+
+-->
+
+
+
+<div class="container mobileArea">
+  <div class="mainField">
+
+    <div class="newsfeed">
+      <div class="titleSec">Newsfeed</div>
+    
+
+
+        <% if !@user.posts.empty? %>
+          <div class="col-md-6 col-xs-12 noPad1">
+            <% @user.posts.last(1).each do |post| %>
+              <div class="card">
+                 <span data-toggle="modal" data-target="#postModal"
+                        data-poster="<%= post.user.name %>"
+                        data-body="<%= post.content %>"
+                        data-time="<%= post.updated_at.to_time.strftime('%B %e') %>"
+                        <%= ("data-image=\"" << post.image_url(:post) << "\"") if post.image? %>
+                        <%= ("data-test=\"" << post.user.avatar_url(:thumb) << "\"") if post.user.avatar? %> 
+                >
+
+            <div class="material-icons text-muted launch-modal align-middle">
+
+
+                <%= image_tag(post.image_url(:post), class: "card-img-top") if post.image? %>
+                <div class="card-body">
+                  <p class="card-text"><%= truncate post.content, length: 500, separator: ' ' %></p>
+                </div>
+
+
+
+                <div class="card-footer">
+                  <%= link_to post.user, method: :get, class: "specialA bottomSign" do %>
+                    <%= image_tag(post.user.avatar_url(:thumb), class: "userImage2") if post.user.avatar? %>
+                  <% end %>
+
+                  <small class="text-muted"><%= post.user.name %> | <%= post.updated_at.to_time.strftime('%B %e') %></small>
+                </div>
+
+
+
+
+
+          </div>
+
+              </span>
+              </div>
+            </div>
+            <% end %>
+          
+
+
+
+
+
+
+<div class="latestPostSec2">
+          <% if @user.posts.length > 1 %>
+            <div class="col-md-6 col-xs-12 noPad2">
+
+              <% @user.posts.last(3).reverse.each_with_index do |post, index| %>
+                <% unless index == 0 %>
+                  <div class="laterPostBox subPost">
+                
+               
+                  <span data-toggle="modal" data-target="#postModal"
+                              data-body="<%= post.content %>"
+                              data-poster="<%= post.user.name %>"
+                              data-time="<%= post.updated_at.to_time.strftime('%B %e') %>"
+                              <%= ("data-image=\"" << post.image_url(:post) << "\"") if post.image? %>
+                              <%= ("data-test=\"" << post.user.avatar_url(:thumb) << "\"") if post.user.avatar? %>
+                  >
+                  <div class="material-icons text-muted launch-modal align-middle">
+
+
+                      <div class="row no-gutters ">
+                        <div class="col-md-6 col-xs-12 post-image-background"
+                             style="background-image: url(<%= post.image_url(:post) %>);">
+                        </div>
+
+
+                        <div class="col-md-6 col-xs-12 ">
+                          <div class="card-body">
+                            <p class="card-text"><%= truncate post.content, length: 200, separator: ' ' %></p>
+                          </div>
+                        </div>
+                      </div>
+
+
+
+                  </div>
+   
+              </span>
+                
+
+
+
+                </div>
+                <% end %>
+
+
+              <% end %>
+
+
+
+              <%= link_to posts_path, method: :get, class: "specialC" do %>
+                <div class="laterPostBox">
+    
+                  <div class="showAllPosts"><%= button_tag "Show All", class: "btn  btnShowAll" %></div>
+                </div>
+              <% end %>
+
+
+            </div>
+
+</div>
+
+          <% end %>
+
+
+
+        <% else %>
+          <div class="noFollowSec">
+            <div class="noFollowSecText">User has made no posts</div>
+          </div>
+        <% end %>
+     
+    </div>
+
+
+
+
+
+
+
+
+    <div class="eventsSection">
+      <div class="titleSec">Events</div>
+      <div class="scrollEvents">
+        <% if !@eventsFollow.empty? %>
+          <% @eventsFollow.first(5).reverse.each do |eventsFollowing| %>
+            <%= link_to eventsFollowing, method: :get, class: "specialA" do %>
+              <div class="userEvents">
+                <div class="eventImage">
+                  <%= image_tag(eventsFollowing.image_url(:event), class: "groupImage1") if eventsFollowing.image? %>
+                </div>
+                <div class="eventContent1">
+                  <div class="eventDateI"><%= eventsFollowing.event_date.strftime('%B %e') %></div>
+                </div>
+                <div class="eventOverall">
+                  <div class="eventContent">
+                    <div class="titleGroups"><%= truncate(eventsFollowing.title, length: 40) %></div>
+                  </div>
+                  <div class="creatorSign">
+                    <div class="imageUserEvent">
+                      <%= image_tag(eventsFollowing.user.avatar_url(:thumb), class: "userImage2") if eventsFollowing.user.avatar? %>
+                    </div>
+                    <div class="contentUserPost">
+                      <span class="poster"><%= eventsFollowing.user.name %></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% else %>
+          <div class="noFollowSec">
+            <div class="noFollowSecText">No groups have been joined</div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+    <div class="eventsSection">
+      <div class="titleSec">Groups</div>
+      <div class="scrollEvents">
+        <% if !@groupsFollow.empty? %>
+          <% @groupsFollow.first(5).reverse.each do |groupsFollowing| %>
+            <%= link_to groupsFollowing, method: :get, class: "specialA" do %>
+              <div class="userGroups">
+                <div class="eventImage">
+                  <%= image_tag(groupsFollowing.image_url(:group), class: "groupImage1") if groupsFollowing.image? %>
+                </div>
+                <div class="eventContent">
+                  <div class="titleGroups"><%= groupsFollowing.title %></div>
+                </div>
+                <div class="creatorSign">
+                  <div class="imageUserGroup">
+                    <%= image_tag(groupsFollowing.user.avatar_url(:thumb), class: "userImage2") if groupsFollowing.user.avatar? %>
+                  </div>
+                  <div class="contentUserPost">
+                    <span class="poster"><%= groupsFollowing.user.name %></span>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% else %>
+          <div class="noFollowSec">
+            <div class="noFollowSecText">No groups have been joined</div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<div class="col-md-12  col-xs-12">
+  <br>
+  <br>
+  <br>
+</div>
+
+</div>
+
+<div class="modal fade" id="postModal" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+
+      <div id="modalPostImage"></div>
+      <div class="modal-body">
+        <div id="modalPostBody"></div>
+      </div>
+      <div class="modal-footer">
+        <span id="test" class="userImageModal"></span>
+        <span class="modal-title" id="modalPoster"></span> |
+        <span class="modal-title" id="modalPostTime"></span>
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    $('#postModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+
+
+        var posterName = button.data('poster');
+        var postBody = button.data('body');
+        var postTime = button.data('time');
+
+
+        if (button.data("image") !== undefined) {
+            var imageURL = button.data("image");
+            $("#modalPostImage").html("<img src=" + imageURL + ">");
+        }
+
+
+
+        if (button.data("test") !== undefined) {
+            var userImageURL = button.data("test");
+            $("#test").html("<img src=" + userImageURL + ">");
+        }
+
+
+
+
+
+        var modal = $(this);
+        $("#modalPoster").text(posterName);
+        $("#modalPostBody").text(postBody);
+        $("#modalPostTime").text(postTime);
+    })
+</script>
+

@@ -1,0 +1,54 @@
+<%= form_for(group) do |f| %>
+  <% if group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+      <% group.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-md-6">
+    <div class="field">
+      <div class="labelSide">
+        <%= f.label :title %>
+      </div>
+      <div class="formSide">
+        <%= f.text_field :title, class: "form-control", id: "groupTitle", placeholder: "Placeholder" %>
+      </div>
+    </div>
+    <div class="field">
+      <div class="labelSide">
+        <%= f.label :description %>
+      </div>
+      <div class="formSide">
+        <%= f.text_area :description, class: "form-control textField" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="field fileField">
+      <label class="btn btn-primary fileBtnDiv">
+        <%= f.file_field :image, class: "fileBtn", id: "groupImageUpload" %>
+        Image
+      </label>
+    </div>
+    <div class="field fileField">
+      <label class="btn btn-primary fileBtnDiv">
+        <%= f.file_field :cover_image, class: "fileBtn", id: "coverImageUpload" %>
+        Cover Image
+      </label>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="create">
+      <%= f.submit(class: "btn btn-primary createButton") %>
+    </div>
+  </div>
+
+<% end %>

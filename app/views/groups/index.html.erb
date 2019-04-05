@@ -1,0 +1,150 @@
+<%= stylesheet_link_tag "groups", :media => "all" %>
+<%= javascript_include_tag 'groups', 'data-turbolinks-track': 'reload' %>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<p id="notice"><%= notice %></p>
+
+
+<div class="container mobileArea">
+
+    <ul class="nav nav-tabs" id="events-nav" role="tablist">
+    <li class="nav-item active col-md-3 col-md-offset-2 mobNavs">
+      <a class="nav-link btn btn-prox" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="my events tab">
+        Discover
+      </a>
+    </li>
+    <li class="nav-item col-md-3 col-md-offset-2 mobNavs">
+      <a class="nav-link btn btn-prox" id="discover-tab" data-toggle="tab" href="#discover" role="tab" aria-controls="discover tab">
+        My Groups
+      </a>
+    </li>
+  </ul>
+  
+
+  <div class="tab-content" id="events-nav-content">
+    <div class="tab-pane active" id="events" role="events-tab-pane" aria-labelledby="events-tab">
+
+      <h2 class="topTitle2">Discover</h2>
+      
+          
+          <% @groups.each do |group| %>
+            <div class="col-md-4 col-xs-12">
+              <%= link_to group, method: :get, class: "specialA" do %>
+                <div class="groupBlock">
+                  <%= image_tag(group.image_url(:event), class: "groupImageDisc") if group.image? %>
+                  <div class="groupTitleDisc"><%= group.title %></div>
+                </div>
+              <% end %>
+              </div>
+
+          <% end %>
+
+
+    </div>
+
+
+
+    <div class="tab-pane" id="discover" role="discover-tab-pane" aria-labelledby="discover-tab">
+        <div class="mainField">
+        <h2 class="topTitle2">My Groups</h2>
+        <div class="newsfeedIndex text-center ">
+
+          <% if @groupsFollow.present? %>
+            <div class="scrollGroupsI">
+
+                  <% @groupsFollow.each do |groupFollowing| %>
+                    <%= link_to groupFollowing, method: :get, class: "specialA item" do %>
+                      <div class="groupBlock">
+                        <%= image_tag(groupFollowing.image_url(:group), class: "groupImageI") if groupFollowing.image? %>
+                        <div class="groupTitleI"><%= groupFollowing.title %></div>
+                      </div>
+                    <% end %>
+                  <% end %>
+
+            </div>
+          <% else %>
+            <div class="nothing">
+              You haven't joined any group
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+            <div class="mainField">
+        <h2 class="topTitle2">Created Groups</h2>
+        <div class="newsfeedIndex text-center ">
+          <% if @user.groups.present? %>
+          <div class="scrollGroupsI">
+
+                  <% @user.groups.each do |group| %>
+                    <%= link_to group, method: :get, class: "specialA item" do %>
+                      <div class="groupBlock">
+                        <%= image_tag(group.image_url(:group), class: "groupImageI") if group.image? %>
+                        <div class="groupTitleI"><%= group.title %></div>
+                      </div>
+                    <% end %>
+                  <% end %>
+  
+          </div>
+          <% else %>
+            <div class="nothing">
+              You haven't created any group
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+
+          
+
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<div class="col-md-12 col-xs-12">
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

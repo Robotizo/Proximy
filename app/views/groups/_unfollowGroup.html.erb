@@ -1,0 +1,11 @@
+<%= javascript_include_tag 'groups', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag "groups", :media => "all" %>
+
+<%= form_for(current_user.active_relationships_groups.find_by(followedG_id: @group.id), html: { method: :delete }) do |f| %>
+	<div class="buttonGroupHov">
+      <div class="followingState"><%= f.submit "Following Group", class: "btn  btn-primary unfollowGroupBtn" %></div>
+      <div class="unfollowState"><%= f.submit "Unfollow Group", class: "btn  btn-primary unfollowGroupBtn" %></div>
+    </div>
+<% end %>
+
+

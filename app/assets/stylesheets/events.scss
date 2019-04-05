@@ -1,0 +1,1035 @@
+/*// Place all the styles related to the events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+
+
+
+.heightControl{
+  height: 180px;
+}
+
+
+.fullLength{
+	width: 100%;
+	float: left;
+}
+/* interests start */
+
+.interestCard{
+	border-radius: 3px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.interestTitleSec{
+	background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
+	position: relative;
+	top: -30px;
+	border-radius: 0px 0px 5px 5px;
+}
+
+
+.interestImage{
+	width: 100%;
+	border-radius: 5px 5px 5px 5px;
+}
+
+
+.interestName{
+	font-size: 14px;
+	padding: 5px;	
+	color: white;
+}
+
+
+
+
+.buttonHov{
+	position: relative;
+	top: -20px;
+}
+
+
+.addedInterest{
+	border: 0px !important;
+	background-color: #2eb930;
+	width: 100%;
+}
+
+
+.addInterest{
+	background-color: white;
+	color: white;
+	border: 0px !important;
+	background-color: #7fa6bd;
+	width: 100%;
+
+}
+
+
+/* interests end */
+
+
+.back{
+	background-color: white;
+}
+
+
+.MultiCarousel{
+	height: 200px;
+}
+
+.endButton{
+	padding-bottom: 100px;
+}
+
+
+.btn-link{
+	color: black !important;
+	font-size: 18px !important;
+	text-decoration: none !important;
+	border: 1px #afafaf solid;
+	border-radius: 7px;
+	width: 80%;
+}
+
+
+.btn-link:hover{
+	color: #3e8ec4 !important;
+		border: 1px #afafaf solid;
+	border-radius: 7px;
+}
+
+.btn-link:active{
+		border: 1px #afafaf solid;
+	border-radius: 7px;
+}
+
+
+.btn-link:focus{
+		border: 1px #afafaf solid;
+	border-radius: 7px;
+}
+
+
+
+
+.fullSec{
+	height: auto;
+
+}
+/* Form Start */
+.textField{
+	resize: none;
+	height: 100px !important;
+}
+.createButton{
+	width: 95%;
+	height: 50px;
+}
+.create{
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	margin-left: 35px;
+	margin-right: 35px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.labelSide{
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+.field{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.form-control {
+    border-radius: 0px;
+    border-color: white;
+    border-bottom: 1px black solid !important;
+
+ 
+}
+.form-control:focus{
+	outline: none;
+	box-shadow: 0px 0px 0px 0px !important;
+	border-bottom: 1px #7ea5c0 solid !important;
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+}
+
+
+
+
+.eventContentForm{
+	position: relative;
+    top: -80px;
+    /* background-color: #00000054; */
+    padding: 10px;
+    /* opacity: 0.8; */
+    border-radius: 0px;
+    background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
+    overflow: hidden;
+}
+
+
+.fileBtnDiv, .form-control{
+	width: 80%;
+	margin: 10px 0;
+
+
+}
+.fileBtnDiv{
+	border-color: #2e6da4;
+	background-color: #7fa6be;
+	font-size: 14px;
+	.fileBtn{
+
+		display: none;
+	}
+}
+
+
+.eventTitleForm{
+    text-align: left;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
+    font-size: 28px;
+    white-space: normal;
+    color: white;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+
+.eventFormEqual{
+	margin-top: -80px;
+}
+
+
+.coverImage{
+	background: #6c94b2 url("/assets/events_back.jpg");
+	margin-top: -10px;
+	overflow: hidden;
+}
+
+.iconImg{
+  max-width: 100%;
+  height: auto;
+}
+
+.eventTitleImg{
+    text-align: left;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
+    font-size: 22px;
+    white-space: normal;
+    color: white;
+}
+
+
+
+
+.eventImgTitle{
+	position: relative;
+    top: -70px;
+    /* background-color: #00000054; */
+    padding: 10px;
+    /* opacity: 0.8; */
+    border-radius: 0px 0px 0px 5px;
+    background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
+}
+
+/* Form End */
+
+
+
+/* index start */
+
+.groupBlock{
+	height: 300px;
+}
+.eventDateI{
+	text-align: left;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    white-space: normal;
+    color: white;
+}
+
+.eventDateDisc{
+	text-align: left;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    white-space: normal;
+    color: white;
+}
+
+.eventContent1{
+    position: relative;
+         top: -68px;
+    /* background-color: #00000054; */
+    padding: 10px;
+    /* opacity: 0.8; */
+        border-radius: 0px 0px 5px 5px;
+        background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
+}
+
+.eventContentDisc{
+    position: relative;
+         top: -68px;
+    /* background-color: #00000054; */
+    padding: 10px;
+    /* opacity: 0.8; */
+        border-radius: 0px 0px 5px 5px;
+        background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
+}
+
+div.scrollGroupsI {
+    overflow: auto;
+    white-space: nowrap;
+    height: 320px;
+    overflow-y: hidden;
+
+}
+
+div.scrollGroupsI a {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.separate{
+	margin-bottom: 10px;
+	background-color: white;
+	width: 100%;
+	float: left;
+}
+.topTitle{
+	font-size: 30px;
+	margin: 10px;
+	font-weight: 600;
+}
+
+.topTitle2{
+	font-size: 25px;
+	margin: 20px;
+	font-weight: 600;
+}
+.groupTitleI{
+    text-align: left;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    font-weight: 600;
+    margin: 5px;
+    top: -75px;
+    font-size: 20px;
+    white-space: normal;
+
+}
+
+.groupTitleDisc{
+    text-align: left;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    font-weight: 600;
+    margin: 5px;
+    top: -75px;
+    font-size: 20px;
+    white-space: normal;
+
+}
+
+.groupImageI{
+	border-radius: 4px;
+	width: 100%;
+    background-color: white;
+    
+}
+
+.groupImageDisc{
+	border-radius: 4px;
+	width: 100%;
+    background-color: white;
+    
+}
+
+.innerElements{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.newsfeedIndex{
+	text-align: left !important;
+	float: left;
+	width: 100%;
+
+}
+/* index end */
+
+
+.mainField{
+	border-radius: 5px;
+	background-color: white;
+	float: left;
+	width: 100%;
+	
+}
+
+.greenAttend{
+	background-color: #29c10f !important;
+}
+
+
+.specialA{
+  color: black !important;
+  text-decoration: none !important;
+}
+
+.titleSec{
+	font-size: 30px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.imageSec{
+	width: 50%;
+	float: left;
+	height: 360px;
+}
+
+
+.eventTitle{
+	font-size: 24px;
+	font-weight: 600;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.eventTitle2{
+	font-size: 20px;
+	font-weight: 600;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.infoTop{
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 10px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+
+.eventImageDisplay{
+	width: 100%;
+	border-radius: 5px 0px 0px 5px ;
+}
+
+.module1{
+	margin-bottom: 15px;
+    height: 342px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 1px;
+	background-color: white;
+}
+
+
+.height-100{
+	height: 100%;
+}
+
+
+.buttonEventHov{
+	position: absolute;
+	width: 95%;
+	bottom: 10px;
+}
+
+
+
+
+.unAttendGroupBtn{
+	background-color: #4eb6dc;
+	border-radius: 3px;
+    height: 45px;
+    width: 100%;
+}
+
+.unAttendGroupBtn:hover{
+	background-color: #4eb6dc;
+}
+
+
+.attendEventBtn{
+	background-color: #4eb6dc;
+	border-radius: 3px;
+    height: 45px;
+    width: 100%;
+}
+
+.attendEventBtn:hover{
+	background-color: #29c10f;
+}
+
+
+.notAttendingState{
+	display: none;
+}
+.attendingState{
+	display: block;
+}
+
+.buttonEventHov:hover{
+	.notAttendingState{
+		display: block;
+	}
+	.attendingState{
+		display: none;
+	}
+
+}
+
+div.scrollEvents {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+div.scrollEvents a {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+}
+
+
+
+.followersSec{
+    margin: 10px;
+    
+}
+
+
+
+.groupImage2{
+    border-radius: 8px;
+    height: 150px;
+}
+
+.followerNameSec{
+	font-size: 20px;
+    font-weight: 200;
+    margin: 10px;
+
+}
+
+
+.noFollowSec{
+	margin: 5px;
+    border-radius: 5px;
+    height: 100px;
+    width: 260px;
+    text-align: center;
+}
+
+.noFollowSecText{
+	padding-top: 30px;
+	font-size: 18px;
+	font-weight: 300;
+		margin-left: 30px;
+	margin-right: 30px;
+}
+
+
+.showFollowersBtn{
+	 box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.7);
+	 margin: 15px;
+	 border-radius: 5px;
+}
+
+
+.followersBtn{
+	text-align: center;
+}
+
+.btnShowAll{
+	color: black;
+	border-radius: 10px;
+	text-align: center;
+	outline: none !important; 
+	background-color: white;
+}
+
+
+
+/* Newsfeed Start */
+.latestPostSec{
+    box-shadow: 0px 0px 0px 1px rgba(177, 177, 177, 1);
+    border-radius: 5px;
+}
+
+.postImageCover{
+	width: 100%;
+	border-radius: 4px 4px 0px 0px; 
+}
+
+.infoSection{
+	padding: 15px;
+}
+
+.postContent{
+	font-size: 16px;
+}
+
+.postUserSec{
+	float: left;
+	width: 100%;
+}
+.newsfeed{
+	float: left;
+	width: 100%;
+	margin-bottom: 25px;
+}
+.userSignWithin{
+	padding: 6px;
+    height: 42px;
+}
+
+
+
+.imageUserPost{
+	width: 8%;
+	float: left;
+}
+
+.userImage2{
+    border-radius: 300px;
+    height: 30px;
+    border: 1px black solid;
+}
+
+.contentUserPost{
+	width: 85%;
+	float: left;
+    margin-top: 4px;
+
+}
+
+.poster{
+	font-size: 12px;
+	color: #6d6d6d;
+}
+
+.posterDate{
+	font-size: 12px;
+	color: #6d6d6d;
+}
+
+.laterPostBox{
+	margin-bottom: 22px;
+	 box-shadow: 0px 0px 0px 1px #dedddd;
+    border-radius: 5px;
+    float: left;
+    width: 100%;
+}
+
+.imageSubPost{
+	width: 50%;
+	float: left;
+}
+
+.postImageCover2{
+	width: 100%;
+	border-radius: 4px 0px 0px 4px; 
+}
+
+.contentSubPost{
+	width: 50%;
+	float: left;
+}
+
+.postContent2{
+    font-size: 14px;
+    margin: 15px;
+    margin-left: 10px;
+    height: 80px;
+}
+
+
+.userSignMini{
+	margin-left: 5px;
+}
+
+
+.imageMini{
+	padding-right: 3px;
+	padding-left: 3px;
+}
+
+
+.userImage3{
+    border-radius: 300px;
+    height: 15px;
+    border: 1px black solid;
+}
+
+.poster{
+	font-size: 12px;
+	color: #6d6d6d;
+}
+
+
+.posterDate{
+	font-size: 12px;
+	color: #6d6d6d;
+}
+
+
+
+.showAllPosts{
+	padding: 10px;
+	text-align: center;
+}
+
+.btnShowAll{
+	background-color: white !important;
+	color: black !important;
+	outline: none !important;
+}
+
+/* Newsfeed End */
+
+.showAllIcon{
+	display: none;
+}
+
+.iconMob{
+	display: none;
+}
+
+
+
+.nothing{
+	margin: 30px;
+	font-size: 20px;
+
+    font-weight: 600;
+}
+
+
+@media screen and (max-width: 776px){
+
+	.endButton{
+		padding-bottom: 0px;
+	}
+	.fullSec{
+		height: auto;
+		padding-bottom: 0px;
+	}
+
+	.nothing{
+		margin: 30px;
+	}
+
+	.groupBlock{
+		height: 280px;
+	}
+	.eventDateI{
+		font-size: 16px;
+	}
+	.eventDateDisc{
+		font-size: 20px;
+	}
+	.eventContent1{
+		top: -62px;
+		
+	}
+
+	.eventContentDisc{
+	    position: relative;
+	         top: -68px;
+	}
+	.groupTitleI{
+		font-size: 16px;
+		top: -70px;
+	}
+	.groupTitleDisc{
+		font-size: 20px;
+	}
+	.nav-tabs > li{
+		width: 50%;
+	}
+	.nav-tabs{
+		padding-top: 10px;
+    	padding-bottom: 5px;
+	}
+	div.scrollGroupsI{
+		height: 230px;
+	}
+	.groupImageI{
+		border-radius: 4px;
+	    background-color: white;
+	    height: 170px;
+	    width: auto;
+    
+	}
+
+	.groupImageDisc{
+		border-radius: 4px;
+	    background-color: white;
+    
+	}
+
+	.infoTop{
+	    font-size: 20px;
+	}
+
+	.eventTitle2{
+		font-size: 18px;
+		font-weight: 600;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}	
+	.fileBtnDiv{
+		font-size: 14px !important;
+	}
+	.btnShowAll{
+		font-size: 20px;
+	}
+	.iconMob{
+		display: block;
+	}
+	.buttonEventHov{
+		position: inherit;
+		width: 100%;
+	}
+	.showAllIcon{
+		height: 120px;
+	    display: block;
+	    margin: auto;
+	    width: 50%;
+	    padding-top: 15px !important;
+	    padding-bottom: 10px !important;
+
+	}
+
+	.attendEventBtn{
+		width: 100%;
+    	margin-top: 20px;
+	}
+
+	.titleSec{
+		font-size: 22px;
+	}
+	.mainField{
+		border-radius: 0px;
+	}
+	.followerNameSec{
+		font-size: 14px;
+	}
+	.groupImage2{
+		height: 110px;
+	}
+	.module1{
+		margin-bottom: 0px;
+		height: auto;
+	    border-radius: 5px;
+	    box-shadow: 0px 0px 0px;
+	    background-color: white;
+	    float: left;
+    	padding-bottom: 15px;
+	}
+	.unAttendGroupBtn{
+		width: 100%;
+		margin-top: 20px;
+	}
+	.eventTitle{
+		font-size: 16px;
+	    font-weight: 200;
+	    text-align: center;
+	    margin-top: 10px;
+	}
+	.eventImageDisplay{
+		border-radius: 0px;
+	}
+	.mobileArea{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	.imageSec{
+		width: 100%;
+		float: left;
+		    height: 228px;
+	}
+
+	.mainField{
+		box-shadow: 0px 0px 0px;
+	}
+
+	.postMob {
+    	padding-right: 0px;
+    	padding-left: 0px;
+	}
+	.latestPostSec{
+		margin-bottom: 20px;
+		border-radius: 5px;
+		margin: 8px !important;
+	}
+	.postContent{
+		font-size: 14px;
+	}
+	.postImageCover{
+		border-radius: 5px 5px 0px 0px;
+	}
+
+
+	.imageUserPost{
+		width: 11%;
+	}
+
+	.poster{
+		font-size: 12px;
+	}
+
+	.titleSec{
+	    font-size: 22px;
+	    margin-top: 10px;
+	    margin-left: 10px;
+	    margin-right: 10px;
+	    margin-bottom: 5px;
+	}
+
+
+	div.latestPostSec2{
+		overflow: auto;
+	    white-space: nowrap;
+	}
+
+
+	div.latestPostSec2 a {
+	    display: inline-block;
+	    color: white;
+	    text-align: center;
+	    padding: 8px;
+	    padding-top: 10px;
+	    text-decoration: none;
+	    width: 60%;
+	}
+
+	.laterPostBox{
+		margin-bottom: 0px;
+	}
+
+	.imageSubPost{
+		width: auto;
+		float: none;
+	}
+
+	.postImageCover2{
+		width: 100%;
+    	border-radius: 4px 4px 0px 0px;
+	}
+
+	.contentSubPost{
+		width: auto;
+		text-align: left;
+		float: none;
+		white-space: normal;
+	}
+
+	
+	.userSignMini{
+		margin-left: 5px;
+    	margin-bottom: 10px;
+	}
+
+  .form-control, .btn{
+    height: 50px;
+    font-size: 14px;
+    width:100%;
+  }
+  .create{
+    width: auto;
+    margin:0;
+    right:0;
+
+
+    .btn{
+    	font-size: 14px;
+      width:100%;
+      border-radius:0;
+      background-color:#6c94b2;
+      border:none;
+    }
+  }
+  body{
+    padding-bottom: 70px;
+  }
+  .coverImage{
+    min-height:30vh;
+    background-size:cover;
+    background-repeat:no-repeat;
+
+    .iconImg{
+      display:none;
+    }
+  }
+  .fileField{
+    display:table;
+    width:100%;
+    vertical-align: middle;
+
+    .btn{
+      display:table-cell;
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
