@@ -1,27 +1,176 @@
-<div class= "ui segment">
- <h3>Mailbox</h3>
- <div class= "ui list">
-  <div class= "item" >
-   <% @conversations.each do |conversation| %>
-   <% if conversation.sender_id == current_user.id ||      conversation.recipient_id == current_user.id %>
-    <% if conversation.sender_id == current_user.id %>
-      <% recipient = User.find(conversation.recipient_id) %>
-    <% else %>
-      <% recipient = User.find(conversation.sender_id) %>
-    <% end %>
-    <%= link_to recipient.name,   conversation_path(conversation)%>
-   <% end %>
-  <% end %>
+<%= stylesheet_link_tag "conversations", :media => "all" %>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="row row-container">
+  <div class="col-md-5">
+    <div class="container">
+      <div class="row align-items-center top-info">
+        <div class="message-top col-md-7">
+          <h3 id="messages-title">Messages</h3>
+        </div>
+        <div class="col-md-5">
+
+          <ul class="nav nav-tabs nav-pills justify-content-end" id="displayed-messages" role="tablist">
+            <li class="nav-item active">
+              <a class="nav-link" id="home-tab" data-toggle="tab" href="#display-messages" role="tab">Messages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#display-users" role="tab">New Message</a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1"><i class="material-icons search-icon">search</i></span>
+        </div>
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+
+
+      <div class="list-group" id="list-tab" role="tablist">
+        <div class="tab-content" id="displayed-messages-content">
+          <div class="tab-pane active" id="display-messages" role="tabpanel">
+
+            <% @conversations.each do |conversation| %>
+              <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+                <% if conversation.sender_id == current_user.id %>
+                  <% recipient = User.find(conversation.recipient_id) %>
+                <% else %>
+                  <% recipient = User.find(conversation.sender_id) %>
+                <% end %>
+
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home">
+                  <div class="row align-items-center">
+                    <div class="col-md-2">
+                      <div class="list-user-img" style="background-image: url(<%= recipient.avatar_url(:thumb) %>)"></div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="user-name"><%= recipient.name %></div>
+                      <div class="last-message"><%= Message.find(Message.count).body %></div>
+                    </div>
+                    <div class="col-md-4 message-time">
+                      <%= Message.find(Message.count).message_time %>
+                    </div>
+                  </div>
+                </a>
+
+              <% end %>
+            <% end %>
+
+
+            <!--<a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home">
+              <div class="row align-items-center">
+                <div class="col-md-2">
+                  <div class="list-user-img"></div>
+                </div>
+                <div class="col-md-7">
+                  <div class="user-name">Rea L. P. Erson</div>
+                  <div class="last-message">Hi! I am a real person and am talking to you about how cool it is to be a
+                    real
+                    living person
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  test
+                </div>
+              </div>
+            </a>-->
+
+
+          </div>
+          <div class="tab-pane" id="display-users" role="tabpanel">
+            <% @users.each do |user| %>
+              <% if user.id != current_user.id %>
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home">
+                  <div class="row align-items-center">
+                    <div class="col-md-2">
+                      <div class="list-user-img" style="background-image: url(<%= user.avatar_url(:thumb) %>)"></div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="user-name"><%= user.name %></div>
+                      <div class="last-message"><%= Message.find(Message.count).body %></div>
+                    </div>
+                    <div class="col-md-4 message-time">
+                      <%= Message.find(Message.count).message_time %>
+                    </div>
+                  </div>
+                </a>
+              <% end %>
+            <% end %>
+
+            <!--<a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home">
+              <div class="row align-items-center">
+                <div class="col-md-2">
+                  <div class="list-user-img"></div>
+                </div>
+                <div class="col-md-7">
+                  <div class="user-name">Rea L. P. Erson</div>
+                  <div class="last-message">Hi! I am a real person and am talking to you about how cool it is to be a
+                    real
+                    living person
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  test
+                </div>
+              </div>
+            </a>-->
+
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
- </div>
+  <div class="col-md-7">
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">filler</div>
+      <div class="tab-pane" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">filler 2</div>
+      <div class="tab-pane" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">filler 3</div>
+      <div class="tab-pane" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">filler 4</div>
+    </div>
+  </div>
 </div>
-<div class= "ui segment">
- <h3>All Users</h3>
-  <div class= "ui list">
-   <% @users.each do |user| %>
-    <% if user.id != current_user.id %>
-      <%= render @conversations, user: user %>
+
+
+<script>
+    $('#list-tab a').on('click', function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+</script>
+<!--
+<% if false %>
+  <div class="ui segment">
+    <h3>Mailbox</h3>
+    <div class="ui list">
+      <div class="item">
+        <% @conversations.each do |conversation| %>
+    <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+      <% if conversation.sender_id == current_user.id %>
+        <% recipient = User.find(conversation.recipient_id) %>
+      <% else %>
+        <% recipient = User.find(conversation.sender_id) %>
+      <% end %>
+      <%= link_to recipient.name, conversation_messages_path(conversation) %>
     <% end %>
   <% end %>
- </div>
-</div>
+      </div>
+    </div>
+  </div>
+  <div class="ui segment">
+    <h3>All Users</h3>
+    <div class="ui list">
+      <% @users.each do |user| %>
+    <% if user.id != current_user.id %>
+          <div class="item">
+            <%= user.name %> <%= link_to "Message me!", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: "post" %>
+          </div>
+        <% end %>
+  <% end %>
+    </div>
+  </div>
+<% end %>
