@@ -1,0 +1,140 @@
+<p id="notice"><%= notice %></p>
+
+
+<body onload="getLocation()">
+  <div class="container"> 
+  <h1>Locations</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Latitude</th>
+        <th scope="col">Longitude</th>
+        <th scope="col">Number</th>
+        <th scope="col">Distance in meters</th>
+        <th scope="col">Test</th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @locations.each do |location| %>
+        <tr>
+          <td><%= location.name %></td>
+          <td><%= location.latitude %></td>
+          <td><%= location.longitude %></td>
+          <td><%= location.number %></td>
+          <td><%= location.getDistance %></td>
+          <td><%= location.sumNum(5) %></td>
+          <td><%= link_to 'Show', location %></td>
+          <td><%= link_to 'Edit', edit_location_path(location) %></td>
+          <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+
+  <br>
+  <%= link_to 'New Location', new_location_path, method: :get %>
+  <hr>
+
+
+
+  <p id="geoloc"></p>
+
+
+  </div>
+
+
+</body>
+
+<script>
+
+
+
+  var x = document.getElementById("geoloc");
+
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+      navigator.geolocation.getCurrentPosition(getLat);
+      navigator.geolocation.getCurrentPosition(getLon);
+      navigator.geolocation.getCurrentPosition(geoSuccess);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+
+  function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+  }
+
+
+  function getLat(position) {
+    var lat = position.coords.latitude;
+
+    $(document).ready(function () {
+      $("#latField").val(lat);
+    })
+  }
+
+
+  function getLon(position) {
+    var lon = position.coords.longitude;
+
+    $(document).ready(function () {
+      $("#lonField").val(lon);
+    })
+  }
+
+
+
+
+  var currentLat = 49.939968;
+  var currentLon = -119.395898;
+
+
+  function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+    var R = 6371000; // Radius of the earth in m
+    var dLat = deg2rad(lat2-lat1);  // deg2rad below
+    var dLon = deg2rad(lon2-lon1); 
+    var a = 
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+      Math.sin(dLon/2) * Math.sin(dLon/2)
+      ; 
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    var d = R * c; // Distance in m
+    return d;
+   
+  }
+
+  function deg2rad(deg) {
+    return deg * (Math.PI/180)
+  }
+  
+  document.getElementById('distance1').innerHTML = getDistanceFromLatLonInKm(currentLat, currentLon, 49.940006, -119.395899);
+  document.getElementById('distance2').innerHTML = getDistanceFromLatLonInKm(currentLat, currentLon, 49.94001, -119.395899);
+  document.getElementById('distance3').innerHTML = getDistanceFromLatLonInKm(currentLat, currentLon, 49.939849, -119.395131);;
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

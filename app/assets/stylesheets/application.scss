@@ -30,6 +30,15 @@
 
 }
 
+.modal-footer{
+	border-top: 0px !important;
+}
+
+
+.text-muted{
+	color: black !important;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -165,7 +174,7 @@ button{
 }
 
 body{
-	margin-top: 65px;
+	margin-top: 55px;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
@@ -209,6 +218,10 @@ i {
 	font-size: 20px;
 }
 
+.modal-dialog{
+	margin-top: 7%;
+}
+
 
 .dropCont{
 	display: none;
@@ -219,6 +232,9 @@ i {
 }
 
 @media screen and (max-width: 776px){
+	.modal-dialog{
+		margin-top: 30%;
+	}
 	.dropdown-content{
 		display: none !important;
 	}

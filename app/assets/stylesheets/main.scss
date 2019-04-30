@@ -5,6 +5,133 @@
 
 
 
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+
+.followerNameSec{
+  font-size: 12px;
+    font-weight: 200;
+    margin: 10px;
+}
+
+.followersSec{
+  margin: 10px;
+}
+
+.userImg{
+  height: 100px;
+  border-radius: 8px;
+}
+
+
+div.scrollMembers {
+    overflow: auto;
+    white-space: nowrap;
+    height: auto;
+    overflow-y: hidden;
+}
+
+div.scrollMembers a {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+}
+
+/*end*/
+
+
+
+
+
+.bottomSign{
+  padding-right: 3px;
+}
+
+.userImageModal{
+  padding-right: 3px;
+}
+
+.userImageModal img{
+    height: 30px;
+    border-radius: 50%;
+}
+.modal-footer{
+  padding: 0.75rem 1.25rem;
+  text-align: left;
+}
+
+
+div.col-md-6.post-image-background{
+  height: 130px;
+  border-bottom-left-radius: calc(0.25rem - 1px);
+  border-top-left-radius: calc(0.25rem - 1px);
+}
+
+.noPad1{
+  padding-left: 0px !important;
+}
+
+
+.noPad2{
+  padding-right: 0px !important;
+}
+
+
+
+div.scrollEvents {
+  overflow: auto;
+  white-space: nowrap;
+  height: 355px;
+  overflow-y: hidden;
+}
+
+div.scrollEvents .card {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  text-decoration: none;
+
+}
+
 
 .modal-body{
   padding: 0;
@@ -71,6 +198,7 @@ div#modalPostImage {
 img.userImage2 {
   height: 30px;
   border-radius: 50%;
+  padding-right: 2px;
 }
 
 /* BOOTSTRAP */
@@ -148,8 +276,7 @@ img.userImage2 {
 
 .card-footer {
   padding: 0.75rem 1.25rem;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: white;
 }
 
 .card-footer:last-child {
@@ -376,6 +503,13 @@ img.userImage2 {
   border-radius: 50px;
 }
 
+
+@media screen and (max-width: 776px){
+  .scrollMembers{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
 
 
 

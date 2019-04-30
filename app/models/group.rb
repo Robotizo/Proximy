@@ -24,4 +24,19 @@ class Group < ApplicationRecord
       fgI.include?(interests)
     end
 
+
+
+
+    def groupsInterest(currentUser)
+
+	    collideGroups = currentUser.followingI.ids & self.fgI.ids
+	    groupsCCI = collideGroups.count.to_f / currentUser.followingI.ids.count.to_f
+	    
+	    return groupsCCI.round(2)
+  	end
+
+
+
+
+
 end

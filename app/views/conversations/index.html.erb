@@ -9,7 +9,7 @@
     <% else %>
       <% recipient = User.find(conversation.sender_id) %>
     <% end %>
-    <%= link_to recipient.name,   conversation_messages_path(conversation)%>
+    <%= link_to recipient.name,   conversation_path(conversation)%>
    <% end %>
   <% end %>
   </div>
@@ -20,10 +20,8 @@
   <div class= "ui list">
    <% @users.each do |user| %>
     <% if user.id != current_user.id %>
-     <div class= "item">
-  <%= user.name %> <%= link_to "Message me!", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: "post"%>
- </div>
+      <%= render @conversations, user: user %>
+    <% end %>
   <% end %>
- <% end %>
  </div>
 </div>

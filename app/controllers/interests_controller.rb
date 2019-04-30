@@ -5,7 +5,6 @@ class InterestsController < ApplicationController
   # GET /interests.json
   def index
     @interests = Interest.all
-    @groupTest = Group.find(params = 4)
   end
 
   # GET /interests/1

@@ -20,8 +20,50 @@
   </div>
 </div>
 
-  <!--
+
 <hr>
+
+
+<div class="col-md-12">
+  <% current_user.followingI.each do |interest| %>
+    <div class="col-md-2">
+      <div class="interestCard">
+        <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+        <div class="interestTitleSec">
+          <div class="interestName"><%= interest.name %></div>
+        
+        </div>
+
+      </div>
+    </div>
+
+
+  <% end %>
+
+</div>
+
+
+<div class="col-md-12">
+  <% @user.followingI.each do |interest| %>
+    <div class="col-md-2">
+      <div class="interestCard">
+        <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+        <div class="interestTitleSec">
+          <div class="interestName"><%= interest.name %></div>
+        
+        </div>
+
+      </div>
+    </div>
+
+
+  <% end %>
+
+</div>
+  
+
+
+
 <div class="col-md-12">
     <% @interests.each do |interest| %>
     <div class="col-md-2">
@@ -57,7 +99,6 @@
 </div>
 
 
--->
 
 
 
@@ -96,7 +137,7 @@
                     <%= image_tag(post.user.avatar_url(:thumb), class: "userImage2") if post.user.avatar? %>
                   <% end %>
 
-                  <small class="text-muted"><%= post.user.name %> | <%= post.updated_at.to_time.strftime('%B %e') %></small>
+                  <small class="text-muted"><%= post.user.name %> on <%= post.updated_at.to_time.strftime('%B %e') %></small>
                 </div>
 
 
@@ -143,7 +184,7 @@
 
                         <div class="col-md-6 col-xs-12 ">
                           <div class="card-body">
-                            <p class="card-text"><%= truncate post.content, length: 200, separator: ' ' %></p>
+                            <p class="card-text"><%= truncate post.content, length: 150, separator: ' ' %></p>
                           </div>
                         </div>
                       </div>
@@ -200,7 +241,7 @@
       <div class="titleSec">Events</div>
       <div class="scrollEvents">
         <% if !@eventsFollow.empty? %>
-          <% @eventsFollow.first(5).reverse.each do |eventsFollowing| %>
+          <% @eventsFollow.first(5).each do |eventsFollowing| %>
             <%= link_to eventsFollowing, method: :get, class: "specialA" do %>
               <div class="userEvents">
                 <div class="eventImage">
@@ -236,7 +277,7 @@
 
     <div class="eventsSection">
       <div class="titleSec">Groups</div>
-      <div class="scrollEvents">
+      <div class="scrollGroups">
         <% if !@groupsFollow.empty? %>
           <% @groupsFollow.first(5).reverse.each do |groupsFollowing| %>
             <%= link_to groupsFollowing, method: :get, class: "specialA" do %>
@@ -275,6 +316,7 @@
 <div class="col-md-12  col-xs-12">
   <br>
   <br>
+  <%= link_to "Log Out", logout_path, method: :delete, data: {confirm: 'Are you sure?'}%>
   <br>
 </div>
 
@@ -291,7 +333,7 @@
       </div>
       <div class="modal-footer">
         <span id="test" class="userImageModal"></span>
-        <span class="modal-title" id="modalPoster"></span> |
+        <span class="modal-title" id="modalPoster"></span> on
         <span class="modal-title" id="modalPostTime"></span>
 
 
@@ -333,5 +375,33 @@
         $("#modalPostBody").text(postBody);
         $("#modalPostTime").text(postTime);
     })
+
+
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -6,71 +6,129 @@
 <script>
     AOS.init();
 </script>
+<body onload="getLocation()">
+  
 
-<% if !session[:user_id] %>
-  <div class="container">
-    <div class="sec1">
-      <div class="col-md-5">
+  <% if !session[:user_id] %>
+    <div class="container">
+      <div class="sec1">
+        <div class="col-md-5">
 
-      </div>
-      <div class="col-md-7 sec1">
-        <div class="sec1H">Nein</div>
-        <div class="sec1S">The process of making contacts is a tedious task. Having the ability to maintain a contact
-          and keep
+        </div>
+        <div class="col-md-7 sec1">
+          <div class="sec1H">Nein</div>
+          <div class="sec1S">The process of making contacts is a tedious task. Having the ability to maintain a contact
+            and keep
+          </div>
         </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 
 
-<% if session[:user_id] %>
-  <div class="container">
-    <div class="grid">
-      <div class="grid-sizer"></div>
-      <% @all_posts.reverse.each do |post| %>
-        <div class="card grid-item" data-aos="fade-up">
-          <%= image_tag(post.image_url(:post), class: "card-img-top") if post.image? %>
-          <div class="card-body">
-            <p class="card-text"><%= truncate post.content, length: 1000, separator: ' ' %></p>
-          </div>
-          <div class="card-footer">
-            <%= link_to post.user, method: :get, class: "specialA" do %>
-              <%= image_tag(post.user.avatar_url(:thumb), class: "userImage2") if post.user.avatar? %>
-            <% end %>
-            <small class="text-muted"><%= post.user.name %> | <%= post.updated_at.to_time.strftime('%B %e') %></small>
-            <span data-toggle="modal" data-target="#postModal"
-                  data-body="<%= post.content %>"
-                  data-user="<%= post.user.name %>"
-                  data-time="<%= post.updated_at.to_time.strftime('%B %e') %>"
-                  <%= ("data-image=\"" << post.image_url(:post) << "\"") if post.image? %>
-                  <%= ("data-userImage=\"" << post.user.avatar_url(:thumb) << "\"") if post.user.avatar? %>
-            ><i class="material-icons text-muted launch-modal align-middle">launch</i></span>
-          </div>
+  <% if session[:user_id] %>
+
+  <div class="scrollMembers container">
+    <% @users.each do |user| %>
+    <% unless user.id == current_user.id %>
+        <%= link_to user, method: :get, class: "specialA" do %>
+        <div class="followersSec">
+          <%= image_tag(user.avatar_url(:thumb), class: "userImg") if user.avatar? %>
+          <div class="followerNameSec"><%= truncate(user.name, length: 20) %></div>
+          <div class="followerNameSec"><%= user.getDistance(current_user.latitude, current_user.longitude) %> km</div>
         </div>
+        <% end %>
       <% end %>
-    </div>
+    <% end %>
   </div>
+
+    <div class="container">
+      <div class="grid">
+        <div class="grid-sizer"></div>
+        <% @all_posts.reverse.each do |post| %>
+          <div class="card grid-item" data-aos="fade-up">
+              <span data-toggle="modal" data-target="#postModal"
+                    data-poster="<%= post.user.name %>"
+                    data-body="<%= post.content %>"
+                    data-time="<%= post.updated_at.to_time.strftime('%B %e') %>"
+                    <%= ("data-image=\"" << post.image_url(:post) << "\"") if post.image? %>
+                    <%= ("data-test=\"" << post.user.avatar_url(:thumb) << "\"") if post.user.avatar? %> 
+              >
+
+
+
+            <%= image_tag(post.image_url(:post), class: "card-img-top") if post.image? %>
+            <div class="card-body">
+              <p class="card-text"><%= truncate post.content, length: 1000, separator: ' ' %></p>
+            </div>
+
+
+            <% if post.is_a? GroupPost %>
+
+              <div class="card-footer">
+                <%= link_to post.group, method: :get, class: "specialA" do %>
+                  <%= image_tag(post.group.image_url(:thumb), class: "userImage2") if post.group.image? %>
+                <% end %>
+                <small class="text-muted"><%= post.group.title %> on <%= post.updated_at.to_time.strftime('%B %e') %></small>
+              </div>
+
+            <% elsif post.is_a? EventPost %>
+
+              <div class="card-footer">
+                <%= link_to post.event, method: :get, class: "specialA" do %>
+                  <%= image_tag(post.event.image_url(:thumb), class: "userImage2") if post.event.image? %>
+                <% end %>
+                <small class="text-muted"><%= post.event.title %> on <%= post.updated_at.to_time.strftime('%B %e') %></small>
+              </div>
+
+            <% elsif post.is_a? Post %>
+              
+              <div class="card-footer">
+                <%= link_to post.user, method: :get, class: "specialA" do %>
+                  <%= image_tag(post.user.avatar_url(:thumb), class: "userImage2") if post.user.avatar? %>
+                <% end %>
+                <small class="text-muted"><%= post.user.name %> on <%= post.updated_at.to_time.strftime('%B %e') %></small>
+              </div>
+
+            <% end %>
+
+
+
+
+            </span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+
 
   <div class="modal fade" id="postModal" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header row">
-          <h5 class="modal-title col-md-11" id="modalPostTitle">New message</h5>
-          <button type="button" class="close col-md-1" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
+
+
         <div id="modalPostImage"></div>
         <div class="modal-body">
           <div id="modalPostBody"></div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <span id="test" class="userImageModal"></span>
+          <span class="modal-title" id="modalPoster"></span> |
+          <span class="modal-title" id="modalPostTime"></span>
+
+
+
+
         </div>
       </div>
     </div>
-  </div>
+</div>
+
+
+
+</body>
+
 
   <script>
       var elem = document.querySelector('.grid');
@@ -83,22 +141,124 @@
           horizontalOrder: true,
           stagger: 30
       });
-      $('#postModal').on('show.bs.modal', function (event) {
-          var button = $(event.relatedTarget);
-          var postTitle = button.data('title');
-          var postBody = button.data('body');
-          if (button.data("image") !== undefined) {
-              var imageURL = button.data("image");
-              $("#modalPostImage").html("<img src=" + imageURL + ">");
-          }
-          var modal = $(this);
-          $("#modalPostTitle").text(postTitle);
-          $("#modalPostBody").text(postBody);
-      })
+
+
+    $('#postModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+
+
+        var posterName = button.data('poster');
+        var postBody = button.data('body');
+        var postTime = button.data('time');
+
+
+        if (button.data("image") !== undefined) {
+            var imageURL = button.data("image");
+            $("#modalPostImage").html("<img src=" + imageURL + ">");
+        }
+
+
+
+        if (button.data("test") !== undefined) {
+            var userImageURL = button.data("test");
+            $("#test").html("<img src=" + userImageURL + ">");
+        }
+
+
+
+
+
+        var modal = $(this);
+        $("#modalPoster").text(posterName);
+        $("#modalPostBody").text(postBody);
+        $("#modalPostTime").text(postTime);
+    })
+
+
+
+
   </script>
 
 
 <% end %>   
+
+
+
+<!-- Location -->
+<hr>
+<div class="container"><p id="geoloc"></p></div>
+
+
+<h1>
+<%= @test %>
+
+</h1>
+
+<hr>
+
+
+
+<script>
+  var x = document.getElementById("geoloc");
+
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+      navigator.geolocation.getCurrentPosition(getLat);
+      navigator.geolocation.getCurrentPosition(getLon);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+
+  function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+  }
+
+
+   function getLat(position) {
+    var lat = position.coords.latitude;
+
+    $(document).ready(function () {
+      $("#latField").val(lat);
+    })
+  }
+
+
+  function getLon(position) {
+    var lon = position.coords.longitude;
+
+    $(document).ready(function () {
+      $("#lonField").val(lon);
+    })
+  }
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

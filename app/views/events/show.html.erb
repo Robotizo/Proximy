@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag "events", :media => "all" %>
 <p id="notice"><%= notice %></p>
 
-<div class="container mobileArea">
+<div class=" mobileArea">
   <div class="text-center module1">
 
 
@@ -40,7 +40,7 @@
     </div>
   </div>
 
-
+<!--
 
 <div class="col-md-12">
 
@@ -111,11 +111,12 @@
   <% end %>
 
 </div>
+-->
 
 
+<div class="container">
 
-
-<div class="mainField">
+<div class="mainField ">
   <div class="newsfeed">
     <div class="titleSec">Newsfeed</div>
       <div class="col-md-6 col-xs-12 postMob">
@@ -205,7 +206,7 @@
     <div class="titleSec">People Attending</div>
     <div class="scrollEvents">
     <% if !@eventFollowers.empty? %>
-      <%  @eventFollowers.first(5).reverse.each do |eventFollower| %>
+      <%  @eventFollowers.reverse.each do |eventFollower| %>
       <%= link_to eventFollower, method: :get, class: "specialA" do %>
   
         <div class="followersSec">
@@ -240,8 +241,15 @@
 
 </div>
 
+</div>
+
+
 
 </div>
+
+
+
+
 <div class="col-md-12">
   <br>
   <br>

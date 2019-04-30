@@ -1,3 +1,4 @@
+<body onload="getLocation()">
 <%= form_for(user) do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -32,6 +33,15 @@
   </div>
 
   <div class="field">
+    <%= f.hidden_field :latitude, class: "form-control", id: "latField" %>
+  </div>
+
+
+  <div class="field">
+    <%= f.hidden_field :longitude, class: "form-control", id: "lonField"  %>
+  </div>
+
+  <div class="field">
     <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
   </div>
 
@@ -45,3 +55,52 @@
     <%= f.submit "Create User", class: "btn btn-primary signIn " %>
   </div>
 <% end %>
+
+
+
+
+
+<script>
+
+
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(getLat);
+      navigator.geolocation.getCurrentPosition(getLon);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+
+
+  function getLat(position) {
+    var lat = position.coords.latitude;
+
+    $(document).ready(function () {
+      $("#latField").val(lat);
+    })
+  }
+
+
+  function getLon(position) {
+    var lon = position.coords.longitude;
+
+    $(document).ready(function () {
+      $("#lonField").val(lon);
+    })
+  }
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>

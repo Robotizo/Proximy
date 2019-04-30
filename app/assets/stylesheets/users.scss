@@ -2,6 +2,54 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+
+.userBio{
+  font-size: 18px;
+}
+
+
+.fullSec{
+  width: 100%;
+  float: left;
+}
+
+.subTitleCon{
+    padding: 10px;
+    font-size: 18px;
+    width: 59%;
+    margin-bottom: 10px;
+    border: 3px solid #f2f2f2;
+    border-radius: 10000000px;
+    background-color: #f2f2f2f2;
+}
+
+
+.titleCon{
+  font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+
+.userNameNotTaken{
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+.userImg {
+  border-radius: 15px;
+  height: 90px;
+}
+
+.usersSec{
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+
+
+
 /* Final Edits */
 .bottomSign{
   padding-right: 3px;
@@ -218,7 +266,6 @@ body {
 
 .groupImage1 {
   border-radius: 5px;
-  max-width: 100%;
 }
 
 .eventImage {
@@ -308,7 +355,7 @@ img.userImage2 {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+  border-radius: 0.75rem;
   margin-bottom: 15px;
 }
 
@@ -370,13 +417,12 @@ img.userImage2 {
 }
 
 .card-footer {
-  padding: 0.75rem 1.25rem;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  padding: 0.75rem 1rem;
+  background-color: white;
 }
 
 .card-footer:last-child {
-  border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
+  border-radius: 0 0 calc(0.75rem - 1px) calc(0.75rem - 1px);
 }
 
 .card-header-tabs {
@@ -407,8 +453,8 @@ img.userImage2 {
 
 .card-img-top {
   width: 100%;
-  border-top-left-radius: calc(0.25rem - 1px);
-  border-top-right-radius: calc(0.25rem - 1px);
+  border-top-left-radius: calc(0.75rem - 1px);
+  border-top-right-radius: calc(0.75rem - 1px);
 }
 
 .card-img-bottom {
@@ -630,12 +676,6 @@ body {
   padding-bottom: 20px;
   height: 450px;
   background-color: white ;
-}
-
-.userImage1 {
-  border-radius: 15px;
-  height: 180px;
-  border: 3px rgb(242, 242, 242) solid;
 }
 
 .mainField {
@@ -1258,8 +1298,8 @@ div.scrollEvents a {
   }
 
   .noPad1{
-    padding-left: 3px !important;
-    padding-right: 3px !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
   }
 
   .noPad2{

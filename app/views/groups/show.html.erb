@@ -3,7 +3,7 @@
 <p id="notice"><%= notice %></p>
 
 
-<div class="container mobileArea">
+<div class=" mobileArea">
   <div class="text-center module1">
     <%= image_tag(@group.cover_image_url, class: "groupImageCover") if @group.cover_image? %>
   <div class="col-md-12 col-xs-12 titleInfo">
@@ -28,30 +28,70 @@
           </div>
         </div>
       </div>
-    </div>
-    
-<div class="col-md-12 mobInt">
-<div class="fullLength heightControl">
-  <% @group.fgI.each do |groupInterest| %>
-    <div class="col-md-2 col-xs-2">
+
+
+
+
+
+</div>
+
+
+<div class="col-md-12">
+  <% @group.fgI.each do |interest| %>
+    <div class="col-md-2">
       <div class="interestCard">
-      <%= image_tag(groupInterest.image_url(:thumb), class: "interestImage") if groupInterest.image? %>
-      <div class="interestTitleSec">
-      
-        <div class="interestName"><%= groupInterest.name %></div>
-
-      
-      </div>
+        <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+        <div class="interestTitleSec">
+          <div class="interestName"><%= interest.name %></div>
+        
+        </div>
 
       </div>
     </div>
+
+
   <% end %>
 
 </div>
-</div>
-    
 
-<div class="mainField">
+
+<div class="col-md-12">
+  <% @interests.each do |interest| %>
+      <div class="col-md-2">
+      <div class="interestCard">
+          <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+          <div class="interestTitleSec">
+          
+              <div class="interestName"><%= interest.name %></div>
+          
+          </div>
+
+
+
+  <% if @group.fgI?(interest) %>
+          <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
+            <div class="buttonHov">
+              <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+            </div>
+          <% end %>
+        <% else %>
+          <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
+            <%= hidden_field_tag :fdI_id, interest.id %>
+            <div class="buttonHov">
+              <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+            </div>
+          <% end %>
+        <% end %>
+    </div>
+    </div>
+  <% end %>
+
+  </div>
+
+
+    
+<div class="container">
+<div class="mainField ">
   <div class="newsfeed">
     <div class="titleSec">Newsfeed</div>
       <div class="col-md-6 col-xs-12 postMob">
@@ -212,6 +252,9 @@
       </div>
       <% end %>
 </div>
+
+</div>
+
 
 </div>
 </div>

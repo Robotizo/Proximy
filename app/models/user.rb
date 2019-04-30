@@ -1,9 +1,12 @@
 class User < ApplicationRecord
+
 	validates :name, presence: true
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
 	validates :password, presence: true, length: { minimum: 6 }, on: :create
 	validates :password, allow_nil: true, length: { minimum: 6 }, confirmation: true, on: :update
+
+
 
 	has_secure_password
 	mount_uploader :avatar, AvatarUploader
@@ -38,6 +41,7 @@ class User < ApplicationRecord
 
   has_many :active_relationships_interests, class_name: "InterestsRelationship", foreign_key: "followerI_id", dependent: :destroy
   has_many :followingI, through: :active_relationships_interests, source: :followedI
+
 
 
 
@@ -96,6 +100,127 @@ class User < ApplicationRecord
     def followingI?(interests)
       followingI.include?(interests)
     end
+
+
+
+
+
+
+
+
+    R = 6371
+
+
+
+
+
+    def getDistance(lat, lon)
+
+      dLat = deg2rad(self[:latitude]-lat)
+      dLon = deg2rad(self[:longitude]-lon)
+
+      a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(deg2rad(lat)) * Math.cos(deg2rad(self[:latitude])) * Math.sin(dLon/2) * Math.sin(dLon/2)
+      c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
+      d = R * c
+
+      return d.round(2)
+    end
+
+
+
+    def deg2rad(deg) 
+        return deg * (Math::PI/180)
+    end
+
+
+
+
+    def ccLocation(lat, lon)
+      d = getDistance(lat, lon)
+      @ccL = 0
+      if d <= 1
+        @ccL = 1
+      elsif d > 1 and d <=  2
+        @ccL = 0.9
+      elsif d > 2 and d <= 5
+        @ccL = 0.5
+      elsif d > 5 and d <= 10
+        @ccL = 0.2
+      elsif d > 10 and d <= 20 
+        @ccL = 0.05
+      else
+        @ccL = 0
+      end
+      return @ccL
+    end 
+
+
+
+
+    def updateLat(attribute, by)
+      newval = self[attribute] = by
+      update_attribute(attribute, newval)
+    end
+
+
+    def updateLon(attribute, by)
+      newval = self[attribute] = by
+      update_attribute(attribute, newval)
+    end
+
+
+
+
+
+
+
+
+
+
+
+  def userInterests(currentUser)
+
+    collide = currentUser.followingI.ids & self.followingI.ids
+    @ccI = collide.count.to_f / currentUser.followingI.ids.count.to_f
+    
+    return @ccI.round(2)
+
+
+  end
+
+
+
+
+  def overallCC
+    return @ccL + @ccI.round(2)
+  end 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 end
 

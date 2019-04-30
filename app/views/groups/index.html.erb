@@ -32,6 +32,7 @@
                 <div class="groupBlock">
                   <%= image_tag(group.image_url(:event), class: "groupImageDisc") if group.image? %>
                   <div class="groupTitleDisc"><%= group.title %></div>
+                  <div class="groupTitleDisc"><%= group.groupsInterest(current_user) %></div>
                 </div>
               <% end %>
               </div>

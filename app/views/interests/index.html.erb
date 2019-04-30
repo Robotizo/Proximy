@@ -51,32 +51,7 @@
 
 </div>
 
-<%= @groupTest.title %>
-    <% @interests.each do |interest| %>
-      <tr>
 
-
-            
-        <% if $group.fgI?(interest) %>
-          <%= form_for($group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-            <div class="buttonGroupHov">
-                <div class="followingState"><%= f.submit "Group Following Interest", class: "btn  btn-primary unfollowGroupBtn" %></div>
-      
-              </div>
-          <% end %>
-
-        <% else %>
-          <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-            <%= hidden_field_tag :fdI_id, interest.id %>
-            <div class="buttonEventHov">
-              <%= f.submit "Interested", class: "btn btn-primary attendEventBtn" %>
-            </div>
-          <% end %>
-        <% end %>
-     
-        <td><%= interest.name %></td>
-      </tr>
-    <% end %>
 
 <%= link_to 'New Interest', new_interest_path %>
 

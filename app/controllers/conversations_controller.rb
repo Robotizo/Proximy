@@ -4,6 +4,13 @@ class ConversationsController < ApplicationController
 		@conversations = Conversation.all
 	end
 
+
+	def show
+		@conversation = Conversation.includes(:messages).find_by(id: params[:id])
+	    @message = Message.new
+	    @user = current_user	
+	end
+
 	def create
 		if Conversation.between(params[:sender_id],params[:recipient_id]).present?
 		@conversation = Conversation.between(params[:sender_id],
@@ -11,7 +18,7 @@ class ConversationsController < ApplicationController
 		else
 			@conversation = Conversation.create!(conversation_params)
 		end
-		redirect_to conversation_messages_path(@conversation)
+		redirect_to conversation_path(@conversation)
 	end
 
 	private

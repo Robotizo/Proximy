@@ -2,12 +2,10 @@ Rails.application.routes.draw do
 
 
 
+  resources :locations
+  resources :conversations, only: [:new, :create, :show, :index]
 
 
-
-  resources :conversations do
-    resources :messages
-  end
 
   resources :interests
   resources :event_posts
@@ -40,8 +38,14 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
 
-  root to: 'main#index'
+  root 'main#index'
+
+ 
 
   resources :users
+
+
+
+  mount ActionCable.server => '/cable'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
