@@ -21,6 +21,11 @@
     <div><%= f.file_field :image %></div>
   </div>
 
+  <div class="field">
+    <div><%= f.label :category %></div>
+    <div><%= f.select :category, options_for_select(Interest::INTEREST_CATEGORIES) %></div>
+  </div>
+
 
 
 

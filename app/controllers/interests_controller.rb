@@ -29,7 +29,7 @@ class InterestsController < ApplicationController
 
     respond_to do |format|
       if @interest.save
-        format.html { redirect_to @interest, notice: 'Interest was successfully created.' }
+        format.html { redirect_to interests_url, notice: 'Interest was successfully created.' }
         format.json { render :show, status: :created, location: @interest }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class InterestsController < ApplicationController
   def update
     respond_to do |format|
       if @interest.update(interest_params)
-        format.html { redirect_to @interest, notice: 'Interest was successfully updated.' }
+        format.html { redirect_to interests_url, notice: 'Interest was successfully updated.' }
         format.json { render :show, status: :ok, location: @interest }
       else
         format.html { render :edit }
@@ -72,6 +72,6 @@ class InterestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def interest_params
-      params.require(:interest).permit(:name, :image)
+      params.require(:interest).permit(:name, :image, :category)
     end
 end

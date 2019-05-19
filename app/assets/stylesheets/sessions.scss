@@ -290,24 +290,7 @@ input, input.btn, .fileBtnDiv{
 		vertical-align: middle;
 		height: 50px;
 	}
-	.newUser{
-		background: #6c94b2;
-		.mainDiv{
-			background: #6c94b2;
 
-			.logoParent{
-				background: #6c94b2 url("/assets/proximy_inv_t.png") no-repeat;
-				background-size: contain;
-				background-position: center;
-				img{
-					visibility: hidden;
-				}
-			}
-		}
-		.mobileBottom{
-			background: #6c94b2 url("/assets/background.png");
-		}
-	}
 
 	.leftDiv{
 		display: none;
@@ -350,21 +333,18 @@ input, input.btn, .fileBtnDiv{
 		height: 50px;
 	}
 	.newUser{
-		background: #6c94b2;
+		background: white;
 		.mainDiv{
-			background: #6c94b2;
+			background: white;
 
 			.logoParent{
-				background: #6c94b2 url("/assets/proximy_inv_t.png") no-repeat;
+				background: white url("/assets/proximy-logo.png") no-repeat;
 				background-size: contain;
 				background-position: center;
-				img{
-					visibility: hidden;
-				}
 			}
 		}
 		.mobileBottom{
-			background: #6c94b2 url("/assets/background.png");
+			background: #6c94b2 url("/assets/bk_inv.png");
 		}
 	}
 

@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag "events", :media => "all" %>
 <p id="notice"><%= notice %></p>
 
-<div class=" mobileArea">
+<div class="mobileArea">
   <div class="text-center module1">
 
 
@@ -13,9 +13,12 @@
     </div>
 
 
-    <div class="col-md-6 col-xs-12 height-100">
+
+    <div class="col-md-6 col-xs-12 infoSec">
 
       <div class="infoTop">Event Details</div>
+
+
       <div class="col-md-6 col-xs-6">
         <div class="eventTitle2">Event Date</div>
         <div class="eventTitle"><%= @event.event_date.strftime('%B %e') %></div>
@@ -40,29 +43,11 @@
     </div>
   </div>
 
-<!--
 
 <div class="col-md-12">
 
-  <div class="fullLength heightControl">
-  <% current_user.followingI.each do |userInterest| %>
-    <div class="col-md-2 col-xs-2">
-      <div class="interestCard">
-      <%= image_tag(userInterest.image_url(:thumb), class: "interestImage") if userInterest.image? %>
-      <div class="interestTitleSec">
-      
-        <div class="interestName"><%= userInterest.name %></div>
 
-      
-      </div>
-
-      </div>
-    </div>
-  <% end %>
-
-</div>
-
-  <div class="fullLength heightControl">
+  <div class="fullLength">
   <% @event.fgE.each do |eventInterest| %>
     <div class="col-md-2 col-xs-2">
       <div class="interestCard">
@@ -111,7 +96,6 @@
   <% end %>
 
 </div>
--->
 
 
 <div class="container">
@@ -240,6 +224,10 @@
 
 
 </div>
+
+
+
+
 
 </div>
 

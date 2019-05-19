@@ -2,11 +2,19 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :set_groups_list, only: [:edit, :update, :new, :create]
 
+
+
+  def interests
+    @interests = Interest.all
+    @event = Event.find(params[:id])
+    eventID = @event.id
+    $eventTest = Event.find(params = eventID)
+  end
+
   # GET /events
   # GET /events.json
   def index
-
-    @events = Event.all.order(:event_date)
+    @events = Event.all.sort_by {|event| event.eventsInterest(current_user)}.reverse
     @user = current_user
     @user_events = @user.events.order(:event_date)
 
@@ -18,6 +26,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @eventNotifs = EventNotif.all
     @interests = Interest.all
     followingEventIds = @event.followersE.map(&:id)
     @eventFollowers = User.find(params = followingEventIds).sort_by &:updated_at
@@ -41,7 +50,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to interests_group_path(@event), notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }

@@ -2,6 +2,15 @@ Rails.application.routes.draw do
 
 
 
+  get '/notifications', to: 'notifications#index'
+
+  resources :notifications do 
+    patch :update_notif, on: :member
+  end 
+
+  
+
+  resources :notification_events
   resources :locations
   resources :conversations, only: [:new, :create, :show, :index]
 
@@ -15,11 +24,24 @@ Rails.application.routes.draw do
   resources :interests_relationships, only: [:create, :destroy]
   resources :interests_relationships_to_groups, only: [:create, :destroy]
   resources :interests_relationships_to_events, only: [:create, :destroy]
-  resources :events
-  resources :groups
+
+
+  resources :events do
+    member do 
+      get :interests
+    end 
+  end
+
+  resources :groups do 
+    member do 
+      get :interests
+    end 
+  end
 
 
   resources :posts
+
+
 
 
 
@@ -33,6 +55,7 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get :following, :followers
+      get :interests
     end
   end
 

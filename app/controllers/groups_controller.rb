@@ -1,6 +1,17 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
+
+
+
+
+  def interests
+    @interests = Interest.all
+    @group = Group.find(params[:id])
+    groupID = @group.id
+    $groupTest = Group.find(params = groupID)
+  end
+
   # GET /groups
   # GET /groups.json
   def index
@@ -39,7 +50,7 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to @group, notice: 'Group was successfully created.' }
+        format.html { redirect_to interests_group_path(@group), notice: 'Group was successfully created.' }
         format.json { render :show, status: :created, location: @group }
       else
         format.html { render :new }

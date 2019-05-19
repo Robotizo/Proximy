@@ -14,6 +14,11 @@ class Interest < ApplicationRecord
 	has_many :fsE, through: :passive_relationships_interests_to_events, source: :frE
 
 
+	INTEREST_CATEGORIES = ["Animals", "Arts", "Books", "Business", "Community", "Crafts", "Dance", "Eating & Drinking", "Education", "Entertainment", "Fashion", 
+		"Fitness", "Games", "Health & Wellness", "Language & Culture", "LGBTQA", "Motor Sports", "Outdoor", "Perspective", "Relationships", "Sports", "Tech"
+	]
+
+
 
 
 end

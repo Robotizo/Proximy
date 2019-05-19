@@ -1,0 +1,70 @@
+ <%= stylesheet_link_tag 'notifications', media: 'all' %>
+
+
+
+ <div class="container">
+    <div class="titleSec">Notifications</div>
+ </div>
+<div class="container">
+	<% @eventNotifs.each do |eventNotif| %>
+		<% if current_user.followingG.ids.include?  eventNotif.event.group.id %>
+			<div class="col-md-6">
+				<%= link_to update_notif_notification_path(eventNotif), method: :patch, class: "specialA" do %>
+
+
+				<% if eventNotif.is_checked == false %>
+					<div class="notifModuleF">
+						<div class="imageSec">
+							<%= image_tag(eventNotif.event.image_url(:event), class: "interestImage") if eventNotif.event.image? %>
+						</div>
+						<div class="infoSec">
+							<div class="infoInner">
+								<div class="introInner">
+									New event 
+								</div>
+								<div class="notifTitle">
+									<%= eventNotif.event.title %>
+								</div>
+								<div class="notifDate">
+									<%= eventNotif.event.event_date.strftime('%B %e') %>
+								</div>
+								<div>
+									From <%= eventNotif.event.group.title %> group
+								</div>
+
+							</div>
+						</div>
+					</div>
+				<% else %>
+					<div class="notifModuleT">
+						<div class="imageSec">
+							<%= image_tag(eventNotif.event.image_url(:event), class: "interestImage") if eventNotif.event.image? %>
+						</div>
+						<div class="infoSec">
+							<div class="infoInner">
+								<div class="introInner">
+									New event 
+								</div>
+								<div class="notifTitle">
+									<%= eventNotif.event.title %>
+								</div>
+								<div class="notifDate">
+									<%= eventNotif.event.event_date.strftime('%B %e') %>
+								</div>
+								<div>
+									From <%= eventNotif.event.group.title %> group
+								</div>
+
+							</div>
+						</div>
+					</div>
+				<% end %>
+
+
+
+
+				<% end %>
+			</div>
+		<% end %>
+	<% end %>
+</div>

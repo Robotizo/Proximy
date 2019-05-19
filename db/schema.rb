@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190417230905) do
+ActiveRecord::Schema.define(version: 20190517213957) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
     t.integer  "recipient_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "event_notifs", force: :cascade do |t|
+    t.boolean  "is_checked", default: false
+    t.integer  "event_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "event_posts", force: :cascade do |t|
@@ -87,6 +94,7 @@ ActiveRecord::Schema.define(version: 20190417230905) do
     t.datetime "updated_at", null: false
     t.string   "image"
     t.integer  "user_id"
+    t.string   "category"
   end
 
   create_table "interests_relationships", force: :cascade do |t|
@@ -137,6 +145,15 @@ ActiveRecord::Schema.define(version: 20190417230905) do
     t.datetime "updated_at",                      null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "notification_events", force: :cascade do |t|
+    t.integer  "event_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.string   "greet"
   end
 
   create_table "posts", force: :cascade do |t|

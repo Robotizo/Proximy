@@ -1,6 +1,70 @@
-<h1>Editing User</h1>
+<%= stylesheet_link_tag "users", :media => "all" %>
 
-<%= render 'form', user: @user %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<div class="container">
+	<div class="titleSec">Settings</div>
+
+	<ul class="nav nav-tabs" id="events-nav" role="tablist">
+    <li class="nav-item active col-md-3  mobNavs">
+      <a class="nav-link btn btn-prox" id="events-tab" data-toggle="tab" href="#general" role="tab" aria-controls="my events tab">
+        General
+      </a>
+    </li>
+    <li class="nav-item col-md-3 mobNavs">
+      <a class="nav-link btn btn-prox" id="discover-tab" data-toggle="tab" href="#interests" role="tab" aria-controls="discover tab">
+        Interests
+      </a>
+    </li>
+    <li class="nav-item col-md-3 mobNavs">
+      <a class="nav-link btn btn-prox" id="discover-tab" data-toggle="tab" href="#location" role="tab" aria-controls="discover tab">
+       Location
+      </a>
+    </li>
+    <li class="nav-item col-md-3 mobNavs">
+      <a class="nav-link btn btn-prox" id="discover-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="discover tab">
+        Contact Management
+      </a>
+    </li>
+  </ul>
+	
+
+
+
+<div class="tab-content" id="myTabContent">
+	<div class="tab-pane active" id="general" role="tabpanel" aria-labelledby="home-tab">
+		<h2 class="topTitle2">General</h2>
+		<%= render 'form', user: @user %>	
+      
+	</div>
+	<div class="tab-pane" id="interests" role="tabpanel" aria-labelledby="profile-tab">
+		<h2 class="topTitle2">Interests</h2>
+		  <% current_user.followingI.each do |interest| %>
+		    <div class="col-md-2 col-xs-6">
+		      <div class="interestCard">
+		        <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+		        <div class="interestTitleSec">
+		          <div class="interestName"><%= interest.name %></div>
+		        
+		        </div>
+
+		      </div>
+		    </div>
+
+
+		  <% end %>
+
+
+  
+
+	</div>
+	<div class="tab-pane" id="location" role="tabpanel" aria-labelledby="contact-tab">
+		<h2 class="topTitle2">Location</h2>
+
+	</div>
+	<div class="tab-pane" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+		<h2 class="topTitle2">Contact Management</h2>
+
+	</div>
+</div>
+
+</div>

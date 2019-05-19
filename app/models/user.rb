@@ -45,6 +45,14 @@ class User < ApplicationRecord
 
 
 
+  has_many :invitations, class_name: "NotificationEvent", foreign_key: "recipient_id"
+
+  has_many :sent_invites, class_name: "NotificationEvent", foreign_key: "sender_id"
+
+
+  
+
+
 
 
 
@@ -194,12 +202,6 @@ class User < ApplicationRecord
   def overallCC
     return @ccL + @ccI.round(2)
   end 
-
-
-
-
-
-
 
 
 

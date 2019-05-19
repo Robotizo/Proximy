@@ -1,0 +1,1041 @@
+<%= stylesheet_link_tag "events", :media => "all" %>
+
+<script>
+
+  $(function () { 
+      $('.panel-heading').on('click', function (e) {
+          var menuItem = $( e.currentTarget );
+
+          if (menuItem.attr('aria-expanded') === 'true') {
+              $(this).children(".show-more").text("Show More");
+
+          } else {
+              $(this).children(".show-more").text("Show Less");
+          }
+      });
+
+    });
+  
+
+
+
+</script>
+
+  <div class="text-center module1">
+
+
+    <div class="imageSec">
+      <%= image_tag(@event.image_url(:display), class: "eventImageDisplay") if @event.image? %>
+          <div class="eventImgTitle">
+            <div class="eventTitleImg"><%= @event.title %></div>
+          </div>
+    </div>
+
+
+
+    <div class="col-md-6 col-xs-12 infoSec">
+
+      <div class="infoTop">Event Details</div>
+
+
+      <div class="col-md-6 col-xs-6">
+        <div class="eventTitle2">Event Date</div>
+        <div class="eventTitle"><%= @event.event_date.strftime('%B %e') %></div>
+        <% if @event.event_end_date.present? %>
+          to
+          <div class="eventTitle"><%= @event.event_end_date.strftime('%B %e') %></div>
+        <% end %>
+      </div>
+
+
+      <div class="col-md-6 col-xs-6">
+        <div class="eventTitle2">Event Time</div>
+        <div class="eventTitle"><%= @event.event_time.strftime("%I:%M %p") %></div>
+        <% if @event.event_end_time.present? %>
+          to
+          <div class="eventTitle"><%= @event.event_end_time.strftime("%I:%M %p") %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+
+<div class="container margTop mobNavs">
+  <div class="titleSec">Selected Interests for <%= @event.title %></div>
+
+  <div class="col-md-12 col-xs-12 mobNavs">
+
+    <% if @event.fgE.exists? %>
+
+    <% @event.fgE.each do |interest| %>
+      <div class="col-md-2 col-xs-6">
+        <div class="interestCard">
+          <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+          <div class="interestTitleSec">
+            <div class="interestName"><%= interest.name %></div>
+          
+          </div>
+
+        </div>
+      </div>
+
+
+    <% end %>
+    <% else %>
+      <div class="titleSecSub">Select interests that match this group.</div>
+
+
+    <% end %>
+
+  </div>
+</div>
+
+<div class="container margBottom mobNavs">
+
+
+<div class="titleSec">Interests</div>
+
+  <div class="panel-group" id="accordion" aria-multiselectable="true">
+
+
+<div class="panel panel-default">
+        <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#arts" aria-expanded="true">
+          Arts <div class="show-more">Show Less</div>
+        </div>
+      <div id="arts" class="panel-collapse collapse in" data-parent="#accordion">
+        <div class="panel-body">
+          <% @interests.each do |interest| %>
+          <% if interest.category == "Arts" %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+          <% if @event.fgE?(interest) %>
+                  <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }) do |f| %>
+                    <div class="buttonHov">
+                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= form_for(interest.passive_relationships_interests_to_events.build, method: :post) do |f| %>
+                    <%= hidden_field_tag :fdE_id, interest.id %>
+                    <div class="buttonHov">
+                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="panel panel-default">
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#animals" aria-expanded="false">
+                Animals <div class="show-more">Show More</div>
+            </div>
+
+      <div id="animals" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+          <% @interests.each do |interest| %>
+          <% if interest.category == "Animals" %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+          <% if @event.fgE?(interest) %>
+                  <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }) do |f| %>
+                    <div class="buttonHov">
+                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= form_for(interest.passive_relationships_interests_to_events.build, method: :post) do |f| %>
+                    <%= hidden_field_tag :fdE_id, interest.id %>
+                    <div class="buttonHov">
+                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+
+      <div class="panel panel-default">
+  
+
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#business" aria-expanded="false">
+                Business <div class="show-more">Show More</div>
+            </div>
+
+    
+      <div id="business" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+          <% @interests.each do |interest| %>
+          <% if interest.category == "Business" %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+          <% if @event.fgE?(interest) %>
+                  <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }) do |f| %>
+                    <div class="buttonHov">
+                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= form_for(interest.passive_relationships_interests_to_events.build, method: :post) do |f| %>
+                    <%= hidden_field_tag :fdE_id, interest.id %>
+                    <div class="buttonHov">
+                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+  
+
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#community" aria-expanded="false">
+                Community <div class="show-more">Show More</div>
+            </div>
+
+
+      <div id="community" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+          <% @interests.each do |interest| %>
+          <% if interest.category == "Community" %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+          <% if @event.fgE?(interest) %>
+                  <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }) do |f| %>
+                    <div class="buttonHov">
+                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= form_for(interest.passive_relationships_interests_to_events.build, method: :post) do |f| %>
+                    <%= hidden_field_tag :fdE_id, interest.id %>
+                    <div class="buttonHov">
+                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="panel panel-default">
+  
+
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#crafts" aria-expanded="false">
+                Crafts <div class="show-more">Show More</div>
+            </div>
+
+
+      <div id="crafts" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+          <% @interests.each do |interest| %>
+          <% if interest.category == "Crafts" %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+          <% if @event.fgE?(interest) %>
+                  <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }) do |f| %>
+                    <div class="buttonHov">
+                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= form_for(interest.passive_relationships_interests_to_events.build, method: :post) do |f| %>
+                    <%= hidden_field_tag :fdE_id, interest.id %>
+                    <div class="buttonHov">
+                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+  
+
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#dance" aria-expanded="false">
+                Dance <div class="show-more">Show More</div>
+            </div>
+
+      <div id="dance" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+          <% @interests.each do |interest| %>
+          <% if interest.category == "Dance" %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+          <% if @event.fgE?(interest) %>
+                  <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }) do |f| %>
+                    <div class="buttonHov">
+                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= form_for(interest.passive_relationships_interests_to_events.build, method: :post) do |f| %>
+                    <%= hidden_field_tag :fdE_id, interest.id %>
+                    <div class="buttonHov">
+                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="panel panel-default">
+  
+
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#eating" aria-expanded="false">
+                Eating & Drinking <div class="show-more">Show More</div>
+            </div>
+
+
+      <div id="eating" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+          <% @interests.each do |interest| %>
+          <% if interest.category == "Eating & Drinking" %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+          <% if @event.fgE?(interest) %>
+                  <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }) do |f| %>
+                    <div class="buttonHov">
+                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= form_for(interest.passive_relationships_interests_to_events.build, method: :post) do |f| %>
+                    <%= hidden_field_tag :fdE_id, interest.id %>
+                    <div class="buttonHov">
+                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="panel panel-default">
+  
+
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#education" aria-expanded="false">
+                Education <div class="show-more">Show More</div>
+            </div>
+
+    
+      <div id="education" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+          <% @interests.each do |interest| %>
+          <% if interest.category == "Education" %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+          <% if @event.fgE?(interest) %>
+                  <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }) do |f| %>
+                    <div class="buttonHov">
+                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= form_for(interest.passive_relationships_interests_to_events.build, method: :post) do |f| %>
+                    <%= hidden_field_tag :fdE_id, interest.id %>
+                    <div class="buttonHov">
+                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="panel panel-default">
+  
+
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#entertainment" aria-expanded="false">
+                Entertainment <div class="show-more">Show More</div>
+            </div>
+
+
+      <div id="entertainment" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+          <% @interests.each do |interest| %>
+          <% if interest.category == "Entertainment" %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+          <% if @event.fgE?(interest) %>
+                  <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }) do |f| %>
+                    <div class="buttonHov">
+                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= form_for(interest.passive_relationships_interests_to_events.build, method: :post) do |f| %>
+                    <%= hidden_field_tag :fdE_id, interest.id %>
+                    <div class="buttonHov">
+                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="panel panel-default">
+  
+
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#fashion" aria-expanded="false">
+                Fashion <div class="show-more">Show More</div>
+            </div>
+
+
+      <div id="fashion" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+          <% @interests.each do |interest| %>
+          <% if interest.category == "Fashion" %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+          <% if @event.fgE?(interest) %>
+                  <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }) do |f| %>
+                    <div class="buttonHov">
+                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= form_for(interest.passive_relationships_interests_to_events.build, method: :post) do |f| %>
+                    <%= hidden_field_tag :fdE_id, interest.id %>
+                    <div class="buttonHov">
+                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="panel panel-default">
+  
+
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#fitness" aria-expanded="false">
+                Fitness <div class="show-more">Show More</div>
+            </div>
+
+      <div id="fitness" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+          <% @interests.each do |interest| %>
+          <% if interest.category == "Fitness" %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+          <% if @event.fgE?(interest) %>
+                  <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }) do |f| %>
+                    <div class="buttonHov">
+                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= form_for(interest.passive_relationships_interests_to_events.build, method: :post) do |f| %>
+                    <%= hidden_field_tag :fdE_id, interest.id %>
+                    <div class="buttonHov">
+                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+  <div class="panel panel-default">
+  
+
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#games" aria-expanded="false">
+                Games <div class="show-more">Show More</div>
+            </div>
+
+
+      <div id="games" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+          <% @interests.each do |interest| %>
+          <% if interest.category == "Games" %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+          <% if @event.fgE?(interest) %>
+                  <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }) do |f| %>
+                    <div class="buttonHov">
+                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= form_for(interest.passive_relationships_interests_to_events.build, method: :post) do |f| %>
+                    <%= hidden_field_tag :fdE_id, interest.id %>
+                    <div class="buttonHov">
+                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+      <div class="panel panel-default">
+  
+
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#health" aria-expanded="false">
+                Health & Wellness <div class="show-more">Show More</div>
+            </div>
+
+
+      <div id="health" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+          <% @interests.each do |interest| %>
+          <% if interest.category == "Health & Wellness" %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+          <% if @event.fgE?(interest) %>
+                  <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }) do |f| %>
+                    <div class="buttonHov">
+                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= form_for(interest.passive_relationships_interests_to_events.build, method: :post) do |f| %>
+                    <%= hidden_field_tag :fdE_id, interest.id %>
+                    <div class="buttonHov">
+                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="panel panel-default">
+  
+
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#language" aria-expanded="false">
+               Language & Culture <div class="show-more">Show More</div>
+            </div>
+
+      <div id="language" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+          <% @interests.each do |interest| %>
+          <% if interest.category == "Language & Culture" %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+          <% if @event.fgE?(interest) %>
+                  <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }) do |f| %>
+                    <div class="buttonHov">
+                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= form_for(interest.passive_relationships_interests_to_events.build, method: :post) do |f| %>
+                    <%= hidden_field_tag :fdE_id, interest.id %>
+                    <div class="buttonHov">
+                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="panel panel-default">
+  
+
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#l" aria-expanded="false">
+               LGBTQA+ <div class="show-more">Show More</div>
+            </div>
+
+
+      <div id="l" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+          <% @interests.each do |interest| %>
+          <% if interest.category == "LGBTQA" %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+          <% if @event.fgE?(interest) %>
+                  <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }) do |f| %>
+                    <div class="buttonHov">
+                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= form_for(interest.passive_relationships_interests_to_events.build, method: :post) do |f| %>
+                    <%= hidden_field_tag :fdE_id, interest.id %>
+                    <div class="buttonHov">
+                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="panel panel-default">
+      <div class="">
+
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#motor" aria-expanded="false">
+               Motor Sports <div class="show-more">Show More</div>
+            </div>
+
+
+      <div id="motor" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+          <% @interests.each do |interest| %>
+          <% if interest.category == "Motor Sports" %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+          <% if @event.fgE?(interest) %>
+                  <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }) do |f| %>
+                    <div class="buttonHov">
+                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= form_for(interest.passive_relationships_interests_to_events.build, method: :post) do |f| %>
+                    <%= hidden_field_tag :fdE_id, interest.id %>
+                    <div class="buttonHov">
+                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="panel panel-default">
+  
+
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#perspective" aria-expanded="false">
+              Perspective <div class="show-more">Show More</div>
+            </div>
+      <div id="perspective" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+          <% @interests.each do |interest| %>
+          <% if interest.category == "Perspective" %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+          <% if @event.fgE?(interest) %>
+                  <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }) do |f| %>
+                    <div class="buttonHov">
+                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= form_for(interest.passive_relationships_interests_to_events.build, method: :post) do |f| %>
+                    <%= hidden_field_tag :fdE_id, interest.id %>
+                    <div class="buttonHov">
+                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="panel panel-default">
+  
+
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#relationships" aria-expanded="false">
+              Relationships <div class="show-more">Show More</div>
+            </div>
+
+  
+      <div id="relationships" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+          <% @interests.each do |interest| %>
+          <% if interest.category == "Relationships" %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+          <% if @event.fgE?(interest) %>
+                  <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }) do |f| %>
+                    <div class="buttonHov">
+                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= form_for(interest.passive_relationships_interests_to_events.build, method: :post) do |f| %>
+                    <%= hidden_field_tag :fdE_id, interest.id %>
+                    <div class="buttonHov">
+                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+      <div class="panel panel-default">
+  
+
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#sports" aria-expanded="false">
+              Sports <div class="show-more">Show More</div>
+            </div>
+
+  
+      <div id="sports" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+          <% @interests.each do |interest| %>
+          <% if interest.category == "Sports" %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+          <% if @event.fgE?(interest) %>
+                  <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }) do |f| %>
+                    <div class="buttonHov">
+                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= form_for(interest.passive_relationships_interests_to_events.build, method: :post) do |f| %>
+                    <%= hidden_field_tag :fdE_id, interest.id %>
+                    <div class="buttonHov">
+                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+        <div class="panel panel-default">
+  
+
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#tech" aria-expanded="false">
+              Tech <div class="show-more">Show More</div>
+            </div>
+
+      
+      <div id="tech" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+          <% @interests.each do |interest| %>
+          <% if interest.category == "Tech" %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+          <% if @event.fgE?(interest) %>
+                  <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }) do |f| %>
+                    <div class="buttonHov">
+                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <%= form_for(interest.passive_relationships_interests_to_events.build, method: :post) do |f| %>
+                    <%= hidden_field_tag :fdE_id, interest.id %>
+                    <div class="buttonHov">
+                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+                    </div>
+                  <% end %>
+                <% end %>
+            </div>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+</div>
+
+
+
+
+
+
+

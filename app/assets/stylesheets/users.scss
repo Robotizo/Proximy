@@ -3,6 +3,204 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+
+.titleSecSub{
+  font-size: 25px;
+    font-weight: 200;
+    margin: 50px;
+}
+
+div .panel-heading[aria-expanded="true"]{
+    border-bottom: #6c95af 3px solid;
+}
+
+div .show-more[aria-expanded="true"]{
+  content: "Test"
+}
+
+.show-more{
+  float: right;
+  font-weight: 200;
+}
+
+
+
+
+.panel-heading{
+  font-size: 18px;
+  font-weight: 900;
+}
+
+
+
+.panel{
+  border: 0px !important;
+}
+.panel-default > .panel-heading{
+      background-color: #ffffff;
+}
+
+
+
+/* User Settings Begin */
+.topTitle2{
+  font-size: 25px;
+  margin: 20px;
+  font-weight: 600;
+}
+
+#events-nav{
+  margin-top: 10px;
+}
+
+.titleSec {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 15px 0px;
+  margin-bottom: 10px !important;
+}
+
+
+/* User Settings End */
+
+.modal-open .modal{
+  padding-bottom: 50px;
+}
+.allPostsCard{
+  border: 0px !important;
+  border-radius: 15px !important;
+  float: left;
+  margin: 5px;
+}
+
+
+
+.allPostsDialog{
+  width: 70% !important;
+}
+
+/* Final Edits */
+.user-display-tab {
+  padding-left: 0;
+}
+
+#show-posts .modal-dialog .modal-content {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.posts-modal-body {
+  padding: 10px;
+}
+
+.edit-body {
+  padding-top: 50px;
+}
+
+#body-placeholder {
+  padding: 0 20px 20px 20px;
+}
+
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 50%;
+
+  }
+}
+
+.row {
+  margin: 0;
+}
+
+.fileBtnDiv, .form-control {
+  width: 100%;
+  margin: 10px 0;
+
+}
+
+.fileBtnDiv {
+  border-color: #2e6da4;
+  background-color: #7fa6be;
+
+  .fileBtn {
+    display: none;
+  }
+}
+
+.form-control.user-prop {
+  border-radius: 3px;
+  border-color: white;
+  border-bottom: 1px black solid !important;
+  margin-bottom: 10px;
+}
+
+.form-control.user-prop:focus {
+  outline: none;
+  box-shadow: 0px 0px 0px 0px !important;
+  border-bottom: 1px #7ea5c0 solid !important;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.signIn {
+  width: 100%;
+  background-color: #7fa6be;
+}
+
+#signIn {
+  display: none;
+}
+
+
+
+
+/* MASONRY */
+
+.grid-item, .grid-sizer {
+  width: calc(50% - 10px);
+}
+
+@media screen and (max-width: 776px){
+  .grid-item, .grid-sizer {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* END MASONRY */
+
+.allPostsImage{
+  border-radius: 4px 4px 0px 0px !important;
+}
+
+
+
+.textMini{
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+
+.userImageMini{
+  height: 25px;
+  border-radius: 100px;
+  border: 1px solid black;
+}
+
+.nameText{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+.infoSec{
+  height: 100px;
+}
+
 .userBio{
   font-size: 18px;
 }

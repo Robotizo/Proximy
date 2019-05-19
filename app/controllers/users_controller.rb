@@ -4,6 +4,12 @@ class UsersController < ApplicationController
 
 
 
+  def interests
+    @interests = Interest.all
+    @user = current_user
+  end
+
+
   # GET /users
   # GET /users.json
   def index
@@ -28,40 +34,12 @@ class UsersController < ApplicationController
     @users = User.all
     @userNow = current_user
 
-    followingIds = @userNow.followers.map(&:id)
-    @followers = User.find(params = followingIds).sort_by &:updated_at
 
-
-    currentUserInterests = @userNow.followingI.map(&:id)
-    @userInterests = Interest.find(params = currentUserInterests).sort_by &:updated_at
+    collide = current_user.followingI.ids & @user.followingI.ids
+    @collideInterests = Interest.find(params = collide).sort_by &:updated_at
 
 
 
-
-
-
-    @currentUserInts = @userNow.followingI.map(&:id)
-
-    @userInts = []
-    @numTest = []
-    
-    @indexNums = []
-   
-
-
-    @users.each_with_index do |user, index|
-      
-        user.followingI.each do |uInt|
-          ints = uInt.id 
-
-          @userInts.push(ints)
-        end
-        @collide = @currentUserInts & @userInts
-        @num = ( @collide.count.to_f / @currentUserInts.count.to_f )
-        @numTest.push(@num)
-
-        @indexNums.push(index)
-    end
 
 
 

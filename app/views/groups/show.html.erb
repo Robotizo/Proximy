@@ -55,38 +55,6 @@
 </div>
 
 
-<div class="col-md-12">
-  <% @interests.each do |interest| %>
-      <div class="col-md-2">
-      <div class="interestCard">
-          <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-          <div class="interestTitleSec">
-          
-              <div class="interestName"><%= interest.name %></div>
-          
-          </div>
-
-
-
-  <% if @group.fgI?(interest) %>
-          <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-            <div class="buttonHov">
-              <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-            </div>
-          <% end %>
-        <% else %>
-          <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-            <%= hidden_field_tag :fdI_id, interest.id %>
-            <div class="buttonHov">
-              <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-            </div>
-          <% end %>
-        <% end %>
-    </div>
-    </div>
-  <% end %>
-
-  </div>
 
 
     

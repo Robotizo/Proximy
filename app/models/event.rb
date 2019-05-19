@@ -18,6 +18,17 @@ class Event < ApplicationRecord
 	has_many :fgE, through: :active_relationships_interests_to_events, source: :fdE
 
 
+	has_many :notificationevents 
+
+
+	after_create do 
+		EventNotif.create event: self
+	end 
+
+
+	has_one :eventnotif, dependent: :destroy
+
+
 
 	def fwE(interests)
       fgE << interests
@@ -30,6 +41,16 @@ class Event < ApplicationRecord
     def fgE?(interests)
       fgE.include?(interests)
     end
+
+
+
+    def eventsInterest(currentUser)
+
+	    collideEvents = currentUser.followingI.ids & self.fgE.ids
+	    eventsCCI = collideEvents.count.to_f / currentUser.followingI.ids.count.to_f
+	    
+	    return eventsCCI.round(2)
+  	end
 
 end
 
