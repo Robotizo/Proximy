@@ -1034,6 +1034,18 @@
 </div>
 
 
+<% if @event.fgE.count > 1 %>
+<div class="col-md-12">
+
+  <div class="create">
+    <%= button_to "Confirm", @event, method: :get, class: "btn btn-primary createButton" %>
+  </div>
+</div>
+<% end %>
+
+</div>
+
+
 
 
 

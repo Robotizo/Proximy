@@ -17,30 +17,76 @@
         </div>
       </div>
     </div>
+
+    <div class="col-md-6 col-xs-12 followBtn connArea2 ">
+
+
+    <% if current_user.id == @user.id %>
+      <div id="follow_form">
+           <%= button_to "Contacts", contacts_path, method: :get, class: "btn connectBtn" %>
+      </div>
+     <% end %>
+
+
+    <% unless @user.id == current_user.id %>
+      <% unless current_user.friends.include?(@user) %>
+        <%= render 'befriend' %>
+      <% end %> 
+    <% end %>
+
+
+
+
+
+
+    </div>
+
+    </div>
   </div>
-</div>
 
 
-<% if @user.id == current_user.id %>
-<% else %>
-  <div class="col-md-12">
-    <% @collideInterests.each do |interestCollide| %>
-      <div class="col-md-2 col-xs-6">
-        <div class="interestCard">
-          <%= image_tag(interestCollide.image_url(:thumb), class: "interestImage") if interestCollide.image? %>
-          <div class="interestTitleSec">
-            <div class="interestName"><%= interestCollide.name %></div>
-          
-          </div>
+          <% if @user.id == current_user.id %>
+              <% else %>
+
+
+
+<div class="container mobNavs">
+    <div class="panel panel-default interestSec">
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#animals" aria-expanded="false">
+                Interests in Common <div class="show-more">Open</div>
+            </div>
+
+      <div id="animals" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+
+
+
+             
+                  <% @collideInterests.each do |interestCollide| %>
+                    <div class="col-md-2 col-xs-6">
+                      <div class="interestCard">
+                        <%= image_tag(interestCollide.image_url(:thumb), class: "interestImage") if interestCollide.image? %>
+                        <div class="interestTitleSec">
+                          <div class="interestName"><%= interestCollide.name %></div>
+                        
+                        </div>
+
+                      </div>
+                    </div>
+
+
+                  <% end %>
+
+              
 
         </div>
       </div>
+    </div>
+</div>
+
+ <% end %>
 
 
-    <% end %>
-
-  </div>
-<% end %>
 
 
 
@@ -272,12 +318,6 @@
 
 
 
-<div class="col-md-12  col-xs-12">
-  <br>
-  <br>
-  <%= link_to "Log Out", logout_path, method: :delete, data: {confirm: 'Are you sure?'}%>
-  <br>
-</div>
 
 </div>
 
@@ -375,6 +415,22 @@
             horizontalOrder: true,
             stagger: 30
         });
+    });
+
+
+
+      $(function () { 
+      $('.panel-heading').on('click', function (e) {
+          var menuItem = $( e.currentTarget );
+
+          if (menuItem.attr('aria-expanded') === 'true') {
+              $(this).children(".show-more").text("Open");
+
+          } else {
+              $(this).children(".show-more").text("Close");
+          }
+      });
+
     });
 </script>
 

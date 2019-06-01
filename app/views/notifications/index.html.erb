@@ -6,6 +6,18 @@
     <div class="titleSec">Notifications</div>
  </div>
 <div class="container">
+<div class="titleSecSub">New Connections</div>
+
+
+
+
+
+
+
+
+<div class="titleSecSub">Event Invitations</div>
+<div class="titleSecSub">Group Invitations</div>
+<div class="titleSecSub">New Events from Groups</div>
 	<% @eventNotifs.each do |eventNotif| %>
 		<% if current_user.followingG.ids.include?  eventNotif.event.group.id %>
 			<div class="col-md-6">

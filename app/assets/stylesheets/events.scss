@@ -3,6 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+.nav > .navSelect > a{
+	font-size: 18px !important;
+}
+
+
 .titleSecSub{
 	font-size: 25px;
     font-weight: 200;
@@ -22,6 +27,15 @@ div .show-more[aria-expanded="true"]{
 	font-weight: 200;
 }
 
+
+.indexMar{
+	margin-top: 65px;
+}
+
+
+.nav > li > a{
+	margin: 7px;
+}
 
 
 
@@ -786,6 +800,27 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px){
+	.interestSec{
+		margin-top: 30px;
+		float: left;
+		width: 100%;
+	}
+	.indexMar{
+		margin-top: 55px;
+	}
+	.mobNavs{
+    	padding-right: 0px;
+    	padding-left: 0px;
+  	}
+	.infoSec{
+		width: 100%;
+		margin-top: -60px;
+		height: auto !important;
+	}
+	.fullLength{
+		width: 100%;
+		float: left;
+	}
 
 	.endButton{
 		padding-bottom: 0px;
@@ -927,7 +962,7 @@ div.scrollEvents a {
 	.imageSec{
 		width: 100%;
 		float: left;
-		    height: 250px;
+		height:  auto;
 		margin: 0px;
 	}
 

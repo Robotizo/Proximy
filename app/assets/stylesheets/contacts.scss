@@ -1,0 +1,86 @@
+/*// Place all the styles related to the Contacts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+
+.newNotifs{
+	padding: 8px 15px;
+	background-color: #6c95af;
+	border-radius: 100px;
+	color: white;
+	margin-left: 15px;
+}
+
+
+.notifDate{
+	font-size: 18px;
+	font-weight: 700;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+
+
+
+.introInner{
+	font-size: 15px;
+	font-weight: 700;
+	margin-bottom: 10px;
+}
+
+.notifTitle{
+	font-size: 18px;
+	font-weight: 700;
+}
+
+
+
+.infoInner{
+	margin: 10px;
+}
+
+
+
+.infoSec{
+	width: 70%;
+	float: left;
+}
+
+
+.imageSec{
+	width: 30%;
+	float: left;
+}
+.interestImage{
+	width: 100%;
+	border-radius: 5px 0px 0px 5px;
+}
+
+
+.notifModuleF{
+	margin-top: 5px;
+    margin-bottom: 22px;
+    box-shadow: 0px 0px 0px 1px #dedddd;
+    border-radius: 5px;
+    float: left;
+    width: 100%;
+    background-color: rgba(108, 149, 175, 0.2);
+}
+
+
+.notifModuleT{
+	margin-top: 5px;
+    margin-bottom: 22px;
+    box-shadow: 0px 0px 0px 1px #dedddd;
+    border-radius: 5px;
+    float: left;
+    width: 100%;
+}
+
+.titleSec {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 15px 0px;
+  margin-bottom: 10px !important;
+}
+

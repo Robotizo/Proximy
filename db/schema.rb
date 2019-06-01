@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190517213957) do
+ActiveRecord::Schema.define(version: 20190601210542) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
@@ -57,6 +57,14 @@ ActiveRecord::Schema.define(version: 20190517213957) do
     t.index ["followedE_id"], name: "index_events_relationships_on_followedE_id"
     t.index ["followerE_id", "followedE_id"], name: "index_events_relationships_on_followerE_id_and_followedE_id", unique: true
     t.index ["followerE_id"], name: "index_events_relationships_on_followerE_id"
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "status"
   end
 
   create_table "group_posts", force: :cascade do |t|
@@ -127,15 +135,6 @@ ActiveRecord::Schema.define(version: 20190517213957) do
     t.index ["frI_id"], name: "index_interests_relationships_to_groups_on_frI_id"
   end
 
-  create_table "locations", force: :cascade do |t|
-    t.string   "name"
-    t.decimal  "latitude",   precision: 10, scale: 6
-    t.decimal  "longitude",  precision: 10, scale: 6
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.integer  "number"
-  end
-
   create_table "messages", force: :cascade do |t|
     t.text     "body"
     t.integer  "conversation_id"
@@ -189,6 +188,7 @@ ActiveRecord::Schema.define(version: 20190517213957) do
     t.datetime "remember_created_at"
     t.decimal  "latitude"
     t.decimal  "longitude"
+    t.integer  "sign_in_count"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

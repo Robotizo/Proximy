@@ -2,6 +2,19 @@ Rails.application.routes.draw do
 
 
 
+  resources :friend_requests
+
+
+  resources :friendships do 
+    patch :update_friendship, on: :member
+  end
+
+
+
+
+
+  get '/contacts', to: 'contacts#index'
+
   get '/notifications', to: 'notifications#index'
 
   resources :notifications do 

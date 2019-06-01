@@ -30,22 +30,24 @@
   <div class="container">
     <div class="titleSec">Top Prospects</div>
   </div>
-  <div class="scrollMembers container">
+  <div class="scrollMembers container ">
   
     <% @users.each do |user| %>
     <% unless user.id == current_user.id %>
         <%= link_to user, method: :get, class: "specialA" do %>
         <div class="followersSec">
           <%= image_tag(user.avatar_url(:thumb), class: "userImg") if user.avatar? %>
-          <div class="followerNameSec"><%= truncate(user.name, length: 20) %></div>
+          <div class="followerNameSec"><%= truncate(user.name.gsub(/\s.+/, '')) %></div>
         </div>
         <% end %>
       <% end %>
     <% end %>
   </div>
 
-    <div class="container">
+     <div class="container">
       <div class="titleSec">Newsfeed</div>
+    </div>
+    <div class="container mobNavs">
       <div class="grid">
         <div class="grid-sizer"></div>
         <% @all_posts.reverse.each do |post| %>

@@ -32,7 +32,6 @@
     <div class="col-md-5 groupInfoSec">
       <div>
         <div class="groupTitle"><%= @group.title %></div>  
-            <%= button_to "Confirm", @group, method: :get, class: "btn btn-primary followGroupBtn" %>
 
           </div>
         </div>
@@ -1016,6 +1015,17 @@
 
 </div>
 
+
+
+<% if @group.fgI.count > 1 %>
+<div class="col-md-12">
+
+  <div class="create">
+    <%= button_to "Confirm", @group, method: :get, class: "btn btn-primary createButton" %>
+  </div>
+</div>
+<% end %>
+</div>
 
 
 

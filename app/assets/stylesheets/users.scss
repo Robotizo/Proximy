@@ -4,6 +4,64 @@
 
 
 
+.menuUser{
+  padding: 10px;
+
+}
+
+
+.connectedBtn{
+    background-color: #6c95af;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 100px;
+    border: 1px solid #6c95af;
+
+}
+
+
+.connectedBtn:hover{
+    background-color: #5da8d8;
+    color: white;
+    opacity: 1;
+    transition: 0.3s;
+
+}
+
+.connectBtn{
+    background-color: #ffffff;
+    color: #6c95af;
+    font-weight: 600;
+    padding: 10px 30px;
+    border-radius: 100px;
+    border: 1px solid #6c95af;
+    outline: none !important;
+
+}
+
+
+.connectBtn:hover{
+  background-color: #6c95af;
+  color: white;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+
+.followBtn{
+
+
+    left: -15%;
+    top: 15px;
+}
+
+
+#follow_form{
+
+  top: 30px;
+  float: left;
+}
+
 .titleSecSub{
   font-size: 25px;
     font-weight: 200;
@@ -308,7 +366,7 @@ div.scrollEvents .card {
 }
 
 .scrollEvents::-webkit-scrollbar {
-  height: 5px;
+  height: 10px;
 }
 
 
@@ -319,6 +377,29 @@ div.scrollEvents .card {
 
 
 .scrollEvents::-webkit-scrollbar-thumb {
+  background: rgb(212, 224, 231);
+  border-radius: 5px;
+}
+
+
+
+
+.scrollGroups::-webkit-scrollbar-track {
+  background: none;
+}
+
+.scrollGroups::-webkit-scrollbar {
+  height: 10px;
+}
+
+
+.scrollGroups::-webkit-scrollbar:active {
+  height: 30px;
+}
+
+
+
+.scrollGroups::-webkit-scrollbar-thumb {
   background: rgb(212, 224, 231);
   border-radius: 5px;
 }
@@ -1223,6 +1304,7 @@ body {
   top: -130px;
 }
 
+
 .addImage {
   height: 40px;
   float: right;
@@ -1491,6 +1573,33 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px) {
+  .connectBtn{
+    width: 90%;
+
+  }
+
+  #follow_form{
+    width: 100%;
+  }
+
+  .followBtn{
+    left: 0px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .interestSec{
+    margin-top: 70px;
+    float: left;
+    width: 100%;
+  }
+
+  
+  .mobNavs{
+    padding-right: 0px;
+    padding-left: 0px;
+  }
   .subPost{
     width: 200px;
   }
@@ -1630,7 +1739,7 @@ div.scrollEvents a {
     position: relative;
     width: 100%;
     float: left;
-    height: 280px;
+    height: 345px;
   }
   .mainField {
     border-radius: 0px;
@@ -1649,6 +1758,12 @@ div.scrollEvents a {
     top: -84px;
     position: relative;
   }
+
+  .connArea2 {
+    position: relative;
+    top: -84px;
+  }
+
   .userImage1 {
     border-radius: 15px;
     height: 150px;

@@ -511,6 +511,27 @@ img.userImage2 {
 
 
 @media screen and (max-width: 776px){
+  .mobNavs{
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .titleSec{
+    font-size: 20px;
+  }
+  .followerNameSec{
+    font-weight: 700;
+  }
+  .userImg{
+    height: 85px;
+  }
+  .followersSec{
+    margin: 5px;
+  }
+
+  .pencilButton{
+    display: none !important;
+  }
+
   .scrollMembers{
     padding-left: 0px;
     padding-right: 0px;

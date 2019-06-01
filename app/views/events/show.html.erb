@@ -1,6 +1,22 @@
 <%= stylesheet_link_tag "events", :media => "all" %>
 <p id="notice"><%= notice %></p>
 
+<script>
+      $(function () { 
+      $('.panel-heading').on('click', function (e) {
+          var menuItem = $( e.currentTarget );
+
+          if (menuItem.attr('aria-expanded') === 'true') {
+              $(this).children(".show-more").text("Open");
+
+          } else {
+              $(this).children(".show-more").text("Close");
+          }
+      });
+
+    });
+</script>
+
 <div class="mobileArea">
   <div class="text-center module1">
 
@@ -44,61 +60,47 @@
   </div>
 
 
-<div class="col-md-12">
+<div class="container mobNavs">
+    <div class="panel panel-default interestSec">
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#animals" aria-expanded="false">
+                Interests in event <div class="show-more">Open</div>
+            </div>
+
+      <div id="animals" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
 
 
-  <div class="fullLength">
-  <% @event.fgE.each do |eventInterest| %>
-    <div class="col-md-2 col-xs-2">
-      <div class="interestCard">
-      <%= image_tag(eventInterest.image_url(:thumb), class: "interestImage") if eventInterest.image? %>
-      <div class="interestTitleSec">
-      
-        <div class="interestName"><%= eventInterest.name %></div>
 
-      
-      </div>
+             
+                  <% @event.fgE.each do |eventInterest| %>
+                    <div class="col-md-2 col-xs-6">
+                      <div class="interestCard">
+                        <%= image_tag(eventInterest.image_url(:thumb), class: "interestImage") if eventInterest.image? %>
+                        <div class="interestTitleSec">
+                          <div class="interestName"><%= eventInterest.name %></div>
+                        
+                        </div>
 
+                      </div>
+                    </div>
+
+
+                  <% end %>
+
+              
+
+        </div>
       </div>
     </div>
-  <% end %>
-
 </div>
 
 
-  <% @interests.each do |interest| %>
-  <div class="col-md-2">
-  <div class="interestCard">
-    <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-    <div class="interestTitleSec">
-    
-      <div class="interestName"><%= interest.name %></div>
-    
-    </div>
 
 
-    <% if @event.fgE?(interest) %>
-          <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }) do |f| %>
-            <div class="buttonHov">
-              <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-            </div>
-          <% end %>
-        <% else %>
-          <%= form_for(interest.passive_relationships_interests_to_events.build, method: :post) do |f| %>
-            <%= hidden_field_tag :fdE_id, interest.id %>
-            <div class="buttonHov">
-              <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-            </div>
-          <% end %>
-        <% end %>
-    </div>
-    </div>
-  <% end %>
-
-</div>
 
 
-<div class="container">
+
+<div class="container mobNavs">
 
 <div class="mainField ">
   <div class="newsfeed">
@@ -190,7 +192,7 @@
     <div class="titleSec">People Attending</div>
     <div class="scrollEvents">
     <% if !@eventFollowers.empty? %>
-      <%  @eventFollowers.reverse.each do |eventFollower| %>
+      <%  @eventFollowers.reverse.first(7).each do |eventFollower| %>
       <%= link_to eventFollower, method: :get, class: "specialA" do %>
   
         <div class="followersSec">

@@ -2,6 +2,48 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+.connectedBtn{
+    background-color: #6c95af;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 100px;
+    border: 1px solid #6c95af;
+
+}
+
+
+.connectedBtn:hover{
+    background-color: #5da8d8;
+    color: white;
+    opacity: 1;
+    transition: 0.3s;
+
+}
+
+.connectBtn{
+    background-color: #ffffff;
+    color: #6c95af;
+    font-weight: 600;
+    padding: 10px 30px;
+    border-radius: 100px;
+    border: 1px solid #6c95af;
+
+}
+
+
+.connectBtn:hover{
+  background-color: #6c95af;
+  color: white;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+
+
+.nav > .navSelect > a{
+	font-size: 18px !important;
+}
+
 .titleSecSub{
 	font-size: 25px;
     font-weight: 200;

@@ -16,6 +16,48 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.navTitleEndNew{
+	float: right;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	display: inline-block;
+	color: white;
+}
+
+
+
+.moreOps{
+	left: -111px;
+}
+
+.imageNavDrop{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	height: 45px;
+}
+
+
+.dropItem{
+	padding: 10px;
+	text-decoration: none !important;
+}
+
+
+
+.pencilButton{
+	float: right;
+}
+
+
+
+.ImageNav{
+	padding: 10px;
+	height: 45px;
+   
+}
+
+
+
 .form-control{
 	box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075) !important;
 }
@@ -226,8 +268,46 @@ i {
 .navTitleEnd3:hover + .dropCont{
 	display: block;
 }
+.mobNav{
+	display: none !important;
+}
 
 @media screen and (max-width: 776px){
+	.navTitleEndMob{
+		display: inline-block;
+		padding-top: 16px;
+		padding-bottom: 16px;
+    	display: inline-block;
+    	color: white;
+    	text-align: center;
+    	width: 25%;
+	}
+
+	.ImageNavB{
+		height: 30px;
+
+	}
+	.mobNav{
+		display: block !important;
+		position: fixed;
+		bottom: 0px; 
+		left: 0px;
+		width: 100%;
+	}
+	.bottomNav{
+	    border-radius: 0px;
+	    height: 60px;
+	    background-color: white;
+	    box-shadow: 1px 0px 1px 0px;
+	}
+	.pencilButton{
+		display: none !important;
+	}
+
+	.ImageNav{
+		display: none;
+	}
+
 	.modal-dialog{
 		margin-top: 30%;
 	}

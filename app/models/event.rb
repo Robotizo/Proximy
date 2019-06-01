@@ -26,7 +26,7 @@ class Event < ApplicationRecord
 	end 
 
 
-	has_one :eventnotif, dependent: :destroy
+	has_one :eventnotif, dependent: :delete
 
 
 

@@ -16,8 +16,6 @@ class UsersController < ApplicationController
     @users = User.all.sort_by {|user| user.userInterests(current_user) + user.ccLocation(current_user.latitude, current_user.longitude) }.reverse
 
 
-
-
     @user = current_user
 
 
@@ -28,6 +26,10 @@ class UsersController < ApplicationController
   # GET /users/1 
   # GET /users/1.json
   def show
+
+    $user = User.find(params[:id])
+
+
 
     @interests = Interest.all
 
@@ -40,7 +42,8 @@ class UsersController < ApplicationController
 
 
 
-
+    
+    
 
 
 

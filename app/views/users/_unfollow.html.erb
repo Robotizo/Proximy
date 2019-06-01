@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag "users", :media => "all" %>
 
 <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),html: { method: :delete }, remote: true) do |f| %>
-  <%= image_submit_tag("minus6.png", class: "addImage") %>
+  <%= f.submit "Connected", class: "btn connectedBtn" %>
 <% end %>
 
 

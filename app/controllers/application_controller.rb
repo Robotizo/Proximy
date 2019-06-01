@@ -3,6 +3,17 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   before_action :authorize
 
+
+
+    def update_friendship
+    	@friendship = Friendship.find(params[:id])
+    	@friendship.update_attribute(:status, "accepted")
+    	Friendship.create!(user_id: current_user.id, friend_id: @friendship.user_id, status: "accepted")
+    	redirect_to @friendship.user
+
+
+  	end
+
   
 
 

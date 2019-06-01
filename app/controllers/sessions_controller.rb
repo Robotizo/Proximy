@@ -11,7 +11,12 @@ class SessionsController < ApplicationController
 
 		if user && user.authenticate(params[:session][:password])
 			session[:user_id] = user.id
-			redirect_to root_url
+			user.login_increment
+			if user.sign_in_count == 1
+				redirect_to interests_user_path(user)
+			else 
+				redirect_to root_url
+			end
 		else
 			flash.now[:alert] = 'Invalid email/password combination'
 			render 'new'

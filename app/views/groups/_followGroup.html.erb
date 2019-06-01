@@ -1,7 +1,6 @@
-<%= javascript_include_tag 'groups', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag "groups", :media => "all" %>
 
 <%= form_for(@group.passive_relationships_groups.build, method: :post) do |f| %>
 	<%= hidden_field_tag :followedG_id, @group.id %>
-	<%= f.submit "Follow Group", class: "btn btn-primary followGroupBtn" %>
+	<%= f.submit "Join Group", class: "btn connectBtn" %>
 <% end %>
