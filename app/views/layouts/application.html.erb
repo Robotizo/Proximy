@@ -8,10 +8,67 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+
+
+      var mq = window.matchMedia( "(max-width: 776px)" );
+      if (mq.matches) {
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function() {
+        var currentScrollPos = window.pageYOffset;
+          if (prevScrollpos > currentScrollPos) {
+            document.getElementById("navbar").style.top = "0";
+          } else {
+            document.getElementById("navbar").style.top = "-50px";
+
+          }
+          prevScrollpos = currentScrollPos;
+        }
+      }
+
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("theRest").style.opacity = "0.3";
+        document.getElementById("theRest").style.pointerEvents = "none";
+        document.getElementsByClassName("displayModals").style.pointerEvents = "none";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("theRest").style.opacity = "1";
+        document.getElementById("theRest").style.pointerEvents = "auto";
+
+
+      }
+
+
+
+      function openNav2() {
+        document.getElementById("mySidenav2").style.height = "250px";
+      }
+
+      function closeNav2() {
+        document.getElementById("mySidenav2").style.height = "0";
+
+      }
+
+
+          </script>
+  </head>
   <body>
-  	<nav class="navbar topNav navbar-fixed-top">
+
+
+
+
+  	<nav class="navbar topNav navbar-fixed-top" id="navbar">
 	<div class="container">
 		<div class="navTitle">
       <%= link_to root_path, method: :get, class: "specialA" do %>
@@ -36,12 +93,62 @@
       </ul>
     </div>
 
+     
+
+    <div id="mySidenav" class="sidenav">
+          <span class="sideTitle" href="javascript:void(0)">Menu</span><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times;</a>
 
 
 
-    <%= link_to current_user, method: :get, class: "specialA" do %>
-      <div class="navTitleEnd1"><%= image_tag(current_user.avatar_url(:thumb), class: "userImageNav") if current_user.avatar? %></div>
-    <% end %>
+<%= link_to current_user, method: :get, class: "specialA navElement" do %>
+  <div class="menuSec"> 
+            <span class="menuElements">
+              <%= image_tag("user.png", class: "ImageNavB") %>
+            </span>
+              <%= label_tag "Profile" %>
+  </div> 
+<% end %>
+   
+<%= link_to edit_user_path(current_user), method: :get, class: "specialA navElement" do %>
+<div class="menuSec"> 
+           <span class="menuElements">
+            <%= image_tag("settings.png", class: "ImageNavB") %>
+          </span>
+
+          <%= label_tag "Settings" %>
+</div> 
+<% end %>
+
+
+
+          <hr>
+
+<%= link_to logout_path,  method: :delete, data: {confirm: 'Are you sure?'}, class: "specialA navElement" do %>    
+  <div class="menuSec"> 
+              <span class="menuElements">
+              <%= image_tag("out.png", class: "ImageNavB") %>
+            </span>
+            <%= label_tag "Sign Out" %>
+
+
+          </div>
+<% end %>
+
+
+
+  </div> 
+
+      <%= link_to current_user, method: :get, class: "specialA" do %>
+        <div class="navTitleEnd1 ifMob1"><%= image_tag(current_user.avatar_url(:thumb), class: "userImageNav") if current_user.avatar? %></div>
+      <% end %>
+
+
+
+
+
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">
+      <div class="navTitleEnd1 ifMob2"><%= image_tag(current_user.avatar_url(:thumb), class: "userImageNav") if current_user.avatar? %></div>
+</span>
 
 
 
@@ -51,18 +158,18 @@
 
 
 
-    <%= link_to notifications_path, method: :get, class: "specialA" do %>
+    <%= link_to notifications_path, method: :get, class: "specialA dispNone" do %>
       <div class="navTitleEnd1"><%= image_tag("notifications.png", class: "ImageNav") %></div>
     <% end %>
 
 
 
-    <%= link_to groups_path, method: :get, class: "specialA" do %>
+    <%= link_to groups_path, method: :get, class: "specialA dispNone" do %>
       <div class="navTitleEnd1"><%= image_tag("groups.png", class: "ImageNav") %></div>
     <% end %>
 
 
-    <%= link_to events_path, method: :get, class: "specialA" do %>
+    <%= link_to events_path, method: :get, class: "specialA dispNone" do %>
       <div class="navTitleEnd1"><%= image_tag("event.png", class: "ImageNav") %></div>
     <% end %>
 
@@ -97,23 +204,63 @@
 
 	</div>
 </nav>
-    <%= yield %>
+<div id="clickable" onclick="closeNav()">
+  <div id="theRest" >
+      <%= yield %>
+  </div>
+</div>
 
+
+
+    <div id="mySidenav2" class="sidenav2">
+
+      <div>
+        <span class="sideTitle2" href="javascript:void(0)">Create</span>
+        <a href="javascript:void(0)" class="closebtn2" onclick="closeNav2()"> &times;</a>
+      </div>
+      
+<div class="overallCreate">
+
+      <%= link_to new_event_path, method: :get, class: "specialA navElement" do %>
+        <div class="menuSec"> 
+            <span class="menuElements">
+              <%= image_tag("event.png", class: "ImageNavB") %>
+            </span>
+              <%= label_tag "Create Event", nil, class: "ImageNavB" %>
+        </div> 
+      <% end %>
+
+            <%= link_to new_group_path, method: :get, class: "specialA navElement" do %>
+        <div class="menuSec"> 
+            <span class="menuElements">
+              <%= image_tag("groups.png", class: "ImageNavB") %>
+            </span>
+              <%= label_tag "Create Group", nil, class: "ImageNavB" %>
+        </div> 
+      <% end %>
+
+            <%= link_to new_post_path, method: :get, class: "specialA navElement" do %>
+        <div class="menuSec"> 
+            <span class="menuElements">
+              <%= image_tag("post.png", class: "ImageNavB") %>
+            </span>
+              <%= label_tag "Create Post" , nil, class: "ImageNavB" %>
+        </div> 
+      <% end %>
+  </div>
+
+
+    </div>
 
     <div class="mobNav">
         <nav class="bottomNav">
-        <div class="container">
+       
 
           <% if session[:user_id] %>
 
-
-
-
-
-          <%= link_to notifications_path, method: :get, class: "specialA" do %>
-            <div class="navTitleEndMob"><%= image_tag("notifications.png", class: "ImageNavB") %></div>
-          <% end %>
-
+          <span style="cursor:pointer" onclick="openNav2()" >
+            <div class="navTitleEndMob"><%= image_tag("create.png", class: "ImageNavB") %></div>
+          </span>
 
 
           <%= link_to groups_path, method: :get, class: "specialA" do %>
@@ -126,11 +273,14 @@
           <% end %>
 
 
+          <%= link_to notifications_path, method: :get, class: "specialA" do %>
+            <div class="navTitleEndMob"><%= image_tag("notifications.png", class: "ImageNavB") %></div>
+          <% end %>
 
 
 
 
-      </div>
+
 
 
 
@@ -139,7 +289,7 @@
 
 
 
-        </div>
+   
       </nav>
     </div>
 

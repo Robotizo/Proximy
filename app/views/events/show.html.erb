@@ -18,7 +18,7 @@
 </script>
 
 <div class="mobileArea">
-  <div class="text-center module1">
+  <div class="module1">
 
 
     <div class="imageSec">
@@ -35,20 +35,20 @@
       <div class="infoTop">Event Details</div>
 
 
-      <div class="col-md-6 col-xs-6">
+      <div class="col-md-12 col-xs-12">
         <div class="eventTitle2">Event Date</div>
-        <div class="eventTitle"><%= @event.event_date.strftime('%B %e') %></div>
+        <span class="eventTitle"><%= @event.event_date.strftime('%B %e') %></span>
         <% if @event.event_end_date.present? %>
           to
-          <div class="eventTitle"><%= @event.event_end_date.strftime('%B %e') %></div>
+          <span class="eventTitle"><%= @event.event_end_date.strftime('%B %e') %></span>
         <% end %>
       </div>
-      <div class="col-md-6 col-xs-6">
+      <div class="col-md-12 col-xs-12">
         <div class="eventTitle2">Event Time</div>
-        <div class="eventTitle"><%= @event.event_time.strftime("%I:%M %p") %></div>
+        <span class="eventTitle"><%= @event.event_time.strftime("%I:%M %p") %></span>
         <% if @event.event_end_time.present? %>
           to
-          <div class="eventTitle"><%= @event.event_end_time.strftime("%I:%M %p") %></div>
+          <span class="eventTitle"><%= @event.event_end_time.strftime("%I:%M %p") %></span>
         <% end %>
       </div>
       <% if current_user.followingE?(@event) %>
@@ -103,6 +103,13 @@
 <div class="container mobNavs">
 
 <div class="mainField ">
+    <div class="newsfeed">
+      <div class="titleSec">Information</div>
+      <div class="col-md-6 col-xs-12 postMob descriptionSec">
+
+        <%= @event.description %>
+      </div>
+    </div>
   <div class="newsfeed">
     <div class="titleSec">Newsfeed</div>
       <div class="col-md-6 col-xs-12 postMob">
@@ -199,7 +206,7 @@
         
             <div class="eImage">
               <div class="followerImageSec"><%= image_tag(eventFollower.avatar_url(:thumb), class: "groupImage2") if eventFollower.avatar? %></div>
-              <div class="followerNameSec"><%= truncate(eventFollower.name, length: 20) %></div>
+              <div class="followerNameSec"><%= truncate(eventFollower.name.gsub(/\s.+/, ''), length: 20) %></div>
             </div>
         
         </div>
@@ -239,33 +246,3 @@
 
 
 
-
-<div class="col-md-12">
-  <br>
-  <br>
-  <br>
-
-</div>
-
-
-<!--
-
-
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
-
-<p>
-  <strong>Event Creator:</strong>
-  <%= @event.user.name %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>

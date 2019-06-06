@@ -40,10 +40,6 @@
 
 
 
-.nav > .navSelect > a{
-	font-size: 18px !important;
-}
-
 .titleSecSub{
 	font-size: 25px;
     font-weight: 200;
@@ -85,17 +81,8 @@ div .show-more[aria-expanded="true"]{
 	margin-bottom: 100px;
 }
 
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
-	box-shadow: 0px 3px 0px 0px #6c95af !important;
-	border-bottom: 0px !important;
-}
 
-.nav > li > a{
-	margin: 7px;
-}
-.nav-tabs > li > a{
-	font-size: 12px !important;
-}
+
 
 .indexMar{
 	margin-top: 65px;
@@ -448,8 +435,11 @@ div.scrollGroupsI a {
 .groupTitleDisc{
 	padding-bottom: 25px;
     font-weight: 700;
-    font-size: 20px;
-    margin: 5px;
+    font-size: 18px;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-bottom: 5px;
+    margin-top: 5px;
     margin-top: 10px;
     white-space: normal;
     text-align: left;
@@ -465,10 +455,9 @@ div.scrollGroupsI a {
 }
 
 .groupImageDisc{
-	border-radius: 5px;
+	border-radius: 8px;
 	width: 100%;
     background-color: white;
-    box-shadow: 0px 0px 1px;
     
 }
 
@@ -725,9 +714,8 @@ div.scrollEvents a {
 }
 
 .userImage2{
-    border-radius: 300px;
+    border-radius: 10px;
     height: 30px;
-    border: 1px black solid;
 }
 
 .contentUserPost{
@@ -930,6 +918,19 @@ div.scrollEvents a {
 }
 
 @media screen and (max-width: 776px){
+	.form-control, .btn{
+		height: 46px;
+    	font-size: 14px;
+    	width: 100%;
+	}
+	.topTitle2{
+		font-size: 20px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		margin-left: 10px;
+		margin-right: 10px;
+		font-weight: 600;
+	}
 
 	.mobNavs{
 		padding-right: 0px;
@@ -963,16 +964,7 @@ div.scrollEvents a {
 		margin: 30px;
 	}
 
-	.groupTitleDisc{
-		padding-bottom: 25px;
-	    font-weight: 700;
-	    font-size: 20px;
-	    margin: 5px;
-	    margin-top: 10px;
-	    white-space: normal;
-	    text-align: left;
 
-	}
 
 	div.scrollGroupsI{
 		height: 230px;
@@ -995,10 +987,16 @@ div.scrollEvents a {
 	}
 	.nav-tabs > li{
 		width: 50%;
+		font-size: 14px !important;
+	}
+
+	.nav-tabs > li > a{
+
+		font-size: 14px !important;
 	}
 
 	.nav-tabs{
-		padding-top: 5px;
+		padding-top: 10px;
     	padding-bottom: 5px;
 	}
 

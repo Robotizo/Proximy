@@ -2,11 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
-
-.nav > .navSelect > a{
-	font-size: 18px !important;
+.groupBlock{
+	margin-bottom: -50px;
 }
 
+.descriptionSec{
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.panel-heading{
+  font-size: 14px;
+  font-weight: 900;
+}
+
+
+.margBottom{
+	margin-bottom: 100px;
+}
 
 .titleSecSub{
 	font-size: 25px;
@@ -33,16 +46,6 @@ div .show-more[aria-expanded="true"]{
 }
 
 
-.nav > li > a{
-	margin: 7px;
-}
-
-
-
-.panel-heading{
-	font-size: 18px;
-	font-weight: 900;
-}
 
 
 
@@ -60,7 +63,7 @@ div .show-more[aria-expanded="true"]{
     float: left;
 
     height: 360px;
-    margin-top: 35px;
+    margin-top: 30px;
 }
 
 
@@ -314,9 +317,6 @@ div .show-more[aria-expanded="true"]{
 
 /* index start */
 
-.groupBlock{
-	height: 300px;
-}
 .eventDateI{
 	text-align: left;
     width: 100%;
@@ -412,9 +412,12 @@ div.scrollGroupsI a {
     padding-bottom: 10px;
     position: relative;
     font-weight: 600;
-    margin: 5px;
+    margin-top: 5px;
+    margin-left: 2px; 
+    margin-right: 2px;
+    margin-bottom: 5px;
     top: -75px;
-    font-size: 20px;
+    font-size: 18px;
     white-space: normal;
 
 }
@@ -427,7 +430,7 @@ div.scrollGroupsI a {
 }
 
 .groupImageDisc{
-	border-radius: 4px;
+	border-radius: 8px;
 	width: 100%;
     background-color: white;
     
@@ -456,7 +459,7 @@ div.scrollGroupsI a {
 }
 
 .greenAttend{
-	background-color: #29c10f !important;
+	background-color: #6c95af !important;
 }
 
 
@@ -483,7 +486,7 @@ div.scrollGroupsI a {
 
 
 .eventTitle{
-	font-size: 24px;
+	font-size: 22px;
 	font-weight: 600;
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -493,7 +496,6 @@ div.scrollGroupsI a {
 	font-size: 20px;
 	font-weight: 600;
 	margin-top: 20px;
-	margin-bottom: 20px;
 }
 
 .infoTop{
@@ -533,25 +535,30 @@ div.scrollGroupsI a {
 
 .unAttendGroupBtn{
 	background-color: #4eb6dc;
-	border-radius: 3px;
+	border-radius: 10px;
     height: 45px;
     width: 100%;
 }
 
 .unAttendGroupBtn:hover{
-	background-color: #4eb6dc;
+	background-color: #3783b3;
+	transition: 0.3s;
+
 }
 
 
 .attendEventBtn{
-	background-color: #4eb6dc;
-	border-radius: 3px;
+	background-color: white;
+	border-radius: 10px;
     height: 45px;
     width: 100%;
+    color: #6c95af;
 }
 
 .attendEventBtn:hover{
-	background-color: #29c10f;
+	background-color: #6c95af;
+	transition: 0.3s;
+	color: white;
 }
 
 
@@ -595,12 +602,11 @@ div.scrollEvents a {
 
 .groupImage2{
     border-radius: 8px;
-    height: 150px;
+    height: 120px;
 }
 
 .followerNameSec{
-	font-size: 20px;
-    font-weight: 200;
+	font-size: 14px;
     margin: 10px;
 
 }
@@ -685,9 +691,8 @@ div.scrollEvents a {
 }
 
 .userImage2{
-    border-radius: 300px;
+    border-radius: 10px;
     height: 30px;
-    border: 1px black solid;
 }
 
 .contentUserPost{
@@ -800,6 +805,30 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px){
+	.panel{
+		padding: 5px;
+	}
+	.descriptionSec{
+		padding-left: 15px !important; 
+		padding-right: 15px !important;
+		font-size: 14px;
+		font-weight: 600;
+	}
+
+	.topTitle2{
+		font-size: 20px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		margin-left: 10px;
+		margin-right: 10px;
+		font-weight: 600;
+	}
+	.eventImgTitle{
+		border-radius: 0px;
+	}
+	.nav > li > a {
+		font-size: 14px !important;
+	}
 	.interestSec{
 		margin-top: 30px;
 		float: left;
@@ -835,13 +864,13 @@ div.scrollEvents a {
 	}
 
 	.groupBlock{
-		height: 280px;
+		margin-bottom: -50px;
 	}
 	.eventDateI{
 		font-size: 16px;
 	}
 	.eventDateDisc{
-		font-size: 20px;
+		font-size: 18px;
 	}
 	.eventContent1{
 		top: -62px;
@@ -857,7 +886,7 @@ div.scrollEvents a {
 		top: -70px;
 	}
 	.groupTitleDisc{
-		font-size: 20px;
+		font-size: 18px;
 	}
 	.nav-tabs > li{
 		width: 50%;
@@ -878,20 +907,21 @@ div.scrollEvents a {
 	}
 
 	.groupImageDisc{
-		border-radius: 4px;
 	    background-color: white;
     
 	}
 
 	.infoTop{
 	    font-size: 20px;
+	    margin-bottom: 0px;
+	    margin-top: 5px;
 	}
 
 	.eventTitle2{
 		font-size: 18px;
-		font-weight: 600;
-		margin-top: 20px;
-		margin-bottom: 20px;
+		font-weight: 400;
+		margin-top: 15px;
+
 	}	
 	.fileBtnDiv{
 		font-size: 14px !important;
@@ -928,10 +958,11 @@ div.scrollEvents a {
 		border-radius: 0px;
 	}
 	.followerNameSec{
-		font-size: 14px;
+		font-size: 12px;
+		font-weight: 700 !important;
 	}
 	.groupImage2{
-		height: 110px;
+		height: 100px;
 	}
 	.module1{
 		margin-bottom: 0px;
@@ -948,7 +979,7 @@ div.scrollEvents a {
 	}
 	.eventTitle{
 		font-size: 16px;
-	    font-weight: 200;
+	    font-weight: 700;
 	    text-align: center;
 	    margin-top: 10px;
 	}
@@ -1048,12 +1079,13 @@ div.scrollEvents a {
 	}
 
   .form-control, .btn{
-    height: 50px;
+    height: 46px;
     font-size: 14px;
     width:100%;
   }
   .create{
     width: auto;
+    z-index: 100;
     margin:0;
     right:0;
 
@@ -1065,9 +1097,6 @@ div.scrollEvents a {
       background-color:#6c94b2;
       border:none;
     }
-  }
-  body{
-    padding-bottom: 70px;
   }
   .coverImage{
     min-height:30vh;

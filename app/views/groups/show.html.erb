@@ -3,6 +3,23 @@
 <p id="notice"><%= notice %></p>
 
 
+<script>
+      $(function () { 
+      $('.panel-heading').on('click', function (e) {
+          var menuItem = $( e.currentTarget );
+
+          if (menuItem.attr('aria-expanded') === 'true') {
+              $(this).children(".show-more").text("Open");
+
+          } else {
+              $(this).children(".show-more").text("Close");
+          }
+      });
+
+    });
+</script>
+
+
 <div class=" mobileArea">
   <div class="text-center module1">
     <%= image_tag(@group.cover_image_url, class: "groupImageCover") if @group.cover_image? %>
@@ -43,10 +60,19 @@
 
 </div>
 
-  <div class="container">
-    <div class="col-md-12">
+
+<div class="container mobNavs">
+    <div class="panel panel-default interestSec">
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#animals" aria-expanded="false">
+                Interests in group <div class="show-more">Open</div>
+            </div>
+
+      <div id="animals" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+
+
       <% @group.fgI.each do |interest| %>
-        <div class="col-md-2">
+        <div class="col-md-2 col-xs-6">
           <div class="interestCard">
             <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
             <div class="interestTitleSec">
@@ -60,13 +86,24 @@
 
       <% end %>
 
+
+
+
+
+        </div>
+      </div>
     </div>
-  </div>
+</div>
+
+
+
+
+
 
 
 
     
-<div class="container">
+<div class="container mobNavs">
 <div class="mainField ">
   <div class="newsfeed">
     <div class="titleSec">Newsfeed</div>
@@ -104,6 +141,8 @@
       </div>
 
   <% if @group.group_posts.length > 1 %>
+
+
   <div class="col-md-6 col-xs-12 latestPostMain1 postMob">
     <div class="latestPostSec2">
       <% @group.group_posts.last(3).reverse.each_with_index do |group_post, index| %>
@@ -131,6 +170,11 @@
         <% end %>
       <% end %>
       <% end %>
+
+     </div>
+
+
+     
       <%= link_to group_posts_path, method: :get, class: "specialC" do %>
       <div class="laterPostBox">
         <div class="showAllPosts iconMob"><%= image_tag("viewAll.png", class: "showAllIcon") %></div>
@@ -138,8 +182,10 @@
       </div>
       <% end %>
     
-    </div>
+   
   </div>
+
+
   <% else %>
 
   <% end %>

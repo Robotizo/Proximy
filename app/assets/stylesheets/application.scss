@@ -16,6 +16,127 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+a:focus{
+	color: #23527c !important;
+	text-decoration: none !important; 
+}
+
+
+
+.overallCreate{
+	 margin-top: 68px
+}
+
+
+.test{
+	height: 200px;
+}
+
+.menuSec{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
+	    text-decoration: none;
+    color: #000000;
+    background-color: #6c95af54;
+    border-radius: 3px;
+}
+
+
+.dropdown-menu > li > a {
+    display: block;
+    padding: 7px 20px;
+    clear: both;
+    font-weight: 600;
+    /* font-weight: normal; */
+    line-height: 1.428571429;
+    color: #333333;
+    white-space: nowrap;
+}
+
+
+
+.dropdown-menu{
+	padding: 0px 0;
+}
+
+
+
+/* Concept Begin */
+
+.menuElements{
+
+
+    font-size: 27px;
+    transition: 0.1s;
+    font-weight: 800;
+    padding: 20px 8px 8px 14px;
+
+}
+.sideTitle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 27px;
+    transition: 0.1s;
+    font-weight: 800;
+    padding: 20px 8px 8px 14px;
+}
+
+.sideTitle2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 27px;
+    transition: 0.1s;
+    font-weight: 800;
+    padding: 15px 8px 8px 14px;
+}
+
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 0px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 22px;
+  display: inline-block;
+  transition: 0.1s;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+
+
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* Concept End */
+
 .navTitleEndNew{
 	float: right;
 	padding-top: 6px;
@@ -60,10 +181,14 @@
 
 .form-control{
 	box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075) !important;
+	-webkit-transition-property: none !important;
+	-moz-transition-property: none !important;
+	-o-transition-property: none !important;
+	transition-property: none !important;
 }
 .form-control:focus{
-	box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 0px rgba(102, 175, 233, 0.6) !important;
-	-webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 0px rgba(102, 175, 233, 0.6) !important;
+	box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.0), 0 0 0px rgba(0, 0, 0, 0.0) !important;
+	-webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 0px rgba(0, 0, 0, 0.0) !important;
 }
 .dropbtn {
   color: white;
@@ -126,7 +251,7 @@ a{
 
 .nav-tabs > li > a {
 	border-radius: 4px;
-	font-size: 18px;
+
 	font-weight: 600;
 }
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
@@ -272,19 +397,114 @@ i {
 	display: none !important;
 }
 
+.ifMob1{
+	display: block !important;
+}
+
+.ifMob2{
+	display: none !important;
+}
+
+.sidenav{
+	display: none !important;
+}
+
+.sidenav2{
+	display: none !important;
+}
+
+
+
+
 @media screen and (max-width: 776px){
+
+	.navElement{
+		width: 100%;
+	}
+
+
+	.sidenav{
+		display: block !important;
+	}
+
+
+	.dispNone{
+		display: none !important;
+	}
+	.ifMob2{
+		display: block !important;
+	}
+
+	.ifMob1{
+		display: none !important;
+	}
+
+	.sidenav {
+	    height: 100%;
+	    width: 0;
+	    position: fixed;
+	    z-index: 1;
+	    top: 0;
+	    right: 0;
+	    background-color: #fff;
+	    overflow-x: hidden;
+	    transition: 0.3s;
+	    padding-top: 75px;
+	    box-shadow: 0px 0px 1px;
+
+	}	
+
+
+	.sidenav2 {
+		display: block !important;
+		    overflow-y: hidden;
+	    height: 0;
+	    width: 100%;
+	    position: fixed;
+	    z-index: 1;
+	    bottom:  0;
+	    left:  0;
+	    background-color: #fff;
+	    overflow-x: hidden;
+	    transition: 0.3s;
+		box-shadow: 0px 0px 1px;
+   		margin-bottom: 54px;
+   		border-radius: 10px 10px 0px 0px;
+	}	
+
+	.sidenav2 .closebtn2 {
+	  position: absolute;
+	  top: 0;
+	  right: 25px;
+	  font-size: 36px;
+	  margin-left: 50px;
+	  padding-top: 2px;
+	  text-decoration: none !important;
+	}
+
+	#navbar {
+  		transition: top 0.5s;
+	}
+
+
+
+
+
+	.panel-body{
+		padding: 0px;
+	}
 	.navTitleEndMob{
 		display: inline-block;
-		padding-top: 16px;
-		padding-bottom: 16px;
+		padding-top: 15px;
+		padding-bottom: 15px;
     	display: inline-block;
     	color: white;
     	text-align: center;
-    	width: 25%;
+    	width: 24%;
 	}
 
 	.ImageNavB{
-		height: 30px;
+		height: 25px;
 
 	}
 	.mobNav{
@@ -296,7 +516,8 @@ i {
 	}
 	.bottomNav{
 	    border-radius: 0px;
-	    height: 60px;
+	    height: 55px;
+	    width: 100%;
 	    background-color: white;
 	    box-shadow: 1px 0px 1px 0px;
 	}
@@ -322,7 +543,7 @@ i {
 		width: 45px;
 	}
 	body{
-
+		margin-bottom: 70px;
 		margin-top: 50px;
 	}
 

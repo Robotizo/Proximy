@@ -3,6 +3,8 @@
 <p id="notice"><%= notice %></p>
 
 <div class="text-center module1">
+
+<% unless current_user.friends.include?(@user) %>
   <div class="innerModule">
     <div class="userImageSec1">
       <%= image_tag(@user.image_url, class: "userImageCover") if @user.image? %>
@@ -18,7 +20,8 @@
       </div>
     </div>
 
-    <div class="col-md-6 col-xs-12 followBtn connArea2 ">
+
+    <div class="col-md-6 col-xs-12 followBtn connArea2">
 
 
     <% if current_user.id == @user.id %>
@@ -26,7 +29,6 @@
            <%= button_to "Contacts", contacts_path, method: :get, class: "btn connectBtn" %>
       </div>
      <% end %>
-
 
     <% unless @user.id == current_user.id %>
       <% unless current_user.friends.include?(@user) %>
@@ -41,7 +43,65 @@
 
     </div>
 
+
+
+
+
+
     </div>
+
+     <% else %>
+
+      <div class="innerModule2">
+        <div class="userImageSec1">
+          <%= image_tag(@user.image_url, class: "userImageCover") if @user.image? %>
+        </div>
+        <div class="col-md-6 col-xs-12 connArea">
+          <div class="userImageSec1">
+            <%= image_tag(@user.avatar_url(:thumb), class: "userImage1") if @user.avatar? %>
+          </div>
+          <div class="userSec1">
+            <div class="userName">
+              <%= @user.name %>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-6 col-xs-12 followBtn connArea2">
+
+
+        <% if current_user.id == @user.id %>
+          <div id="follow_form">
+               <%= button_to "Contacts", contacts_path, method: :get, class: "btn connectBtn" %>
+          </div>
+         <% end %>
+
+        <% unless @user.id == current_user.id %>
+          <% unless current_user.friends.include?(@user) %>
+            <%= render 'befriend' %>
+          <% end %> 
+        <% end %>
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+     <% end %>
+
+
+
   </div>
 
 
@@ -50,8 +110,12 @@
 
 
 
-<div class="container mobNavs">
-    <div class="panel panel-default interestSec">
+<div class="container mobNavs ">
+
+  <% if current_user.friends.include?(@user) %>
+    <div class="panel panel-default">
+
+
           <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#animals" aria-expanded="false">
                 Interests in Common <div class="show-more">Open</div>
             </div>
@@ -81,7 +145,52 @@
 
         </div>
       </div>
+
+
+
     </div>
+
+  <% else %>
+      <div class="panel panel-default interestSec">
+
+
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#animals" aria-expanded="false">
+                Interests in Common <div class="show-more">Open</div>
+            </div>
+
+      <div id="animals" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+
+
+
+             
+                  <% @collideInterests.each do |interestCollide| %>
+                    <div class="col-md-2 col-xs-6">
+                      <div class="interestCard">
+                        <%= image_tag(interestCollide.image_url(:thumb), class: "interestImage") if interestCollide.image? %>
+                        <div class="interestTitleSec">
+                          <div class="interestName"><%= interestCollide.name %></div>
+                        
+                        </div>
+
+                      </div>
+                    </div>
+
+
+                  <% end %>
+
+              
+
+        </div>
+      </div>
+
+
+
+    </div>
+  <% end %>
+
+
+
 </div>
 
  <% end %>
@@ -216,7 +325,10 @@
             </div>
 
 </div>
+    <div class="laterPostBoxMob">
 
+      <div class="showAllPosts" data-toggle="modal" data-target="#show-posts"><button type="button" class="btn btnShowAll">Show All</button></div>
+    </div>
 
 
 
@@ -244,7 +356,7 @@
       <div class="titleSec">Events</div>
       <div class="scrollEvents">
         <% if !@eventsFollow.empty? %>
-          <% @eventsFollow.first(5).each do |eventsFollowing| %>
+          <% @eventsFollow.each do |eventsFollowing| %>
             <%= link_to eventsFollowing, method: :get, class: "specialA" do %>
               <div class="userEvents">
                 <div class="eventImage">

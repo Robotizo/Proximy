@@ -48,7 +48,7 @@
       <div class="titleSec">Newsfeed</div>
     </div>
     <div class="container mobNavs">
-      <div class="grid">
+      <div class="grid displayModals">
         <div class="grid-sizer"></div>
         <% @all_posts.reverse.each do |post| %>
           <div class="card grid-item" data-aos="fade-up">
@@ -108,7 +108,7 @@
 
 
 
-  <div class="modal fade" id="postModal" role="dialog">
+  <div class="modal fade displayModals" id="postModal" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
 

@@ -4,6 +4,8 @@
 
 
 
+
+
 .menuUser{
   padding: 10px;
 
@@ -33,7 +35,7 @@
     color: #6c95af;
     font-weight: 600;
     padding: 10px 30px;
-    border-radius: 100px;
+    border-radius: 10px;
     border: 1px solid #6c95af;
     outline: none !important;
 
@@ -85,7 +87,7 @@ div .show-more[aria-expanded="true"]{
 
 
 .panel-heading{
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 900;
 }
 
@@ -96,6 +98,7 @@ div .show-more[aria-expanded="true"]{
 }
 .panel-default > .panel-heading{
       background-color: #ffffff;
+
 }
 
 
@@ -245,8 +248,7 @@ div .show-more[aria-expanded="true"]{
 
 .userImageMini{
   height: 25px;
-  border-radius: 100px;
-  border: 1px solid black;
+  border-radius: 10px;
 }
 
 .nameText{
@@ -618,7 +620,7 @@ body {
 /* CARDS */
 img.userImage2 {
   height: 30px;
-  border-radius: 50%;
+  border-radius: 10px;
 }
 
 /* BOOTSTRAP */
@@ -1174,7 +1176,6 @@ body {
 .newsfeed {
   float: left;
   width: 100%;
-  margin-bottom: 25px;
 }
 
 .posterDate2 {
@@ -1223,6 +1224,10 @@ body {
   border-radius: 5px;
   float: left;
   width: 100%;
+}
+
+.laterPostBoxMob {
+  display: none;
 }
 
 .contentUserPost {
@@ -1302,6 +1307,7 @@ body {
 .connArea {
   position: relative;
   top: -130px;
+  margin-bottom: -130px;
 }
 
 
@@ -1324,9 +1330,8 @@ body {
 }
 
 .userImage2 {
-  border-radius: 300px;
   height: 30px;
-  border: 1px black solid;
+
 }
 
 
@@ -1573,6 +1578,44 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px) {
+  .panel{
+    padding: 5px;
+  }
+  .allPostsDialog{
+    width: 92% !important;
+  }
+  .laterPostBoxMob {
+    display: block !important; 
+    margin-top: 5px;
+    margin-bottom: 22px;
+    box-shadow: 0px 0px 0px 1px #dedddd;
+    border-radius: 5px;
+    float: left;
+    width: 94%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 11px;
+  }
+  .specialC{
+    display: block !important;
+  }
+  .latestPostSec2{
+    display: none;
+  }
+  .scrollEvents::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .scrollGroups::-webkit-scrollbar {
+    height: 5px;
+  }
+  .innerModule2{
+    position: relative;
+    width: 100%;
+    float: left;
+    height: 300px;
+  }
+
   .connectBtn{
     width: 90%;
 
@@ -1590,9 +1633,10 @@ div.scrollEvents a {
   }
 
   .interestSec{
-    margin-top: 70px;
+    margin-top: 20px;
     float: left;
     width: 100%;
+
   }
 
   
@@ -1636,7 +1680,7 @@ div.scrollEvents a {
   }
 
   .btnShowAll {
-    font-size: 20px;
+    font-size: 12px;
   }
   .showAllIcon {
     height: 120px;
@@ -1766,7 +1810,7 @@ div.scrollEvents a {
 
   .userImage1 {
     border-radius: 15px;
-    height: 150px;
+    height: 140px;
   }
   .module1 {
     border-radius: 0px;
@@ -1782,6 +1826,7 @@ div.scrollEvents a {
   .connArea {
     padding-left: 0px;
     padding-right: 0px;
+    margin-bottom: 0px;
   }
 
   .gJoined {
@@ -1828,22 +1873,6 @@ div.scrollEvents a {
   }
 
 
-  div.latestPostSec2 {
-    overflow: auto;
-    white-space: nowrap;
-  }
-
-
-  div.latestPostSec2 .card {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 8px;
-    padding-top: 10px;
-    text-decoration: none;
-    width: 60%;
-  }
-
   div.scrollEvents {
     overflow: auto;
     white-space: nowrap;
@@ -1887,9 +1916,6 @@ div.scrollEvents a {
   }
 
 
-  .btnShowAll {
-    font-size: 20px;
-  }
 
   .postTitle2 {
     font-size: 16px;
@@ -1899,7 +1925,7 @@ div.scrollEvents a {
     font-size: 12px;
   }
   .userName {
-    font-size: 26px;
+    font-size: 20px;
   }
   .titleGroups {
     font-size: 16px;

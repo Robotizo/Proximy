@@ -203,7 +203,7 @@ div#modalPostImage {
 /* CARDS */
 img.userImage2 {
   height: 30px;
-  border-radius: 50%;
+  border-radius: 10px;
   padding-right: 2px;
 }
 
@@ -220,7 +220,7 @@ img.userImage2 {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+  border-radius: 0.75rem;
 }
 
 .card > hr {
@@ -286,7 +286,7 @@ img.userImage2 {
 }
 
 .card-footer:last-child {
-  border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
+  border-radius: 0 0 calc(0.75rem - 1px) calc(0.75rem - 1px);
 }
 
 .card-header-tabs {
@@ -317,8 +317,8 @@ img.userImage2 {
 
 .card-img-top {
   width: 100%;
-  border-top-left-radius: calc(0.25rem - 1px);
-  border-top-right-radius: calc(0.25rem - 1px);
+  border-top-left-radius: calc(0.75rem - 1px);
+  border-top-right-radius: calc(0.75rem - 1px);
 }
 
 .card-img-bottom {
