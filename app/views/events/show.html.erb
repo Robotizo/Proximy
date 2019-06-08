@@ -1,21 +1,10 @@
 <%= stylesheet_link_tag "events", :media => "all" %>
+<%= javascript_include_tag 'events', 'data-turbolinks-track': 'reload' %>
 <p id="notice"><%= notice %></p>
 
-<script>
-      $(function () { 
-      $('.panel-heading').on('click', function (e) {
-          var menuItem = $( e.currentTarget );
 
-          if (menuItem.attr('aria-expanded') === 'true') {
-              $(this).children(".show-more").text("Open");
 
-          } else {
-              $(this).children(".show-more").text("Close");
-          }
-      });
 
-    });
-</script>
 
 <div class="mobileArea">
   <div class="module1">
@@ -110,87 +99,161 @@
         <%= @event.description %>
       </div>
     </div>
-  <div class="newsfeed">
-    <div class="titleSec">Newsfeed</div>
-      <div class="col-md-6 col-xs-12 postMob">
-        <% if !@event.event_posts.empty? %>
 
 
 
-        <div class="latestPostSec">
-          <%  @event.event_posts.last(1).each do |event_post| %>
-            <%= image_tag(event_post.image_url(:post), class: "postImageCover") if event_post.image? %>
-            <div class="infoSection">
-              <div class="postContent"><%= event_post.content %></div>
-            </div>
-            <div class="userSig">
-            <div class="userSignWithin">
-              <div class="postUserSec">
-                <div class="imageUserPost">
-                <%= link_to event_post.event, method: :get, class: "specialA" do %>
+
+
+
+<div class="newsfeed">
+  <div class="titleSec">Newsfeed</div>
+
+  <% if !@event.event_posts.empty? %>
+
+    <div class="col-md-6 col-xs-12 noPad1">
+
+      <% @event.event_posts.last(1).each do |event_post| %>
+        <div class="card">
+
+          <span data-toggle="modal" data-target="#postModalE"
+          data-posterE="<%= event_post.event.title %>"
+          data-bodyE="<%= event_post.content %>"
+          data-timeE="<%= event_post.updated_at.to_time.strftime('%B %e') %>"
+          <%= ("data-imageE=\"" << event_post.image_url(:post) << "\"") if event_post.image? %>
+          <%= ("data-testE=\"" << event_post.event.image_url(:thumb) << "\"") if event_post.event.image? %> 
+          >
+
+            <div class="material-icons text-muted launch-modal align-middle">
+
+
+              <%= image_tag(event_post.image_url(:post), class: "card-img-top") if event_post.image? %>
+
+              <div class="card-body">
+                <p class="card-text"><%= truncate event_post.content, length: 500, separator: ' ' %></p>
+              </div>
+
+
+
+              <div class="card-footer">
+                <%= link_to event_post.user, method: :get, class: "specialA bottomSign" do %>
                   <%= image_tag(event_post.event.image_url(:thumb), class: "userImage2") if event_post.event.image? %>
-                <% end %> 
-                </div>
-                <div class="contentUserPost">
-                  <span class="poster"><%= event_post.event.title %> |</span> 
-                  <span class="posterDate"><%= event_post.updated_at.to_time.strftime('%B %e') %></span>
-                </div>
+                <% end %>
+
+                <small class="text-muted"><%= event_post.event.title %> on <%= event_post.updated_at.to_time.strftime('%B %e') %></small>
               </div>
+
             </div>
-          </div>
-          <% end %>
+
+
+          </span>
+
         </div>
 
 
-        <% else %>
-          <div class="noFollowSec">
-            <div class="noFollowSecText">There are no posts yet.</div>
-          </div>
 
-        <% end %>
-      </div>
-
-    <% if @event.event_posts.length > 1 %>
-      <div class="col-md-6 col-xs-12 latestPostMain1 postMob">
-        <div class="latestPostSec2">
-          <% @event.event_posts.last(4).reverse.each_with_index do |event_post, index| %>
-          <% unless index == 0 %>
-            <%= link_to event_post, method: :get, class: "specialA" do %>
-              <div class="laterPostBox">
-                <div class="imageSubPost">
-                  <%= image_tag(event_post.image_url(:subpost), class: "postImageCover2") if event_post.image? %>
-                </div>
-                <div class="contentSubPost">
-                  <div class="postContent2"><%= truncate(event_post.content, length: 120) %></div> 
-                  <div class="userSignMini">
-                    <span class="imageMini">
-                      <%= image_tag(event_post.event.image_url(:thumb), class: "userImage3") if event_post.event.image? %>
-                    </span>
-                    <span class="poster"><%= event_post.event.title %> </span> 
-                  
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-          <% end %>
-          <%= link_to event_posts_path, method: :get, class: "specialC" do %>
-          <div class="laterPostBox">
-            <div class="showAllPosts iconMob"><%= image_tag("viewAll.png", class: "showAllIcon") %></div>
-            <div class="showAllPosts"><%= button_tag "Show All", class: "btn  btnShowAll" %></div>
-          </div>
-          <% end %>
-        
-        </div>
-      </div>
-
-
-
-      <% else %>
 
       <% end %>
 
+
     </div>
+
+
+    <div class="latestPostSec2">
+          <% if @event.event_posts.length > 1 %>
+            <div class="col-md-6 col-xs-12 noPad2">
+
+              <% @event.event_posts.last(3).reverse.each_with_index do |event_post, index| %>
+                <% unless index == 0 %>
+                  <div class="laterPostBox subPost">
+                
+               
+                  <span data-toggle="modal" data-target="#postModalE"
+                              data-bodyE="<%= event_post.content %>"
+                              data-posterE="<%= event_post.user.name %>"
+                              data-timeE="<%= event_post.updated_at.to_time.strftime('%B %e') %>"
+                              <%= ("data-imageE=\"" << event_post.image_url(:post) << "\"") if event_post.image? %>
+                              <%= ("data-testE=\"" << event_post.event.image_url(:thumb) << "\"") if event_post.event.image? %>
+                  >
+                  <div class="material-icons text-muted launch-modal align-middle">
+
+
+                      <div class="row no-gutters ">
+                        <div class="col-md-6 col-xs-12 post-image-background"
+                             style="background-image: url(<%= event_post.image_url(:post) %>);">
+                        </div>
+
+
+                        <div class="col-md-6 col-xs-12 ">
+                          <div class="card-body infoSecPost">
+                            <p class="card-text"><%= truncate event_post.content, length: 150, separator: ' ' %></p>
+                          </div>
+                          <div class="nameText">
+                            <span><%= image_tag(event_post.event.image_url(:thumb), class: "userImageMini") if event_post.event.image? %></span>
+                            <span class="card-text textMini"><%= truncate event_post.event.title, length: 150, separator: ' ' %></span>
+                          </div>
+
+                        </div>
+
+
+
+                      </div>
+
+
+
+                  </div>
+   
+              </span>
+                
+
+
+
+                </div>
+                <% end %>
+
+
+              <% end %>
+
+
+
+
+                  <div class="laterPostBox">
+
+                    <div class="showAllPosts" data-toggle="modal" data-target="#show-posts"><button type="button" class="btn btnShowAll">Show All</button></div>
+                  </div>
+
+
+            </div>
+
+</div>
+    <div class="laterPostBoxMob">
+
+      <div class="showAllPosts" data-toggle="modal" data-target="#show-posts"><button type="button" class="btn btnShowAll">Show All</button></div>
+    </div>
+
+
+
+
+          <% end %>
+
+
+
+
+
+
+
+
+  <% else %>
+      <div class="noFollowSec">
+        <div class="noFollowSecText">There are no posts yet.</div>
+      </div>
+
+  <% end %>
+
+</div>
+
+
+
+
 
 
 
@@ -222,11 +285,17 @@
 
     
     </div>
-      <%= link_to posts_path, method: :get, class: "specialC" do %>
-      <div class="showFollowersBtn">
-        <div class="followersBtn"><%= button_tag "Show All Users", class: "btn  btnShowAll" %></div>
-      </div>
-    <% end %>
+
+
+
+    <div class="laterPostBox2">
+
+      <div class="showAllPosts" data-toggle="modal" data-target="#show-users"><button type="button" class="btn btnShowAll">Show Users</button></div>
+    </div>
+
+
+
+
   </div>
 
   
@@ -243,6 +312,186 @@
 
 
 </div>
+
+
+
+
+
+<div class="modal fade" id="postModalE" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div id="modalPostImage"></div>
+      <div class="modal-body">
+        <div id="modalPostBody"></div>
+      </div>
+      <div class="modal-footer">
+        <span id="test" class="userImageModal"></span>
+        <span class="modal-title" id="modalPoster"></span> on
+        <span class="modal-title" id="modalPostTime"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<% if !@event.event_posts.empty? %>
+  <div class="modal fade" id="show-posts" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered allPostsDialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="grid" id="masonry">
+            <div class="grid-sizer"></div>
+            <% @event.event_posts.reverse.each do |event_post| %>
+              <div class="card grid-item allPostsCard">
+                <div class="material-icons text-muted launch-modal align-middle">
+                  <%= image_tag(event_post.image_url(:post), class: "card-img-top allPostsImage") if event_post.image? %>
+                  <% if !event_post.content.blank? %>
+                    <div class="card-body">
+                      <p class="card-text"><%= truncate event_post.content, length: 500, separator: ' ' %></p>
+                    </div>
+                  <% end %>
+                  <div class="card-footer">
+                    <%= link_to event_post.event, method: :get, class: "specialA bottomSign" do %>
+                      <%= image_tag(event_post.event.image_url(:thumb), class: "userImage2") if event_post.event.image? %>
+                    <% end %>
+                    <small class="text-muted"><%= event_post.event.title %> on <%= event_post.updated_at.to_time.strftime('%B %e') %></small>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% if !@eventFollowers.empty? %>
+  <div class="modal fade" id="show-users" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered allPostsDialog" role="document">
+      <div class="modal-content-users">
+        <div class="modal-body">
+          <div class="grid" id="masonry">
+            <div class="grid-sizer"></div>
+
+
+            <% @eventFollowers.each do |eventFollower| %>
+             <%= link_to eventFollower, method: :get, class: "specialA" do %>
+              <div class="card grid-item-user allPostsCard">
+                <div class="material-icons text-muted launch-modal align-middle">
+                  <%= image_tag(eventFollower.avatar_url(:thumb), class: "card-img-top allPostsImage") if eventFollower.avatar? %>
+                    <div class="card-body">
+                      <p class="card-text nameBold"><%= truncate eventFollower.name.gsub(/\s.+/, ''), length: 500, separator: ' ' %></p>
+                    </div>
+
+                </div>
+              </div>
+
+              <% end %>
+            <% end %>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
+
+
+<script>
+
+
+        $(function () { 
+      $('.panel-heading').on('click', function (e) {
+          var menuItem = $( e.currentTarget );
+
+          if (menuItem.attr('aria-expanded') === 'true') {
+              $(this).children(".show-more").text("Open");
+
+          } else {
+              $(this).children(".show-more").text("Close");
+          }
+      });
+
+    });
+
+
+
+    $('#show-posts').on('shown.bs.modal', function (e) {
+        $('#masonry').masonry({
+            columnWidth: '.grid-sizer',
+            itemSelector: '.grid-item',
+            percentPosition: true,
+            gutter: 10,
+            horizontalOrder: true,
+            stagger: 30
+        });
+    });
+
+
+
+
+
+      $('#postModalE').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+
+    
+        var posterName = button.attr('data-posterE');
+
+
+
+        var postBody = button.attr('data-bodyE');
+
+
+
+        var postTime = button.attr('data-timeE');
+
+
+        if (button.attr("data-imageE") !== undefined) {
+            var imageURL = button.attr("data-imageE");
+            $("#modalPostImage").html("<img src=" + imageURL + ">");
+        }
+
+
+
+        if (button.attr("data-testE") !== undefined) {
+            var userImageURL = button.attr("data-testE");
+            $("#test").html("<img src=" + userImageURL + ">");
+        }
+
+
+
+
+
+        var modal = $(this);
+
+        $("#modalPoster").text(posterName);
+
+
+
+        $("#modalPostBody").text(postBody);
+        $("#modalPostTime").text(postTime);
+    })
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
 
 
 

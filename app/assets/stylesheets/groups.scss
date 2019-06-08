@@ -2,11 +2,480 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+
+
+.grid-item-user{
+	width: calc(25% - 10px);
+}
+
+.nameBold{
+	font-weight: 700;
+}
+
+.laterPostBox2{
+	margin-bottom: 22px;
+	 box-shadow: 0px 0px 0px 1px #dedddd;
+    border-radius: 5px;
+    float: left;
+    width: 100%;
+}
+
+.grid-item, .grid-sizer {
+  width: calc(50% - 10px);
+}
+
+@media screen and (max-width: 776px){
+  .grid-item, .grid-sizer {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+
+.scrollEvents::-webkit-scrollbar-track {
+  background: none;
+}
+
+.scrollEvents::-webkit-scrollbar {
+  height: 10px;
+}
+
+
+.scrollEvents::-webkit-scrollbar:active {
+  height: 30px;
+}
+
+
+
+.scrollEvents::-webkit-scrollbar-thumb {
+  background: rgb(212, 224, 231);
+  border-radius: 5px;
+}
+
+.descriptionSec{
+    font-size: 18px;
+    font-weight: 300;
+}
+
+
+#follow_formDes{
+	display: block !important;
+}
+
+#follow_formMob{
+	display: none !important;
+}
+
+
+/* Card Begin */
+.textMini {
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+.infoSecPost{
+	height: 100px;
+}
+
+.userImageMini{
+  height: 25px;
+  border-radius: 10px;
+}
+
+
+.nameText{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.modal-footer{
+  padding: 0.75rem 1.25rem;
+  text-align: left;
+}
+
+
+.userImageModal{
+	padding-right: 3px;
+}
+
+.userImageModal img{
+    height: 30px;
+    border-radius: 10px;
+}
+
+.bottomSign{
+  padding-right: 3px;
+}
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  .col, [class*=col-] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.row.no-gutters {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div.col-md-6.post-image-background{
+  height: 130px;
+  border-bottom-left-radius: calc(0.25rem - 1px);
+  border-top-left-radius: calc(0.25rem - 1px);
+}
+
+.row.no-gutters > .post-image-background {
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center center;
+}
+
+.modal-body {
+  padding: 0;
+}
+
+.modal-header.row {
+  margin: 0;
+}
+
+.modal-title {
+  padding: 0;
+}
+
+#modalPostBody {
+  padding: 15px;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.launch-modal{
+  cursor: pointer;
+}
+
+
+#modalPostImage img {
+  width: 100%;
+}
+
+div#modalPostImage {
+  width: 100%;
+}
+
+.modal-open .modal{
+  padding-bottom: 50px;
+}
+.allPostsCard{
+  border: 0px !important;
+  border-radius: 15px !important;
+  float: left;
+  margin: 5px;
+}
+
+
+
+.allPostsDialog{
+  width: 70% !important;
+}
+
+/* Final Edits */
+.user-display-tab {
+  padding-left: 0;
+}
+
+#show-posts .modal-dialog .modal-content {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.posts-modal-body {
+  padding: 10px;
+}
+
+.edit-body {
+  padding-top: 50px;
+}
+
+#body-placeholder {
+  padding: 0 20px 20px 20px;
+}
+
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 50%;
+
+  }
+}
+
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.75rem;
+  margin-bottom: 15px;
+}
+
+.card > hr {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.card > .list-group:first-child .list-group-item:first-child {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.card > .list-group:last-child .list-group-item:last-child {
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem;
+}
+
+.card-title {
+  margin-bottom: 0.75rem;
+}
+
+.card-subtitle {
+  margin-top: -0.375rem;
+  margin-bottom: 0;
+}
+
+.card-text:last-child {
+  margin-bottom: 0;
+}
+
+.card-link:hover {
+  text-decoration: none;
+}
+
+.card-link + .card-link {
+  margin-left: 1.25rem;
+}
+
+.card-header {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-header:first-child {
+  border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+}
+
+.card-header + .list-group .list-group-item:first-child {
+  border-top: 0;
+}
+
+.card-footer {
+  padding: 0.75rem 1rem;
+  background-color: white;
+}
+
+.card-footer:last-child {
+  border-radius: 0 0 calc(0.75rem - 1px) calc(0.75rem - 1px);
+}
+
+.card-header-tabs {
+  margin-right: -0.625rem;
+  margin-bottom: -0.75rem;
+  margin-left: -0.625rem;
+  border-bottom: 0;
+}
+
+.card-header-pills {
+  margin-right: -0.625rem;
+  margin-left: -0.625rem;
+}
+
+.card-img-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1.25rem;
+}
+
+.card-img {
+  width: 100%;
+  border-radius: calc(0.25rem - 1px);
+}
+
+.card-img-top {
+  width: 100%;
+  border-top-left-radius: calc(0.75rem - 1px);
+  border-top-right-radius: calc(0.75rem - 1px);
+}
+
+.card-img-bottom {
+  width: 100%;
+  border-bottom-right-radius: calc(0.25rem - 1px);
+  border-bottom-left-radius: calc(0.25rem - 1px);
+}
+
+.card-deck {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.card-deck .card {
+  margin-bottom: 15px;
+}
+
+@media (min-width: 576px) {
+  .card-deck {
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  .card-deck .card {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex: 1 0 0%;
+    flex: 1 0 0%;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-right: 15px;
+    margin-bottom: 0;
+    margin-left: 15px;
+  }
+}
+
+.card-group {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.card-group > .card {
+  margin-bottom: 15px;
+}
+
+@media (min-width: 576px) {
+  .card-group {
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+  }
+  .card-group > .card {
+    -ms-flex: 1 0 0%;
+    flex: 1 0 0%;
+    margin-bottom: 0;
+  }
+  .card-group > .card + .card {
+    margin-left: 0;
+    border-left: 0;
+  }
+  .card-group > .card:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .card-group > .card:not(:last-child) .card-img-top,
+  .card-group > .card:not(:last-child) .card-header {
+    border-top-right-radius: 0;
+  }
+  .card-group > .card:not(:last-child) .card-img-bottom,
+  .card-group > .card:not(:last-child) .card-footer {
+    border-bottom-right-radius: 0;
+  }
+  .card-group > .card:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .card-group > .card:not(:first-child) .card-img-top,
+  .card-group > .card:not(:first-child) .card-header {
+    border-top-left-radius: 0;
+  }
+  .card-group > .card:not(:first-child) .card-img-bottom,
+  .card-group > .card:not(:first-child) .card-footer {
+    border-bottom-left-radius: 0;
+  }
+}
+
+.card-columns .card {
+  margin-bottom: 0.75rem;
+}
+
+@media (min-width: 576px) {
+  .card-columns {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-gap: 1.25rem;
+    -moz-column-gap: 1.25rem;
+    column-gap: 1.25rem;
+    orphans: 1;
+    widows: 1;
+  }
+  .card-columns .card {
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+.accordion > .card {
+  overflow: hidden;
+}
+
+.accordion > .card:not(:first-of-type) .card-header:first-child {
+  border-radius: 0;
+}
+
+.accordion > .card:not(:first-of-type):not(:last-of-type) {
+  border-bottom: 0;
+  border-radius: 0;
+}
+
+.accordion > .card:first-of-type {
+  border-bottom: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.accordion > .card:last-of-type {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.accordion > .card .card-header {
+  margin-bottom: -1px;
+}
+
+/* END CARDS */
+
 .connectedBtn{
     background-color: #6c95af;
     color: white;
     padding: 10px 30px;
-    border-radius: 100px;
+    border-radius: 10px;
     border: 1px solid #6c95af;
 
 }
@@ -25,7 +494,7 @@
     color: #6c95af;
     font-weight: 600;
     padding: 10px 30px;
-    border-radius: 100px;
+    border-radius: 10px;
     border: 1px solid #6c95af;
 
 }
@@ -63,7 +532,7 @@ div .show-more[aria-expanded="true"]{
 
 
 .panel-heading{
-	font-size: 18px;
+	font-size: 14px;
 	font-weight: 900;
 }
 
@@ -510,12 +979,12 @@ div.scrollGroupsI a {
 }
 
 
-.followerNameSec{
-	font-size: 20px;
-    font-weight: 200;
-    margin: 10px;
-}
 
+.followerNameSec{
+	font-size: 12px;
+    margin: 10px;
+
+}
 
 
 .followersSec{
@@ -628,7 +1097,7 @@ div.scrollEvents a {
 
 .groupImage2{
     border-radius: 8px;
-    height: 150px;
+    height: 128px;
 }
 
 
@@ -736,14 +1205,18 @@ div.scrollEvents a {
 }
 
 .laterPostBox{
-	margin-top: 5px;
 	margin-bottom: 22px;
 	 box-shadow: 0px 0px 0px 1px #dedddd;
     border-radius: 5px;
     float: left;
     width: 100%;
-    
 }
+
+
+.laterPostBoxMob {
+  display: none;
+}
+
 
 .imageSubPost{
 	width: 50%;
@@ -853,12 +1326,6 @@ div.scrollEvents a {
 
 }
 
-.userImage2{
-    border-radius: 300px;
-    height: 30px;
-    border: 1px black solid;
-}
-
 .contentUserPost{
 	width: 85%;
 	float: left;
@@ -917,12 +1384,80 @@ div.scrollEvents a {
     font-weight: 600;
 }
 
+
+div.scrollEvents{
+
+}
+
 @media screen and (max-width: 776px){
-	.form-control, .btn{
-		height: 46px;
-    	font-size: 14px;
-    	width: 100%;
+	.grid-item-user{
+		width: calc(50% - 10px);
 	}
+
+	.laterPostBox2 {
+	    display: block !important; 
+	    margin-top: 5px;
+	    margin-bottom: 22px;
+	    box-shadow: 0px 0px 0px 1px #dedddd;
+	    border-radius: 5px;
+	    float: left;
+	    width: 94%;
+	    padding-left: 15px;
+	    padding-right: 15px;
+	    margin-left: 11px;
+  	}
+
+
+	.allPostsDialog{
+    	width: 92% !important;
+  	}
+
+	 .laterPostBoxMob {
+	    display: block !important; 
+	    margin-top: 5px;
+	    margin-bottom: 22px;
+	    box-shadow: 0px 0px 0px 1px #dedddd;
+	    border-radius: 5px;
+	    float: left;
+	    width: 94%;
+	    padding-left: 15px;
+	    padding-right: 15px;
+	    margin-left: 11px;
+  	}
+
+	.scrollEvents::-webkit-scrollbar {
+    	height: 5px;
+  	}
+
+	.marginMob{
+		margin-bottom: 30px;
+	}
+
+
+	.titleInfo{
+		height: 160px;
+	}
+
+
+	.panel{
+		padding: 5px;
+	}
+	.noPad1{
+    	padding-left: 4px !important;
+    	padding-right: 4px !important;
+  	}
+
+	.descriptionSec{
+		padding-left: 15px !important; 
+		padding-right: 15px !important;
+		font-size: 14px;
+		font-weight: 600;
+	}
+  	.form-control, .btn{
+
+    	font-size: 12px;
+    	width:100%;
+ 	}
 	.topTitle2{
 		font-size: 20px;
 		margin-top: 20px;
@@ -1007,9 +1542,6 @@ div.scrollEvents a {
 		display: block;
 	}
 
-	.btnShowAll{
-		font-size: 20px;
-	}
 	.showAllIcon{
 		height: 120px;
 	    display: block;
@@ -1095,10 +1627,11 @@ div.scrollEvents a {
 		border-radius: 0px !important;
 	}
 	.followerNameSec{
-		font-size: 14px;
+		font-size: 12px;
+		font-weight: 700 !important;
 	}
 	.groupImage2{
-		height: 110px;
+		height: 100px;
 	}
 	.titleSec{
 	    font-size: 22px;
@@ -1112,7 +1645,8 @@ div.scrollEvents a {
 		padding: 10px 14px;
 	}
 	.groupTitle{
-		font-size: 25px;
+		font-size: 18px;
+    	padding-top: 18px;
 	}
 	.groupInfoSec{
 		width: 60%;
@@ -1197,6 +1731,16 @@ div.scrollEvents a {
 	.noFollowSec{
 		margin-left: 15px;
 	}
+
+
+	#follow_formDes{
+		display: none !important;
+	}
+
+	#follow_formMob{
+		display: block !important;
+	}
+
 
 	/* Events End */
 }

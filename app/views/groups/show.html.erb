@@ -3,21 +3,7 @@
 <p id="notice"><%= notice %></p>
 
 
-<script>
-      $(function () { 
-      $('.panel-heading').on('click', function (e) {
-          var menuItem = $( e.currentTarget );
 
-          if (menuItem.attr('aria-expanded') === 'true') {
-              $(this).children(".show-more").text("Open");
-
-          } else {
-              $(this).children(".show-more").text("Close");
-          }
-      });
-
-    });
-</script>
 
 
 <div class=" mobileArea">
@@ -36,7 +22,7 @@
 
 
 
-        <div id="follow_form">
+        <div id="follow_formDes">
           <% if current_user.followingG?(@group) %>
             <%= render 'unfollowGroup' %>
           <% else %>
@@ -54,6 +40,15 @@
         </div>
       </div>
 
+<div class="col-xs-12 marginMob">
+        <div id="follow_formMob">
+          <% if current_user.followingG?(@group) %>
+            <%= render 'unfollowGroup' %>
+          <% else %>
+            <%= render 'followGroup' %>
+          <% end %>
+        </div>
+</div>
 
 
 
@@ -105,94 +100,169 @@
     
 <div class="container mobNavs">
 <div class="mainField ">
-  <div class="newsfeed">
-    <div class="titleSec">Newsfeed</div>
-      <div class="col-md-6 col-xs-12 postMob">
-      <% if !@group.group_posts.empty? %>
-        <div class="latestPostSec">
-          <%  @group.group_posts.last(1).each do |group_post| %>
-            <%= image_tag(group_post.image_url(:post), class: "postImageCover") if group_post.image? %>
-            <div class="infoSection">
-              <div class="postContent"><%= group_post.content %></div>
-            </div>
-            <div class="userSig">
-            <div class="userSignWithin">
-              <div class="postUserSec">
-                <div class="imageUserPost">
-                <%= link_to group_post.group, method: :get, class: "specialA" do %>
+
+      <div class="newsfeed">
+      <div class="titleSec">Information</div>
+      <div class="col-md-6 col-xs-12 postMob descriptionSec">
+
+        <%= @group.description %>
+      </div>
+    </div>
+
+
+
+
+
+<div class="newsfeed">
+  <div class="titleSec">Newsfeed</div>
+
+  <% if !@group.group_posts.empty? %>
+
+    <div class="col-md-6 col-xs-12 noPad1">
+
+      <% @group.group_posts.last(1).each do |group_post| %>
+        <div class="card">
+
+          <span data-toggle="modal" data-target="#postModalG"
+          data-posterG="<%= group_post.group.title %>"
+          data-bodyG="<%= group_post.content %>"
+          data-timeG="<%= group_post.updated_at.to_time.strftime('%B %e') %>"
+          <%= ("data-imageG=\"" << group_post.image_url(:post) << "\"") if group_post.image? %>
+          <%= ("data-testG=\"" << group_post.group.image_url(:thumb) << "\"") if group_post.group.image? %> 
+          >
+
+            <div class="material-icons text-muted launch-modal align-middle">
+
+
+              <%= image_tag(group_post.image_url(:post), class: "card-img-top") if group_post.image? %>
+
+              <div class="card-body">
+                <p class="card-text"><%= truncate group_post.content, length: 500, separator: ' ' %></p>
+              </div>
+
+
+
+              <div class="card-footer">
+                <%= link_to group_post.user, method: :get, class: "specialA bottomSign" do %>
                   <%= image_tag(group_post.group.image_url(:thumb), class: "userImage2") if group_post.group.image? %>
-                <% end %> 
-                </div>
-                <div class="contentUserPost">
-                  <span class="poster"><%= group_post.group.title %> |</span> 
-                  <span class="posterDate"><%= group_post.updated_at.to_time.strftime('%B %e') %></span>
-                </div>
+                <% end %>
+
+                <small class="text-muted"><%= group_post.group.title %> on <%= group_post.updated_at.to_time.strftime('%B %e') %></small>
               </div>
+
             </div>
-          </div>
-          <% end %>
+
+
+          </span>
+
         </div>
-      <% else %>
-        <div class="noFollowSec">
-          <div class="noFollowSecText">There are no posts yet.</div>
-        </div>
+
+
+
 
       <% end %>
-      </div>
-
-  <% if @group.group_posts.length > 1 %>
 
 
-  <div class="col-md-6 col-xs-12 latestPostMain1 postMob">
+    </div>
+
+
     <div class="latestPostSec2">
-      <% @group.group_posts.last(3).reverse.each_with_index do |group_post, index| %>
-      <% unless index == 0 %>
-        <%= link_to group_post, method: :get, class: "specialA" do %>
-          <div class="laterPostBox">
-            <div class="imageSubPost">
-              <%= image_tag(group_post.image_url(:subpost), class: "postImageCover2") if group_post.image? %>
-            </div>
-            <div class="contentSubPost">
-              <div class="postContent2"><%= truncate(group_post.content, length: 120) %></div> 
+          <% if @group.group_posts.length > 1 %>
+            <div class="col-md-6 col-xs-12 noPad2">
+
+              <% @group.group_posts.last(3).reverse.each_with_index do |group_post, index| %>
+                <% unless index == 0 %>
+                  <div class="laterPostBox subPost">
+                
+               
+                  <span data-toggle="modal" data-target="#postModalG"
+                              data-bodyG="<%= group_post.content %>"
+                              data-posterG="<%= group_post.user.name %>"
+                              data-timeG="<%= group_post.updated_at.to_time.strftime('%B %e') %>"
+                              <%= ("data-imageG=\"" << group_post.image_url(:post) << "\"") if group_post.image? %>
+                              <%= ("data-testG=\"" << group_post.group.image_url(:thumb) << "\"") if group_post.group.image? %>
+                  >
+                  <div class="material-icons text-muted launch-modal align-middle">
 
 
-              <div class="userSignMini">
-                <span class="imageMini">
-                  <%= image_tag(group_post.group.image_url(:thumb), class: "userImage3") if group_post.group.image? %>
-                </span>
-                <span class="posterMini"><%= group_post.group.title %> </span> 
-                <span class="posterDateMini posterDateMob">| <%= group_post.updated_at.to_time.strftime('%B %e') %></span>
-              </div>
+                      <div class="row no-gutters ">
+                        <div class="col-md-6 col-xs-12 post-image-background"
+                             style="background-image: url(<%= group_post.image_url(:post) %>);">
+                        </div>
 
 
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-      <% end %>
+                        <div class="col-md-6 col-xs-12 ">
+                          <div class="card-body infoSecPost">
+                            <p class="card-text"><%= truncate group_post.content, length: 150, separator: ' ' %></p>
+                          </div>
+                          <div class="nameText">
+                            <span><%= image_tag(group_post.group.image_url(:thumb), class: "userImageMini") if group_post.group.image? %></span>
+                            <span class="card-text textMini"><%= truncate group_post.group.title, length: 150, separator: ' ' %></span>
+                          </div>
 
-     </div>
+                        </div>
 
 
-     
-      <%= link_to group_posts_path, method: :get, class: "specialC" do %>
-      <div class="laterPostBox">
-        <div class="showAllPosts iconMob"><%= image_tag("viewAll.png", class: "showAllIcon") %></div>
-        <div class="showAllPosts"><%= button_tag "Show All", class: "btn  btnShowAll" %></div>
-      </div>
-      <% end %>
-    
+
+                      </div>
+
+
+
+                  </div>
    
-  </div>
+              </span>
+                
+
+
+
+                </div>
+                <% end %>
+
+
+              <% end %>
+
+
+
+
+                  <div class="laterPostBox">
+
+                    <div class="showAllPosts" data-toggle="modal" data-target="#show-posts"><button type="button" class="btn btnShowAll">Show All</button></div>
+                  </div>
+
+
+            </div>
+
+</div>
+    <div class="laterPostBoxMob">
+
+      <div class="showAllPosts" data-toggle="modal" data-target="#show-posts"><button type="button" class="btn btnShowAll">Show All</button></div>
+    </div>
+
+
+
+
+          <% end %>
+
+
+
+
+
+
 
 
   <% else %>
+      <div class="noFollowSec">
+        <div class="noFollowSecText">There are no posts yet.</div>
+      </div>
 
   <% end %>
 
-
 </div>
   
+
+
+
+
 <div class="newsfeed">
     <div class="titleSec">Upcoming Events</div>
   <div class="scrollEvents">
@@ -245,14 +315,14 @@
     <div class="titleSec">Group Members</div>
     <div class="scrollMembers">
     <% if !@groupFollowers.empty? %>
-      <%  @groupFollowers.first(5).reverse.each do |groupFollower| %>
+      <%  @groupFollowers.first(7).reverse.each do |groupFollower| %>
       <%= link_to groupFollower, method: :get, class: "specialA" do %>
   
         <div class="followersSec">
         
             <div class="eImage">
               <div class="followerImageSec"><%= image_tag(groupFollower.avatar_url(:thumb), class: "groupImage2") if groupFollower.avatar? %></div>
-              <div class="followerNameSec"><%= truncate(groupFollower.name, length: 20) %></div>
+              <div class="followerNameSec"><%= truncate(groupFollower.name.gsub(/\s.+/, ''), length: 20) %></div>
             </div>
         
         </div>
@@ -268,11 +338,12 @@
 
     
     </div>
-    <%= link_to posts_path, method: :get, class: "specialC" do %>
-      <div class="showFollowersBtn">
-        <div class="followersBtn"><%= button_tag "Show All Users", class: "btn  btnShowAll" %></div>
-      </div>
-      <% end %>
+    <div class="laterPostBox2">
+
+      <div class="showAllPosts" data-toggle="modal" data-target="#show-users"><button type="button" class="btn btnShowAll">Show Users</button></div>
+    </div>
+
+
 </div>
 
 </div>
@@ -288,5 +359,170 @@
 <div class="col-md-12 col-xs-12">
 <br>
 </div>
+
+
+
+<div class="modal fade" id="postModalG" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div id="modalPostImage"></div>
+      <div class="modal-body">
+        <div id="modalPostBody"></div>
+      </div>
+      <div class="modal-footer">
+        <span id="test" class="userImageModal"></span>
+        <span class="modal-title" id="modalPoster"></span> on
+        <span class="modal-title" id="modalPostTime"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<% if !@group.group_posts.empty? %>
+  <div class="modal fade" id="show-posts" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered allPostsDialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="grid" id="masonry">
+            <div class="grid-sizer"></div>
+            <% @group.group_posts.reverse.each do |group_post| %>
+              <div class="card grid-item allPostsCard">
+                <div class="material-icons text-muted launch-modal align-middle">
+                  <%= image_tag(group_post.image_url(:post), class: "card-img-top allPostsImage") if group_post.image? %>
+                  <% if !group_post.content.blank? %>
+                    <div class="card-body">
+                      <p class="card-text"><%= truncate group_post.content, length: 500, separator: ' ' %></p>
+                    </div>
+                  <% end %>
+                  <div class="card-footer">
+                    <%= link_to group_post.group, method: :get, class: "specialA bottomSign" do %>
+                      <%= image_tag(group_post.group.image_url(:thumb), class: "userImage2") if group_post.group.image? %>
+                    <% end %>
+                    <small class="text-muted"><%= group_post.group.title %> on <%= group_post.updated_at.to_time.strftime('%B %e') %></small>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
+<% if !@groupFollowers.empty? %>
+  <div class="modal fade" id="show-users" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered allPostsDialog" role="document">
+      <div class="modal-content-users">
+        <div class="modal-body">
+          <div class="grid" id="masonry">
+            <div class="grid-sizer"></div>
+
+
+            <% @groupFollowers.each do |groupFollower| %>
+             <%= link_to groupFollower, method: :get, class: "specialA" do %>
+              <div class="card grid-item-user allPostsCard">
+                <div class="material-icons text-muted launch-modal align-middle">
+                  <%= image_tag(groupFollower.avatar_url(:thumb), class: "card-img-top allPostsImage") if groupFollower.avatar? %>
+                    <div class="card-body">
+                      <p class="card-text nameBold"><%= truncate groupFollower.name.gsub(/\s.+/, ''), length: 500, separator: ' ' %></p>
+                    </div>
+
+                </div>
+              </div>
+
+              <% end %>
+            <% end %>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
+
+<script>
+      $(function () { 
+      $('.panel-heading').on('click', function (e) {
+          var menuItem = $( e.currentTarget );
+
+          if (menuItem.attr('aria-expanded') === 'true') {
+              $(this).children(".show-more").text("Open");
+
+          } else {
+              $(this).children(".show-more").text("Close");
+          }
+      });
+
+    });
+
+
+    $('#show-posts').on('shown.bs.modal', function (e) {
+        $('#masonry').masonry({
+            columnWidth: '.grid-sizer',
+            itemSelector: '.grid-item',
+            percentPosition: true,
+            gutter: 10,
+            horizontalOrder: true,
+            stagger: 30
+        });
+    });
+
+
+
+    $('#postModalG').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+
+    
+        var posterName = button.attr('data-posterG');
+
+
+
+        var postBody = button.attr('data-bodyG');
+
+
+
+        var postTime = button.attr('data-timeG');
+
+
+        if (button.attr("data-imageG") !== undefined) {
+            var imageURL = button.attr("data-imageG");
+            $("#modalPostImage").html("<img src=" + imageURL + ">");
+        }
+
+
+
+        if (button.attr("data-testG") !== undefined) {
+            var userImageURL = button.attr("data-testG");
+            $("#test").html("<img src=" + userImageURL + ">");
+        }
+
+
+
+
+
+        var modal = $(this);
+
+        $("#modalPoster").text(posterName);
+
+
+
+        $("#modalPostBody").text(postBody);
+        $("#modalPostTime").text(postTime);
+    })
+
+
+</script>
+
+
+
 
 

@@ -16,6 +16,20 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body{
+	margin-bottom: 50px;
+}
+
+.modal-content{
+  border-radius: 11px;
+}
+
+
+#modalPostImage img{
+  border-radius: 10px 10px 0px 0px;
+}
+
+
 a:focus{
 	color: #23527c !important;
 	text-decoration: none !important; 
@@ -413,6 +427,11 @@ i {
 	display: none !important;
 }
 
+
+.panel{
+	box-shadow: 0px 0px 0px !important;
+	-webkit-box-shadow: 0px 0px 0px !important;
+}
 
 
 

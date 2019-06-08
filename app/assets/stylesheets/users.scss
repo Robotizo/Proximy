@@ -1,4 +1,4 @@
-/*// Place all the styles related to the Users controller here.
+div.scrollEvents/*// Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
@@ -333,14 +333,6 @@ div.col-md-6.post-image-background{
   border-top-left-radius: calc(0.25rem - 1px);
 }
 
-.noPad1{
-  padding-left: 0px !important;
-}
-
-
-.noPad2{
-  padding-right: 0px !important;
-}
 
 
 
@@ -460,7 +452,6 @@ div.scrollEvents .card {
 
 #modalPostImage img {
   width: 100%;
-  border-radius: 4px 4px 0px 0px;
 }
 
 div#modalPostImage {

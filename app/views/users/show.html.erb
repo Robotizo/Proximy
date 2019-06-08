@@ -212,7 +212,8 @@
 
 
         <% if !@user.posts.empty? %>
-          <div class="col-md-6 col-xs-12 noPad1">
+          <div class="col-md-6 col-xs-12 noPad1 ">
+
             <% @user.posts.last(1).each do |post| %>
               <div class="card">
                  <span data-toggle="modal" data-target="#postModal"
@@ -236,6 +237,7 @@
                 <div class="card-footer">
                   <%= link_to post.user, method: :get, class: "specialA bottomSign" do %>
                     <%= image_tag(post.user.avatar_url(:thumb), class: "userImage2") if post.user.avatar? %>
+
                   <% end %>
 
                   <small class="text-muted"><%= post.user.name %> on <%= post.updated_at.to_time.strftime('%B %e') %></small>
@@ -249,9 +251,15 @@
 
               </span>
               </div>
-            </div>
+            
+
+
+
+
+
+
             <% end %>
-          
+          </div>
 
 
 
@@ -260,7 +268,7 @@
 
 <div class="latestPostSec2">
           <% if @user.posts.length > 1 %>
-            <div class="col-md-6 col-xs-12 noPad2">
+            <div class="col-md-6 col-xs-12 ">
 
               <% @user.posts.last(3).reverse.each_with_index do |post, index| %>
                 <% unless index == 0 %>
@@ -325,6 +333,9 @@
             </div>
 
 </div>
+
+
+
     <div class="laterPostBoxMob">
 
       <div class="showAllPosts" data-toggle="modal" data-target="#show-posts"><button type="button" class="btn btnShowAll">Show All</button></div>
@@ -456,7 +467,7 @@
   <div class="modal fade" id="show-posts" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered allPostsDialog" role="document">
       <div class="modal-content">
-        <div class="modal-body posts-modal-body">
+        <div class="modal-body ">
           <div class="grid" id="masonry">
             <div class="grid-sizer"></div>
             <% @user.posts.reverse.each do |post| %>
