@@ -75,6 +75,7 @@
                   <%= image_tag(post.group.image_url(:thumb), class: "userImage2") if post.group.image? %>
                 <% end %>
                 <small class="text-muted"><%= post.group.title %> on <%= post.updated_at.to_time.strftime('%B %e') %></small>
+                <%= image_tag("groups.png", class: "ImageIDer") %>
               </div>
 
             <% elsif post.is_a? EventPost %>
@@ -84,6 +85,7 @@
                   <%= image_tag(post.event.image_url(:thumb), class: "userImage2") if post.event.image? %>
                 <% end %>
                 <small class="text-muted"><%= post.event.title %> on <%= post.updated_at.to_time.strftime('%B %e') %></small>
+                <%= image_tag("event.png", class: "ImageIDer") %>
               </div>
 
             <% elsif post.is_a? Post %>
@@ -93,6 +95,7 @@
                   <%= image_tag(post.user.avatar_url(:thumb), class: "userImage2") if post.user.avatar? %>
                 <% end %>
                 <small class="text-muted"><%= post.user.name %> on <%= post.updated_at.to_time.strftime('%B %e') %></small>
+                <%= image_tag("user.png", class: "ImageIDer") %>
               </div>
 
             <% end %>

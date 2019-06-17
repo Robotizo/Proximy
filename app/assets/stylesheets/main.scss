@@ -12,6 +12,32 @@
 }
 
 
+
+.scrollMembers::-webkit-scrollbar-track {
+  background: none;
+}
+
+.scrollMembers::-webkit-scrollbar {
+  height: 10px;
+}
+
+
+.scrollMembers::-webkit-scrollbar:active {
+  height: 30px;
+}
+
+
+
+.scrollMembers::-webkit-scrollbar-thumb {
+  background: rgb(212, 224, 231);
+  border-radius: 5px;
+}
+
+.ImageIDer{
+  height: 25px;
+  float: right;
+}
+
 .titleSec {
   font-size: 30px;
   font-weight: 600;
@@ -524,6 +550,9 @@ img.userImage2 {
 
 
 @media screen and (max-width: 776px){
+  .scrollMembers::-webkit-scrollbar {
+    height: 5px;
+  }
   .mobNavs{
     padding-left: 5px;
     padding-right: 5px;

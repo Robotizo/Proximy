@@ -963,8 +963,10 @@ div.scrollGroupsI a {
 
 
 .eventImageDisplay{
-	width: 100%;
-	border-radius: 10px;
+    width: 100%;
+    border-radius: 10px;
+    height: 400px;
+    object-fit: cover;
 }
 
 .module1{

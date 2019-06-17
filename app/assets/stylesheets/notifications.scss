@@ -93,6 +93,62 @@
 }
 
 
+@media screen and (max-width: 776px) {
+
+	.titleSec{
+		font-size: 20px;
+	}
+
+	.titleSecSub{
+		font-size: 18px;
+	}
+	.noPad3{
+    	padding-left: 0px !important;
+    	padding-right: 0px !important;
+  	}
+  	.introInner{
+  		display: none;
+  	}
+
+  	.interestImage{
+  		height: 120px;
+  		object-fit: cover;
+  	}
+
+  	.notifTitle{
+  		font-size: 14px;
+  		margin-top: 8px;
+  	}
+
+  	.notifDate{
+  		font-size: 14px;
+  	}
+
+
+  	.groupName{
+  		font-size: 12px;
+  	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

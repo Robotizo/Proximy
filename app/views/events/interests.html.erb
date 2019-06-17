@@ -21,11 +21,11 @@
 
 </script>
 
-  <div class="text-center module1">
+  <div class="module1">
 
 
     <div class="imageSec">
-      <%= image_tag(@event.image_url(:display), class: "eventImageDisplay") if @event.image? %>
+      <%= image_tag(@event.image_url, class: "eventImageDisplay") if @event.image? %>
           <div class="eventImgTitle">
             <div class="eventTitleImg"><%= @event.title %></div>
           </div>
@@ -38,24 +38,23 @@
       <div class="infoTop">Event Details</div>
 
 
-      <div class="col-md-6 col-xs-6">
+      <div class="col-md-12 col-xs-12">
         <div class="eventTitle2">Event Date</div>
-        <div class="eventTitle"><%= @event.event_date.strftime('%B %e') %></div>
+        <span class="eventTitle"><%= @event.event_date.strftime('%B %e') %></span>
         <% if @event.event_end_date.present? %>
           to
-          <div class="eventTitle"><%= @event.event_end_date.strftime('%B %e') %></div>
+          <span class="eventTitle"><%= @event.event_end_date.strftime('%B %e') %></span>
         <% end %>
       </div>
-
-
-      <div class="col-md-6 col-xs-6">
+      <div class="col-md-12 col-xs-12">
         <div class="eventTitle2">Event Time</div>
-        <div class="eventTitle"><%= @event.event_time.strftime("%I:%M %p") %></div>
+        <span class="eventTitle"><%= @event.event_time.strftime("%I:%M %p") %></span>
         <% if @event.event_end_time.present? %>
           to
-          <div class="eventTitle"><%= @event.event_end_time.strftime("%I:%M %p") %></div>
+          <span class="eventTitle"><%= @event.event_end_time.strftime("%I:%M %p") %></span>
         <% end %>
       </div>
+
     </div>
   </div>
 

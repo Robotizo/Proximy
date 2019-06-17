@@ -10,8 +10,6 @@ class ApplicationController < ActionController::Base
     	@friendship.update_attribute(:status, "accepted")
     	Friendship.create!(user_id: current_user.id, friend_id: @friendship.user_id, status: "accepted")
     	redirect_to @friendship.user
-
-
   	end
 
   

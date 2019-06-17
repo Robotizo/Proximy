@@ -1,9 +1,15 @@
 class NotificationsController < ApplicationController
 	def index
 		@user = current_user
-		@events = Event.all
-		@eventNotifs = EventNotif.all
-		@number = @eventNotifs.where(is_checked: false).count
+
+		followingGroupsIds = @user.followingG.map(&:id)
+   
+
+
+		events = Event.where(group_id: followingGroupsIds)
+		@eventNotifs = EventNotif.where(user_id: current_user)
+
+
 
 		@user_groups = @user.groups.order("created_at DESC")
 		followingGroupsIds = @user.followingG.map(&:id)

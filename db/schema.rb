@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190601210542) do
+ActiveRecord::Schema.define(version: 20190615205616) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20190601210542) do
     t.integer  "event_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "user_id"
   end
 
   create_table "event_posts", force: :cascade do |t|
@@ -189,6 +190,7 @@ ActiveRecord::Schema.define(version: 20190601210542) do
     t.decimal  "latitude"
     t.decimal  "longitude"
     t.integer  "sign_in_count"
+    t.string   "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

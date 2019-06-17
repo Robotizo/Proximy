@@ -17,7 +17,6 @@ class EventsController < ApplicationController
     @events = Event.all.sort_by {|event| event.eventsInterest(current_user)}.reverse
     @user = current_user
     @user_events = @user.events.order(:event_date)
-
     followingEventsIds = @user.followingE.map(&:id)
     @eventsFollow = Event.find(params = followingEventsIds).sort_by &:event_date
 
@@ -32,6 +31,7 @@ class EventsController < ApplicationController
     @eventFollowers = User.find(params = followingEventIds).sort_by &:updated_at
     eventID = @event.id
     $eventTest = Event.find(params = eventID)
+
   end
 
   # GET /events/new
@@ -48,8 +48,17 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
 
+
     respond_to do |format|
       if @event.save
+        if @event.group_id.present?
+          followingGroupIds = @event.group.followersG.map(&:id)
+          @groupFollowers = User.find(params = followingGroupIds)
+          @groupFollowers.each do |groupFollower|
+            EventNotif.create(event_id: @event.id, user_id: groupFollower.id)
+          end
+
+        end
         format.html { redirect_to interests_event_path(@event), notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else

@@ -1,6 +1,5 @@
 class InterestsRelationshipsController < ApplicationController
   def create
-    
   	interest = Interest.find(params[:followedI_id])
   	current_user.followI(interest)
   	  respond_to do |format|

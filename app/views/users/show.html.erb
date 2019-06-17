@@ -7,15 +7,22 @@
 <% unless current_user.friends.include?(@user) %>
   <div class="innerModule">
     <div class="userImageSec1">
+
+      <%= image_for(@user) %>
+
       <%= image_tag(@user.image_url, class: "userImageCover") if @user.image? %>
     </div>
     <div class="col-md-6 col-xs-12 connArea">
       <div class="userImageSec1">
+ 
+        <%= avatar_for(@user) %>
+ 
         <%= image_tag(@user.avatar_url(:thumb), class: "userImage1") if @user.avatar? %>
       </div>
       <div class="userSec1">
         <div class="userName">
           <%= @user.name %>
+          <%= @user.last_name %>
         </div>
       </div>
     </div>
@@ -25,8 +32,11 @@
 
 
     <% if current_user.id == @user.id %>
-      <div id="follow_form">
+      <div id="follow_form" class="cUser">
            <%= button_to "Contacts", contacts_path, method: :get, class: "btn connectBtn" %>
+      </div>
+      <div id="follow_form" class="cUser">
+           <%= button_to "Edit Profile", edit_user_path, method: :get, class: "btn connectBtn" %>
       </div>
      <% end %>
 
@@ -45,24 +55,28 @@
 
 
 
-
-
-
     </div>
 
      <% else %>
 
       <div class="innerModule2">
         <div class="userImageSec1">
+ 
+            <%= image_for(@user) %>
+
           <%= image_tag(@user.image_url, class: "userImageCover") if @user.image? %>
         </div>
         <div class="col-md-6 col-xs-12 connArea">
           <div class="userImageSec1">
+
+              <%= avatar_for(@user) %>
+  
             <%= image_tag(@user.avatar_url(:thumb), class: "userImage1") if @user.avatar? %>
           </div>
           <div class="userSec1">
             <div class="userName">
               <%= @user.name %>
+              <%= @user.last_name %>
             </div>
           </div>
         </div>
@@ -72,9 +86,14 @@
 
 
         <% if current_user.id == @user.id %>
-          <div id="follow_form">
+          <div id="follow_form" class="cUser" >
                <%= button_to "Contacts", contacts_path, method: :get, class: "btn connectBtn" %>
           </div>
+
+          <div id="follow_form" class="cUser">
+           <%= button_to "Edit Profile", edit_user_path, method: :get, class: "btn connectBtn" %>
+          </div>
+ 
          <% end %>
 
         <% unless @user.id == current_user.id %>

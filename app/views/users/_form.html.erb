@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "users", :media => "all" %>
+
 <body onload="getLocation()">
 <%= form_for(user) do |f| %>
   <% if user.errors.any? %>
@@ -12,17 +14,46 @@
     </div>
   <% end %>
 
-  <div class="field fileField">
-    <label class="btn btn-primary fileBtnDiv"><%= f.file_field :avatar, class: "fileBtn"%> Avatar</label>
+
+
+
+<% if action_name == 'edit' or action_name == 'update' %>
+
+
+
+
+
+
+
+  <div class="field fileField col-md-6 minPadR">
+    <label class="btn btn-primary fileBtnDiv">
+      <%= f.file_field :avatar, class: "fileBtn form-control", id: "avatarImageUpload" %>
+      Profile picture
+    </label>
   </div>
 
-  <div class="field fileField">
-    <label class="btn btn-primary fileBtnDiv"><%= f.file_field :image, class: "fileBtn" %> Cover Photo</label>
+  <div class="field fileField col-md-6 minPadL">
+    <label class="btn btn-primary fileBtnDiv">
+      <%= f.file_field :image, class: "fileBtn form-control", id: "coverImageUpload" %> 
+      Cover Photo
+    </label>
   </div>
 
+
+
+
+<% end %>
+
+<div class="col-md-6 minPadR">
   <div class="field">
-    <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+    <%= f.text_field :name, class: "form-control", placeholder: "First name" %>
   </div>
+</div>
+<div class="col-md-6 minPadL">
+  <div class="field">
+    <%= f.text_field :last_name, class: "form-control", placeholder: "Last name" %>
+  </div>
+</div>
 
   <div class="field">
     <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
@@ -37,6 +68,9 @@
     <%= f.hidden_field :longitude, class: "form-control", id: "lonField"  %>
   </div>
 
+
+
+<% if action_name == 'new' or action_name == 'create' %>
   <div class="field">
     <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
   </div>
@@ -44,6 +78,10 @@
   <div class="field">
     <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Password" %>
   </div>
+<% end %>
+
+
+
 
   <br />
 

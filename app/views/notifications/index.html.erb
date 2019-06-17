@@ -5,16 +5,21 @@
  <div class="container">
     <div class="titleSec">Notifications</div>
  </div>
+
 <div class="container">
-<div class="titleSecSub">New Connections</div>
+	<div class="titleSecSub">New events from your groups</div>
+</div>
 
+
+
+<div class="container noPad3">
 	<% @eventNotifs.reverse.each do |eventNotif| %>
-		<% if current_user.followingG.ids.include?  eventNotif.event.group.id %>
+		
 			<div class="col-md-6">
-				<%= link_to update_notif_notification_path(eventNotif), method: :patch, class: "specialA" do %>
+<%= link_to update_notif_notification_path(eventNotif), method: :patch, class: "specialA" do %>
 
 
-				<% if eventNotif.is_checked == false %>
+<% if eventNotif.is_checked == false %>
 					<div class="notifModuleF">
 						<div class="imageSec">
 							<%= image_tag(eventNotif.event.image_url(:event), class: "interestImage") if eventNotif.event.image? %>
@@ -61,12 +66,13 @@
 						</div>
 					</div>
 				<% end %>
+		
 
 
-
-
-				<% end %>
+	<% end %>
+		
 			</div>
-		<% end %>
+
+
 	<% end %>
 </div>

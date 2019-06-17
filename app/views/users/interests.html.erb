@@ -6,7 +6,7 @@
       $('.panel-heading').on('click', function (e) {
           var menuItem = $( e.currentTarget );
 
-          if (menuItem.attr('aria-expanded') === 'true') {
+          if (menuItem.attr('aria-expanded') == 'true') {
               $(this).children(".show-more").text("Show More");
 
           } else {
@@ -24,15 +24,18 @@
 <div class="text-center module1">
   <div class="innerModule">
     <div class="userImageSec1">
+      <%= image_for(current_user) %>
       <%= image_tag(@user.image_url, class: "userImageCover") if @user.image? %>
     </div>
     <div class="col-md-6 col-xs-12 connArea">
       <div class="userImageSec1">
+        <%= avatar_for(current_user) %>
         <%= image_tag(@user.avatar_url(:thumb), class: "userImage1") if @user.avatar? %>
       </div>
       <div class="userSec1">
         <div class="userName">
           <%= @user.name %>
+          <%= @user.last_name %>
         </div>
       </div>
     </div>
@@ -99,20 +102,27 @@
 
 
 
+
+
+
+            <div id="follow_b">
           <% if @user.followingI?(interest) %>
-                  <%= form_for(@user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :followedI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
                 <% end %>
+
+          </div>
             </div>
             </div>
           <% end %>
@@ -145,18 +155,18 @@
 
 
           <% if @user.followingI?(interest) %>
-                  <%= form_for(@user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :followedI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+                  <%= render 'followI', interest: interest %>
+
+
+
+
                 <% end %>
             </div>
             </div>
@@ -192,18 +202,20 @@
 
 
           <% if @user.followingI?(interest) %>
-                  <%= form_for(@user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :followedI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+
                 <% end %>
             </div>
             </div>
@@ -237,18 +249,19 @@
 
 
           <% if @user.followingI?(interest) %>
-                  <%= form_for(@user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :followedI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+
                 <% end %>
             </div>
             </div>
@@ -284,18 +297,18 @@
 
 
           <% if @user.followingI?(interest) %>
-                  <%= form_for(@user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+                   <%= render 'unfollowI', interest: interest %>
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :followedI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+
                 <% end %>
             </div>
             </div>
@@ -328,18 +341,15 @@
 
 
           <% if @user.followingI?(interest) %>
-                  <%= form_for(@user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :followedI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+                  <%= render 'followI', interest: interest %>
+
+
                 <% end %>
             </div>
             </div>
@@ -376,18 +386,19 @@
 
 
           <% if @user.followingI?(interest) %>
-                  <%= form_for(@user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+                   <%= render 'unfollowI', interest: interest %>
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :followedI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+
                 <% end %>
             </div>
             </div>
@@ -422,18 +433,19 @@
 
 
           <% if @user.followingI?(interest) %>
-                  <%= form_for(@user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+                 <%= render 'unfollowI', interest: interest %>
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :followedI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+
+
                 <% end %>
             </div>
             </div>
@@ -468,18 +480,18 @@
 
 
           <% if @user.followingI?(interest) %>
-                  <%= form_for(@user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :followedI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
                 <% end %>
             </div>
             </div>
@@ -516,18 +528,15 @@
 
 
           <% if @user.followingI?(interest) %>
-                  <%= form_for(@user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+                 <%= render 'unfollowI', interest: interest %>
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :followedI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+                  <%= render 'followI', interest: interest %>
+
+
                 <% end %>
             </div>
             </div>
@@ -562,18 +571,16 @@
 
 
           <% if @user.followingI?(interest) %>
-                  <%= form_for(@user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :followedI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                  <%= render 'followI', interest: interest %>
+
                 <% end %>
             </div>
             </div>
@@ -608,18 +615,16 @@
 
 
           <% if @user.followingI?(interest) %>
-                  <%= form_for(@user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+                   <%= render 'unfollowI', interest: interest %>
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :followedI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+                  <%= render 'followI', interest: interest %>
+
+
+
                 <% end %>
             </div>
             </div>
@@ -654,18 +659,19 @@
 
 
           <% if @user.followingI?(interest) %>
-                  <%= form_for(@user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+                      <%= render 'unfollowI', interest: interest %>
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :followedI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                 <%= render 'followI', interest: interest %>
+
+
+
                 <% end %>
             </div>
             </div>
@@ -704,18 +710,18 @@
 
 
           <% if @user.followingI?(interest) %>
-                  <%= form_for(@user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :followedI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+
+                  <%= render 'followI', interest: interest %>
+
+
                 <% end %>
             </div>
             </div>
@@ -751,18 +757,18 @@
 
 
           <% if @user.followingI?(interest) %>
-                  <%= form_for(@user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+               <%= render 'unfollowI', interest: interest %>
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :followedI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                 <%= render 'followI', interest: interest %>
+
+
+
                 <% end %>
             </div>
             </div>
@@ -799,18 +805,19 @@
 
 
           <% if @user.followingI?(interest) %>
-                  <%= form_for(@user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+
+                <%= render 'unfollowI', interest: interest %>
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :followedI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
                 <% end %>
             </div>
             </div>
@@ -843,18 +850,15 @@
 
 
           <% if @user.followingI?(interest) %>
-                  <%= form_for(@user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+                 <%= render 'unfollowI', interest: interest %>
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :followedI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+                  <%= render 'followI', interest: interest %>
+
                 <% end %>
             </div>
             </div>
@@ -890,18 +894,18 @@
 
 
           <% if @user.followingI?(interest) %>
-                  <%= form_for(@user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+                 <%= render 'unfollowI', interest: interest %>
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :followedI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
                 <% end %>
             </div>
             </div>
@@ -935,18 +939,16 @@
 
 
           <% if @user.followingI?(interest) %>
-                  <%= form_for(@user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+               <%= render 'unfollowI', interest: interest %>
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :followedI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                <%= render 'followI', interest: interest %>
+
+
                 <% end %>
             </div>
             </div>
@@ -980,18 +982,19 @@
 
 
           <% if @user.followingI?(interest) %>
-                  <%= form_for(@user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :followedI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+
+                  <%= render 'followI', interest: interest %>
+
+
                 <% end %>
             </div>
             </div>
@@ -1010,6 +1013,7 @@
 
 
   </div>
+
 
 
 </div>

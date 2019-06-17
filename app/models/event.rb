@@ -21,12 +21,9 @@ class Event < ApplicationRecord
 	has_many :notificationevents 
 
 
-	after_create do 
-		EventNotif.create event: self
-	end 
 
 
-	has_one :eventnotif, dependent: :delete
+	has_many :eventnotifs
 
 
 

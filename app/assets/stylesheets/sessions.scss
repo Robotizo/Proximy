@@ -2,6 +2,40 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+
+
+.avatarImage{
+    height: 170px;
+    margin: 10px;
+    object-fit: contain;
+    top: -50px;
+    position: relative;
+    border-radius: 15px;
+    
+
+}
+
+.iconImgCreate{
+	position: fixed;
+    border: 1px #fff solid;
+    width: auto;
+    height: auto;
+    max-width: 15%;
+    max-height: 70%;
+    top: 50%;
+    left: 20%;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.iconImg2{
+	height: 220px;
+	width: 100%;
+}
+
 #title{
 	position: absolute;
 	display: flex;
@@ -16,7 +50,7 @@
 .form-control {
     border-radius: 3px;
     border-color: white;
-    border-bottom: 1px black solid !important;
+    border-bottom: 1px #a2a2a2 solid !important
 
 }
 
@@ -55,14 +89,7 @@ nav{
 	width: 80%;
 	margin: auto auto;
 }
-.form-control{
-    height: 40px;
-    font-size: 18px;
 
-    box-shadow: 0px 0px 0px 0px;
-    border-bottom: 1px black solid;
-    border-radius: 0px;
-}
 
 .backImg{
 	height: 100%;
@@ -82,14 +109,12 @@ nav{
 }
 
 .emailField{
-	margin-top: 30px;
-	margin-bottom: 20px;
+	margin: 32px 0px;
 	outline: none !important;
 }
 
 .passField{
-	margin-top: 10px;
-	margin-bottom: 30px;
+	margin: 32px 0px;
 
 }
 .titleLog{
@@ -107,8 +132,7 @@ nav{
 	background-color: white;
 }
 .loginSec{
-	margin-top: 15px;
-	margin-bottom: 15px;
+	margin: 32px 0px;
 
 }
 .logField, .signUpForm{
@@ -139,6 +163,29 @@ body{
 	right: 0;
 	background: #fff;
 }
+
+
+.leftDiv2, .rightDiv2 {
+	position: absolute;
+	top: 0;
+
+	height: fit-content;
+	min-height: 100%;
+	vertical-align: middle;
+}
+
+.leftDiv2{
+	width: 40%;
+	left: 0;
+}
+
+.rightDiv2{
+	width: 60%;
+	right: 0;
+	background: #fff;
+}
+
+
 .iconImg{
 	position: fixed;
 	border: 1px #fff solid;
@@ -155,10 +202,7 @@ body{
 	-o-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
-input, input.btn, .fileBtnDiv{
-	font-size: 18px;
 
-}
 .logField, .signUpForm{
 	margin-top: 20px;
 }
@@ -218,9 +262,6 @@ body{
 	-o-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
-input, input.btn, .fileBtnDiv{
-	font-size: 18px;
-}
 
 @media screen and (min-width: 1800px){
 	.logField{
@@ -250,7 +291,20 @@ input, input.btn, .fileBtnDiv{
 	.leftDiv{
 		display: none;
 	}
+	.leftDiv2{
+		display: none;
+	}
 	.rightDiv{
+
+		width: 100%;
+		height: fit-content;
+		min-height: 100%;
+		clear: both;
+		display: flex;
+		flex-flow: column;
+	}
+
+	.rightDiv2{
 
 		width: 100%;
 		height: fit-content;

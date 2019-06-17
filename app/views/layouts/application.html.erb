@@ -139,6 +139,9 @@
   </div> 
 
       <%= link_to current_user, method: :get, class: "specialA" do %>
+      <% unless current_user.avatar.present? %>
+        <div class="navTitleEnd1 ifMob1"><%= avatarNav_for(current_user) %></div>
+      <% end %>
         <div class="navTitleEnd1 ifMob1"><%= image_tag(current_user.avatar_url(:thumb), class: "userImageNav") if current_user.avatar? %></div>
       <% end %>
 
@@ -147,6 +150,9 @@
 
 
 <span style="font-size:30px;cursor:pointer" onclick="openNav()">
+    <% unless current_user.avatar.present? %>
+      <div class="navTitleEnd1 ifMob2"><<%= avatarNav_for(current_user) %></div>
+    <% end %>
       <div class="navTitleEnd1 ifMob2"><%= image_tag(current_user.avatar_url(:thumb), class: "userImageNav") if current_user.avatar? %></div>
 </span>
 

@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag "users", :media => "all" %>
 
 
-<div class="container">
+<div class="container noPad3">
 	<div class="titleSec">Settings</div>
 
 	<ul class="nav nav-tabs" id="events-nav" role="tablist">
@@ -31,11 +31,38 @@
 
 
 <div class="tab-content" id="myTabContent">
+
+
 	<div class="tab-pane active" id="general" role="tabpanel" aria-labelledby="home-tab">
 		<h2 class="topTitle2">General</h2>
+
+		<% if @user.image.present? %>
+			<div class="coverImage" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px;">
+				<%= image_tag(@user.image_url, class: "imgCover", id: "coverImageTag") if @user.image? %>
+			</div>
+		<% else %>
+			<div class="coverImage" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px;">
+			  <%= image_tag("cover.jpg", class: "imgCover", id: "coverImageTag") %>
+			</div>
+		<% end %>
+
+		<% if @user.avatar.present? %>
+			<div class="avatarImage" id="avatarImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px;">
+				<%= image_tag(@user.avatar_url, class: "imgProfile", id: "avatarImageTag") if @user.avatar? %>
+			</div>
+		<% else %>
+			<div class="avatarImage" id="avatarImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px;  ">
+			  <%= image_tag("profile.jpg", class: "imgProfile", id: "avatarImageTag") %>
+			</div>
+		<% end %>
+
+
+	<div class="formSec">
 		<%= render 'form', user: @user %>	
-      
+     </div>
+
 	</div>
+
 	<div class="tab-pane" id="interests" role="tabpanel" aria-labelledby="profile-tab">
 		<h2 class="topTitle2">Interests</h2>
 		  <% current_user.followingI.each do |interest| %>
@@ -53,6 +80,12 @@
 
 		  <% end %>
 
+		    <div class="col-md-12 col-xs-12">
+
+			  <div class="create">
+			    <%= button_to "Edit Interests", interests_user_path, method: :get, class: "btn btn-primary btnShowAll mobButton" %>
+			  </div>
+			</div>
 
   
 
@@ -68,3 +101,42 @@
 </div>
 
 </div>
+
+
+<script>
+
+	$("#coverImageUpload").change(function(){
+	    coverFileURL = URL.createObjectURL(event.target.files[0]);
+	    $("#coverImageTag").css("visibility", "hidden");
+	    $("#coverImage").css("background-image", "url("+coverFileURL+")");
+    });
+
+
+
+    $("#avatarImageUpload").change(function(){
+	    coverFileURL = URL.createObjectURL(event.target.files[0]);
+	    $("#avatarImageTag").css("visibility", "hidden");
+	    $("#avatarImage").css({"background-image": "url("+coverFileURL+")", "border": "3px solid white"});
+    });
+	
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
