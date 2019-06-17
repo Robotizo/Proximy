@@ -259,7 +259,7 @@
 
                   <% end %>
 
-                  <small class="text-muted"><%= post.user.name %> on <%= post.updated_at.to_time.strftime('%B %e') %></small>
+                  <small class="text-muted"><%= post.user.name %> <%= post.user.last_name %> on <%= post.updated_at.to_time.strftime('%B %e') %></small>
                 </div>
 
 
@@ -316,7 +316,7 @@
                           </div>
                           <div class="nameText">
                             <span><%= image_tag(post.user.avatar_url(:thumb), class: "userImageMini") if post.user.avatar? %></span>
-                            <span class="card-text textMini"><%= truncate post.user.name, length: 150, separator: ' ' %></span>
+                            <span class="card-text textMini"><%= truncate post.user.name, length: 150, separator: ' ' %> <%= truncate post.user.last_name, length: 150, separator: ' ' %></span>
                           </div>
 
                         </div>
@@ -502,7 +502,7 @@
                     <%= link_to post.user, method: :get, class: "specialA bottomSign" do %>
                       <%= image_tag(post.user.avatar_url(:thumb), class: "userImage2") if post.user.avatar? %>
                     <% end %>
-                    <small class="text-muted"><%= post.user.name %> on <%= post.updated_at.to_time.strftime('%B %e') %></small>
+                    <small class="text-muted"><%= post.user.name %> <%= post.user.last_name %> on <%= post.updated_at.to_time.strftime('%B %e') %></small>
                   </div>
                 </div>
               </div>

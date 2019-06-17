@@ -17,3 +17,4 @@
 //= require_tree .
 //= require cable
 //= require popper
+//= require materialize

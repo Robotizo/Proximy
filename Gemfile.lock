@@ -281,6 +281,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
+    materialize-sass (1.0.0)
+      autoprefixer-rails (>= 6.0.3)
     memoist (0.16.0)
     method_source (0.9.0)
     mime-types (3.1)
@@ -426,6 +428,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  materialize-sass (~> 1.0.0)
   mini_magick
   pg
   popper_js (~> 1.14.5)

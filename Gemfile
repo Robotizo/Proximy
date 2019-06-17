@@ -10,6 +10,8 @@ gem 'jquery-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 
+gem 'materialize-sass', '~> 1.0.0'
+
 gem 'fog'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7'
