@@ -13,6 +13,26 @@
   <% end %>
 
 
+<script>
+
+    $(function () { 
+      $('.panel-heading').on('click', function (e) {
+          var menuItem = $( e.currentTarget );
+
+          if (menuItem.attr('aria-expanded') == 'true') {
+              $(this).children(".show-more").text("Show More");
+
+          } else {
+              $(this).children(".show-more").text("Show Less");
+          }
+      });
+
+    });
+  
+
+</script>
+
+
 
 <style type="text/css">
   .mobNav{
@@ -45,19 +65,14 @@
   </div>
 
 
-<div class="accordion" id="accordionExample">
 
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Multiple day event
-        </button>
-      </h2>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-      <div class="card-body">
 
+  <div class="panel panel-default mainEditsAccor">
+        <div class="panel-heading accordion-toggle editsAccor" data-toggle="collapse" href="#date" aria-expanded="false">
+          Multiple day event <div class="show-more">Show More</div>
+        </div>
+      <div id="date" class="panel-collapse collapse" data-parent="#accordion">
+      <div class="panel-body">
         <div class="field">
           <div class="labelSide">
             <%= f.label "Event end date" %>
@@ -66,12 +81,13 @@
             <%= f.date_field :event_end_date, class: "form-control" %>
           </div>
         </div>
+      </div>
 
       </div>
-    </div>
   </div>
 
-</div>
+
+
 
   <div class="field">
     <div class="labelSide">
@@ -82,33 +98,26 @@
     </div>
   </div>
 
-  <div class="accordion endButton" id="accordionExample">
 
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-          Event end time
-        </button>
-      </h2>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body">
 
+    <div class="panel panel-default mainEditsAccor">
+        <div class="panel-heading accordion-toggle editsAccor" data-toggle="collapse" href="#time" aria-expanded="false">
+          Event end time <div class="show-more">Show More</div>
+        </div>
+      <div id="time" class="panel-collapse collapse" data-parent="#accordion">
+      <div class="panel-body">
         <div class="field">
           <div class="labelSide">
             <%= f.label "Event end time" %>
           </div>
           <div class="formSide">
-            <%= f.time_field :event_end_time, class: "form-control" %>
+           <%= f.time_field :event_end_time, class: "form-control" %>
           </div>
         </div>
+       </div>
 
       </div>
-    </div>
   </div>
-
-</div>
 
 
 

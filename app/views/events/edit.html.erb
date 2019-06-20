@@ -1,6 +1,38 @@
-<h1>Editing Event</h1>
+
+<%= stylesheet_link_tag "events", :media => "all" %>
+
+
+
+
+
+
+<div class="coverImage" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center;">
+	<%= image_tag(@event.image_url, class: "iconImg", id: "coverImageTag") if @event.image? %>
+</div>
+
+
+
+<div class="eventContentForm">
+  <div class="eventTitleForm" id="eventPageTitle"><%= @event.title %></div>
+</div>
+<div class="eventFormEqual container">
+
 
 <%= render 'form', event: @event %>
+</div>
 
-<%= link_to 'Show', @event %> |
-<%= link_to 'Back', events_path %>
+<script>
+    $("#coverImageUpload").change(function(){
+        fileURL = URL.createObjectURL(event.target.files[0]);
+        $("#coverImageTag").css("visibility", "hidden");
+        $("#coverImage").css("background-image", "url("+fileURL+")");
+    });
+    $('#eventTitle').on('input propertychange paste', function(){
+        var eventTitle = $('#eventTitle').val();
+        if(eventTitle != ""){
+            $("#eventPageTitle").text(eventTitle);
+        }else{
+            $("#eventPageTitle").text("New Event");
+        }
+    });
+</script>

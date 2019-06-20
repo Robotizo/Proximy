@@ -3,6 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+.mainEditsAccor{
+  margin-bottom: 30px;
+}
+
+
+.editsAccor{
+  width: 80%;
+  padding: 10px 0;
+}
+
 
 /* MASONRY */
 
@@ -693,7 +703,7 @@ div .show-more[aria-expanded="true"]{
 
 .fileBtnDiv, .form-control{
 	width: 80%;
-	margin: 10px 0;
+	margin: 10px 40px 40px 0;
 
 
 }
@@ -724,6 +734,7 @@ div .show-more[aria-expanded="true"]{
 
 .eventFormEqual{
 	margin-top: -80px;
+  padding-bottom: 50px;
 }
 
 
@@ -734,8 +745,9 @@ div .show-more[aria-expanded="true"]{
 }
 
 .iconImg{
-  max-width: 100%;
-  height: auto;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
 }
 
 .eventTitleImg{
@@ -1274,6 +1286,28 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px){
+  .eventFormEqual{
+        margin-top: -65px;
+  }
+  .eventContentForm{
+    top: -69px;
+  }
+  .eventTitleForm{
+    margin-left: 0px;
+    font-size: 22px;
+  }
+
+  .editsAccor{
+    width: 100%;
+  }
+
+  .mainEditsAccor{
+    padding: 0px !important; 
+  }
+
+
+
+
 	.scrollEvents::-webkit-scrollbar {
     	height: 5px;
   	}
@@ -1340,7 +1374,7 @@ div.scrollEvents a {
 		font-size: 14px !important;
 	}
 	.interestSec{
-		margin-top: 30px;
+		margin-top: 20px;
 		float: left;
 		width: 100%;
 	}
@@ -1409,7 +1443,7 @@ div.scrollEvents a {
 		height: 230px;
 	}
 	.groupImageI{
-		border-radius: 4px;
+		border-radius: 8px;
 	    background-color: white;
 	    height: 170px;
 	    width: auto;
@@ -1458,7 +1492,7 @@ div.scrollEvents a {
 
 	.attendEventBtn{
 		width: 100%;
-    	margin-top: 20px;
+    	margin-top: 32px;
 	}
 
 	.titleSec{
@@ -1485,7 +1519,7 @@ div.scrollEvents a {
 	}
 	.unAttendGroupBtn{
 		width: 100%;
-		margin-top: 20px;
+		margin-top: 32px;
 	}
 	.eventTitle{
 		font-size: 16px;
@@ -1601,7 +1635,7 @@ div.scrollEvents a {
 
 
     .btn{
-    	font-size: 14px;
+    	font-size: 12px;
       width:100%;
       border-radius:0;
       background-color:#6c94b2;
@@ -1609,18 +1643,19 @@ div.scrollEvents a {
     }
   }
   .coverImage{
-    min-height:30vh;
+    min-height: 400px;
     background-size:cover;
     background-repeat:no-repeat;
 
     .iconImg{
-      display:none;
+      min-height: 400px;
     }
   }
   .fileField{
     display:table;
     width:100%;
     vertical-align: middle;
+    margin: 30px 0;
 
     .btn{
       display:table-cell;

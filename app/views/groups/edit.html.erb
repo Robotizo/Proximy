@@ -1,6 +1,40 @@
-<h1>Editing Group</h1>
+<%= stylesheet_link_tag "groups", :media => "all" %>
 
-<%= render 'form', group: @group %>
 
-<%= link_to 'Show', @group %> |
-<%= link_to 'Back', groups_path %>
+
+<div class="coverImage" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center;">
+	<%= image_tag(@group.cover_image_url, class: "iconImg", id: "coverImageTag") if @group.cover_image? %>
+</div>
+
+
+
+<div class="groupContentForm">
+  <div class="groupTitleForm valign-wrapper">
+    <div class="groupImg" id="groupImg"><%= image_tag(@group.image_url, id: "groupImgTag") if @group.image? %></div>
+    <div id="groupTitleText"><%= @group.title %></div>
+  </div>
+</div>
+
+<div class="groupFormEqual container">
+	<%= render 'form', group: @group %>
+</div>
+<script>
+    $("#coverImageUpload").change(function(){
+        coverFileURL = URL.createObjectURL(event.target.files[0]);
+        $("#coverImageTag").css("visibility", "hidden");
+        $("#coverImage").css("background-image", "url("+coverFileURL+")");
+    });
+    $("#groupImageUpload").change(function(){
+        imageFileURL = URL.createObjectURL(event.target.files[0]);
+        $("#groupImgTag").css("visibility", "hidden");
+        $("#groupImg").css("background-image", "url("+imageFileURL+")");
+    });
+    $('#groupTitle').on('input propertychange paste', function(){
+        var groupTitle = $('#groupTitle').val();
+        if(groupTitle != ""){
+            $("#groupTitleText").text(groupTitle);
+        }else{
+            $("#groupTitleText").text("New Event");
+        }
+    });
+</script>

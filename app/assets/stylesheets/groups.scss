@@ -715,9 +715,10 @@ div .show-more[aria-expanded="true"]{
   background-position: center;
 }
 
-.iconImg {
-  max-width: 100%;
-  height: 320px;
+.iconImg{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
 }
 
 .groupTitleImg {
@@ -1118,8 +1119,8 @@ div.scrollEvents a {
 }
 
 .groupTitle{
-	font-size: 32px;
-	font-weight: 300;
+	font-size: 28px;
+	font-weight: 600;
 	padding-bottom: 10px;
 }
 
@@ -1388,6 +1389,34 @@ div.scrollEvents{
 }
 
 @media screen and (max-width: 776px){
+  #groupTitleText{
+    font-size: 18px;
+    top: -10px;
+    left: -10px;
+  }
+  .groupTitleForm{
+    margin-left: 0px;
+  }
+  .create{
+    width: auto;
+    z-index: 100;
+    margin:0;
+    right:0;
+
+
+    .btn{
+      font-size: 12px;
+      width:100%;
+      border-radius:0;
+      background-color:#6c94b2;
+      border:none;
+    }
+  }
+  .iconImg {
+    max-width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
 	.grid-item-user{
 		width: calc(50% - 10px);
 	}
@@ -1503,15 +1532,10 @@ div.scrollEvents{
 		height: 230px;
 	}
 
-	.groupImageI{
-		border-radius: 5px;
-	    background-color: white;
-	    box-shadow: 0px 0px 1px;
-	    
-	}
+
 
 	.groupImageI{
-		border-radius: 5px;
+		border-radius: 8px;
 		width: auto;
 		height: 170px;
 	    background-color: white;

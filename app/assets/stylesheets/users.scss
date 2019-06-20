@@ -24,7 +24,6 @@
   position: fixed;
   right: 70px;
   bottom: 50px;
-
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
 }
 
@@ -1672,6 +1671,40 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px) {
+  .avatarImage{
+    left: calc(50% - 20%);
+  }
+  .topTitle2{
+    font-size: 16px;
+  }
+
+  .editsText{
+    display: none;
+  }
+
+  .fixedState{
+    right: 12px;
+    bottom: 75px;
+
+  }
+
+  .fileBtnDiv{
+    margin: 20px 0px;
+  }
+
+  .formSec{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+
+  .imgCover{
+    width: 100%;
+    height: 200px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 0px;
+  }
 
   .cUser{
     width: 50% !important;
@@ -1907,14 +1940,14 @@ div.scrollEvents a {
     position: relative;
     width: 100%;
     float: left;
-    height: 345px;
+    height: 370px;
   }
   .mainField {
     border-radius: 0px;
   }
   .userImageCover {
     border-radius: 0px 0px 0px 0px;
-    height: 160px;
+    height: 200px;
     object-fit: cover;
   }
 
