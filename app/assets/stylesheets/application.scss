@@ -17,6 +17,11 @@
 @import "bootstrap";
 
 
+.alert{
+	width: calc(100% - 20px);
+	margin: 10px;
+	position: absolute;
+}
 
 
 
@@ -441,6 +446,11 @@ i {
 
 
 @media screen and (max-width: 776px){
+	.alert{
+		border-radius: 0px;
+		width: 100%;
+		margin: 0px;
+	}
 
 	.navElement{
 		width: 100%;

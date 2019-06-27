@@ -1,8 +1,16 @@
 <%= javascript_include_tag 'groups', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag "groups", :media => "all" %>
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] %>
+<div class="alert alert-success" role="alert">
+  <%= notice %>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<% end %>
 
 
+<!-- Request to join -->
 
 
 
