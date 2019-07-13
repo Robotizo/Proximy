@@ -44,6 +44,11 @@
     -webkit-animation:fade3 30s infinite;
     }
 
+    @media screen and (max-width: 776px){
+      .bottomNav{
+        display: none;
+      }
+    }
 
   </style>
 
@@ -52,13 +57,10 @@
 
 <div class='slider'>
 
-   <div class='test'>Hello</div> 
+   <div class='title'>Start creating new experiences.</div> 
+   <div class='button'><%= button_to "Login", login_path, method: :get, class: "btnFront" %></div> 
 
-  <div class='slide1'> 
-
-
-</div>
-
+  <div class='slide1'></div>
   <div class='slide2'></div>
   <div class='slide3'></div>
 </div>

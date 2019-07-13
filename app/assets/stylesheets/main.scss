@@ -15,15 +15,34 @@
 
 
 
-.test{
+.title{
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  bottom: 60%;
+  left: 30px;
   font-size: 50px;
-  color: black;
+  color: white;
   z-index: 100;
 }
 
+.button{
+  position: absolute;
+  bottom: 30%;
+  left: 40%;
+  font-size: 20px;
+  color: white;
+  z-index: 100;
+
+}
+
+
+
+.btnFront{
+  border-radius: 10px;
+  color: white;
+  background-color: transparent;
+    padding: 10px 30px;
+    outline: none !important;
+}
 
 
 .slider {
