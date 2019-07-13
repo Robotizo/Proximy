@@ -13,16 +13,27 @@
  */
 
 
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+.addedInterest:hover{
+	background-color: #2eb930 !important;
+}
 
 .alert{
 	width: calc(100% - 20px);
 	margin: 10px;
 	position: absolute;
+	    z-index: 100;
 }
+.alert-success{
+	background-color: #ffffff;
+    border-color: #6c95af;
+    color: #6c95af;
 
+}
 
 
 
@@ -446,6 +457,21 @@ i {
 
 
 @media screen and (max-width: 776px){
+	  .noPad1{
+	    padding-left: 4px !important;
+	    padding-right: 4px !important;
+	  }
+
+	  .noPad2{
+	    padding-left: 3px !important;
+	    padding-right: 3px !important;
+	  }
+
+
+	  .noPad3{
+	    padding-left: 0px !important;
+	    padding-right: 0px !important;
+	  }
 	.alert{
 		border-radius: 0px;
 		width: 100%;

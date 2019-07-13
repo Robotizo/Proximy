@@ -9,10 +9,17 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'friendly_id', '~> 5.2.4' 
 
 gem 'materialize-sass', '~> 1.0.0'
 
 gem 'fog'
+
+
+
+gem 'geocoder'
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7'
 

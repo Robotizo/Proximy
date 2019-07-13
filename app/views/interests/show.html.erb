@@ -1,15 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-
+<div id="follow_b">
           <% if current_user.followingI?(@interest) %>
-            <div id="follow_form">
+       
               <%= render partial: "unfollowInterest" %>
-            </div>
+        
             <% else %>
-              <div id="follow_form">
+             
                 <%= render partial: "followInterest" %>
-              </div>
+         
             <% end %>
+</div>
 
 <%= image_tag(@interest.image_url(:thumb)) if @interest.image? %>
 

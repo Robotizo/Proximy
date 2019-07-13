@@ -274,31 +274,31 @@
 <div class="newsfeed">
     <div class="titleSec">Upcoming Events</div>
   <div class="scrollEvents">
-    <% if !@group.events.empty? %>
-      <% @group.events.each do |group_events| %>
-      <%= link_to group_events, method: :get, class: "specialA" do %>
+    <% if !@group_events.empty? %>
+      <% @group_events.each do |group_event| %>
+      <%= link_to group_event, method: :get, class: "specialA" do %>
   
         <div class="userEvents">
         
             <div class="eventImage">
-              <%= image_tag(group_events.image_url(:event), class: "eventImage1") if group_events.image? %>
+              <%= image_tag(group_event.image_url(:event), class: "eventImage1") if group_event.image? %>
             </div>
                 <div class="eventContent1">
-                    <div class="eventDateI"><%= group_events.event_date.strftime('%B %e') %></div>
+                    <div class="eventDateI"><%= group_event.event_date.strftime('%B %e') %></div>
                   </div>
              <div class="eventOverall">
                 <div class="eventContent">
-                  <div class="titleGroups"><%= truncate(group_events.title, length: 40)%></div> 
+                  <div class="titleGroups"><%= truncate(group_event.title, length: 40)%></div> 
                 </div>
 
 
                 <div class="creatorSign">
                   <div class="imageUserEvent">
 
-                    <%= image_tag(group_events.user.avatar_url(:thumb), class: "userImage2") if group_events.user.avatar? %>
+                    <%= image_tag(group_event.user.avatar_url(:thumb), class: "userImage2") if group_event.user.avatar? %>
                   </div>
                   <div class="contentUserPost">
-                    <span class="poster"><%= group_events.user.name %></span>
+                    <span class="poster"><%= group_event.user.name %></span>
                   </div>
                 </div>
             </div>

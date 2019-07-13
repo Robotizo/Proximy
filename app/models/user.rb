@@ -7,6 +7,10 @@ class User < ApplicationRecord
 	validates :password, presence: true, length: { minimum: 6 }, on: :create
 	validates :password, allow_nil: true, length: { minimum: 6 }, confirmation: true, on: :update
 
+  extend FriendlyId
+  friendly_id :slug_candidates, use: :slugged
+
+
 
 
 	has_secure_password
@@ -17,6 +21,7 @@ class User < ApplicationRecord
 	has_many :posts, dependent: :destroy
 	has_many :groups
 	has_many :events
+  has_many :feedbacks
 
 
   
@@ -228,6 +233,19 @@ class User < ApplicationRecord
   def login_increment
     increment! :sign_in_count
   end
+
+
+
+
+  private
+
+    def slug_candidates
+      [:name, [:name, :deduced_id]] # works for main locale but not others
+    end
+
+    def deduced_id
+      self.class.where(name: name).count + 1
+    end
 
 
 

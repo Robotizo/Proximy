@@ -20,6 +20,10 @@ class Event < ApplicationRecord
 
 	has_many :notificationevents 
 
+	geocoded_by :address
+	after_validation :geocode
+
+
 
 
 

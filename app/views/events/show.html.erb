@@ -1,6 +1,14 @@
 <%= stylesheet_link_tag "events", :media => "all" %>
 <%= javascript_include_tag 'events', 'data-turbolinks-track': 'reload' %>
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] %>
+<div class="alert alert-success" role="alert">
+  <%= notice %>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<% end %>
+
 
 
 
@@ -98,9 +106,12 @@
 
         <%= @event.description %>
       </div>
+
+      <div class="col-md-6 col-xs-12 postMob descriptionSec">
+
+       <div id="map"></div>
+      </div>
     </div>
-
-
 
 
 
@@ -478,12 +489,23 @@
     })
 
 
+    function initMap() {
+      // The location of Uluru
+      var pos = {lat: <%= @event.latitude %> , lng: <%= @event.longitude %> };
+      // The map, centered at Uluru
+      var map = new google.maps.Map(
+          document.getElementById('map'), {zoom: 12, center: pos});
+      // The marker, positioned at Uluru
+      var marker = new google.maps.Marker({position: pos, map: map});
+    }
 
 
 
 </script>
 
-
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo48DWSAQY1Qc3Tg4LjO8DtBJ32jSDbZI&callback=initMap">
+</script>
 
 
 

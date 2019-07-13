@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :feedbacks
   resources :friend_requests
 
 

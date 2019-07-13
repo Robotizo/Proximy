@@ -40,6 +40,21 @@
   }
 </style>
 
+<script>
+
+
+    function initAutocomplete() {
+
+      // Create the search box and link it to the UI element.
+      var input = document.getElementById('eventTitleLoc');
+      var searchBox = new google.maps.places.SearchBox(input);
+
+
+  }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo48DWSAQY1Qc3Tg4LjO8DtBJ32jSDbZI&libraries=places&callback=initAutocomplete"
+         async defer></script> 
 
 
 <div class="fullSec">
@@ -53,6 +68,30 @@
     </div>
   </div>
 
+
+
+
+    <div class="field">
+    <div class="labelSide">
+      <%= f.label "Address" %>
+    </div>
+    <div class="formSide" >
+      <%= f.text_field :address, class: "form-control", id: "eventTitleLoc", placeholder: "E.g: Abbey Road, London"  %>
+    </div>
+  </div>
+
+
+
+
+    <div class="formSide">
+      <%= f.hidden_field :latitude, class: "form-control" %>
+    </div>
+ 
+
+    <div class="formSide">
+      <%= f.hidden_field :longitude, class: "form-control" %>
+    </div>
+ 
 
 
     <div class="field">

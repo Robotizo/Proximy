@@ -3,6 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+.pac-item{
+  padding: 10px;
+}
+
+.pac-container{
+  border-radius: 5px;
+}
+
+#map {
+  height: 250px;  /* The height is 400 pixels */
+  width: 100%;  /* The width is the width of the web page */
+  border-radius: 5px;
+ }
+
+
+
+
 .mainEditsAccor{
   margin-bottom: 30px;
 }

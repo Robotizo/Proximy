@@ -27,6 +27,7 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+    @group_events = @group.events.sort_by &:event_date
     @interests = Interest.all
     followingGroupIds = @group.followersG.map(&:id)
     @groupFollowers = User.find(params = followingGroupIds).sort_by &:updated_at

@@ -1,6 +1,14 @@
 <%= stylesheet_link_tag "users", :media => "all" %>
 <%= javascript_include_tag 'users', 'data-turbolinks-track': 'reload' %>
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] %>
+<div class="alert alert-success" role="alert">
+  <%= notice %>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<% end %>
+
 
 <div class="text-center module1">
 
@@ -23,7 +31,9 @@
         <div class="userName">
           <%= @user.name %>
           <%= @user.last_name %>
+
         </div>
+
       </div>
     </div>
 
@@ -40,11 +50,17 @@
       </div>
      <% end %>
 
+
     <% unless @user.id == current_user.id %>
       <% unless current_user.friends.include?(@user) %>
         <%= render 'befriend' %>
+
       <% end %> 
     <% end %>
+
+
+
+
 
 
 
@@ -77,6 +93,12 @@
             <div class="userName">
               <%= @user.name %>
               <%= @user.last_name %>
+              <% if @user.distance_is_checked == true and current_user.id != @user.id and @user.friends.include?(current_user) %>
+                <div class="userDistance">
+                  <%= @user.getDistance(current_user.latitude, current_user.longitude) %> km
+
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -99,6 +121,8 @@
         <% unless @user.id == current_user.id %>
           <% unless current_user.friends.include?(@user) %>
             <%= render 'befriend' %>
+  
+
           <% end %> 
         <% end %>
 
@@ -381,7 +405,7 @@
 
 
 
-
+<% if @user.friends.include?(current_user) or @user == current_user %>
     <div class="eventsSection">
       <div class="titleSec">Events</div>
       <div class="scrollEvents">
@@ -420,6 +444,7 @@
         <% end %>
       </div>
     </div>
+
   </div>
 
     <div class="eventsSection">
@@ -453,7 +478,8 @@
         <% end %>
       </div>
     </div>
-
+  <% else %>
+  <% end %>
   </div>
 </div>
 

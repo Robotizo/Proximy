@@ -1,0 +1,111 @@
+<%= stylesheet_link_tag "users", :media => "all" %>
+<body>
+    <div id="map"></div>
+
+
+
+
+<div class="disclaimer">Only you can see your exact location.</div>
+
+
+
+<%= form_for @user do |f| %>
+  <div class="field">
+    <%= f.hidden_field :latitude, class: "form-control", id: "latField2" %>
+  </div>
+
+
+  <div class="field">
+    <%= f.hidden_field :longitude, class: "form-control", id: "lonField2"  %>
+  </div>
+
+<hr>
+
+	<div class="field">
+		<label class="con">
+			Friends can see my distance from their location.
+	    <%= f.check_box :distance_is_checked,  class: "checkDist" %> 
+	    <span class="checkmark"></span>
+	    </label>
+	</div>
+<hr>
+
+
+  <div class="actions updateLoc">
+    <%= f.submit "Update Location", class: "btn btn-primary signIn" %>
+  </div>
+
+
+<% end %>
+
+
+
+
+    <style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+        border-radius: 5px;
+       }
+    </style>
+
+
+        <script>
+
+		// Initialize and add the map
+		function initMap() {
+		  // The location of Uluru
+		  var pos = {lat: <%= current_user.latitude %> , lng: <%= current_user.longitude %> };
+		  // The map, centered at Uluru
+		  var map = new google.maps.Map(
+		      document.getElementById('map'), {zoom: 12, center: pos});
+		  // The marker, positioned at Uluru
+		  var marker = new google.maps.Marker({position: pos, map: map});
+		}
+
+
+		  function getLocation() {
+		    if (navigator.geolocation) {
+		      navigator.geolocation.getCurrentPosition(getLat2);
+		      navigator.geolocation.getCurrentPosition(getLon2);
+		    } else {
+		      x.innerHTML = "Geolocation is not supported by this browser.";
+		    }
+		  }
+
+
+		  function getLat2(position) {
+		    var lat2 = position.coords.latitude;
+
+		    $(document).ready(function () {
+		      $("#latField2").val(lat2);
+		    })
+		  }
+
+
+		  function getLon2(position) {
+		    var lon2 = position.coords.longitude;
+
+		    $(document).ready(function () {
+		      $("#lonField2").val(lon2);
+		    })
+		  }
+
+
+    </script>
+
+
+	<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo48DWSAQY1Qc3Tg4LjO8DtBJ32jSDbZI&callback=initMap">
+	</script>
+
+
+
+
+
+</body>
+
+
+
+

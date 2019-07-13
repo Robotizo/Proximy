@@ -1,1 +1,1 @@
-$('#follow_b').html("<%= j render 'users/followI', interest: interest %>");
+$('#follow_b').html("<%= escape_javascript render('interests/followInterest') %>");

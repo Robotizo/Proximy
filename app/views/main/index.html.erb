@@ -6,24 +6,48 @@
 <script>
     AOS.init();
 </script>
+
+
+
 <body onload="getLocation()">
-  
+
+
 
   <% if !session[:user_id] %>
-    <div class="container">
-      <div class="sec1">
-        <div class="col-md-5">
 
-        </div>
-        <div class="col-md-7 sec1">
-          <div class="sec1H">Nein</div>
-          <div class="sec1S">The process of making contacts is a tedious task. Having the ability to maintain a contact
-            and keep
-          </div>
-        </div>
-      </div>
-    </div>
+
+  <style>
+    body{
+      margin-top: 0px !important;
+      margin-bottom: 0px !important;
+    }
+
+
+
+  </style>
+
+  <!-- Front Page Start -->
+
+
+<div class='slider'>
+
+   <div class='test'>Hello</div> 
+
+  <div class='slide1'> 
+
+
+</div>
+
+  <div class='slide2'></div>
+  <div class='slide3'></div>
+</div>
+
+    <!-- Front Page End -->
+
+
+
   <% end %>
+
 
 
   <% if session[:user_id] %>

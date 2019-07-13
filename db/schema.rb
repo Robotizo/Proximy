@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190615205616) do
+ActiveRecord::Schema.define(version: 20190710000319) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
@@ -48,6 +48,9 @@ ActiveRecord::Schema.define(version: 20190615205616) do
     t.time     "event_time"
     t.date     "event_end_date"
     t.time     "event_end_time"
+    t.string   "address"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
   end
 
   create_table "events_relationships", force: :cascade do |t|
@@ -58,6 +61,24 @@ ActiveRecord::Schema.define(version: 20190615205616) do
     t.index ["followedE_id"], name: "index_events_relationships_on_followedE_id"
     t.index ["followerE_id", "followedE_id"], name: "index_events_relationships_on_followerE_id_and_followedE_id", unique: true
     t.index ["followerE_id"], name: "index_events_relationships_on_followerE_id"
+  end
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -178,8 +199,8 @@ ActiveRecord::Schema.define(version: 20190615205616) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "password_digest"
     t.string   "image"
     t.string   "avatar"
@@ -191,8 +212,11 @@ ActiveRecord::Schema.define(version: 20190615205616) do
     t.decimal  "longitude"
     t.integer  "sign_in_count"
     t.string   "last_name"
+    t.string   "slug"
+    t.boolean  "distance_is_checked",    default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
 end

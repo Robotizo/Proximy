@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
 
-    $user = User.find(params[:id])
+    $user = User.friendly.find(params[:id])
 
 
 
@@ -42,12 +42,10 @@ class UsersController < ApplicationController
 
 
 
+
+
     
     
-
-
-
-
     @user_groups = @user.groups.order("created_at DESC")
     followingGroupsIds = @user.followingG.map(&:id)
     @groupsFollow = Group.find(params = followingGroupsIds).sort_by &:updated_at
@@ -67,6 +65,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /users
@@ -90,7 +89,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to :back, notice: 'Your profile has been updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -112,12 +111,12 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = User.friendly.find(params[:id])
     end
 
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :last_name, :email, :image, :avatar, :bio, :password, :password_confirmation, :latitude, :longitude)
+      params.require(:user).permit(:name, :last_name, :email, :image, :avatar, :bio, :password, :password_confirmation, :latitude, :longitude, :distance_is_checked)
     end
 end

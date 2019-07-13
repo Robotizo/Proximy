@@ -4,6 +4,71 @@
 
 
 
+
+.specialA:hover{
+  color: white;
+  text-decoration: none !important;
+  color: white;
+}
+
+
+.groupTitleDisc{
+    text-align: center;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    font-weight: 600;
+    border-radius: 5px;
+    /* margin-top: 5px; */
+    /* margin-left: 2px; */
+    /* margin-right: 2px; */
+    /* margin-bottom: 5px; */
+    top: -43px;
+    font-size: 16px;
+    white-space: normal;
+        background-color: #6c95af;
+        color: white !important; 
+
+}
+
+.interestTitleSec{
+  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
+  position: relative;
+  top: -44px;
+  border-radius: 0px 0px 5px 5px;
+}
+
+
+.interestName{
+    font-size: 18px;
+    padding: 10px;
+    font-weight: 700;
+    color: white;
+}
+
+
+
+.interestNameBlack{
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 700;
+    color: black;
+    position: relative;
+    top: -40px;
+}
+
+
+
+.noNotifs{
+  width: 100px;
+  margin: 20px;
+}
+
+
 .newNotifs{
 	padding: 8px 15px;
 	background-color: #6c95af;
@@ -36,16 +101,6 @@
 
 
 
-.infoInner{
-	margin: 10px;
-}
-
-
-
-.infoSec{
-	width: 55%;
-	float: left;
-}
 
 
 .imageSec{
@@ -54,20 +109,21 @@
 }
 .interestImage{
 	width: 100%;
-	border-radius: 5px 0px 0px 5px;
+	border-radius: 5px;
 }
 
 
-.notifModuleF{
-	margin-top: 5px;
-    margin-bottom: 22px;
-    box-shadow: 0px 0px 0px 1px #dedddd;
-    border-radius: 5px;
-    float: left;
-    width: 100%;
-    background-color: rgba(108, 149, 175, 0.2);
+.interestImageEventUnseen{
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0px 0px 0px 3px #6c95af;
 }
 
+.interestImageEventSeen{
+  width: 100%;
+  border-radius: 5px;
+  border: 0px;
+}
 
 .notifModuleT{
 	margin-top: 5px;

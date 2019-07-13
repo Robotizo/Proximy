@@ -59,7 +59,7 @@ class EventsController < ApplicationController
           end
 
         end
-        format.html { redirect_to interests_event_path(@event), notice: 'Event was successfully created.' }
+        format.html { redirect_to interests_event_path(@event), notice: 'Event is successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -105,6 +105,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :description, :image, :group_id, :event_date, :event_time, :event_end_date, :event_end_time)
+      params.require(:event).permit(:title, :description, :image, :group_id, :event_date, :event_time, :event_end_date, :event_end_time, :address, :latitude, :longitude)
     end
 end
