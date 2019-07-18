@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+.address{
+  font-weight: 600;
+}
+
+.testMarge{
+  padding:20px;
+}
 
 .pac-item{
   padding: 10px;
@@ -135,8 +142,8 @@
 
 div.col-md-6.post-image-background{
   height: 130px;
-  border-bottom-left-radius: calc(0.25rem - 1px);
-  border-top-left-radius: calc(0.25rem - 1px);
+  border-bottom-left-radius: calc(0.75rem - 1px);
+  border-top-left-radius: calc(0.75rem - 1px);
 }
 
 .row.no-gutters > .post-image-background {
@@ -160,6 +167,7 @@ div.col-md-6.post-image-background{
 
 #modalPostBody {
   padding: 15px;
+  font-weight: 600;
 
   &:empty {
     display: none;
@@ -274,6 +282,7 @@ div#modalPostImage {
 
 .card-text:last-child {
   margin-bottom: 0;
+  font-weight: 600;
 }
 
 .card-link:hover {
@@ -481,7 +490,7 @@ div#modalPostImage {
 
 
 .groupBlock{
-	margin-bottom: -50px;
+	margin-bottom: -80px;
 }
 
 .descriptionSec{
@@ -579,6 +588,7 @@ div .show-more[aria-expanded="true"]{
 	font-size: 14px;
 	padding: 5px;	
 	color: white;
+  font-weight: 600;
 }
 
 
@@ -948,7 +958,7 @@ div.scrollGroupsI a {
 }
 
 .titleSec{
-	font-size: 30px;
+	font-size: 25px;
     font-weight: 600;
     margin-top: 10px;
     margin-left: 15px;
@@ -1020,9 +1030,10 @@ div.scrollGroupsI a {
 
 .unAttendGroupBtn{
 	background-color: #4eb6dc;
-	border-radius: 10px;
+	border-radius: 5px;
     height: 45px;
     width: 100%;
+    font-weight: 700;
 }
 
 .unAttendGroupBtn:hover{
@@ -1034,10 +1045,11 @@ div.scrollGroupsI a {
 
 .attendEventBtn{
 	background-color: white;
-	border-radius: 10px;
+	border-radius: 5px;
     height: 45px;
     width: 100%;
     color: #6c95af;
+    font-weight: 700;
 }
 
 .attendEventBtn:hover{
@@ -1161,7 +1173,7 @@ div.scrollEvents a {
 .newsfeed{
 	float: left;
 	width: 100%;
-	margin-bottom: 25px;
+	margin-bottom: 30px;
 }
 .userSignWithin{
 	padding: 6px;
@@ -1200,7 +1212,7 @@ div.scrollEvents a {
 .laterPostBox{
 	margin-bottom: 22px;
 	 box-shadow: 0px 0px 0px 1px #dedddd;
-    border-radius: 5px;
+  border-radius: calc(0.75rem - 1px);
     float: left;
     width: 100%;
 }
@@ -1425,7 +1437,7 @@ div.scrollEvents a {
 	}
 
 	.groupBlock{
-		margin-bottom: -50px;
+		margin-bottom: -90px;
 	}
 	.eventDateI{
 		font-size: 16px;

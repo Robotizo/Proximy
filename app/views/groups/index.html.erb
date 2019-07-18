@@ -34,7 +34,7 @@
       
           
           <% @groups.each do |group| %>
-            <div class="col-md-4 col-xs-12">
+            <div class="col-md-4 col-xs-12 testMarge">
               <%= link_to group, method: :get, class: "specialA" do %>
                 <div class="groupBlock">
                   <%= image_tag(group.image_url(:event), class: "groupImageDisc") if group.image? %>

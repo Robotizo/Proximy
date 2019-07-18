@@ -4,6 +4,10 @@
 
 
 
+.testMarge{
+  padding:20px;
+}
+
 .grid-item-user{
 	width: calc(25% - 10px);
 }
@@ -127,8 +131,8 @@
 
 div.col-md-6.post-image-background{
   height: 130px;
-  border-bottom-left-radius: calc(0.25rem - 1px);
-  border-top-left-radius: calc(0.25rem - 1px);
+  border-bottom-left-radius: calc(0.75rem - 1px);
+  border-top-left-radius: calc(0.75rem - 1px);
 }
 
 .row.no-gutters > .post-image-background {
@@ -152,6 +156,7 @@ div.col-md-6.post-image-background{
 
 #modalPostBody {
   padding: 15px;
+  font-weight: 600;
 
   &:empty {
     display: none;
@@ -266,6 +271,7 @@ div#modalPostImage {
 
 .card-text:last-child {
   margin-bottom: 0;
+  font-weight: 600;
 }
 
 .card-link:hover {
@@ -475,7 +481,7 @@ div#modalPostImage {
     background-color: #6c95af;
     color: white;
     padding: 10px 30px;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid #6c95af;
 
 }
@@ -494,7 +500,7 @@ div#modalPostImage {
     color: #6c95af;
     font-weight: 600;
     padding: 10px 30px;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid #6c95af;
 
 }
@@ -773,6 +779,7 @@ div .show-more[aria-expanded="true"]{
 	font-size: 14px;
 	padding: 5px;	
 	color: white;
+  font-weight: 600;
 }
 
 
@@ -903,7 +910,6 @@ div.scrollGroupsI a {
 }
 
 .groupTitleDisc{
-	padding-bottom: 25px;
     font-weight: 700;
     font-size: 18px;
     margin-left: 2px;
@@ -1016,7 +1022,7 @@ div.scrollEvents a {
 
 
 .titleSec{
-	font-size: 30px;
+	font-size: 25px;
 	font-weight: 600;
 	margin-top: 10px;
 	margin-left: 15px;
@@ -1206,7 +1212,7 @@ div.scrollEvents a {
 .laterPostBox{
 	margin-bottom: 22px;
 	 box-shadow: 0px 0px 0px 1px #dedddd;
-    border-radius: 5px;
+        border-radius: calc(0.75rem - 1px);
     float: left;
     width: 100%;
 }
@@ -1356,7 +1362,7 @@ div.scrollEvents a {
 .newsfeed{
 	float: left;
 	width: 100%;
-	margin-bottom: 25px;
+	margin-bottom: 30px;
 }
 
 

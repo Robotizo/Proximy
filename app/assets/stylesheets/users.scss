@@ -217,7 +217,7 @@ input.checkDist{
     color: #6c95af;
     font-weight: 600;
     padding: 10px 30px;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid #6c95af;
     outline: none !important;
 
@@ -529,8 +529,8 @@ div .show-more[aria-expanded="true"]{
 
 div.col-md-6.post-image-background{
   height: 130px;
-  border-bottom-left-radius: calc(0.25rem - 1px);
-  border-top-left-radius: calc(0.25rem - 1px);
+  border-bottom-left-radius: calc(0.75rem - 1px);
+  border-top-left-radius: calc(0.75rem - 1px);
 }
 
 
@@ -639,6 +639,7 @@ div.scrollEvents .card {
 
 #modalPostBody {
   padding: 15px;
+  font-weight: 600;
 
   &:empty {
     display: none;
@@ -692,6 +693,7 @@ body {
   font-size: 14px;
   padding: 5px;
   color: white;
+  font-weight: 600;
 }
 
 
@@ -734,6 +736,7 @@ body {
   background-color: white;
   width: 100%;
   float: left;
+  margin-bottom: 30px;
 }
 
 .groupImage1 {
@@ -863,6 +866,7 @@ img.userImage2 {
 
 .card-text:last-child {
   margin-bottom: 0;
+  font-weight: 600;
 }
 
 .card-link:hover {
@@ -1367,6 +1371,7 @@ body {
 .newsfeed {
   float: left;
   width: 100%;
+  margin-bottom: 30px;
 }
 
 .posterDate2 {
@@ -1412,7 +1417,7 @@ body {
   margin-top: 5px;
   margin-bottom: 22px;
   box-shadow: 0px 0px 0px 1px #dedddd;
-  border-radius: 5px;
+      border-radius: calc(0.75rem - 1px);
   float: left;
   width: 100%;
 }
@@ -1477,7 +1482,7 @@ body {
 }
 
 .titleSec {
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 600;
   margin: 10px 15px;
 }
