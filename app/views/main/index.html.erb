@@ -99,7 +99,7 @@
       <div class="grid displayModals">
         <div class="grid-sizer"></div>
         <% @all_posts.reverse.each do |post| %>
-          <div class="card grid-item" data-aos="fade-up">
+          <div class="card grid-item" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
               <span data-toggle="modal" data-target="#postModal"
                     data-poster="<%= post.user.name %>"
                     data-body="<%= post.content %>"
@@ -153,6 +153,7 @@
 
             </span>
           </div>
+          
         <% end %>
       </div>
     </div>
