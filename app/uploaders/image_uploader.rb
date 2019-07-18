@@ -3,6 +3,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
+
+
+  process :rotate
+
+  def rotate
+    manipulate! do |image|
+      image.auto_orient
+    end
+  end
   # Choose what kind of storage to use for this uploader:
 
   if Rails.env.production?
