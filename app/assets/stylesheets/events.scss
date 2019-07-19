@@ -2,6 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+.organizerName{
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+
+.organizerAv{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+
+.adminPos{
+  position: relative;
+  bottom: -18px;
+}
+
 .address{
   font-weight: 600;
 }
@@ -510,8 +530,14 @@ div#modalPostImage {
 
 .titleSecSub{
 	font-size: 25px;
-    font-weight: 200;
-    margin: 50px;
+  font-weight: 600;
+   margin: 20px;
+}
+
+.titleSecSub2{
+  font-size: 18px;
+  font-weight: 600;
+   margin: 20px;
 }
 
 div .panel-heading[aria-expanded="true"]{
@@ -988,7 +1014,7 @@ div.scrollGroupsI a {
 .eventTitle2{
 	font-size: 20px;
 	font-weight: 600;
-	margin-top: 20px;
+	margin-top: 18px;
 }
 
 .infoTop{
@@ -996,7 +1022,6 @@ div.scrollGroupsI a {
     font-weight: 600;
     margin-top: 10px;
     text-align: left;
-    margin-bottom: 10px;
 }
 
 
@@ -1009,7 +1034,7 @@ div.scrollGroupsI a {
 
 .module1{
 	margin-bottom: 15px;
-    height: 435px;
+    height: 460px;
 	background-color: white;
 }
 
@@ -1022,7 +1047,7 @@ div.scrollGroupsI a {
 .buttonEventHov{
 	position: absolute;
 	width: 95%;
-	bottom: 10px;
+	bottom: -26px;
 }
 
 
@@ -1315,6 +1340,14 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px){
+  .titleSecSub{
+    font-size: 22px;
+    margin: 20px 0px;
+  }
+  .titleSecSub2{
+    font-size: 14px;
+    margin: 20px 0px;
+  }
   .eventFormEqual{
         margin-top: -65px;
   }

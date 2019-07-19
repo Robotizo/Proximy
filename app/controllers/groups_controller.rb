@@ -10,6 +10,10 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     groupID = @group.id
     $groupTest = Group.find(params = groupID)
+
+    unless current_user == @group.user
+       redirect_to(@group, notice: "You cannot edit interests") and return
+    end
   end
 
   # GET /groups
@@ -33,6 +37,7 @@ class GroupsController < ApplicationController
     @groupFollowers = User.find(params = followingGroupIds).sort_by &:updated_at
     groupID = @group.id
     $groupTest = Group.find(params = groupID)
+
   end
 
   # GET /groups/new
@@ -42,6 +47,11 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
+    @event = Event.find(params[:id])
+
+    unless current_user == @event.user
+       redirect_to(@event, notice: "You cannot edit this group") and return
+    end
   end
 
   # POST /groups

@@ -1,0 +1,9 @@
+
+<%= stylesheet_link_tag "events", :media => "all" %>
+
+
+  <%= form_for(@event.active_relationships_interests_to_events.find_by(fdE_id: interest.id), html: { method: :delete }, remote: true) do |f| %>
+    <div class="buttonHov">
+      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+    </div>
+  <% end %>

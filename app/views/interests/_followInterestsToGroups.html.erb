@@ -1,7 +1,0 @@
-
-<%= form_for(@interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-	<%= hidden_field_tag :fdI_id, @interest.id %>
-	<div class="buttonEventHov">
-		<%= f.submit "Group Interested", class: "btn btn-primary attendEventBtn" %>
-	</div>
-<% end %>

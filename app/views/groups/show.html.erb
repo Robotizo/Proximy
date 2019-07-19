@@ -28,7 +28,39 @@
         <div class="groupTitle"><%= @group.title %></div>  
 
 
+<% if current_user == @group.user %>
 
+      <div class="col-md-4">
+              <div id="follow_formDes">
+                <% if current_user.followingG?(@group) %>
+                  <%= form_for(current_user.active_relationships_groups.find_by(followedG_id: @group.id), html: { method: :delete }) do |f| %>
+                    <%= f.submit "Joined Group", class: "btn connectedBtnAd" %>
+                  <% end %>
+
+                <% else %>
+                  <%= form_for(@group.passive_relationships_groups.build, method: :post) do |f| %>
+                    <%= hidden_field_tag :followedG_id, @group.id %>
+                    <%= f.submit "Join Group", class: "btn connectBtnAd" %>
+                  <% end %>
+
+                <% end %>
+              </div>
+      </div>
+      <div class="col-md-4">
+        <%= button_to "Edit Group", edit_group_path(@group), method: :get, class: "btn btn-primary connectBtnAd" %>
+      </div>
+
+      <div class="col-md-4">
+        <%= button_to "Edit Interests", interests_group_path(@group), method: :get, class: "btn btn-primary connectBtnAd" %>
+      </div>
+
+
+
+
+
+
+
+<% else %>
 
         <div id="follow_formDes">
           <% if current_user.followingG?(@group) %>
@@ -39,6 +71,7 @@
         </div>
 
 
+<% end %>
 
 
 

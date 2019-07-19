@@ -48,13 +48,70 @@
           <span class="eventTitle"><%= @event.event_end_time.strftime("%I:%M %p") %></span>
         <% end %>
       </div>
+
+      <div class="col-md-12 col-xs-12">
+        <div class="eventTitle2">Created by</div>
+        <%= image_tag(@event.user.avatar_url(:thumb), class: "organizerAv") if @event.user.avatar? %>
+        <spa class="organizerName"><%= @event.user.name %> <%= @event.user.last_name %></span>
+
+      </div>
+
+    <% if current_user == @event.user %>
+<div class="adminPos">
+
+     <div class="col-md-4">
+ 
+        <% if current_user.followingE?(@event) %>
+
+
+               <%= form_for(current_user.active_relationships_events.find_by(followedE_id: @event.id), html: { method: :delete }) do |f| %>
+            
+                    <div class="attendingState"><%= f.submit "Attending Event", class: "btn  btn-primary unAttendGroupBtn greenAttend" %></div>
+                    <div class="notAttendingState"><%= f.submit "Cancel", class: "btn  btn-primary unAttendGroupBtn" %></div>
+        
+              <% end %>
+
+        <% else %>
+
+
+                 <%= form_for(@event.passive_relationships_events.build, method: :post) do |f| %>
+                  <%= hidden_field_tag :followedE_id, @event.id %>
+                
+                    <%= f.submit "Attend Event", class: "btn btn-primary attendEventBtn" %>
+          
+                <% end %>
+
+
+
+
+        <% end %>
+  
+      
+     </div>
+
+    <div class="col-md-4">
+
+      <%= button_to "Edit Event", edit_event_path(@event), method: :get, class: "btn btn-primary attendEventBtn" %>
+    </div>
+
+
+    <div class="col-md-4">
+        <%= button_to "Edit Interests", interests_event_path(@event), method: :get, class: "btn btn-primary attendEventBtn" %>
+
+     </div>
+
+</div>
+
+    <% else %>
       <% if current_user.followingE?(@event) %>
         <%= render partial: "unfollowEvent" %>
       <% else %>
         <%= render partial: "followEvent" %>
       <% end %>
+    <% end %>
     </div>
   </div>
+
 
 
 <div class="container mobNavs">

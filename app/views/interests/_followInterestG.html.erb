@@ -1,0 +1,9 @@
+<%= stylesheet_link_tag "groups", :media => "all" %>
+
+
+<%= form_for(@interest.passive_relationships_interests_to_groups.build, method: :post, remote: true) do |f| %>
+	<%= hidden_field_tag :fdI_id, @interest.id %>
+	<div class="buttonHov">
+		<%= f.submit "Add", class: "btn btn-primary addInterest" %>
+	</div>
+<% end %>

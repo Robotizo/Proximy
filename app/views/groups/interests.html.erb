@@ -35,22 +35,27 @@
 
           </div>
         </div>
+
+
       </div>
-
-
 
 
 
 </div>
 
 <div class="container margTop mobNavs">
-  <div class="titleSec">Selected Interests for <%= @group.title %></div>
+  <div class="leftAlign">
+      <div class="titleSecSub">Select interests that match this group</div>
+      <div class="titleSecSub2">The more interests you select the more people will find you</div>
+</div>
+
 
   <div class="col-md-12 col-xs-12 mobNavs">
 
     <% if @group.fgI.exists? %>
-
+  <div class="titleSec">Selected Interests for <%= @group.title %></div>
     <% @group.fgI.each do |interest| %>
+    
       <div class="col-md-2 col-xs-6">
         <div class="interestCard">
           <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
@@ -65,7 +70,7 @@
 
     <% end %>
     <% else %>
-      <div class="titleSecSub">Select interests that match this event.</div>
+
 
 
     <% end %>
@@ -99,21 +104,25 @@
                   </div>
 
 
-
+   <div id="follow_<%= interest.id %>">
           <% if @group.fgI?(interest) %>
-                  <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+
+                    <%= render 'unfollowIG', interest: interest %>
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :fdI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                  <%= render 'followIG', interest: interest %>
+
+
+
                 <% end %>
+</div>
+
             </div>
             </div>
           <% end %>
@@ -144,21 +153,25 @@
                   </div>
 
 
-
+   <div id="follow_<%= interest.id %>">
           <% if @group.fgI?(interest) %>
-                  <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+
+                    <%= render 'unfollowIG', interest: interest %>
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :fdI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                   <%= render 'followIG', interest: interest %>
+
+
+
                 <% end %>
+    </div>
+
             </div>
             </div>
           <% end %>
@@ -191,21 +204,27 @@
                   </div>
 
 
-
+   <div id="follow_<%= interest.id %>">
           <% if @group.fgI?(interest) %>
-                  <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+                        <%= render 'unfollowIG', interest: interest %>
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :fdI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                      <%= render 'followIG', interest: interest %>
+
+
+
+
                 <% end %>
+      </div>
+
+
+
+
             </div>
             </div>
           <% end %>
@@ -236,21 +255,27 @@
                   </div>
 
 
-
+   <div id="follow_<%= interest.id %>">
           <% if @group.fgI?(interest) %>
-                  <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+
+                      <%= render 'unfollowIG', interest: interest %>
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :fdI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                      <%= render 'followIG', interest: interest %>
+
+
+
+
                 <% end %>
+</div>
+
+
             </div>
             </div>
           <% end %>
@@ -282,22 +307,23 @@
                   
                   </div>
 
-
+   <div id="follow_<%= interest.id %>">
 
           <% if @group.fgI?(interest) %>
-                  <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+                  <%= render 'unfollowIG', interest: interest %>
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :fdI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                    <%= render 'followIG', interest: interest %>
+
+
                 <% end %>
+
+  </div>
             </div>
             </div>
           <% end %>
@@ -327,21 +353,25 @@
                   </div>
 
 
-
+   <div id="follow_<%= interest.id %>">
           <% if @group.fgI?(interest) %>
-                  <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+                <%= render 'unfollowIG', interest: interest %>
+
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :fdI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                  <%= render 'followIG', interest: interest %>
+
+
+
+
                 <% end %>
+
+  </div>
             </div>
             </div>
           <% end %>
@@ -375,21 +405,23 @@
                   </div>
 
 
-
+   <div id="follow_<%= interest.id %>">
           <% if @group.fgI?(interest) %>
-                  <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+                  <%= render 'unfollowIG', interest: interest %>
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :fdI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+                  <%= render 'followIG', interest: interest %>
+
+
                 <% end %>
+
+  </div>
+
+
             </div>
             </div>
           <% end %>
@@ -421,21 +453,24 @@
                   </div>
 
 
-
+   <div id="follow_<%= interest.id %>">
           <% if @group.fgI?(interest) %>
-                  <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+
+                  <%= render 'unfollowIG', interest: interest %>
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :fdI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+                    <%= render 'followIG', interest: interest %>
+
+
                 <% end %>
+
+
+    </div>
             </div>
             </div>
           <% end %>
@@ -467,21 +502,21 @@
                   </div>
 
 
-
+   <div id="follow_<%= interest.id %>">
           <% if @group.fgI?(interest) %>
-                  <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+                    <%= render 'unfollowIG', interest: interest %>
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :fdI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+                    <%= render 'followIG', interest: interest %>
+
+
                 <% end %>
+
+</div>
+
             </div>
             </div>
           <% end %>
@@ -514,22 +549,26 @@
                   
                   </div>
 
-
+   <div id="follow_<%= interest.id %>">
 
           <% if @group.fgI?(interest) %>
-                  <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+                    <%= render 'unfollowIG', interest: interest %>
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :fdI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                    <%= render 'followIG', interest: interest %>
+
+
+
                 <% end %>
+
+
+  </div>
             </div>
             </div>
           <% end %>
@@ -561,21 +600,24 @@
                   </div>
 
 
-
+   <div id="follow_<%= interest.id %>">
           <% if @group.fgI?(interest) %>
-                  <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+                  <%= render 'unfollowIG', interest: interest %>
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :fdI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                  <%= render 'followIG', interest: interest %>
+
+
                 <% end %>
+
+  </div>
+
+
+
             </div>
             </div>
           <% end %>
@@ -607,21 +649,26 @@
                   </div>
 
 
-
+   <div id="follow_<%= interest.id %>">
           <% if @group.fgI?(interest) %>
-                  <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+
+                  <%= render 'unfollowIG', interest: interest %>
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :fdI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                  <%= render 'followIG', interest: interest %>
+
+
+
                 <% end %>
+
+    </div>
+
             </div>
             </div>
           <% end %>
@@ -653,21 +700,30 @@
                   </div>
 
 
-
+<div id="follow_<%= interest.id %>">
           <% if @group.fgI?(interest) %>
-                  <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+
+
+                    <%= render 'unfollowIG', interest: interest %>
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :fdI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                    <%= render 'followIG', interest: interest %>
+
+
+
+
                 <% end %>
+
+</div>
+
+
+
             </div>
             </div>
           <% end %>
@@ -702,22 +758,27 @@
                   
                   </div>
 
-
+<div id="follow_<%= interest.id %>">
 
           <% if @group.fgI?(interest) %>
-                  <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+
+
+                        <%= render 'unfollowIG', interest: interest %>
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :fdI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                       <%= render 'followIG', interest: interest %>
+
+
                 <% end %>
+
+</div>
+
+
             </div>
             </div>
           <% end %>
@@ -750,21 +811,25 @@
                   </div>
 
 
-
+<div id="follow_<%= interest.id %>">
           <% if @group.fgI?(interest) %>
-                  <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+                      <%= render 'unfollowIG', interest: interest %>
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :fdI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+                    <%= render 'followIG', interest: interest %>
+
+
                 <% end %>
+</div>
+
+
+
+
             </div>
             </div>
           <% end %>
@@ -798,21 +863,25 @@
                   </div>
 
 
-
+<div id="follow_<%= interest.id %>">
           <% if @group.fgI?(interest) %>
-                  <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+                <%= render 'unfollowIG', interest: interest %>
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :fdI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                  <%= render 'followIG', interest: interest %>
+
+
                 <% end %>
+
+</div>
+
+
+
             </div>
             </div>
           <% end %>
@@ -842,21 +911,25 @@
                   </div>
 
 
-
+<div id="follow_<%= interest.id %>">
           <% if @group.fgI?(interest) %>
-                  <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+                    <%= render 'unfollowIG', interest: interest %>
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :fdI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+                    <%= render 'followIG', interest: interest %>
+
+
+
                 <% end %>
+
+
+</div>
+
+
             </div>
             </div>
           <% end %>
@@ -889,21 +962,29 @@
                   </div>
 
 
-
+<div id="follow_<%= interest.id %>">
           <% if @group.fgI?(interest) %>
-                  <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+
+
+                    <%= render 'unfollowIG', interest: interest %>
+
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :fdI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                  <%= render 'followIG', interest: interest %>
+
+
+
+
                 <% end %>
+
+</div>
+
+
+
             </div>
             </div>
           <% end %>
@@ -934,21 +1015,22 @@
                   </div>
 
 
-
+<div id="follow_<%= interest.id %>">
           <% if @group.fgI?(interest) %>
-                  <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+                      <%= render 'unfollowIG', interest: interest %>
+
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :fdI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+
+                    <%= render 'followIG', interest: interest %>
+
+
                 <% end %>
+
+
+  </div>
             </div>
             </div>
           <% end %>
@@ -979,21 +1061,22 @@
                   </div>
 
 
-
+<div id="follow_<%= interest.id %>">
           <% if @group.fgI?(interest) %>
-                  <%= form_for(@group.active_relationships_interests_to_groups.find_by(fdI_id: interest.id), html: { method: :delete }) do |f| %>
-                    <div class="buttonHov">
-                      <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
-                    </div>
-                  <% end %>
+
+                    <%= render 'unfollowIG', interest: interest %>
+
                 <% else %>
-                  <%= form_for(interest.passive_relationships_interests_to_groups.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :fdI_id, interest.id %>
-                    <div class="buttonHov">
-                      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
-                    </div>
-                  <% end %>
+
+                    <%= render 'followIG', interest: interest %>
+
+
                 <% end %>
+
+
+</div>
+
+
             </div>
             </div>
           <% end %>
@@ -1017,14 +1100,14 @@
 
 
 
-<% if @group.fgI.count > 1 %>
+
 <div class="col-md-12">
 
   <div class="create">
     <%= button_to "Confirm", @group, method: :get, class: "btn btn-primary createButton" %>
   </div>
 </div>
-<% end %>
+
 </div>
 
 

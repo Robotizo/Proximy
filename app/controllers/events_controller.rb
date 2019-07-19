@@ -9,6 +9,10 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     eventID = @event.id
     $eventTest = Event.find(params = eventID)
+
+    unless current_user == @event.user
+       redirect_to(@event, notice: "You cannot edit interests") and return
+    end
   end
 
   # GET /events
@@ -41,6 +45,11 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    @event = Event.find(params[:id])
+
+    unless current_user == @event.user
+       redirect_to(@event, notice: "You cannot edit this event") and return
+    end
   end
 
   # POST /events

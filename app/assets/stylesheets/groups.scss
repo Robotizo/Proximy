@@ -3,6 +3,59 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+.connectedBtnAd{
+    background-color: #6c95af;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: 1px solid #6c95af;
+    width: 100%;
+    font-weight: 600;
+}
+
+
+.connectedBtnAd:hover {
+    background-color: #5da8d8;
+    color: white;
+    opacity: 1;
+    transition: 0.3s;
+}
+
+
+.connectBtnAd{
+  width: 100%;
+  background-color: #ffffff;
+  color: #6c95af;
+  font-weight: 600;
+  padding: 10px 30px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #6c95af;
+}
+
+
+.connectBtnAd:hover{
+  background-color: #6c95af;
+    color: white;
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.leftAlign{
+  text-align: left;
+}
+
+.titleSecSub{
+  font-size: 25px;
+  font-weight: 600;
+   margin: 20px;
+}
+
+.titleSecSub2{
+  font-size: 18px;
+  font-weight: 600;
+   margin: 20px;
+}
 
 .testMarge{
   padding:20px;
@@ -515,11 +568,6 @@ div#modalPostImage {
 
 
 
-.titleSecSub{
-	font-size: 25px;
-    font-weight: 200;
-    margin: 50px;
-}
 
 div .panel-heading[aria-expanded="true"]{
     border-bottom: #6c95af 3px solid;
@@ -1395,6 +1443,15 @@ div.scrollEvents{
 }
 
 @media screen and (max-width: 776px){
+
+  .titleSecSub{
+    margin: 10px 10px;
+    font-size: 20px;
+  }
+  .titleSecSub2{
+    margin: 10px 10px;
+    font-size: 14px;
+  }
   #groupTitleText{
     font-size: 18px;
     top: -10px;
