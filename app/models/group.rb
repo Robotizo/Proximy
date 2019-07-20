@@ -4,6 +4,10 @@ class Group < ApplicationRecord
 	has_many :events
 	mount_uploader :image, ImageUploader
 	mount_uploader :cover_image, ImageUploader
+	validates_presence_of :title
+	validates_presence_of :image
+	validates_presence_of :cover_image
+
 
 	has_many :passive_relationships_groups, class_name: "GroupsRelationship", foreign_key: "followedG_id", dependent: :destroy
 	has_many :followersG, through: :passive_relationships_groups, source: :followerG

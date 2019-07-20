@@ -84,6 +84,9 @@
     <% unless user.id == current_user.id %>
         <%= link_to user, method: :get, class: "specialA" do %>
         <div class="followersSec">
+          <% unless user.avatar.present? %>
+            <%= avatarFront_for(user) %>
+          <% end %>
           <%= image_tag(user.avatar_url(:thumb), class: "userImg") if user.avatar? %>
           <div class="followerNameSec"><%= truncate(user.name.gsub(/\s.+/, '')) %></div>
         </div>
@@ -99,7 +102,7 @@
       <div class="grid displayModals">
         <div class="grid-sizer"></div>
         <% @all_posts.reverse.each do |post| %>
-          <div class="card grid-item" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+          <div class="card grid-item" data-aos="zoom-in">
               <span data-toggle="modal" data-target="#postModal"
                     data-poster="<%= post.user.name %>"
                     data-body="<%= post.content %>"

@@ -47,10 +47,10 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
-    @event = Event.find(params[:id])
+    @group = Group.find(params[:id])
 
-    unless current_user == @event.user
-       redirect_to(@event, notice: "You cannot edit this group") and return
+    unless current_user == @group.user
+       redirect_to(@group, notice: "You cannot edit this group") and return
     end
   end
 

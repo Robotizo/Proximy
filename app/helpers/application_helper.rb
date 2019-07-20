@@ -23,4 +23,12 @@ module ApplicationHelper
 	    end
 	    return @avatar_user
 	end
+
+	def avatarFront_for(user)
+	    @avatar = user.avatar
+	    unless @avatar.present?
+	        @avatar_user = image_tag("profile.jpg", alt: user.name, class: "userImg")
+	    end
+	    return @avatar_user
+	end
 end
