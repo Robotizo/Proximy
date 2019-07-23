@@ -29,7 +29,7 @@ class EventPostsController < ApplicationController
 
     respond_to do |format|
       if @event_post.save
-        format.html { redirect_to @event_post, notice: 'Event post was successfully created.' }
+        format.html { redirect_to @event_post.event, notice: 'Your post was successfully created.' }
         format.json { render :show, status: :created, location: @event_post }
       else
         format.html { render :new }

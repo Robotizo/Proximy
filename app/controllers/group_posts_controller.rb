@@ -29,7 +29,7 @@ class GroupPostsController < ApplicationController
 
     respond_to do |format|
       if @group_post.save
-        format.html { redirect_to @group_post, notice: 'Group post was successfully created.' }
+        format.html { redirect_to @group_post.group, notice: 'Your post was successfully created.' }
         format.json { render :show, status: :created, location: @group_post }
       else
         format.html { render :new }

@@ -107,7 +107,7 @@
                     data-poster="<%= post.user.name %>"
                     data-body="<%= post.content %>"
                     data-time="<%= post.updated_at.to_time.strftime('%B %e') %>"
-                    <%= ("data-image=\"" << post.image_url(:post) << "\"") if post.image? %>
+                    <%= ("data-image=\"" << post.image_url << "\"") if post.image? %>
                     <%= ("data-test=\"" << post.user.avatar_url(:thumb) << "\"") if post.user.avatar? %> 
               >
 

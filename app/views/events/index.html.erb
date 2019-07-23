@@ -1,6 +1,13 @@
 <%= stylesheet_link_tag "events", :media => "all" %>
 <%= javascript_include_tag 'events', 'data-turbolinks-track': 'reload' %>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <p id="notice"><%= notice %></p>
 
 <div class="container mobileArea indexMar">
@@ -27,7 +34,7 @@
 
           <% @events.each do |event| %>
 
-            <div class="col-md-4 col-xs-12 testMarge">
+            <div class="col-md-4 col-xs-12 testMarge" data-aos="fade-up">
               <%= link_to event, method: :get, class: "specialA" do %>
                 <div class="groupBlock">
                   <%= image_tag(event.image_url(:event), class: "groupImageDisc") if event.image? %>

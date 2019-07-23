@@ -467,6 +467,10 @@ i {
 
 
 @media screen and (max-width: 776px){
+	.mobNavs{
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+	}
 	  .noPad1{
 	    padding-left: 4px !important;
 	    padding-right: 4px !important;

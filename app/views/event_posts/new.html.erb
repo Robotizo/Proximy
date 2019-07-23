@@ -1,4 +1,4 @@
-
+<%= stylesheet_link_tag "posts", :media => "all" %>
 
 
 
@@ -6,8 +6,8 @@
 
 
 
-<h1>New Event Post</h1>
+<div class="container marginSet">
 
 <%= render 'form', event_post: @event_post %>
 
-<%= link_to 'Back', event_posts_path %>
+</div>

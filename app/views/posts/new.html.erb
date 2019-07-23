@@ -14,13 +14,12 @@
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 -->
 
-<div class="container">
-  <h1>New Post</h1>
+<div class="container marginSet">
+
   <%= render 'form', post: @post %>
 
 </div>
 
-<%= link_to 'Back', posts_path %>
 
 
 
@@ -33,34 +32,6 @@
 
 
 
-
-<input type="file" id="filetag">
-<img src="" id="preview">
-
-<script>
-var fileTag = document.getElementById("filetag"),
-    preview = document.getElementById("preview");
-    
-fileTag.addEventListener("change", function() {
-  changeImage(this);
-});
-
-function changeImage(input) {
-  var reader;
-
-  if (input.files && input.files[0]) {
-    reader = new FileReader();
-
-    reader.onload = function(e) {
-      preview.setAttribute('src', e.target.result);
-    }
-
-    reader.readAsDataURL(input.files[0]);
-  }
-}
-
-	
-</script>
 
 
 

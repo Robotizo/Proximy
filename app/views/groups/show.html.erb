@@ -169,7 +169,7 @@
           data-posterG="<%= group_post.group.title %>"
           data-bodyG="<%= group_post.content %>"
           data-timeG="<%= group_post.updated_at.to_time.strftime('%B %e') %>"
-          <%= ("data-imageG=\"" << group_post.image_url(:post) << "\"") if group_post.image? %>
+          <%= ("data-imageG=\"" << group_post.image_url << "\"") if group_post.image? %>
           <%= ("data-testG=\"" << group_post.group.image_url(:thumb) << "\"") if group_post.group.image? %> 
           >
 
@@ -221,7 +221,7 @@
                               data-bodyG="<%= group_post.content %>"
                               data-posterG="<%= group_post.user.name %>"
                               data-timeG="<%= group_post.updated_at.to_time.strftime('%B %e') %>"
-                              <%= ("data-imageG=\"" << group_post.image_url(:post) << "\"") if group_post.image? %>
+                              <%= ("data-imageG=\"" << group_post.image_url << "\"") if group_post.image? %>
                               <%= ("data-testG=\"" << group_post.group.image_url(:thumb) << "\"") if group_post.group.image? %>
                   >
                   <div class="material-icons text-muted launch-modal align-middle">

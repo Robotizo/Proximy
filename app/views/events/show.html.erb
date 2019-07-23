@@ -191,7 +191,7 @@
           data-posterE="<%= event_post.event.title %>"
           data-bodyE="<%= event_post.content %>"
           data-timeE="<%= event_post.updated_at.to_time.strftime('%B %e') %>"
-          <%= ("data-imageE=\"" << event_post.image_url(:post) << "\"") if event_post.image? %>
+          <%= ("data-imageE=\"" << event_post.image_url << "\"") if event_post.image? %>
           <%= ("data-testE=\"" << event_post.event.image_url(:thumb) << "\"") if event_post.event.image? %> 
           >
 
@@ -243,7 +243,7 @@
                               data-bodyE="<%= event_post.content %>"
                               data-posterE="<%= event_post.user.name %>"
                               data-timeE="<%= event_post.updated_at.to_time.strftime('%B %e') %>"
-                              <%= ("data-imageE=\"" << event_post.image_url(:post) << "\"") if event_post.image? %>
+                              <%= ("data-imageE=\"" << event_post.image_url << "\"") if event_post.image? %>
                               <%= ("data-testE=\"" << event_post.event.image_url(:thumb) << "\"") if event_post.event.image? %>
                   >
                   <div class="material-icons text-muted launch-modal align-middle">
