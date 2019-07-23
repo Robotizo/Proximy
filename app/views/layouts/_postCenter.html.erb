@@ -1,18 +1,18 @@
 
 <div class="container noPad3 text-center indexMar">
 	<ul class="nav nav-tabs" id="events-nav" role="tablist">
-		<li class="<%= 'active' if current_page?(new_post_path) %> col-md-4  col-xs-4 mobNavs">
+		<li class="<%= 'active' if current_page?(new_post_path) %> col-md-4  col-xs-4 noPad3">
 		   <%= link_to new_post_path do %>User Post
 		     <%= (content_tag :span, "(current)", :class => "sr-only") if current_page?(new_post_path) %>
 		   <% end %>
 		</li>
-		<li class="<%= 'active' if current_page?(new_event_post_path) %> col-md-4  col-xs-4 mobNavs">
+		<li class="<%= 'active' if current_page?(new_event_post_path) %> col-md-4  col-xs-4 noPad3">
 		  <%= link_to new_event_post_path do %>Event Post
 		    <%= (content_tag :span, "(current)", :class => "sr-only") if current_page?(new_event_post_path) %>
 		  <% end %>
 		</li>
 
-		<li class="<%= 'active' if current_page?(new_group_post_path) %> col-md-4  col-xs-4 mobNavs">
+		<li class="<%= 'active' if current_page?(new_group_post_path) %> col-md-4  col-xs-4 noPad3">
 		  <%= link_to new_group_post_path do %>Group Post
 		    <%= (content_tag :span, "(current)", :class => "sr-only") if current_page?(new_group_post_path) %>
 		  <% end %>

@@ -30,7 +30,7 @@
 
 <% if current_user == @group.user %>
 
-      <div class="col-md-4">
+      <div class="col-md-4" id="follow_formDes">
               <div id="follow_formDes">
                 <% if current_user.followingG?(@group) %>
                   <%= form_for(current_user.active_relationships_groups.find_by(followedG_id: @group.id), html: { method: :delete }) do |f| %>
@@ -46,11 +46,11 @@
                 <% end %>
               </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4" id="follow_formDes">
         <%= button_to "Edit Group", edit_group_path(@group), method: :get, class: "btn btn-primary connectBtnAd" %>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4" id="follow_formDes">
         <%= button_to "Edit Interests", interests_group_path(@group), method: :get, class: "btn btn-primary connectBtnAd" %>
       </div>
 
@@ -89,6 +89,15 @@
             <%= render 'followGroup' %>
           <% end %>
         </div>
+
+</div>
+<div class="col-xs-12 marginMob" id="follow_formMob">
+        <%= button_to "Edit Group", edit_group_path(@group), method: :get, class: "btn btn-primary connectBtnAd" %>
+
+</div>
+<div class="col-xs-12 marginMob" id="follow_formMob">
+        <%= button_to "Edit Interests", interests_group_path(@group), method: :get, class: "btn btn-primary connectBtnAd" %>
+
 </div>
 
 
@@ -325,7 +334,7 @@
                   <div class="titleGroups"><%= truncate(group_event.title, length: 40)%></div> 
                 </div>
 
-
+              <% if group_event.user.present? %>
                 <div class="creatorSign">
                   <div class="imageUserEvent">
 
@@ -335,6 +344,7 @@
                     <span class="poster"><%= group_event.user.name %></span>
                   </div>
                 </div>
+              <% end %>
             </div>
             
         

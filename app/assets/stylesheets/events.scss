@@ -1340,6 +1340,23 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px){
+  .descMap{
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+  #map{
+    margin-top: 20px;
+  }
+  .eventImgTitle{
+    top: -65px;
+  }
+  .eventTitleImg{
+    font-size: 18px;
+
+  }
+  .testMarge{
+    padding: 20px 10px;
+  }
   .titleSecSub{
     font-size: 22px;
     margin: 20px 0px;
@@ -1378,10 +1395,6 @@ div.scrollEvents a {
 			width: calc(50% - 10px);
 		}
 
-	.noPad1{
-    	padding-left: 4px !important;
-    	padding-right: 4px !important;
-  	}
 	.allPostsDialog{
     	width: 92% !important;
   	}
@@ -1415,8 +1428,8 @@ div.scrollEvents a {
 		padding: 5px;
 	}
 	.descriptionSec{
-		padding-left: 15px !important; 
-		padding-right: 15px !important;
+		padding-left: 15px;
+		padding-right: 15px;
 		font-size: 14px;
 		font-weight: 600;
 	}
@@ -1525,7 +1538,7 @@ div.scrollEvents a {
 
 	.eventTitle2{
 		font-size: 18px;
-		font-weight: 400;
+
 		margin-top: 15px;
 
 	}	
@@ -1554,7 +1567,7 @@ div.scrollEvents a {
 
 	.attendEventBtn{
 		width: 100%;
-    	margin-top: 32px;
+    	margin-top: 15px;
 	}
 
 	.titleSec{
@@ -1581,7 +1594,7 @@ div.scrollEvents a {
 	}
 	.unAttendGroupBtn{
 		width: 100%;
-		margin-top: 32px;
+		margin-top: 15px;
 	}
 	.eventTitle{
 		font-size: 16px;
@@ -1685,7 +1698,7 @@ div.scrollEvents a {
 	}
 
   .form-control, .btn{
-
+    font-weight: 700;
     font-size: 12px;
     width:100%;
   }

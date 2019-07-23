@@ -3,6 +3,43 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+
+
+.fileBtnSubmit{
+    border-color: #2e6da4;
+  background-color: #7fa6be;
+  width: 100%;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: inherit;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    outline: none;
+    padding: 1.7rem 50px;
+    position: relative;
+    transition: all 0.3s;
+    vertical-align: middle;
+}
+
+.fileBtnSubmit:hover{
+  background-color: #204d74;
+}
+
+.create{
+  position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    padding-left: 35px;
+    padding-right: 35px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .connectedBtnAd{
     background-color: #6c95af;
     color: white;
@@ -58,7 +95,7 @@
 }
 
 .testMarge{
-  padding:20px;
+  padding: 20px;
 }
 
 .grid-item-user{
@@ -727,8 +764,24 @@ div .show-more[aria-expanded="true"]{
 }
 
 .fileBtnDiv {
-  border-color: #2e6da4;
+    border-color: #2e6da4;
   background-color: #7fa6be;
+  width: 100%;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: inherit;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    outline: none;
+    padding: 1.7rem 50px;
+    position: relative;
+    transition: all 0.3s;
+    vertical-align: middle;
+
 
   .fileBtn {
     display: none;
@@ -1443,6 +1496,17 @@ div.scrollEvents{
 }
 
 @media screen and (max-width: 776px){
+    .fileBtnDiv{
+        padding: 1.2rem 50px;
+  }
+
+  .fileBtnSubmit {
+     padding: 1.2rem 50px;
+  }
+     
+  .testMarge{
+    padding: 20px 10px;
+  }
 
   .titleSecSub{
     margin: 10px 10px;
@@ -1459,6 +1523,12 @@ div.scrollEvents{
   }
   .groupTitleForm{
     margin-left: 0px;
+  }
+  .create{
+        padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 10px;
+    margin-bottom: 0px;
   }
   .create{
     width: auto;
@@ -1532,10 +1602,7 @@ div.scrollEvents{
 	.panel{
 		padding: 5px;
 	}
-	.noPad1{
-    	padding-left: 4px !important;
-    	padding-right: 4px !important;
-  	}
+
 
 	.descriptionSec{
 		padding-left: 15px !important; 

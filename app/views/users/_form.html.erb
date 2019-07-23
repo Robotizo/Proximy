@@ -25,14 +25,14 @@
 
 
 
-  <div class="field fileField col-md-6 minPadR">
+  <div class="field fileField col-md-6 col-xs-6 minPadR ">
     <label class="btn btn-primary fileBtnDiv">
       <%= f.file_field :avatar, class: "fileBtn form-control", id: "avatarImageUpload" %>
       Profile picture
     </label>
   </div>
 
-  <div class="field fileField col-md-6 minPadL">
+  <div class="field fileField col-md-6 col-xs-6 minPadL ">
     <label class="btn btn-primary fileBtnDiv">
       <%= f.file_field :image, class: "fileBtn form-control", id: "coverImageUpload" %> 
       Cover Photo
@@ -44,18 +44,18 @@
 
 <% end %>
 
-<div class="col-md-6 minPadR">
+<div class="col-md-6 section1 minPadR">
   <div class="field">
     <%= f.text_field :name, class: "form-control", placeholder: "First name" %>
   </div>
 </div>
-<div class="col-md-6 minPadL">
+<div class="col-md-6 section1 minPadL">
   <div class="field">
     <%= f.text_field :last_name, class: "form-control", placeholder: "Last name" %>
   </div>
 </div>
 
-  <div class="field">
+  <div class="field section1 ">
     <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
   </div>
 
@@ -85,8 +85,8 @@
 
   <br />
 
-  <div class="actions">
-    <%= f.submit "Confirm", class: "btn btn-primary signIn  " %>
+  <div class="actions col-md-12 create">
+    <%= f.submit "Confirm", class: "fileBtnSubmit" %>
   </div>
 <% end %>
 
