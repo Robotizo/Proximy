@@ -4,7 +4,6 @@
 
 
 
-
 .fileBtnSubmit{
     border-color: #2e6da4;
   background-color: #7fa6be;
@@ -709,8 +708,6 @@ div .show-more[aria-expanded="true"]{
   bottom: 0px;
   left: 0px;
   width: 100%;
-  margin-left: 35px;
-  margin-right: 35px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -759,7 +756,7 @@ div .show-more[aria-expanded="true"]{
 
 .fileBtnDiv, .form-control {
   width: 80%;
-  margin: 10px 0;
+  margin: 10px 40px 40px 0;
 
 }
 
@@ -777,7 +774,7 @@ div .show-more[aria-expanded="true"]{
     font-weight: 600;
     margin-bottom: 1rem;
     outline: none;
-    padding: 1.7rem 50px;
+    padding: 1rem 50px;
     position: relative;
     transition: all 0.3s;
     vertical-align: middle;
@@ -1216,13 +1213,14 @@ div.scrollEvents a {
 
 .connArea{
 	position: relative;
-    top: -85px;
+  top: -85px;
+  text-align: end;
 }
 
 
 .groupInfoSec{
 	text-align: left;
-	padding: 10px;
+	padding: 10px 5px;
 }
 
 .groupTitle{
@@ -1496,12 +1494,26 @@ div.scrollEvents{
 }
 
 @media screen and (max-width: 776px){
+  .t1{
+    display: flex; 
+    flex-flow: column-reverse;
+
+  }
+
+  .noPad3:first-child{
+    padding-right: 2px !important;
+  }
+
+  .noPad3:first-child{
+    padding-left: 2px !important;
+  }
+
     .fileBtnDiv{
-        padding: 1.2rem 50px;
+        padding: 1rem 0px;
   }
 
   .fileBtnSubmit {
-     padding: 1.2rem 50px;
+     padding: 1rem 0px;
   }
      
   .testMarge{
@@ -1525,8 +1537,8 @@ div.scrollEvents{
     margin-left: 0px;
   }
   .create{
-        padding-left: 15px;
-    padding-right: 15px;
+        padding-left: 10px;
+    padding-right: 10px;
     margin-top: 10px;
     margin-bottom: 0px;
   }
@@ -1611,7 +1623,7 @@ div.scrollEvents{
 		font-weight: 600;
 	}
   	.form-control, .btn{
-
+      font-weight: 700;
     	font-size: 12px;
     	width:100%;
  	}

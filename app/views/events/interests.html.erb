@@ -21,6 +21,12 @@
 
 </script>
 
+  <style type="text/css">
+  .mobNav{
+    display: none !important;
+  }
+</style>
+
   <div class="module1">
 
 
@@ -1082,11 +1088,10 @@
 </div>
 
 
-
 <div class="col-md-12">
 
-  <div class="create">
-    <%= button_to "Confirm", @event, method: :get, class: "btn btn-primary createButton" %>
+  <div class="actions col-md-12 create">
+    <%= button_to "Confirm", @event, method: :get, class: "fileBtnSubmit" %>
   </div>
 </div>
 

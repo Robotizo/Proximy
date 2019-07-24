@@ -220,7 +220,7 @@
 
 @media screen and (max-width: 776px) {
   .marginSet{
-    padding: 20px;
+    padding: 20px 10px; 
   }
   .userImage{
     height: 100px;
@@ -247,14 +247,14 @@
     display: none !important;
   }
   .create{
-        padding-left: 15px;
-    padding-right: 15px;
+        padding-left: 10px;
+    padding-right: 10px;
     margin-top: 10px;
     margin-bottom: 0px;
   }
 
   .fileBtnSubmit {
-     padding: 1.2rem 50px;
+     padding: 1rem 0px;
   }
      
 

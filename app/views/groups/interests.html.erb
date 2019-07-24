@@ -20,6 +20,11 @@
 
 
 </script>
+  <style type="text/css">
+  .mobNav{
+    display: none !important;
+  }
+</style>
 
   <div class="text-center module1">
     <%= image_tag(@group.cover_image_url, class: "groupImageCover") if @group.cover_image? %>
@@ -1103,8 +1108,9 @@
 
 <div class="col-md-12">
 
-  <div class="create">
-    <%= button_to "Confirm", @group, method: :get, class: "btn btn-primary createButton" %>
+
+  <div class="actions col-md-12 create">
+    <%= button_to "Confirm", @group, method: :get, class: "fileBtnSubmit" %>
   </div>
 </div>
 

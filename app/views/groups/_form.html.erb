@@ -19,33 +19,35 @@
 </style>
 
 
-  <div class="col-md-6">
-    <div class="field">
+<div class="t1">
+
+  <div class="col-md-6 row"> 
+    <div class="field col-xs-12 noPad3">
       <div class="labelSide">
         <%= f.label :title %>
       </div>
       <div class="formSide">
-        <%= f.text_field :title, class: "form-control", id: "groupTitle", placeholder: "Placeholder" %>
+        <%= f.text_field :title, class: "form-control", id: "groupTitle", placeholder: "Entreprenuers" %>
       </div>
     </div>
-    <div class="field">
+    <div class="field col-xs-12 noPad3">
       <div class="labelSide">
         <%= f.label :description %>
       </div>
       <div class="formSide">
-        <%= f.text_area :description, class: "form-control textField" %>
+        <%= f.text_area :description, class: "form-control textField", placeholder: "A place for world changers." %>
       </div>
     </div>
   </div>
 
-  <div class="col-md-6">
-    <div class="field fileField">
+  <div class="col-md-6 row">
+    <div class="field fileField col-xs-6 noPad3">
       <label class="btn btn-primary fileBtnDiv">
         <%= f.file_field :image, class: "fileBtn", id: "groupImageUpload" %>
-        Image
+        Icon
       </label>
     </div>
-    <div class="field fileField">
+    <div class="field fileField col-xs-6 noPad3">
       <label class="btn btn-primary fileBtnDiv">
         <%= f.file_field :cover_image, class: "fileBtn", id: "coverImageUpload" %>
         Cover Image
@@ -53,6 +55,8 @@
     </div>
   </div>
 
+
+</div>
   <div class="actions col-md-12 create">
     <%= f.submit "Confirm", class: "fileBtnSubmit" %>
   </div>

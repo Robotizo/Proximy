@@ -58,7 +58,9 @@
 
 
 <div class="fullSec">
-<div class="col-md-6">
+
+<div class="t1">
+<div class="col-md-6 col-xs-12 noPad3">
   <div class="field">
     <div class="labelSide">
       <%= f.label "Event title" %>
@@ -164,11 +166,15 @@
 
 
 </div>
-
-<div class="col-md-6">
+<div class="col-md-6 col-xs-12 noPad3">
     <div class="field fileField">
       <label class="btn btn-primary fileBtnDiv"><%= f.file_field :image, class: "fileBtn", id: "coverImageUpload"%> Cover Image</label>
     </div>
+</div>
+</div>
+
+<div class="col-md-6 col-xs-12 noPad3">
+
   <div class="field">
     <%= f.collection_select(:group_id, @groupsFollow, :id, :title, {prompt: "Choose a Group"}, class: "form-control") %>
   </div>
@@ -182,12 +188,19 @@
   </div>
 </div>
 
-<div class="col-md-12">
-
-  <div class="create">
-    <%= f.submit(class: "btn btn-primary createButton") %>
+  <div class="actions col-md-12 create">
+    <%= f.submit "Confirm", class: "fileBtnSubmit" %>
   </div>
-</div>
 </div>
 
 <% end %>
+
+
+
+
+
+
+
+
+
+
