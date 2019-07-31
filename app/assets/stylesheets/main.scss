@@ -371,6 +371,7 @@ img.userImage2 {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.75rem;
+  height: auto;
 }
 
 .card > hr {
@@ -464,12 +465,14 @@ img.userImage2 {
 .card-img {
   width: 100%;
   border-radius: calc(0.25rem - 1px);
+  height: auto;
 }
 
 .card-img-top {
   width: 100%;
   border-top-left-radius: calc(0.75rem - 1px);
   border-top-right-radius: calc(0.75rem - 1px);
+  height: auto;
 }
 
 .card-img-bottom {
