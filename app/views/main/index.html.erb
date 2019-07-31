@@ -235,9 +235,8 @@
 
 
 
-
 <script>
-  
+jQuery(window).on('load', function(){ var $ = jQuery;
       var elem = document.querySelector('.grid');
       var msnry = new Masonry(elem, {
           // options
@@ -248,7 +247,7 @@
           horizontalOrder: true,
           stagger: 30
       });
-
+});
 </script>
 
 <script>
