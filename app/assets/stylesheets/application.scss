@@ -18,6 +18,17 @@
 @import "bootstrap";
 
 
+.divBy3{
+	width: calc(33.3333% - 10px);
+	float: left;
+	 margin: 5px;
+}
+
+.noPadDesc{
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+
 .indexMar {
     margin-top: 65px;
 }
@@ -465,8 +476,21 @@ i {
 }
 
 
+.extraInf{
+	display: block !important;
+}
 
 @media screen and (max-width: 776px){
+	.extraInf{
+		display: none !important;
+	}
+
+		.divBy3{
+			    width: calc(100% - 0px);
+			    float: left;
+			    margin: 5px 0px;
+		}
+
 	  .noPad1{
 	    padding-left: 5px !important;
 	    padding-right: 5px !important;
@@ -589,7 +613,7 @@ i {
 	    height: 55px;
 	    width: 100%;
 	    background-color: white;
-	    box-shadow: 1px 0px 1px 0px;
+	    box-shadow: 0px 0px 5px 0px #d2d1d1;
 	}
 	.pencilButton{
 		display: none !important;

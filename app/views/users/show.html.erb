@@ -10,6 +10,8 @@
 <% end %>
 
 
+
+
 <div class="text-center module1">
 
 <% unless current_user.friends.include?(@user) %>
@@ -402,13 +404,10 @@
 
 
 
-
-
-
 <% if @user.friends.include?(current_user) or @user == current_user %>
     <div class="eventsSection">
       <div class="titleSec">Events</div>
-      <div class="scrollEvents">
+      <div class="scrollEvents scrollable">
         <% if !@eventsFollow.empty? %>
           <% @eventsFollow.each do |eventsFollowing| %>
             <%= link_to eventsFollowing, method: :get, class: "specialA" do %>

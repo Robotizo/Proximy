@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   resources :events do
     member do 
       get :interests
+      get :test
     end 
   end
 

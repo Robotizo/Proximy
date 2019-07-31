@@ -12,11 +12,19 @@
   <% end %>
 
 
-  <div class="box">
-    <%= f.collection_select(:group_id, @groupsFollow, :id, :title, {prompt: "Select a group"}) %>
+<div class="extraInf">
+  <div class="s1">
+    <%= image_tag($groupTest.image_url(:thumb), class: "userImage") if $groupTest.image? %>
+   
   </div>
 
 
+   <div class="eventName"><%= $groupTest.title %></div>
+</div>
+
+
+
+    <%= f.hidden_field(:group_id, value: $groupTest.id) %>
 
     <div class="s2">
 

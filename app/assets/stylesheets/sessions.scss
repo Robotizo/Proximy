@@ -4,6 +4,53 @@
 
 
 
+.fileBtnSubmitSign2{
+  border-color: #7fa6be;
+  background-color: white;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  color: #7fa6be;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: inherit;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  outline: none;
+  padding: 1.2rem 50px;
+  position: relative;
+  transition: all 0.3s;
+  vertical-align: middle;
+}
+
+
+.fileBtnSubmitSign{
+  border-color: #2e6da4;
+  background-color: #7fa6be;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: inherit;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  outline: none;
+  padding: 1.2rem 50px;
+  position: relative;
+  transition: all 0.3s;
+  vertical-align: middle;
+}
+
+
+.fileBtnSubmitSign:hover{
+  background-color: #204d74;
+}
+
+
 .avatarImage{
     height: 170px;
     margin: 10px;
@@ -218,7 +265,8 @@ nav{
 .fileBtnDiv, .form-control{
 	width: 100%;
 	margin: 10px 0;
-
+	    font-weight: 600;
+    font-size: 14px;
 }
 .fileBtnDiv{
 	border-color: #2e6da4;

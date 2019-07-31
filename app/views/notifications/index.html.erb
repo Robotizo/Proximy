@@ -52,7 +52,7 @@
 
 <div class="container noPad3">
 	<% @eventNotifs.reverse.each do |eventNotif| %>
-		
+
 			<div class="col-md-4">
 <%= link_to update_notif_notification_path(eventNotif), method: :patch, class: "specialA" do %>
 
@@ -82,6 +82,7 @@
 			<% end %>
 		
 			</div>
+
 
 
 	<% end %>

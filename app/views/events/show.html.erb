@@ -20,132 +20,130 @@
 
     <div class="imageSec">
       <%= image_tag(@event.image_url, class: "eventImageDisplay") if @event.image? %>
-          <div class="eventImgTitle">
-            <div class="eventTitleImg"><%= @event.title %></div>
-          </div>
+      <div class="eventImgTitle">
+        <div class="eventTitleImg"><%= @event.title %></div>
+      </div>
     </div>
 
 
 
     <div class="col-md-6 col-xs-12 infoSec">
 
-      <div class="infoTop">Event Details</div>
+    <div class="infoTop">Event Details</div>
 
 
       <div class="col-md-12 col-xs-12 noPad3">
         <div class="eventTitle2">Event Date</div>
-        <span class="eventTitle"><%= @event.event_date.strftime('%B %e') %></span>
-        <% if @event.event_end_date.present? %>
+          <span class="eventTitle"><%= @event.event_date.strftime('%B %e') %></span>
+          <% if @event.event_end_date.present? %>
           to
           <span class="eventTitle"><%= @event.event_end_date.strftime('%B %e') %></span>
         <% end %>
       </div>
+
+
       <div class="col-md-12 col-xs-12 noPad3">
         <div class="eventTitle2">Event Time</div>
-        <span class="eventTitle"><%= @event.event_time.strftime("%I:%M %p") %></span>
-        <% if @event.event_end_time.present? %>
+          <span class="eventTitle"><%= @event.event_time.strftime("%I:%M %p") %></span>
+          <% if @event.event_end_time.present? %>
           to
           <span class="eventTitle"><%= @event.event_end_time.strftime("%I:%M %p") %></span>
         <% end %>
       </div>
 
       <div class="col-md-12 col-xs-12 noPad3">
-        <div class="eventTitle2">Created by</div>
-        <%= image_tag(@event.user.avatar_url(:thumb), class: "organizerAv") if @event.user.avatar? %>
-        <spa class="organizerName"><%= @event.user.name %> <%= @event.user.last_name %></span>
-
+          <div class="eventTitle2">Created by</div>
+          <%= image_tag(@event.user.avatar_url(:thumb), class: "organizerAv") if @event.user.avatar? %>
+          <span class="organizerName"><%= @event.user.name %> <%= @event.user.last_name %></span>
       </div>
 
-    <% if current_user == @event.user %>
-<div class="adminPos">
-
-     <div class="col-md-4 col-xs-12 noPad3">
- 
-        <% if current_user.followingE?(@event) %>
 
 
-               <%= form_for(current_user.active_relationships_events.find_by(followedE_id: @event.id), html: { method: :delete }) do |f| %>
-            
-                    <div class="attendingState"><%= f.submit "Attending Event", class: "btn  btn-primary unAttendGroupBtn greenAttend" %></div>
-                    <div class="notAttendingState"><%= f.submit "Cancel", class: "btn  btn-primary unAttendGroupBtn" %></div>
-        
-              <% end %>
+      <% if current_user == @event.user %>
+          <div class="adminPos">
 
-        <% else %>
+            <div class="col-md-4 col-xs-12 noPad3">
+
+              <% if current_user.followingE?(@event) %>
+
+
+                <%= form_for(current_user.active_relationships_events.find_by(followedE_id: @event.id), html: { method: :delete }) do |f| %>
+                  <div class="attendingState"><%= f.submit "Attending Event", class: "btn  btn-primary unAttendGroupBtn greenAttend" %></div>
+                  <div class="notAttendingState"><%= f.submit "Cancel", class: "btn  btn-primary unAttendGroupBtn" %></div>
+                <% end %>
+
+              <% else %>
 
 
                  <%= form_for(@event.passive_relationships_events.build, method: :post) do |f| %>
                   <%= hidden_field_tag :followedE_id, @event.id %>
-                
                     <%= f.submit "Attend Event", class: "btn btn-primary attendEventBtn" %>
-          
-                <% end %>
+                  <% end %>
 
 
+              <% end %>
 
 
-        <% end %>
-  
-      
-     </div>
+            </div>
 
-    <div class="col-md-4 col-xs-12 noPad3">
-
-      <%= button_to "Edit Event", edit_event_path(@event), method: :get, class: "btn btn-primary attendEventBtn" %>
-    </div>
+            <div class="col-md-4 col-xs-12 noPad3">
+              <%= button_to "Edit Event", edit_event_path(@event), method: :get, class: "btn btn-primary attendEventBtn" %>
+            </div>
 
 
-    <div class="col-md-4 col-xs-12 noPad3">
-        <%= button_to "Edit Interests", interests_event_path(@event), method: :get, class: "btn btn-primary attendEventBtn" %>
+            <div class="col-md-4 col-xs-12 noPad3">
+              <%= button_to "Edit Interests", interests_event_path(@event), method: :get, class: "btn btn-primary attendEventBtn" %>
+            </div>
 
-     </div>
 
-</div>
+          </div>
 
-    <% else %>
-      <% if current_user.followingE?(@event) %>
-        <%= render partial: "unfollowEvent" %>
       <% else %>
-        <%= render partial: "followEvent" %>
+
+
+
+          <% if current_user.followingE?(@event) %>
+            <%= render partial: "unfollowEvent" %>
+          <% else %>
+            <%= render partial: "followEvent" %>
+          <% end %>
+
+
       <% end %>
-    <% end %>
     </div>
   </div>
 
 
 
+
+
+
+
 <div class="container mobNavs">
-    <div class="panel panel-default interestSec">
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#animals" aria-expanded="false">
-                Interests in event <div class="show-more">Open</div>
+  <div class="panel panel-default interestSec">
+    <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#animals" aria-expanded="false">
+      Interests in event <div class="show-more">Open</div>
+    </div>
+
+    <div id="animals" class="panel-collapse collapse" data-parent="#accordion">
+      <div class="panel-body">
+
+        <% @event.fgE.each do |eventInterest| %>
+
+        <div class="col-md-2 col-xs-6">
+          <div class="interestCard">
+            <%= image_tag(eventInterest.image_url(:thumb), class: "interestImage") if eventInterest.image? %>
+            <div class="interestTitleSec">
+              <div class="interestName"><%= eventInterest.name %></div>
             </div>
-
-      <div id="animals" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-
-
-
-             
-                  <% @event.fgE.each do |eventInterest| %>
-                    <div class="col-md-2 col-xs-6">
-                      <div class="interestCard">
-                        <%= image_tag(eventInterest.image_url(:thumb), class: "interestImage") if eventInterest.image? %>
-                        <div class="interestTitleSec">
-                          <div class="interestName"><%= eventInterest.name %></div>
-                        
-                        </div>
-
-                      </div>
-                    </div>
-
-
-                  <% end %>
-
-              
-
+          </div>
         </div>
+
+        <% end %>
+
       </div>
     </div>
+  </div>
 </div>
 
 
@@ -156,8 +154,209 @@
 
 <div class="container mobNavs">
 
-<div class="mainField ">
-    <div class="newsfeed">
+
+<% if current_user.followingE?(@event)%>
+
+
+
+<!-- Post Start -->
+
+<div class="newsfeed1">
+
+    <div class="titleSec">Newsfeed</div>
+
+    <% if !@event.event_posts.empty? %>
+
+      <div class="col-md-6 col-xs-12 noPad1">
+
+        <% @event.event_posts.last(1).each do |event_post| %>
+
+          <div class="card">
+
+            <span data-toggle="modal" data-target="#postModalE"
+            data-posterE="<%= event_post.event.title %>"
+            data-bodyE="<%= event_post.content %>"
+            data-timeE="<%= event_post.updated_at.to_time.strftime('%B %e') %>"
+            <%= ("data-imageE=\"" << event_post.image_url << "\"") if event_post.image? %>
+            <%= ("data-testE=\"" << event_post.event.image_url(:thumb) << "\"") if event_post.event.image? %> 
+            >
+
+              <div class="material-icons text-muted launch-modal align-middle">
+
+                <%= image_tag(event_post.image_url(:post), class: "card-img-top") if event_post.image? %>
+
+                <div class="card-body">
+                  <p class="card-text"><%= truncate event_post.content, length: 500, separator: ' ' %></p>
+                </div>
+
+                <div class="card-footer">
+                  <%= link_to event_post.user, method: :get, class: "specialA bottomSign" do %>
+                    <%= image_tag(event_post.event.image_url(:thumb), class: "userImage2") if event_post.event.image? %>
+                  <% end %>
+
+                  <small class="text-muted"><%= event_post.event.title %> on <%= event_post.updated_at.to_time.strftime('%B %e') %></small>
+
+                </div>
+
+              </div>
+
+            </span>
+
+          </div>
+
+
+        <% end %>
+
+
+      </div>
+
+  <div class="noPad1">
+
+      <div class="laterPostBoxMob">
+        <%= link_to new_event_post_path(event_id: $eventTest.id), method: :get, class: "btn btnShowAll" do %>
+          <div class="btn btnShowAll showAllPosts">
+            Create Post
+          </div>
+        <% end %>
+      </div>
+  </div>
+
+    <div class="latestPostSec2">
+
+
+      <div class="col-md-6 col-xs-12 noPad2">
+
+
+        <div class="laterPostBox">
+
+
+          <%= link_to new_event_post_path(event_id: $eventTest.id), method: :get, class: "btn connectBtn" do %>
+            <div class="showAllPosts">
+              Create Post
+            </div>
+          <% end %>
+
+        </div>
+
+        <% if @event.event_posts.length > 1 %>
+
+
+        <% @event.event_posts.last(3).reverse.each_with_index do |event_post, index| %>
+          <% unless index == 0 %>
+            <div class="laterPostBox subPost">
+
+
+              <span data-toggle="modal" data-target="#postModalE"
+              data-bodyE="<%= event_post.content %>"
+              data-posterE="<%= event_post.user.name %>"
+              data-timeE="<%= event_post.updated_at.to_time.strftime('%B %e') %>"
+              <%= ("data-imageE=\"" << event_post.image_url << "\"") if event_post.image? %>
+              <%= ("data-testE=\"" << event_post.event.image_url(:thumb) << "\"") if event_post.event.image? %>
+              >
+                <div class="material-icons text-muted launch-modal align-middle">
+
+
+                  <div class="row no-gutters ">
+                    <div class="col-md-6 col-xs-12 post-image-background"
+                    style="background-image: url(<%= event_post.image_url(:post) %>);">
+                    </div>
+
+
+                      <div class="col-md-6 col-xs-12 ">
+                        <div class="card-body infoSecPost">
+                          <p class="card-text"><%= truncate event_post.content, length: 150, separator: ' ' %></p>
+                        </div>
+                        <div class="nameText">
+                          <span><%= image_tag(event_post.event.image_url(:thumb), class: "userImageMini") if event_post.event.image? %></span>
+                          <span class="card-text textMini"><%= truncate event_post.event.title, length: 150, separator: ' ' %></span>
+                        </div>
+
+                      </div>
+
+                  </div>
+
+                </div>
+              </span>
+
+
+
+
+            </div>
+          <% end %>
+        <% end %>
+
+
+
+        <div class="laterPostBox">
+          <div class="showAllPosts" data-toggle="modal" data-target="#show-posts"><button type="button" class="btn btnShowAll">Show All</button></div>
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+  <div class="noPad1">
+      <div class="laterPostBoxMob">
+        <div class="showAllPosts" data-toggle="modal" data-target="#show-posts"><button type="button" class="btn btnShowAll">Show All</button></div>
+      </div>
+  </div>
+
+
+
+
+    <% end %>
+
+
+
+
+
+
+
+
+    <% else %>
+
+
+
+
+        <div class="noFollowSec">
+          <div class="noFollowSecText">There are no posts yet.</div>
+        </div>
+
+      <div class="noPad1">
+          <div class="laterPostBox ">
+            <%= link_to new_event_post_path(event_id: $eventTest.id), method: :get, class: "btn connectBtn" do %>
+              <div class="showAllPosts">
+                Create the first post
+              </div>
+            <% end %>
+
+          </div>
+      </div>
+
+    <% end %>
+
+  </div>
+
+
+
+
+<!-- Post End -->
+
+<% else %>
+<% end %>
+
+</div>
+
+
+
+
+</div>
+
+<div class="container">
+
+    <div class="newsfeed1">
       <div class="titleSec">Information</div>
       <div class="col-md-6 col-xs-12  descriptionSec">
 
@@ -176,169 +375,7 @@
 
 
 
-
-<div class="newsfeed">
-  <div class="titleSec">Newsfeed</div>
-
-  <% if !@event.event_posts.empty? %>
-
-    <div class="col-md-6 col-xs-12 noPad1">
-
-      <% @event.event_posts.last(1).each do |event_post| %>
-        <div class="card">
-
-          <span data-toggle="modal" data-target="#postModalE"
-          data-posterE="<%= event_post.event.title %>"
-          data-bodyE="<%= event_post.content %>"
-          data-timeE="<%= event_post.updated_at.to_time.strftime('%B %e') %>"
-          <%= ("data-imageE=\"" << event_post.image_url << "\"") if event_post.image? %>
-          <%= ("data-testE=\"" << event_post.event.image_url(:thumb) << "\"") if event_post.event.image? %> 
-          >
-
-            <div class="material-icons text-muted launch-modal align-middle">
-
-
-              <%= image_tag(event_post.image_url(:post), class: "card-img-top") if event_post.image? %>
-
-              <div class="card-body">
-                <p class="card-text"><%= truncate event_post.content, length: 500, separator: ' ' %></p>
-              </div>
-
-
-
-              <div class="card-footer">
-                <%= link_to event_post.user, method: :get, class: "specialA bottomSign" do %>
-                  <%= image_tag(event_post.event.image_url(:thumb), class: "userImage2") if event_post.event.image? %>
-                <% end %>
-
-                <small class="text-muted"><%= event_post.event.title %> on <%= event_post.updated_at.to_time.strftime('%B %e') %></small>
-              </div>
-
-            </div>
-
-
-          </span>
-
-        </div>
-
-
-
-
-      <% end %>
-
-
-    </div>
-
-
-    <div class="latestPostSec2">
-          <% if @event.event_posts.length > 1 %>
-            <div class="col-md-6 col-xs-12 noPad2">
-
-              <% @event.event_posts.last(3).reverse.each_with_index do |event_post, index| %>
-                <% unless index == 0 %>
-                  <div class="laterPostBox subPost">
-                
-               
-                  <span data-toggle="modal" data-target="#postModalE"
-                              data-bodyE="<%= event_post.content %>"
-                              data-posterE="<%= event_post.user.name %>"
-                              data-timeE="<%= event_post.updated_at.to_time.strftime('%B %e') %>"
-                              <%= ("data-imageE=\"" << event_post.image_url << "\"") if event_post.image? %>
-                              <%= ("data-testE=\"" << event_post.event.image_url(:thumb) << "\"") if event_post.event.image? %>
-                  >
-                  <div class="material-icons text-muted launch-modal align-middle">
-
-
-                      <div class="row no-gutters ">
-                        <div class="col-md-6 col-xs-12 post-image-background"
-                             style="background-image: url(<%= event_post.image_url(:post) %>);">
-                        </div>
-
-
-                        <div class="col-md-6 col-xs-12 ">
-                          <div class="card-body infoSecPost">
-                            <p class="card-text"><%= truncate event_post.content, length: 150, separator: ' ' %></p>
-                          </div>
-                          <div class="nameText">
-                            <span><%= image_tag(event_post.event.image_url(:thumb), class: "userImageMini") if event_post.event.image? %></span>
-                            <span class="card-text textMini"><%= truncate event_post.event.title, length: 150, separator: ' ' %></span>
-                          </div>
-
-                        </div>
-
-
-
-                      </div>
-
-
-
-                  </div>
-   
-              </span>
-                
-
-
-
-                </div>
-                <% end %>
-
-
-              <% end %>
-
-
-
-
-                  <div class="laterPostBox">
-
-                    <div class="showAllPosts" data-toggle="modal" data-target="#show-posts"><button type="button" class="btn btnShowAll">Show All</button></div>
-                  </div>
-
-
-            </div>
-
-</div>
-    <div class="laterPostBoxMob">
-
-      <div class="showAllPosts" data-toggle="modal" data-target="#show-posts"><button type="button" class="btn btnShowAll">Show All</button></div>
-    </div>
-
-
-
-
-          <% end %>
-
-
-
-
-
-
-
-
-  <% else %>
-      <div class="noFollowSec">
-        <div class="noFollowSecText">There are no posts yet.</div>
-      </div>
-
-  <% end %>
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-  <div class="newsfeed" >
+  <div class="newsfeed1" >
     <div class="titleSec">People Attending</div>
     <div class="scrollEvents">
     <% if !@eventFollowers.empty? %>
@@ -377,26 +414,13 @@
 
 
   </div>
-
-  
-
-
-
-
-
+</div>
 
 
 </div>
 
 
 
-
-
-</div>
-
-
-
-</div>
 
 
 
@@ -580,14 +604,5 @@
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo48DWSAQY1Qc3Tg4LjO8DtBJ32jSDbZI&callback=initMap">
 </script>
-
-
-
-
-
-
-
-
-
 
 

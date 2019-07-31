@@ -4,8 +4,7 @@ class Event < ApplicationRecord
 	mount_uploader :image, ImageUploader
 	validates_presence_of :event_time
 	validates_presence_of :event_date
-	validates_presence_of :latitude
-	validates_presence_of :longitude
+	validates_presence_of :address
 	validates_presence_of :image
 	validates :event_end_date, presence: false
 	validates :event_end_time, presence: false

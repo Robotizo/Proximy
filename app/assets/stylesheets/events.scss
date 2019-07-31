@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+.connectBtn{
+  width: 100%;
+}
+
+
 
 .fileBtnSubmit{
     border-color: #2e6da4;
@@ -1255,6 +1260,12 @@ div.scrollEvents a {
 	width: 100%;
 	margin-bottom: 30px;
 }
+
+.newsfeed1{
+  float: left;
+  width: 100%;
+  margin-bottom: 50px;
+}
 .userSignWithin{
 	padding: 6px;
     height: 42px;
@@ -1482,14 +1493,13 @@ div.scrollEvents a {
 	 .laterPostBoxMob {
 	    display: block !important; 
 	    margin-top: 5px;
-	    margin-bottom: 22px;
+	    margin-bottom: 10px;
 	    box-shadow: 0px 0px 0px 1px #dedddd;
 	    border-radius: 5px;
 	    float: left;
-	    width: 94%;
+	    width: 100%;
 	    padding-left: 15px;
 	    padding-right: 15px;
-	    margin-left: 11px;
   	}
 	.panel{
 		padding: 5px;

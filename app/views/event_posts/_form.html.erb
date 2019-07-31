@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "posts", :media => "all" %>
+
 <%= form_for(event_post) do |f| %>
   <% if event_post.errors.any? %>
     <div id="error_explanation">
@@ -11,12 +13,19 @@
     </div>
   <% end %>
 
-
-
-
-  <div class="box">
-    <%= f.collection_select(:event_id, @eventsFollow, :id, :title, {prompt: "Select an event"}) %>
+<div class="extraInf">
+  <div class="s1">
+    <%= image_tag($eventTest.image_url(:thumb), class: "userImage") if $eventTest.image? %>
+   
   </div>
+
+
+   <div class="eventName"><%= $eventTest.title %></div>
+</div>
+
+
+
+    <%= f.hidden_field(:event_id, value: $eventTest.id) %>
 
 
 

@@ -14,7 +14,7 @@
 
 
 
-<div class=" mobileArea">
+<div class="mobileArea">
   <div class="text-center module1">
     <%= image_tag(@group.cover_image_url, class: "groupImageCover") if @group.cover_image? %>
   <div class="col-md-12 col-xs-12 titleInfo">
@@ -91,6 +91,7 @@
         </div>
 
 </div>
+<% if current_user == @group.user %>
 <div class="col-xs-12 marginMob" id="follow_formMob">
         <%= button_to "Edit Group", edit_group_path(@group), method: :get, class: "btn btn-primary connectBtnAd" %>
 
@@ -100,8 +101,7 @@
 
 </div>
 
-
-
+<% end %>
 
 </div>
 
@@ -147,11 +147,14 @@
 
 
 
+
+
+
     
 <div class="container mobNavs">
-<div class="mainField ">
 
-      <div class="newsfeed">
+
+    <div class="newsfeed">
       <div class="titleSec">Information</div>
       <div class="col-md-6 col-xs-12 postMob descriptionSec">
 
@@ -162,7 +165,7 @@
 
 
 
-
+<!-- Post Start -->
 
 <div class="newsfeed">
   <div class="titleSec">Newsfeed</div>
@@ -296,22 +299,33 @@
 
 
 
-
-
-
-
-
   <% else %>
       <div class="noFollowSec">
         <div class="noFollowSecText">There are no posts yet.</div>
       </div>
 
+
+    <div class="noPad1">
+          <div class="laterPostBox">
+            <%= link_to new_group_post_path(group_id: $groupTest.id), method: :get, class: "btn connectBtn" do %>
+              <div class="showAllPosts">
+                Create the first post
+              </div>
+            <% end %>
+
+          </div>
+      </div>
+
   <% end %>
 
+
+
+
 </div>
+</div>
+
   
-
-
+<!-- Post End -->
 
 
 <div class="newsfeed">
@@ -398,21 +412,12 @@
 
 </div>
 
-</div>
 
 
 </div>
+
+
 </div>
-
-
-
-
-
-<div class="col-md-12 col-xs-12">
-<br>
-</div>
-
-
 
 <div class="modal fade" id="postModalG" role="dialog">
   <div class="modal-dialog" role="document">
@@ -573,8 +578,6 @@
 
 
 </script>
-
-
 
 
 

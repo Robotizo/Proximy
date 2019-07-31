@@ -74,6 +74,7 @@
 
 
 
+
   <% if session[:user_id] %>
   <div class="container">
     <div class="titleSec">Top Prospects</div>
@@ -100,9 +101,9 @@
     </div>
     <div class="container mobNavs">
       <div class="grid displayModals">
-        <div class="grid-sizer"></div>
+  
         <% @all_posts.reverse.each do |post| %>
-          <div class="card grid-item" data-aos="zoom-in">
+          <div class="card  divBy1 noPadDesc" data-aos="fade-up" >
               <span data-toggle="modal" data-target="#postModal"
                     data-poster="<%= post.user.name %>"
                     data-body="<%= post.content %>"
@@ -115,7 +116,7 @@
 
             <%= image_tag(post.image_url(:post), class: "card-img-top") if post.image? %>
             <div class="card-body">
-              <p class="card-text"><%= truncate post.content, length: 1000, separator: ' ' %></p>
+              <p class="card-text"><%= truncate post.content, length: 70, separator: ' ' %></p>
             </div>
 
 

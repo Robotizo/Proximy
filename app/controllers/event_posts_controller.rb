@@ -16,6 +16,7 @@ class EventPostsController < ApplicationController
   # GET /event_posts/new
   def new
     @event_post = current_user.event_posts.build
+  
   end
 
   # GET /event_posts/1/edit
@@ -25,6 +26,7 @@ class EventPostsController < ApplicationController
   # POST /event_posts
   # POST /event_posts.json
   def create
+ 
     @event_post = current_user.event_posts.build(event_post_params)
 
     respond_to do |format|

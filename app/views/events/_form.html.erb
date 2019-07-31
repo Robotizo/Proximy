@@ -11,7 +11,8 @@
       </ul>
     </div>
   <% end %>
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo48DWSAQY1Qc3Tg4LjO8DtBJ32jSDbZI&libraries=places&callback=initAutocomplete"
+         async defer></script> 
 
 <script>
 
@@ -34,11 +35,15 @@
 
 
 
+
+
 <style type="text/css">
   .mobNav{
     display: none !important;
   }
 </style>
+
+
 
 <script>
 
@@ -50,11 +55,10 @@
       var searchBox = new google.maps.places.SearchBox(input);
 
 
+
   }
 
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo48DWSAQY1Qc3Tg4LjO8DtBJ32jSDbZI&libraries=places&callback=initAutocomplete"
-         async defer></script> 
 
 
 <div class="fullSec">
@@ -82,7 +86,7 @@
     </div>
   </div>
 
-
+<label id="result"></label>
 
 
     <div class="formSide">
