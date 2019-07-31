@@ -3,10 +3,22 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 .connectBtn{
-  width: 100%;
+    background-color: #ffffff;
+    color: #6c95af;
+    font-weight: 600;
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: 1px solid #6c95af;
+    width: 100%;
 }
 
 
+.connectBtn:hover{
+  background-color: #6c95af;
+  color: white;
+  opacity: 1;
+  transition: 0.3s;
+}
 
 .fileBtnSubmit{
     border-color: #2e6da4;
