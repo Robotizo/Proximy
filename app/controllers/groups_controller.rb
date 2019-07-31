@@ -49,9 +49,6 @@ class GroupsController < ApplicationController
   def edit
     @group = Group.find(params[:id])
 
-    unless current_user == @group.user
-       redirect_to(@group, notice: "You cannot edit this group") and return
-    end
   end
 
   # POST /groups
