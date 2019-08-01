@@ -219,11 +219,36 @@
 
     </div>
 
+  <div class="noPad1">
+
+      <div class="laterPostBoxMob">
+        <%= link_to new_event_post_path(event_id: $eventTest.id), method: :get, class: "btn connectBtn" do %>
+          <div class="btn btnShowAll showAllPosts">
+            Create Post
+          </div>
+        <% end %>
+      </div>
+  </div>
+
+
 
     <div class="latestPostSec2">
-          <% if @group.group_posts.length > 1 %>
+         
             <div class="col-md-6 col-xs-12 noPad2">
 
+
+                      <div class="laterPostBox">
+
+
+          <%= link_to new_event_post_path(event_id: $eventTest.id), method: :get, class: "btn connectBtn" do %>
+            <div class="showAllPosts">
+              Create Post
+            </div>
+          <% end %>
+
+        </div>
+
+ <% if @group.group_posts.length > 1 %>
               <% @group.group_posts.last(3).reverse.each_with_index do |group_post, index| %>
                 <% unless index == 0 %>
                   <div class="laterPostBox subPost">
@@ -323,11 +348,12 @@
 
 </div>
 </div>
+</div>
 
   
 <!-- Post End -->
 
-<div class="container">
+<div class="container noPad3">
 <div class="newsfeed">
     <div class="titleSec">Upcoming Events</div>
   <div class="scrollEvents">
