@@ -1,9 +1,11 @@
 class InterestsRelationshipsToGroupsController < ApplicationController
   	
+before_action :assign_group  
+
 
   	def create
 	  	@interest = Interest.find(params[:fdI_id])
-	  	$groupTest.fwI(@interest)
+	  	@group.fwI(@interest)
 	  	  respond_to do |format|
 	    		format.html { redirect_to :back }
 	    		format.js
@@ -14,10 +16,18 @@ class InterestsRelationshipsToGroupsController < ApplicationController
 
   	def destroy
 	  	@interest = InterestsRelationshipsToGroup.find(params[:id]).fdI
-	  	$groupTest.ufI(@interest)
+	  	@group.ufI(@interest)
 	  	  respond_to do |format|
 	    		format.html { redirect_to :back }
 	    		format.js
 	  		end
   	end
+
+  	private
+  	
+		def assign_group
+		  @group = Group.find(params[:frI_id])
+		end
+
+
 end

@@ -11,11 +11,13 @@ class GroupPostsController < ApplicationController
   # GET /group_posts/1
   # GET /group_posts/1.json
   def show
+
   end
 
   # GET /group_posts/new
   def new
     @group_post = current_user.group_posts.build
+    @group = Group.find(params[:group_id])
   end
 
   # GET /group_posts/1/edit
@@ -25,6 +27,7 @@ class GroupPostsController < ApplicationController
   # POST /group_posts
   # POST /group_posts.json
   def create
+    
     @group_post = current_user.group_posts.build(group_post_params)
 
     respond_to do |format|

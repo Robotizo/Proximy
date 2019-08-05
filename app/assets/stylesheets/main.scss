@@ -342,7 +342,7 @@ div#modalPostImage {
 
 @media screen and (max-width: 776px){
   .grid-item, .grid-sizer {
-    width: 100%;
+    width: calc(50% - 10px);
     margin-bottom: 10px;
   }
 }

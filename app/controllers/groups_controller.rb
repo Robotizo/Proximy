@@ -2,19 +2,19 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
 
-
-
-
   def interests
     @interests = Interest.all
     @group = Group.find(params[:id])
-    groupID = @group.id
-    $groupTest = Group.find(params = groupID)
 
     unless current_user == @group.user
        redirect_to(@group, notice: "You cannot edit interests") and return
     end
   end
+
+
+
+
+
 
   # GET /groups
   # GET /groups.json
@@ -35,8 +35,8 @@ class GroupsController < ApplicationController
     @interests = Interest.all
     followingGroupIds = @group.followersG.map(&:id)
     @groupFollowers = User.find(params = followingGroupIds).sort_by &:updated_at
-    groupID = @group.id
-    $groupTest = Group.find(params = groupID)
+
+
 
   end
 
@@ -52,6 +52,8 @@ class GroupsController < ApplicationController
     unless current_user == @group.user
        redirect_to(@group, notice: "You cannot edit this group") and return
     end
+
+
   end
 
   # POST /groups

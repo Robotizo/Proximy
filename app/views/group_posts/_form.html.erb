@@ -14,17 +14,17 @@
 
 <div class="extraInf">
   <div class="s1">
-    <%= image_tag($groupTest.image_url(:thumb), class: "userImage") if $groupTest.image? %>
+    <%= image_tag(@group.image_url(:thumb), class: "userImage") if @group.image? %>
    
   </div>
 
 
-   <div class="eventName"><%= $groupTest.title %></div>
+   <div class="eventName"><%= @group.title %></div>
 </div>
 
 
 
-    <%= f.hidden_field(:group_id, value: $groupTest.id) %>
+    <%= f.hidden_field(:group_id, value: params[:group_id]) %>
 
     <div class="s2">
 
