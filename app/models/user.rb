@@ -7,6 +7,20 @@ class User < ApplicationRecord
 	validates :password, presence: true, length: { minimum: 6 }, on: :create
 	validates :password, allow_nil: true, length: { minimum: 6 }, confirmation: true, on: :update
 
+
+
+  geocoded_by :ip_address do |obj,results|
+    if geo = results.first
+      obj.city = geo.city
+    end
+  end
+  after_validation :geocode
+
+
+
+
+
+
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
 
