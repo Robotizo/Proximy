@@ -27,8 +27,6 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
 
-    $user = User.friendly.find(params[:id])
-
 
 
     @interests = Interest.all
@@ -89,6 +87,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+
         format.html { redirect_to :back, notice: 'Your profile has been updated.' }
         format.json { render :show, status: :ok, location: @user }
       else

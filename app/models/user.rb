@@ -8,16 +8,20 @@ class User < ApplicationRecord
 	validates :password, allow_nil: true, length: { minimum: 6 }, confirmation: true, on: :update
 
 
+   after_initialize :init
+   after_save :backupLocation
 
-  geocoded_by :ip_address do |obj,results|
-    if geo = results.first
-      obj.city = geo.city
+    def init
+      self.ip ||= "209.97.195.246"
     end
-  end
-  after_validation :geocode
 
 
-
+  def backupLocation
+    if self.latitude == nil
+      geocoded_by :ip, :latitude => :latitude, :longitude => :longitude
+      after_validation :geocode
+    end
+  end 
 
 
 
