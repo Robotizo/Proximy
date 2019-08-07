@@ -13,7 +13,6 @@
 <body onload="getLocation()">
 
 
-
   <% if !session[:user_id] %>
 
 
@@ -72,7 +71,6 @@
 
 
   <% end %>
-
 
 
 
@@ -249,51 +247,6 @@ jQuery(window).on('load', function(){ var $ = jQuery;
       });
 });
 </script>
-
-<script>
-  var x = document.getElementById("geoloc");
-
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-      navigator.geolocation.getCurrentPosition(getLat);
-      navigator.geolocation.getCurrentPosition(getLon);
-    } else {
-      x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-  }
-
-  function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
-  }
-
-
-   function getLat(position) {
-    var lat = position.coords.latitude;
-
-    $(document).ready(function () {
-      $("#latField").val(lat);
-    })
-  }
-
-
-  function getLon(position) {
-    var lon = position.coords.longitude;
-
-    $(document).ready(function () {
-      $("#lonField").val(lon);
-    })
-  }
-
-
-
-
-
-
-
-</script>
-
 
 
 

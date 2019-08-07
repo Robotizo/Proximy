@@ -6,24 +6,15 @@ class User < ApplicationRecord
 	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
 	validates :password, presence: true, length: { minimum: 6 }, on: :create
 	validates :password, allow_nil: true, length: { minimum: 6 }, confirmation: true, on: :update
+  before_validation { self.email = self.email.downcase }
 
 
-   after_initialize :init
-   after_save :backupLocation
-
-    def init
-      self.ip ||= "209.97.195.246"
-    end
 
 
-  def backupLocation
-    if self.latitude == nil
-      geocoded_by :ip, :latitude => :latitude, :longitude => :longitude
-      after_validation :geocode
-    end
-  end 
-
-
+ 
+  geocoded_by :ip, :latitude => :latitude, :longitude => :longitude
+  after_validation :geocode, if: ->(obj){ !obj.latitude.present? }
+  
 
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
@@ -33,7 +24,7 @@ class User < ApplicationRecord
 
 	has_secure_password
 	mount_uploader :avatar, AvatarUploader
-  mount_uploader :image, ImageUploader
+  mount_uploader :image, ImageUploader 
 
 
 	has_many :posts, dependent: :destroy
