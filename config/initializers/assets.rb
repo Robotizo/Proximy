@@ -10,6 +10,8 @@ Rails.application.config.assets.precompile += %w( users.js )
 Rails.application.config.assets.precompile += %w( groups.js )
 Rails.application.config.assets.precompile += %w( events.js )
 Rails.application.config.assets.precompile += %w( notifications.js )
+Rails.application.config.assets.precompile += %w( jquery.pagepiling.js )
+Rails.application.config.assets.precompile += %w( jquery.pagepiling.min.js )
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
@@ -24,4 +26,5 @@ Rails.application.config.assets.precompile += %w( conversations.css )
 Rails.application.config.assets.precompile += %w( notifications.css )
 Rails.application.config.assets.precompile += %w( interests.css )
 Rails.application.config.assets.precompile += %w( contacts.css )
-Rails.application.config.assets.precompile += %w( feedbacks.css )
+Rails.application.config.assets.precompile += %w( feedbacks.css ) 
+Rails.application.config.assets.precompile += %w( jquery.pagepiling.css )

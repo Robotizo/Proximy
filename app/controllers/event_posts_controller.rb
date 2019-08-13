@@ -16,7 +16,7 @@ class EventPostsController < ApplicationController
   # GET /event_posts/new
   def new
     @event_post = current_user.event_posts.build
-  
+    @event = Event.find(params[:event_id])
   end
 
   # GET /event_posts/1/edit

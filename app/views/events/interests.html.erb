@@ -108,13 +108,13 @@
           <% if @event.fgE?(interest) %>
 
 
-              <%= render 'unfollowIE', interest: interest %>
+              <%= render 'unfollowIE', interest: interest, locals: { eventName: @event } %>
 
 
                 <% else %>
 
 
-                <%= render 'followIE', interest: interest %>
+                <%= render 'followIE', interest: interest, locals: { eventName: @event } %>
 
 
                 <% end %>

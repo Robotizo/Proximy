@@ -7,8 +7,6 @@ class EventsController < ApplicationController
   def interests
     @interests = Interest.all
     @event = Event.find(params[:id])
-    eventID = @event.id
-    $eventTest = Event.find(params = eventID)
 
     unless current_user == @event.user
        redirect_to(@event, notice: "You cannot edit interests") and return
@@ -33,8 +31,7 @@ class EventsController < ApplicationController
     @interests = Interest.all
     followingEventIds = @event.followersE.map(&:id)
     @eventFollowers = User.find(params = followingEventIds).sort_by &:updated_at
-    eventID = @event.id
-    $eventTest = Event.find(params = eventID)
+
 
   end
 

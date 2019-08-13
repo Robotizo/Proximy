@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
 <script>
     AOS.init();
 </script>
@@ -10,24 +11,41 @@
 
 
 
-<body onload="getLocation()">
-
+<body >
+<!-- Posted by artist bottom right -->
 
   <% if !session[:user_id] %>
 
+  <%= javascript_include_tag( 'jquery.pagepiling.js' ) %>
+  <%= javascript_include_tag( 'jquery.pagepiling.min.js' ) %>
+  <%= stylesheet_link_tag 'jquery.pagepiling.css' %>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#pagepiling').pagepiling();
+    });
+  </script>
 
   <style>
-    body{
+    {
       margin-top: 0px !important;
       margin-bottom: 0px !important;
     }
-      .slide1 {
-          background: url('<%= asset_path 'front1.jpg' %>')no-repeat center;
-              background-size: cover;
-            animation:fade 30s infinite;
-        -webkit-animation:fade 30s infinite;
 
-        } 
+
+    .topNav{
+      display: none;
+    }
+
+
+
+    .slide1 {
+
+            background-size: cover;
+          animation:fade 30s infinite;
+      -webkit-animation:fade 30s infinite;
+
+      } 
 
 
 
@@ -55,16 +73,45 @@
   <!-- Front Page Start -->
 
 
-<div class='slider'>
+<div id="pagepiling">
+    <div class="section">
 
-   <div class='title'>Create new experiences</div>
-   <div class='titleSub'>Get involved in your community with people just like you</div>  
-   <div class='button'><%= button_to "Join Proximy", login_path, method: :get, class: "btnFront" %></div> 
+      <%= image_tag("proximyLogo.png", class: "logoImage") %>
+      <div class='titleSub'>Get involved in your community with people like you</div>  
+      <div class='button'><%= button_to "Get Started", login_path, method: :get, class: "btnFront" %></div> 
+      <div class='button2'><%= button_to "Sign In", login_path, method: :get, class: "btnFront2" %></div> 
+      <%= image_tag("image1.jpg", class: "imageHere") %>
 
-  <div class='slide1'></div>
-  <div class='slide2'></div>
-  <div class='slide3'></div>
+
+
+    </div>
+
+
+
+
+
+    <div class="section">
+
+    <div class='leftSide'>a space for you</div> 
+    <div class='leftSideSub'>we created a space where people can really be themselves, a space where people can see the most relevant and exciting suggestions on ways to get involved.</div> 
+    <%= image_tag("post1.png", class: "postImage1") %>
+    <%= image_tag("post2.png", class: "postImage2") %>
+    <%= image_tag("post3.png", class: "postImage3") %>
+    <%= image_tag("post4.png", class: "postImage4") %>
+    <%= image_tag("post5.png", class: "postImage5") %>
+
+
+      <%= image_tag("front2.jpg", class: "imageHere") %>
+    </div>
+    <div class="section">
+      <%= image_tag("front3.jpg", class: "imageHere") %>
+    </div>
+
 </div>
+
+
+
+
 
     <!-- Front Page End -->
 
@@ -102,21 +149,37 @@
       <div class="grid displayModals">
       <div class="grid-sizer"></div>
         <% @all_posts.reverse.each do |post| %>
+        <% if post.image.present? %>
           <div class="card grid-item" data-aos="fade-up" >
               <span data-toggle="modal" data-target="#postModal"
+                   
+
                     data-poster="<%= post.user.name %>"
+
+
+
+                <% if post.is_a? GroupPost %>
+                 <%= ("data-groupimage=\"" << post.group.image_url(:thumb) << "\"") if post.group.image? %> 
+                 data-class="<%= post.class %>"
+                <% elsif post.is_a? EventPost %>
+                 <%= ("data-eventimage=\"" << post.event.image_url(:thumb) << "\"") if post.event.image? %>
+                 data-class="<%= post.class %>"
+                <% elsif post.is_a? Post %>
+                  <%= ("data-userimage=\"" << post.user.avatar_url(:thumb) << "\"") if post.user.avatar? %> 
+                  data-class="<%= post.class %>" 
+                <% end %>
+
+                   
                     data-body="<%= post.content %>"
                     data-time="<%= post.updated_at.to_time.strftime('%B %e') %>"
                     <%= ("data-image=\"" << post.image_url << "\"") if post.image? %>
-                    <%= ("data-test=\"" << post.user.avatar_url(:thumb) << "\"") if post.user.avatar? %> 
+                    
+                    
               >
 
 
 
             <%= image_tag(post.image_url, class: "card-img-top") if post.image? %>
-            <div class="card-body">
-              <p class="card-text"><%= truncate post.content, length: 70, separator: ' ' %></p>
-            </div>
 
 
             <% if post.is_a? GroupPost %>
@@ -125,7 +188,7 @@
                 <%= link_to post.group, method: :get, class: "specialA" do %>
                   <%= image_tag(post.group.image_url(:thumb), class: "userImage2") if post.group.image? %>
                 <% end %>
-                <small class="text-muted"><%= post.group.title %> on <%= post.updated_at.to_time.strftime('%B %e') %></small>
+                <small class="text-muted"><%= post.group.title %></small>
                 <%= image_tag("groups.png", class: "ImageIDer") %>
               </div>
 
@@ -135,7 +198,7 @@
                 <%= link_to post.event, method: :get, class: "specialA" do %>
                   <%= image_tag(post.event.image_url(:thumb), class: "userImage2") if post.event.image? %>
                 <% end %>
-                <small class="text-muted"><%= post.event.title %> on <%= post.updated_at.to_time.strftime('%B %e') %></small>
+                <small class="text-muted"><%= post.event.title %></small>
                 <%= image_tag("event.png", class: "ImageIDer") %>
               </div>
 
@@ -145,7 +208,7 @@
                 <%= link_to post.user, method: :get, class: "specialA" do %>
                   <%= image_tag(post.user.avatar_url(:thumb), class: "userImage2") if post.user.avatar? %>
                 <% end %>
-                <small class="text-muted"><%= post.user.name %> on <%= post.updated_at.to_time.strftime('%B %e') %></small>
+                <small class="text-muted"><%= post.user.name %></small>
                 <%= image_tag("user.png", class: "ImageIDer") %>
               </div>
 
@@ -156,11 +219,10 @@
 
             </span>
           </div>
-
+          <% end %>
         <% end %>
       </div>
     </div>
-
 
 
   <div class="modal fade displayModals" id="postModal" role="dialog">
@@ -173,14 +235,40 @@
           <div id="modalPostBody"></div>
         </div>
         <div class="modal-footer">
-          <span id="test" class="userImageModal"></span>
-          <span class="modal-title" id="modalPoster"></span> on
+
+ 
+        <span id="groupImgM" class="userImageModal"></span>
+     
+        <span id="eventImgM" class="userImageModal"></span>
+   
+        <span id="userImgM" class="userImageModal"></span>
+ 
+        
+        
+
+
+
+          <span class="modal-title" id="modalPoster"></span>
+   
+
+          <span class="modal-title">on</span>
+
+
+
+
+
+
           <span class="modal-title" id="modalPostTime"></span>
+
+
+
+
 
         </div>
       </div>
     </div>
-</div>
+  </div>
+
 
 
 
@@ -195,7 +283,9 @@
         var button = $(event.relatedTarget);
 
 
+
         var posterName = button.data('poster');
+        var classType = button.data('class');
         var postBody = button.data('body');
         var postTime = button.data('time');
 
@@ -207,16 +297,38 @@
 
 
 
-        if (button.data("test") !== undefined) {
-            var userImageURL = button.data("test");
-            $("#test").html("<img src=" + userImageURL + ">");
+
+        if (classType == "GroupPost"){
+          if (button.data("groupimage") !== undefined) {
+            var userImageURL = button.data("groupimage");
+            $("#groupImgM").html("<img src=" + userImageURL + ">");
+          }
+
+        }
+
+
+
+        if (classType == "EventPost"){
+          if (button.data("eventimage") !== undefined) {
+            var eventImageURL = button.data("eventimage");
+            $("#eventImgM").html("<img src=" + eventImageURL + ">");
+          }
+        }
+
+
+
+        if (classType == "Post"){
+          if (button.data("userimage") !== undefined) {
+              var userImageURL = button.data("userimage");
+              $("#userImgM").html("<img src=" + userImageURL + ">");
+          }
         }
 
 
 
 
-
         var modal = $(this);
+        $("#modalClass").text(classType);
         $("#modalPoster").text(posterName);
         $("#modalPostBody").text(postBody);
         $("#modalPostTime").text(postTime);
@@ -247,10 +359,6 @@ jQuery(window).on('load', function(){ var $ = jQuery;
       });
 });
 </script>
-
-
-
-
 
 
 

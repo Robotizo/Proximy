@@ -15,17 +15,16 @@
 
 <div class="extraInf">
   <div class="s1">
-    <%= image_tag($eventTest.image_url(:thumb), class: "userImage") if $eventTest.image? %>
+    <%= image_tag(@event.image_url(:thumb), class: "userImage") if @event.image? %>
    
   </div>
 
 
-   <div class="eventName"><%= $eventTest.title %></div>
+   <div class="eventName"><%= @event.title %></div>
 </div>
 
 
-
-    <%= f.hidden_field(:event_id, value: $eventTest.id) %>
+    <%= f.hidden_field(:event_id, value: params[:event_id]) %>
 
 
 
