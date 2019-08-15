@@ -3,6 +3,441 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+.eventTitle{
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+  text-align: left;
+  /* width: 35%; */
+      margin-left: 10%;
+}
+
+.groupTitle{
+    font-size: 22px;
+  font-weight: 600;
+  color: white;
+  text-align: left;
+  /* width: 35%; */
+      margin-left: 30%;
+}
+
+.eventR{
+     width: 85%;
+
+}
+
+.eventL{
+     width: 85%;
+
+}
+
+.group{
+  width: 42%
+}
+
+.photos{
+  margin-top: 30%;
+}
+
+.all {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+
+.allLower{
+  position: absolute;
+  top: 270px;
+}
+
+.allEvenLower{
+  position: absolute;
+  top: 570px;
+}
+
+.oneLower {
+    position: absolute;
+    top: 270px;
+    right: 50%;
+    left: 0;
+    bottom: 0;
+
+    text-align:center;
+}
+
+.twoLower {
+    position: absolute;
+    top: 270px;
+    right: 0;
+    left: 50%;
+    bottom: 0;
+
+    text-align:center;
+  
+}
+
+
+.oneEvenLower {
+    position: absolute;
+    top: 560px;
+    right: 50%;
+    left: 0;
+    bottom: 0;
+
+    text-align:center;
+}
+
+.twoEvenLower {
+    position: absolute;
+    top: 560px;
+    right: 0;
+    left: 50%;
+    bottom: 0;
+
+    text-align:center;
+  
+}
+
+.one {
+    position: absolute;
+    top: 0;
+    right: 50%;
+    left: 0;
+    bottom: 0;
+
+    text-align:center;
+}
+
+.two {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 50%;
+    bottom: 0;
+
+    text-align:center;
+  
+}
+
+.leftSideTop{
+  font-size: 50px;
+  color: white;
+  font-weight: 700;
+  margin-top: 50px;
+}
+
+.leftSideSubTop{
+  font-size: 20px;
+  color: white;
+  z-index: 100;
+  font-weight: 600;
+  color: white;
+  margin-top: 30px;
+  /* width: 70%; */
+  margin-left: 5%;
+  margin-right: 5%;
+
+}
+
+.sec50{
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+
+
+.titantron{
+  position: absolute;
+  margin: auto;
+  left: 13%;
+  top: 11%;
+}
+
+.profileName{
+  font-size: 22px;
+  color: white;
+  z-index: 100;
+  font-weight: 700;
+  margin-top: 10px;
+  text-align: center;
+}
+
+
+.profileImg2{
+  width: 240px;
+}
+
+.interetsC{
+  width: 100px;
+  margin: 12px 0px;
+}
+.together1{
+    position: absolute;
+    /* top: -552px; */
+    top: 65px;
+    /* left: -240px; */
+    left: calc(25% - 100px);
+    margin: auto;
+}
+
+.together2{
+  position: absolute;
+    /* top: -552px; */
+    top: 65px;
+    /* left: -240px; */
+    left: calc(50% - 100px);
+    margin: auto;
+}
+
+.together3{
+  position: absolute;
+    /* top: -552px; */
+    top: 65px;
+    /* left: -240px; */
+        left: calc(75% - 100px);
+    margin: auto;
+}
+
+
+
+
+.profile1{
+    width: 180px;
+    margin: auto;
+}
+
+.profile1name{
+    font-size: 18px;
+    color: white;
+    z-index: 100;
+    font-weight: 700;
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+
+.profile2name{
+    font-size: 14px;
+    color: white;
+    z-index: 100;
+    font-weight: 200;
+    margin-top: 5px;
+    text-align: center;
+}
+
+
+
+.profile3{
+    width: 120px;
+    margin: auto;
+}
+
+
+
+.profile4{
+    width: 120px;
+    margin: auto;
+}
+
+
+
+
+
+
+.rightSide{
+  font-size: 50px;
+  color: white;
+  z-index: 100;
+  width: 40%;
+  font-weight: 700;
+  position: absolute;
+  top: 30%;
+  right: 32%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.rightSideSub{
+  font-size: 20px;
+  color: white;
+  z-index: 100;
+  font-weight: 600;
+   width: 40%;
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  right: 40%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.name{
+  font-size: 50px;
+  color: white;
+  z-index: 100;
+  width: 40%;
+  font-weight: 700;
+  position: absolute;
+  top: 66%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.nameSub{
+  font-size: 20px;
+  color: white;
+  z-index: 100;
+  font-weight: 600;
+   width: 48%;
+  position: absolute;
+  top: 80%;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.profileImg{
+  width: 240px;
+  position: absolute;
+  top: -400px; bottom:0; left: -60%; right:0;
+  margin: auto;
+}
+
+.interets1{
+  width: 140px;
+  position: absolute;
+  top: -540px; bottom:0; left: -370px; right:0;
+  margin: auto;
+}
+
+.interets2{
+  width: 140px;
+  position: absolute;
+  top: -540px; bottom:0; left: 0px; right:0;
+  margin: auto;
+}
+
+.interets3{
+  width: 140px;
+  position: absolute;
+  top: -540px; bottom:0; left: 367px; right:0;
+  margin: auto;
+}
+
+.interets4{
+  width: 140px;
+  position: absolute;
+  top: -540px; bottom:0; left: 740px; right:0;
+  margin: auto;
+}
+
+.interets5{
+  width: 140px;
+  position: absolute;
+  top: -210px; bottom:0; left: -370px; right:0;
+  margin: auto;
+}
+
+.interets6{
+  width: 140px;
+  position: absolute;
+  top: -210px; bottom:0; left: 0px; right:0;
+  margin: auto;
+}
+
+.interets7{
+  width: 140px;
+  position: absolute;
+  top: -210px; bottom:0; left: 367px; right:0;
+  margin: auto;
+}
+
+.interets8{
+  width: 142px;
+  position: absolute;
+  top: -210px; bottom:0; left: 740px; right:0;
+  margin: auto;
+}
+
+
+
+
+
+@-webkit-keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInRight {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+}
+
+
+@-webkit-keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInUp {
+  -webkit-animation-name: slideInUp;
+  animation-name: slideInUp;
+}
+
+
+
+
 @-webkit-keyframes fadeInUp {
   from {
     opacity: 0;
@@ -38,7 +473,102 @@
 
 
 
+@-webkit-keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
 
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+
+.scale-up-center {
+  -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+          animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
 .pp-section.active{
   .postImage1{
     -webkit-animation: fadeInUp 0.9s; /* Safari, Chrome and Opera > 12.1 */
@@ -75,6 +605,115 @@
     -o-animation: fadeInUp 1.2s; /* Opera < 12.1 */
     animation: fadeInUp 1.2s;
   }
+
+  .interets1{
+    -webkit-animation: scale-up-center .5s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: scale-up-center .5s; /* Firefox < 16 */
+    -ms-animation: scale-up-center .5s; /* Internet Explorer */
+    -o-animation: scale-up-center .5s; /* Opera < 12.1 */
+    animation: scale-up-center .5s;
+  }
+  .interets2{
+    -webkit-animation: scale-up-center 1s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: scale-up-center 1s; /* Firefox < 16 */
+    -ms-animation: scale-up-center 1s; /* Internet Explorer */
+    -o-animation: scale-up-center 1s; /* Opera < 12.1 */
+    animation: scale-up-center 1s;
+  }
+  .interets3{
+    -webkit-animation: scale-up-center 1.5s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: scale-up-center 1.5s; /* Firefox < 16 */
+    -ms-animation: scale-up-center 1.5s; /* Internet Explorer */
+    -o-animation: scale-up-center 1.5s; /* Opera < 12.1 */
+    animation: scale-up-center 1.5s;
+  }
+  .interets4{
+    -webkit-animation: scale-up-center 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: scale-up-center 2s; /* Firefox < 16 */
+    -ms-animation: scale-up-center 2s; /* Internet Explorer */
+    -o-animation: scale-up-center 2s; /* Opera < 12.1 */
+    animation: scale-up-center 2s;
+  }
+  .interets5{
+    -webkit-animation: scale-up-center .5s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: scale-up-center .5s; /* Firefox < 16 */
+    -ms-animation: scale-up-center .5s; /* Internet Explorer */
+    -o-animation: scale-up-center .5s; /* Opera < 12.1 */
+    animation: scale-up-center .5s;
+  }
+  .interets6{
+    -webkit-animation: scale-up-center 1s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: scale-up-center 1s; /* Firefox < 16 */
+    -ms-animation: scale-up-center 1s; /* Internet Explorer */
+    -o-animation: scale-up-center 1s; /* Opera < 12.1 */
+    animation: scale-up-center 1s;
+        
+
+
+  }
+  .interets7{
+    -webkit-animation: scale-up-center 1.5s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: scale-up-center 1.5s; /* Firefox < 16 */
+    -ms-animation: scale-up-center 1.5s; /* Internet Explorer */
+    -o-animation: scale-up-center 1.5s; /* Opera < 12.1 */
+    animation: scale-up-center 1.5s;
+  }
+  .interets8{
+    -webkit-animation: scale-up-center 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: scale-up-center 2s; /* Firefox < 16 */
+    -ms-animation: scale-up-center 2s; /* Internet Explorer */
+    -o-animation: scale-up-center 2s; /* Opera < 12.1 */
+    animation: scale-up-center 2s;
+  }
+
+  .profile1{
+    -webkit-animation: fadeInDown 1.2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadeInDown 1.2s; /* Firefox < 16 */
+    -ms-animation: fadeInDown 1.2s; /* Internet Explorer */
+    -o-animation: fadeInDown 1.2s; /* Opera < 12.1 */
+    animation: fadeInDown 1.2s;
+  }
+  .interetsC{
+    -webkit-animation: fadeInUp 1.2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadeInUp 1.2s; /* Firefox < 16 */
+    -ms-animation: fadeInUp 1.2s; /* Internet Explorer */
+    -o-animation: fadeInUp 1.2s; /* Opera < 12.1 */
+    animation: fadeInUp 1.2s;
+  }
+  .oneLower{
+    -webkit-animation: fadeInUp 0.9s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadeInUp 0.9s; /* Firefox < 16 */
+    -ms-animation: fadeInUp 0.9s; /* Internet Explorer */
+    -o-animation: fadeInUp 0.9s; /* Opera < 12.1 */
+    animation: fadeInUp 0.9s;
+  }
+
+  .twoLower{
+    -webkit-animation: fadeInUp 0.9s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadeInUp 0.9s; /* Firefox < 16 */
+    -ms-animation: fadeInUp 0.9s; /* Internet Explorer */
+    -o-animation: fadeInUp 0.9s; /* Opera < 12.1 */
+    animation: fadeInUp 0.9s;
+  }
+
+  .oneEvenLower{
+    -webkit-animation: fadeInUp 1.2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadeInUp 1.2s; /* Firefox < 16 */
+    -ms-animation: fadeInUp 1.2s; /* Internet Explorer */
+    -o-animation: fadeInUp 1.2s; /* Opera < 12.1 */
+    animation: fadeInUp 1.2s;
+  }
+
+  .twoEvenLower{
+    -webkit-animation: fadeInUp 1.2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadeInUp 1.2s; /* Firefox < 16 */
+    -ms-animation: fadeInUp 1.2s; /* Internet Explorer */
+    -o-animation: fadeInUp 1.2s; /* Opera < 12.1 */
+    animation: fadeInUp 1.2s;
+  }
+
+
+
   
 }
 
@@ -137,28 +776,34 @@
 .postImage1{
   width: 300px;
   position: absolute;
-  top: -40%; bottom:0; left: 17%; right:0;
+  top: -300px; bottom:0; left: 17%; right:0;
   margin: auto;
 
 }
 
 .postImage2{
-  width: 300px;
+  width: 307px;
   position: absolute;
-  top: 42%; bottom:0; left: 17%; right:0;
+  top: 440px;
+  bottom: 0;
+  left: 17%;
+  right: 0;
   margin: auto;
 }
 .postImage3{
   width: 300px;
   position: absolute;
-  top: calc(-63% - 3px); bottom:0; left: 60%; right:0;
+  top: -530px; bottom:0; left: 60%; right:0;
   margin: auto;
 }
 
 .postImage4{
   width: 305px;
   position: absolute;
-  top: -4%; bottom:0; left: 60%; right:0;
+  top: -25px;
+  bottom: 0;
+  left: 60%;
+  right: 0;
   margin: auto;
 
 }
@@ -167,7 +812,10 @@
 .postImage5{
   width: 306px;
   position: absolute;
-  top: 60%; bottom:0; left: 60%; right:0;
+  top: 488px;
+  bottom: 0;
+  left: 60%;
+  right: 0;
   margin: auto;
 }
 
