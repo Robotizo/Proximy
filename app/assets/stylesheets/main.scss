@@ -3,8 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+
 .eventTitle{
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 600;
   color: white;
   text-align: left;
@@ -13,7 +14,7 @@
 }
 
 .groupTitle{
-    font-size: 22px;
+    font-size: 18px;
   font-weight: 600;
   color: white;
   text-align: left;
@@ -666,13 +667,7 @@
     animation: scale-up-center 2s;
   }
 
-  .profile1{
-    -webkit-animation: fadeInDown 1.2s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadeInDown 1.2s; /* Firefox < 16 */
-    -ms-animation: fadeInDown 1.2s; /* Internet Explorer */
-    -o-animation: fadeInDown 1.2s; /* Opera < 12.1 */
-    animation: fadeInDown 1.2s;
-  }
+
   .interetsC{
     -webkit-animation: fadeInUp 1.2s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadeInUp 1.2s; /* Firefox < 16 */
@@ -710,6 +705,22 @@
     -ms-animation: fadeInUp 1.2s; /* Internet Explorer */
     -o-animation: fadeInUp 1.2s; /* Opera < 12.1 */
     animation: fadeInUp 1.2s;
+  }
+
+  .allLower{
+    -webkit-animation: fadeInUp 1.2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadeInUp 1.2s; /* Firefox < 16 */
+    -ms-animation: fadeInUp 1.2s; /* Internet Explorer */
+    -o-animation: fadeInUp 1.2s; /* Opera < 12.1 */
+    animation: fadeInUp 1.2s;
+  }
+
+  .allEvenLower{
+    -webkit-animation: fadeInUp 0.9s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadeInUp 0.9s; /* Firefox < 16 */
+    -ms-animation: fadeInUp 0.9s; /* Internet Explorer */
+    -o-animation: fadeInUp 0.9s; /* Opera < 12.1 */
+    animation: fadeInUp 0.9s;
   }
 
 
@@ -1556,6 +1567,127 @@ img.userImage2 {
 
 
 @media screen and (max-width: 776px){
+  .groupTitle{
+    margin-left: 7%;
+    font-size: 12px;
+  }
+  .group{
+    width: 90%;
+  }
+  .allLower{
+    position: absolute;
+    top: 170px;
+    right: 50%;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+  }
+  .allEvenLower{
+    position: absolute;
+    top: 170px;
+    right: 0;
+    left: 50%;
+    bottom: 0;
+    text-align: center;
+  }
+
+  .eventTitle{
+    font-size: 12px;
+    margin-left: 7%;
+  }
+  .oneLower{
+    top: 155px;
+  }
+  .twoLower{
+    top: 155px;
+  }
+  .oneEvenLower{
+    top: 315px;
+  }
+  .twoEvenLower{
+    top: 315px;
+  }
+  .eventR{
+    width: 90%;
+  }
+  .eventL{
+    width: 90%;
+  }
+  .leftSideSubTop{
+    margin-top: 10px;
+  }
+  .one{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 50%;
+    text-align: center;
+  }
+
+
+
+  .two{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+  }
+  .leftSideSubTop{
+    font-size: 14px;
+  }
+  .leftSideTop{
+    font-size: 30px;
+  }
+  .together1{
+    left: calc(33% - 105px);
+  }
+  .together2{
+    left: calc(66% - 105px);
+  }
+  .together3{
+    left: calc(99% - 105px);
+  }
+  .profile2name{
+    display: none;
+  }
+  .sec50{
+    display: none;
+  }
+  .profile1{
+    width: 88px;
+  }
+  .profile1name{
+    font-size: 12px;
+  }
+  .name {
+    font-size: 28px;
+    color: white;
+    z-index: 100;
+    width: 80%;
+    font-weight: 700;
+    position: absolute;
+    top: 66%;
+    left: 50%;
+    text-align: center;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  .nameSub {
+    font-size: 14px;
+    color: white;
+    z-index: 100;
+    font-weight: 600;
+    width: 88%;
+    position: absolute;
+    top: 80%;
+    text-align: center;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  } 
   .btnFront{
     font-size: 15px;
   }
@@ -1600,5 +1732,131 @@ img.userImage2 {
 }
 
 
+
+@media screen and (max-width: 776px){
+  .interets7{
+    display: none;
+  }
+  .interets3{
+    display: none;
+  }
+  .profileImg2{
+    display: none;
+  }
+  .profileName{
+    display: none;
+  }
+  .interets5 {
+    width: 150px;
+    position: absolute;
+    top: -19%;
+    bottom: 0;
+    left: -196px;
+    right: 0;
+    margin: auto;
+  }
+  .interets6 {
+    width: 150px;
+    position: absolute;
+    top: -19%;
+    bottom: 0;
+    left: 50%;
+    right: 0;
+    margin: auto;
+  }
+  .interets1 {
+    width: 150px;
+    position: absolute;
+    top: -73%;
+    bottom: 0;
+    left: -196px;
+    right: 0;
+    margin: auto;
+  }
+  .interets2 {
+    width: 150px;
+    position: absolute;
+    top: -73%;
+    bottom: 0;
+    left: 50%;
+    right: 0;
+    margin: auto;
+  }
+  .postImage1 {
+    display: none;
+  }
+  .postImage2 {
+    display: none;
+  }
+  .postImage3 {
+    display: none;
+  }
+  .postImage4 {
+    display: none;
+  }
+  .postImage5{
+    display: none;
+  }
+  .leftSide {
+    font-size: 28px;
+    color: white;
+    z-index: 100;
+    width: 59%;
+    font-weight: 700;
+    position: absolute;
+    top: 11%;
+    left: 50%;
+    text-align: center;
+    /* margin-right: -50%; */
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  .leftSideSub {
+    font-size: 14px;
+    color: white;
+    z-index: 100;
+    font-weight: 600;
+    width: 90%;
+    position: absolute;
+    top: 30%;
+    text-align: center;
+    left: 50%;
+    margin-right: -50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  .button{
+    top: 70%;
+  }
+  .btnFront {
+    padding: .75em 0em;
+    width: 350px;
+  }
+  .btnFront2{
+    padding: .75em 0em;
+    width: 350px;
+  }
+  .button2{
+    top: 79%;
+  }
+  .logoImage {
+    width: 74%;
+    position: absolute;
+    top: -74%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  .titleSub {
+    font-size: 14px;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: center;
+    font-weight: 700;
+    top: 31%;
+    left: 50%;
+  }
+}
 
 
