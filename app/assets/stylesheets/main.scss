@@ -1565,8 +1565,52 @@ img.userImage2 {
   border-radius: 50px;
 }
 
+.together4{
+  display: none;
+}
+.together5{
+  display: none;
+}
+
+
+.together6{
+  display: none;
+}
 
 @media screen and (max-width: 776px){
+  .together4{
+    display: block;
+    position: absolute;
+    /* top: -552px; */
+    top: 220px;
+    /* left: -240px; */
+    left: calc(33% - 105px);
+    margin: auto;
+  }
+  .together5{
+    display: block;
+    position: absolute;
+    /* top: -552px; */
+    top: 220px;
+    /* left: -240px; */
+    left: calc(66% - 105px);
+    margin: auto;
+  }
+  .together6{
+    display: block;
+    position: absolute;
+    /* top: -552px; */
+    top: 220px;
+    /* left: -240px; */
+    left: calc(99% - 105px);
+    margin: auto;
+  }
+  .together5{
+    
+  }
+  .together6{
+    
+  }
   #pp-nav.right{
     right: -5px !important;
   }
@@ -1579,7 +1623,7 @@ img.userImage2 {
   }
   .allLower{
     position: absolute;
-    top: 170px;
+    top: 120px;
     right: 50%;
     left: 0;
     bottom: 0;
@@ -1587,7 +1631,7 @@ img.userImage2 {
   }
   .allEvenLower{
     position: absolute;
-    top: 170px;
+    top: 120px;
     right: 0;
     left: 50%;
     bottom: 0;
@@ -1632,14 +1676,14 @@ img.userImage2 {
 
   .two{
     position: absolute;
-    top: 50%;
+    top: 47%;
     right: 0;
     left: 0;
     bottom: 0;
     text-align: center;
   }
   .leftSideSubTop{
-    font-size: 14px;
+    font-size: 12px;
   }
   .leftSideTop{
     font-size: 30px;
@@ -1737,6 +1781,9 @@ img.userImage2 {
 
 
 @media screen and (max-width: 776px){
+  .leftSideTop{
+    margin-top: 10px;
+  }
   .interets7{
     display: none;
   }
@@ -1833,11 +1880,11 @@ img.userImage2 {
   }
   .btnFront {
     padding: .75em 0em;
-    width: 350px;
+    width: 300px;
   }
   .btnFront2{
     padding: .75em 0em;
-    width: 350px;
+    width: 300px;
   }
   .button2{
     top: 79%;

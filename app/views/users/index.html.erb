@@ -27,6 +27,7 @@
 		      	<div class="userNameNotTaken">Location CC: <%= user.ccLocation(current_user.latitude, current_user.longitude) %></div>
 		      	<div class="userNameNotTaken"><%= user.overallCC %></div>
 
+		      	<%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
 	
 		      </div>
 		     </div>
