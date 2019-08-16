@@ -1567,6 +1567,9 @@ img.userImage2 {
 
 
 @media screen and (max-width: 776px){
+  #pp-nav.right{
+    right: -5px !important;
+  }
   .groupTitle{
     margin-left: 7%;
     font-size: 12px;
@@ -1602,10 +1605,10 @@ img.userImage2 {
     top: 155px;
   }
   .oneEvenLower{
-    top: 315px;
+    display: none;
   }
   .twoEvenLower{
-    top: 315px;
+    display: none;
   }
   .eventR{
     width: 90%;
