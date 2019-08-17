@@ -1781,6 +1781,9 @@ img.userImage2 {
 
 
 @media screen and (max-width: 776px){
+  .card-body{
+    display: none;
+  }
   .leftSideTop{
     margin-top: 10px;
   }

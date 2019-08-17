@@ -182,6 +182,10 @@
       <div class="navTitleEnd1"><%= image_tag("event.png", class: "ImageNav") %></div>
     <% end %>
 
+    <%= link_to root_path, method: :get, class: "specialA dispNone" do %>
+      <div class="navTitleEnd1"><%= image_tag("home.png", class: "ImageNav") %></div>
+    <% end %>
+
 
     <div class="dropdown pencilButton">
       <div class="navTitleEnd1 dropdown-toggle" type="button" data-toggle="dropdown"><%= image_tag("create.png", class: "ImageNav") %></div>
@@ -271,9 +275,13 @@
             <div class="navTitleEndMob"><%= image_tag("create.png", class: "ImageNavB") %></div>
           </span>
 
-
           <%= link_to groups_path, method: :get, class: "specialA" do %>
             <div class="navTitleEndMob"><%= image_tag("groups.png", class: "ImageNavB") %></div>
+          <% end %>
+
+
+          <%= link_to root_path, method: :get, class: "specialA" do %>
+            <div class="navTitleEndMob"><%= image_tag("home.png", class: "ImageNavB") %></div>
           <% end %>
 
 

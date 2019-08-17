@@ -102,7 +102,7 @@
 
 
 
-      <%= image_tag("front2.jpg", class: "imageHere") %>
+      <%= image_tag("test.png", class: "imageHere") %>
     </div>
 
 
@@ -130,7 +130,7 @@
       <div class='nameSub'>you select your interests, and we help you find people, events and groups around you. the whole idea is to help you make meaningful connection with new people and help you be active in your community.</div> 
 
 
-      <%= image_tag("front3.jpg", class: "imageHere") %>
+      <%= image_tag("test2.png", class: "imageHere") %>
     </div>
 
     <div class="section">
@@ -250,7 +250,7 @@
 
 
 
-      <%= image_tag("front4.jpg", class: "imageHere") %>
+      <%= image_tag("test3.png", class: "imageHere") %>
     </div>
 
 
@@ -281,7 +281,7 @@
         </div>
         <div class="two">
           <div class='leftSideTop'>groups</div> 
-          <div class='leftSideSubTop'>having a group of friends that does things on a weekly basis helps many people mentally and physically. join anything from a book club to a hikers club.</div> 
+          <div class='leftSideSubTop'>having a group of friends that do things on a weekly basis helps many people mentally and physically. join anything from a book club to a hikers club.</div> 
     
            <div class="allLower">
             <%= image_tag("group1.png", class: "group") %>
@@ -290,7 +290,7 @@
           </div>
           <div class="allEvenLower">
             <%= image_tag("group2.png", class: "group") %>
-            <div class='groupTitle'>Latin Dance Lessons</div> 
+            <div class='groupTitle'>Latin Dance</div> 
             
           </div>
         </div>
@@ -298,7 +298,7 @@
       </div>
 
 
-      <%= image_tag("front5.jpg", class: "imageHere") %>
+      <%= image_tag("test.png", class: "imageHere") %>
     </div>
 
 </div>
@@ -348,19 +348,22 @@
               <span data-toggle="modal" data-target="#postModal"
                    
 
-                    data-poster="<%= post.user.name %>"
+                    
 
 
 
                 <% if post.is_a? GroupPost %>
                  <%= ("data-groupimage=\"" << post.group.image_url(:thumb) << "\"") if post.group.image? %> 
                  data-class="<%= post.class %>"
+                 data-postergroup="<%= post.group.title %>"
                 <% elsif post.is_a? EventPost %>
                  <%= ("data-eventimage=\"" << post.event.image_url(:thumb) << "\"") if post.event.image? %>
                  data-class="<%= post.class %>"
+                 data-posterevent="<%= post.event.title %>"
                 <% elsif post.is_a? Post %>
                   <%= ("data-userimage=\"" << post.user.avatar_url(:thumb) << "\"") if post.user.avatar? %> 
                   data-class="<%= post.class %>" 
+                  data-poster="<%= post.user.name %>"
                 <% end %>
 
                    
@@ -375,9 +378,11 @@
 
             <%= image_tag(post.image_url, class: "card-img-top") if post.image? %>
 
+            <% if post.content.present? %>
              <div class="card-body">
               <p class="card-text"><%= truncate post.content, length: 115, separator: ' ' %></p>
             </div>
+            <% end %>
 
 
             <% if post.is_a? GroupPost %>
@@ -447,6 +452,8 @@
 
 
           <span class="modal-title" id="modalPoster"></span>
+          <span class="modal-title" id="modalPosterGroup"></span>
+          <span class="modal-title" id="modalPosterEvent"></span>
    
 
           <span class="modal-title">on</span>
@@ -483,6 +490,8 @@
 
 
         var posterName = button.data('poster');
+        var posterGroup = button.data('postergroup');
+        var posterEvent = button.data('posterevent');
         var classType = button.data('class');
         var postBody = button.data('body');
         var postTime = button.data('time');
@@ -500,6 +509,9 @@
           if (button.data("groupimage") !== undefined) {
             var userImageURL = button.data("groupimage");
             $("#groupImgM").html("<img src=" + userImageURL + ">");
+            $("#groupImgM").css({"display": "inline-block"});
+            $("#eventImgM").css({"display": "none"})
+            $("#userImgM").css({"display": "none"});
           }
 
         }
@@ -510,6 +522,9 @@
           if (button.data("eventimage") !== undefined) {
             var eventImageURL = button.data("eventimage");
             $("#eventImgM").html("<img src=" + eventImageURL + ">");
+            $("#eventImgM").css({"display": "inline-block"});
+            $("#groupImgM").css({"display": "none"});
+            $("#userImgM").css({"display": "none"});
           }
         }
 
@@ -519,6 +534,9 @@
           if (button.data("userimage") !== undefined) {
               var userImageURL = button.data("userimage");
               $("#userImgM").html("<img src=" + userImageURL + ">");
+              $("#userImgM").css({"display": "inline-block"});
+              $("#groupImgM").css({"display": "none"});
+              $("#eventImgM").css({"display": "none"});
           }
         }
 
@@ -527,7 +545,32 @@
 
         var modal = $(this);
         $("#modalClass").text(classType);
-        $("#modalPoster").text(posterName);
+
+
+        if (classType == "GroupPost"){
+          $("#modalPosterGroup").text(posterGroup);
+          $("#modalPosterGroup").css({"display": "inline-block"});
+          $("#modalPoster").css({"display": "none"});
+          $("#modalPosterEvent").css({"display": "none"});
+        }
+
+        if (classType == "Post"){
+          $("#modalPoster").text(posterName);
+          $("#modalPoster").css({"display": "inline-block"});
+          $("#modalPosterGroup").css({"display": "none"});
+          $("#modalPosterEvent").css({"display": "none"});
+        }
+        
+        if (classType == "EventPost"){
+          $("#modalPosterEvent").text(posterEvent);
+          $("#modalPosterEvent").css({"display": "inline-block"});
+          $("#modalPoster").css({"display": "none"});
+          $("#modalPosterGroup").css({"display": "none"});
+        }
+        
+
+
+
         $("#modalPostBody").text(postBody);
         $("#modalPostTime").text(postTime);
     })
