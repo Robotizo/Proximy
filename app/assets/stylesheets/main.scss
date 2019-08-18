@@ -50,13 +50,11 @@
 
 
 .allLower{
-  position: absolute;
-  top: 270px;
+  margin-top: 30px;
 }
 
 .allEvenLower{
-  position: absolute;
-  top: 570px;
+  margin-top: 30px;
 }
 
 .oneLower {
@@ -131,10 +129,10 @@
 }
 
 .leftSideSubTop{
-  font-size: 20px;
+  font-size: 17px;
   color: white;
   z-index: 100;
-  font-weight: 600;
+  font-weight: 200;
   color: white;
   margin-top: 30px;
   /* width: 70%; */
@@ -295,7 +293,7 @@
   font-size: 20px;
   color: white;
   z-index: 100;
-  font-weight: 600;
+  font-weight: 200;
    width: 48%;
   position: absolute;
   top: 80%;
@@ -774,7 +772,7 @@
   font-size: 20px;
   color: white;
   z-index: 100;
-  font-weight: 600;
+  font-weight: 200;
    width: 40%;
   position: absolute;
   top: 50%;
@@ -1716,20 +1714,20 @@ img.userImage2 {
     width: 80%;
     font-weight: 700;
     position: absolute;
-    top: 66%;
+    top: 58%;
     left: 50%;
     text-align: center;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
   }
   .nameSub {
-    font-size: 14px;
+    font-size: 16px;
     color: white;
     z-index: 100;
-    font-weight: 600;
+    font-weight: 200;
     width: 88%;
     position: absolute;
-    top: 80%;
+    top: 73%;
     text-align: center;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -1865,10 +1863,10 @@ img.userImage2 {
     transform: translate(-50%, -50%);
   }
   .leftSideSub {
-    font-size: 14px;
+    font-size: 16px;
     color: white;
     z-index: 100;
-    font-weight: 600;
+    font-weight: 200;
     width: 90%;
     position: absolute;
     top: 30%;
