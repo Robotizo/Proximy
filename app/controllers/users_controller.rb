@@ -7,7 +7,20 @@ class UsersController < ApplicationController
   def interests
     @interests = Interest.all
     @user = current_user
+
   end
+
+  def avatar
+    @user = current_user
+
+  end
+
+  def save_avatar
+    @user = current_user
+    @user.update_attributes(avatar_params)
+    redirect_to root_path
+  end
+
 
 
   # GET /users
@@ -110,10 +123,16 @@ class UsersController < ApplicationController
     end
   end
 
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.friendly.find(params[:id])
+    end
+
+    def avatar_params
+      params.require(:user).permit(:avatar, :image)
     end
 
 

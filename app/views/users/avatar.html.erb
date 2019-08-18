@@ -1,0 +1,91 @@
+<%= stylesheet_link_tag "users", :media => "all" %>
+
+<style type="text/css">
+  .mobNav{
+    display: none !important;
+  }
+</style>
+<div class="text-center module1">
+  <div class="innerModule">
+    <div class="userImageSec1">
+      <%= image_for(current_user) %>
+      <%= image_tag(@user.image_url, class: "userImageCover") if @user.image? %>
+    </div>
+    <div class="col-md-6 col-xs-12 connArea">
+    	<div class="userImageSec1">
+        	<%= avatar_for(current_user) %>
+        	<%= image_tag(@user.avatar_url(:thumb), class: "userImage1") if @user.avatar? %>
+      	</div>
+    	<div class="container  mobNavs">
+			<div class="titleSec text-center">Customize your profile</div>
+		</div>
+	
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<%= form_for [@user], url: save_avatar_user_path do |f|  %>
+<div class="container">
+  <div class="field fileField col-md-6 col-xs-6 minPadR ">
+    <label class="btn btn-primary fileBtnDiv">
+      <%= f.file_field :avatar, class: "fileBtn form-control", id: "avatarImageUpload" %>
+      Profile Photo
+    </label>
+  </div>
+   <div class="field fileField col-md-6 col-xs-6 minPadL ">
+    <label class="btn btn-primary fileBtnDiv">
+      <%= f.file_field :image, class: "fileBtn form-control", id: "coverImageUpload" %> 
+      Cover Photo
+    </label>
+  </div>
+</div>
+  <div class="actions col-md-12 create">
+    <%= f.submit "Confirm", class: "fileBtnSubmit", id: "submitButtonId", disabled: true  %>
+  </div>
+
+
+ <% end %>
+
+
+
+
+</div>
+
+<script>
+
+$(document).ready(
+    function(){
+        $('#avatarImageUpload').change(
+            function(){
+                if ($(this).val()) {
+                    $('#submitButtonId').attr('disabled',false);
+                    // or, as has been pointed out elsewhere:
+                    // $('input:submit').removeAttr('disabled'); 
+                } 
+            }
+            );
+    });
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

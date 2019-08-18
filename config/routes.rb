@@ -68,9 +68,12 @@ Rails.application.routes.draw do
 
 
   resources :users do
+    
     member do
       get :following, :followers
       get :interests
+      get :avatar
+      patch :save_avatar
     end
   end
 

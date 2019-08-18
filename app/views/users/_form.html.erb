@@ -17,7 +17,7 @@
 
 
 
-<% if action_name == 'edit' or action_name == 'update' %>
+<% if action_name == 'edit' or action_name == 'update' or action_name == "avatar" %>
 
 
 
@@ -44,9 +44,12 @@
 
 <% end %>
 
+
+<div class="nameFields">
+
 <div class="col-md-6 section1 minPadR">
   <div class="field">
-    <%= f.text_field :name, class: "form-control", placeholder: "First name" %>
+    <%= f.text_field :name, class: "form-control", placeholder: "First name", id: "text_field" %>
   </div>
 </div>
 <div class="col-md-6 section1 minPadL">
@@ -68,6 +71,8 @@
     <%= f.hidden_field :longitude, class: "form-control", id: "lonField"  %>
   </div>
 
+</div>
+
 
 
 <% if action_name == 'new' or action_name == 'create' %>
@@ -78,6 +83,7 @@
   <div class="field">
     <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Password" %>
   </div>
+
 <% end %>
 
 
@@ -86,12 +92,12 @@
   <br />
 <% if action_name == 'new' or action_name == 'create' %>
   <div class="text-center loginSec">
-        <%= f.submit "Confirm", class: "fileBtnSubmitSign" %>
+        <%= f.submit "Confirm", class: "fileBtnSubmitSign", id: "submitButtonId" %>
     </div>
 <% end %>
 
 
-<% if action_name == 'edit' or action_name == 'update' %>
+<% if action_name == 'edit' or action_name == 'update' or action_name == "avatar" %>
   <div class="actions col-md-12 create">
     <%= f.submit "Confirm", class: "fileBtnSubmit" %>
   </div>
@@ -100,6 +106,24 @@
 
 
 <% end %>
+
+
+
+<script>
+  
+if($('#text_field').val() ==  "") 
+   $('#submitButtonId').attr('disabled', true);
+
+$('#text_field').keyup(function(){
+    if($('#text_field').val() !=  "") 
+         $('#submitButtonId').attr('disabled', false);    
+    else
+         $('#submitButtonId').attr('disabled', true);   
+});
+
+
+
+</script>
 
 <script>
 
