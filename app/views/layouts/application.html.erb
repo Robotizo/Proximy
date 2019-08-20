@@ -168,18 +168,39 @@
 
 
     <%= link_to notifications_path, method: :get, class: "specialA dispNone" do %>
-      <div class="navTitleEnd1"><%= image_tag("notifications.png", class: "ImageNav") %></div>
+      <div class="navTitleEnd1">
+      <%= image_tag("notifications.png", class: "ImageNav") %>
+      
+      
+      <div id="navImageActive" class="notActivePage"> 
+         <%= image_tag("notifications_t.png", class: "ImageNav  #{current? 'activePage',notifications_path}") %> 
+       </div>
+
+      </div>
     <% end %>
 
 
 
     <%= link_to groups_path, method: :get, class: "specialA dispNone" do %>
-      <div class="navTitleEnd1"><%= image_tag("groups.png", class: "ImageNav") %></div>
+      <div class="navTitleEnd1">
+      <%= image_tag("groups.png", class: "ImageNav") %>
+      
+      <div id="navImageActive" class="notActivePage"> 
+      <%= image_tag("groups_t.png", class: "ImageNav  #{current? 'activePage', groups_path}") %> 
+    </div>
+   
+      </div>
     <% end %>
 
 
     <%= link_to events_path, method: :get, class: "specialA dispNone" do %>
-      <div class="navTitleEnd1"><%= image_tag("event.png", class: "ImageNav") %></div>
+      <div class="navTitleEnd1">
+      <%= image_tag("event.png", class: "ImageNav") %>
+      
+      <div id="navImageActive" class="notActivePage"> 
+         <%= image_tag("event_t.png", class: "ImageNav  #{current? 'activePage', events_path}") %> 
+       </div>
+      </div>
     <% end %>
 
     <%= link_to root_path, method: :get, class: "specialA dispNone" do %>
@@ -188,7 +209,14 @@
 
 
     <div class="dropdown pencilButton">
-      <div class="navTitleEnd1 dropdown-toggle" type="button" data-toggle="dropdown"><%= image_tag("create.png", class: "ImageNav") %></div>
+      <div class="navTitleEnd1 dropdown-toggle" type="button" data-toggle="dropdown">
+      <%= image_tag("create.png", class: "ImageNav") %>
+      
+      <div id="navImageActive" class="notActivePage"> 
+        <%= image_tag("create_t.png", class: "ImageNav  #{current? 'activePage', new_event_path} #{current? 'activePage', new_group_path} #{current? 'activePage', new_post_path}") %>
+      </div>
+
+      </div>
       <ul class="dropdown-menu">
         <li>
           <%= link_to "Create Event", new_event_path, method: :get, class: "dropItem" %>
@@ -272,11 +300,23 @@
           <% if session[:user_id] %>
 
           <span style="cursor:pointer" onclick="openNav2()" >
-            <div class="navTitleEndMob"><%= image_tag("create.png", class: "ImageNavB") %></div>
+            <div class="navTitleEndMob">
+            <%= image_tag("create.png", class: "ImageNavB") %>
+
+            <div id="navImageActive" class="notActivePageMobile"> 
+              <%= image_tag("create_t.png", class: "ImageNavB  #{current? 'activePageMobile', new_event_path} #{current? 'activePage', new_group_path} #{current? 'activePage', new_post_path}") %>
+            </div>
+            </div>
           </span>
 
           <%= link_to groups_path, method: :get, class: "specialA" do %>
-            <div class="navTitleEndMob"><%= image_tag("groups.png", class: "ImageNavB") %></div>
+            <div class="navTitleEndMob">
+            <%= image_tag("groups.png", class: "ImageNavB") %>
+            
+            <div id="navImageActive" class="notActivePageMobile"> 
+                  <%= image_tag("groups_t.png", class: "ImageNavB  #{current? 'activePageMobile', groups_path}") %> 
+              </div>
+            </div>
           <% end %>
 
 
@@ -286,12 +326,24 @@
 
 
           <%= link_to events_path, method: :get, class: "specialA" do %>
-            <div class="navTitleEndMob"><%= image_tag("event.png", class: "ImageNavB") %></div>
+            <div class="navTitleEndMob">
+            <%= image_tag("event.png", class: "ImageNavB") %>
+            
+            <div id="navImageActive" class="notActivePageMobile"> 
+                    <%= image_tag("event_t.png", class: "ImageNavB  #{current? 'activePageMobile', events_path}") %> 
+              </div>
+            </div>
           <% end %>
 
 
           <%= link_to notifications_path, method: :get, class: "specialA" do %>
-            <div class="navTitleEndMob"><%= image_tag("notifications.png", class: "ImageNavB") %></div>
+            <div class="navTitleEndMob">
+            <%= image_tag("notifications.png", class: "ImageNavB") %>
+            
+            <div id="navImageActive" class="notActivePageMobile"> 
+                  <%= image_tag("notifications_t.png", class: "ImageNavB  #{current? 'activePageMobile', notifications_path}") %> 
+              </div>
+            </div>
           <% end %>
 
 
