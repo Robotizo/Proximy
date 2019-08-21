@@ -233,6 +233,22 @@ a:focus{
    
 }
 
+.activePage{
+	margin-top: -149%;
+	visibility: visible;
+}
+.notActivePage{
+	visibility: hidden;
+}
+.activePageMobile{
+	margin-top: -34%;
+	visibility: visible;
+}
+.notActivePageMobile{
+	visibility: hidden;
+}
+
+
 
 
 .form-control{
