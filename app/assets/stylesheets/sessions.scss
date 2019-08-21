@@ -7,7 +7,7 @@
 .fileBtnSubmitSign2{
   border-color: #7fa6be;
   background-color: white;
-  width: 100%;
+//   width: 100%;
   border: none;
   border-radius: 5px;
   color: #7fa6be;
@@ -184,8 +184,9 @@ nav{
 }
 .logField, .signUpForm{
 	margin-top: 20px;
-
 }
+
+
 
 .logoParent{
 	text-align: center;
@@ -250,6 +251,18 @@ nav{
 .logField, .signUpForm{
 	margin-top: 20px;
 }
+.logField-edits input{
+	background: rgba(0, 0, 0, 0.5);
+	border: none;	
+}
+
+.imageHere{
+	margin-top:-8vh;
+	height: 110vh; 
+    width: 100%; 
+	object-fit: cover;
+    
+}
 
 
 @media screen and (min-width: 1800px){
@@ -265,7 +278,7 @@ nav{
 .fileBtnDiv, .form-control{
 	width: 100%;
 	margin: 10px 0;
-	    font-weight: 600;
+	font-weight: 600;
     font-size: 14px;
 }
 .fileBtnDiv{
@@ -307,6 +320,20 @@ body{
 	-o-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
+
+.centerDiv{
+	width: 27em;
+    height: 30em;
+	// background: url("/assets/image1.png");
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  	
+	margin: auto;
+}
+
 
 @media screen and (min-width: 1800px){
 	.logField{
@@ -374,6 +401,7 @@ body{
 		min-height: 40px;
 		vertical-align: middle;
 		font-size: 14px;
+
 	}
 	.logoImg{
 		width: 60%;
