@@ -204,7 +204,14 @@
     <% end %>
 
     <%= link_to root_path, method: :get, class: "specialA dispNone" do %>
-      <div class="navTitleEnd1"><%= image_tag("home.png", class: "ImageNav") %></div>
+      <div class="navTitleEnd1">
+      <%= image_tag("home.png", class: "ImageNav") %>
+      
+      <div id="navImageActive" class="notActivePage"> 
+         <%= image_tag("home_t.png", class: "ImageNav  #{current? 'activePage', groups_path}") %> 
+       </div>
+      
+      </div>
     <% end %>
 
 
@@ -321,7 +328,13 @@
 
 
           <%= link_to root_path, method: :get, class: "specialA" do %>
-            <div class="navTitleEndMob"><%= image_tag("home.png", class: "ImageNavB") %></div>
+            <div class="navTitleEndMob">
+            <%= image_tag("home.png", class: "ImageNavB") %>
+            
+            <div id="navImageActive" class="notActivePageMobile"> 
+                  <%= image_tag("home_t.png", class: "ImageNavB  #{current? 'activePageMobile', groups_path}") %> 
+              </div>
+            </div>
           <% end %>
 
 
