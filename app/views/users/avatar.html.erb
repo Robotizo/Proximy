@@ -5,16 +5,38 @@
     display: none !important;
   }
 </style>
+
+
+
+
 <div class="text-center module1">
-  <div class="innerModule">
+  <div class="innerModuleAvatar">
     <div class="userImageSec1">
-      <%= image_for(current_user) %>
-      <%= image_tag(@user.image_url, class: "userImageCover") if @user.image? %>
+    <% if @user.image.present? %>
+      <div class="coverImage" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; ">
+        <%= image_tag(@user.image_url, class: "userImageCover", id: "coverImageTag") if @user.image? %>
+      </div>
+    <% else %>
+      <div class="coverImage" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; ">
+        <%= image_tag("cover.jpg", class: "userImageCover", id: "coverImageTag") %>
+      </div>
+    <% end %>
     </div>
     <div class="col-md-6 col-xs-12 connArea">
     	<div class="userImageSec1">
-        	<%= avatar_for(current_user) %>
-        	<%= image_tag(@user.avatar_url(:thumb), class: "userImage1") if @user.avatar? %>
+
+
+
+          <% if @user.avatar.present? %>
+            <div class="avatarImage" id="avatarImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px;">
+              <%= image_tag(@user.avatar_url, class: "userImage1", id: "avatarImageTag") if @user.avatar? %>
+            </div>
+          <% else %>
+            <div class="avatarImage" id="avatarImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px;  ">
+              <%= image_tag("profile.jpg", class: "userImage1", id: "avatarImageTag") %>
+            </div>
+          <% end %>
+
       	</div>
     	<div class="container  mobNavs">
 			<div class="titleSec text-center">Customize your profile</div>
@@ -55,11 +77,47 @@
 
 </div>
 
+
+<script>
+  
+
+  $("#coverImageUpload").change(function(){
+      coverFileURL = URL.createObjectURL(event.target.files[0]);
+      $("#coverImageTag").css("visibility", "hidden");
+      $("#coverImage").css("background-image", "url("+coverFileURL+")");
+    });
+
+
+
+    $("#avatarImageUpload").change(function(){
+      coverFileURL = URL.createObjectURL(event.target.files[0]);
+      $("#avatarImageTag").css("visibility", "hidden");
+      $("#avatarImage").css({"background-image": "url("+coverFileURL+")", "border": "3px solid white"});
+    });
+  
+
+
+
+</script>
+
 <script>
 
 $(document).ready(
     function(){
         $('#avatarImageUpload').change(
+            function(){
+                if ($(this).val()) {
+                    $('#submitButtonId').attr('disabled',false);
+                    // or, as has been pointed out elsewhere:
+                    // $('input:submit').removeAttr('disabled'); 
+                } 
+            }
+            );
+    });
+
+$(document).ready(
+    function(){
+        $('#coverImageUpload').change(
             function(){
                 if ($(this).val()) {
                     $('#submitButtonId').attr('disabled',false);

@@ -2,6 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+.editPosts{
+  float: right;
+  display: inline-block;
+  color: white;
+}
+
+
+.ImageIDer{
+  height: 25px;
+  float: right;
+}
+
 .fileBtnSubmitSign{
   border-color: #2e6da4;
   background-color: #7fa6be;
@@ -197,14 +209,27 @@ input.checkDist{
   margin-bottom: 50px;
 }
 
-.avatarImage{
-  height: 160px;
-  width: 160px;
+
+.avatarImage2{
+  height: 140px;
+  width: 140px;
   object-fit: cover;
   border-radius: 10px;
   position: relative;
   left: 110px;
-  top: -78px;
+  top: -73px;
+
+}
+
+
+
+.avatarImage{
+  height: 180px;
+  width: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  position: relative;
+  left: 110px;
 
 }
 
@@ -215,7 +240,6 @@ input.checkDist{
   object-fit: cover;
   border-radius: 10px;
   position: relative;
-
   border: 3px solid white;
 
 }
@@ -806,7 +830,9 @@ body {
 .userImage1 {
   border-radius: 15px;
   height: 180px;
+  width: 180px;
   border: 3px white solid;
+  object-fit: cover;
 }
 
 .mainField {
@@ -1916,6 +1942,11 @@ div.scrollEvents a {
     height: 140px; 
     width: 140px;
   }
+  .avatarImage2{
+    left: calc(50% - 19%);
+    height: 140px; 
+    width: 140px;
+  }
   .topTitle2{
     font-size: 16px;
   }
@@ -2211,6 +2242,8 @@ div.scrollEvents a {
   .userImage1 {
     border-radius: 15px;
     height: 140px;
+    width: 140px;
+    object-fit: cover;
   }
   .module1 {
     border-radius: 0px;

@@ -25,6 +25,10 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    @post = Post.find(params[:id])
+    unless current_user.id == @post.user.id
+       redirect_to(:back, notice: "You cannot edit this post") and return
+    end
   end
 
   # POST /posts
@@ -35,7 +39,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to root_url, notice: 'Your post was successfully created.' }
+        format.html { redirect_to root_url }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -49,7 +53,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to @post.user, notice: 'Post was updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
@@ -63,7 +67,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Post was deleted.' }
       format.json { head :no_content }
     end
   end
