@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, except: [:new, :create]
+  before_action :authorize, except: [:new, :create, :confirm_email]
 
 
 
@@ -21,6 +21,18 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+
+  def confirm_email
+    user = User.friendly.find_by_confirm_token(params[:id])
+    if user
+      user.update_attribute(:email_confirmed, true)
+      user.update_attribute(:confirm_token, nil)
+      redirect_to login_path, notice: 'IT WORKS'
+    else
+      flash[:error] = "Sorry. User does not exist"
+      redirect_to root_url
+    end
+  end
 
 
   # GET /users
@@ -89,6 +101,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
+        UserMailer.registration_confirmation(@user).deliver
         format.html { redirect_to login_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else

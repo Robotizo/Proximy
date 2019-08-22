@@ -1,13 +1,15 @@
 class User < ApplicationRecord
 
-	validates :name, presence: true
+  validates :name, presence: true
   validates :last_name, presence: true
-	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
-	validates :password, presence: true, length: { minimum: 6 }, on: :create
-	validates :password, allow_nil: true, length: { minimum: 6 }, confirmation: true, on: :update
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
+  validates :password, presence: true, length: { minimum: 6 }, on: :create
+  validates :password, allow_nil: true, length: { minimum: 6 }, confirmation: true, on: :update
   before_validation { self.email = self.email.downcase }
 
+
+  before_create :confirmation_token
 
 
 
@@ -22,14 +24,14 @@ class User < ApplicationRecord
 
 
 
-	has_secure_password
-	mount_uploader :avatar, AvatarUploader
+  has_secure_password
+  mount_uploader :avatar, AvatarUploader
   mount_uploader :image, ImageUploader 
 
 
-	has_many :posts, dependent: :destroy
-	has_many :groups
-	has_many :events
+  has_many :posts, dependent: :destroy
+  has_many :groups
+  has_many :events
   has_many :feedbacks
 
 
@@ -46,20 +48,20 @@ class User < ApplicationRecord
   has_many :interests, dependent: :destroy
 
 
-	has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
-	has_many :following, through: :active_relationships, source: :followed
+  has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
 
-	has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
-	has_many :followers, through: :passive_relationships, source: :follower
-
-
-
-	has_many :active_relationships_groups, class_name: "GroupsRelationship", foreign_key: "followerG_id", dependent: :destroy
-	has_many :followingG, through: :active_relationships_groups, source: :followedG
+  has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :followers, through: :passive_relationships, source: :follower
 
 
-	has_many :active_relationships_events, class_name: "EventsRelationship", foreign_key: "followerE_id", dependent: :destroy
-	has_many :followingE, through: :active_relationships_events, source: :followedE
+
+  has_many :active_relationships_groups, class_name: "GroupsRelationship", foreign_key: "followerG_id", dependent: :destroy
+  has_many :followingG, through: :active_relationships_groups, source: :followedG
+
+
+  has_many :active_relationships_events, class_name: "EventsRelationship", foreign_key: "followerE_id", dependent: :destroy
+  has_many :followingE, through: :active_relationships_events, source: :followedE
 
 
   has_many :active_relationships_interests, class_name: "InterestsRelationship", foreign_key: "followerI_id", dependent: :destroy
@@ -87,44 +89,44 @@ class User < ApplicationRecord
 
 
 
-	  def follow(other_user)
-    	following << other_user
-  	end
+    def follow(other_user)
+      following << other_user
+    end
 
-  	def unfollow(other_user)
-    	following.delete(other_user)
-  	end
+    def unfollow(other_user)
+      following.delete(other_user)
+    end
 
-  	def following?(other_user)
-    	following.include?(other_user)
-  	end
-
-
-  	def followG(group)
-    	followingG << group
-  	end
-
-  	def unfollowG(group)
-    	followingG.delete(group)
-  	end
-
-  	def followingG?(group)
-    	followingG.include?(group)
-  	end
+    def following?(other_user)
+      following.include?(other_user)
+    end
 
 
+    def followG(group)
+      followingG << group
+    end
 
-  	def followE(event)
-    	followingE << event
-  	end
+    def unfollowG(group)
+      followingG.delete(group)
+    end
 
-  	def unfollowE(event)
-    	followingE.delete(event)
-  	end
+    def followingG?(group)
+      followingG.include?(group)
+    end
 
-  	def followingE?(event)
-    	followingE.include?(event)
-  	end
+
+
+    def followE(event)
+      followingE << event
+    end
+
+    def unfollowE(event)
+      followingE.delete(event)
+    end
+
+    def followingE?(event)
+      followingE.include?(event)
+    end
 
 
 
@@ -246,6 +248,8 @@ class User < ApplicationRecord
 
 
 
+
+
   private
 
     def slug_candidates
@@ -258,9 +262,12 @@ class User < ApplicationRecord
 
 
 
-
-
-
+private
+  def confirmation_token
+    if self.confirm_token.blank?
+      self.confirm_token = SecureRandom.urlsafe_base64.to_s
+    end
+  end
 
 
 

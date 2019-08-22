@@ -21,8 +21,10 @@
   <%= stylesheet_link_tag 'jquery.pagepiling.css' %>
 
   <script type="text/javascript">
-    $(document).ready(function() {
-      $('#pagepiling').pagepiling();
+    jQuery(window).on('load', function(){ var $ = jQuery;
+      $(document).ready(function() {
+        $('#pagepiling').pagepiling();
+      });
     });
   </script>
 
@@ -279,7 +281,17 @@
             
           </div>
         </div>
-        <div class="two">
+
+      </div>
+
+
+      <%= image_tag("test4.png", class: "imageHere") %>
+    </div>
+
+
+
+    <div class="section">
+              <div class="two">
           <div class='leftSideTop'>Groups</div> 
           <div class='leftSideSubTop'><strong>You</strong> have interests <strong>you</strong> care about and passions <strong>you</strong> stand behind. Groups create a space to gather regularly with people who share <strong>your</strong> interests and passions. </div> 
     
@@ -295,10 +307,8 @@
           </div>
         </div>
 
-      </div>
+<%= image_tag("test4.png", class: "imageHere") %>
 
-
-      <%= image_tag("test4.png", class: "imageHere") %>
     </div>
 
 </div>
@@ -317,7 +327,7 @@
 
   <% if session[:user_id] %>
   <div class="container">
-    <div class="titleSec">Top Prospects</div>
+    <div class="titleSec">People to meet</div>
   </div>
   <div class="scrollMembers container ">
   
@@ -600,18 +610,6 @@ jQuery(window).on('load', function(){ var $ = jQuery;
       });
 });
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
