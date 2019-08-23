@@ -1,0 +1,224 @@
+/*// Place all the styles related to the notifications controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+
+
+
+.specialA:hover{
+  color: white;
+  text-decoration: none !important;
+  color: white;
+}
+
+
+.groupTitleDisc{
+    text-align: center;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    font-weight: 600;
+    border-radius: 5px;
+    /* margin-top: 5px; */
+    /* margin-left: 2px; */
+    /* margin-right: 2px; */
+    /* margin-bottom: 5px; */
+    top: -43px;
+    font-size: 16px;
+    white-space: normal;
+        background-color: #6c95af;
+        color: white !important; 
+
+}
+
+.interestTitleSec{
+  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
+  position: relative;
+  top: -44px;
+  border-radius: 0px 0px 5px 5px;
+}
+
+
+.interestName{
+    font-size: 18px;
+    padding: 10px;
+    font-weight: 700;
+    color: white;
+}
+
+
+
+.interestNameBlack{
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 700;
+    color: black;
+    position: relative;
+    top: -40px;
+}
+
+
+
+.noNotifs{
+  width: 100px;
+  margin: 20px;
+}
+
+
+.newNotifs{
+	padding: 8px 15px;
+	background-color: #6c95af;
+	border-radius: 100px;
+	color: white;
+	margin-left: 15px;
+}
+
+
+.notifDate{
+	font-size: 18px;
+	font-weight: 700;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+
+
+
+.introInner{
+	font-size: 15px;
+	font-weight: 700;
+	margin-bottom: 10px;
+}
+
+.notifTitle{
+	font-size: 18px;
+	font-weight: 700;
+}
+
+
+
+
+
+.imageSec{
+	width: 45%;
+	float: left;
+}
+.interestImage{
+	width: 100%;
+	border-radius: 5px;
+}
+
+
+.interestImageEventUnseen{
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0px 0px 0px 3px #6c95af;
+}
+
+.interestImageEventSeen{
+  width: 100%;
+  border-radius: 5px;
+  border: 0px;
+}
+
+.notifModuleT{
+	margin-top: 5px;
+    margin-bottom: 22px;
+    box-shadow: 0px 0px 0px 1px #dedddd;
+    border-radius: 5px;
+    float: left;
+    width: 100%;
+}
+
+.titleSecSub {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 15px 0px;
+  margin-bottom: 10px !important;
+}
+
+.titleSec {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 15px 0px;
+  margin-bottom: 10px !important;
+}
+
+
+@media screen and (max-width: 776px) {
+
+	.titleSec{
+		font-size: 20px;
+	}
+
+	.titleSecSub{
+		font-size: 18px;
+	}
+	.noPad3{
+    	padding-left: 0px !important;
+    	padding-right: 0px !important;
+  	}
+  	.introInner{
+  		display: none;
+  	}
+
+  	.interestImage{
+  		height: 120px;
+  		object-fit: cover;
+  	}
+
+  	.notifTitle{
+  		font-size: 14px;
+  		margin-top: 8px;
+  	}
+
+  	.notifDate{
+  		font-size: 14px;
+  	}
+
+
+  	.groupName{
+  		font-size: 12px;
+  	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

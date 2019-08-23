@@ -1,0 +1,38 @@
+/*// Place all the styles related to the Feedbacks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+
+.titleSec {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 15px 0px;
+  margin-bottom: 10px !important;
+}
+
+
+.titleSec2{
+  font-size: 20px;
+  font-weight: 600;
+  margin: 15px 0px;
+  margin-bottom: 10px !important;
+}
+
+.signIn {
+  width: 100%;
+  background-color: #7fa6be;
+  padding: 10px;
+}
+
+
+.feedField{
+	resize: none;
+	width: 100%;
+	height: 200px;
+	font-size: 20px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,2 @@
+module InterestsRelationshipsToGroupsHelper
+end

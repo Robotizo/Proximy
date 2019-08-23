@@ -1,0 +1,186 @@
+<%= stylesheet_link_tag "users", :media => "all" %>
+<% if flash[:notice] %>
+<div class="alert alert-success" role="alert">
+  <%= notice %>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<% end %>
+
+
+
+<style scoped>
+
+	@media (max-width: 776px) { 
+	    .coverImage {   
+	        border-radius: 0px !important;
+	    }
+	    .mobNav{
+	    	display: none !important;
+	    }
+	}
+</style>
+
+
+<div class="container noPad3">
+	<div class="titleSec">Settings</div>
+
+	<ul class="nav nav-tabs" id="events-nav" role="tablist">
+    <li class="nav-item active col-md-4  col-xs-4  mobNavs">
+      <a class="nav-link btn btn-prox" id="events-tab" data-toggle="tab" href="#general" role="tab" aria-controls="my events tab">
+        General
+      </a>
+    </li>
+    <li class="nav-item col-md-4 col-xs-4 mobNavs">
+      <a class="nav-link btn btn-prox" id="discover-tab" data-toggle="tab" href="#interests" role="tab" aria-controls="discover tab">
+        Interests
+      </a>
+    </li>
+    <li class="nav-item col-md-4 col-xs-4 mobNavs">
+      <a class="nav-link btn btn-prox" id="discover-tab" data-toggle="tab" href="#location" role="tab" aria-controls="discover tab">
+       Location
+      </a>
+    </li>
+  </ul>
+	
+
+
+
+<div class="tab-content" id="myTabContent">
+
+
+	<div class="tab-pane active" id="general" role="tabpanel" aria-labelledby="home-tab">
+		<h2 class="topTitle2">General</h2>
+
+		<% if @user.image.present? %>
+			<div class="coverImage" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px;">
+				<%= image_tag(@user.image_url, class: "imgCover", id: "coverImageTag") if @user.image? %>
+			</div>
+		<% else %>
+			<div class="coverImage" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px;">
+			  <%= image_tag("cover.jpg", class: "imgCover", id: "coverImageTag") %>
+			</div>
+		<% end %>
+
+		<% if @user.avatar.present? %>
+			<div class="avatarImage2" id="avatarImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px;">
+				<%= image_tag(@user.avatar_url, class: "imgProfile", id: "avatarImageTag") if @user.avatar? %>
+			</div>
+		<% else %>
+			<div class="avatarImage2" id="avatarImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px;  ">
+			  <%= image_tag("profile.jpg", class: "imgProfile", id: "avatarImageTag") %>
+			</div>
+		<% end %>
+
+
+	<div class="formSec">
+		<%= render 'form', user: @user %>	
+     </div>
+
+
+
+
+	</div>
+
+	<div class="tab-pane" id="interests" role="tabpanel" aria-labelledby="profile-tab">
+		<h2 class="topTitle2">Interests</h2>
+		  <% current_user.followingI.each do |interest| %>
+		    <div class="col-md-2 col-xs-6">
+		      <div class="interestCard">
+		        <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+		        <div class="interestTitleSec">
+		          <div class="interestName"><%= interest.name %></div>
+		        
+		        </div>
+
+		      </div>
+		    </div>
+
+
+		  <% end %>
+
+		    
+		    	<%= link_to interests_user_path, method: :get, class: "specialA" do %>
+		    	<div class="fixedState">
+  					<span class="editsText">Edit</span>
+		         	<%= image_tag("settings2.png", class: "editsUserIcon") %>
+		        </div>
+		        <% end %>
+		 
+			
+
+
+
+
+
+  
+
+	</div>
+	<div class="tab-pane" id="location" role="tabpanel" aria-labelledby="contact-tab">
+		<h2 class="topTitle2">Location</h2>
+
+
+
+
+
+
+
+		<%= render 'location', user: @user %>	
+
+
+
+
+
+
+
+
+
+
+	</div>
+</div>
+
+</div>
+
+
+
+
+
+
+<script>
+
+	$("#coverImageUpload").change(function(){
+	    coverFileURL = URL.createObjectURL(event.target.files[0]);
+	    $("#coverImageTag").css("visibility", "hidden");
+	    $("#coverImage").css("background-image", "url("+coverFileURL+")");
+    });
+
+
+
+    $("#avatarImageUpload").change(function(){
+	    coverFileURL = URL.createObjectURL(event.target.files[0]);
+	    $("#avatarImageTag").css("visibility", "hidden");
+	    $("#avatarImage").css({"background-image": "url("+coverFileURL+")", "border": "3px solid white"});
+    });
+	
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

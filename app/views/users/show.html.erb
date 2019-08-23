@@ -1,0 +1,648 @@
+<%= stylesheet_link_tag "users", :media => "all" %>
+<%= javascript_include_tag 'users', 'data-turbolinks-track': 'reload' %>
+<% if flash[:notice] %>
+<div class="alert alert-success" role="alert">
+  <%= notice %>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<% end %>
+
+
+
+
+<div class="text-center module1">
+
+<% unless current_user.friends.include?(@user) %>
+  <div class="innerModule">
+    <div class="userImageSec1">
+
+      <%= image_for(@user) %>
+
+      <%= image_tag(@user.image_url, class: "userImageCover") if @user.image? %>
+    </div>
+    <div class="col-md-6 col-xs-12 connArea">
+      <div class="userImageSec1">
+ 
+        <%= avatar_for(@user) %>
+ 
+        <%= image_tag(@user.avatar_url(:thumb), class: "userImage1") if @user.avatar? %>
+      </div>
+      <div class="userSec1">
+        <div class="userName">
+          <%= @user.name %>
+          <%= @user.last_name %>
+
+
+
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="col-md-6 col-xs-12 followBtn connArea2">
+
+
+    <% if current_user.id == @user.id %>
+      <div id="follow_form" class="cUser">
+           <%= button_to "Contacts", contacts_path, method: :get, class: "btn connectBtn" %>
+      </div>
+      <div id="follow_form" class="cUser">
+           <%= button_to "Edit Profile", edit_user_path, method: :get, class: "btn connectBtn" %>
+      </div>
+     <% end %>
+
+
+    <% unless @user.id == current_user.id %>
+      <% unless current_user.friends.include?(@user) %>
+        <%= render 'befriend' %>
+
+      <% end %> 
+    <% end %>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+    </div>
+
+     <% else %>
+
+      <div class="innerModule2">
+        <div class="userImageSec1">
+ 
+            <%= image_for(@user) %>
+
+          <%= image_tag(@user.image_url, class: "userImageCover") if @user.image? %>
+        </div>
+        <div class="col-md-6 col-xs-12 connArea">
+          <div class="userImageSec1">
+
+              <%= avatar_for(@user) %>
+  
+            <%= image_tag(@user.avatar_url(:thumb), class: "userImage1") if @user.avatar? %>
+          </div>
+          <div class="userSec1">
+            <div class="userName">
+              <%= @user.name %>
+              <%= @user.last_name %>
+              <% if @user.distance_is_checked == true and current_user.id != @user.id and @user.friends.include?(current_user) %>
+                <div class="userDistance">
+                  <%= @user.getDistance(current_user.latitude, current_user.longitude) %> km
+
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-6 col-xs-12 followBtn connArea2">
+
+
+        <% if current_user.id == @user.id %>
+          <div id="follow_form" class="cUser" >
+               <%= button_to "Contacts", contacts_path, method: :get, class: "btn connectBtn" %>
+          </div>
+
+          <div id="follow_form" class="cUser">
+           <%= button_to "Edit Profile", edit_user_path, method: :get, class: "btn connectBtn" %>
+          </div>
+ 
+         <% end %>
+
+        <% unless @user.id == current_user.id %>
+          <% unless current_user.friends.include?(@user) %>
+            <%= render 'befriend' %>
+  
+
+          <% end %> 
+        <% end %>
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+     <% end %>
+
+
+
+  </div>
+
+
+          <% if @user.id == current_user.id %>
+              <% else %>
+
+
+
+<div class="container mobNavs ">
+
+  <% if current_user.friends.include?(@user) %>
+    <div class="panel panel-default">
+
+
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#animals" aria-expanded="false">
+                Interests in Common <div class="show-more">Open</div>
+            </div>
+
+      <div id="animals" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+
+
+
+             
+                  <% @collideInterests.each do |interestCollide| %>
+                    <div class="col-md-2 col-xs-6">
+                      <div class="interestCard">
+                        <%= image_tag(interestCollide.image_url(:thumb), class: "interestImage") if interestCollide.image? %>
+                        <div class="interestTitleSec">
+                          <div class="interestName"><%= interestCollide.name %></div>
+                        
+                        </div>
+
+                      </div>
+                    </div>
+
+
+                  <% end %>
+
+              
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+  <% else %>
+      <div class="panel panel-default interestSec">
+
+
+          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#animals" aria-expanded="false">
+                Interests in Common <div class="show-more">Open</div>
+            </div>
+
+      <div id="animals" class="panel-collapse collapse" data-parent="#accordion">
+        <div class="panel-body">
+
+
+
+             
+                  <% @collideInterests.each do |interestCollide| %>
+                    <div class="col-md-2 col-xs-6">
+                      <div class="interestCard">
+                        <%= image_tag(interestCollide.image_url(:thumb), class: "interestImage") if interestCollide.image? %>
+                        <div class="interestTitleSec">
+                          <div class="interestName"><%= interestCollide.name %></div>
+                        
+                        </div>
+
+                      </div>
+                    </div>
+
+
+                  <% end %>
+
+              
+
+        </div>
+      </div>
+
+
+
+    </div>
+  <% end %>
+
+
+
+</div>
+
+ <% end %>
+
+
+
+
+
+
+
+
+
+<div class="container mobileArea">
+  <div class="mainField">
+
+    <div class="newsfeed">
+      <div class="titleSec">Newsfeed</div>
+    
+
+
+        <% if !@user.posts.empty? %>
+          <div class="col-md-6 col-xs-12 noPad1 ">
+
+            <% @user.posts.last(1).each do |post| %>
+              <div class="card">
+                 <span data-toggle="modal" data-target="#postModal"
+                        data-poster="<%= post.user.name %>"
+                        data-body="<%= post.content %>"
+                        data-time="<%= post.updated_at.to_time.strftime('%B %e') %>"
+                        <%= ("data-image=\"" << post.image_url << "\"") if post.image? %>
+                        <%= ("data-test=\"" << post.user.avatar_url(:thumb) << "\"") if post.user.avatar? %> 
+                >
+
+            <div class="material-icons text-muted launch-modal align-middle">
+
+
+                <%= image_tag(post.image_url(:post), class: "card-img-top") if post.image? %>
+                <div class="card-body">
+                  <p class="card-text"><%= truncate post.content, length: 500, separator: ' ' %></p>
+                </div>
+
+
+
+                <div class="card-footer">
+                  <%= link_to post.user, method: :get, class: "specialA bottomSign" do %>
+                    <%= image_tag(post.user.avatar_url(:thumb), class: "userImage2") if post.user.avatar? %>
+
+                  <% end %>
+
+                  <small class="text-muted"><%= post.user.name %> <%= post.user.last_name %> on <%= post.updated_at.to_time.strftime('%B %e') %></small>
+
+            
+            <% if current_user.id == post.user.id %>
+
+              <div class="dropdown pencilButton">
+                <div class="editPosts dropdown-toggle" type="button" data-toggle="dropdown"><%= image_tag("settings.png", class: "ImageIDer") %></div>
+                <ul class="dropdown-menu moreOps">
+                   <li>
+                    <%= link_to "Edit", edit_post_path(post), method: :get, class: "dropItem" %>
+                  </li>
+                  <li>
+          
+                    <%= link_to "Delete", post, method: :delete, class: "dropItem", data: { confirm: 'Are you sure?' } %>
+                  </li>
+                </ul>
+              </div>
+            <% end %>
+                </div>
+
+
+
+
+
+          </div>
+
+              </span>
+              </div>
+            
+
+
+
+
+
+
+            <% end %>
+          </div>
+
+
+
+
+
+
+<div class="latestPostSec2">
+          <% if @user.posts.length > 1 %>
+            <div class="col-md-6 col-xs-12 ">
+
+              <% @user.posts.last(3).reverse.each_with_index do |post, index| %>
+                <% unless index == 0 %>
+                  <div class="laterPostBox subPost">
+                
+               
+                  <span data-toggle="modal" data-target="#postModal"
+                              data-body="<%= post.content %>"
+                              data-poster="<%= post.user.name %>"
+                              data-time="<%= post.updated_at.to_time.strftime('%B %e') %>"
+                              <%= ("data-image=\"" << post.image_url << "\"") if post.image? %>
+                              <%= ("data-test=\"" << post.user.avatar_url(:thumb) << "\"") if post.user.avatar? %>
+                  >
+                  <div class="material-icons text-muted launch-modal align-middle">
+
+
+                      <div class="row no-gutters ">
+                        <div class="col-md-6 col-xs-12 post-image-background"
+                             style="background-image: url(<%= post.image_url(:post) %>);">
+                        </div>
+
+
+                        <div class="col-md-6 col-xs-12 ">
+                          <div class="card-body infoSec">
+                            <p class="card-text"><%= truncate post.content, length: 150, separator: ' ' %></p>
+                          </div>
+                          <div class="nameText">
+                            <span><%= image_tag(post.user.avatar_url(:thumb), class: "userImageMini") if post.user.avatar? %></span>
+                            <span class="card-text textMini"><%= truncate post.user.name, length: 150, separator: ' ' %> <%= truncate post.user.last_name, length: 150, separator: ' ' %></span>
+                          </div>
+
+                        </div>
+
+
+
+                      </div>
+
+
+
+                  </div>
+   
+              </span>
+                
+
+
+
+                </div>
+                <% end %>
+
+
+              <% end %>
+
+
+
+
+                  <div class="laterPostBox">
+
+                    <div class="showAllPosts" data-toggle="modal" data-target="#show-posts"><button type="button" class="btn btnShowAll">Show All</button></div>
+                  </div>
+
+
+            </div>
+
+</div>
+
+
+
+    <div class="laterPostBoxMob">
+
+      <div class="showAllPosts" data-toggle="modal" data-target="#show-posts"><button type="button" class="btn btnShowAll">Show All</button></div>
+    </div>
+
+
+
+
+          <% end %>
+
+
+
+        <% else %>
+          <div class="noFollowSec">
+            <div class="noFollowSecText">User has made no posts</div>
+          </div>
+        <% end %>
+     
+    </div>
+
+
+
+
+<% if @user.friends.include?(current_user) or @user == current_user %>
+    <div class="eventsSection">
+      <div class="titleSec">Events</div>
+      <div class="scrollEvents scrollable">
+        <% if !@eventsFollow.empty? %>
+          <% @eventsFollow.each do |eventsFollowing| %>
+            <%= link_to eventsFollowing, method: :get, class: "specialA" do %>
+              <div class="userEvents">
+                <div class="eventImage">
+                  <%= image_tag(eventsFollowing.image_url(:event), class: "groupImage1") if eventsFollowing.image? %>
+                </div>
+                <div class="eventContent1">
+                  <div class="eventDateI"><%= eventsFollowing.event_date.strftime('%B %e') %></div>
+                </div>
+                <div class="eventOverall">
+                  <div class="eventContent">
+                    <div class="titleGroups"><%= truncate(eventsFollowing.title, length: 40) %></div>
+                  </div>
+                  <div class="creatorSign">
+                    <div class="imageUserEvent">
+                      <%= image_tag(eventsFollowing.user.avatar_url(:thumb), class: "userImage2") if eventsFollowing.user.avatar? %>
+                    </div>
+                    <div class="contentUserPost">
+                      <span class="poster"><%= eventsFollowing.user.name %></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+
+
+        <% else %>
+          <div class="noFollowSec">
+            <div class="noFollowSecText">No groups have been joined</div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
+    <div class="eventsSection">
+      <div class="titleSec">Groups</div>
+      <div class="scrollGroups">
+        <% if !@groupsFollow.empty? %>
+          <% @groupsFollow.reverse.each do |groupsFollowing| %>
+            <%= link_to groupsFollowing, method: :get, class: "specialA" do %>
+              <div class="userGroups">
+                <div class="eventImage">
+                  <%= image_tag(groupsFollowing.image_url(:group), class: "groupImage1") if groupsFollowing.image? %>
+                </div>
+                <div class="eventContent">
+                  <div class="titleGroups"><%= groupsFollowing.title %></div>
+                </div>
+                <% if groupsFollowing.user.present? %>
+                <div class="creatorSign">
+                  <div class="imageUserGroup">
+                  
+                    <%= image_tag(groupsFollowing.user.avatar_url(:thumb), class: "userImage2") if groupsFollowing.user.avatar? %>
+                  
+                  </div>
+                  <div class="contentUserPost">
+                    <span class="poster"><%= groupsFollowing.user.name %></span>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+        <% else %>
+          <div class="noFollowSec">
+            <div class="noFollowSecText">No groups have been joined</div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+  <% end %>
+  </div>
+</div>
+
+
+
+
+
+</div>
+
+<div class="modal fade" id="postModal" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div id="modalPostImage"></div>
+      <div class="modal-body">
+        <div id="modalPostBody"></div>
+      </div>
+      <div class="modal-footer">
+        <span id="test" class="userImageModal"></span>
+        <span class="modal-title" id="modalPoster"></span> on
+        <span class="modal-title" id="modalPostTime"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<% if !@user.posts.empty? %>
+  <div class="modal fade" id="show-posts" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered allPostsDialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body ">
+          <div class="grid" id="masonry">
+            <div class="grid-sizer"></div>
+            <% @user.posts.reverse.each do |post| %>
+              <div class="card grid-item allPostsCard">
+                <div class="material-icons text-muted launch-modal align-middle">
+                  <%= image_tag(post.image_url(:post), class: "card-img-top allPostsImage") if post.image? %>
+                  <% if !post.content.blank? %>
+                    <div class="card-body">
+                      <p class="card-text"><%= truncate post.content, length: 500, separator: ' ' %></p>
+                    </div>
+                  <% end %>
+                  <div class="card-footer">
+                    <%= link_to post.user, method: :get, class: "specialA bottomSign" do %>
+                      <%= image_tag(post.user.avatar_url(:thumb), class: "userImage2") if post.user.avatar? %>
+                    <% end %>
+                    <small class="text-muted"><%= post.user.name %> <%= post.user.last_name %> on <%= post.updated_at.to_time.strftime('%B %e') %></small>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
+
+
+<script>
+    $('#postModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var posterName = button.data('poster');
+        var postBody = button.data('body');
+        var postTime = button.data('time');
+        if (button.data("image") !== undefined) {
+            var imageURL = button.data("image");
+            $("#modalPostImage").html("<img src=" + imageURL + ">");
+        }
+        if (button.data("test") !== undefined) {
+            var userImageURL = button.data("test");
+            $("#test").html("<img src=" + userImageURL + ">");
+        }
+        var modal = $(this);
+        $("#modalPoster").text(posterName);
+        $("#modalPostBody").text(postBody);
+        $("#modalPostTime").text(postTime);
+    });
+    /*
+    var msnry = new Masonry(elem, {
+        // options
+        columnWidth: '.grid-sizer',
+        itemSelector: '.grid-item',
+        percentPosition: true,
+        gutter: 10,
+        horizontalOrder: true,
+        stagger: 30
+    });
+    */
+    $('#show-posts').on('shown.bs.modal', function (e) {
+        $('#masonry').masonry({
+            columnWidth: '.grid-sizer',
+            itemSelector: '.grid-item',
+            percentPosition: true,
+            gutter: 10,
+            horizontalOrder: true,
+            stagger: 30
+        });
+    });
+
+
+
+      $(function () { 
+      $('.panel-heading').on('click', function (e) {
+          var menuItem = $( e.currentTarget );
+
+          if (menuItem.attr('aria-expanded') === 'true') {
+              $(this).children(".show-more").text("Open");
+
+          } else {
+              $(this).children(".show-more").text("Close");
+          }
+      });
+
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

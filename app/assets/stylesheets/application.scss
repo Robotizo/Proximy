@@ -1,0 +1,674 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+.activeNav{
+	box-shadow: 0px 3px 0px 0px #6c95af;
+	margin-top: -3px;
+}
+
+.divBy3{
+	width: calc(33.3333% - 10px);
+	float: left;
+	 margin: 5px;
+}
+
+.noPadDesc{
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+
+.indexMar {
+    margin-top: 65px;
+}
+
+@media (min-width: 1200px){
+	.container{
+		width: 1320px;
+	}
+}
+
+.addedInterest:hover{
+	background-color: #2eb930 !important;
+}
+
+.alert{
+	width: calc(100% - 20px);
+	margin: 10px;
+	position: absolute;
+	    z-index: 100;
+}
+.alert-success{
+	background-color: #ffffff;
+    border-color: #6c95af;
+    color: #6c95af;
+
+}
+
+
+
+body{
+	margin-bottom: 50px;
+}
+
+.modal-content{
+  border-radius: 11px;
+}
+
+
+#modalPostImage img{
+  border-radius: 10px 10px 0px 0px;
+}
+
+
+a:focus{
+	color: #23527c !important;
+	text-decoration: none !important; 
+}
+
+
+
+.overallCreate{
+	 margin-top: 68px
+}
+
+
+.test{
+	height: 200px;
+}
+
+.menuSec{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
+	    text-decoration: none;
+    color: #000000;
+    background-color: #6c95af54;
+    border-radius: 3px;
+}
+
+
+.dropdown-menu > li > a {
+    display: block;
+    padding: 7px 20px;
+    clear: both;
+    font-weight: 600;
+    /* font-weight: normal; */
+    line-height: 1.428571429;
+    color: #333333;
+    white-space: nowrap;
+}
+
+
+
+.dropdown-menu{
+	padding: 0px 0;
+}
+
+
+
+/* Concept Begin */
+
+.menuElements{
+
+
+    font-size: 27px;
+    transition: 0.1s;
+    font-weight: 800;
+    padding: 20px 8px 8px 14px;
+
+}
+.sideTitle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 27px;
+    transition: 0.1s;
+    font-weight: 800;
+    padding: 20px 8px 8px 14px;
+}
+
+.sideTitle2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 27px;
+    transition: 0.1s;
+    font-weight: 800;
+    padding: 15px 8px 8px 14px;
+}
+
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 0px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 22px;
+  display: inline-block;
+  transition: 0.1s;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+
+
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* Concept End */
+
+.navTitleEndNew{
+	float: right;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	display: inline-block;
+	color: white;
+}
+
+
+
+.moreOps{
+	left: -111px;
+}
+
+.imageNavDrop{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	height: 45px;
+}
+
+
+.dropItem{
+	padding: 10px;
+	text-decoration: none !important;
+}
+
+
+
+.pencilButton{
+	float: right;
+}
+
+
+
+.ImageNav{
+	padding: 10px;
+	height: 45px;
+   
+}
+
+
+
+.form-control{
+	box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075) !important;
+	-webkit-transition-property: none !important;
+	-moz-transition-property: none !important;
+	-o-transition-property: none !important;
+	transition-property: none !important;
+}
+.form-control:focus{
+	box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.0), 0 0 0px rgba(0, 0, 0, 0.0) !important;
+	-webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 0px rgba(0, 0, 0, 0.0) !important;
+}
+.dropbtn {
+  color: white;
+  border: none;
+  cursor: pointer;
+
+}
+
+.modal-footer{
+	border-top: 0px !important;
+}
+
+
+.text-muted{
+	color: black !important;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+	border-radius: 4px;
+	display: none;
+	position: absolute;
+	left: -100px;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 0px 2px 0px rgba(0,0,0,1);
+	z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #7fa6bd5c;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+}
+
+a{
+	color: black;
+}
+
+.btn:active, .btn.active{
+	box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+}
+
+.nav-tabs > li > a {
+	border-radius: 4px;
+
+	font-weight: 600;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+	border: 0px !important;
+	border-bottom: #7fa6bd 3px solid !important;
+	border-radius: 0px;
+}
+.nav-tabs{
+	border-bottom: 0px !important;
+}
+.nav-fill .nav-item {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+i.material-icons{
+  border:none;
+}
+
+button{
+  outline: none !important;
+}
+
+.logoMain{
+	height: 50px;
+	width: 50px;
+}
+
+.dropDown{
+	height: 30px;
+	width: 30px;
+}
+
+.image{
+	width: 100px;
+	height: 100px;
+}
+
+
+
+.navTitleEnd1{
+	float: right;
+	padding: 5px;
+	display: inline-block;
+	color: white;
+}
+
+
+.navTitleEnd2{
+	float: right;
+	margin-top: 16px;
+	margin-right: 10px;
+	font-size: 20px;
+	display: inline-block;
+	color: white;
+}
+
+
+.navTitleEnd3{
+	float: right;
+	display: inline-block;
+	color: white;
+}
+
+.navTitleEnd4{
+	float: right;
+	display: inline-block;
+	color: white;
+	margin-top: 8px;
+	padding-bottom: 20px
+}
+
+
+
+.specialB{
+	color: white !important;
+	text-decoration: none !important;
+}
+
+.specialB:hover{
+	text-decoration: none !important;
+}
+
+body{
+	margin-top: 55px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.topNav{
+	box-shadow: 0 1px 1px rgba(0,0,0,.15);
+	border-radius: 0px;
+	height: 55px;
+	background-color: white;
+}
+
+.navTitle{
+        margin-top: 2px;
+    font-size: 30px;
+    display: inline-block;
+}
+
+
+.userImageNav{
+	height: 45px;
+	width: 45px;
+	object-fit: cover;
+	border-radius: 6px;
+}
+
+i {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-left: 15px;
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+
+.navTitleEnd3{
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+	font-size: 20px;
+}
+
+.modal-dialog{
+	margin-top: 5%;
+}
+
+
+.dropCont{
+	display: none;
+}
+
+.navTitleEnd3:hover + .dropCont{
+	display: block;
+}
+.mobNav{
+	display: none !important;
+}
+
+.ifMob1{
+	display: block !important;
+}
+
+.ifMob2{
+	display: none !important;
+}
+
+.sidenav{
+	display: none !important;
+}
+
+.sidenav2{
+	display: none !important;
+}
+
+
+.panel{
+	box-shadow: 0px 0px 0px !important;
+	-webkit-box-shadow: 0px 0px 0px !important;
+}
+
+
+.extraInf{
+	display: block !important;
+}
+
+@media screen and (max-width: 776px){
+	.activeNav{
+	    box-shadow: 0px 0px 0px 0px #6c95af;
+	    margin-top: 0px;
+	    border-top: 3px solid #6c95af;
+	    border-radius: 3px;
+
+	}
+
+	.extraInf{
+		display: none !important;
+	}
+
+		.divBy3{
+			    width: calc(100% - 0px);
+			    float: left;
+			    margin: 5px 0px;
+		}
+
+	  .noPad1{
+	    padding-left: 5px !important;
+	    padding-right: 5px !important;
+	  }
+
+	  .noPad2{
+	    padding-left: 3px !important;
+	    padding-right: 3px !important;
+	  }
+
+
+	  .noPad3{
+	    padding-left: 0px !important;
+	    padding-right: 0px !important;
+	  }
+	.alert{
+		border-radius: 0px;
+		width: 100%;
+		margin: 0px;
+	}
+
+	.navElement{
+		width: 100%;
+	}
+
+
+	.sidenav{
+		display: block !important;
+	}
+
+
+	.dispNone{
+		display: none !important;
+	}
+	.ifMob2{
+		display: block !important;
+	}
+
+	.ifMob1{
+		display: none !important;
+	}
+
+	.sidenav {
+	    height: 100%;
+	    width: 0;
+	    position: fixed;
+	    z-index: 1;
+	    top: 0;
+	    right: 0;
+	    background-color: #fff;
+	    overflow-x: hidden;
+	    transition: 0.3s;
+	    padding-top: 75px;
+	    box-shadow: 0px 0px 1px;
+
+	}	
+
+
+	.sidenav2 {
+		display: block !important;
+		    overflow-y: hidden;
+	    height: 0;
+	    width: 100%;
+	    position: fixed;
+	    z-index: 1;
+	    bottom:  0;
+	    left:  0;
+	    background-color: #fff;
+	    overflow-x: hidden;
+	    transition: 0.3s;
+		box-shadow: 0px 0px 1px;
+   		margin-bottom: 54px;
+   		border-radius: 10px 10px 0px 0px;
+	}	
+
+	.sidenav2 .closebtn2 {
+	  position: absolute;
+	  top: 0;
+	  right: 25px;
+	  font-size: 36px;
+	  margin-left: 50px;
+	  padding-top: 2px;
+	  text-decoration: none !important;
+	}
+
+	#navbar {
+  		transition: top 0.5s;
+	}
+
+
+
+
+
+	.panel-body{
+		padding: 0px;
+	}
+	.navTitleEndMob{
+		display: inline-block;
+		padding-top: 12px;
+		padding-bottom: 15px;
+    	display: inline-block;
+    	color: white;
+    	text-align: center;
+    	width: calc(20% - 4px);
+	}
+
+	.ImageNavB{
+		height: 25px;
+
+	}
+	.mobNav{
+		display: block !important;
+		position: fixed;
+		bottom: 0px; 
+		left: 0px;
+		width: 100%;
+	}
+	.bottomNav{
+	    border-radius: 0px;
+	    height: 55px;
+	    width: 101%;
+	    background-color: white;
+	    box-shadow: 0px 0px 5px 0px #d2d1d1;
+	}
+	.pencilButton{
+		display: none !important;
+	}
+
+	.ImageNav{
+		display: none;
+	}
+
+	.modal-dialog{
+		margin-top: 10%;
+	}
+	.dropdown-content{
+		display: none !important;
+	}
+	.navTitleEnd1{
+		margin: 1px;
+		padding: 2px !important;
+	}
+	.logoMain{
+		height: 45px;
+		width: 45px;
+	}
+	body{
+		margin-bottom: 70px;
+		margin-top: 50px;
+	}
+
+	.topNav{
+		box-shadow: 0 1px 1px rgba(0,0,0,.15);
+		border-radius: 0px;
+		height: 55px;
+		background-color: white;
+	}
+
+	.navTitle{
+		margin-top: 5px;
+		font-size: 22px;
+		display: inline-block;
+	}
+
+
+}

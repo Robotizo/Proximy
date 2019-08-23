@@ -1,0 +1,7 @@
+   <%= stylesheet_link_tag "users", :media => "all" %>
+
+   <%= form_for(@user.active_relationships_interests.find_by(followedI_id: interest.id), html: { method: :delete }, remote: true) do |f| %>
+        <div class="buttonHov">
+          <div class="followingState"><%= f.submit "Added", class: "btn  btn-primary addedInterest" %></div>
+        </div>
+      <% end %>

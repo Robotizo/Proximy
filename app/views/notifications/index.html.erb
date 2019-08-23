@@ -1,0 +1,127 @@
+ <%= stylesheet_link_tag 'notifications', media: 'all' %>
+
+
+
+ <div class="container">
+    <div class="titleSec">Notifications</div>
+ </div>
+
+
+
+<% if @userFriendships.present? %>
+<div class="container">
+	<div class="titleSecSub">Friend Requests</div>
+
+
+	<% @userFriendships.each do |invFriends| %>
+	<% unless invFriends.status == "accepted" %>
+		 		<div class="col-md-3 col-xs-6 noPad1">
+		 			<%= link_to invFriends.user, method: :get, class: "specialA" do %>
+						<%= image_tag(invFriends.user.avatar_url(:thumb), class: "interestImage") if invFriends.user.avatar? %>
+                        <div class="interestTitleSec">
+                          <div class="interestName"><%= invFriends.user.name %> <%= invFriends.user.last_name %></div>
+                        </div>
+
+                        <%= link_to update_friendship_friendship_path(invFriends), method: :patch, class: "specialA" do %>
+                        <div class="groupTitleDisc">
+
+
+                        Accept
+
+                    	</div>
+                    <% end %>
+						
+			
+				 	<% end %>
+		 		</div>
+	<% end %>
+	<% end %>
+</div>
+
+<% else %>
+
+<% end %>
+
+
+<% if @eventNotifs.present? %>
+<div class="container">
+	<div class="titleSecSub">New events from your groups</div>
+</div>
+
+
+
+<div class="container noPad3">
+	<% @eventNotifs.reverse.each do |eventNotif| %>
+
+			<div class="col-md-4">
+<%= link_to update_notif_notification_path(eventNotif), method: :patch, class: "specialA" do %>
+
+
+<% if eventNotif.is_checked == false %>
+				
+				<%= image_tag(eventNotif.event.image_url(:event), class: "interestImageEventUnseen") if eventNotif.event.image? %>
+		        <div class="interestTitleSec">
+                  <div class="interestName"><%= eventNotif.event.event_date.strftime('%B %e') %></div>
+                </div>
+                <div class="interestNameBlack"><%= eventNotif.event.title %></div>
+
+
+				<% else %>
+					<%= image_tag(eventNotif.event.image_url(:event), class: "interestImageEventSeen") if eventNotif.event.image? %>
+				        <div class="interestTitleSec">
+		                  <div class="interestName"><%= eventNotif.event.event_date.strftime('%B %e') %></div>
+		                </div>
+		                <div class="interestNameBlack"><%= eventNotif.event.title %></div>
+
+
+
+
+				<% end %>
+		
+
+			<% end %>
+		
+			</div>
+
+
+
+	<% end %>
+</div>
+<% else %>
+<% end %>
+
+
+
+
+
+
+<% unless @userFriendships.present? or @eventNotifs.present? %>
+	<div class="container">
+		
+		<div class="text-center">
+			<%= image_tag("alarm.png", class: "noNotifs") %>
+			<div class="titleSecSub">No notifications at the moment</div>
+		</div>
+
+
+
+
+	</div>
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

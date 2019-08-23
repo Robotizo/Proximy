@@ -1,0 +1,35 @@
+<%= form_for(interest) do |f| %>
+  <% if interest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(interest.errors.count, "error") %> prohibited this interest from being saved:</h2>
+
+      <ul>
+      <% interest.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <div><%= f.label :image %></div>
+    <div><%= f.file_field :image %></div>
+  </div>
+
+  <div class="field">
+    <div><%= f.label :category %></div>
+    <div><%= f.select :category, options_for_select(Interest::INTEREST_CATEGORIES) %></div>
+  </div>
+
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

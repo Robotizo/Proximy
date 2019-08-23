@@ -1,0 +1,60 @@
+<%= stylesheet_link_tag "contacts", :media => "all" %>
+
+
+
+
+  <div class="container">
+    <div class="titleSec">Friends</div>
+ </div>
+
+
+<!-- Delete Freidships if user is deleted -->
+
+ <div class="container mobNavs">
+
+
+
+ 		<% @user.friendships.each do |friend| %>
+ 	
+ 		<% if friend.status == "accepted" and friend.friend.present? %>
+
+		 		<div class="col-md-3 col-xs-6 noPad1">
+		 			<%= link_to friend.friend, method: :get, class: "specialA" do %>
+						<%= image_tag(friend.friend.avatar_url(:thumb), class: "interestImage") if friend.friend.avatar? %>
+                        <div class="interestTitleSec">
+                          <div class="interestName"><%= friend.friend.name %> <%= friend.friend.last_name %></div>
+                        </div>
+
+			
+				 	<% end %>
+		 		</div>
+	
+
+
+ 		<% end %>
+
+
+ 		<% end %>
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+ 		
+
+
+ 
+
+
+
+ 	
+
+
+

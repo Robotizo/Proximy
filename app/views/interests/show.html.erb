@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<div id="follow_b">
+          <% if current_user.followingI?(@interest) %>
+       
+              <%= render partial: "unfollowInterest" %>
+        
+            <% else %>
+             
+                <%= render partial: "followInterest" %>
+         
+            <% end %>
+</div>
+
+<%= image_tag(@interest.image_url(:thumb)) if @interest.image? %>
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @interest.name %>
+</p>
+
+
+<p>
+  <strong>Category:</strong>
+  <%= @interest.category %>
+</p>
+
+<%= link_to 'Edit', edit_interest_path(@interest) %> |
+<%= link_to 'Back', interests_path %>

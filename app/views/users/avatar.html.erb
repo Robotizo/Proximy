@@ -1,0 +1,149 @@
+<%= stylesheet_link_tag "users", :media => "all" %>
+
+<style type="text/css">
+  .mobNav{
+    display: none !important;
+  }
+</style>
+
+
+
+
+<div class="text-center module1">
+  <div class="innerModuleAvatar">
+    <div class="userImageSec1">
+    <% if @user.image.present? %>
+      <div class="coverImage" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; ">
+        <%= image_tag(@user.image_url, class: "userImageCover", id: "coverImageTag") if @user.image? %>
+      </div>
+    <% else %>
+      <div class="coverImage" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; ">
+        <%= image_tag("cover.jpg", class: "userImageCover", id: "coverImageTag") %>
+      </div>
+    <% end %>
+    </div>
+    <div class="col-md-6 col-xs-12 connArea">
+    	<div class="userImageSec1">
+
+
+
+          <% if @user.avatar.present? %>
+            <div class="avatarImage" id="avatarImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px;">
+              <%= image_tag(@user.avatar_url, class: "userImage1", id: "avatarImageTag") if @user.avatar? %>
+            </div>
+          <% else %>
+            <div class="avatarImage" id="avatarImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px;  ">
+              <%= image_tag("profile.jpg", class: "userImage1", id: "avatarImageTag") %>
+            </div>
+          <% end %>
+
+      	</div>
+    	<div class="container  mobNavs">
+			<div class="titleSec text-center">Customize your profile</div>
+		</div>
+	
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<%= form_for [@user], url: save_avatar_user_path do |f|  %>
+<div class="container">
+  <div class="field fileField col-md-6 col-xs-6 minPadR ">
+    <label class="btn btn-primary fileBtnDiv">
+      <%= f.file_field :avatar, class: "fileBtn form-control", id: "avatarImageUpload" %>
+      Profile Photo
+    </label>
+  </div>
+   <div class="field fileField col-md-6 col-xs-6 minPadL ">
+    <label class="btn btn-primary fileBtnDiv">
+      <%= f.file_field :image, class: "fileBtn form-control", id: "coverImageUpload" %> 
+      Cover Photo
+    </label>
+  </div>
+</div>
+  <div class="actions col-md-12 create">
+    <%= f.submit "Confirm", class: "fileBtnSubmit", id: "submitButtonId", disabled: true  %>
+  </div>
+
+
+ <% end %>
+
+
+
+
+</div>
+
+
+<script>
+  
+
+  $("#coverImageUpload").change(function(){
+      coverFileURL = URL.createObjectURL(event.target.files[0]);
+      $("#coverImageTag").css("visibility", "hidden");
+      $("#coverImage").css("background-image", "url("+coverFileURL+")");
+    });
+
+
+
+    $("#avatarImageUpload").change(function(){
+      coverFileURL = URL.createObjectURL(event.target.files[0]);
+      $("#avatarImageTag").css("visibility", "hidden");
+      $("#avatarImage").css({"background-image": "url("+coverFileURL+")", "border": "3px solid white"});
+    });
+  
+
+
+
+</script>
+
+<script>
+
+$(document).ready(
+    function(){
+        $('#avatarImageUpload').change(
+            function(){
+                if ($(this).val()) {
+                    $('#submitButtonId').attr('disabled',false);
+                    // or, as has been pointed out elsewhere:
+                    // $('input:submit').removeAttr('disabled'); 
+                } 
+            }
+            );
+    });
+
+$(document).ready(
+    function(){
+        $('#coverImageUpload').change(
+            function(){
+                if ($(this).val()) {
+                    $('#submitButtonId').attr('disabled',false);
+                    // or, as has been pointed out elsewhere:
+                    // $('input:submit').removeAttr('disabled'); 
+                } 
+            }
+            );
+    });
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

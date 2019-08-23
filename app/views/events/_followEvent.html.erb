@@ -1,0 +1,8 @@
+<%= stylesheet_link_tag "events", :media => "all" %>
+
+<%= form_for(@event.passive_relationships_events.build, method: :post) do |f| %>
+	<%= hidden_field_tag :followedE_id, @event.id %>
+	<div class="buttonEventHov">
+		<%= f.submit "Attend Event", class: "btn btn-primary attendEventBtn" %>
+	</div>
+<% end %>

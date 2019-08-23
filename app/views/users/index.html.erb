@@ -1,0 +1,114 @@
+<%= stylesheet_link_tag "users", :media => "all" %>
+<p id="notice"><%= notice %></p>
+
+<body onload="getLocation()">
+<div class="container">
+  <div class="titleCon">Contacts</div>
+<div class="section">
+  <div class="subTitleCon">Close Friends</div>
+  	
+	<% @users.each do |user| %>
+		<% unless user.id == current_user.id %>
+		    <div class="fullSec">
+		      <div class="usersSec col-md-3">
+		        <%= image_tag(user.avatar_url(:thumb), class: "userImg") if user.avatar? %>
+		        <span class="userNameNotTaken"><%= user.name %></span>
+		      </div>
+		      <div class="usersSec col-md-3">
+		      	<div class="userNameNotTaken">Latitude: <%= user.latitude %></div>
+		        <div class="userNameNotTaken">Longitude: <%= user.longitude %></div>
+		      </div>
+		      <div class="usersSec col-md-3">
+		      	<div class="userNameNotTaken">Distance in km: <%= user.getDistance(current_user.latitude, current_user.longitude) %></div>
+		      </div>
+		      <div class="usersSec col-md-3">
+
+		      	<div class="userNameNotTaken">Interests CC: <%= user.userInterests(current_user) %></div>
+		      	<div class="userNameNotTaken">Location CC: <%= user.ccLocation(current_user.latitude, current_user.longitude) %></div>
+		      	<div class="userNameNotTaken"><%= user.overallCC %></div>
+
+		      	<%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+	
+		      </div>
+		     </div>
+		<% end %>
+    <% end %>
+  
+
+</div>
+
+</div>
+
+
+
+<hr>
+
+
+<div class="container"><p id="geoloc"></p></div>
+
+
+<hr>
+
+</body>
+
+
+
+<script>
+
+
+	var x = document.getElementById("geoloc");
+
+
+
+	function getLocation() {
+	    if (navigator.geolocation) {
+	      navigator.geolocation.getCurrentPosition(showPosition);
+	      navigator.geolocation.getCurrentPosition(geoSuccess);
+	    } else {
+	      x.innerHTML = "Geolocation is not supported by this browser.";
+	    }
+  	}
+
+
+	 
+	function showPosition(position) {
+		x.innerHTML = "Latitude: " + position.coords.latitude + 
+		"<br>Longitude: " + position.coords.longitude;
+	}
+
+
+
+	  jQuery.ajax({
+	    data: { lat: 5, lon: 6},
+	    type: 'get',
+	    url: "/users",   
+	    dataType: 'JSON',
+
+	  });
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

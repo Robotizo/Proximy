@@ -1,0 +1,16 @@
+<%= stylesheet_link_tag "sessions", :media => "all" %>
+
+<div class="leftDiv">
+  <%= image_tag("logo_inv_square.png", class: "iconImg") %>
+</div>
+<div class="rightDiv newUser">
+  <div class="mainDiv">
+    <div class="logoParent">
+      <%= image_tag("proximy-logo.jpg", class: "logoImg") %>
+    </div>
+    <div class="text-center signUpForm">
+      <%= render 'form', user: @user %>
+    </div>
+  </div>
+  <div class="mobileBottom"></div>
+</div>

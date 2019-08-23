@@ -1,0 +1,10 @@
+<%= stylesheet_link_tag "users", :media => "all" %>
+
+
+
+  <%= form_for(@interest.passive_relationships_interests.build, method: :post, remote: true) do |f| %>
+    <%= hidden_field_tag :followedI_id, @interest.id %>
+    <div class="buttonHov">
+      <%= f.submit "Add", class: "btn btn-primary addInterest" %>
+    </div>
+  <% end %>

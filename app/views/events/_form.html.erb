@@ -1,0 +1,210 @@
+<%= stylesheet_link_tag "events", :media => "all" %>
+<%= form_for(event) do |f| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo48DWSAQY1Qc3Tg4LjO8DtBJ32jSDbZI&libraries=places&callback=initAutocomplete"
+         async defer></script> 
+
+<script>
+
+    $(function () { 
+      $('.panel-heading').on('click', function (e) {
+          var menuItem = $( e.currentTarget );
+
+          if (menuItem.attr('aria-expanded') == 'true') {
+              $(this).children(".show-more").text("Show More");
+
+          } else {
+              $(this).children(".show-more").text("Show Less");
+          }
+      });
+
+    });
+  
+
+</script>
+
+
+
+
+
+<style type="text/css">
+  .mobNav{
+    display: none !important;
+  }
+</style>
+
+
+
+<script>
+
+
+    function initAutocomplete() {
+
+      // Create the search box and link it to the UI element.
+      var input = document.getElementById('eventTitleLoc');
+      var searchBox = new google.maps.places.SearchBox(input);
+
+
+
+  }
+
+</script>
+
+
+<div class="fullSec">
+
+<div class="t1">
+<div class="col-md-6 col-xs-12 noPad3">
+  <div class="field">
+    <div class="labelSide">
+      <%= f.label "Event title" %>
+    </div>
+    <div class="formSide">
+      <%= f.text_field :title, placeholder: "E.g: Bike Riding", class: "form-control", id: "eventTitle" %>
+    </div>
+  </div>
+
+
+
+
+    <div class="field">
+    <div class="labelSide">
+      <%= f.label "Address" %>
+    </div>
+    <div class="formSide" >
+      <%= f.text_field :address, class: "form-control", id: "eventTitleLoc", placeholder: "E.g: Abbey Road, London"  %>
+    </div>
+  </div>
+
+<label id="result"></label>
+
+
+    <div class="formSide">
+      <%= f.hidden_field :latitude, class: "form-control" %>
+    </div>
+ 
+
+    <div class="formSide">
+      <%= f.hidden_field :longitude, class: "form-control" %>
+    </div>
+ 
+
+
+    <div class="field">
+      <div class="labelSide">
+        <%= f.label :event_date %>
+      </div>
+      <div class="formSide">
+        <%= f.date_field :event_date, class: "form-control" %>
+      </div>
+  </div>
+
+
+
+
+  <div class="panel panel-default mainEditsAccor">
+        <div class="panel-heading accordion-toggle editsAccor" data-toggle="collapse" href="#date" aria-expanded="false">
+          Multiple day event <div class="show-more">Show More</div>
+        </div>
+      <div id="date" class="panel-collapse collapse" data-parent="#accordion">
+      <div class="panel-body">
+        <div class="field">
+          <div class="labelSide">
+            <%= f.label "Event end date" %>
+          </div>
+          <div class="formSide">
+            <%= f.date_field :event_end_date, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      </div>
+  </div>
+
+
+
+
+  <div class="field">
+    <div class="labelSide">
+      <%= f.label :event_time %>
+    </div>
+    <div class="formSide">
+      <%= f.time_field :event_time, class: "form-control" %>
+    </div>
+  </div>
+
+
+
+    <div class="panel panel-default mainEditsAccor">
+        <div class="panel-heading accordion-toggle editsAccor" data-toggle="collapse" href="#time" aria-expanded="false">
+          Event end time <div class="show-more">Show More</div>
+        </div>
+      <div id="time" class="panel-collapse collapse" data-parent="#accordion">
+      <div class="panel-body">
+        <div class="field">
+          <div class="labelSide">
+            <%= f.label "Event end time" %>
+          </div>
+          <div class="formSide">
+           <%= f.time_field :event_end_time, class: "form-control" %>
+          </div>
+        </div>
+       </div>
+
+      </div>
+  </div>
+
+
+
+
+
+
+</div>
+<div class="col-md-6 col-xs-12 noPad3">
+    <div class="field fileField">
+      <label class="btn btn-primary fileBtnDiv"><%= f.file_field :image, class: "fileBtn", id: "coverImageUpload"%> Cover Image</label>
+    </div>
+</div>
+</div>
+
+<div class="col-md-6 col-xs-12 noPad3">
+
+  <div class="field">
+    <%= f.collection_select(:group_id, @groupsFollow, :id, :title, {prompt: "Choose a Group"}, class: "form-control") %>
+  </div>
+  <div class="field">
+    <div class="labelSide">
+      <%= f.label :description %>
+    </div>
+    <div class="formSide">
+      <%= f.text_area :description, class: "form-control textField" %>
+    </div>
+  </div>
+</div>
+
+  <div class="actions col-md-12 create">
+    <%= f.submit "Confirm", class: "fileBtnSubmit" %>
+  </div>
+</div>
+
+<% end %>
+
+
+
+
+
+
+
+
+
+

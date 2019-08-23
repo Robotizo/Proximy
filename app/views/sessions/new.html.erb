@@ -1,0 +1,50 @@
+<%= stylesheet_link_tag "sessions", :media => "all" %>
+
+
+<style>
+    body{
+         overflow-y:hidden;
+         overflow-x: hidden;
+        height: 100vh !important;
+        background: white url('<%= asset_path 'image1.jpg' %>') no-repeat;
+        background-size: 100% auto ;
+        object-fit: cover;
+        
+       
+    }
+</style>
+<%= image_tag("image1.jpg", class: "imageHere") %>
+<div class="centerDiv">
+
+  
+        <div class="logoParent">
+            <%= image_tag("proximy_inv_t.png", class: "logoImg") %>
+        </div>
+
+       
+            <div class="text-center logField">
+                <div class="logField-edits">
+                    <%= form_for(:session, url: login_path) do |f| %>
+                    <div class="emailField">
+                        <%= f.email_field :email, class: 'form-control' , placeholder: "Email" %>
+                    </div>
+                    <div class="passField">
+                        <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
+                    </div>
+                </div>
+
+                <div class="text-center loginSec">
+                     <%= f.submit "Log in", class: "fileBtnSubmitSign" %>
+                </div>
+
+            
+                <% end %>
+                <div class="text-center loginSec">
+                    <%= button_to "Sign up", signup_path, method: :get, class: "fileBtnSubmitSign2" %>
+                </div>
+               
+            </div>
+        
+   
+    <div class="mobileBottom"></div>
+</div>

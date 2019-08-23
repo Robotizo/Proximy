@@ -1,0 +1,68 @@
+<%= form_for(group) do |f| %>
+  <% if group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+      <% group.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <style type="text/css">
+  .mobNav{
+    display: none !important;
+  }
+</style>
+
+
+<div class="t1">
+
+  <div class="col-md-6 row"> 
+    <div class="field col-xs-12 noPad3">
+      <div class="labelSide">
+        <%= f.label :title %>
+      </div>
+      <div class="formSide">
+        <%= f.text_field :title, class: "form-control", id: "groupTitle", placeholder: "Entreprenuers" %>
+      </div>
+    </div>
+    <div class="field col-xs-12 noPad3">
+      <div class="labelSide">
+        <%= f.label :description %>
+      </div>
+      <div class="formSide">
+        <%= f.text_area :description, class: "form-control textField", placeholder: "A place for world changers." %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 row">
+    <div class="field fileField col-xs-6 noPad3">
+      <label class="btn btn-primary fileBtnDiv">
+        <%= f.file_field :image, class: "fileBtn", id: "groupImageUpload" %>
+        Icon
+      </label>
+    </div>
+    <div class="field fileField col-xs-6 noPad3">
+      <label class="btn btn-primary fileBtnDiv">
+        <%= f.file_field :cover_image, class: "fileBtn", id: "coverImageUpload" %>
+        Cover Image
+      </label>
+    </div>
+  </div>
+
+
+</div>
+  <div class="actions col-md-12 create">
+    <%= f.submit "Confirm", class: "fileBtnSubmit" %>
+  </div>
+
+<% end %>
+
+
+
+

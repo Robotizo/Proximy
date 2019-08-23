@@ -1,0 +1,33 @@
+<%= stylesheet_link_tag "events", :media => "all" %>
+<%= javascript_include_tag 'events' %>
+
+
+<div class="coverImage" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center;">
+  <%= image_tag("events_back.jpg", class: "iconImg", id:"coverImageTag") %>
+</div>
+
+
+
+<div class="eventContentForm">
+  <div class="eventTitleForm" id="eventPageTitle">New Event</div>
+</div>
+<div class="eventFormEqual container">
+
+  <%= render 'form', event: @event %>
+</div>
+
+<script>
+    $("#coverImageUpload").change(function(){
+        fileURL = URL.createObjectURL(event.target.files[0]);
+        $("#coverImageTag").css("visibility", "hidden");
+        $("#coverImage").css("background-image", "url("+fileURL+")");
+    });
+    $('#eventTitle').on('input propertychange paste', function(){
+        var eventTitle = $('#eventTitle').val();
+        if(eventTitle != ""){
+            $("#eventPageTitle").text(eventTitle);
+        }else{
+            $("#eventPageTitle").text("New Event");
+        }
+    });
+</script>

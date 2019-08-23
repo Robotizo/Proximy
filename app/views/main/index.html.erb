@@ -1,0 +1,632 @@
+<%= stylesheet_link_tag 'main', media: 'all' %>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script>
+    AOS.init();
+</script>
+
+
+
+
+<body >
+<!-- Posted by artist bottom right -->
+
+  <% if !session[:user_id] %>
+
+  <%= javascript_include_tag( 'jquery.pagepiling.js' ) %>
+  <%= javascript_include_tag( 'jquery.pagepiling.min.js' ) %>
+  <%= stylesheet_link_tag 'jquery.pagepiling.css' %>
+
+  <script type="text/javascript">
+    jQuery(window).on('load', function(){ var $ = jQuery;
+      $(document).ready(function() {
+        $('#pagepiling').pagepiling();
+      });
+    });
+  </script>
+
+  <style>
+    {
+      margin-top: 0px !important;
+      margin-bottom: 0px !important;
+    }
+
+
+    .topNav{
+      display: none;
+    }
+
+
+
+    .slide1 {
+
+            background-size: cover;
+          animation:fade 30s infinite;
+      -webkit-animation:fade 30s infinite;
+
+      } 
+
+
+
+    .slide2 {
+      background: url('<%= asset_path 'front2.jpg' %>')no-repeat center;
+          background-size: cover;
+        animation:fade2 30s infinite;
+    -webkit-animation:fade2 30s infinite;
+    }
+    .slide3 {
+        background: url('<%= asset_path 'front3.jpg' %>')no-repeat center;
+          background-size: cover;
+        animation:fade3 30s infinite;
+    -webkit-animation:fade3 30s infinite;
+    }
+
+    @media screen and (max-width: 776px){
+      .bottomNav{
+        display: none;
+      }
+    }
+
+  </style>
+
+  <!-- Front Page Start -->
+
+
+<div id="pagepiling">
+    <div class="section">
+
+      <%= image_tag("proximyLogo.png", class: "logoImage") %>
+      <div class='titleSub'>Get involved in your community with people like you</div>  
+      <div class='button'><%= button_to "Get Started", login_path, method: :get, class: "btnFront" %></div> 
+      <div class='button2'><%= button_to "Sign In", login_path, method: :get, class: "btnFront2" %></div> 
+      <%= image_tag("image1.jpg", class: "imageHere") %>
+
+
+
+    </div>
+
+
+
+
+
+    <div class="section">
+
+    <div class='leftSide'>A space for you</div> 
+    <div class='leftSideSub'>We created a space where <strong>you</strong> can be <strong>yourself</strong>, a space to see the most relevant and exciting suggestions for what <strong>you</strong> really care about in <strong>your</strong> community</div> 
+    <%= image_tag("post1.png", class: "postImage1") %>
+    <%= image_tag("post2.png", class: "postImage2") %>
+    <%= image_tag("post3.png", class: "postImage3") %>
+    <%= image_tag("post4.png", class: "postImage4") %>
+    <%= image_tag("post5.png", class: "postImage5") %>
+
+
+
+      <%= image_tag("test.png", class: "imageHere") %>
+    </div>
+
+
+
+
+    <div class="section">
+      <div class="titantron">
+        <%= image_tag("profile.png", class: "profileImg2") %>
+        <div class="profileName">Jennifer</div> 
+      </div>
+      <%= image_tag("interest1.png", class: "interets1") %>
+      <%= image_tag("interest3.png", class: "interets2") %>
+      <%= image_tag("interest6.png", class: "interets3") %>
+      <%= image_tag("interest5.png", class: "interets4") %>
+      <%= image_tag("interest7.png", class: "interets5") %>
+      <%= image_tag("interest8.png", class: "interets6") %>
+      <%= image_tag("interest9.png", class: "interets7") %>
+      <%= image_tag("interest10.png", class: "interets8") %>
+
+
+
+
+
+      <div class='name'>Your interests</div> 
+      <div class='nameSub'><strong>Your</strong> interests fuel <strong>your</strong> passions, our goal is to bring <strong>you</strong> the most meaningful ways to get involved based on what <strong>you</strong> love to do and create memories that last a lifetime</div> 
+
+
+      <%= image_tag("test2.png", class: "imageHere") %>
+    </div>
+
+    <div class="section">
+
+
+
+      <div class="together1">
+        <%= image_tag("profile2.png", class: "profile1") %>
+        <div class="profile1name">Alannah</div> 
+        <div class="profile2name">Interests in common</div>
+        <div class="row">
+          <div class="sec50">
+            <%= image_tag("interest1.png", class: "interetsC") %> 
+          </div>
+          <div class="sec50">
+            <%= image_tag("interest3.png", class: "interetsC") %>
+          </div> 
+        </div>
+
+      </div>
+
+
+      <div class="together2">
+        <%= image_tag("profile3.png", class: "profile1") %>
+        <div class="profile1name">Jeremy</div> 
+        <div class="profile2name">Interests in common</div> 
+        <div class="row">
+          <div class="sec50">
+            <%= image_tag("interest7.png", class: "interetsC") %> 
+          </div>
+          <div class="sec50">
+            <%= image_tag("interest10.png", class: "interetsC") %>
+          </div> 
+        </div>
+
+        
+      </div>
+
+
+      <div class="together3">
+        <%= image_tag("profile4.png", class: "profile1") %>
+        <div class="profile1name">Andrea</div>
+        <div class="profile2name">Interests in common</div>  
+        <div class="row">
+          <div class="sec50">
+            <%= image_tag("interest8.png", class: "interetsC") %> 
+          </div>
+          <div class="sec50">
+            <%= image_tag("interest6.png", class: "interetsC") %>
+          </div> 
+        </div>
+        
+        
+      </div>
+
+      <div class="together4">
+        <%= image_tag("profile7.png", class: "profile1") %>
+        <div class="profile1name">Anaya</div>
+        <div class="profile2name">Interests in common</div>  
+        <div class="row">
+          <div class="sec50">
+            <%= image_tag("interest8.png", class: "interetsC") %> 
+          </div>
+          <div class="sec50">
+            <%= image_tag("interest6.png", class: "interetsC") %>
+          </div> 
+        </div>
+        
+        
+      </div>
+
+      <div class="together5">
+        <%= image_tag("profile5.png", class: "profile1") %>
+        <div class="profile1name">Justin</div>
+        <div class="profile2name">Interests in common</div>  
+        <div class="row">
+          <div class="sec50">
+            <%= image_tag("interest8.png", class: "interetsC") %> 
+          </div>
+          <div class="sec50">
+            <%= image_tag("interest6.png", class: "interetsC") %>
+          </div> 
+        </div>
+        
+        
+      </div>
+
+      <div class="together6">
+        <%= image_tag("profile6.png", class: "profile1") %>
+        <div class="profile1name">Jerry</div>
+        <div class="profile2name">Interests in common</div>  
+        <div class="row">
+          <div class="sec50">
+            <%= image_tag("interest8.png", class: "interetsC") %> 
+          </div>
+          <div class="sec50">
+            <%= image_tag("interest6.png", class: "interetsC") %>
+          </div> 
+        </div>
+        
+        
+      </div>
+
+
+
+    
+      
+
+
+    <div class='name'>Find people like you</div> 
+    <div class='nameSub'>Starting a conversation with someone new is never easy, the person <strong>you</strong> are looking for is in close proximity. Break the ice by talking about <strong>your</strong> shared passions</div> 
+
+
+
+
+
+
+
+
+      <%= image_tag("test3.png", class: "imageHere") %>
+    </div>
+
+
+    <div class="section">
+      <div class="all">
+        <div class="one">
+          <div class='leftSideTop'>Events</div> 
+          <div class='leftSideSubTop'>Out of the thousands of local events that take place, finding ones that match <strong>your</strong> passions has never been easier. Activities done together are always more enjoyable, get together and share <strong>your</strong> passions.</div> 
+          <div class="oneLower">
+            <%= image_tag("event1.png", class: "eventR") %>
+            <div class='eventTitle'>Mount Knox Hiking</div> 
+
+          </div>
+          <div class="twoLower">
+            <%= image_tag("event2.png", class: "eventL") %>
+            <div class='eventTitle'>TECHFEST 2019</div> 
+          </div>
+          <div class="oneEvenLower">
+            <%= image_tag("event3.png", class: "eventR") %>
+            <div class='eventTitle'>Yoga Festival</div> 
+
+          </div>
+          <div class="twoEvenLower">
+            <%= image_tag("event4.png", class: "eventL") %>
+            <div class='eventTitle'>September Long Cookout</div> 
+            
+          </div>
+        </div>
+
+      </div>
+
+
+      <%= image_tag("test4.png", class: "imageHere") %>
+    </div>
+
+
+
+    <div class="section">
+              <div class="two">
+          <div class='leftSideTop'>Groups</div> 
+          <div class='leftSideSubTop'><strong>You</strong> have interests <strong>you</strong> care about and passions <strong>you</strong> stand behind. Groups create a space to gather regularly with people who share <strong>your</strong> interests and passions. </div> 
+    
+           <div class="allLower">
+            <%= image_tag("group1.png", class: "group") %>
+            <div class='groupTitle'>Okanagan Hiking Club</div> 
+
+          </div>
+          <div class="allEvenLower">
+            <%= image_tag("group2.png", class: "group") %>
+            <div class='groupTitle'>Latin Dance</div> 
+            
+          </div>
+        </div>
+
+<%= image_tag("test4.png", class: "imageHere") %>
+
+    </div>
+
+</div>
+
+
+
+
+
+    <!-- Front Page End -->
+
+
+
+  <% end %>
+
+
+
+  <% if session[:user_id] %>
+  <div class="container">
+    <div class="titleSec">People to meet</div>
+  </div>
+  <div class="scrollMembers container ">
+  
+    <% @users.each do |user| %>
+    <% unless user.id == current_user.id %>
+        <%= link_to user, method: :get, class: "specialA" do %>
+        <div class="followersSec">
+          <% unless user.avatar.present? %>
+            <%= avatarFront_for(user) %>
+          <% end %>
+          <%= image_tag(user.avatar_url(:thumb), class: "userImg") if user.avatar? %>
+          <div class="followerNameSec"><%= truncate(user.name.gsub(/\s.+/, '')) %></div>
+        </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
+     <div class="container">
+      <div class="titleSec">Newsfeed</div>
+    </div>
+    <div class="container mobNavs">
+      <div class="grid displayModals">
+      <div class="grid-sizer"></div>
+        <% @all_posts.reverse.each do |post| %>
+        <% if post.image.present? %>
+          <div class="card grid-item" data-aos="fade-up" >
+              <span data-toggle="modal" data-target="#postModal"
+                   
+
+                    
+
+
+
+                <% if post.is_a? GroupPost %>
+                 <%= ("data-groupimage=\"" << post.group.image_url(:thumb) << "\"") if post.group.image? %> 
+                 data-class="<%= post.class %>"
+                 data-postergroup="<%= post.group.title %>"
+                <% elsif post.is_a? EventPost %>
+                 <%= ("data-eventimage=\"" << post.event.image_url(:thumb) << "\"") if post.event.image? %>
+                 data-class="<%= post.class %>"
+                 data-posterevent="<%= post.event.title %>"
+                <% elsif post.is_a? Post %>
+                  <%= ("data-userimage=\"" << post.user.avatar_url(:thumb) << "\"") if post.user.avatar? %> 
+                  data-class="<%= post.class %>" 
+                  data-poster="<%= post.user.name %>"
+                <% end %>
+
+                   
+                    data-body="<%= post.content %>"
+                    data-time="<%= post.updated_at.to_time.strftime('%B %e') %>"
+                    <%= ("data-image=\"" << post.image_url << "\"") if post.image? %>
+                    
+                    
+              >
+
+
+
+            <%= image_tag(post.image_url, class: "card-img-top") if post.image? %>
+
+            <% if post.content.present? %>
+             <div class="card-body">
+              <p class="card-text"><%= truncate post.content, length: 115, separator: ' ' %></p>
+            </div>
+            <% end %>
+
+
+            <% if post.is_a? GroupPost %>
+
+              <div class="card-footer">
+                <%= link_to post.group, method: :get, class: "specialA" do %>
+                  <%= image_tag(post.group.image_url(:thumb), class: "userImage2") if post.group.image? %>
+                <% end %>
+                <small class="text-muted"><%= post.group.title %></small>
+                <%= image_tag("groups.png", class: "ImageIDer") %>
+              </div>
+
+            <% elsif post.is_a? EventPost %>
+
+              <div class="card-footer">
+                <%= link_to post.event, method: :get, class: "specialA" do %>
+                  <%= image_tag(post.event.image_url(:thumb), class: "userImage2") if post.event.image? %>
+                <% end %>
+                <small class="text-muted"><%= post.event.title %></small>
+                <%= image_tag("event.png", class: "ImageIDer") %>
+              </div>
+
+            <% elsif post.is_a? Post %>
+              
+              <div class="card-footer">
+                <%= link_to post.user, method: :get, class: "specialA" do %>
+                  <%= image_tag(post.user.avatar_url(:thumb), class: "userImage2") if post.user.avatar? %>
+                <% end %>
+                <small class="text-muted"><%= post.user.name %></small>
+                <%= image_tag("user.png", class: "ImageIDer") %>
+              </div>
+
+            <% end %>
+
+
+
+
+            </span>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+
+  <div class="modal fade displayModals" id="postModal" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+
+        <div id="modalPostImage"></div>
+        <div class="modal-body">
+          <div id="modalPostBody"></div>
+        </div>
+        <div class="modal-footer">
+
+ 
+        <span id="groupImgM" class="userImageModal"></span>
+     
+        <span id="eventImgM" class="userImageModal"></span>
+   
+        <span id="userImgM" class="userImageModal"></span>
+ 
+        
+        
+
+
+
+          <span class="modal-title" id="modalPoster"></span>
+          <span class="modal-title" id="modalPosterGroup"></span>
+          <span class="modal-title" id="modalPosterEvent"></span>
+   
+
+          <span class="modal-title">on</span>
+
+
+
+
+
+
+          <span class="modal-title" id="modalPostTime"></span>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</body>
+
+
+  <script>
+
+
+
+    $('#postModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+
+
+
+        var posterName = button.data('poster');
+        var posterGroup = button.data('postergroup');
+        var posterEvent = button.data('posterevent');
+        var classType = button.data('class');
+        var postBody = button.data('body');
+        var postTime = button.data('time');
+
+
+        if (button.data("image") !== undefined) {
+            var imageURL = button.data("image");
+            $("#modalPostImage").html("<img src=" + imageURL + ">");
+        }
+
+
+
+
+        if (classType == "GroupPost"){
+          if (button.data("groupimage") !== undefined) {
+            var userImageURL = button.data("groupimage");
+            $("#groupImgM").html("<img src=" + userImageURL + ">");
+            $("#groupImgM").css({"display": "inline-block"});
+            $("#eventImgM").css({"display": "none"})
+            $("#userImgM").css({"display": "none"});
+          }
+
+        }
+
+
+
+        if (classType == "EventPost"){
+          if (button.data("eventimage") !== undefined) {
+            var eventImageURL = button.data("eventimage");
+            $("#eventImgM").html("<img src=" + eventImageURL + ">");
+            $("#eventImgM").css({"display": "inline-block"});
+            $("#groupImgM").css({"display": "none"});
+            $("#userImgM").css({"display": "none"});
+          }
+        }
+
+
+
+        if (classType == "Post"){
+          if (button.data("userimage") !== undefined) {
+              var userImageURL = button.data("userimage");
+              $("#userImgM").html("<img src=" + userImageURL + ">");
+              $("#userImgM").css({"display": "inline-block"});
+              $("#groupImgM").css({"display": "none"});
+              $("#eventImgM").css({"display": "none"});
+          }
+        }
+
+
+
+
+        var modal = $(this);
+        $("#modalClass").text(classType);
+
+
+        if (classType == "GroupPost"){
+          $("#modalPosterGroup").text(posterGroup);
+          $("#modalPosterGroup").css({"display": "inline-block"});
+          $("#modalPoster").css({"display": "none"});
+          $("#modalPosterEvent").css({"display": "none"});
+        }
+
+        if (classType == "Post"){
+          $("#modalPoster").text(posterName);
+          $("#modalPoster").css({"display": "inline-block"});
+          $("#modalPosterGroup").css({"display": "none"});
+          $("#modalPosterEvent").css({"display": "none"});
+        }
+        
+        if (classType == "EventPost"){
+          $("#modalPosterEvent").text(posterEvent);
+          $("#modalPosterEvent").css({"display": "inline-block"});
+          $("#modalPoster").css({"display": "none"});
+          $("#modalPosterGroup").css({"display": "none"});
+        }
+        
+
+
+
+        $("#modalPostBody").text(postBody);
+        $("#modalPostTime").text(postTime);
+    })
+
+
+
+
+  </script>
+
+
+<% end %>   
+
+
+
+
+<script>
+jQuery(window).on('load', function(){ var $ = jQuery;
+      var elem = document.querySelector('.grid');
+      var msnry = new Masonry(elem, {
+          // options
+          columnWidth: '.grid-sizer',
+          itemSelector: '.grid-item',
+          percentPosition: true,
+          gutter: 10,
+          horizontalOrder: true,
+          stagger: 30
+      });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

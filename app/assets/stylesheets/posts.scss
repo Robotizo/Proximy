@@ -1,0 +1,320 @@
+/*
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+*/
+
+.eventName{
+  font-weight: 600;
+  font-size: 20px;
+  margin: 10px 25px;
+  float: left;
+}
+
+
+.userName{
+  float: left;
+}
+.box{
+  margin: 32px;
+}
+
+
+.box select {
+
+  font-weight: 600;
+  background-color: #7fa6bf;
+  color: white;
+  padding: 12px;
+  width: 500px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+
+
+
+
+.create{
+  position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    padding-left: 35px;
+    padding-right: 35px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.fileBtnSubmit{
+    border-color: #2e6da4;
+  background-color: #7fa6be;
+  width: 100%;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: inherit;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    outline: none;
+    padding: 1.7rem 50px;
+    position: relative;
+    transition: all 0.3s;
+    vertical-align: middle;
+}
+
+.fileBtnSubmit:hover{
+  background-color: #204d74;
+}
+
+.btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle{
+  background-color: #7fa6be;
+}
+
+
+#preview{
+  width: 250px;
+
+  border-radius: 8px;
+  image-orientation: none;
+
+}
+
+.reduxForm{
+  resize: none;
+  height: 130px !important;
+  width: 80%;
+    font-size: 20px;
+  font-weight: 600; 
+}
+
+.fileBtnDiv, .form-control {
+
+  margin: 24px;
+
+}
+
+.fileBtnDiv {
+  border-color: #2e6da4;
+  background-color: #7fa6be;
+
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: inherit;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    outline: none;
+    padding: 1rem 50px;
+    position: relative;
+    transition: all 0.3s;
+    vertical-align: middle;
+
+  .fileBtn {
+    display: none;
+  }
+}
+
+.form-control {
+    border-radius: 3px;
+    border-color: white;
+    border-bottom: 1px #a2a2a2 solid !important
+
+}
+
+
+.form-control:focus{
+  outline: none;
+  box-shadow: 0px 0px 0px 0px !important;
+  border-bottom: 2px #7ea5c0 solid !important;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.form-control.user-prop {
+  border-radius: 3px;
+  border-color: white;
+  border-bottom: 2px black solid !important;
+  margin-bottom: 10px;
+}
+
+.form-control.user-prop:focus {
+  outline: none;
+  box-shadow: 0px 0px 0px 0px !important;
+  border-bottom: 1px #7ea5c0 solid !important;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+
+.s1{
+  float: left;
+  width: 20%;
+  text-align: center;
+}
+
+
+.s2{
+  float: left;
+  width: 80%;
+}
+
+.marginSet{
+  padding:  50px 80px;
+}
+
+
+.userName{
+  font-weight: 600;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.userImage{
+  border-radius: 15px;
+  height: 150px;
+
+}
+.nav-item{
+  text-align: center;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+.nav-tabs{
+  border: none;
+}
+
+.tab-icon .material-icons{
+  background: #6c94b2;
+  color: #fff;
+  border-radius: 50%;
+  padding: 5px;
+  border:none;
+  margin:0;
+}
+
+.form-input{
+  margin:5px 0;
+}
+
+.bootstrap-tagsinput{
+  width:100%;
+}
+.label-info{
+  background: #6c94b2;
+}
+
+
+
+@media screen and (max-width: 776px) {
+  .marginSet{
+    padding: 20px 10px; 
+  }
+  .userImage{
+    height: 100px;
+    text-align: left;
+  }
+  .s1{
+    width: 35%;
+  }
+  .s2{
+    width: 100%;
+        margin-top: 30px;
+  }
+
+  .fileBtnDiv, .form-control{
+    margin: 0px;
+  }
+  .reduxForm{
+    width: 100%;
+  }
+  .fileBtnDiv{
+    margin: 30px 0px;
+  }
+  .mobNav{
+    display: none !important;
+  }
+  .create{
+        padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+
+  .fileBtnSubmit {
+     padding: 1rem 0px;
+  }
+     
+
+  .box {
+    margin: 20px 0px;
+  }
+  .box select{
+    width: 100%;
+    font-size: 12px;
+    border-radius: 6px;
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

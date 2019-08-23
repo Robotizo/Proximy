@@ -1,0 +1,478 @@
+/*// Place all the styles related to the Sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+
+
+.fileBtnSubmitSign2{
+  border-color: #7fa6be;
+  background-color: white;
+//   width: 100%;
+  border: none;
+  border-radius: 5px;
+  color: #7fa6be;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: inherit;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  outline: none;
+  padding: 1.2rem 50px;
+  position: relative;
+  transition: all 0.3s;
+  vertical-align: middle;
+}
+
+
+.fileBtnSubmitSign{
+  border-color: #2e6da4;
+  background-color: #7fa6be;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: inherit;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  outline: none;
+  padding: 1.2rem 50px;
+  position: relative;
+  transition: all 0.3s;
+  vertical-align: middle;
+}
+
+
+.fileBtnSubmitSign:hover{
+  background-color: #204d74;
+}
+
+
+.avatarImage{
+    height: 170px;
+    margin: 10px;
+    object-fit: contain;
+    top: -50px;
+    position: relative;
+    border-radius: 15px;
+    
+
+}
+
+.iconImgCreate{
+	position: fixed;
+    border: 1px #fff solid;
+    width: auto;
+    height: auto;
+    max-width: 15%;
+    max-height: 70%;
+    top: 50%;
+    left: 20%;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.iconImg2{
+	height: 220px;
+	width: 100%;
+}
+
+#title{
+	position: absolute;
+	display: flex;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 50%;
+	vertical-align: middle;
+}
+
+
+.form-control {
+    border-radius: 3px;
+    border-color: white;
+    border-bottom: 1px #a2a2a2 solid !important
+
+}
+
+
+.form-control:focus{
+	outline: none;
+	box-shadow: 0px 0px 0px 0px !important;
+	border-bottom: 1px #7ea5c0 solid !important;
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+}
+
+nav{
+	display: none;
+}
+
+#logo-parent{
+	margin: auto auto;
+	border: 1px solid #fff;
+}
+
+#logo{
+	height: 300px;
+	min-height: 20px;
+}
+
+
+.imageDiv{
+	text-align: center;
+}
+.mainDiv{
+    padding: 50px;
+    background-color: white;
+    border-radius: 8px;
+	width: 80%;
+	margin: auto auto;
+}
+
+
+.backImg{
+	height: 100%;
+}
+
+.backImg{
+	height: 100%;
+}
+
+.logoImg{
+	height: 100px;
+	position: center;
+}
+.titleForms{
+	font-size: 19px;
+	font-weight: 600;
+}
+
+.emailField{
+	margin: 32px 0px;
+	outline: none !important;
+}
+
+.passField{
+	margin: 32px 0px;
+
+}
+.titleLog{
+	font-size: 30px;
+	font-weight: 600;
+	text-align: center;
+}
+.signIn{
+	width: 100%;
+	background-color: #7fa6be;
+}
+.signUp{
+	width: 100%;
+	color: #7fa6be;
+	background-color: white;
+}
+.loginSec{
+	margin: 32px 0px;
+
+}
+.logField, .signUpForm{
+	margin-top: 20px;
+}
+
+
+
+.logoParent{
+	text-align: center;
+}
+
+.leftDiv, .rightDiv {
+	position: absolute;
+	top: 0;
+	display: flex;
+	width: 50%;
+	height: fit-content;
+	min-height: 100%;
+	vertical-align: middle;
+}
+.leftDiv{
+	left: 0;
+}
+.rightDiv{
+	right: 0;
+	background: #fff;
+}
+
+
+.leftDiv2, .rightDiv2 {
+	position: absolute;
+	top: 0;
+
+	height: fit-content;
+	min-height: 100%;
+	vertical-align: middle;
+}
+
+.leftDiv2{
+	width: 40%;
+	left: 0;
+}
+
+.rightDiv2{
+	width: 60%;
+	right: 0;
+	background: #fff;
+}
+
+
+.iconImg{
+	position: fixed;
+	border: 1px #fff solid;
+	width: auto;
+	height: auto;
+	max-width: 15%;
+	max-height: 70%;
+	border-radius: 10px;
+	top: 50%;
+	left: 25%;
+	-ms-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.logField, .signUpForm{
+	margin-top: 20px;
+}
+.logField-edits input{
+	background: rgba(0, 0, 0, 0.5);
+	border: none;	
+}
+
+.imageHere{
+	margin-top:-8vh;
+	height: 110vh; 
+    width: 100%; 
+	object-fit: cover;
+    
+}
+
+
+@media screen and (min-width: 1800px){
+	.logField{
+		width: 70%;
+		text-align: center;
+		margin-left: 16%;
+		margin-right: 16%;
+
+	}
+
+}
+.fileBtnDiv, .form-control{
+	width: 100%;
+	margin: 10px 0;
+	font-weight: 600;
+    font-size: 14px;
+}
+.fileBtnDiv{
+	border-color: #2e6da4;
+	background-color: #7fa6be;
+	.fileBtn{
+		display: none;
+	}
+}
+.logoParent{
+	width: 100%;
+	text-align: center;
+}
+body{
+	overflow-x: hidden;
+	background: #6c94b2 url("/assets/background.png");
+}
+
+.leftDiv{
+	left: 0;
+}
+.rightDiv{
+	right: 0;
+	background: #fff;
+}
+.iconImg{
+	position: fixed;
+	border: 1px #fff solid;
+	width: auto;
+	height: auto;
+	max-width: 15%;
+	max-height: 70%;
+
+	top: 50%;
+	left: 25%;
+	-ms-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.centerDiv{
+	width: 27em;
+    height: 30em;
+	// background: url("/assets/image1.png");
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  	
+	margin: auto;
+}
+
+
+@media screen and (min-width: 1800px){
+	.logField{
+		width: 70%;
+		text-align: center;
+		margin-left: 16%;
+		margin-right: 16%;
+
+	}
+
+	.mainDiv{
+		vertical-align: middle;
+	}
+}
+
+@media screen and (max-width: 776px){
+
+	.logoImg{
+		margin-top: 15%;
+	}
+	.signUp{
+		font-size: 14px;
+		width: 100%;
+		color: #7fa6be;
+		background-color: white;	
+	}	
+	.leftDiv{
+		display: none;
+	}
+	.leftDiv2{
+		display: none;
+	}
+	.rightDiv{
+
+		width: 100%;
+		height: fit-content;
+		min-height: 100%;
+		clear: both;
+		display: flex;
+		flex-flow: column;
+	}
+
+	.rightDiv2{
+
+		width: 100%;
+		height: fit-content;
+		min-height: 100%;
+		clear: both;
+		display: flex;
+		flex-flow: column;
+	}
+	.mainDiv{
+		width: 100%;
+		margin-top: 0px;
+		padding: 10px;
+		flex: 0 1 auto;
+
+	}
+	.mobileBottom{
+		flex: 1 1 auto;
+		background: #fff url("/assets/bk_inv.png");
+	}
+	.form-control, input.btn, .fileBtnDiv{
+		height: 6vh;
+		min-height: 40px;
+		vertical-align: middle;
+		font-size: 14px;
+
+	}
+	.logoImg{
+		width: 60%;
+		height: auto;
+	}
+	.fileField{
+		display: table;
+		width: 100%;
+		margin: 10px 0;
+	}
+	.fileBtnDiv{
+		display: table-cell;
+		vertical-align: middle;
+		height: 50px;
+	}
+
+
+	.leftDiv{
+		display: none;
+	}
+	.rightDiv{
+		width: 100%;
+		height: fit-content;
+		min-height: 100%;
+		clear: both;
+		display: flex;
+		flex-flow: column;
+	}
+	.mainDiv{
+		width: 90%;
+		margin-top: 0px;
+		padding: 10px;
+		flex: 0 1 auto;
+	}
+	.mobileBottom{
+		flex: 1 1 auto;
+		background: #fff url("/assets/bk_inv.png");
+	}
+	.form-control, input.btn, .fileBtnDiv{
+		height: 6vh;
+		min-height: 40px;
+		vertical-align: middle;
+	}
+	.logoImg{
+		width: 80%;
+		height: auto;
+	}
+	.fileField{
+		display: table;
+		width: 100%;
+		margin: 10px 0;
+	}
+	.fileBtnDiv{
+		display: table-cell;
+		vertical-align: middle;
+		height: 50px;
+	}
+	.newUser{
+		background: white;
+		.mainDiv{
+			background: white;
+
+			.logoParent{
+				background: white url("/assets/proximy-logo.png") no-repeat;
+				background-size: contain;
+				background-position: center;
+			}
+		}
+		.mobileBottom{
+			background: #6c94b2 url("/assets/bk_inv.png");
+		}
+	}
+
+}

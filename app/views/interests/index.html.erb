@@ -1,0 +1,66 @@
+<%= stylesheet_link_tag "interests", :media => "all" %>
+
+
+
+
+
+
+
+
+<p id="notice"><%= notice %></p>
+<div class="container">
+<div class="titleSec">Interests</div>
+
+
+    <% @interests.each do |interest| %>
+        <div class="col-md-2 col-xs-6">
+          <div class="interestCard">
+            <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+            <div class="interestTitleSec">
+              <div class="interestName"><%= interest.name %></div>
+
+            
+            </div>
+
+              <%= link_to 'Show', interest %>
+              <%= link_to 'Edit', edit_interest_path(interest) %>
+              <%= link_to 'Destroy', interest, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+          </div>
+        </div>
+
+    
+    <% end %>
+</div>
+
+<div class="col-md-12">
+
+<hr>
+
+
+</div>
+
+
+
+<%= link_to 'New Interest', new_interest_path %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
