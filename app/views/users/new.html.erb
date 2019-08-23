@@ -1,16 +1,49 @@
 <%= stylesheet_link_tag "sessions", :media => "all" %>
 
-<div class="leftDiv">
-  <%= image_tag("logo_inv_square.png", class: "iconImg") %>
-</div>
-<div class="rightDiv newUser">
-  <div class="mainDiv">
-    <div class="logoParent">
-      <%= image_tag("proximy-logo.jpg", class: "logoImg") %>
-    </div>
-    <div class="text-center signUpForm">
-      <%= render 'form', user: @user %>
-    </div>
+
+<style>
+
+    body{
+         overflow-y:hidden;
+         overflow-x: hidden;
+        height: 100vh !important;
+        # background: white url('<%= asset_path 'image1.jpg' %>') no-repeat;
+        background-size: 100% auto ;
+        object-fit: cover;
+        
+       
+    }
+
+</style>
+
+<!-- for the background image: -->
+<%= image_tag("image1.jpg", class: "imageHere") %>
+
+
+<div class=" newUser">
+
+
+  <div class="centerDiv">
+  <div id="moveDivUp">
+        <div class="logField-edits">
+          
+          <div class="logoParent">
+                <%= image_tag("proximy_inv_t.png", class: "logoImg") %>
+          </div>
+
+          <div class="text-center signUpForm">
+                  <%= render 'form', user: @user %>
+          </div>
+        </div>
+
+        <div class="text-center loginSec">
+          <%= button_to "Already a member? Log in ", signup_path, method: :get, class: "fileBtnSubmitSign2" %>
+        </div>
+
+          <div class="mobileBottom"></div>
+         </div>
+   </div>
   </div>
-  <div class="mobileBottom"></div>
+
+
 </div>
