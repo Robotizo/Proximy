@@ -64,11 +64,11 @@
 		<% end %>
 
 		<% if @user.avatar.present? %>
-			<div class="avatarImage" id="avatarImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px;">
+			<div class="avatarImage2" id="avatarImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px;">
 				<%= image_tag(@user.avatar_url, class: "imgProfile", id: "avatarImageTag") if @user.avatar? %>
 			</div>
 		<% else %>
-			<div class="avatarImage" id="avatarImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px;  ">
+			<div class="avatarImage2" id="avatarImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px;  ">
 			  <%= image_tag("profile.jpg", class: "imgProfile", id: "avatarImageTag") %>
 			</div>
 		<% end %>

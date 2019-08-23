@@ -68,9 +68,13 @@ Rails.application.routes.draw do
 
 
   resources :users do
+    
     member do
       get :following, :followers
       get :interests
+      get :avatar
+      patch :save_avatar
+      get :confirm_email
     end
   end
 
@@ -89,3 +93,13 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+
+
+
+
+
+
+
+
+
+

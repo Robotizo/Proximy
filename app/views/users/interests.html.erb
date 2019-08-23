@@ -36,6 +36,8 @@
         <div class="userName">
           <%= @user.name %>
           <%= @user.last_name %>
+
+          
         </div>
       </div>
     </div>
@@ -1104,11 +1106,19 @@
 
 
 
+<div class="col-md-12">
+<% if @user.sign_in_count == 1 %>
+  <div class="actions col-md-12 create">
+    <%= button_to "Confirm", avatar_user_path(@user), method: :get, class: "fileBtnSubmit" %>
+  </div>
 
+<% else %>
+  <div class="actions col-md-12 create">
+    <%= button_to "Confirm", @user, method: :get, class: "fileBtnSubmit" %>
+  </div>
+<% end %>
 
-
-
-
+</div>
   </div>
 
 

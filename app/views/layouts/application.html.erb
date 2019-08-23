@@ -68,9 +68,9 @@
 
 
 
-  	<nav class="navbar topNav navbar-fixed-top" id="navbar">
-	<div class="container">
-		<div class="navTitle">
+    <nav class="navbar topNav navbar-fixed-top" id="navbar">
+  <div class="container">
+    <div class="navTitle">
       <%= link_to root_path, method: :get, class: "specialA" do %>
           <%= image_tag("proximy-top.jpg", class: "logoMain") %>
         <% end %>
@@ -164,10 +164,11 @@
 
 
 
-
+<!--Start-->
 
 
     <%= link_to notifications_path, method: :get, class: "specialA dispNone" do %>
+
       <div class="navTitleEnd1">
       <%= image_tag("notifications.png", class: "ImageNav") %>
       
@@ -175,6 +176,7 @@
       <div id="navImageActive" class="notActivePage"> 
          <%= image_tag("notifications_t.png", class: "ImageNav  #{current? 'activePage',notifications_path}") %> 
        </div>
+
 
       </div>
     <% end %>
@@ -238,7 +240,7 @@
     </div>
 
 
-
+<!--End-->
 
 
 </div>
@@ -250,7 +252,7 @@
 
 
 
-	</div>
+  </div>
 </nav>
 <div id="clickable" onclick="closeNav()">
   <div id="theRest" >
@@ -339,23 +341,25 @@
 
 
           <%= link_to events_path, method: :get, class: "specialA" do %>
-            <div class="navTitleEndMob">
-            <%= image_tag("event.png", class: "ImageNavB") %>
-            
-            <div id="navImageActive" class="notActivePageMobile"> 
-                    <%= image_tag("event_t.png", class: "ImageNavB  #{current? 'activePageMobile', events_path}") %> 
-              </div>
+            <div class="navTitleEndMob  <%= 'activeNav' if current_page?(events_path) %>">
+              <% if current_page?(events_path) %>
+                <%= image_tag("eventActive.png", class: "ImageNavB") %>
+              <% else %>
+                <%= image_tag("event.png", class: "ImageNavB") %>
+              <% end %>
+                
             </div>
           <% end %>
 
 
           <%= link_to notifications_path, method: :get, class: "specialA" do %>
-            <div class="navTitleEndMob">
-            <%= image_tag("notifications.png", class: "ImageNavB") %>
-            
-            <div id="navImageActive" class="notActivePageMobile"> 
-                  <%= image_tag("notifications_t.png", class: "ImageNavB  #{current? 'activePageMobile', notifications_path}") %> 
-              </div>
+            <div class="navTitleEndMob <%= 'activeNav' if current_page?(notifications_path) %>">
+              <% if current_page?(notifications_path) %>
+                <%= image_tag("notificationsActive.png", class: "ImageNavB") %>
+              <% else %>
+                <%= image_tag("notifications.png", class: "ImageNavB") %>
+              <% end %>
+                
             </div>
           <% end %>
 

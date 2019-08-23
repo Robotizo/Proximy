@@ -288,6 +288,23 @@
                   <% end %>
 
                   <small class="text-muted"><%= post.user.name %> <%= post.user.last_name %> on <%= post.updated_at.to_time.strftime('%B %e') %></small>
+
+            
+            <% if current_user.id == post.user.id %>
+
+              <div class="dropdown pencilButton">
+                <div class="editPosts dropdown-toggle" type="button" data-toggle="dropdown"><%= image_tag("settings.png", class: "ImageIDer") %></div>
+                <ul class="dropdown-menu moreOps">
+                   <li>
+                    <%= link_to "Edit", edit_post_path(post), method: :get, class: "dropItem" %>
+                  </li>
+                  <li>
+          
+                    <%= link_to "Delete", post, method: :delete, class: "dropItem", data: { confirm: 'Are you sure?' } %>
+                  </li>
+                </ul>
+              </div>
+            <% end %>
                 </div>
 
 

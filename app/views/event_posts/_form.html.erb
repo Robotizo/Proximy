@@ -13,6 +13,7 @@
     </div>
   <% end %>
 
+<% if action_name == 'new' or action_name == 'create' %>
 <div class="extraInf">
   <div class="s1">
     <%= image_tag(@event.image_url(:thumb), class: "userImage") if @event.image? %>
@@ -22,6 +23,25 @@
 
    <div class="eventName"><%= @event.title %></div>
 </div>
+<% end %>
+
+
+
+
+
+<% if action_name == 'edit' or action_name == 'update' %>
+<div class="extraInf">
+  <div class="s1">
+    <%= image_tag(@event_post.event.image_url(:thumb), class: "userImage") if @event_post.event.image? %>
+   
+  </div>
+
+
+   <div class="eventName"><%= @event_post.event.title %></div>
+</div>
+<% end %>
+
+
 
 
     <%= f.hidden_field(:event_id, value: params[:event_id]) %>
