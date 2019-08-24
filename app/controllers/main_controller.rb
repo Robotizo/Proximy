@@ -17,7 +17,5 @@ class MainController < ApplicationController
 
 	  end
 
-	  def discover
 
-	  end
 end

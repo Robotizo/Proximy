@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def discover
     @user = current_user
-    @users = User.a;;
+    @users = User.all
   end
 
   def interests
