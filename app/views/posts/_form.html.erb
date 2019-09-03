@@ -1,0 +1,82 @@
+<%= stylesheet_link_tag "posts", :media => "all" %>
+
+<%= form_for(post) do |f| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+<div class="s1">
+  <%= image_tag(current_user.avatar_url(:thumb), class: "userImage") if current_user.avatar? %>
+ 
+</div>
+
+
+ <div class="userName"><%= current_user.name %> <%= current_user.last_name %></div>
+
+
+
+
+
+    <div class="s2">
+
+      <%= f.text_area :content, class: "form-control reduxForm", placeholder: "Share your thoughts, plans, experiences..." %>
+
+
+
+<label class="btn btn-primary fileBtnDiv">
+    <div><%= f.file_field :image, class: "fileBtn form-control", id: "filetag" %></div>
+     Upload an Image
+</label>
+
+
+
+    <img src="" id="preview">
+     
+</div>
+
+
+
+
+  <div class="actions col-md-12 create">
+    <%= f.submit "Share", class: "fileBtnSubmit" %>
+  </div>
+<% end %>
+
+
+
+
+<script>
+var fileTag = document.getElementById("filetag"),
+    preview = document.getElementById("preview");
+    
+fileTag.addEventListener("change", function() {
+  changeImage(this);
+});
+
+function changeImage(input) {
+  var reader;
+
+  if (input.files && input.files[0]) {
+    reader = new FileReader();
+
+    reader.onload = function(e) {
+      preview.setAttribute('src', e.target.result);
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+  
+</script>
+
