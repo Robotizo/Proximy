@@ -7,7 +7,15 @@
 <script>
     AOS.init();
 </script>
-
+<script>
+$(document).ready(function(){
+  $(".centerDiv").hide();
+  $(".button2").click(function(){
+    $(".junk").fadeOut("slow");
+    $(".centerDiv").fadeIn("slow");
+  });
+});
+</script>
 
 
 
@@ -15,17 +23,45 @@
 <!-- Posted by artist bottom right -->
 
   <% if !session[:user_id] %>
+  <%= stylesheet_link_tag "sessions", :media => "all" %>
+
+    <script>document.body.className += ' fade-out';</script>
+
+  <script>
+    
+
+
+    $(function() {
+        $('body').removeClass('fade-out');
+    });
+  </script>
+
+  <style type="text/css">
+    html {
+      background-color: black;
+    }
+    body {
+      opacity: 1;
+      transition: 1s opacity;
+    }
+    body.fade-out {
+        opacity: 0;
+        transition: none;
+    } 
+
+
+  </style>
+
+
 
   <%= javascript_include_tag( 'jquery.pagepiling.js' ) %>
   <%= javascript_include_tag( 'jquery.pagepiling.min.js' ) %>
   <%= stylesheet_link_tag 'jquery.pagepiling.css' %>
 
   <script type="text/javascript">
-    jQuery(window).on('load', function(){ var $ = jQuery;
       $(document).ready(function() {
         $('#pagepiling').pagepiling();
       });
-    });
   </script>
 
   <style>
@@ -77,11 +113,47 @@
 
 <div id="pagepiling">
     <div class="section">
-
+    <div class="junk">
       <%= image_tag("proximyLogo.png", class: "logoImage") %>
-      <div class='titleSub'>Get involved in your community with people like you</div>  
-      <div class='button'><%= button_to "Get Started", login_path, method: :get, class: "btnFront" %></div> 
-      <div class='button2'><%= button_to "Sign In", login_path, method: :get, class: "btnFront2" %></div> 
+      <div class='titleSub'>Get involved in <strong>your</strong> community with people like <strong>you</strong>.</div>  
+      <div class='button '><%= button_to "Get Started", signup_path, method: :get, class: "btnFront" %></div> 
+      <div class='button2'><%= button_tag "Sign In" ,  class: "btnFront2" %></div> 
+    </div>
+
+
+
+<div class="centerDiv">
+
+  
+        <div class="logoParent">
+            <%= image_tag("proximy_inv_t.png", class: "logoImg") %>
+        </div>
+
+       
+            <div class="text-center logField">
+                <div class="logField-edits">
+                    <%= form_for(:session, url: login_path) do |f| %>
+                    <div class="emailField">
+                        <%= f.email_field :email, class: 'form-control' , placeholder: "Email" %>
+                    </div>
+                    <div class="passField">
+                        <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
+                    </div>
+                </div>
+
+                <div class="text-center loginSec">
+                     <%= f.submit "Log in", class: "fileBtnSubmitSign" %>
+                </div>
+
+            
+                <% end %>
+
+            </div>
+        
+   
+    <div class="mobileBottom"></div>
+</div>
+        
       <%= image_tag("image1.jpg", class: "imageHere") %>
 
 
@@ -95,7 +167,8 @@
     <div class="section">
 
     <div class='leftSide'>A space for you</div> 
-    <div class='leftSideSub'>We created a space where <strong>you</strong> can be <strong>yourself</strong>, a space to see the most relevant and exciting suggestions for what <strong>you</strong> really care about in <strong>your</strong> community</div> 
+
+    <div class='leftSideSub'>We created a space where <strong>you</strong> can be <strong>yourself</strong>, a space to see the most relevant and exciting suggestions for what <strong>you</strong> really care about in <strong>your</strong> community.</div> 
     <%= image_tag("post1.png", class: "postImage1") %>
     <%= image_tag("post2.png", class: "postImage2") %>
     <%= image_tag("post3.png", class: "postImage3") %>
@@ -111,25 +184,26 @@
 
 
     <div class="section">
-      <div class="titantron">
-        <%= image_tag("profile.png", class: "profileImg2") %>
-        <div class="profileName">Jennifer</div> 
-      </div>
-      <%= image_tag("interest1.png", class: "interets1") %>
-      <%= image_tag("interest3.png", class: "interets2") %>
-      <%= image_tag("interest6.png", class: "interets3") %>
-      <%= image_tag("interest5.png", class: "interets4") %>
-      <%= image_tag("interest7.png", class: "interets5") %>
-      <%= image_tag("interest8.png", class: "interets6") %>
-      <%= image_tag("interest9.png", class: "interets7") %>
-      <%= image_tag("interest10.png", class: "interets8") %>
-
+     
+        <div class="titantron">
+          <%= image_tag("profile.png", class: "profileImg2") %>
+          <div class="profileName">Jennifer</div> 
+        </div>
+    
+          <%= image_tag("interest1.png", class: "interets1") %>
+          <%= image_tag("interest3.png", class: "interets2") %>
+          <%= image_tag("interest6.png", class: "interets3") %>
+          <%= image_tag("interest5.png", class: "interets4") %>
+          <%= image_tag("interest7.png", class: "interets5") %>
+          <%= image_tag("interest8.png", class: "interets6") %>
+          <%= image_tag("interest9.png", class: "interets7") %>
+          <%= image_tag("interest10.png", class: "interets8") %>
 
 
 
 
       <div class='name'>Your interests</div> 
-      <div class='nameSub'><strong>Your</strong> interests fuel <strong>your</strong> passions, our goal is to bring <strong>you</strong> the most meaningful ways to get involved based on what <strong>you</strong> love to do and create memories that last a lifetime</div> 
+      <div class='nameSub'><strong>Your</strong> interests fuel <strong>your</strong> passions, our goal is to bring <strong>you</strong> the most meaningful ways to get involved based on what <strong>you</strong> love to do and create memories that last a lifetime.</div> 
 
 
       <%= image_tag("test2.png", class: "imageHere") %>
@@ -243,7 +317,7 @@
 
 
     <div class='name'>Find people like you</div> 
-    <div class='nameSub'>Starting a conversation with someone new is never easy, the person <strong>you</strong> are looking for is in close proximity. Break the ice by talking about <strong>your</strong> shared passions</div> 
+    <div class='nameSub'>Starting a conversation with someone new is never easy, the person <strong>you</strong> are looking for is in close proximity. Break the ice by talking about <strong>your</strong> shared passions.</div> 
 
 
 
@@ -255,30 +329,25 @@
       <%= image_tag("test3.png", class: "imageHere") %>
     </div>
 
-
     <div class="section">
       <div class="all">
         <div class="one">
           <div class='leftSideTop'>Events</div> 
-          <div class='leftSideSubTop'>Out of the thousands of local events that take place, finding ones that match <strong>your</strong> passions has never been easier. Activities done together are always more enjoyable, get together and share <strong>your</strong> passions.</div> 
-          <div class="oneLower">
-            <%= image_tag("event1.png", class: "eventR") %>
-            <div class='eventTitle'>Mount Knox Hiking</div> 
+          <div class='leftSideSubTop'>Out of the thousands of local events that take place, finding ones that match <strong>your</strong> passions has never been easier. Activities done together are always more enjoyable, get together and share <strong>your</strong> passions.</div>
+          <div class="eventsArea container">
+            <div class="col-md-12 fadeUp" >
+              <div class="col-md-6 col-xs-12 text-right padExtraR">
+                <%= image_tag("event1.png", class: "eventR") %>
+                 <div class='eventTitleMod'>Mount Knox Hiking</div> 
+              </div>
+              <div class="col-md-6 col-xs-12 text-left padExtraL">
+                <%= image_tag("event2.png", class: "eventR") %> 
+                <div class='eventTitle'>TECHFEST 2019</div>  
+              </div>
+            </div>
 
-          </div>
-          <div class="twoLower">
-            <%= image_tag("event2.png", class: "eventL") %>
-            <div class='eventTitle'>TECHFEST 2019</div> 
-          </div>
-          <div class="oneEvenLower">
-            <%= image_tag("event3.png", class: "eventR") %>
-            <div class='eventTitle'>Yoga Festival</div> 
 
-          </div>
-          <div class="twoEvenLower">
-            <%= image_tag("event4.png", class: "eventL") %>
-            <div class='eventTitle'>September Long Cookout</div> 
-            
+    
           </div>
         </div>
 
@@ -291,28 +360,47 @@
 
 
     <div class="section">
-              <div class="two">
-          <div class='leftSideTop'>Groups</div> 
-          <div class='leftSideSubTop'><strong>You</strong> have interests <strong>you</strong> care about and passions <strong>you</strong> stand behind. Groups create a space to gather regularly with people who share <strong>your</strong> interests and passions. </div> 
-    
-           <div class="allLower">
-            <%= image_tag("group1.png", class: "group") %>
-            <div class='groupTitle'>Okanagan Hiking Club</div> 
 
-          </div>
-          <div class="allEvenLower">
-            <%= image_tag("group2.png", class: "group") %>
-            <div class='groupTitle'>Latin Dance</div> 
-            
+
+      <div class="all">
+        <div class="one">
+          <div class='leftSideTop'>Groups</div> 
+          <div class='leftSideSubTop'><strong>You</strong> have interests <strong>you</strong> care about and passions <strong>you</strong> stand behind. Groups create a space to gather regularly with people who share <strong>your</strong> interests and passions.</div>
+          <div class="eventsArea container">
+            <div class="col-md-12 fadeUp" >
+              <div class="col-md-6 text-right padExtraR">
+                <%= image_tag("group1.png", class: "eventR") %>
+                <div class='eventTitleMod'>Okanagan Hiking Club</div> 
+              </div>
+              <div class="col-md-6 text-left padExtraL">
+                <%= image_tag("group2.png", class: "eventR") %>
+                <div class='eventTitle'>Latin Dance</div> 
+              </div>
+            </div>
+
+    
           </div>
         </div>
 
-<%= image_tag("test4.png", class: "imageHere") %>
+      </div>
+
+
+
+<%= image_tag("test5.png", class: "imageHere") %>
 
     </div>
 
-</div>
 
+    <div class="section">
+      <div class="one">
+        <div class='leftSideTopMod'>You probably get it by now, it's about you. </div> 
+        <div class='button '><%= button_to "Get Started", signup_path, method: :get, class: "btnFront" %></div> 
+      </div>
+
+      <%= image_tag("signUp.jpg", class: "imageHere") %>
+    </div>
+
+</div>
 
 
 
@@ -326,13 +414,20 @@
 
 
   <% if session[:user_id] %>
+
+
+
+
+<div style="margin-top: 60px;">
   <div class="container">
-    <div class="titleSec">People to meet</div>
+    <div class="titleSec">People near you</div>
   </div>
   <div class="scrollMembers container ">
   
-    <% @users.each do |user| %>
+    <% @users.first(9).each do |user| %>
     <% unless user.id == current_user.id %>
+    <% collide = current_user.followingI.ids & user.followingI.ids %>
+
         <%= link_to user, method: :get, class: "specialA" do %>
         <div class="followersSec">
           <% unless user.avatar.present? %>
@@ -340,12 +435,82 @@
           <% end %>
           <%= image_tag(user.avatar_url(:thumb), class: "userImg") if user.avatar? %>
           <div class="followerNameSec"><%= truncate(user.name.gsub(/\s.+/, '')) %></div>
+          <div class="followerNameSec2"><%= collide.count %> shared interests</div>
+
         </div>
         <% end %>
+
       <% end %>
+
+    <% end %>
+  <%= link_to discover_users_path, method: :get, class: "specialA" do %>
+        <%= image_tag("plus.png", class: "viewAll") %>
+  <% end %>
+
+
+
+  </div>
+
+</div>
+
+
+
+
+<div style="margin-top: 20px;">
+  <div class="container">
+    <div class="titleSec">Events near you</div>
+  </div>
+
+
+
+    <div class="scrollMembersEvents container " data-aos="fade-up">
+  
+    <% @events.first(5).each do |event| %>
+
+      <%= link_to event, method: :get, class: "specialA" do %>
+        <div class="groupBlock">
+          <%= image_tag(event.image_url(:event), class: "groupImageDisc") if event.image? %>
+            <div class="eventContentDisc">
+              <div class="eventDateDisc"><%= event.event_date.strftime('%B %e') %></div>
+            </div>
+            <div class="groupTitleDisc"><%= event.title %></div>
+        </div>
+      <% end %>
+
     <% end %>
   </div>
 
+</div>
+
+<div style="margin-top: 20px;">
+  <div class="container">
+    <div class="titleSec">Groups to join</div>
+  </div>
+
+
+
+    <div class="scrollMembersEvents container" data-aos="fade-up">
+  
+    <% @groups.first(5).each do |group| %>
+
+      <%= link_to group, method: :get, class: "specialA" do %>
+        <div class="groupBlock">
+          <%= image_tag(group.image_url(:event), class: "groupImageDisc") if group.image? %>
+
+            <div class="groupTitleDisc2"><%= group.title %></div>
+        </div>
+      <% end %>
+
+    <% end %>
+
+      <%= link_to discover_users_path, method: :get, class: "specialA" do %>
+        <%= image_tag("plus.png", class: "viewAll") %>
+      <% end %>
+  </div>
+
+</div>
+
+<div style="margin-top: 20px;">
      <div class="container">
       <div class="titleSec">Newsfeed</div>
     </div>
@@ -397,7 +562,7 @@
 
             <% if post.is_a? GroupPost %>
 
-              <div class="card-footer">
+              <div class="card-footer mobFoot">
                 <%= link_to post.group, method: :get, class: "specialA" do %>
                   <%= image_tag(post.group.image_url(:thumb), class: "userImage2") if post.group.image? %>
                 <% end %>
@@ -407,7 +572,7 @@
 
             <% elsif post.is_a? EventPost %>
 
-              <div class="card-footer">
+              <div class="card-footer mobFoot">
                 <%= link_to post.event, method: :get, class: "specialA" do %>
                   <%= image_tag(post.event.image_url(:thumb), class: "userImage2") if post.event.image? %>
                 <% end %>
@@ -417,7 +582,7 @@
 
             <% elsif post.is_a? Post %>
               
-              <div class="card-footer">
+              <div class="card-footer mobFoot">
                 <%= link_to post.user, method: :get, class: "specialA" do %>
                   <%= image_tag(post.user.avatar_url(:thumb), class: "userImage2") if post.user.avatar? %>
                 <% end %>
@@ -436,7 +601,7 @@
         <% end %>
       </div>
     </div>
-
+</div>
 
   <div class="modal fade displayModals" id="postModal" role="dialog">
     <div class="modal-dialog" role="document">

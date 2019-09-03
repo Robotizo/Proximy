@@ -4,7 +4,12 @@ class MainController < ApplicationController
 	  	if session[:user_id] 
 	  		@user = current_user
 	  		@users = User.all.sort_by {|user| user.userInterests(current_user) + user.ccLocation(current_user.latitude, current_user.longitude) }.reverse
+	  		@events = Event.all.sort_by {|event| event.eventsInterest(current_user)}.reverse
+	  		@groups = Group.all.sort_by {|group| group.groupsInterest(current_user)}.reverse
 	  	end
+
+
+
 	  	posts = Post.all
 	  	group_posts = GroupPost.all
 	  	event_posts = EventPost.all
@@ -13,7 +18,6 @@ class MainController < ApplicationController
 
 
 
-	  	@test = params[:lat]
 
 	  end
 

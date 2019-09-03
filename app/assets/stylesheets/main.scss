@@ -2,7 +2,154 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+/* Landing Page Edits Begin */
 
+
+
+@media screen and (min-width: 1450px){
+  .leftSide{
+    left: 39% !important;
+  }
+  .titantron{
+      position: absolute;
+    margin: auto;
+    left: 27% !important;
+    top: 11%;
+  }
+  .postImage1 {
+
+    left: 22% !important;
+
+  }
+  .postImage2 {
+
+    left: 22% !important;
+
+  }
+  .postImage3{
+    left: 51% !important;
+  }
+  .postImage4{
+    left: 51% !important;
+  }
+
+  .postImage5{
+    left: 51% !important;
+  }
+}
+
+
+
+.titantron{
+    position: absolute;
+  margin: auto;
+  left: 13%;
+  top: 11%;
+}
+
+
+
+/* Landing Page Edits End */
+
+
+
+.viewAll{
+  height: 100px;
+  margin-top: -141px;
+
+}
+
+
+
+/* Events Start */
+.groupBlock{
+  margin-bottom: -80px;
+}
+
+
+.groupImageDisc{
+  border-radius: 8px;
+  width: 100%;
+    background-color: white;
+    
+}
+
+
+.eventContentDisc{
+  position: relative;
+  top: -68px;
+  /* background-color: #00000054; */
+  padding: 10px;
+  /* opacity: 0.8; */
+  border-radius: 0px 0px 5px 5px;
+  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
+}
+
+
+.eventDateDisc{
+  text-align: left;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    white-space: normal;
+    color: white;
+}
+
+.groupTitleDisc{
+  text-align: left;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+  font-weight: 600;
+  margin-top: 5px;
+  margin-left: 2px; 
+  margin-right: 2px;
+  margin-bottom: 5px;
+  top: -75px;
+  font-size: 18px;
+  white-space: normal;
+
+}
+
+.groupTitleDisc2{
+  text-align: left;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+  font-weight: 600;
+  margin-top: 5px;
+  margin-left: 2px; 
+  margin-right: 2px;
+  margin-bottom: 5px;
+
+  font-size: 18px;
+  white-space: normal;
+
+}
+
+
+
+/* Events End */
+
+
+
+
+.padExtraR{
+  padding-right: 40px;
+}
+
+
+.padExtraL{
+  padding-left: 40px;
+}
+
+.eventsArea{
+  margin-top: 80px;
+}
 
 .eventTitle{
   font-size: 18px;
@@ -10,8 +157,17 @@
   color: white;
   text-align: left;
   /* width: 35%; */
-      margin-left: 10%;
 }
+
+.eventTitleMod{
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  text-align: left;
+  margin-left: 182px;
+  /* width: 35%; */
+}
+
 
 .groupTitle{
     font-size: 18px;
@@ -23,12 +179,12 @@
 }
 
 .eventR{
-     width: 85%;
+     width: 400px;
 
 }
 
 .eventL{
-     width: 85%;
+     width: 55%;
 
 }
 
@@ -59,7 +215,7 @@
 
 .oneLower {
     position: absolute;
-    top: 270px;
+    top: 200px;
     right: 50%;
     left: 0;
     bottom: 0;
@@ -69,7 +225,7 @@
 
 .twoLower {
     position: absolute;
-    top: 270px;
+    top: 200px;
     right: 0;
     left: 50%;
     bottom: 0;
@@ -81,7 +237,7 @@
 
 .oneEvenLower {
     position: absolute;
-    top: 560px;
+    top: 500px;
     right: 50%;
     left: 0;
     bottom: 0;
@@ -91,7 +247,7 @@
 
 .twoEvenLower {
     position: absolute;
-    top: 560px;
+    top: 500px;
     right: 0;
     left: 50%;
     bottom: 0;
@@ -103,7 +259,7 @@
 .one {
     position: absolute;
     top: 0;
-    right: 50%;
+    right: 0;
     left: 0;
     bottom: 0;
 
@@ -125,34 +281,33 @@
   font-size: 50px;
   color: white;
   font-weight: 700;
-  margin-top: 50px;
+  margin-top: 20px;
+}
+
+
+.leftSideTopMod{
+  font-size: 50px;
+  color: white;
+  font-weight: 700;
+  margin-top: 150px;
 }
 
 .leftSideSubTop{
-  font-size: 17px;
-  color: white;
-  z-index: 100;
-  font-weight: 200;
-  color: white;
-  margin-top: 30px;
-  /* width: 70%; */
-  margin-left: 5%;
-  margin-right: 5%;
-
+    font-size: 20px;
+    color: white;
+    z-index: 100;
+    font-weight: 200;
+    color: white;
+    margin-top: 30px;
+    /* width: 70%; */
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 .sec50{
   float: left;
   width: 50%;
   text-align: center;
-}
-
-
-.titantron{
-  position: absolute;
-  margin: auto;
-  left: 13%;
-  top: 11%;
 }
 
 .profileName{
@@ -666,6 +821,15 @@
   }
 
 
+  .fadeUp{
+    -webkit-animation: fadeInUp 1.2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadeInUp 1.2s; /* Firefox < 16 */
+    -ms-animation: fadeInUp 1.2s; /* Internet Explorer */
+    -o-animation: fadeInUp 1.2s; /* Opera < 12.1 */
+    animation: fadeInUp 1.2s;
+  }
+
+
   .interetsC{
     -webkit-animation: fadeInUp 1.2s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadeInUp 1.2s; /* Firefox < 16 */
@@ -930,7 +1094,7 @@
   font-size: 20px;
   color: white;
   z-index: 100;
-  font-weight: 700;
+  font-weight: 200;
   position: absolute;
   top: 52%;
   left: 50%;
@@ -1037,6 +1201,29 @@
   border-radius: 5px;
 }
 
+
+
+.scrollMembersEvents::-webkit-scrollbar-track {
+  background: none;
+}
+
+.scrollMembersEvents::-webkit-scrollbar {
+  height: 10px;
+}
+
+
+.scrollMembersEvents::-webkit-scrollbar:active {
+  height: 30px;
+}
+
+
+
+.scrollMembersEvents::-webkit-scrollbar-thumb {
+  background: rgb(212, 224, 231);
+  border-radius: 5px;
+}
+
+
 .ImageIDer{
   height: 25px;
   float: right;
@@ -1096,8 +1283,14 @@
 
 .followerNameSec{
   font-size: 12px;
-    font-weight: 200;
-    margin: 10px;
+  font-weight: 600;
+  margin: 5px 10px;
+}
+
+.followerNameSec2{
+  font-size: 10px;
+    font-weight: 600;
+    margin: 5px 10px;
 }
 
 .followersSec{
@@ -1120,6 +1313,22 @@ div.scrollMembers {
 }
 
 div.scrollMembers a {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+}
+
+
+
+div.scrollMembersEvents {
+    overflow: auto;
+    white-space: nowrap;
+    height: 320px;
+    overflow-y: hidden;
+}
+
+div.scrollMembersEvents a {
     display: inline-block;
     text-align: center;
     padding: 5px;
@@ -1577,7 +1786,117 @@ img.userImage2 {
   display: none;
 }
 
+
+/* Specific scalling events HS */
 @media screen and (max-width: 776px){
+  @media screen and (min-width: 400px){
+    div.scrollMembersEvents {
+      height: 290px;
+    }
+  }
+
+
+  @media screen and (max-width: 400px){
+    div.scrollMembersEvents {
+      height: 270px;
+    }
+  }
+}
+
+/* Specific scalling events HS */
+
+
+@media screen and (max-width: 776px){
+  .leftSideTopMod {
+    font-size: 30px;
+    color: white;
+    font-weight: 700;
+    margin-top: 50px;
+  }
+  .eventTitle{
+        font-size: 16px;
+
+  }
+  .padExtraR{
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .padExtraL{
+    padding-right: 0px;
+    padding-left: 0px;
+        margin-top: 20px;
+  }
+  .eventR{
+    width: 100%;
+  }
+  .eventsArea{
+    margin-top: 10px;
+  }
+  .eventTitleMod{
+    margin-left: 0px;
+    font-size: 16px;
+
+  }
+  .card-img-top{
+    border-radius: calc(0.75rem - 1px)
+  }
+  .mobFoot{
+    display: none;
+  }
+  .viewAll {
+    height: 100px;
+    margin-top: -110px;
+    margin-left: 10px;
+    margin-right: 30px;
+  }
+  .pp-section.active{
+    .together1{
+      -webkit-animation: fadeInUp 0.9s; /* Safari, Chrome and Opera > 12.1 */
+      -moz-animation: fadeInUp 0.9s; /* Firefox < 16 */
+      -ms-animation: fadeInUp 0.9s; /* Internet Explorer */
+      -o-animation: fadeInUp 0.9s; /* Opera < 12.1 */
+      animation: fadeInUp 0.9s;
+    }
+    .together2{
+      -webkit-animation: fadeInUp 0.9s; /* Safari, Chrome and Opera > 12.1 */
+      -moz-animation: fadeInUp 0.9s; /* Firefox < 16 */
+      -ms-animation: fadeInUp 0.9s; /* Internet Explorer */
+      -o-animation: fadeInUp 0.9s; /* Opera < 12.1 */
+      animation: fadeInUp 0.9s;
+    }
+
+    .together3{
+      -webkit-animation: fadeInUp 0.9s; /* Safari, Chrome and Opera > 12.1 */
+      -moz-animation: fadeInUp 0.9s; /* Firefox < 16 */
+      -ms-animation: fadeInUp 0.9s; /* Internet Explorer */
+      -o-animation: fadeInUp 0.9s; /* Opera < 12.1 */
+      animation: fadeInUp 0.9s;
+    }
+    .together4{
+      -webkit-animation: fadeInUp 0.9s; /* Safari, Chrome and Opera > 12.1 */
+      -moz-animation: fadeInUp 0.9s; /* Firefox < 16 */
+      -ms-animation: fadeInUp 0.9s; /* Internet Explorer */
+      -o-animation: fadeInUp 0.9s; /* Opera < 12.1 */
+      animation: fadeInUp 0.9s;
+    }
+    .together5{
+      -webkit-animation: fadeInUp 0.9s; /* Safari, Chrome and Opera > 12.1 */
+      -moz-animation: fadeInUp 0.9s; /* Firefox < 16 */
+      -ms-animation: fadeInUp 0.9s; /* Internet Explorer */
+      -o-animation: fadeInUp 0.9s; /* Opera < 12.1 */
+      animation: fadeInUp 0.9s;
+    }
+    .together6{
+      -webkit-animation: fadeInUp 0.9s; /* Safari, Chrome and Opera > 12.1 */
+      -moz-animation: fadeInUp 0.9s; /* Firefox < 16 */
+      -ms-animation: fadeInUp 0.9s; /* Internet Explorer */
+      -o-animation: fadeInUp 0.9s; /* Opera < 12.1 */
+      animation: fadeInUp 0.9s;
+    }
+  }
+  #pp-nav ul, .pp-slidesNav ul{
+    display: none;
+  }
   .together4{
     display: block;
     position: absolute;
@@ -1638,10 +1957,7 @@ img.userImage2 {
     text-align: center;
   }
 
-  .eventTitle{
-    font-size: 12px;
-    margin-left: 7%;
-  }
+
   .oneLower{
     top: 155px;
   }
@@ -1654,14 +1970,15 @@ img.userImage2 {
   .twoEvenLower{
     display: none;
   }
-  .eventR{
-    width: 90%;
-  }
+
   .eventL{
     width: 90%;
   }
   .leftSideSubTop{
     margin-top: 10px;
+    font-size: 12px;
+    margin-left: 5%;
+    margin-right: 5%;
   }
   .one{
     position: absolute;
@@ -1681,9 +1998,6 @@ img.userImage2 {
     left: 0;
     bottom: 0;
     text-align: center;
-  }
-  .leftSideSubTop{
-    font-size: 12px;
   }
   .leftSideTop{
     font-size: 30px;
@@ -1741,13 +2055,7 @@ img.userImage2 {
   .title{
         font-size: 27px;
   }
-  .titleSub{
-    font-size: 16px;
-    padding-left: 15px;
-    padding-right: 15px;
-    text-align: center;
-    font-weight: 700;
-  }
+
   .scrollMembers::-webkit-scrollbar {
     height: 5px;
   }
@@ -1763,6 +2071,7 @@ img.userImage2 {
   }
   .userImg{
     height: 85px;
+    width: 85px;
   }
   .followersSec{
     margin: 5px;
@@ -1879,7 +2188,7 @@ img.userImage2 {
     transform: translate(-50%, -50%);
   }
   .button{
-    top: 70%;
+    top: 56%;
   }
   .btnFront {
     padding: .75em 0em;
@@ -1890,7 +2199,7 @@ img.userImage2 {
     width: 300px;
   }
   .button2{
-    top: 79%;
+    top: 66%;
   }
   .logoImage {
     width: 74%;
@@ -1902,11 +2211,11 @@ img.userImage2 {
     margin: auto;
   }
   .titleSub {
-    font-size: 14px;
+    font-size: 16px;
     padding-left: 40px;
     padding-right: 40px;
     text-align: center;
-    font-weight: 700;
+    font-weight: 200;
     top: 31%;
     left: 50%;
   }

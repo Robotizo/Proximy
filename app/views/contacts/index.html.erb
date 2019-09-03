@@ -18,7 +18,7 @@
  	
  		<% if friend.status == "accepted" and friend.friend.present? %>
 
-		 		<div class="col-md-3 col-xs-6 noPad1">
+		 		<div class="col-md-2 col-xs-6 noPad1">
 		 			<%= link_to friend.friend, method: :get, class: "specialA" do %>
 						<%= image_tag(friend.friend.avatar_url(:thumb), class: "interestImage") if friend.friend.avatar? %>
                         <div class="interestTitleSec">

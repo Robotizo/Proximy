@@ -33,12 +33,7 @@
         <div class="userName">
           <%= @user.name %>
           <%= @user.last_name %>
-
-
-
-
         </div>
-
       </div>
     </div>
 
@@ -58,15 +53,19 @@
 
     <% unless @user.id == current_user.id %>
       <% unless current_user.friends.include?(@user) %>
-        <%= render 'befriend' %>
-
+        <% if @friendships.collect(&:user_id).include?(@user.id) %>
+          <% @friendships.each do |invFriends| %>
+          <div id="follow_form">
+            <%= link_to update_friendship_friendship_path(invFriends), method: :patch, class: "btn connectBtn" do %>
+                Accept Request
+            <% end %>
+          </div>
+          <% end %>
+        <% else %>
+          <%= render 'befriend' %>
+        <% end %>
       <% end %> 
     <% end %>
-
-
-
-
-
 
 
 

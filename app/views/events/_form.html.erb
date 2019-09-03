@@ -52,7 +52,13 @@
 
       // Create the search box and link it to the UI element.
       var input = document.getElementById('eventTitleLoc');
-      var searchBox = new google.maps.places.SearchBox(input);
+      var searchBox = new google.maps.places.Autocomplete(input);
+
+      searchBox.addListener('place_changed', function() {
+        var place = searchBox.getPlace();
+        console.log(place.geometry.location.lat());
+        console.log(place.geometry.location.lng());
+      });
 
 
 

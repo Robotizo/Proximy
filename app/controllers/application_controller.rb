@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     	@friendship = Friendship.find(params[:id])
     	@friendship.update_attribute(:status, "accepted")
     	Friendship.create!(user_id: current_user.id, friend_id: @friendship.user_id, status: "accepted")
-    	redirect_to @friendship.user
+    	redirect_to @friendship.user, notice: 'You are now friends'
   	end
 
   
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     protected
 	  	def authorize
 	  		unless User.find_by(id: session[:user_id])
-	  			redirect_to root_url, notice: "Please log in"
+	  			redirect_to root_url
 	  		end
 	  	end
 end

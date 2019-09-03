@@ -1,4 +1,62 @@
-Hello
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+
+<header>
 
 
-<%= current_user.name %>
+<%= stylesheet_link_tag "users", :media => "all" %>
+
+</header>
+
+<body>
+<div class="container mobNavs"><h2 class="topTitle2"> Discover People </h2></div>
+
+<div class="container mobNavs" >
+
+<% @users.each do |user| %>
+    <% collide = current_user.followingI.ids & user.followingI.ids %>
+
+    <% unless user.id == current_user.id %>
+        <%= link_to user, method: :get, class: "specialA" do %>
+        <div class="col-md-2 col-xs-6 noPad8PX " data-aos="fade-up" >
+          <% unless user.avatar.present? %>
+            <%= avatarFront_for(user) %>
+          <% end %>
+          <%= image_tag(user.avatar_url(:thumb), class: "interestImage") if user.avatar? %>
+
+          <div class="discoverTitleSec">
+            <div class="discoverName"><%= truncate(user.name.gsub(/\s.+/, '')) %></div>
+            <div class="discoverNum"><%= collide.count %> shared interests</div>
+
+            
+
+          </div>
+
+
+          </div>
+     
+
+
+
+        <% end %>
+      <% end %>
+    <% end %>
+       </div>
+
+</div>
+</body>
+
+
+
+
+
+
+
+
+
+
+

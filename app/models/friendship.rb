@@ -6,6 +6,8 @@ class Friendship < ApplicationRecord
 	validate :not_friends
 	validate :not_self
 
+	before_create :not_friends
+
 	after_initialize :pending
 
 

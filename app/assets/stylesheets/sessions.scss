@@ -7,7 +7,7 @@
 .fileBtnSubmitSign2{
   border-color: #7fa6be;
   background-color: white;
-//   width: 100%;
+  width: 100%;
   border: none;
   border-radius: 5px;
   color: #7fa6be;
@@ -252,8 +252,10 @@ nav{
 	margin-top: 20px;
 }
 .logField-edits input{
-	background: rgba(0, 0, 0, 0.5);
-	border: none;	
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 14px;
 }
 
 .imageHere{
@@ -294,7 +296,7 @@ nav{
 }
 body{
 	overflow-x: hidden;
-	background: #6c94b2 url("/assets/background.png");
+
 }
 
 .leftDiv{
@@ -324,7 +326,6 @@ body{
 .centerDiv{
 	width: 27em;
     height: 30em;
-	// background: url("/assets/image1.png");
 	position: absolute;
 	top:0;
 	bottom: 0;
@@ -333,6 +334,20 @@ body{
   	
 	margin: auto;
 }
+
+
+.centerDiv2{
+	width: 27em;
+    height: 45em;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  	
+	margin: auto;
+}
+
 
 
 @media screen and (min-width: 1800px){
@@ -350,9 +365,35 @@ body{
 }
 
 @media screen and (max-width: 776px){
+	.centerDiv{
+		width: auto;
+	}
+	.centerDiv2{
+		width: auto;
+	}
+
+
+	.logField-edits input{
+	    background: rgba(0, 0, 0, 0.5);
+	    border: none;
+	    color: white;
+	    font-size: 16px;
+	}
+
+	.loginSec{
+		margin: 60px 20px;
+	}
+	.emailField{
+		margin: 32px 20px;
+		outline: none !important;
+	}
+	.passField{
+		margin: 32px 20px;
+		outline: none !important;
+	}
 
 	.logoImg{
-		margin-top: 15%;
+		margin-top: 0%;
 	}
 	.signUp{
 		font-size: 14px;

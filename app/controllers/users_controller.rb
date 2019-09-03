@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def discover
     @user = current_user
-    @users = User.all
+    @users = User.all.sort_by {|user| user.userInterests(current_user) + user.ccLocation(current_user.latitude, current_user.longitude) }.reverse
   end
 
   def interests
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
   # GET /users/1 
   # GET /users/1.json
   def show
-
+    @friendships = Friendship.where(user_id: @user.id, friend_id: current_user.id, status: "pending")
 
 
     @interests = Interest.all

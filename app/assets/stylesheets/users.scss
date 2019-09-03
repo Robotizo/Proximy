@@ -2,6 +2,34 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+  .discoverTitleSec {
+    background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.05) 3%, #4a4a4a91 100%) !important;
+    position: relative;
+    top: -54px;
+    border-radius: 0px 0px 5px 5px;
+  }
+
+  .discoverName{
+    font-size: 16px;
+    padding: 3px 5px;
+    color: white;
+    font-weight: 600;
+  }
+  .discoverNum{
+    font-size: 14px;
+    padding: 3px 5px;
+    color: white;
+    font-weight: 600;
+  }
+
+
+.shared{
+  color: black;
+  font-size: 14px;
+  padding: 5px;
+  font-weight: 600;
+}
+
 .editPosts{
   float: right;
   display: inline-block;
@@ -266,7 +294,7 @@ input.checkDist{
 
 .minPadL{
   padding-right: 0px !important;
-  padding-left: 4px !important;
+  padding-left: 0px !important;
 }
 
 
@@ -385,7 +413,7 @@ div .show-more[aria-expanded="true"]{
   font-size: 30px;
   font-weight: 600;
   margin: 15px 0px;
-  margin-bottom: 10px !important;
+  margin-bottom: 18px !important;
 }
 
 
@@ -597,8 +625,10 @@ div .show-more[aria-expanded="true"]{
 }
 
 .userImg {
-  border-radius: 15px;
-  height: 90px;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 3%;
 }
 
 .usersSec{
@@ -1193,63 +1223,63 @@ body {
 
 
 .fullLength{
-	width: 100%;
-	float: left;
+  width: 100%;
+  float: left;
 }
 
 
 .interestCard{
-	border-radius: 3px;
-	margin-top: 15px;
-	margin-bottom: 15px;
+  border-radius: 3px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 
 .interestImage{
-	width: 100%;
-	border-radius: 5px 5px 5px 5px;
+  width: 100%;
+  border-radius: 5px 5px 5px 5px;
 }
 
 .interestTitleSec{
-	background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
-	position: relative;
-	top: -30px;
-	border-radius: 0px 0px 5px 5px;
+  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
+  position: relative;
+  top: -30px;
+  border-radius: 0px 0px 5px 5px;
 }
 
 .interestName{
-	font-size: 14px;
-	padding: 5px;	
-	color: white;
+  font-size: 14px;
+  padding: 5px; 
+  color: white;
 }
 
 
 .buttonEventHov{
-	position: relative;
-	top: -20px;
+  position: relative;
+  top: -20px;
 }
 
 
 .addedInterest{
-	border: 0px !important;
-	background-color: #2eb930;
-	width: 100%;
+  border: 0px !important;
+  background-color: #2eb930;
+  width: 100%;
 }
 
 
 .addInterest{
-	background-color: white;
-	color: white;
-	border: 0px !important;
-	background-color: #7fa6bd;
-	width: 100%;
+  background-color: white;
+  color: white;
+  border: 0px !important;
+  background-color: #7fa6bd;
+  width: 100%;
 
 }
 
 
 .buttonEventHov{
-	position: relative;
-	top: -20px;
+  position: relative;
+  top: -20px;
 }
 .module1 {
   padding-bottom: 20px;
@@ -1888,6 +1918,29 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px) {
+  .noPad8PX{
+    height: 205px;
+  }
+
+  .discoverTitleSec {
+    background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
+    position: relative;
+    top: -54px;
+    border-radius: 0px 0px 5px 5px;
+  }
+
+  .discoverName{
+    font-size: 16px;
+    padding: 3px 5px;
+    color: white;
+    font-weight: 600;
+  }
+  .discoverNum{
+    font-size: 14px;
+    padding: 3px 5px;
+    color: white;
+    font-weight: 600;
+  }
   .fileBtnDiv{
         padding: 1rem 0px;
         font-size: 12px;
@@ -1931,9 +1984,7 @@ div.scrollEvents a {
     border-radius: 0px !important;
     height: 300px !important;
   }
-  .topTitle2{
-    display: none;
-  }
+
   .userDistance{
     font-size: 16px;
   }
@@ -1948,7 +1999,12 @@ div.scrollEvents a {
     width: 140px;
   }
   .topTitle2{
-    font-size: 16px;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: 600;
   }
 
   .editsText{
@@ -2198,7 +2254,7 @@ div.scrollEvents a {
   }
   .titleSec {
     font-size: 22px;
-    margin-top: 10px;
+    margin-top: 18px;
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 5px;
@@ -2377,3 +2433,46 @@ div.scrollEvents a {
     box-shadow: 0px 0px 0px;
   }
 }
+
+
+/* end of css max-width 776px */
+
+
+  /* DISCOVER PEOPLE PAGE 
+
+  .discoverPeople {
+   float: left;
+  
+  }
+  .userContent{
+    width: 100%;
+    border-radius: 5px 5px 5px 5px;
+    padding: 1em;
+    // margin-left: 2em;
+  
+  }
+  .userDesc{
+    font-size: 12px;
+    margin: -3.5em 0em 0em 1em;
+    width: 11em;
+    font-weight: 600;
+    position: absolute;
+    color: white;
+  }
+  // .userImage{
+  //     position: relative;
+  //     width:  150px;
+  //     height: 150px;
+  //     background-position: 50% 50%;
+  //     background-repeat: no-repeat;
+  //     background-size: cover;
+  //     background-color: red;
+  //     padding: .1em;
+  //     border-radius: 10%
+  // }
+
+
+
+
+
+*/
