@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Event Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Image</th>
+      <th>Event</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @event_posts.each do |event_post| %>
+      <tr>
+        <td><%= event_post.content %></td>
+        <td><%= event_post.image %></td>
+        <td><%= event_post.event_id %></td>
+        <td><%= event_post.user_id %></td>
+        <td><%= link_to 'Show', event_post %></td>
+        <td><%= link_to 'Edit', edit_event_post_path(event_post) %></td>
+        <td><%= link_to 'Destroy', event_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event Post', new_event_post_path %>
