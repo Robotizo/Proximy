@@ -54,27 +54,32 @@ Rails.application.configure do
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 
+  config.action_mailer.perform_caching = false
+
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "contactsApp_#{Rails.env}"
-  config.action_mailer.default :charset => "utf-8"
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
 
-  ActionMailer::Base.smtp_settings = {
-    user_name: 'brandon.caiza',
-    password: '@Caizamanu7@!',
-    domain: 'www.proximy.ca',
-    address: 'smtp.sendgrid.net',
-    port: 587,
-    authentication: :plain,
-    enable_starttls_auto: true
+
+
+  config.action_mailer.default_url_options = { :host => 'www.proximy.ca' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true  
+  config.action_mailer.raise_delivery_errors = false  
+  config.action_mailer.default :charset => "utf-8" 
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.sendgrid.net',
+    port:                 587,
+    domain:               'www.proximy.ca',
+    user_name:            'brandon.caiza',
+    password:             '@Caizamanu7@!',
+    authentication:       'plain',
+    enable_starttls_auto: true  
   }
 
   config.action_controller.asset_host = "https://www.proximy.ca"
   config.action_mailer.asset_host = config.action_controller.asset_host
-  config.action_mailer.default_url_options = {host: "www.proximy.ca"}
+
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
