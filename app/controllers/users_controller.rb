@@ -105,7 +105,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        
+        UserMailer.registration_confirmation(@user).deliver
         format.html { redirect_to login_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -120,7 +120,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        UserMailer.registration_confirmation(@user).deliver
+
         format.html { redirect_to :back, notice: 'Your profile has been updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
