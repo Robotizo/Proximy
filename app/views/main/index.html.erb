@@ -477,7 +477,7 @@ $(document).ready(function(){
             <div class="eventContentDisc">
               <div class="eventDateDisc"><%= event.event_date.strftime('%B %e') %></div>
             </div>
-            <div class="groupTitleDisc"><%= event.title %></div>
+            <div class="groupTitleDisc"><%= truncate(event.title, length: 35) %></div>
         </div>
       <% end %>
 
@@ -501,7 +501,7 @@ $(document).ready(function(){
         <div class="groupBlock">
           <%= image_tag(group.image_url(:group), class: "groupImageDisc") if group.image? %>
 
-            <div class="groupTitleDisc2"><%= group.title %></div>
+            <div class="groupTitleDisc2"><%= truncate(group.title, length: 35) %></div>
         </div>
       <% end %>
 
