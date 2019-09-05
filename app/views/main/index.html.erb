@@ -493,13 +493,13 @@ $(document).ready(function(){
 
 
 
-    <div class="scrollMembersEvents container" data-aos="fade-up">
+    <div class="scrollMembersGroups container" data-aos="fade-up">
   
     <% @groups.first(5).each do |group| %>
 
       <%= link_to group, method: :get, class: "specialA" do %>
         <div class="groupBlock">
-          <%= image_tag(group.image_url(:event), class: "groupImageDisc") if group.image? %>
+          <%= image_tag(group.image_url(:group), class: "groupImageDisc") if group.image? %>
 
             <div class="groupTitleDisc2"><%= group.title %></div>
         </div>

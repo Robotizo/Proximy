@@ -1224,6 +1224,27 @@
 }
 
 
+.scrollMembersGroups::-webkit-scrollbar-track {
+  background: none;
+}
+
+.scrollMembersGroups::-webkit-scrollbar {
+  height: 10px;
+}
+
+
+.scrollMembersGroups::-webkit-scrollbar:active {
+  height: 30px;
+}
+
+
+
+.scrollMembersGroups::-webkit-scrollbar-thumb {
+  background: rgb(212, 224, 231);
+  border-radius: 5px;
+}
+
+
 .ImageIDer{
   height: 25px;
   float: right;
@@ -1329,6 +1350,22 @@ div.scrollMembersEvents {
 }
 
 div.scrollMembersEvents a {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+}
+
+
+
+div.scrollMembersGroups {
+    overflow: auto;
+    white-space: nowrap;
+    height: 320px;
+    overflow-y: hidden;
+}
+
+div.scrollMembersGroups a {
     display: inline-block;
     text-align: center;
     padding: 5px;
@@ -1793,12 +1830,18 @@ img.userImage2 {
     div.scrollMembersEvents {
       height: 290px;
     }
+    div.scrollMembersGroups {
+      height: 290px;
+    }
   }
 
 
   @media screen and (max-width: 400px){
     div.scrollMembersEvents {
-      height: 270px;
+      height: 260px;
+    }
+    div.scrollMembersGroups {
+      height: 290px;
     }
   }
 }
@@ -1807,6 +1850,18 @@ img.userImage2 {
 
 
 @media screen and (max-width: 776px){
+  .scrollMembers::-webkit-scrollbar {
+    height: 5px;
+  }
+  .scrollMembersEvents::-webkit-scrollbar {
+    height: 5px;
+  }
+
+
+  .scrollMembersGroups::-webkit-scrollbar {
+    height: 5px;
+  }
+
   .leftSideTopMod {
     font-size: 30px;
     color: white;

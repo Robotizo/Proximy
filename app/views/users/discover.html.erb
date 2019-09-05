@@ -24,7 +24,7 @@
         <%= link_to user, method: :get, class: "specialA" do %>
         <div class="col-md-2 col-xs-6 noPad8PX " data-aos="fade-up" >
           <% unless user.avatar.present? %>
-            <%= avatarFront_for(user) %>
+            <%= avatarDiscover_for(user) %>
           <% end %>
           <%= image_tag(user.avatar_url(:thumb), class: "interestImage") if user.avatar? %>
 

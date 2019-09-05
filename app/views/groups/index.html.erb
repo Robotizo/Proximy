@@ -34,10 +34,10 @@
       
           
           <% @groups.each do |group| %>
-            <div class="col-md-4 col-xs-12 testMarge" data-aos="fade-up">
+            <div class="col-md-3 col-xs-6 testMarge" data-aos="fade-up">
               <%= link_to group, method: :get, class: "specialA" do %>
                 <div class="groupBlock">
-                  <%= image_tag(group.image_url(:event), class: "groupImageDisc") if group.image? %>
+                  <%= image_tag(group.image_url(:group), class: "groupImageDisc") if group.image? %>
                   <div class="groupTitleDisc"><%= group.title %></div>
                 </div>
               <% end %>

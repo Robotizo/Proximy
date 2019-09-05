@@ -31,4 +31,13 @@ module ApplicationHelper
 	    end
 	    return @avatar_user
 	end
+
+
+	def avatarDiscover_for(user)
+	    @avatar = user.avatar
+	    unless @avatar.present?
+	        @avatar_user = image_tag("profile.jpg", alt: user.name, class: "userImgDisc")
+	    end
+	    return @avatar_user
+	end
 end

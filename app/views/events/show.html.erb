@@ -376,7 +376,14 @@
 
 
   <div class="newsfeed1" >
-    <div class="titleSec">People Attending</div>
+
+      
+
+    <% if @eventFollowers.count ==  1 %>
+      <div class="titleSec"><%= @eventFollowers.count %> Person Attending</div>
+    <% else %>
+      <div class="titleSec"><%= @eventFollowers.count %> People Attending</div>
+    <% end %>
     <div class="scrollEvents">
     <% if !@eventFollowers.empty? %>
       <%  @eventFollowers.reverse.first(7).each do |eventFollower| %>
