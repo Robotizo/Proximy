@@ -12,6 +12,8 @@ class ApplicationController < ActionController::Base
     	redirect_to @friendship.user, notice: 'You are now friends'
   	end
 
+  	
+
   
 
 

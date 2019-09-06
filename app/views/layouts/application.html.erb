@@ -168,10 +168,15 @@
 
 
     <%= link_to notifications_path, method: :get, class: "specialA dispNone" do %>
+
       <div class="navTitleEnd1 <%= 'activeNav' if current_page?(notifications_path) %>">
 
-          <%= image_tag("notifications.png", class: "ImageNav") %>          
-          
+          <%= image_tag("notifications.png", class: "ImageNav") %>   
+          <% if @userFriendships.present? or @eventNotifs.present? %>
+            <%= image_tag("redCircle.png", class: "notificationsNav") %>   
+          <% end %>
+       
+
       </div>
     <% end %>
 

@@ -26,6 +26,9 @@ class GroupsController < ApplicationController
     followingGroupsIds = @user.followingG.map(&:id)
     @groupsFollow = Group.find(params = followingGroupsIds).sort_by &:updated_at
 
+    @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
+    @eventNotifs = EventNotif.where(user_id: current_user)
+
   end
 
   # GET /groups/1
@@ -35,6 +38,10 @@ class GroupsController < ApplicationController
     @interests = Interest.all
     followingGroupIds = @group.followersG.map(&:id)
     @groupFollowers = User.find(params = followingGroupIds).sort_by &:updated_at
+
+
+    @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
+    @eventNotifs = EventNotif.where(user_id: current_user)
 
 
 

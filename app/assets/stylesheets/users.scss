@@ -2,6 +2,34 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+
+
+.fileBtnSubmit2{
+
+  background-color: white;
+  width: 100%;
+  border: 1px solid #7fa6be;
+
+    border-radius: 5px;
+    color: #7fa6be;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: inherit;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    outline: none;
+    padding: 1.7rem 50px;
+    position: relative;
+    transition: all 0.3s;
+    vertical-align: middle;
+}
+
+.fileBtnSubmit2:hover{
+  background-color: #204d74;
+  color: white;
+}
+
   .discoverTitleSec {
     background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.05) 3%, #4a4a4a91 100%) !important;
     position: relative;
@@ -94,15 +122,35 @@
 
 .create{
   position: fixed;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    padding-left: 35px;
-    padding-right: 35px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  bottom: 0px;
+  left: 0px;
+  padding-left: 35px;
+  padding-right: 35px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
+
+.createAvatar{
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+
+
+.createAvatar2{
+  position: fixed;
+  bottom: 0px;
+  left: 74%;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 
 
@@ -1927,6 +1975,21 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px) {
+
+
+  .createAvatar{
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+
+  .createAvatar2{
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+
+
   .userImgDisc {
     position: relative;
     width: 100%;
@@ -2011,6 +2074,12 @@ div.scrollEvents a {
   .fileBtnSubmit {
      padding: 1rem 0px;
   }
+
+
+  .fileBtnSubmit2 {
+     padding: 1rem 0px;
+  }
+     
      
 
   #map{
