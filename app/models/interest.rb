@@ -15,7 +15,7 @@ class Interest < ApplicationRecord
 
 
 	INTEREST_CATEGORIES = ["Animals", "Arts", "Books", "Business", "Community", "Crafts", "Dance", "Eating & Drinking", "Education", "Entertainment", "Fashion", 
-		"Fitness", "Games", "Health & Wellness", "Language & Culture", "LGBTQA", "Motor Sports", "Outdoor", "Perspective", "Relationships", "Sports", "Tech"
+		"Fitness", "Games", "Health & Wellness", "Culture", "LGBTQA", "Motor Sports", "Outdoor", "Perspective", "Relationships", "Sports", "Tech"
 	]
 
 

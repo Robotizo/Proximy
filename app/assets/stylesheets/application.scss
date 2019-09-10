@@ -18,11 +18,26 @@
 @import "bootstrap";
 
 
+
+.panel-group .panel + .panel {
+    margin-top: 50px;
+}
+
+.panel-body{
+	padding: 0px !important;
+}
+
+
+.panel-heading {
+	padding: 5px 15px;
+}
+
+
 .notificationsNav{
 	height: 12px;
 	position: absolute;
 	top: 10px;
-	margin-left: 28px;
+	margin-left: -17px;
 }
 
 
@@ -107,7 +122,7 @@ a:focus{
 }
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
-	    text-decoration: none;
+	text-decoration: none;
     color: #000000;
     background-color: #6c95af54;
     border-radius: 3px;

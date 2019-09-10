@@ -1,25 +1,35 @@
 <%= stylesheet_link_tag "users", :media => "all" %>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
 
 <script>
+
 
   $(function () { 
       $('.panel-heading').on('click', function (e) {
           var menuItem = $( e.currentTarget );
-
           if (menuItem.attr('aria-expanded') == 'true') {
-              $(this).children(".show-more").text("Show More");
-
+              $(this).children(".imageMore").text("Show More");
           } else {
-              $(this).children(".show-more").text("Show Less");
+              $(this).children(".imageMore").text("Show Less");
           }
       });
-
     });
-  
-
-
 
 </script>
+
+
+
+
+<script>
+    AOS.init();
+</script>
+
+
+
 
 <div class="text-center module1">
   <div class="innerModule">
@@ -47,52 +57,32 @@
 
 
 
-<div class="container margTop mobNavs">
+<div class="container margTop mobNavs text-center">
   <div class="titleSec">Select your interests</div>
-
-  <div class="col-md-12 col-xs-12 mobNavs">
-
-    <% if @user.followingI.exists? %>
-
-    <% @user.followingI.each do |interest| %>
-      <div class="col-md-2 col-xs-6">
-        <div class="interestCard">
-          <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-          <div class="interestTitleSec">
-            <div class="interestName"><%= interest.name %></div>
-          
-          </div>
-
-        </div>
-      </div>
-
-
-    <% end %>
-    <% else %>
-      <div class="titleSecSub">Select what interests you the most.</div>
-
-
-    <% end %>
-
-  </div>
 </div>
 
 <div class="container margBottom mobNavs">
 
 
-<div class="titleSec">Interests</div>
 
-  <div class="panel-group" id="accordion" aria-multiselectable="true">
+<div style="margin-bottom: 80px;">
+  <div class="panel-group" >
 
 
-<div class="panel panel-default">
-        <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#arts" aria-expanded="true">
-          Arts <div class="show-more">Show Less</div>
+
+<div class="panel-group" id="accordion" aria-multiselectable="true">
+
+
+<!-- BEGIN -->
+
+    <div class="panel panel-default" data-aos="fade-up">
+        <div class="panel-heading" href="#arts" >
+          Arts 
         </div>
-      <div id="arts" class="panel-collapse collapse in" data-parent="#accordion">
+      <div class="arts" >
         <div class="panel-body">
-          <% @interests.each do |interest| %>
-          <% if interest.category == "Arts" %>
+         
+          <% @arts.first(5).each do |interest| %>
               <div class="col-md-2 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
@@ -127,79 +117,36 @@
           </div>
 
 
+
+
+
             </div>
             </div>
           <% end %>
+          <% if @arts.count > 5 %>
+
+
+
+          
+        <div class="col-md-2 col-xs-6">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            <%= image_tag("moreInt.png", class: "imageMore") %>
+          </div>
+        </div>
+
+
+
           <% end %>
         </div>
-      </div>
-    </div>
 
 
 
 
-    <div class="panel panel-default">
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#animals" aria-expanded="false">
-                Animals <div class="show-more">Show More</div>
-            </div>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="panel-body">
 
-      <div id="animals" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-          <% @interests.each do |interest| %>
-          <% if interest.category == "Animals" %>
-              <div class="col-md-2 col-xs-6">
-              <div class="interestCard">
-                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-                  <div class="interestTitleSec">
-                  
-                      <div class="interestName"><%= interest.name %></div>
-                  
-                  </div>
-
-
- <div id="follow_<%= interest.id %>">
-          <% if @user.followingI?(interest) %>
-
-
-                  <%= render 'unfollowI', interest: interest %>
-
-
-                <% else %>
-
-                  <%= render 'followI', interest: interest %>
-
-
-
-
-                <% end %>
-
-    </div>
-
-
-
-
-            </div>
-            </div>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-
-
-      <div class="panel panel-default">
-  
-
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#business" aria-expanded="false">
-                Business <div class="show-more">Show More</div>
-            </div>
-
-    
-      <div id="business" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-          <% @interests.each do |interest| %>
-          <% if interest.category == "Business" %>
+          <% @arts.each_with_index.each do | interest, index | %>
+          <% unless index < 5 %> 
               <div class="col-md-2 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
@@ -211,309 +158,10 @@
 
 
 
- <div id="follow_<%= interest.id %>">
-          <% if @user.followingI?(interest) %>
 
 
 
-                  <%= render 'unfollowI', interest: interest %>
-
-
-
-                <% else %>
-
-
-                  <%= render 'followI', interest: interest %>
-
-
-
-                <% end %>
-    </div>
-
-
-
-
-
-            </div>
-            </div>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel panel-default">
-  
-
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#community" aria-expanded="false">
-                Community <div class="show-more">Show More</div>
-            </div>
-
-
-      <div id="community" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-          <% @interests.each do |interest| %>
-          <% if interest.category == "Community" %>
-              <div class="col-md-2 col-xs-6">
-              <div class="interestCard">
-                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-                  <div class="interestTitleSec">
-                  
-                      <div class="interestName"><%= interest.name %></div>
-                  
-                  </div>
-
-
-
- <div id="follow_<%= interest.id %>">
-          <% if @user.followingI?(interest) %>
-
-                  <%= render 'unfollowI', interest: interest %>
-
-
-
-                <% else %>
-
-
-
-                  <%= render 'followI', interest: interest %>
-
-
-
-                <% end %>
-
-
- </div>
-
-
-
-            </div>
-            </div>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="panel panel-default">
-  
-
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#crafts" aria-expanded="false">
-                Crafts <div class="show-more">Show More</div>
-            </div>
-
-
-      <div id="crafts" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-          <% @interests.each do |interest| %>
-          <% if interest.category == "Crafts" %>
-              <div class="col-md-2 col-xs-6">
-              <div class="interestCard">
-                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-                  <div class="interestTitleSec">
-                  
-                      <div class="interestName"><%= interest.name %></div>
-                  
-                  </div>
-
-
- <div id="follow_<%= interest.id %>">
-          <% if @user.followingI?(interest) %>
-
-                   <%= render 'unfollowI', interest: interest %>
-
-
-
-                <% else %>
-
-
-                  <%= render 'followI', interest: interest %>
-
-
-
-                <% end %>
-</div>
-
-
-            </div>
-            </div>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel panel-default">
-  
-
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#dance" aria-expanded="false">
-                Dance <div class="show-more">Show More</div>
-            </div>
-
-      <div id="dance" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-          <% @interests.each do |interest| %>
-          <% if interest.category == "Dance" %>
-              <div class="col-md-2 col-xs-6">
-              <div class="interestCard">
-                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-                  <div class="interestTitleSec">
-                  
-                      <div class="interestName"><%= interest.name %></div>
-                  
-                  </div>
-
- <div id="follow_<%= interest.id %>">
-
-          <% if @user.followingI?(interest) %>
-
-                  <%= render 'unfollowI', interest: interest %>
-
-
-                <% else %>
-
-                  <%= render 'followI', interest: interest %>
-
-
-                <% end %>
-
-  </div>
-            </div>
-            </div>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-
-
-
-    <div class="panel panel-default">
-  
-
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#eating" aria-expanded="false">
-                Eating & Drinking <div class="show-more">Show More</div>
-            </div>
-
-
-      <div id="eating" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-          <% @interests.each do |interest| %>
-          <% if interest.category == "Eating & Drinking" %>
-              <div class="col-md-2 col-xs-6">
-              <div class="interestCard">
-                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-                  <div class="interestTitleSec">
-                  
-                      <div class="interestName"><%= interest.name %></div>
-                  
-                  </div>
-
-
- <div id="follow_<%= interest.id %>">
-          <% if @user.followingI?(interest) %>
-
-
-                   <%= render 'unfollowI', interest: interest %>
-
-
-
-                <% else %>
-
-
-                  <%= render 'followI', interest: interest %>
-
-
-
-                <% end %>
-
-  </div>
-            </div>
-            </div>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="panel panel-default">
-  
-
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#education" aria-expanded="false">
-                Education <div class="show-more">Show More</div>
-            </div>
-
-    
-      <div id="education" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-          <% @interests.each do |interest| %>
-          <% if interest.category == "Education" %>
-              <div class="col-md-2 col-xs-6">
-              <div class="interestCard">
-                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-                  <div class="interestTitleSec">
-                  
-                      <div class="interestName"><%= interest.name %></div>
-                  
-                  </div>
-
-
- <div id="follow_<%= interest.id %>">
-          <% if @user.followingI?(interest) %>
-
-
-                 <%= render 'unfollowI', interest: interest %>
-
-
-                <% else %>
-
-
-                  <%= render 'followI', interest: interest %>
-
-
-
-
-                <% end %>
-
-
-
-</div>
-            </div>
-            </div>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="panel panel-default">
-  
-
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#entertainment" aria-expanded="false">
-                Entertainment <div class="show-more">Show More</div>
-            </div>
-
-
-      <div id="entertainment" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-          <% @interests.each do |interest| %>
-          <% if interest.category == "Entertainment" %>
-              <div class="col-md-2 col-xs-6">
-              <div class="interestCard">
-                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-                  <div class="interestTitleSec">
-                  
-                      <div class="interestName"><%= interest.name %></div>
-                  
-                  </div>
- <div id="follow_<%= interest.id %>">
-
-
+            <div id="follow_<%= interest.id %>">
           <% if @user.followingI?(interest) %>
 
 
@@ -521,275 +169,57 @@
 
 
 
-                <% else %>
-
-
-                  <%= render 'followI', interest: interest %>
-
-
-                <% end %>
-  </div>
-            </div>
-            </div>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-
-
-
-    <div class="panel panel-default">
-  
-
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#fashion" aria-expanded="false">
-                Fashion <div class="show-more">Show More</div>
-            </div>
-
-
-      <div id="fashion" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-          <% @interests.each do |interest| %>
-          <% if interest.category == "Fashion" %>
-              <div class="col-md-2 col-xs-6">
-              <div class="interestCard">
-                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-                  <div class="interestTitleSec">
-                  
-                      <div class="interestName"><%= interest.name %></div>
-                  
-                  </div>
-
- <div id="follow_<%= interest.id %>">
-
-          <% if @user.followingI?(interest) %>
-
-                 <%= render 'unfollowI', interest: interest %>
-
-
-                <% else %>
-
-                  <%= render 'followI', interest: interest %>
-
-
-                <% end %>
-
-  </div>
-            </div>
-            </div>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="panel panel-default">
-  
-
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#fitness" aria-expanded="false">
-                Fitness <div class="show-more">Show More</div>
-            </div>
-
-      <div id="fitness" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-          <% @interests.each do |interest| %>
-          <% if interest.category == "Fitness" %>
-              <div class="col-md-2 col-xs-6">
-              <div class="interestCard">
-                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-                  <div class="interestTitleSec">
-                  
-                      <div class="interestName"><%= interest.name %></div>
-                  
-                  </div>
-
-
- <div id="follow_<%= interest.id %>">
-          <% if @user.followingI?(interest) %>
-
-                  <%= render 'unfollowI', interest: interest %>
-
-
 
                 <% else %>
 
 
                   <%= render 'followI', interest: interest %>
 
-                <% end %>
-</div>
-            </div>
-            </div>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-
-  <div class="panel panel-default">
-  
-
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#games" aria-expanded="false">
-                Games <div class="show-more">Show More</div>
-            </div>
-
-
-      <div id="games" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-          <% @interests.each do |interest| %>
-          <% if interest.category == "Games" %>
-              <div class="col-md-2 col-xs-6">
-              <div class="interestCard">
-                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-                  <div class="interestTitleSec">
-                  
-                      <div class="interestName"><%= interest.name %></div>
-                  
-                  </div>
-
- <div id="follow_<%= interest.id %>">
-
-          <% if @user.followingI?(interest) %>
-
-                   <%= render 'unfollowI', interest: interest %>
-
-
-                <% else %>
-
-                  <%= render 'followI', interest: interest %>
-
-
 
                 <% end %>
 
-</div>
+          </div>
+
+
+
+
+
             </div>
             </div>
+            <% end %>
           <% end %>
-          <% end %>
+          </div>
+
         </div>
+
+
+
+
+
+
       </div>
+
+
+
+
+
     </div>
 
 
-      <div class="panel panel-default">
-  
-
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#health" aria-expanded="false">
-                Health & Wellness <div class="show-more">Show More</div>
-            </div>
-
-
-      <div id="health" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-          <% @interests.each do |interest| %>
-          <% if interest.category == "Health & Wellness" %>
-              <div class="col-md-2 col-xs-6">
-              <div class="interestCard">
-                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-                  <div class="interestTitleSec">
-                  
-                      <div class="interestName"><%= interest.name %></div>
-                  
-                  </div>
-
- <div id="follow_<%= interest.id %>">
-
-          <% if @user.followingI?(interest) %>
-
-
-                      <%= render 'unfollowI', interest: interest %>
+<!-- END -->
 
 
 
-                <% else %>
+<!-- BEGIN -->
 
-
-                 <%= render 'followI', interest: interest %>
-
-
-
-                <% end %>
-
-</div>
-            </div>
-            </div>
-          <% end %>
-          <% end %>
+    <div class="panel panel-default" data-aos="fade-up">
+        <div class="panel-heading" href="#animals" >
+          Animals 
         </div>
-      </div>
-    </div>
-
-
-
-
-
-
-
-    <div class="panel panel-default">
-  
-
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#language" aria-expanded="false">
-               Language & Culture <div class="show-more">Show More</div>
-            </div>
-
-      <div id="language" class="panel-collapse collapse" data-parent="#accordion">
+      <div class="animals" >
         <div class="panel-body">
-          <% @interests.each do |interest| %>
-          <% if interest.category == "Language & Culture" %>
-              <div class="col-md-2 col-xs-6">
-              <div class="interestCard">
-                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-                  <div class="interestTitleSec">
-                  
-                      <div class="interestName"><%= interest.name %></div>
-                  
-                  </div>
-
- <div id="follow_<%= interest.id %>">
-
-          <% if @user.followingI?(interest) %>
-
-
-                  <%= render 'unfollowI', interest: interest %>
-
-
-                <% else %>
-
-
-
-                  <%= render 'followI', interest: interest %>
-
-
-                <% end %>
-
-</div>
-            </div>
-            </div>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="panel panel-default">
-  
-
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#l" aria-expanded="false">
-               LGBTQA+ <div class="show-more">Show More</div>
-            </div>
-
-
-      <div id="l" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-          <% @interests.each do |interest| %>
-          <% if interest.category == "LGBTQA" %>
+         
+          <% @animals.first(5).each do |interest| %>
               <div class="col-md-2 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
@@ -800,285 +230,11 @@
                   </div>
 
 
- <div id="follow_<%= interest.id %>">
-          <% if @user.followingI?(interest) %>
 
 
-               <%= render 'unfollowI', interest: interest %>
 
 
-                <% else %>
-
-
-                 <%= render 'followI', interest: interest %>
-
-
-
-                <% end %>
-
-</div>
-            </div>
-            </div>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-
-
-
-    <div class="panel panel-default">
-  
-
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#motor" aria-expanded="false">
-               Motor Sports <div class="show-more">Show More</div>
-            </div>
-
-
-      <div id="motor" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-          <% @interests.each do |interest| %>
-          <% if interest.category == "Motor Sports" %>
-              <div class="col-md-2 col-xs-6">
-              <div class="interestCard">
-                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-                  <div class="interestTitleSec">
-                  
-                      <div class="interestName"><%= interest.name %></div>
-                  
-                  </div>
-
-
- <div id="follow_<%= interest.id %>">
-          <% if @user.followingI?(interest) %>
-
-
-
-                <%= render 'unfollowI', interest: interest %>
-
-
-
-                <% else %>
-
-
-                  <%= render 'followI', interest: interest %>
-
-
-                <% end %>
-
-</div>
-            </div>
-            </div>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="panel panel-default">
-  
-
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#perspective" aria-expanded="false">
-              Perspective <div class="show-more">Show More</div>
-            </div>
-      <div id="perspective" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-          <% @interests.each do |interest| %>
-          <% if interest.category == "Perspective" %>
-              <div class="col-md-2 col-xs-6">
-              <div class="interestCard">
-                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-                  <div class="interestTitleSec">
-                  
-                      <div class="interestName"><%= interest.name %></div>
-                  
-                  </div>
-
- <div id="follow_<%= interest.id %>">
-
-          <% if @user.followingI?(interest) %>
-
-
-                 <%= render 'unfollowI', interest: interest %>
-
-
-                <% else %>
-
-                  <%= render 'followI', interest: interest %>
-
-                <% end %>
-
-</div>
-            </div>
-            </div>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-
-        <div class="panel panel-default">
-  
-
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#outdoors" aria-expanded="false">
-              Outdoors <div class="show-more">Show More</div>
-            </div>
-      <div id="outdoors" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-          <% @interests.each do |interest| %>
-          <% if interest.category == "Outdoor" %>
-              <div class="col-md-2 col-xs-6">
-              <div class="interestCard">
-                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-                  <div class="interestTitleSec">
-                  
-                      <div class="interestName"><%= interest.name %></div>
-                  
-                  </div>
-
- <div id="follow_<%= interest.id %>">
-
-          <% if @user.followingI?(interest) %>
-
-
-                 <%= render 'unfollowI', interest: interest %>
-
-
-                <% else %>
-
-                  <%= render 'followI', interest: interest %>
-
-                <% end %>
-
-</div>
-            </div>
-            </div>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="panel panel-default">
-  
-
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#relationships" aria-expanded="false">
-              Relationships <div class="show-more">Show More</div>
-            </div>
-
-  
-      <div id="relationships" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-          <% @interests.each do |interest| %>
-          <% if interest.category == "Relationships" %>
-              <div class="col-md-2 col-xs-6">
-              <div class="interestCard">
-                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-                  <div class="interestTitleSec">
-                  
-                      <div class="interestName"><%= interest.name %></div>
-                  
-                  </div>
-
-
- <div id="follow_<%= interest.id %>">
-          <% if @user.followingI?(interest) %>
-
-
-                 <%= render 'unfollowI', interest: interest %>
-
-
-
-                <% else %>
-
-
-                  <%= render 'followI', interest: interest %>
-
-
-                <% end %>
-
-    </div>
-            </div>
-            </div>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-      <div class="panel panel-default">
-  
-
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#sports" aria-expanded="false">
-              Sports <div class="show-more">Show More</div>
-            </div>
-
-  
-      <div id="sports" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-          <% @interests.each do |interest| %>
-          <% if interest.category == "Sports" %>
-              <div class="col-md-2 col-xs-6">
-              <div class="interestCard">
-                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-                  <div class="interestTitleSec">
-                  
-                      <div class="interestName"><%= interest.name %></div>
-                  
-                  </div>
-
- <div id="follow_<%= interest.id %>">
-
-          <% if @user.followingI?(interest) %>
-
-               <%= render 'unfollowI', interest: interest %>
-
-
-                <% else %>
-
-
-                <%= render 'followI', interest: interest %>
-
-
-                <% end %>
-
-    </div>
-            </div>
-            </div>
-          <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-        <div class="panel panel-default">
-  
-
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#tech" aria-expanded="false">
-              Tech <div class="show-more">Show More</div>
-            </div>
-
-      
-      <div id="tech" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-          <% @interests.each do |interest| %>
-          <% if interest.category == "Tech" %>
-              <div class="col-md-2 col-xs-6">
-              <div class="interestCard">
-                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-                  <div class="interestTitleSec">
-                  
-                      <div class="interestName"><%= interest.name %></div>
-                  
-                  </div>
-
- <div id="follow_<%= interest.id %>">
-
+            <div id="follow_<%= interest.id %>">
           <% if @user.followingI?(interest) %>
 
 
@@ -1086,22 +242,2718 @@
 
 
 
-                <% else %>
 
+                <% else %>
 
 
                   <%= render 'followI', interest: interest %>
 
 
                 <% end %>
-  </div>
+
+          </div>
+
+
+
+
+
             </div>
             </div>
           <% end %>
+          <% if @animals.count > 5 %>
+
+
+
+          
+        <div class="col-md-2 col-xs-6">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <%= image_tag("moreInt.png", class: "imageMore") %>
+          </div>
+        </div>
+
+
+
           <% end %>
         </div>
+
+
+
+
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="panel-body">
+
+          <% @animals.each_with_index.each do | interest, index | %>
+          <% unless index < 5 %> 
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+            <% end %>
+          <% end %>
+          </div>
+
+        </div>
+
+
+
+
+
+
       </div>
+
+
+
+
+
     </div>
+
+
+<!-- END -->
+
+
+<!-- BEGIN -->
+
+    <div class="panel panel-default" data-aos="fade-up">
+        <div class="panel-heading" href="#business" >
+          Business 
+        </div>
+      <div class="business" >
+        <div class="panel-body">
+         
+          <% @business.first(5).each do |interest| %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+          <% end %>
+          <% if @business.count > 5 %>
+
+
+
+          
+        <div class="col-md-2 col-xs-6">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <%= image_tag("moreInt.png", class: "imageMore") %>
+          </div>
+        </div>
+
+
+
+          <% end %>
+        </div>
+
+
+
+
+        <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="panel-body">
+
+          <% @business.each_with_index.each do | interest, index | %>
+          <% unless index < 5 %> 
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+            <% end %>
+          <% end %>
+          </div>
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+<!-- END -->
+
+
+
+<!-- BEGIN -->
+
+    <div class="panel panel-default" data-aos="fade-up">
+        <div class="panel-heading" href="#community" >
+          Community 
+        </div>
+      <div class="business" >
+        <div class="panel-body">
+         
+          <% @community.first(5).each do |interest| %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+          <% end %>
+          <% if @community.count > 5 %>
+
+
+
+          
+        <div class="col-md-2 col-xs-6">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            <%= image_tag("moreInt.png", class: "imageMore") %>
+          </div>
+        </div>
+
+
+
+          <% end %>
+        </div>
+
+
+
+
+        <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="panel-body">
+
+          <% @community.each_with_index.each do | interest, index | %>
+          <% unless index < 5 %> 
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+            <% end %>
+          <% end %>
+          </div>
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+<!-- END -->
+
+
+<!-- BEGIN -->
+
+    <div class="panel panel-default" data-aos="fade-up">
+        <div class="panel-heading" href="#crafts" >
+          Crafts 
+        </div>
+      <div class="business" >
+        <div class="panel-body">
+         
+          <% @crafts.first(5).each do |interest| %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+          <% end %>
+          <% if @crafts.count > 5 %>
+
+
+
+          
+        <div class="col-md-2 col-xs-6">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            <%= image_tag("moreInt.png", class: "imageMore") %>
+          </div>
+        </div>
+
+
+
+          <% end %>
+        </div>
+
+
+
+
+        <div id="collapseFive" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="panel-body">
+
+          <% @crafts.each_with_index.each do | interest, index | %>
+          <% unless index < 5 %> 
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+            <% end %>
+          <% end %>
+          </div>
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+<!-- END -->
+
+
+<!-- BEGIN -->
+
+    <div class="panel panel-default" data-aos="fade-up">
+        <div class="panel-heading" href="#dance" >
+          Dance 
+        </div>
+      <div class="business" >
+        <div class="panel-body">
+         
+          <% @dance.first(5).each do |interest| %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+          <% end %>
+          <% if @dance.count > 5 %>
+
+
+
+          
+        <div class="col-md-2 col-xs-6">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+            <%= image_tag("moreInt.png", class: "imageMore") %>
+          </div>
+        </div>
+
+
+
+          <% end %>
+        </div>
+
+
+
+
+        <div id="collapseSix" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="panel-body">
+
+          <% @dance.each_with_index.each do | interest, index | %>
+          <% unless index < 5 %> 
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+            <% end %>
+          <% end %>
+          </div>
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+<!-- END -->
+
+
+<!-- BEGIN -->
+
+    <div class="panel panel-default" data-aos="fade-up">
+        <div class="panel-heading" href="#eating" >
+         Eating & Drinking
+        </div>
+      <div class="eating" >
+        <div class="panel-body">
+         
+          <% @eating.first(5).each do |interest| %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+          <% end %>
+          <% if @eating.count > 5 %>
+
+
+
+          
+        <div class="col-md-2 col-xs-6">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+            <%= image_tag("moreInt.png", class: "imageMore") %>
+          </div>
+        </div>
+
+
+
+          <% end %>
+        </div>
+
+
+
+
+        <div id="collapseSeven" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="panel-body">
+
+          <% @eating.each_with_index.each do | interest, index | %>
+          <% unless index < 5 %> 
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+            <% end %>
+          <% end %>
+          </div>
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+<!-- END -->
+
+
+<!-- BEGIN -->
+
+    <div class="panel panel-default" data-aos="fade-up">
+        <div class="panel-heading" href="#education" >
+         Education
+        </div>
+      <div class="education" >
+        <div class="panel-body">
+         
+          <% @education.first(5).each do |interest| %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+          <% end %>
+          <% if @education.count > 5 %>
+
+
+
+          
+        <div class="col-md-2 col-xs-6">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#education" aria-expanded="false" aria-controls="education">
+            <%= image_tag("moreInt.png", class: "imageMore") %>
+          </div>
+        </div>
+
+
+
+          <% end %>
+        </div>
+
+
+
+
+        <div id="education" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="panel-body">
+
+          <% @education.each_with_index.each do | interest, index | %>
+          <% unless index < 5 %> 
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+            <% end %>
+          <% end %>
+          </div>
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+<!-- END -->
+
+
+<!-- BEGIN -->
+
+    <div class="panel panel-default" data-aos="fade-up">
+        <div class="panel-heading" href="#entertainment" >
+         Entertainment
+        </div>
+      <div class="entertainment" >
+        <div class="panel-body">
+         
+          <% @entertainment.first(5).each do |interest| %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+          <% end %>
+          <% if @entertainment.count > 5 %>
+
+
+
+          
+        <div class="col-md-2 col-xs-6">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#entertainment" aria-expanded="false" aria-controls="entertainment">
+            <%= image_tag("moreInt.png", class: "imageMore") %>
+          </div>
+        </div>
+
+
+
+          <% end %>
+        </div>
+
+
+
+
+        <div id="entertainment" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="panel-body">
+
+          <% @entertainment.each_with_index.each do | interest, index | %>
+          <% unless index < 5 %> 
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+            <% end %>
+          <% end %>
+          </div>
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+<!-- END -->
+
+<!-- BEGIN -->
+
+    <div class="panel panel-default" data-aos="fade-up">
+        <div class="panel-heading" href="#fashion" >
+         Fashion
+        </div>
+      <div class="fashion" >
+        <div class="panel-body">
+         
+          <% @fashion.first(5).each do |interest| %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+          <% end %>
+          <% if @fashion.count > 5 %>
+
+
+
+          
+        <div class="col-md-2 col-xs-6">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#fashion" aria-expanded="false" aria-controls="fashion">
+            <%= image_tag("moreInt.png", class: "imageMore") %>
+          </div>
+        </div>
+
+
+
+          <% end %>
+        </div>
+
+
+
+
+        <div id="fashion" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="panel-body">
+
+          <% @fashion.each_with_index.each do | interest, index | %>
+          <% unless index < 5 %> 
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+            <% end %>
+          <% end %>
+          </div>
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+<!-- END -->
+
+
+<!-- BEGIN -->
+
+    <div class="panel panel-default" data-aos="fade-up">
+        <div class="panel-heading" href="#fitness" >
+         Fitness
+        </div>
+      <div class="fitness" >
+        <div class="panel-body">
+         
+          <% @fitness.first(5).each do |interest| %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+          <% end %>
+          <% if @fitness.count > 5 %>
+
+
+
+          
+        <div class="col-md-2 col-xs-6">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#fitness" aria-expanded="false" aria-controls="fitness">
+            <%= image_tag("moreInt.png", class: "imageMore") %>
+          </div>
+        </div>
+
+
+
+          <% end %>
+        </div>
+
+
+
+
+        <div id="fitness" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="panel-body">
+
+          <% @fitness.each_with_index.each do | interest, index | %>
+          <% unless index < 5 %> 
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+            <% end %>
+          <% end %>
+          </div>
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+<!-- END -->
+
+
+
+
+<!-- BEGIN -->
+
+    <div class="panel panel-default" data-aos="fade-up">
+        <div class="panel-heading" href="#games" >
+         Games
+        </div>
+      <div class="games" >
+        <div class="panel-body">
+         
+          <% @games.first(5).each do |interest| %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+          <% end %>
+          <% if @games.count > 5 %>
+
+
+
+          
+        <div class="col-md-2 col-xs-6">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#games" aria-expanded="false" aria-controls="games">
+            <%= image_tag("moreInt.png", class: "imageMore") %>
+          </div>
+        </div>
+
+
+
+          <% end %>
+        </div>
+
+
+
+
+        <div id="games" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="panel-body">
+
+          <% @games.each_with_index.each do | interest, index | %>
+          <% unless index < 5 %> 
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+            <% end %>
+          <% end %>
+          </div>
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+<!-- END -->
+
+
+
+<!-- BEGIN -->
+
+    <div class="panel panel-default" data-aos="fade-up">
+        <div class="panel-heading" href="#health" >
+         Health & Wellness
+        </div>
+      <div class="health" >
+        <div class="panel-body">
+         
+          <% @health.first(5).each do |interest| %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+          <% end %>
+          <% if @health.count > 5 %>
+
+
+
+          
+        <div class="col-md-2 col-xs-6">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#health" aria-expanded="false" aria-controls="health">
+            <%= image_tag("moreInt.png", class: "imageMore") %>
+          </div>
+        </div>
+
+
+
+          <% end %>
+        </div>
+
+
+
+
+        <div id="health" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="panel-body">
+
+          <% @health.each_with_index.each do | interest, index | %>
+          <% unless index < 5 %> 
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+            <% end %>
+          <% end %>
+          </div>
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+<!-- END -->
+
+<!-- BEGIN -->
+
+    <div class="panel panel-default" data-aos="fade-up">
+        <div class="panel-heading" href="#culture" >
+         Culture
+        </div>
+      <div class="culture" >
+        <div class="panel-body">
+         
+          <% @culture.first(5).each do |interest| %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+          <% end %>
+          <% if @culture.count > 5 %>
+
+
+
+          
+        <div class="col-md-2 col-xs-6">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#culture" aria-expanded="false" aria-controls="culture">
+            <%= image_tag("moreInt.png", class: "imageMore") %>
+          </div>
+        </div>
+
+
+
+          <% end %>
+        </div>
+
+
+
+
+        <div id="culture" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="panel-body">
+
+          <% @culture.each_with_index.each do | interest, index | %>
+          <% unless index < 5 %> 
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+            <% end %>
+          <% end %>
+          </div>
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+<!-- END -->
+
+
+
+<!-- BEGIN -->
+
+    <div class="panel panel-default" data-aos="fade-up">
+        <div class="panel-heading" href="#LGBTQA" >
+         LGBTQA+
+        </div>
+      <div class="LGBTQA" >
+        <div class="panel-body">
+         
+          <% @LGBTQA.first(5).each do |interest| %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+          <% end %>
+          <% if @LGBTQA.count > 5 %>
+
+
+
+          
+        <div class="col-md-2 col-xs-6">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#LGBTQA" aria-expanded="false" aria-controls="LGBTQA">
+            <%= image_tag("moreInt.png", class: "imageMore") %>
+          </div>
+        </div>
+
+
+
+          <% end %>
+        </div>
+
+
+
+
+        <div id="LGBTQA" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="panel-body">
+
+          <% @LGBTQA.each_with_index.each do | interest, index | %>
+          <% unless index < 5 %> 
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+            <% end %>
+          <% end %>
+          </div>
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+<!-- END -->
+
+
+
+<!-- BEGIN -->
+
+    <div class="panel panel-default" data-aos="fade-up">
+        <div class="panel-heading" href="#auto" >
+         Motor Vehicles
+        </div>
+      <div class="auto" >
+        <div class="panel-body">
+         
+          <% @auto.first(5).each do |interest| %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+          <% end %>
+          <% if @auto.count > 5 %>
+
+
+
+          
+        <div class="col-md-2 col-xs-6">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#auto" aria-expanded="false" aria-controls="auto">
+            <%= image_tag("moreInt.png", class: "imageMore") %>
+          </div>
+        </div>
+
+
+
+          <% end %>
+        </div>
+
+
+
+
+        <div id="auto" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="panel-body">
+
+          <% @auto.each_with_index.each do | interest, index | %>
+          <% unless index < 5 %> 
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+            <% end %>
+          <% end %>
+          </div>
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+<!-- END -->
+
+
+
+<!-- BEGIN -->
+
+    <div class="panel panel-default" data-aos="fade-up">
+        <div class="panel-heading" href="#perspective" >
+         Perspective
+        </div>
+      <div class="perspective" >
+        <div class="panel-body">
+         
+          <% @perspective.first(5).each do |interest| %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+          <% end %>
+          <% if @perspective.count > 5 %>
+
+
+
+          
+        <div class="col-md-2 col-xs-6">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#perspective" aria-expanded="false" aria-controls="perspective">
+            <%= image_tag("moreInt.png", class: "imageMore") %>
+          </div>
+        </div>
+
+
+
+          <% end %>
+        </div>
+
+
+
+
+        <div id="perspective" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="panel-body">
+
+          <% @perspective.each_with_index.each do | interest, index | %>
+          <% unless index < 5 %> 
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+            <% end %>
+          <% end %>
+          </div>
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+<!-- END -->
+
+
+
+<!-- BEGIN -->
+
+    <div class="panel panel-default" data-aos="fade-up">
+        <div class="panel-heading" href="#outdoors" >
+         Outdoors
+        </div>
+      <div class="outdoors" >
+        <div class="panel-body">
+         
+          <% @outdoors.first(5).each do |interest| %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+          <% end %>
+          <% if @outdoors.count > 5 %>
+
+
+
+          
+        <div class="col-md-2 col-xs-6">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#outdoors" aria-expanded="false" aria-controls="outdoors">
+            <%= image_tag("moreInt.png", class: "imageMore") %>
+          </div>
+        </div>
+
+
+
+          <% end %>
+        </div>
+
+
+
+
+        <div id="outdoors" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="panel-body">
+
+          <% @outdoors.each_with_index.each do | interest, index | %>
+          <% unless index < 5 %> 
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+            <% end %>
+          <% end %>
+          </div>
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+<!-- END -->
+
+
+
+
+<!-- BEGIN -->
+
+    <div class="panel panel-default" data-aos="fade-up">
+        <div class="panel-heading" href="#relationships" >
+         Relationships
+        </div>
+      <div class="relationships" >
+        <div class="panel-body">
+         
+          <% @relationships.first(5).each do |interest| %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+          <% end %>
+          <% if @relationships.count > 5 %>
+
+
+
+          
+        <div class="col-md-2 col-xs-6">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#relationships" aria-expanded="false" aria-controls="relationships">
+            <%= image_tag("moreInt.png", class: "imageMore") %>
+          </div>
+        </div>
+
+
+
+          <% end %>
+        </div>
+
+
+
+
+        <div id="relationships" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="panel-body">
+
+          <% @relationships.each_with_index.each do | interest, index | %>
+          <% unless index < 5 %> 
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+            <% end %>
+          <% end %>
+          </div>
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+<!-- END -->
+
+
+
+<!-- BEGIN -->
+
+    <div class="panel panel-default" data-aos="fade-up">
+        <div class="panel-heading" href="#sports" >
+         Sports 
+        </div>
+      <div class="sports" >
+        <div class="panel-body">
+         
+          <% @sports.first(5).each do |interest| %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+          <% end %>
+          <% if @sports.count > 5 %>
+
+
+
+          
+        <div class="col-md-2 col-xs-6">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#sports" aria-expanded="false" aria-controls="sports">
+            <%= image_tag("moreInt.png", class: "imageMore") %>
+          </div>
+        </div>
+
+
+
+          <% end %>
+        </div>
+
+
+
+
+        <div id="sports" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="panel-body">
+
+          <% @sports.each_with_index.each do | interest, index | %>
+          <% unless index < 5 %> 
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+            <% end %>
+          <% end %>
+          </div>
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+<!-- END -->
+
+
+<!-- BEGIN -->
+
+    <div class="panel panel-default" data-aos="fade-up">
+        <div class="panel-heading" href="#tech" >
+         Tech 
+        </div>
+      <div class="tech" >
+        <div class="panel-body">
+         
+          <% @tech.first(5).each do |interest| %>
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+          <% end %>
+          <% if @tech.count > 5 %>
+
+
+
+          
+        <div class="col-md-2 col-xs-6">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#tech" aria-expanded="false" aria-controls="tech">
+            <%= image_tag("moreInt.png", class: "imageMore") %>
+          </div>
+        </div>
+
+
+
+          <% end %>
+        </div>
+
+
+
+
+        <div id="tech" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="panel-body">
+
+          <% @tech.each_with_index.each do | interest, index | %>
+          <% unless index < 5 %> 
+              <div class="col-md-2 col-xs-6">
+              <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+
+
+
+
+            <div id="follow_<%= interest.id %>">
+          <% if @user.followingI?(interest) %>
+
+
+                  <%= render 'unfollowI', interest: interest %>
+
+
+
+
+                <% else %>
+
+
+                  <%= render 'followI', interest: interest %>
+
+
+                <% end %>
+
+          </div>
+
+
+
+
+
+            </div>
+            </div>
+            <% end %>
+          <% end %>
+          </div>
+
+        </div>
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+<!-- END -->
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+  
+</div>
+
+
 
 
 
@@ -1119,6 +2971,11 @@
 <% end %>
 
 </div>
+
+
+
+
+
   </div>
 
 

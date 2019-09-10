@@ -3,6 +3,32 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+.panel-default > .panel-heading {
+    background-color: #ffffff;
+    font-size: 23px;
+}
+
+
+.allInt {
+    display: none;
+}
+
+.imageMore{
+  width: 100%;
+  border-radius: 5px 5px 5px 5px;
+  height: 180px;
+}
+
+.interestMore {
+  cursor: pointer;
+  border-radius: 3px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  height: 180px;
+}
+
+
 
 .fileBtnSubmit2{
 
@@ -458,8 +484,8 @@ div .show-more[aria-expanded="true"]{
 }
 
 .titleSec {
-  font-size: 30px;
-  font-weight: 600;
+  font-size: 27px;
+  font-weight: 900;
   margin: 15px 0px;
   margin-bottom: 18px !important;
 }
@@ -1671,11 +1697,7 @@ body {
   font-size: 22px;
 }
 
-.titleSec {
-  font-size: 25px;
-  font-weight: 600;
-  margin: 10px 15px;
-}
+
 
 .innerModule {
   position: relative;
@@ -1977,8 +1999,6 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px) {
-
-
 
   .createAvatar{
     padding-left: 5px;
