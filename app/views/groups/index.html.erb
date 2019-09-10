@@ -38,7 +38,7 @@
               <%= link_to group, method: :get, class: "specialA" do %>
                 <div class="groupBlock">
                   <%= image_tag(group.image_url(:group), class: "groupImageDisc") if group.image? %>
-                  <div class="groupTitleDisc"><%= group.title %></div>
+                  <div class="groupTitleDisc"><%= truncate(group.title, length: 30) %></div>
                 </div>
               <% end %>
               </div>

@@ -7,6 +7,29 @@ class EventsController < ApplicationController
   def interests
     @interests = Interest.all
     @event = Event.find(params[:id])
+    # Interest List Start
+      @arts = Interest.where(category: "Arts")
+      @animals = Interest.where(category: "Animals")
+      @business = Interest.where(category: "Business")
+      @community = Interest.where(category: "Community")
+      @crafts = Interest.where(category: "Crafts")
+      @dance = Interest.where(category: "Dance")
+      @eating = Interest.where(category: "Eating & Drinking")
+      @education = Interest.where(category: "Education")
+      @entertainment = Interest.where(category: "Entertainment")
+      @fashion = Interest.where(category: "Fashion")
+      @fitness = Interest.where(category: "Fitness")
+      @games = Interest.where(category: "Games")
+      @health = Interest.where(category: "Health & Wellness")
+      @culture = Interest.where(category: "Culture")
+      @LGBTQA = Interest.where(category: "LGBTQA")
+      @auto = Interest.where(category: "Motor Sports")
+      @perspective = Interest.where(category: "Perspective")
+      @outdoors = Interest.where(category: "Outdoor")
+      @relationships = Interest.where(category: "Relationships")
+      @sports = Interest.where(category: "Sports")
+      @tech = Interest.where(category: "Tech")
+  # Interest List End
 
     unless current_user == @event.user
        redirect_to(@event, notice: "You cannot edit interests") and return

@@ -4,6 +4,62 @@
 
 
 
+
+.panel-default > .panel-heading {
+    background-color: #ffffff;
+    font-size: 23px;
+}
+
+
+.allInt {
+    display: none;
+}
+
+.imageMore{
+  width: 100%;
+  border-radius: 5px 5px 5px 5px;
+  height: 180px;
+}
+
+.interestMore {
+  cursor: pointer;
+  border-radius: 3px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  height: 180px;
+}
+
+
+
+.fileBtnSubmit2{
+
+  background-color: white;
+  width: 100%;
+  border: 1px solid #7fa6be;
+
+    border-radius: 5px;
+    color: #7fa6be;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: inherit;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    outline: none;
+    padding: 1.7rem 50px;
+    position: relative;
+    transition: all 0.3s;
+    vertical-align: middle;
+}
+
+.fileBtnSubmit2:hover{
+  background-color: #204d74;
+  color: white;
+}
+
+
+
 .fileBtnSubmit{
     border-color: #2e6da4;
   background-color: #7fa6be;
@@ -83,13 +139,13 @@
 
 .titleSecSub{
   font-size: 25px;
-  font-weight: 600;
+  font-weight: 900;
    margin: 20px;
 }
 
 .titleSecSub2{
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 900;
    margin: 20px;
 }
 
@@ -1122,7 +1178,7 @@ div.scrollEvents a {
 
 .titleSec{
 	font-size: 25px;
-	font-weight: 600;
+	font-weight: 900;
 	margin-top: 10px;
 	margin-left: 15px;
 	margin-right: 15px;

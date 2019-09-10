@@ -27,6 +27,11 @@
 <script>
     AOS.init();
 </script>
+  <style type="text/css">
+  .mobNav{
+    display: none !important;
+  }
+</style>
 
 
 
@@ -2960,12 +2965,12 @@
 
 <div class="col-md-12">
 <% if @user.sign_in_count == 1 %>
-  <div class="actions col-md-12 create">
+  <div class="actions col-md-12 col-xs-12 create">
     <%= button_to "Confirm", avatar_user_path(@user), method: :get, class: "fileBtnSubmit" %>
   </div>
 
 <% else %>
-  <div class="actions col-md-12 create">
+  <div class="actions col-md-12 col-xs-12 create">
     <%= button_to "Confirm", @user, method: :get, class: "fileBtnSubmit" %>
   </div>
 <% end %>
