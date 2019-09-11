@@ -41,7 +41,7 @@
                   <div class="eventContentDisc">
                     <div class="eventDateDisc"><%= event.event_date.strftime('%B %e') %></div>
                   </div>
-                  <div class="groupTitleDisc"><%= event.title %></div>
+                  <div class="groupTitleDisc"><%= truncate(event.title, length: 35) %></div>
 
 
                 </div>
@@ -68,7 +68,7 @@
                         <div class="eventContent1">
                           <div class="eventDateI"><%= eventsFollowing.event_date.strftime('%B %e') %></div>
                         </div>
-                        <div class="groupTitleI"><%= eventsFollowing.title %></div>
+                        <div class="groupTitleI"><%= truncate(eventsFollowing.title, length: 30) %></div>
                       </div>
                     <% end %>
                   <% end %>
@@ -96,7 +96,7 @@
                         <div class="eventContent1">
                           <div class="eventDateI"><%= events.event_date.strftime('%B %e') %></div>
                         </div>
-                        <div class="groupTitleI"><%= events.title %></div>
+                        <div class="groupTitleI"><%= truncate(events.title, length: 30) %></div>
                       </div>
                     <% end %>
                   <% end %>

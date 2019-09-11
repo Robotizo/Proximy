@@ -62,7 +62,7 @@
                     <%= link_to groupFollowing, method: :get, class: "specialA item" do %>
                       <div class="groupBlock">
                         <%= image_tag(groupFollowing.image_url(:group), class: "groupImageI") if groupFollowing.image? %>
-                        <div class="groupTitleI"><%= groupFollowing.title %></div>
+                        <div class="groupTitleI"><%= truncate(groupFollowing.title, length: 30) %></div>
                       </div>
                     <% end %>
                   <% end %>
@@ -86,7 +86,7 @@
                     <%= link_to group, method: :get, class: "specialA item" do %>
                       <div class="groupBlock">
                         <%= image_tag(group.image_url(:group), class: "groupImageI") if group.image? %>
-                        <div class="groupTitleI"><%= group.title %></div>
+                        <div class="groupTitleI"><%= truncate(group.title, length: 30) %></div>
                       </div>
                     <% end %>
                   <% end %>

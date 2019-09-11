@@ -181,6 +181,28 @@
 }
 
 
+.scrollGroupsI::-webkit-scrollbar-track {
+  background: none;
+}
+
+.scrollGroupsI::-webkit-scrollbar {
+  height: 10px;
+}
+
+
+.scrollGroupsI::-webkit-scrollbar:active {
+  height: 30px;
+}
+
+
+
+.scrollGroupsI::-webkit-scrollbar-thumb {
+  background: rgb(212, 224, 231);
+  border-radius: 5px;
+}
+
+
+
 .scrollEvents::-webkit-scrollbar-track {
   background: none;
 }
@@ -1026,6 +1048,8 @@ div.scrollGroupsI {
     white-space: nowrap;
         height: 290px;
         overflow-y: hidden; 
+            overflow-x: scroll; /* Must be 'scroll' not 'auto' */
+    -webkit-overflow-scrolling: touch;
 
 }
 

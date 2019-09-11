@@ -169,6 +169,28 @@
 
 /* MASONRY */
 
+
+.scrollGroupsI::-webkit-scrollbar-track {
+  background: none;
+}
+
+.scrollGroupsI::-webkit-scrollbar {
+  height: 10px;
+}
+
+
+.scrollGroupsI::-webkit-scrollbar:active {
+  height: 30px;
+}
+
+
+
+.scrollGroupsI::-webkit-scrollbar-thumb {
+  background: rgb(212, 224, 231);
+  border-radius: 5px;
+}
+
+
 .scrollEvents::-webkit-scrollbar-track {
   background: none;
 }
@@ -1011,8 +1033,10 @@ div .show-more[aria-expanded="true"]{
 div.scrollGroupsI {
     overflow: auto;
     white-space: nowrap;
-    height: 320px;
-    overflow-y: hidden;
+        height: 320px;
+        overflow-y: hidden; 
+            overflow-x: scroll; /* Must be 'scroll' not 'auto' */
+    -webkit-overflow-scrolling: touch;
 
 }
 
@@ -1022,6 +1046,7 @@ div.scrollGroupsI a {
     padding: 10px;
     text-decoration: none;
 }
+
 
 .separate{
 	margin-bottom: 10px;
