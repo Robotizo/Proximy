@@ -17,7 +17,10 @@ class NotificationsController < ApplicationController
 
 
 		events = Event.where(group_id: followingGroupsIds)
-		@eventNotifs = EventNotif.where(user_id: current_user)
+		@eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
+
+		events = Event.where(group_id: followingGroupsIds)
+		@eventNotifsPage = EventNotif.where(user_id: current_user)
 
 
 

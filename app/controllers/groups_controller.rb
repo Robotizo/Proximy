@@ -50,7 +50,7 @@ class GroupsController < ApplicationController
     @groupsFollow = Group.find(params = followingGroupsIds).sort_by &:updated_at
 
     @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
-    @eventNotifs = EventNotif.where(user_id: current_user)
+    @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
 
   end
 
@@ -64,7 +64,7 @@ class GroupsController < ApplicationController
 
 
     @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
-    @eventNotifs = EventNotif.where(user_id: current_user)
+    @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
 
 
 

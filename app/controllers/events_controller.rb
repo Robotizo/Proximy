@@ -46,7 +46,7 @@ class EventsController < ApplicationController
     @eventsFollow = Event.find(params = followingEventsIds).sort_by &:event_date
 
     @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
-    @eventNotifs = EventNotif.where(user_id: current_user)
+    @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
 
   end
 
@@ -59,7 +59,7 @@ class EventsController < ApplicationController
     @eventFollowers = User.find(params = followingEventIds).sort_by &:updated_at
 
     @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
-    @eventNotifs = EventNotif.where(user_id: current_user)
+    @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
 
 
   end

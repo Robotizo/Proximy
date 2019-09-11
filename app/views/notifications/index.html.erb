@@ -43,7 +43,7 @@
 <% end %>
 
 
-<% if @eventNotifs.present? %>
+<% if @eventNotifsPage.present? %>
 <div class="container">
 	<div class="titleSecSub">New events from your groups</div>
 </div>
@@ -51,7 +51,7 @@
 
 
 <div class="container noPad3">
-	<% @eventNotifs.reverse.each do |eventNotif| %>
+	<% @eventNotifsPage.reverse.each do |eventNotif| %>
 
 			<div class="col-md-4">
 <%= link_to update_notif_notification_path(eventNotif), method: :patch, class: "specialA" do %>
@@ -95,7 +95,7 @@
 
 
 
-<% unless @userFriendships.present? or @eventNotifs.present? %>
+<% unless @userFriendships.present? or @eventNotifsPage.present? %>
 	<div class="container">
 		
 		<div class="text-center">

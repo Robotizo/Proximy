@@ -80,9 +80,8 @@ class UsersController < ApplicationController
   # GET /users/1 
   # GET /users/1.json
   def show
-
     @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
-    @eventNotifs = EventNotif.where(user_id: current_user)
+    @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
     @friendships = Friendship.where(user_id: @user.id, friend_id: current_user.id, status: "pending")
 
 

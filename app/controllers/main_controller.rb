@@ -7,7 +7,7 @@ class MainController < ApplicationController
 	  		@events = Event.all.sort_by {|event| event.eventsInterest(current_user)}.reverse
 	  		@groups = Group.all.sort_by {|group| group.groupsInterest(current_user)}.reverse
 	  		@userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
-	  		@eventNotifs = EventNotif.where(user_id: current_user)
+	  		@eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
 	  	end
 
 

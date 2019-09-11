@@ -1331,6 +1331,8 @@ div.scrollMembers {
     white-space: nowrap;
     height: auto;
     overflow-y: hidden;
+    overflow-x: scroll; /* Must be 'scroll' not 'auto' */
+    -webkit-overflow-scrolling: touch;
 }
 
 div.scrollMembers a {
@@ -1363,8 +1365,10 @@ div.scrollMembersEvents a {
 div.scrollMembersGroups {
     overflow: auto;
     white-space: nowrap;
-    height: 320px;
+    height: 285px;
     overflow-y: hidden;
+    overflow-x: scroll; /* Must be 'scroll' not 'auto' */
+    -webkit-overflow-scrolling: touch;
 }
 
 div.scrollMembersGroups a {

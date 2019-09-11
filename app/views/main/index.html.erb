@@ -47,6 +47,7 @@ $(document).ready(function(){
     body {
       opacity: 1;
       transition: 1s opacity;
+      visibility: visible;
     }
     body.fade-out {
         opacity: 0;
@@ -64,7 +65,13 @@ $(document).ready(function(){
 
   <script type="text/javascript">
       $(document).ready(function() {
-        $('#pagepiling').pagepiling();
+        if (window.innerWidth > 776) {
+          $('#pagepiling').pagepiling();
+        }
+        else{
+
+        }
+        
       });
   </script>
 
@@ -104,15 +111,79 @@ $(document).ready(function(){
     -webkit-animation:fade3 30s infinite;
     }
 
+      #pagepiling{
+        display: block !important;
+      }
+
+      .simple{
+        display: none !important;
+      }
+
     @media screen and (max-width: 776px){
       .bottomNav{
         display: none;
+      }
+
+      #pagepiling{
+        display: none !important;
+      }
+
+      .simple{
+        display: block !important;
       }
     }
 
   </style>
 
   <!-- Front Page Start -->
+
+
+  <div class="simple">
+    <div class="junk">
+      <%= image_tag("proximyLogo.png", class: "logoImage") %>
+      <div class='titleSub'>Get involved in <strong>your</strong> community with people like <strong>you</strong>.</div>  
+      <div class='button '><%= button_to "Get Started", signup_path, method: :get, class: "btnFront" %></div> 
+      <div class='button2'><%= button_tag "Sign In" ,  class: "btnFront2" %></div> 
+    </div>
+    <div class="centerDiv">
+
+  
+        <div class="logoParent">
+            <%= image_tag("proximy_inv_t.png", class: "logoImg") %>
+        </div>
+
+       
+            <div class="text-center logField">
+                <div class="logField-edits">
+                    <%= form_for(:session, url: login_path) do |f| %>
+                    <div class="emailField">
+                        <%= f.email_field :email, class: 'form-control' , placeholder: "Email" %>
+                    </div>
+                    <div class="passField">
+                        <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
+                    </div>
+                </div>
+
+                <div class="text-center loginSec">
+                     <%= f.submit "Log in", class: "fileBtnSubmitSign" %>
+                </div>
+            
+                <% end %>
+
+
+                <div class="text-center loginSec2">
+                     <%= button_to "Sign up", signup_path, method: :get, class: "fileBtnSubmitSign2" %>s
+                </div>
+
+            </div>
+        
+   
+    <div class="mobileBottom"></div>
+</div>
+        
+      <%= image_tag("image1.jpg", class: "imageHere") %>
+
+  </div>
 
 
 <div id="pagepiling">
@@ -148,9 +219,13 @@ $(document).ready(function(){
                 <div class="text-center loginSec">
                      <%= f.submit "Log in", class: "fileBtnSubmitSign" %>
                 </div>
-
             
                 <% end %>
+
+
+                <div class="text-center loginSec">
+                     <%= button_to "Sign up", signup_path, method: :get, class: "fileBtnSubmitSign2" %>s
+                </div>
 
             </div>
         
