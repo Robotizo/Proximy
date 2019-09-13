@@ -3,7 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+.panel-default > .panel-interest{
+    background-color: #ffffff;
+    font-size: 18px;
+    font-weight: 900;
+}
+.panel-default > .panel-heading {
+    background-color: #ffffff;
+    font-size: 23px;
+}
 
+
+div .panel-interest{
+    border-bottom: #6c95af 3px solid;
+}
 
 .panel-default > .panel-heading {
     background-color: #ffffff;
@@ -1075,7 +1088,7 @@ div.scrollGroupsI a {
 .topTitle2{
 	font-size: 25px;
 	margin: 20px;
-	font-weight: 600;
+	font-weight: 900;
 }
 .groupTitleI{
 	padding-bottom: 25px;
@@ -1089,10 +1102,8 @@ div.scrollGroupsI a {
 }
 
 .groupTitleDisc{
-    font-weight: 700;
-    font-size: 14px;
-    margin-left: 2px;
-    margin-right: 2px;
+    font-weight: 900;
+    font-size: 16px;
     margin-bottom: 5px;
     margin-top: 5px;
     margin-top: 10px;
@@ -1571,6 +1582,12 @@ div.scrollEvents{
 }
 
 @media screen and (max-width: 776px){
+  .groupTitleDisc{
+    font-size: 14px;
+  }
+  .panel-default > .panel-interest{
+    font-size: 14px;
+  }
   .t1{
     display: flex; 
     flex-flow: column-reverse;
@@ -1708,7 +1725,7 @@ div.scrollEvents{
 		margin-bottom: 20px;
 		margin-left: 10px;
 		margin-right: 10px;
-		font-weight: 600;
+		font-weight: 900;
 	}
 
 	.mobNavs{

@@ -2,10 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
-
+.panel-default > .panel-interest{
+    background-color: #ffffff;
+    font-size: 18px;
+    font-weight: 900;
+}
 .panel-default > .panel-heading {
     background-color: #ffffff;
     font-size: 23px;
+}
+
+
+div .panel-interest{
+    border-bottom: #6c95af 3px solid;
+}
+
+.interestSec{
+  border-bottom: 1px solid #cacaca !important;
 }
 
 
@@ -676,9 +689,7 @@ div#modalPostImage {
    margin: 20px;
 }
 
-div .panel-heading[aria-expanded="true"]{
-    border-bottom: #6c95af 3px solid;
-}
+
 
 div .show-more[aria-expanded="true"]{
 	content: "Test"
@@ -703,6 +714,11 @@ div .show-more[aria-expanded="true"]{
 }
 .panel-default > .panel-heading{
 	    background-color: #ffffff;
+}
+
+
+.panel-default > .panel-interest{
+      background-color: #ffffff;
 }
 
 
@@ -993,7 +1009,7 @@ div .show-more[aria-expanded="true"]{
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-weight: 600;
+    font-weight: 800;
     font-size: 20px;
     white-space: normal;
     color: white;
@@ -1004,7 +1020,7 @@ div .show-more[aria-expanded="true"]{
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-weight: 600;
+    font-weight: 800;
     font-size: 20px;
     white-space: normal;
     color: white;
@@ -1026,8 +1042,8 @@ div .show-more[aria-expanded="true"]{
     /* background-color: #00000054; */
     padding: 10px;
     /* opacity: 0.8; */
-        border-radius: 0px 0px 5px 5px;
-        background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
+        border-radius: 0px 0px 9px 9px;
+        background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
 }
 
 div.scrollGroupsI {
@@ -1063,7 +1079,7 @@ div.scrollGroupsI a {
 .topTitle2{
 	font-size: 25px;
 	margin: 20px;
-	font-weight: 600;
+	font-weight: 900;
 }
 .groupTitleI{
     text-align: left;
@@ -1071,7 +1087,7 @@ div.scrollGroupsI a {
     padding-top: 10px;
     padding-bottom: 10px;
     position: relative;
-    font-weight: 600;
+    font-weight: 900;
     margin: 5px;
     top: -75px;
     font-size: 20px;
@@ -1085,7 +1101,7 @@ div.scrollGroupsI a {
     padding-top: 10px;
     padding-bottom: 10px;
     position: relative;
-    font-weight: 600;
+    font-weight: 900;
     margin-top: 5px;
     margin-left: 2px; 
     margin-right: 2px;
@@ -1504,6 +1520,9 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px){
+  .panel-default > .panel-interest{
+    font-size: 14px;
+  }
 
   .fileBtnSubmit {
      padding: 1rem 0px;
@@ -1517,8 +1536,8 @@ div.scrollEvents a {
   }
 
   .descMap{
-    padding-left: 5px !important;
-    padding-right: 5px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
   }
   #map{
     margin-top: 20px;
@@ -1613,7 +1632,7 @@ div.scrollEvents a {
 		margin-bottom: 20px;
 		margin-left: 10px;
 		margin-right: 10px;
-		font-weight: 600;
+		font-weight: 900;
 	}
 	.eventImgTitle{
 		border-radius: 0px;
@@ -1622,7 +1641,7 @@ div.scrollEvents a {
 		font-size: 14px !important;
 	}
 	.interestSec{
-		margin-top: 20px;
+		margin-top: 35px;
 		float: left;
 		width: 100%;
 	}
@@ -1671,7 +1690,7 @@ div.scrollEvents a {
 
 	.eventContentDisc{
 	    position: relative;
-	         top: -68px;
+	         top: -65px;
 	}
 	.groupTitleI{
 		font-size: 16px;

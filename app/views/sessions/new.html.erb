@@ -1,6 +1,27 @@
 <%= stylesheet_link_tag "sessions", :media => "all" %>
 
 
+
+<!-- *pno = P2 from Workson -->
+<!-- *resp = Manager from Workson -->
+<!-- *resp = Manager AND dur > 40 from Workson -->
+
+
+
+<!-- ^rep and durfrom Workson -->
+<!-- ^eno Workson -->
+<!-- ^pno Workson -->
+
+
+
+    <% if flash[:notice] %>
+<div class="alertSign alert-success" role="alert">
+  <%= notice %>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<% end %>
 <style>
     body{
          overflow-y:hidden;
@@ -15,6 +36,9 @@
 </style>
 <%= image_tag("image1.jpg", class: "imageHere") %>
 <div class="centerDiv">
+
+
+
 
   
         <div class="logoParent">
@@ -48,3 +72,10 @@
    
     <div class="mobileBottom"></div>
 </div>
+
+
+
+
+
+
+

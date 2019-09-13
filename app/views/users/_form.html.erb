@@ -91,14 +91,14 @@
 
   <br />
 <% if action_name == 'new' or action_name == 'create' %>
-  <div class="text-center loginSec">
+  <div class="text-center loginSec col-xs-12">
         <%= f.submit "Confirm", class: "fileBtnSubmitSign", id: "submitButtonId" %>
     </div>
 <% end %>
 
 
 <% if action_name == 'edit' or action_name == 'update' or action_name == "avatar" %>
-  <div class="actions col-md-12 create">
+  <div class="actions col-md-12 create col-xs-12">
     <%= f.submit "Confirm", class: "fileBtnSubmit" %>
   </div>
 

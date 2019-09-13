@@ -33,6 +33,7 @@
 
 
           <% @events.each do |event| %>
+          <% if Date.today <= event.event_date %>
 
             <div class="col-md-4 col-xs-12 testMarge" data-aos="fade-up">
               <%= link_to event, method: :get, class: "specialA" do %>
@@ -42,13 +43,10 @@
                     <div class="eventDateDisc"><%= event.event_date.strftime('%B %e') %></div>
                   </div>
                   <div class="groupTitleDisc"><%= truncate(event.title, length: 35) %></div>
-
-
                 </div>
               <% end %>
               </div>
-
-
+          <% end %>
           <% end %>
 
 

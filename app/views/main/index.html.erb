@@ -172,7 +172,7 @@ $(document).ready(function(){
 
 
                 <div class="text-center loginSec2">
-                     <%= button_to "Sign up", signup_path, method: :get, class: "fileBtnSubmitSign2" %>s
+                     <%= button_to "Not a member? Sign Up", signup_path, method: :get, class: "fileBtnSubmitSign2" %>s
                 </div>
 
             </div>
@@ -208,6 +208,8 @@ $(document).ready(function(){
             <div class="text-center logField">
                 <div class="logField-edits">
                     <%= form_for(:session, url: login_path) do |f| %>
+
+
                     <div class="emailField">
                         <%= f.email_field :email, class: 'form-control' , placeholder: "Email" %>
                     </div>
@@ -224,7 +226,7 @@ $(document).ready(function(){
 
 
                 <div class="text-center loginSec">
-                     <%= button_to "Sign up", signup_path, method: :get, class: "fileBtnSubmitSign2" %>s
+                     <%= button_to "Creat an account", signup_path, method: :get, class: "fileBtnSubmitSign2" %>s
                 </div>
 
             </div>
@@ -499,7 +501,7 @@ $(document).ready(function(){
 
 <div style="margin-top: 60px;">
   <div class="container">
-    <div class="titleSec">People near you</div>
+    <div class="titleSec">People Near You</div>
   </div>
   <div class="scrollMembers container ">
   
@@ -537,15 +539,15 @@ $(document).ready(function(){
 
 <div style="margin-top: 20px;">
   <div class="container">
-    <div class="titleSec">Events near you</div>
+    <div class="titleSec">Events Near You</div>
   </div>
 
 
 
     <div class="scrollMembersEvents container " data-aos="fade-up">
   
-    <% @events.first(5).each do |event| %>
-
+    <% @events.first(10).each do |event| %>
+     <% if Date.today <= event.event_date %>
       <%= link_to event, method: :get, class: "specialA" do %>
         <div class="groupBlock">
           <%= image_tag(event.image_url(:event), class: "groupImageDisc") if event.image? %>
@@ -554,6 +556,7 @@ $(document).ready(function(){
             </div>
             <div class="groupTitleDisc"><%= truncate(event.title, length: 35) %></div>
         </div>
+       <% end %>
       <% end %>
 
     <% end %>
@@ -563,20 +566,20 @@ $(document).ready(function(){
 
 <div style="margin-top: 20px;">
   <div class="container">
-    <div class="titleSec">Groups to join</div>
+    <div class="titleSec">Groups To Join</div>
   </div>
 
 
 
     <div class="scrollMembersGroups container" data-aos="fade-up">
   
-    <% @groups.first(5).each do |group| %>
+    <% @groups.first(10).each do |group| %>
 
       <%= link_to group, method: :get, class: "specialA" do %>
         <div class="groupBlock">
           <%= image_tag(group.image_url(:group), class: "groupImageDisc") if group.image? %>
 
-            <div class="groupTitleDisc2"><%= truncate(group.title, length: 35) %></div>
+            <div class="groupTitleDisc2"><%= truncate(group.title, length: 25) %></div>
         </div>
       <% end %>
 

@@ -163,7 +163,7 @@
     <div class="panel panel-default">
 
 
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#animals" aria-expanded="false">
+          <div class="panel-interest accordion-toggle" data-toggle="collapse" href="#animals" aria-expanded="false">
                 Interests in Common <div class="show-more">Open</div>
             </div>
 
@@ -421,7 +421,7 @@
     </div>
 
 
-
+</div>
 
 <% if @user.friends.include?(current_user) or @user == current_user %>
     <div class="eventsSection">
@@ -429,6 +429,7 @@
       <div class="scrollEvents scrollable">
         <% if !@eventsFollow.empty? %>
           <% @eventsFollow.each do |eventsFollowing| %>
+          <% if Date.today <= eventsFollowing.event_date %>
             <%= link_to eventsFollowing, method: :get, class: "specialA" do %>
               <div class="userEvents">
                 <div class="eventImage">
@@ -439,18 +440,19 @@
                 </div>
                 <div class="eventOverall">
                   <div class="eventContent">
-                    <div class="titleGroups"><%= truncate(eventsFollowing.title, length: 40) %></div>
+                    <div class="titleGroups"><%= truncate(eventsFollowing.title, length: 30) %></div>
                   </div>
                   <div class="creatorSign">
                     <div class="imageUserEvent">
                       <%= image_tag(eventsFollowing.user.avatar_url(:thumb), class: "userImage2") if eventsFollowing.user.avatar? %>
                     </div>
                     <div class="contentUserPost">
-                      <span class="poster"><%= eventsFollowing.user.name %></span>
+                      <span class="poster"><%= truncate(eventsFollowing.user.name, length: 30) %></span>
                     </div>
                   </div>
                 </div>
               </div>
+            <% end %>
             <% end %>
           <% end %>
 
@@ -463,7 +465,6 @@
       </div>
     </div>
 
-  </div>
 
     <div class="eventsSection">
       <div class="titleSec">Groups</div>
@@ -476,7 +477,7 @@
                   <%= image_tag(groupsFollowing.image_url(:group), class: "groupImage1") if groupsFollowing.image? %>
                 </div>
                 <div class="eventContent">
-                  <div class="titleGroups"><%= groupsFollowing.title %></div>
+                  <div class="titleGroups"><%= truncate(groupsFollowing.title, length: 25) %></div>
                 </div>
                 <% if groupsFollowing.user.present? %>
                 <div class="creatorSign">
@@ -486,7 +487,7 @@
                   
                   </div>
                   <div class="contentUserPost">
-                    <span class="poster"><%= groupsFollowing.user.name %></span>
+                    <span class="poster"><%= truncate(groupsFollowing.user.name, length: 30) %></span>
                   </div>
                 </div>
                 <% end %>
@@ -500,12 +501,14 @@
         <% end %>
       </div>
     </div>
+
+
   <% else %>
   <% end %>
   </div>
 </div>
 
-
+  </div>
 
 
 

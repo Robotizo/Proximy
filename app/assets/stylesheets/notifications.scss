@@ -34,18 +34,21 @@
 
 }
 
-.interestTitleSec{
-  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
+.interestTitleSec {
   position: relative;
-  top: -44px;
-  border-radius: 0px 0px 5px 5px;
+  top: -65px;
+  /* background-color: #00000054; */
+  padding: 10px;
+  /* opacity: 0.8; */
+  border-radius: 0px 0px 9px 9px;
+  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
 }
 
 
 .interestName{
     font-size: 18px;
-    padding: 10px;
-    font-weight: 700;
+    padding: 10px 0px;
+    font-weight: 800;
     color: white;
 }
 
@@ -55,10 +58,10 @@
     font-size: 18px;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-weight: 700;
+    font-weight: 900;
     color: black;
     position: relative;
-    top: -40px;
+    top: -64px;
 }
 
 
@@ -121,7 +124,7 @@
 
 .interestImageEventSeen{
   width: 100%;
-  border-radius: 5px;
+  border-radius: 8px;
   border: 0px;
 }
 
@@ -136,14 +139,14 @@
 
 .titleSecSub {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 900;
   margin: 15px 0px;
   margin-bottom: 10px !important;
 }
 
 .titleSec {
   font-size: 30px;
-  font-weight: 600;
+  font-weight: 900;
   margin: 15px 0px;
   margin-bottom: 10px !important;
 }

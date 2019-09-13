@@ -81,7 +81,7 @@
   /* background-color: #00000054; */
   padding: 10px;
   /* opacity: 0.8; */
-  border-radius: 0px 0px 5px 5px;
+  border-radius: 0px 0px 9px 9px;
   background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
 }
 
@@ -91,7 +91,7 @@
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-weight: 600;
+    font-weight: 800;
     font-size: 20px;
     white-space: normal;
     color: white;
@@ -103,7 +103,7 @@
   padding-top: 10px;
   padding-bottom: 10px;
   position: relative;
-  font-weight: 600;
+  font-weight: 900;
   margin-top: 5px;
   margin-left: 2px; 
   margin-right: 2px;
@@ -120,13 +120,13 @@
   padding-top: 10px;
   padding-bottom: 10px;
   position: relative;
-  font-weight: 600;
+  font-weight: 900;
   margin-top: 5px;
   margin-left: 2px; 
   margin-right: 2px;
   margin-bottom: 5px;
 
-  font-size: 14px;
+  font-size: 18px;
   white-space: normal;
 
 }
@@ -1251,8 +1251,8 @@
 }
 
 .titleSec {
-  font-size: 30px;
-  font-weight: 600;
+  font-size: 28px;
+  font-weight: 900;
   margin: 15px 0px;
   margin-bottom: 10px !important;
 }
@@ -1304,13 +1304,13 @@
 
 .followerNameSec{
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 900;
   margin: 5px 10px;
 }
 
 .followerNameSec2{
   font-size: 10px;
-    font-weight: 600;
+    font-weight: 900;
     margin: 5px 10px;
 }
 
@@ -1560,7 +1560,7 @@ img.userImage2 {
 
 .card-text:last-child {
   margin-bottom: 0;
-  font-weight: 600;
+  font-weight: 900;
 }
 
 .card-link:hover {
@@ -2128,7 +2128,7 @@ img.userImage2 {
     font-size: 20px;
   }
   .followerNameSec{
-    font-weight: 700;
+    font-weight: 900;
   }
   .userImg{
     height: 85px;
@@ -2151,6 +2151,9 @@ img.userImage2 {
 
 
 @media screen and (max-width: 776px){
+  div.scrollMembers a{
+    padding: 0px !important;
+  }
   .card-body{
     display: none;
   }

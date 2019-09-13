@@ -60,8 +60,6 @@ class EventsController < ApplicationController
 
     @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
     @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
-
-
   end
 
   # GET /events/new

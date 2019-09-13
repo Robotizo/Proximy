@@ -220,13 +220,15 @@ class User < ApplicationRecord
 
 
   def userInterests(currentUser)
+    if currentUser.followingI.count > 0
 
-    collide = currentUser.followingI.ids & self.followingI.ids
-    @ccI = collide.count.to_f / currentUser.followingI.ids.count.to_f
-    
-    return @ccI.round(2)
-
-
+      collide = currentUser.followingI.ids & self.followingI.ids
+      @ccI = collide.count.to_f / currentUser.followingI.ids.count.to_f
+      
+      return @ccI.round(2)
+    else 
+      return 0
+    end
   end
 
 

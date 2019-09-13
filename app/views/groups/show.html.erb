@@ -111,8 +111,8 @@
 
 <div class="container mobNavs">
     <div class="panel panel-default interestSec">
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#animals" aria-expanded="false">
-                Interests in group <div class="show-more">Open</div>
+          <div class="panel-interest accordion-toggle" data-toggle="collapse" href="#animals" aria-expanded="false">
+                View interests in group <div class="show-more">Open</div>
             </div>
 
       <div id="animals" class="panel-collapse collapse" data-parent="#accordion">
@@ -539,7 +539,7 @@
 
 <script>
       $(function () { 
-      $('.panel-heading').on('click', function (e) {
+      $('.panel-interest').on('click', function (e) {
           var menuItem = $( e.currentTarget );
 
           if (menuItem.attr('aria-expanded') === 'true') {

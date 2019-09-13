@@ -32,11 +32,15 @@ class Group < ApplicationRecord
 
 
     def groupsInterest(currentUser)
+    	if currentUser.followingI.count > 0
 
-	    collideGroups = currentUser.followingI.ids & self.fgI.ids
-	    groupsCCI = collideGroups.count.to_f / currentUser.followingI.ids.count.to_f
-	    
-	    return groupsCCI.round(2)
+		    collideGroups = currentUser.followingI.ids & self.fgI.ids
+		    groupsCCI = collideGroups.count.to_f / currentUser.followingI.ids.count.to_f
+		    
+		    return groupsCCI.round(2)
+		else
+			return 0
+		end 
   	end
 
 

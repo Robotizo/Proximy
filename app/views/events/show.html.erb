@@ -60,13 +60,14 @@
 
 
       <% if current_user == @event.user %>
+      <% if Date.today <= @event.event_date %>
           <div class="adminPos">
 
             <div class="col-md-4 col-xs-12 noPad3">
 
               <% if current_user.followingE?(@event) %>
 
-
+              
                 <%= form_for(current_user.active_relationships_events.find_by(followedE_id: @event.id), html: { method: :delete }) do |f| %>
                   <div class="attendingState"><%= f.submit "Attending Event", class: "btn  btn-primary unAttendGroupBtn greenAttend" %></div>
                   <div class="notAttendingState"><%= f.submit "Cancel", class: "btn  btn-primary unAttendGroupBtn" %></div>
@@ -97,17 +98,30 @@
 
 
           </div>
+        <% else %>
+                  <div class="col-md-12 col-xs-12 noPad3">
+           <%= button_tag "This event already happened", class: "btn btn-primary attendEventBtn" %>
+        </div>
+
+        <% end %>
+
+
+
 
       <% else %>
 
 
-
+     <% if Date.today <= @event.event_date %>
           <% if current_user.followingE?(@event) %>
             <%= render partial: "unfollowEvent" %>
           <% else %>
             <%= render partial: "followEvent" %>
           <% end %>
-
+      <% else %>
+        <div class="col-md-12 col-xs-12 noPad3">
+           <%= button_tag "This event already happened", class: "btn btn-primary attendEventBtn" %>
+        </div>
+      <% end %>
 
       <% end %>
     </div>
@@ -121,8 +135,8 @@
 
 <div class="container mobNavs">
   <div class="panel panel-default interestSec">
-    <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#animals" aria-expanded="false">
-      Interests in event <div class="show-more">Open</div>
+    <div class="panel-interest accordion-toggle" data-toggle="collapse" href="#animals" aria-expanded="false">
+      View interests in event <div class="show-more">Open</div>
     </div>
 
     <div id="animals" class="panel-collapse collapse" data-parent="#accordion">
@@ -522,7 +536,7 @@
 
 
         $(function () { 
-      $('.panel-heading').on('click', function (e) {
+      $('.panel-interest').on('click', function (e) {
           var menuItem = $( e.currentTarget );
 
           if (menuItem.attr('aria-expanded') === 'true') {

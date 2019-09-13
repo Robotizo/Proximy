@@ -48,11 +48,14 @@ class Event < ApplicationRecord
 
 
     def eventsInterest(currentUser)
-
-	    collideEvents = currentUser.followingI.ids & self.fgE.ids
-	    eventsCCI = collideEvents.count.to_f / currentUser.followingI.ids.count.to_f
-	    
-	    return eventsCCI.round(2)
+    	if currentUser.followingI.count > 0
+		    collideEvents = currentUser.followingI.ids & self.fgE.ids
+		    eventsCCI = collideEvents.count.to_f / currentUser.followingI.ids.count.to_f
+		    
+		    return eventsCCI.round(2)
+		else 
+      		return 0
+    	end
   	end
 
 end

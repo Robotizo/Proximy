@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   def discover
     @user = current_user
     @users = User.all.sort_by {|user| user.userInterests(current_user) + user.ccLocation(current_user.latitude, current_user.longitude) }.reverse
+    @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
+    @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
   end
 
   def interests
@@ -56,7 +58,7 @@ class UsersController < ApplicationController
     if user
       user.update_attribute(:email_confirmed, true)
       user.update_attribute(:confirm_token, nil)
-      redirect_to login_path, notice: 'IT WORKS'
+      redirect_to login_path, notice: 'Thank you for confirming your email.'
     else
       flash[:error] = "Sorry. User does not exist"
       redirect_to root_url
@@ -133,7 +135,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         UserMailer.registration_confirmation(@user).deliver
-        format.html { redirect_to login_path, notice: 'User was successfully created.' }
+        format.html { redirect_to login_path, notice: 'Please confirm your email to sign in.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
