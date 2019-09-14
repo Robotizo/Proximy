@@ -5,6 +5,9 @@ class InterestsController < ApplicationController
   # GET /interests.json
   def index
     @interests = Interest.all
+    if current_user.is_admin == false or current_user.is_admin == nil
+      redirect_to root_path
+    end
   end
 
   # GET /interests/1

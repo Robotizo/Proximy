@@ -70,12 +70,13 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all.sort_by {|user| user.userInterests(current_user) + user.ccLocation(current_user.latitude, current_user.longitude) }.reverse
-
-
     @user = current_user
-
-
     @latTest = params[:lat]
+
+
+    if current_user.is_admin == false or current_user.is_admin == nil
+      redirect_to root_path
+    end
 
   end
 

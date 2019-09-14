@@ -1959,6 +1959,8 @@ body {
 div.scrollGroups {
   overflow: auto;
   white-space: nowrap;
+  overflow-x: scroll; /* Must be 'scroll' not 'auto' */
+  -webkit-overflow-scrolling: touch;
 }
 
 div.scrollGroups a {
