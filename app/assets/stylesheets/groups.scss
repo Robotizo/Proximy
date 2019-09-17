@@ -883,7 +883,7 @@ div .show-more[aria-expanded="true"]{
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
-  font-weight: 600;
+  font-weight: 900;
   font-size: 28px;
   white-space: nowrap;
   color: white;
@@ -954,7 +954,7 @@ div .show-more[aria-expanded="true"]{
 .interestTitleSec{
 	background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
 	position: relative;
-	top: -32px;
+	top: -30px;
 	border-radius: 0px 0px 5px 5px;
 }
 
@@ -966,10 +966,10 @@ div .show-more[aria-expanded="true"]{
 
 
 .interestName{
-	font-size: 16px;
+	font-size: 14px;
 	padding: 5px;	
 	color: white;
-  font-weight: 600;
+  font-weight: 900;
 }
 
 
@@ -1318,7 +1318,7 @@ div.scrollEvents a {
 
 .groupTitle{
 	font-size: 28px;
-	font-weight: 600;
+	font-weight: 900;
 	padding-bottom: 10px;
 }
 
@@ -1583,6 +1583,23 @@ div.scrollEvents{
 }
 
 @media screen and (max-width: 776px){
+  .interestTitleSec{
+    top: -27px;
+  }
+  .interestName {
+    font-size: 12px;
+    padding: 5px;
+    color: white;
+    font-weight: 900;
+  }
+  .panel-heading {
+    height: 50px;
+    position: sticky;
+    top: 0px;
+    z-index: 90 !important;
+    padding-top: 10px;
+  }
+
   .groupTitleDisc{
     font-size: 14px;
   }

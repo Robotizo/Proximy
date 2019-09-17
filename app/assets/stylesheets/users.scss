@@ -3,6 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+
+
+
+
 .lds-ring {
   display: inline-block;
   position: relative;
@@ -531,7 +535,7 @@ div .show-more[aria-expanded="true"]{
 .topTitle2{
   font-size: 25px;
   margin: 20px;
-  font-weight: 600;
+  font-weight: 900;
 }
 
 #events-nav{
@@ -956,15 +960,15 @@ body {
 .interestTitleSec {
   background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
   position: relative;
-  top: -32px;
+  top: -30px;
   border-radius: 0px 0px 5px 5px;
 }
 
 .interestName {
-  font-size: 16px;
+  font-size: 14px;
   padding: 5px;
   color: white;
-  font-weight: 600;
+  font-weight: 900;
 }
 
 
@@ -1386,11 +1390,7 @@ body {
   border-radius: 0px 0px 5px 5px;
 }
 
-.interestName{
-  font-size: 14px;
-  padding: 5px; 
-  color: white;
-}
+
 
 
 .buttonEventHov{
@@ -2057,6 +2057,37 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px) {
+  .interestTitleSec{
+    top: -27px;
+  }
+  .interestName {
+    font-size: 12px;
+    padding: 5px;
+    color: white;
+    font-weight: 900;
+  }
+  .panel-heading {
+    height: 50px;
+    position: sticky;
+    top: 0px;
+    z-index: 90 !important;
+    padding-top: 10px;
+  }
+
+  .panel-heading:nth-of-type(1){
+    background-color: white;
+  }
+
+  .panel-heading:nth-of-type(2){
+     background-color: white;
+  }
+
+  .panel-heading:nth-of-type(3){
+     background-color: white;
+  }
+
+
+
   .newsfeed {
     margin-bottom: 10px;
   }
@@ -2117,13 +2148,13 @@ div.scrollEvents a {
     font-size: 16px;
     padding: 3px 5px;
     color: white;
-    font-weight: 600;
+    font-weight: 900;
   }
   .discoverNum{
     font-size: 14px;
     padding: 3px 5px;
     color: white;
-    font-weight: 600;
+    font-weight: 900;
   }
   .fileBtnDiv{
         padding: 1rem 0px;
@@ -2194,7 +2225,7 @@ div.scrollEvents a {
     margin-bottom: 20px;
     margin-left: 10px;
     margin-right: 10px;
-    font-weight: 600;
+    font-weight: 900;
   }
 
   .editsText{

@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+
+
+
 .panel-default > .panel-interest{
     background-color: #ffffff;
     font-size: 18px;
@@ -751,7 +754,7 @@ div .show-more[aria-expanded="true"]{
 .interestTitleSec{
 	background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
 	position: relative;
-	top: -32px;
+	top: -30px;
 	border-radius: 0px 0px 5px 5px;
 }
 
@@ -763,10 +766,10 @@ div .show-more[aria-expanded="true"]{
 
 
 .interestName{
-	font-size: 16px;
+	font-size: 14px;
 	padding: 5px;	
 	color: white;
-  font-weight: 600;
+  font-weight: 900;
 }
 
 
@@ -1520,6 +1523,37 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px){
+  .interestTitleSec{
+    top: -27px;
+  }
+  .interestName {
+    font-size: 12px;
+    padding: 5px;
+    color: white;
+    font-weight: 900;
+  }
+  .panel-heading {
+    height: 50px;
+    position: sticky;
+    top: 0px;
+    z-index: 90 !important;
+    padding-top: 10px;
+  }
+
+  .panel-heading:nth-of-type(1){
+    background-color: white;
+  }
+
+  .panel-heading:nth-of-type(2){
+     background-color: white;
+  }
+
+  .panel-heading:nth-of-type(3){
+     background-color: white;
+  }
+
+
+
   .panel-default > .panel-interest{
     font-size: 14px;
   }
