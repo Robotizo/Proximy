@@ -1,14 +1,37 @@
 <p id="notice"><%= notice %></p>
 
+
+
+<%= image_tag(@group_post.image_url(:thumb)) if @group_post.image? %>
+
 <p>
   <strong>Content:</strong>
   <%= @group_post.content %>
 </p>
 
+
 <p>
-  <strong>Image:</strong>
-  <%= @group_post.image %>
+  <strong>Group:</strong>
+  <%= @group_post.group.title %>
 </p>
 
-<%= link_to 'Edit', edit_group_post_path(@group_post) %> |
-<%= link_to 'Back', group_posts_path %>
+<hr>
+
+<div class="col-md-12">
+<%= render 'group_comments/form' %>
+</div>
+
+
+
+<hr>
+
+
+<div class="col-md-12">
+<%= render @group_post.group_comments.reverse %>
+</div>
+
+
+
+
+<hr>
+

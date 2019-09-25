@@ -23,6 +23,27 @@
 
 
 
+<script>
+$(document).ready(function() {
+  $(".loader").hide();
+
+    var ajaxLoadTimeout, ajaxLoadTimeout2;
+    
+    $(document).ajaxStart(function(){
+      ajaxLoadTimeout = setTimeout(function() { $(".loader").show(); });
+    });
+  
+  
+    $(document).ajaxStop(function(){
+      ajaxLoadTimeout2 = setTimeout(function() { $(".loader").hide(); }, 1000); 
+        }) .ajaxSuccess(function() { 
+          clearTimeout(ajaxLoadTimeout);
+          $("#loader").hide();
+      });
+
+});
+</script>
+
 
 <script>
     AOS.init();
@@ -32,7 +53,6 @@
     display: none !important;
   }
 </style>
-
 
 
 
@@ -2984,7 +3004,6 @@
 <% end %>
 
 </div>
-
 
 
 

@@ -2,6 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+.card:hover{
+  background-color: white;
+
+}
+.card:hover{
+
+  background-color: #6c95af33;
+  transition: 0.8s;
+  .card-footer{
+    background-color: #e2eaee;
+  
+  }
+  
+}
+
+
+.card-text:hover{
+  text-decoration: none !important;
+}
+
+
+.specialA{
+  text-decoration: none !important;
+}
 /* Landing Page Edits Begin */
 
 
@@ -1250,6 +1274,13 @@
   float: right;
 }
 
+.ImageIDerComm{
+  height: 25px;
+  float: right;
+  margin-right: 20px;
+}
+
+
 .titleSec {
   font-size: 28px;
   font-weight: 900;
@@ -1338,7 +1369,7 @@ div.scrollMembers {
 div.scrollMembers a {
     display: inline-block;
     text-align: center;
-    padding: 5px;
+    padding: 2px;
     text-decoration: none;
 }
 
@@ -1456,7 +1487,7 @@ div.scrollEvents .card {
 
 #modalPostBody{
   padding: 15px;
-  font-weight: 600;
+  font-weight: 900;
   &:empty{
     display:none;
   }
@@ -2284,5 +2315,4 @@ img.userImage2 {
     left: 50%;
   }
 }
-
 

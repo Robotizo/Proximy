@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 
-<%= image_tag(@post.image_url(:thumb)) if @post.image? %>
+<%= image_tag(@post.image_url) if @post.image? %>
 
+
+<%= link_to 'Back', 'javascript:history.back()' %>
 
 <p>
   <strong>Content:</strong>
@@ -16,5 +18,26 @@
   <%= @post.user.name %>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+
+
+<hr>
+
+
+
+
+
+
+
+
+<div class="col-md-12">
+<%= render 'comments/form' %>
+</div>
+
+
+<hr>
+
+
+<div class="col-md-12">
+<%= render @post.comments.reverse %>
+</div>
+

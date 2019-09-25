@@ -10,13 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190913211054) do
+ActiveRecord::Schema.define(version: 20190923221157) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
     t.integer  "recipient_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "event_comments", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "event_post_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "event_notifs", force: :cascade do |t|
@@ -87,6 +103,14 @@ ActiveRecord::Schema.define(version: 20190913211054) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "status"
+  end
+
+  create_table "group_comments", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "group_post_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "group_posts", force: :cascade do |t|

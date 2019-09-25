@@ -18,6 +18,37 @@
 @import "bootstrap";
 
 
+
+/* Loader Css starts */
+.loader {
+    border: 5px solid #e6e6e6;
+    border-radius: 50%;
+    border-top: 5px solid #6c95af;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s linear infinite;
+    position: fixed;
+    left: 50%;
+    bottom: 50%;
+    animation: spin 2s linear infinite;
+}
+
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/* place  <div class="loader"></div> to implement loader */
+/* Loader Css ends */
+
+
+
 .nav-up {
     top: -50px;
 }

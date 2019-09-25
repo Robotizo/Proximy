@@ -3,6 +3,27 @@
 
 
 
+<script>
+$(document).ready(function() {
+  $(".loader").hide();
+
+    var ajaxLoadTimeout, ajaxLoadTimeout2;
+    
+    $(document).ajaxStart(function(){
+      ajaxLoadTimeout = setTimeout(function() { $(".loader").show(); });
+    });
+  
+  
+    $(document).ajaxStop(function(){
+      ajaxLoadTimeout2 = setTimeout(function() { $(".loader").hide(); }, 1000); 
+        }) .ajaxSuccess(function() { 
+          clearTimeout(ajaxLoadTimeout);
+          $("#loader").hide();
+      });
+
+});
+</script>
+
 
 
 
@@ -21,6 +42,9 @@
 <%= render 'form', event: @event %>
 </div>
 
+
+<div class="loader" />
+
 <script>
     $("#coverImageUpload").change(function(){
         fileURL = URL.createObjectURL(event.target.files[0]);
@@ -36,3 +60,5 @@
         }
     });
 </script>
+
+

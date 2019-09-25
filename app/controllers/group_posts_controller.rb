@@ -11,7 +11,7 @@ class GroupPostsController < ApplicationController
   # GET /group_posts/1
   # GET /group_posts/1.json
   def show
-
+    @group_comment = @group_post.group_comments.new
   end
 
   # GET /group_posts/new

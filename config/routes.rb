@@ -3,6 +3,9 @@
 
 
 
+  resources :event_comments
+  resources :group_comments
+  resources :comments
   resources :feedbacks
   resources :friend_requests
 

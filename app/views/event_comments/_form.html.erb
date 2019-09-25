@@ -1,0 +1,29 @@
+<%= form_for(@event_comment, remote: true) do |f| %>
+  <% if @event_comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event_comment.errors.count, "error") %> prohibited this event_comment from being saved:</h2>
+
+      <ul>
+      <% @event_comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :event_post_id, value: @event_post.id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+

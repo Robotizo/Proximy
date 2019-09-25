@@ -30,6 +30,9 @@ class User < ApplicationRecord
 
 
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :group_comments, dependent: :destroy
+  has_many :event_comments, dependent: :destroy
   has_many :groups
   has_many :events
   has_many :feedbacks

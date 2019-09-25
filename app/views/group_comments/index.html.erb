@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Group Comments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>User</th>
+      <th>Group post</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @group_comments.each do |group_comment| %>
+      <tr>
+        <td><%= group_comment.content %></td>
+        <td><%= group_comment.user_id %></td>
+        <td><%= group_comment.group_post_id %></td>
+        <td><%= link_to 'Show', group_comment %></td>
+        <td><%= link_to 'Edit', edit_group_comment_path(group_comment) %></td>
+        <td><%= link_to 'Destroy', group_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Group Comment', new_group_comment_path %>

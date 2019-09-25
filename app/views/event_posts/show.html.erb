@@ -1,25 +1,37 @@
 <p id="notice"><%= notice %></p>
 
+
+
+<%= image_tag(@event_post.image_url(:thumb)) if @event_post.image? %>
+
 <p>
   <strong>Content:</strong>
   <%= @event_post.content %>
 </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @event_post.image %>
-</p>
 
 <p>
-  <strong>Event:</strong>
-  <%= @event_post.event_id %>
+  <strong>Group:</strong>
   <%= @event_post.event.title %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @event_post.user_id %>
-</p>
+<hr>
 
-<%= link_to 'Edit', edit_event_post_path(@event_post) %> |
-<%= link_to 'Back', event_posts_path %>
+<div class="col-md-12">
+<%= render 'event_comments/form' %>
+</div>
+
+
+
+<hr>
+
+
+<div class="col-md-12">
+<%= render @event_post.event_comments.reverse %>
+</div>
+
+
+
+
+<hr>
+
