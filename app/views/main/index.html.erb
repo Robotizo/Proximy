@@ -659,9 +659,7 @@ $(document).ready(function(){
                 <% end %>
                 <small class="text-muted"><%= truncate(post.group.title, length: 25) %></small>
                 <%= image_tag("groups.png", class: "ImageIDer") %>
-                <!--<%= link_to post, method: :get, class: "specialA" do %>
-                   <%= image_tag("comments.png", class: "ImageIDerComm") %>
-                <% end %>-->
+     
               </div>
 
             <% elsif post.is_a? EventPost %>
@@ -672,9 +670,7 @@ $(document).ready(function(){
                 <% end %>
                 <small class="text-muted"><%= truncate(post.event.title, length: 25) %></small>
                 <%= image_tag("event.png", class: "ImageIDer") %>
-                <!--<%= link_to post, method: :get, class: "specialA" do %>
-                  <%= image_tag("comments.png", class: "ImageIDerComm") %>
-                <% end %>-->
+
 
               </div>
 
@@ -686,25 +682,11 @@ $(document).ready(function(){
                 <% end %>
                 <small class="text-muted"><%= truncate(post.user.name, length: 25) %></small>
                 <%= image_tag("user.png", class: "ImageIDer") %>
-                <!--<%= link_to post, method: :get, class: "specialA" do %>
-                  <%= image_tag("comments.png", class: "ImageIDerComm") %>
-                <% end %>-->
+   
               </div>
 
             <% end %>
-<!--
-          <% if post.is_a? Post %>
-            <% post.comments.each do |comment| %>
-              <%= comment.content %><br>
-            <% end %>
-          <% end %>
 
-          <% if post.is_a? GroupPost %>
-            <% post.group_comments.each do |comment| %>
-              <%= comment.content %><br>
-            <% end %>
-          <% end %>
--->
 
 
 
