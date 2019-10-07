@@ -179,7 +179,7 @@ class UsersController < ApplicationController
     end
 
     def avatar_params
-      params.require(:user).permit(:avatar, :image)
+      params.require(:user).permit(:avatar, :image, :bio)
     end
 
 

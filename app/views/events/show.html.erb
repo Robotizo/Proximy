@@ -10,8 +10,19 @@
 <% end %>
 
 
+<style type="text/css">
+  input{
+    margin: -2px;
+  }
+  
+.interestCard{
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
 
 
+
+</style>
 
 
 <div class="mobileArea">
@@ -29,10 +40,12 @@
 
     <div class="col-md-6 col-xs-12 infoSec">
 
+<div class="infoSec2">
+
     <div class="infoTop">Event Details</div>
 
 
-      <div class="col-md-12 col-xs-12 noPad3">
+      <div class="col-md-6 col-xs-12 noPad3">
         <div class="eventTitle2">Event Date</div>
           <span class="eventTitle"><%= @event.event_date.strftime('%B %e') %></span>
           <% if @event.event_end_date.present? %>
@@ -42,7 +55,7 @@
       </div>
 
 
-      <div class="col-md-12 col-xs-12 noPad3">
+      <div class="col-md-6 col-xs-12 noPad3">
         <div class="eventTitle2">Event Time</div>
           <span class="eventTitle"><%= @event.event_time.strftime("%I:%M %p") %></span>
           <% if @event.event_end_time.present? %>
@@ -57,20 +70,22 @@
           <span class="organizerName"><%= @event.user.name %> <%= @event.user.last_name %></span>
       </div>
 
-
-
+</div>
       <% if current_user == @event.user %>
       <% if Date.today <= @event.event_date %>
-          <div class="adminPos">
+          <div class="buttonsEvent">
 
-            <div class="col-md-4 col-xs-12 noPad3">
+            <div class="col-md-3 col-xs-3 noPad3 text-center">
 
               <% if current_user.followingE?(@event) %>
 
               
                 <%= form_for(current_user.active_relationships_events.find_by(followedE_id: @event.id), html: { method: :delete }) do |f| %>
-                  <div class="attendingState"><%= f.submit "Attending Event", class: "btn  btn-primary unAttendGroupBtn greenAttend" %></div>
-                  <div class="notAttendingState"><%= f.submit "Cancel", class: "btn  btn-primary unAttendGroupBtn" %></div>
+                  <%= image_submit_tag "attend.png", class: "iconImage" %>
+                    <div class="textOps">
+                      Attending event
+                    </div>
+
                 <% end %>
 
               <% else %>
@@ -78,8 +93,11 @@
 
                  <%= form_for(@event.passive_relationships_events.build, method: :post) do |f| %>
                   <%= hidden_field_tag :followedE_id, @event.id %>
-                    <%= f.submit "Attend Event", class: "btn btn-primary attendEventBtn" %>
-                  <% end %>
+                    <%= image_submit_tag "attendInv.png", class: "iconImage" %>
+                    <div class="textOps">
+                      Attend event
+                    </div>
+                  <% end%>
 
 
               <% end %>
@@ -87,19 +105,48 @@
 
             </div>
 
-            <div class="col-md-4 col-xs-12 noPad3">
-              <%= button_to "Edit Event", edit_event_path(@event), method: :get, class: "btn btn-primary attendEventBtn" %>
+            <div class="col-md-3 col-xs-3 noPad3 text-center">
+              <%= link_to edit_event_path(@event), method: :get, class: "specialA" do %>
+
+                <%= image_tag("geatInv.png", class: "iconImage") %>
+                <div class="textOps">
+                  Edit event 
+                </div>
+              <% end %>
+
             </div>
 
 
-            <div class="col-md-4 col-xs-12 noPad3">
-              <%= button_to "Edit Interests", interests_event_path(@event), method: :get, class: "btn btn-primary attendEventBtn" %>
+            <div class="col-md-3 col-xs-3 noPad3 text-center">
+
+              <%= link_to interests_event_path(@event), method: :get, class: "specialA" do %>
+
+                <%= image_tag("filterInv.png", class: "iconImage") %>
+                <div class="textOps">
+                  Edit interests
+                </div>
+              <% end %>
+            
             </div>
+
+
+            <div class="col-md-3 col-xs-3 noPad3 text-center" data-target="#show-interests" data-toggle="modal" >
+
+
+              <%= image_submit_tag "interestsInv.png", class: "iconImage" %>
+              <div class="textOps">
+                View interests
+              </div>
+        
+   
+            </div>
+
+
 
 
           </div>
         <% else %>
-                  <div class="col-md-12 col-xs-12 noPad3">
+                  <div class="col-md-12 col-xs-12 noPad3 buttonsEvent">
            <%= button_tag "This event already happened", class: "btn btn-primary attendEventBtn" %>
         </div>
 
@@ -112,52 +159,51 @@
 
 
      <% if Date.today <= @event.event_date %>
+
+     <div class="buttonsEvent">
           <% if current_user.followingE?(@event) %>
+          <div class="col-md-offset-1 col-md-4 col-xs-6 noPad3 text-center">
             <%= render partial: "unfollowEvent" %>
+          </div>
           <% else %>
+          <div class="col-md-offset-1 col-md-4 col-xs-6 noPad3 text-center">
             <%= render partial: "followEvent" %>
+          </div>
           <% end %>
+
+
+
+            <div class="col-md-offset-1 col-md-4 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" >
+
+
+              <%= image_submit_tag "interestsLong.png", class: "iconImage" %>
+              <div class="textOps">
+                View interests
+              </div>
+        
+   
+            </div>
+
+    </div>
+
       <% else %>
-        <div class="col-md-12 col-xs-12 noPad3">
+        <div class="col-md-12 col-xs-12 noPad3 buttonsEvent">
            <%= button_tag "This event already happened", class: "btn btn-primary attendEventBtn" %>
         </div>
       <% end %>
 
       <% end %>
-    </div>
+
+
+
+
   </div>
 
-
-
-
-
-
-
-<div class="container mobNavs">
-  <div class="panel panel-default interestSec">
-    <div class="panel-interest accordion-toggle" data-toggle="collapse" href="#animals" aria-expanded="false">
-      View interests in event <div class="show-more">Open</div>
     </div>
 
-    <div id="animals" class="panel-collapse collapse" data-parent="#accordion">
-      <div class="panel-body">
 
-        <% @event.fgE.each do |eventInterest| %>
 
-        <div class="col-md-2 col-xs-6">
-          <div class="interestCard">
-            <%= image_tag(eventInterest.image_url(:thumb), class: "interestImage") if eventInterest.image? %>
-            <div class="interestTitleSec">
-              <div class="interestName"><%= eventInterest.name %></div>
-            </div>
-          </div>
-        </div>
 
-        <% end %>
-
-      </div>
-    </div>
-  </div>
 </div>
 
 
@@ -191,16 +237,17 @@
             data-posterE="<%= event_post.event.title %>"
             data-bodyE="<%= event_post.content %>"
             data-timeE="<%= event_post.updated_at.to_time.strftime('%B %e') %>"
+            data-linkE="<%= url_for(event_post) %>"
             <%= ("data-imageE=\"" << event_post.image_url << "\"") if event_post.image? %>
             <%= ("data-testE=\"" << event_post.event.image_url(:thumb) << "\"") if event_post.event.image? %> 
             >
-
               <div class="material-icons text-muted launch-modal align-middle">
 
                 <%= image_tag(event_post.image_url(:post), class: "card-img-top") if event_post.image? %>
 
                 <div class="card-body">
                   <p class="card-text"><%= truncate event_post.content, length: 500, separator: ' ' %></p>
+        
                 </div>
 
                 <div class="card-footer">
@@ -209,6 +256,14 @@
                   <% end %>
 
                   <small class="text-muted"><%= event_post.event.title %> on <%= event_post.updated_at.to_time.strftime('%B %e') %></small>
+
+
+                  <!--
+                  <%= link_to event_post, method: :get, class: "specialA" do %>
+                   <%= image_tag("comments.png", class: "ImageIDerComm") %>
+                <% end %>
+                -->
+
 
                 </div>
 
@@ -370,12 +425,19 @@
 
 <div class="container noPad3">
 
-    <div class="newsfeed1">
-      <div class="titleSec">Information</div>
-      <div class="col-md-6 col-xs-12  descriptionSec">
+      <div class="newsfeed1">
+      <div class="titleSec">Description</div>
+        <div class="col-md-6 col-xs-12  descriptionSec">
 
-        <%= @event.description %>
-        <hr>
+          <div class="address"><%= simple_format(@event.description) %></div>
+        
+      </div>
+
+    </div>
+
+    <div class="newsfeed1">
+      <div class="titleSec">Location</div>
+      <div class="col-md-6 col-xs-12  descriptionSec">
 
         <div class="address"><%= @event.address %></div>
         
@@ -434,6 +496,10 @@
 
 
 
+
+
+
+
   </div>
 </div>
 
@@ -448,19 +514,22 @@
 
 
 <div class="modal fade" id="postModalE" role="dialog">
+     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
   <div class="modal-dialog" role="document">
+
     <div class="modal-content">
+
       <div id="modalPostImage"></div>
       <div class="modal-body">
         <div id="modalPostBody"></div>
       </div>
       <div class="modal-footer">
         <span id="test" class="userImageModal"></span>
-        <span class="modal-title" id="modalPoster"></span> on
+        <span class="modal-title" id="modalPoster"></span><span class="modal-title"> on </span> 
         <span class="modal-title" id="modalPostTime"></span>
       </div>
     </div>
-  </div>
+  </div>`
 </div>
 
 
@@ -485,6 +554,11 @@
                       <%= image_tag(event_post.event.image_url(:thumb), class: "userImage2") if event_post.event.image? %>
                     <% end %>
                     <small class="text-muted"><%= event_post.event.title %> on <%= event_post.updated_at.to_time.strftime('%B %e') %></small>
+                  <!--
+                    <%= link_to event_post, method: :get, class: "specialA" do %>
+                      <%= image_tag("comments.png", class: "ImageIDerComm") %>
+                    <% end %>
+                  -->
                   </div>
                 </div>
               </div>
@@ -530,9 +604,45 @@
 
 
 
+  <div class="modal fade" id="show-interests" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered allPostsDialog" role="document">
+      <div class="modal-content-users">
+        <div class="modal-body">
+          <div class="grid" id="masonry">
+            <div class="grid-sizer"></div>
+
+
+            <% @event.fgE.each do |eventInterest| %>
+                <div class="col-md-3 col-xs-6 noPad1">
+                  <div class="interestCard">
+                    <%= image_tag(eventInterest.image_url(:thumb), class: "interestImage") if eventInterest.image? %>
+                    <div class="interestTitleSec">
+                      <div class="interestName"><%= eventInterest.name %></div>
+                    </div>
+                  </div>
+                </div>
+            <% end %>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
 
 
 <script>
+
+
+
 
 
         $(function () { 
@@ -566,11 +676,22 @@
 
 
 
+
+
+
       $('#postModalE').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
 
     
         var posterName = button.attr('data-posterE');
+
+    
+
+
+   
+            var link = button.attr("data-linkE");
+            $("#modalLink").html("<a href=" + link + "> Test </a>");
+
 
 
 
@@ -599,13 +720,22 @@
 
         var modal = $(this);
 
+
         $("#modalPoster").text(posterName);
 
 
 
         $("#modalPostBody").text(postBody);
+
+       
+
+
+
         $("#modalPostTime").text(postTime);
     })
+
+
+
 
 
     function initMap() {

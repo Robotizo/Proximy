@@ -4,7 +4,33 @@
 
 
 
+.field{
+  font-weight: 900;
+}
 
+.bio{
+  font-weight: 900;
+      margin: 8px;
+}
+
+.textOps{
+  margin: 10px;
+  font-weight: 900;
+  font-size: 14px;
+}
+
+
+.iconImage{
+  height: 70px;
+  border-radius: 10px;
+  outline: none !important;
+    border: 1px solid #ccc;
+    transition: box-shadow .3s;
+}
+
+.iconImage:hover{
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
 
 
 
@@ -378,7 +404,7 @@ input.checkDist{
   object-fit: cover;
   border-radius: 10px;
   position: relative;
-  left: 110px;
+  left: 200px;
   top: -73px;
 
 }
@@ -391,7 +417,7 @@ input.checkDist{
   object-fit: cover;
   border-radius: 10px;
   position: relative;
-  left: 110px;
+  left: 200px;
 
 }
 
@@ -1423,7 +1449,7 @@ body {
 }
 .module1 {
   padding-bottom: 20px;
-  height: 460px;
+  height: 490px;
   background-color: white ;
 }
 
@@ -1818,8 +1844,8 @@ body {
 }
 
 .userName {
-  font-size: 32px;
-  font-weight: 200;
+  font-size: 25px;
+  font-weight: 900;
 }
 
 .userMail {
@@ -2058,6 +2084,9 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px) {
+  .textOps{
+    font-size: 12px;
+  }
   .interestTitleSec{
     top: -27px;
   }
@@ -2265,7 +2294,7 @@ div.scrollEvents a {
 
 
   .minPadR{
-    padding-right: 0px !important;
+    padding-right: 4px !important;
     padding-left: 0px !important;
   }
 
@@ -2310,7 +2339,7 @@ div.scrollEvents a {
     position: relative;
     width: 100%;
     float: left;
-    height: 330px;
+    height: 480px;
   }
 
   .connectBtn{
@@ -2325,7 +2354,7 @@ div.scrollEvents a {
   .followBtn{
     left: 0px;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 26px;
     margin-bottom: 20px;
   }
 
@@ -2487,13 +2516,13 @@ div.scrollEvents a {
     position: relative;
     width: 100%;
     float: left;
-    height: 370px;
+    height: 455px;
   }
   .innerModuleAvatar {
     position: relative;
     width: 100%;
     float: left;
-    height: 300px;
+    height: 236px;
   }
   .mainField {
     border-radius: 0px;

@@ -15,6 +15,16 @@
   <% end %>
 
 
+<style type="text/css">
+  .fileBtnDiv, .form-control {
+    width: 100%;
+    margin: 15px 0 32px 0 !important;
+  }
+
+
+
+</style>
+
 
 
 <% if action_name == 'edit' or action_name == 'update' or action_name == "avatar" %>
@@ -49,19 +59,27 @@
 
 <div class="col-md-6 section1 minPadR">
   <div class="field">
+    <div>First Name</div>
     <%= f.text_field :name, class: "form-control", placeholder: "First name", id: "text_field" %>
   </div>
 </div>
 <div class="col-md-6 section1 minPadL">
   <div class="field">
+    <div>Last Name</div>
     <%= f.text_field :last_name, class: "form-control", placeholder: "Last name" %>
   </div>
 </div>
 
   <div class="field section1 ">
+    <div>Email</div>
     <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
   </div>
-
+<% if action_name == 'edit' or action_name == 'update' or action_name == "avatar" %>
+  <div class="field section1 ">
+    <div>Bio</div>
+    <%= f.text_field :bio, class: "form-control", placeholder: "Describe yourself." %>
+  </div>
+<% end %>
   <div class="field">
     <%= f.hidden_field :latitude, class: "form-control", id: "latField" %>
   </div>

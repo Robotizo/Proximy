@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+
+
+
+
+
+
+
 .card:hover{
   background-color: white;
 
@@ -106,7 +113,7 @@
   padding: 10px;
   /* opacity: 0.8; */
   border-radius: 0px 0px 9px 9px;
-  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
+  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
 }
 
 
@@ -1520,15 +1527,15 @@ div#modalPostImage {
 
 @media screen and (max-width: 1200px){
   .grid-item, .grid-sizer {
-    width: calc(50% - 10px);
-    margin-bottom: 10px;
+    width: calc(100%);
+    margin-bottom: 20px;
   }
 }
 
 @media screen and (max-width: 776px){
   .grid-item, .grid-sizer {
-    width: calc(50% - 10px);
-    margin-bottom: 10px;
+    width: calc(100%);
+    margin-bottom: 20px;
   }
 }
 
@@ -1930,11 +1937,10 @@ img.userImage2 {
 
   }
   .card-img-top{
-    border-radius: calc(0.75rem - 1px)
+    border-top-left-radius: calc(0.75rem - 1px);
+    border-top-right-radius: calc(0.75rem - 1px);
   }
-  .mobFoot{
-    display: none;
-  }
+
   .viewAll {
     height: 100px;
     margin-top: -110px;
@@ -2185,9 +2191,7 @@ img.userImage2 {
   div.scrollMembers a{
     padding: 0px !important;
   }
-  .card-body{
-    display: none;
-  }
+
   .leftSideTop{
     margin-top: 30px;
   }

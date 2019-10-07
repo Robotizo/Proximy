@@ -4,6 +4,21 @@
   .mobNav{
     display: none !important;
   }
+
+  .fileBtnDiv, .form-control {
+    width: 100%;
+    margin: 10px 0 !important;
+  }
+  .module1{
+    height: auto !important;
+  }
+  .formPart{
+    margin-top: 30px;
+    float: left;
+    width: 100%;
+  }
+
+
 </style>
 
 
@@ -38,10 +53,9 @@
           <% end %>
 
       	</div>
-    	<div class="container  mobNavs">
-			<div class="titleSec text-center">Customize your profile</div>
-		</div>
-	
+
+
+
 
     </div>
 
@@ -49,20 +63,28 @@
 
 </div>
 
-
+<div class="formPart">
 <%= form_for [@user], url: save_avatar_user_path do |f|  %>
-<div class="container">
-  <div class="field fileField col-md-6 col-xs-6 minPadR ">
+<div class=" col-md-6 col-xs-12 noPad3">
+  <div class="titleSec text-center">Customize your profile</div>
+  <div class="field fileField col-md-6 col-xs-6  ">
     <label class="btn btn-primary fileBtnDiv">
       <%= f.file_field :avatar, class: "fileBtn form-control", id: "avatarImageUpload" %>
       Profile Photo
     </label>
   </div>
-   <div class="field fileField col-md-6 col-xs-6 minPadL ">
+   <div class="field fileField col-md-6 col-xs-6 ">
     <label class="btn btn-primary fileBtnDiv">
       <%= f.file_field :image, class: "fileBtn form-control", id: "coverImageUpload" %> 
       Cover Photo
     </label>
+  </div>
+</div>
+
+<div class="col-md-6 col-xs-12 noPad1" style="margin-top: 30px; margin-bottom: 100px;">
+  <div class="titleSec text-center">Add a bio</div>
+  <div class="field fileField col-md-12 col-xs-12 ">
+    <%= f.text_field :bio, placeholder: "Describe yourself.", class: "form-control", id: "eventTitle" %>
   </div>
 </div>
 
@@ -76,7 +98,7 @@
 
 
  <% end %>
-
+</div>
    <div class="actions col-md-3 col-xs-3 createAvatar2">
     <%= button_to "Skip", root_path, method: :get, class: "fileBtnSubmit2" %>
   </div>
@@ -110,6 +132,20 @@
 </script>
 
 <script>
+
+  
+$(document).ready(
+    function(){
+        $('#eventTitle').change(
+            function(){
+                if ($(this).val()) {
+                    $('#submitButtonId').attr('disabled',false);
+                    // or, as has been pointed out elsewhere:
+                    // $('input:submit').removeAttr('disabled'); 
+                } 
+            }
+            );
+    });
 
 $(document).ready(
     function(){

@@ -1,0 +1,16 @@
+<%= stylesheet_link_tag "posts", :media => "all" %>
+
+<div id="post-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <div>
+         <%= image_tag(post.image_url) if post.image? %>
+
+      </div>
+    </div>
+  </div>
+</div>

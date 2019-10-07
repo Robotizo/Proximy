@@ -2,7 +2,46 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+.ImageIDerComm{
+  height: 25px;
+  float: right;
+  margin-right: 5px;
+}
+ 
 
+.infoSec .buttonsEvent{
+  
+    padding-left: 0px;
+
+}
+
+
+.textOps{
+  margin: 10px;
+  font-weight: 900;
+  font-size: 14px;
+}
+
+
+.iconImage{
+  height: 70px;
+  border-radius: 10px;
+  outline: none !important;
+    border: 1px solid #ccc;
+    transition: box-shadow .3s;
+}
+
+.iconImage:hover{
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
+.buttonsEvent{
+    margin-top: 30px;
+    float: left;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+}
 
 
 .panel-default > .panel-interest{
@@ -142,10 +181,6 @@ div .panel-interest{
 }
 
 
-.adminPos{
-  position: relative;
-  bottom: -18px;
-}
 
 .address{
   font-weight: 600;
@@ -164,7 +199,7 @@ div .panel-interest{
 }
 
 #map {
-  height: 250px;  /* The height is 400 pixels */
+  height: 200px;  /* The height is 400 pixels */
   width: 100%;  /* The width is the width of the web page */
   border-radius: 5px;
  }
@@ -330,11 +365,13 @@ div.col-md-6.post-image-background{
 
 .modal-title {
   padding: 0;
+  font-size: 12px;
+  font-weight: 900;
 }
 
 #modalPostBody {
   padding: 15px;
-  font-weight: 600;
+  font-weight: 900;
 
   &:empty {
     display: none;
@@ -449,7 +486,7 @@ div#modalPostImage {
 
 .card-text:last-child {
   margin-bottom: 0;
-  font-weight: 600;
+  font-weight: 900;
 }
 
 .card-link:hover {
@@ -729,9 +766,9 @@ div .show-more[aria-expanded="true"]{
 .infoSec{
     width: 50%;
     float: left;
-
-    height: 360px;
+    height: 385px;
     margin-top: 30px;
+    position: relative;
 }
 
 
@@ -761,7 +798,7 @@ div .show-more[aria-expanded="true"]{
 
 .interestImage{
 	width: 100%;
-	border-radius: 5px 5px 5px 5px;
+	border-radius: 5px;
 }
 
 
@@ -1191,7 +1228,7 @@ div.scrollGroupsI a {
 .eventTitle2{
 	font-size: 20px;
 	font-weight: 800;
-	margin-top: 18px;
+	margin-top: 20px;
 }
 
 .infoTop{
@@ -1224,7 +1261,7 @@ div.scrollGroupsI a {
 .buttonEventHov{
 	position: absolute;
 	width: 95%;
-	bottom: -26px;
+
 }
 
 
@@ -1342,6 +1379,7 @@ div.scrollEvents a {
 .btnShowAll{
 	color: black;
 	border-radius: 10px;
+  font-weight: 900;
 	text-align: center;
 	outline: none !important; 
 	background-color: white;
@@ -1523,6 +1561,15 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px){
+  .textOps{
+    font-size: 12px;
+  }
+
+  .buttonsEvent{
+
+    margin-bottom: 30px;
+    position: initial;
+  }
   .interestTitleSec{
     top: -27px;
   }
@@ -1575,6 +1622,7 @@ div.scrollEvents a {
   }
   #map{
     margin-top: 20px;
+    height: 120px;
   }
   .eventImgTitle{
     top: -90px;
@@ -1691,7 +1739,15 @@ div.scrollEvents a {
 		width: 100%;
 		margin-top: -80px;
 		height: auto !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
 	}
+  .infoSec2{
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    float: left;
+    width: 100%;
+  }
 	.fullLength{
 		width: 100%;
 		float: left;
@@ -1766,7 +1822,7 @@ div.scrollEvents a {
 	.eventTitle2{
 		font-size: 18px;
 
-		margin-top: 15px;
+		margin-top: 30px;
 
 	}	
 	.fileBtnDiv{

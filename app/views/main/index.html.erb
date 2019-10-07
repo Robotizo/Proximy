@@ -266,7 +266,7 @@ $(document).ready(function(){
 
 
 
-      <%= image_tag("test.png", class: "imageHere") %>
+      <%= image_tag("blueGreyBG.jpg", class: "imageHere") %>
     </div>
 
 
@@ -295,7 +295,7 @@ $(document).ready(function(){
       <div class='nameSub'><strong>Your</strong> interests fuel <strong>your</strong> passions, our goal is to bring <strong>you</strong> the most meaningful ways to get involved based on what <strong>you</strong> love to do and create memories that last a lifetime.</div> 
 
 
-      <%= image_tag("test2.png", class: "imageHere") %>
+      <%= image_tag("blueGreyBG.jpg", class: "imageHere") %>
     </div>
 
     <div class="section">
@@ -415,7 +415,7 @@ $(document).ready(function(){
 
 
 
-      <%= image_tag("test3.png", class: "imageHere") %>
+      <%= image_tag("blueGreyBG.jpg", class: "imageHere") %>
     </div>
 
     <div class="section">
@@ -443,7 +443,7 @@ $(document).ready(function(){
       </div>
 
 
-      <%= image_tag("test4.png", class: "imageHere") %>
+      <%= image_tag("blueGreyBG.jpg", class: "imageHere") %>
     </div>
 
 
@@ -475,7 +475,7 @@ $(document).ready(function(){
 
 
 
-<%= image_tag("test5.png", class: "imageHere") %>
+<%= image_tag("blueGreyBG.jpg", class: "imageHere") %>
 
     </div>
 
@@ -555,7 +555,7 @@ $(document).ready(function(){
     <div class="scrollMembersEvents container " data-aos="fade-up">
   
     <% @events.first(10).each do |event| %>
-     <% if Date.today <= event.event_date %>
+  
       <%= link_to event, method: :get, class: "specialA" do %>
         <div class="groupBlock">
           <%= image_tag(event.image_url(:event), class: "groupImageDisc") if event.image? %>
@@ -565,7 +565,7 @@ $(document).ready(function(){
             <div class="groupTitleDisc"><%= truncate(event.title, length: 35) %></div>
         </div>
        <% end %>
-      <% end %>
+
 
     <% end %>
   </div>
@@ -604,7 +604,7 @@ $(document).ready(function(){
       <div class="grid displayModals">
       <div class="grid-sizer"></div>
         <% @all_posts.reverse.each do |post| %>
-        <% if post.image.present? %>
+     
           <div class="card grid-item" data-aos="fade-up" >
               <span data-toggle="modal" data-target="#postModal"
                    
@@ -659,9 +659,9 @@ $(document).ready(function(){
                 <% end %>
                 <small class="text-muted"><%= truncate(post.group.title, length: 25) %></small>
                 <%= image_tag("groups.png", class: "ImageIDer") %>
-                <%= link_to post, method: :get, class: "specialA" do %>
+                <!--<%= link_to post, method: :get, class: "specialA" do %>
                    <%= image_tag("comments.png", class: "ImageIDerComm") %>
-                <% end %>
+                <% end %>-->
               </div>
 
             <% elsif post.is_a? EventPost %>
@@ -672,9 +672,9 @@ $(document).ready(function(){
                 <% end %>
                 <small class="text-muted"><%= truncate(post.event.title, length: 25) %></small>
                 <%= image_tag("event.png", class: "ImageIDer") %>
-                <%= link_to post, method: :get, class: "specialA" do %>
+                <!--<%= link_to post, method: :get, class: "specialA" do %>
                   <%= image_tag("comments.png", class: "ImageIDerComm") %>
-                <% end %>
+                <% end %>-->
 
               </div>
 
@@ -686,9 +686,9 @@ $(document).ready(function(){
                 <% end %>
                 <small class="text-muted"><%= truncate(post.user.name, length: 25) %></small>
                 <%= image_tag("user.png", class: "ImageIDer") %>
-                <%= link_to post, method: :get, class: "specialA" do %>
+                <!--<%= link_to post, method: :get, class: "specialA" do %>
                   <%= image_tag("comments.png", class: "ImageIDerComm") %>
-                <% end %>
+                <% end %>-->
               </div>
 
             <% end %>
@@ -710,7 +710,7 @@ $(document).ready(function(){
 
            
           </div>
-          <% end %>
+    
         <% end %>
       </div>
     </div>

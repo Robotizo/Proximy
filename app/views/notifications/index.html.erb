@@ -2,24 +2,27 @@
 
 
 
- <div class="container">
+ <div class="container ">
     <div class="titleSec">Notifications</div>
  </div>
 
 
 
 <% if @userFriendships.present? %>
-<div class="container">
+ <div class="container ">
 	<div class="titleSecSub">Friend Requests</div>
+</div>
+<div class="container noPad1">
+
 
 
 	<% @userFriendships.each do |invFriends| %>
 	<% unless invFriends.status == "accepted" %>
-		 		<div class="col-md-3 col-xs-6 noPad1">
+		 		<div class="col-md-2 col-xs-6 noPad1">
 		 			<%= link_to invFriends.user, method: :get, class: "specialA" do %>
 						<%= image_tag(invFriends.user.avatar_url(:thumb), class: "interestImage") if invFriends.user.avatar? %>
                         <div class="interestTitleSec">
-                          <div class="interestName"><%= invFriends.user.name %> <%= invFriends.user.last_name %></div>
+                          <div class="interestName"><%= invFriends.user.name %> </div>
                         </div>
 
                         <%= link_to update_friendship_friendship_path(invFriends), method: :patch, class: "specialA" do %>

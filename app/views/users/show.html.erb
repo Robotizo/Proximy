@@ -9,7 +9,16 @@
 </div>
 <% end %>
 
+<style type="text/css">
+  
 
+
+  .interestCard{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+</style>
 
 
 <div class="text-center module1">
@@ -33,7 +42,9 @@
         <div class="userName">
           <%= @user.name %>
           <%= @user.last_name %>
-
+        </div>
+        <div class="bio">
+          <%= @user.bio %>
         </div>
       </div>
     </div>
@@ -63,7 +74,23 @@
           </div>
           <% end %>
         <% else %>
-          <%= render 'befriend' %>
+            <div class="col-md-4 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" >
+
+              <%= render 'befriend' %>
+   
+            </div>
+
+            <div class="col-md-4 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" >
+
+
+              <%= image_submit_tag "interestsLong.png", class: "iconImage" %>
+              <div class="textOps">
+                Interests in common 
+              </div>
+        
+   
+            </div>
+
         <% end %>
       <% end %> 
     <% end %>
@@ -73,6 +100,8 @@
 
 
     </div>
+
+
 
 
 
@@ -98,13 +127,20 @@
             <div class="userName">
               <%= @user.name %>
               <%= @user.last_name %>
-              <% if @user.distance_is_checked == true and current_user.id != @user.id and @user.friends.include?(current_user) %>
-                <div class="userDistance">
-                  <%= @user.getDistance(current_user.latitude, current_user.longitude) %> km
 
+
+
+            </div>
+
+        <div class="bio">
+          <%= @user.bio %>
+        </div>
+
+                      <% if @user.distance_is_checked == true and current_user.id != @user.id and @user.friends.include?(current_user) %>
+                <div class="userDistance">
+                  <%= @user.getDistance(current_user.latitude, current_user.longitude) %> km away
                 </div>
               <% end %>
-            </div>
           </div>
         </div>
 
@@ -125,11 +161,29 @@
 
         <% unless @user.id == current_user.id %>
           <% unless current_user.friends.include?(@user) %>
+
+
             <%= render 'befriend' %>
+
+
   
 
           <% end %> 
         <% end %>
+
+
+
+
+            <div class="col-md-4 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" >
+
+
+              <%= image_submit_tag "interestsLong.png", class: "iconImage" %>
+              <div class="textOps">
+                Interests in common 
+              </div>
+        
+   
+            </div>
 
 
 
@@ -153,98 +207,7 @@
   </div>
 
 
-          <% if @user.id == current_user.id %>
-              <% else %>
-
-
-
-<div class="container mobNavs ">
-
-  <% if current_user.friends.include?(@user) %>
-    <div class="panel panel-default">
-
-
-          <div class="panel-interest accordion-toggle" data-toggle="collapse" href="#animals" aria-expanded="false">
-                Interests in Common <div class="show-more">Open</div>
-            </div>
-
-      <div id="animals" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-
-
-
-             
-                  <% @collideInterests.each do |interestCollide| %>
-                    <div class="col-md-2 col-xs-6">
-                      <div class="interestCard">
-                        <%= image_tag(interestCollide.image_url(:thumb), class: "interestImage") if interestCollide.image? %>
-                        <div class="interestTitleSec">
-                          <div class="interestName"><%= interestCollide.name %></div>
-                        
-                        </div>
-
-                      </div>
-                    </div>
-
-
-                  <% end %>
-
-              
-
-        </div>
-      </div>
-
-
-
-    </div>
-
-  <% else %>
-      <div class="panel panel-default interestSec">
-
-
-          <div class="panel-heading accordion-toggle" data-toggle="collapse" href="#animals" aria-expanded="false">
-                Interests in Common <div class="show-more">Open</div>
-            </div>
-
-      <div id="animals" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-
-
-
-             
-                  <% @collideInterests.each do |interestCollide| %>
-                    <div class="col-md-2 col-xs-6">
-                      <div class="interestCard">
-                        <%= image_tag(interestCollide.image_url(:thumb), class: "interestImage") if interestCollide.image? %>
-                        <div class="interestTitleSec">
-                          <div class="interestName"><%= interestCollide.name %></div>
-                        
-                        </div>
-
-                      </div>
-                    </div>
-
-
-                  <% end %>
-
-              
-
-        </div>
-      </div>
-
-
-
-    </div>
-  <% end %>
-
-
-
-</div>
-
- <% end %>
-
-
-
+    
 
 
 
@@ -567,6 +530,37 @@
 <% end %>
 
 
+  <div class="modal fade" id="show-interests" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered allPostsDialog" role="document">
+      <div class="modal-content-users">
+        <div class="modal-body">
+          <div class="grid" id="masonry">
+            <div class="grid-sizer"></div>
+
+
+            <% @collideInterests.each do |interestCollide| %>
+               <div class="col-md-3 col-xs-6 noPad1">
+                <div class="interestCard">
+                  <%= image_tag(interestCollide.image_url(:thumb), class: "interestImage") if interestCollide.image? %>
+                  <div class="interestTitleSec">
+                    <div class="interestName"><%= interestCollide.name %></div>
+                  
+                  </div>
+
+                </div>
+              </div>
+            <% end %>
+
+              
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 
 
 
@@ -614,7 +608,7 @@
 
 
       $(function () { 
-      $('.panel-heading').on('click', function (e) {
+      $('.panel-interest').on('click', function (e) {
           var menuItem = $( e.currentTarget );
 
           if (menuItem.attr('aria-expanded') === 'true') {

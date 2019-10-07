@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, on: :create
   validates :password, allow_nil: true, length: { minimum: 6 }, confirmation: true, on: :update
   before_validation { self.email = self.email.downcase }
+  validates :bio, length: { maximum: 50 }
 
 
   before_create :confirmation_token
@@ -15,7 +16,7 @@ class User < ApplicationRecord
 
  
   geocoded_by :ip, :latitude => :latitude, :longitude => :longitude
-  after_validation :geocode, if: ->(obj){ !obj.latitude.present? }
+  after_validation :geocode, if: ->(obj){ !obj.latitude.present? and !obj.longitude.present?}
   
 
   extend FriendlyId

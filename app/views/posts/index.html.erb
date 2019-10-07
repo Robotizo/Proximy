@@ -16,9 +16,8 @@
       <tr>
   
         <td><%= post.content %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'View Post', post_path(post), remote: true %></td>
+
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +25,19 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
+
+<div id='post-content'></div>
+
+<%= link_to "Open modal", "#my-modal", :class => "btn", "data-toggle" => "modal" %>
+<div class="modal hide fade" id="my-modal" title="My modal">
+  <div class="modal-header">
+    <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+  </div>
+  <div class="modal-body">
+    Modal Body
+  </div>
+  <div class="modal-footer">
+    <button aria-hidden="true" class="btn" data-dismiss="modal">Close</button>
+  </div>
+</div>

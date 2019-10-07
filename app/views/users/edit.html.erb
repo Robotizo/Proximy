@@ -47,11 +47,10 @@
 
 
 
-<div class="tab-content" id="myTabContent">
+<div class="tab-content" id="myTabContent" style="margin-top: 10px;">
 
 
 	<div class="tab-pane active" id="general" role="tabpanel" aria-labelledby="home-tab">
-		<h2 class="topTitle2">General</h2>
 
 		<% if @user.image.present? %>
 			<div class="coverImage" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px;">
@@ -84,7 +83,7 @@
 	</div>
 
 	<div class="tab-pane" id="interests" role="tabpanel" aria-labelledby="profile-tab">
-		<h2 class="topTitle2">Interests</h2>
+	
 		  <% current_user.followingI.each do |interest| %>
 		    <div class="col-md-2 col-xs-6">
 		      <div class="interestCard">
@@ -118,7 +117,7 @@
 
 	</div>
 	<div class="tab-pane" id="location" role="tabpanel" aria-labelledby="contact-tab">
-		<h2 class="topTitle2">Location</h2>
+		
 
 
 

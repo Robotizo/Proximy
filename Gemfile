@@ -16,9 +16,13 @@ gem 'materialize-sass', '~> 1.0.0'
 gem 'fog'
 
 
+gem "font-awesome-rails"
+
 
 gem 'geocoder'
 
+
+gem 'nprogress-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7'

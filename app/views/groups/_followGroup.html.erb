@@ -2,5 +2,8 @@
 
 <%= form_for(@group.passive_relationships_groups.build, method: :post) do |f| %>
 	<%= hidden_field_tag :followedG_id, @group.id %>
-	<%= f.submit "Join Group", class: "btn connectBtn" %>
+	<%= image_submit_tag "joinLong.png", class: "iconImage" %>
+    <div class="textOps">
+      Join group
+    </div>
 <% end %>

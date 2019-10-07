@@ -10,6 +10,16 @@
 <% end %>
 
 
+
+<style type="text/css">
+  
+  input {
+    margin: -2px;
+}
+</style>
+
+
+
 <!-- Request to join -->
 
 
@@ -33,31 +43,58 @@
 
 
 
-      <div class="col-md-4" id="follow_formDes">
+      <div class="col-md-3 text-center" id="follow_formDes">
               <div id="follow_formDes">
                 <% if current_user.followingG?(@group) %>
-                  <%= form_for(current_user.active_relationships_groups.find_by(followedG_id: @group.id), html: { method: :delete }) do |f| %>
-                    <%= f.submit "Joined Group", class: "btn connectedBtnAd" %>
-                  <% end %>
-
+                <%= form_for(current_user.active_relationships_groups.find_by(followedG_id: @group.id), html: { method: :delete }) do |f| %>
+                  <%= image_submit_tag "joined.png", class: "iconImage" %>
+                        <div class="textOps">
+                          Joined group
+                        </div>
+                     <% end %>
                 <% else %>
-                  <%= form_for(@group.passive_relationships_groups.build, method: :post) do |f| %>
-                    <%= hidden_field_tag :followedG_id, @group.id %>
-                    <%= f.submit "Join Group", class: "btn connectBtnAd" %>
-                  <% end %>
-
+                    <%= form_for(@group.passive_relationships_groups.build, method: :post) do |f| %>
+                      <%= hidden_field_tag :followedG_id, @group.id %>
+                      <%= image_submit_tag "join.png", class: "iconImage" %>
+                        <div class="textOps">
+                          Join group
+                        </div>
+                    <% end %>
                 <% end %>
               </div>
       </div>
-      <div class="col-md-4" id="follow_formDes">
-        <%= button_to "Edit Group", edit_group_path(@group), method: :get, class: "btn btn-primary connectBtnAd" %>
+      <div class="col-md-3 text-center" id="follow_formDes">
+          <%= link_to edit_group_path(@group), method: :get, class: "specialA" do %>
+            <%= image_tag("geatInv.png", class: "iconImage") %>
+            <div class="textOps">
+              Event settings
+            </div>
+          <% end %>
       </div>
 
-      <div class="col-md-4" id="follow_formDes">
-        <%= button_to "Edit Interests", interests_group_path(@group), method: :get, class: "btn btn-primary connectBtnAd" %>
+      <div class="col-md-3 text-center" id="follow_formDes">
+
+     <%= link_to interests_group_path(@group), method: :get, class: "specialA" do %>
+
+          <%= image_tag("filterInv.png", class: "iconImage") %>
+          <div class="textOps">
+            Edit interests
+          </div>
+        <% end %>
+            
+  
       </div>
 
+      <div class="col-md-3 noPad3 text-center" data-target="#show-interests" data-toggle="modal" id="follow_formDes">
 
+
+        <%= image_submit_tag "interestsInv.png", class: "iconImage" %>
+        <div class="textOps">
+          View interests
+        </div>
+  
+
+      </div>
 
 
 
@@ -65,13 +102,30 @@
 
 <% else %>
 
-        <div id="follow_formDes">
+        <div id="follow_formDes" class="col-md-4 col-xs-6  text-center">
           <% if current_user.followingG?(@group) %>
             <%= render 'unfollowGroup' %>
           <% else %>
             <%= render 'followGroup' %>
           <% end %>
         </div>
+
+
+          <div class="col-md-offset-1 col-md-4 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" id="follow_formDes">
+
+
+              <%= image_submit_tag "interestsLong.png", class: "iconImage" %>
+              <div class="textOps">
+                View interests
+              </div>
+        
+   
+            </div>
+
+
+
+
+
 
 
 <% end %>
@@ -84,7 +138,71 @@
         </div>
       </div>
 
-<div class="col-xs-12 marginMob">
+
+
+<% if current_user == @group.user %>
+
+
+<div class="col-xs-3 marginMob">
+        <div id="follow_formMob">
+                <% if current_user.followingG?(@group) %>
+                <%= form_for(current_user.active_relationships_groups.find_by(followedG_id: @group.id), html: { method: :delete }) do |f| %>
+                  <%= image_submit_tag "joined.png", class: "iconImage" %>
+                        <div class="textOps">
+                          Joined group
+                        </div>
+                     <% end %>
+                <% else %>
+                    <%= form_for(@group.passive_relationships_groups.build, method: :post) do |f| %>
+                      <%= hidden_field_tag :followedG_id, @group.id %>
+                      <%= image_submit_tag "join.png", class: "iconImage" %>
+                        <div class="textOps">
+                          Join group
+                        </div>
+                    <% end %>
+                <% end %>
+        </div>
+
+</div>
+
+
+<div class="col-xs-3 marginMob text-center" id="follow_formMob">
+          <%= link_to edit_group_path(@group), method: :get, class: "specialA" do %>
+            <%= image_tag("geatInv.png", class: "iconImage") %>
+            <div class="textOps">
+              Edit group
+            </div>
+          <% end %>
+
+</div>
+<div class="col-xs-3 marginMob text-center" id="follow_formMob">
+       
+     <%= link_to interests_group_path(@group), method: :get, class: "specialA" do %>
+
+          <%= image_tag("filterInv.png", class: "iconImage") %>
+          <div class="textOps">
+            Edit interests
+          </div>
+        <% end %>
+            
+</div>
+
+
+  <div class="col-md-offset-1 col-md-4 col-xs-3 noPad3 text-center" data-target="#show-interests" data-toggle="modal" id="follow_formMob">
+
+
+      <%= image_submit_tag "interestsInv.png", class: "iconImage" %>
+      <div class="textOps">
+        View interests
+      </div>
+
+
+    </div>
+
+
+
+<% else %>
+<div class="col-xs-6 marginMob">
         <div id="follow_formMob">
           <% if current_user.followingG?(@group) %>
             <%= render 'unfollowGroup' %>
@@ -94,54 +212,24 @@
         </div>
 
 </div>
-<% if current_user == @group.user %>
-<div class="col-xs-12 marginMob" id="follow_formMob">
-        <%= button_to "Edit Group", edit_group_path(@group), method: :get, class: "btn btn-primary connectBtnAd" %>
 
-</div>
-<div class="col-xs-12 marginMob" id="follow_formMob">
-        <%= button_to "Edit Interests", interests_group_path(@group), method: :get, class: "btn btn-primary connectBtnAd" %>
 
-</div>
+          <div class="col-md-offset-1 col-md-4 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" id="follow_formMob">
+
+
+              <%= image_submit_tag "interestsLong.png", class: "iconImage" %>
+              <div class="textOps">
+                View interests
+              </div>
+        
+   
+            </div>
+
 
 <% end %>
 
 </div>
 
-
-<div class="container mobNavs">
-    <div class="panel panel-default interestSec">
-          <div class="panel-interest accordion-toggle" data-toggle="collapse" href="#animals" aria-expanded="false">
-                View interests in group <div class="show-more">Open</div>
-            </div>
-
-      <div id="animals" class="panel-collapse collapse" data-parent="#accordion">
-        <div class="panel-body">
-
-
-      <% @group.fgI.each do |interest| %>
-        <div class="col-md-2 col-xs-6">
-          <div class="interestCard">
-            <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
-            <div class="interestTitleSec">
-              <div class="interestName"><%= interest.name %></div>
-            
-            </div>
-
-          </div>
-        </div>
-
-
-      <% end %>
-
-
-
-
-
-        </div>
-      </div>
-    </div>
-</div>
 
 
 
@@ -535,6 +623,42 @@
     </div>
   </div>
 <% end %>
+
+
+
+
+  <div class="modal fade" id="show-interests" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered allPostsDialog" role="document">
+      <div class="modal-content-users">
+        <div class="modal-body">
+          <div class="grid" id="masonry">
+            <div class="grid-sizer"></div>
+
+
+            <% @group.fgI.each do |interest| %>
+              <div class="col-md-3 col-xs-6 noPad1">
+                <div class="interestCard">
+                  <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+                  <div class="interestTitleSec">
+                    <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+                </div>
+              </div>
+            <% end %>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
 
 
 

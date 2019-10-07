@@ -365,6 +365,9 @@ body{
 }
 
 @media screen and (max-width: 776px){
+	.imageHere{
+		    height: 140vh;
+	}
 	.centerDiv{
 		width: auto;
 	}
@@ -380,9 +383,7 @@ body{
 	    font-size: 16px;
 	}
 
-	.loginSec{
-		margin: 20px 20px;
-	}
+
 
 	.loginSec2{
 		margin: 10px 20px;

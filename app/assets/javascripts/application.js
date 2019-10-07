@@ -18,3 +18,10 @@
 //= require cable
 //= require popper
 //= require materialize
+//= require nprogress
+//= require nprogress-turbolinks
+
+
+$(document).ready(function() {
+  NProgress.start();
+});

@@ -2,6 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+.textOps{
+  margin: 10px 5px;
+  font-weight: 900;
+  font-size: 14px;
+}
+
+
+.iconImage{
+  height: 70px;
+  border-radius: 10px;
+  outline: none !important;
+    border: 1px solid #ccc;
+    transition: box-shadow .3s;
+}
+
+.iconImage:hover{
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
+
 
 .panel-default > .panel-interest{
     background-color: #ffffff;
@@ -1207,6 +1227,7 @@ div.scrollEvents a {
 
 .titleInfo{
 	height: 164px;
+  margin-bottom: 10px;
 }
 
 

@@ -1,7 +1,12 @@
 <%= stylesheet_link_tag "groups", :media => "all" %>
 
 <%= form_for(current_user.active_relationships_groups.find_by(followedG_id: @group.id), html: { method: :delete }) do |f| %>
-	<%= f.submit "Joined Group", class: "btn connectedBtn" %>
+
+
+	            <%= image_submit_tag "joinedLong.png", class: "iconImage" %>
+                    <div class="textOps">
+                      Joined group
+                    </div>
 <% end %>
 
 

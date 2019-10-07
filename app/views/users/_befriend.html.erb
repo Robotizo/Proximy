@@ -1,3 +1,14 @@
-<div id="follow_form">
-            <%= link_to "Add Friend", friendships_path(friend_id: @user.id), method: :post, class: "btn connectBtn" %>
-</div>
+
+      
+
+
+           <%= link_to friendships_path(friend_id: @user.id), method: :post, class: "specialA" do %>
+
+              <%= image_submit_tag "addFriend.png", class: "iconImage" %>
+              <div class="textOps">
+                Add Friend
+              </div>
+        
+              <% end %>
+
+
