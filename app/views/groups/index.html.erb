@@ -18,7 +18,7 @@
 
   $(document).on("page:fetch", function(){
     $(".spinner").show();
-    $(".indexMar").css({"z-index": 99999}).fadeTo(0, 0.5);
+    $(".complete").css({"z-index": 99999}).fadeTo(0, 0.5);
   });
 
   $(document).on("page:receive", function(){
@@ -61,27 +61,17 @@
 
       <h2 class="topTitle2">Discover Groups</h2>
 
+      <div class="complete">
 
-
-
+          <%= render "groups" %>
           
-          <% @groups.each do |group| %>
-            <div class="col-md-3 col-xs-6 testMarge" data-aos="fade-up">
-              <%= link_to group, method: :get, class: "specialA" do %>
-                <div class="groupBlock">
-                  <%= image_tag(group.image_url(:group), class: "groupImageDisc") if group.image? %>
-                  <div class="groupTitleDisc"><%= truncate(group.title, length: 30) %></div>
-                </div>
-              <% end %>
-              </div>
-
-          <% end %>
+      </div>
 
 
     </div>
 
 
-
+<!--
     <div class="tab-pane" id="discover" role="discover-tab-pane" aria-labelledby="discover-tab">
         <div class="mainField">
         <h2 class="topTitle2">My Groups</h2>
@@ -137,7 +127,7 @@
 
 
     </div>
-
+-->
   </div>
 
 
