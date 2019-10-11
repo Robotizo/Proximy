@@ -1,0 +1,17 @@
+    <div class="scrollMembersEvents container " data-aos="fade-up">
+  
+    <% @events.first(10).each do |event| %>
+  
+      <%= link_to event, method: :get, class: "specialA" do %>
+        <div class="groupBlock">
+          <%= image_tag(event.image_url(:event), class: "groupImageDisc") if event.image? %>
+            <div class="eventContentDisc">
+              <div class="eventDateDisc"><%= event.event_date.strftime('%B %e') %></div>
+            </div>
+            <div class="groupTitleDisc"><%= truncate(event.title, length: 35) %></div>
+        </div>
+       <% end %>
+
+
+    <% end %>
+  </div>

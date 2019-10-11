@@ -1,0 +1,28 @@
+  <div class="scrollMembers container ">
+  
+    <% @users.first(9).each do |user| %>
+    <% unless user.id == current_user.id %>
+    <% collide = current_user.followingI.ids & user.followingI.ids %>
+
+        <%= link_to user, method: :get, class: "specialA" do %>
+        <div class="followersSec">
+          <% unless user.avatar.present? %>
+            <%= avatarFront_for(user) %>
+          <% end %>
+          <%= image_tag(user.avatar_url(:thumb), class: "userImg") if user.avatar? %>
+          <div class="followerNameSec"><%= truncate(user.name.gsub(/\s.+/, '')) %></div>
+          <div class="followerNameSec2"><%= collide.count %> shared interests</div>
+
+        </div>
+        <% end %>
+
+      <% end %>
+
+    <% end %>
+  <%= link_to discover_users_path, method: :get, class: "specialA" do %>
+        <%= image_tag("plus.png", class: "viewAll") %>
+  <% end %>
+
+
+
+  </div>

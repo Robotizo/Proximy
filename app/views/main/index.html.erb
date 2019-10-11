@@ -19,12 +19,25 @@ $(document).ready(function(){
 <script type="text/javascript">
   
 </script>
-
-<style type="text/css">
+<script type="text/javascript">
   
 
+    $( document ).ready(function() {
 
-</style>
+      $(".spinner").hide();
+
+
+    $(document).on("page:fetch", function(){
+      $(".spinner").show();
+      $(".complete").css({"z-index": 99999}).fadeTo(0, 0.5).html('<%= j(render "people") %>').html('<%= j(render "events") %>').html('<%= j(render "groups") %>');
+    });
+
+    $(document).on("page:receive", function(){
+      $(".spinner").hide();
+    });
+
+  });
+</script>
 
 
 <body >
@@ -511,33 +524,10 @@ $(document).ready(function(){
   <div class="container">
     <div class="titleSec">People Near You</div>
   </div>
-  <div class="scrollMembers container ">
-  
-    <% @users.first(9).each do |user| %>
-    <% unless user.id == current_user.id %>
-    <% collide = current_user.followingI.ids & user.followingI.ids %>
-
-        <%= link_to user, method: :get, class: "specialA" do %>
-        <div class="followersSec">
-          <% unless user.avatar.present? %>
-            <%= avatarFront_for(user) %>
-          <% end %>
-          <%= image_tag(user.avatar_url(:thumb), class: "userImg") if user.avatar? %>
-          <div class="followerNameSec"><%= truncate(user.name.gsub(/\s.+/, '')) %></div>
-          <div class="followerNameSec2"><%= collide.count %> shared interests</div>
-
-        </div>
-        <% end %>
-
-      <% end %>
-
-    <% end %>
-  <%= link_to discover_users_path, method: :get, class: "specialA" do %>
-        <%= image_tag("plus.png", class: "viewAll") %>
-  <% end %>
 
 
-
+  <div class="complete">
+    <%= render "people" %>
   </div>
 
 </div>
@@ -551,50 +541,35 @@ $(document).ready(function(){
   </div>
 
 
-
-    <div class="scrollMembersEvents container " data-aos="fade-up">
-  
-    <% @events.first(10).each do |event| %>
-  
-      <%= link_to event, method: :get, class: "specialA" do %>
-        <div class="groupBlock">
-          <%= image_tag(event.image_url(:event), class: "groupImageDisc") if event.image? %>
-            <div class="eventContentDisc">
-              <div class="eventDateDisc"><%= event.event_date.strftime('%B %e') %></div>
-            </div>
-            <div class="groupTitleDisc"><%= truncate(event.title, length: 35) %></div>
-        </div>
-       <% end %>
-
-
-    <% end %>
+  <div class="complete">
+    <%= render "events" %>
   </div>
 
+
+
 </div>
+
+
 
 <div style="margin-top: 20px;">
   <div class="container">
     <div class="titleSec">Groups to join</div>
   </div>
 
-
-
-    <div class="scrollMembersGroups container" data-aos="fade-up">
-  
-    <% @groups.first(10).each do |group| %>
-
-      <%= link_to group, method: :get, class: "specialA" do %>
-        <div class="groupBlock">
-          <%= image_tag(group.image_url(:group), class: "groupImageDisc") if group.image? %>
-
-            <div class="groupTitleDisc2"><%= truncate(group.title, length: 25) %></div>
-        </div>
-      <% end %>
-
-    <% end %>
+  <div class="complete">
+    <%= render "groups" %>
   </div>
 
+
+
 </div>
+
+
+
+
+
+
+
 
 <div style="margin-top: 20px;">
      <div class="container">
