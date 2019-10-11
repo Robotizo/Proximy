@@ -1,35 +1,35 @@
 <%= stylesheet_link_tag "groups", :media => "all" %>
+<%= javascript_include_tag 'groups', 'data-turbolinks-track': 'reload' %>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script>
     AOS.init();
 </script>
-<%= javascript_include_tag 'groups', 'data-turbolinks-track': 'reload' %>
+
 
 <script type="text/javascript">
   
 
-  $( document ).ready(function() {
+    $( document ).ready(function() {
 
       $(".spinner").hide();
 
 
-  $(document).on("page:fetch", function(){
-    $(".spinner").show();
-    $(".complete").css({"z-index": 99999}).fadeTo(0, 0.5);
-  });
+    $(document).on("page:fetch", function(){
+      $(".spinner").show();
+      $(".complete").css({"z-index": 99999}).fadeTo(0, 0.5).html('<%= j(render "groups") %>');
+    });
 
-  $(document).on("page:receive", function(){
-    $(".spinner").hide();
-  });
+    $(document).on("page:receive", function(){
+      $(".spinner").hide();
+    });
 
-});
+  });
 </script>
 
-
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
 <div class="spinner">
@@ -71,63 +71,7 @@
     </div>
 
 
-<!--
-    <div class="tab-pane" id="discover" role="discover-tab-pane" aria-labelledby="discover-tab">
-        <div class="mainField">
-        <h2 class="topTitle2">My Groups</h2>
-        <div class="newsfeedIndex text-center ">
 
-          <% if @groupsFollow.present? %>
-            <div class="scrollGroupsI">
-
-                  <% @groupsFollow.each do |groupFollowing| %>
-                    <%= link_to groupFollowing, method: :get, class: "specialA item" do %>
-                      <div class="groupBlock">
-                        <%= image_tag(groupFollowing.image_url(:group), class: "groupImageI") if groupFollowing.image? %>
-                        <div class="groupTitleI"><%= truncate(groupFollowing.title, length: 30) %></div>
-                      </div>
-                    <% end %>
-                  <% end %>
-
-            </div>
-          <% else %>
-            <div class="nothing">
-              You haven't joined any group
-            </div>
-          <% end %>
-        </div>
-      </div>
-
-            <div class="mainField">
-        <h2 class="topTitle2">Created Groups</h2>
-        <div class="newsfeedIndex text-center ">
-          <% if @user.groups.present? %>
-          <div class="scrollGroupsI">
-
-                  <% @user.groups.each do |group| %>
-                    <%= link_to group, method: :get, class: "specialA item" do %>
-                      <div class="groupBlock">
-                        <%= image_tag(group.image_url(:group), class: "groupImageI") if group.image? %>
-                        <div class="groupTitleI"><%= truncate(group.title, length: 30) %></div>
-                      </div>
-                    <% end %>
-                  <% end %>
-  
-          </div>
-          <% else %>
-            <div class="nothing">
-              You haven't created any group
-            </div>
-          <% end %>
-        </div>
-      </div>
-
-
-          
-
-
-    </div>
--->
   </div>
 
 
