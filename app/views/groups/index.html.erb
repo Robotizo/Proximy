@@ -8,6 +8,24 @@
 </script>
 <%= javascript_include_tag 'groups', 'data-turbolinks-track': 'reload' %>
 
+<script type="text/javascript">
+  
+
+  $( document ).ready(function() {
+
+   $(".spinner").hide();
+
+
+  $(document).on("page:fetch", function(){
+    $(".spinner").show();
+  });
+
+  $(document).on("page:receive", function(){
+    $(".spinner").hide();
+  });
+
+});
+</script>
 
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
