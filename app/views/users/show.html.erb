@@ -235,139 +235,80 @@
                         <%= ("data-test=\"" << post.user.avatar_url(:thumb) << "\"") if post.user.avatar? %> 
                 >
 
-            <div class="material-icons text-muted launch-modal align-middle">
+          
 
+  
 
                 <%= image_tag(post.image_url(:post), class: "card-img-top") if post.image? %>
+
+                   </span>
+
+                     <div class="material-icons text-muted launch-modal align-middle">
                 <div class="card-body">
+
                   <p class="card-text"><%= truncate post.content, length: 500, separator: ' ' %></p>
                 </div>
 
 
 
-                <div class="card-footer">
+                <div class="card-footer col-md-12 col-xs-12  ">
+                  <div class="col-md-4 col-xs-4 text-center noPadDesc  ">
                   <%= link_to post.user, method: :get, class: "specialA bottomSign" do %>
                     <%= image_tag(post.user.avatar_url(:thumb), class: "userImage2") if post.user.avatar? %>
+                  
+                    <small class="text-muted mobText"><%= truncate(post.user.name, length: 10) %>   •  <%= post.updated_at.to_time.strftime('%b %e') %> </small>
+                    <% end %>
+                  </div>
+                  <div class="col-md-4 col-xs-4 text-center divider1 marginExtra noPadDesc">
+  
+                  </div>
+                  <div class="col-md-4 col-xs-4 text-center marginExtra noPadDesc">
+                  <% if current_user.id == post.user.id %>
 
-                  <% end %>
+                    <div class="dropdown">
+                      <div class="editPosts dropdown-toggle text-center" type="button" data-toggle="dropdown"><%= image_tag("settings.png", class: "ImageIDer") %>
 
-                  <small class="text-muted"><%= post.user.name %> <%= post.user.last_name %> on <%= post.updated_at.to_time.strftime('%B %e') %></small>
-
-            
-            <% if current_user.id == post.user.id %>
-
-              <div class="dropdown pencilButton">
-                <div class="editPosts dropdown-toggle" type="button" data-toggle="dropdown"><%= image_tag("settings.png", class: "ImageIDer") %></div>
-                <ul class="dropdown-menu moreOps">
-                   <li>
-                    <%= link_to "Edit", edit_post_path(post), method: :get, class: "dropItem" %>
-                  </li>
-                  <li>
-          
-                    <%= link_to "Delete", post, method: :delete, class: "dropItem", data: { confirm: 'Are you sure?' } %>
-                  </li>
-                </ul>
-              </div>
-            <% end %>
-                </div>
-
-
-
-
-
-          </div>
-
-              </span>
-              </div>
-            
-
-
-
-
-
-
-            <% end %>
-          </div>
-
-
-
-
-
-
-<div class="latestPostSec2">
-          <% if @user.posts.length > 1 %>
-            <div class="col-md-6 col-xs-12 ">
-
-              <% @user.posts.last(3).reverse.each_with_index do |post, index| %>
-                <% unless index == 0 %>
-                  <div class="laterPostBox subPost">
-                
-               
-                  <span data-toggle="modal" data-target="#postModal"
-                              data-body="<%= post.content %>"
-                              data-poster="<%= post.user.name %>"
-                              data-time="<%= post.updated_at.to_time.strftime('%B %e') %>"
-                              <%= ("data-image=\"" << post.image_url << "\"") if post.image? %>
-                              <%= ("data-test=\"" << post.user.avatar_url(:thumb) << "\"") if post.user.avatar? %>
-                  >
-                  <div class="material-icons text-muted launch-modal align-middle">
-
-
-                      <div class="row no-gutters ">
-                        <div class="col-md-6 col-xs-12 post-image-background"
-                             style="background-image: url(<%= post.image_url(:post) %>);">
-                        </div>
-
-
-                        <div class="col-md-6 col-xs-12 ">
-                          <div class="card-body infoSec">
-                            <p class="card-text"><%= truncate post.content, length: 150, separator: ' ' %></p>
-                          </div>
-                          <div class="nameText">
-                            <span><%= image_tag(post.user.avatar_url(:thumb), class: "userImageMini") if post.user.avatar? %></span>
-                            <span class="card-text textMini"><%= truncate post.user.name, length: 150, separator: ' ' %> <%= truncate post.user.last_name, length: 150, separator: ' ' %></span>
-                          </div>
-
-                        </div>
-
-
+                      <small class="text-muted mobText"> Edit </small>
 
                       </div>
-
-
+                      <ul class="dropdown-menu ">
+                         <li>
+                          <%= link_to "Edit", edit_post_path(post), method: :get, class: "dropItem" %>
+                        </li>
+                        <li>
+                
+                          <%= link_to "Delete", post, method: :delete, class: "dropItem", data: { confirm: 'Are you sure?' } %>
+                        </li>
+                      </ul>
+                    </div>
+                  <% end %>
 
                   </div>
-   
-              </span>
-                
-
-
 
                 </div>
-                <% end %>
-
-
-              <% end %>
 
 
 
 
-                  <div class="laterPostBox">
 
-                    <div class="showAllPosts" data-toggle="modal" data-target="#show-posts"><button type="button" class="btn btnShowAll">Show All</button></div>
-                  </div>
+          </div>
 
-
-            </div>
-
-</div>
+       
+              </div>
+            
 
 
 
-    <div class="laterPostBoxMob">
 
-      <div class="showAllPosts" data-toggle="modal" data-target="#show-posts"><button type="button" class="btn btnShowAll">Show All</button></div>
-    </div>
+
+
+            <% end %>
+          </div>
+
+
+
+
+
 
 
 
@@ -376,11 +317,6 @@
 
 
 
-        <% else %>
-          <div class="noFollowSec">
-            <div class="noFollowSecText">User has made no posts</div>
-          </div>
-        <% end %>
      
     </div>
 

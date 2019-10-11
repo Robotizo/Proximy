@@ -258,6 +258,12 @@
                   <small class="text-muted"><%= event_post.event.title %> on <%= event_post.updated_at.to_time.strftime('%B %e') %></small>
 
 
+            
+                  <%= link_to event_post, method: :get, class: "specialA" do %>
+                   <%= image_tag("comments.png", class: "ImageIDerComm") %>
+                <% end %>
+          
+
 
                 </div>
 
@@ -548,7 +554,11 @@
                       <%= image_tag(event_post.event.image_url(:thumb), class: "userImage2") if event_post.event.image? %>
                     <% end %>
                     <small class="text-muted"><%= event_post.event.title %> on <%= event_post.updated_at.to_time.strftime('%B %e') %></small>
- 
+                  <!--
+                    <%= link_to event_post, method: :get, class: "specialA" do %>
+                      <%= image_tag("comments.png", class: "ImageIDerComm") %>
+                    <% end %>
+                  -->
                   </div>
                 </div>
               </div>

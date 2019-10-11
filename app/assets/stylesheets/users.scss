@@ -4,6 +4,71 @@
 
 
 
+
+.spinner {
+  margin: 100px auto 0;
+  width: 70px;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #333;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% { 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+
+
+
+
+.card-footer {
+    padding: 0.75rem 0rem;
+    background-color: white;
+    border-top: 1px solid #efefef;
+}
+
+.divider1{
+  border-right: 1px solid rgba(0, 0, 0, 0.125);
+  border-left: 1px solid rgba(0, 0, 0, 0.125);
+
+}
+
+.marginExtra{
+  margin-top: 4px;
+margin: 5px 0px;
+}
+
+
+
 .field{
   font-weight: 900;
 }
@@ -170,16 +235,11 @@ div .panel-interest{
   font-weight: 600;
 }
 
-.editPosts{
-  float: right;
-  display: inline-block;
-  color: white;
-}
 
 
 .ImageIDer{
-  height: 25px;
-  float: right;
+  height: 20px;
+  margin: 0px 5px;
 }
 
 .fileBtnSubmitSign{
@@ -1116,8 +1176,9 @@ body {
 
 /* CARDS */
 img.userImage2 {
-  height: 30px;
+  height: 35px;
   border-radius: 10px;
+  margin-right: 2px;
 }
 
 /* BOOTSTRAP */
@@ -1195,10 +1256,7 @@ img.userImage2 {
   border-top: 0;
 }
 
-.card-footer {
-  padding: 0.75rem 1rem;
-  background-color: white;
-}
+
 
 .card-footer:last-child {
   border-radius: 0 0 calc(0.75rem - 1px) calc(0.75rem - 1px);
@@ -2084,6 +2142,9 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px) {
+  .mobText{
+    font-size: 10px;
+  }
   .textOps{
     font-size: 12px;
   }

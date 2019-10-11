@@ -659,7 +659,7 @@ $(document).ready(function(){
                 <% end %>
                 <small class="text-muted"><%= truncate(post.group.title, length: 25) %></small>
                 <%= image_tag("groups.png", class: "ImageIDer") %>
-     
+
               </div>
 
             <% elsif post.is_a? EventPost %>
@@ -682,13 +682,10 @@ $(document).ready(function(){
                 <% end %>
                 <small class="text-muted"><%= truncate(post.user.name, length: 25) %></small>
                 <%= image_tag("user.png", class: "ImageIDer") %>
-   
+
               </div>
 
             <% end %>
-
-
-
 
            
           </div>
