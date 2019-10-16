@@ -24,4 +24,9 @@
 
 $(document).ready(function() {
   NProgress.start();
+	NProgress.configure({
+		showSpinner: false,
+		ease: 'ease',
+		speed: 500
+	});
 });

@@ -202,18 +202,14 @@
 <!--Start-->
 
 
-    <%= link_to notifications_path, method: :get, class: "specialA dispNone" do %>
-
-      <div class="navTitleEnd1 <%= 'activeNav' if current_page?(notifications_path) %>">
-
+    <div class="navTitleEnd1 <%= 'activeNav' if current_page?(notifications_path) %>">
+       <%= link_to notifications_path do %>
           <%= image_tag("notifications.png", class: "ImageNav") %>   
           <% if @userFriendships.present? or @eventNotifs.present? %>
             <%= image_tag("redCircle.png", class: "notificationsNav") %>   
           <% end %>
-       
-
-      </div>
-    <% end %>
+       <% end %>
+    </div>
 
 
     <div class="navTitleEnd1 <%= 'activeNav' if current_page?(groups_path) %>">
@@ -340,7 +336,7 @@
             </div>
           </span>
 
-          <%= link_to groups_path, method: :get, class: "specialA" do %>
+          <%= link_to groups_path, class: "specialA" do %>
             <div class="navTitleEndMob  <%= 'activeNav' if current_page?(groups_path) %>">
               <% if current_page?(groups_path) %>
                 <%= image_tag("groupsActive.png", class: "ImageNavB") %>
@@ -352,7 +348,7 @@
           <% end %>
 
 
-          <%= link_to root_path, method: :get, class: "specialA" do %>
+          <%= link_to root_path, class: "specialA" do %>
             <div class="navTitleEndMob  <%= 'activeNav' if current_page?(root_path) %>">
             <% if current_page?(root_path) %>
               <%= image_tag("homeActive.png", class: "ImageNavB") %>
@@ -367,7 +363,7 @@
           
 
 
-          <%= link_to events_path, method: :get, class: "specialA" do %>
+          <%= link_to events_path, class: "specialA" do %>
             <div class="navTitleEndMob  <%= 'activeNav' if current_page?(events_path) %>">
               <% if current_page?(events_path) %>
                 <%= image_tag("eventActive.png", class: "ImageNavB") %>
@@ -379,7 +375,7 @@
           <% end %>
 
 
-          <%= link_to notifications_path, method: :get, class: "specialA" do %>
+          <%= link_to notifications_path, class: "specialA" do %>
             <div class="navTitleEndMob <%= 'activeNav' if current_page?(notifications_path) %>">
               <% if current_page?(notifications_path) %>
                 <%= image_tag("notificationsActive.png", class: "ImageNavB") %>
