@@ -174,7 +174,7 @@
 
   </div> 
 
-      <%= link_to current_user, method: :get, class: "specialA" do %>
+      <%= link_to current_user, class: "specialA" do %>
       <% unless current_user.avatar.present? %>
         <div class="navTitleEnd1 ifMob1"><%= avatarNav_for(current_user) %></div>
       <% end %>
@@ -216,28 +216,35 @@
     <% end %>
 
 
-
-    <%= link_to groups_path, method: :get, class: "specialA dispNone" do %>
-      <div class="navTitleEnd1 <%= 'activeNav' if current_page?(groups_path) %>">
-          <%= image_tag("groups.png", class: "ImageNav") %>
-
-      </div>
-
-    <% end %>
+    <div class="navTitleEnd1 <%= 'activeNav' if current_page?(groups_path) %>">
+       <%= link_to groups_path do %>
+         <%= (image_tag("groups.png", class: "ImageNav"))  %>
+       <% end %>
+    </div>
 
 
-    <%= link_to events_path, method: :get, class: "specialA dispNone" do %>
-      <div class="navTitleEnd1 <%= 'activeNav' if current_page?(events_path) %>">
-          <%= image_tag("event.png", class: "ImageNav") %>
-      </div>
-    <% end %>
 
-    <%= link_to root_path, method: :get, class: "specialA dispNone" do %>
 
-      <div class="navTitleEnd1 <%= 'activeNav' if current_page?(root_path) %>">
-          <%= image_tag("home.png", class: "ImageNav") %>
-      </div>
-    <% end %>
+    <div class="navTitleEnd1 <%= 'activeNav' if current_page?(events_path) %>">
+       <%= link_to events_path, class: "specialA dispNone" do %>
+         <%= (image_tag("event.png", class: "ImageNav")) %>
+       <% end %>
+    </div>
+
+
+    <div class="navTitleEnd1 <%= 'activeNav' if current_page?(root_path) %>">
+       <%= link_to root_path, class: "specialA dispNone" do %>
+         <%= (image_tag("home.png", class: "ImageNav")) %>
+       <% end %>
+    </div>
+
+
+
+
+
+
+
+
 
 
     <div class="dropdown pencilButton">
