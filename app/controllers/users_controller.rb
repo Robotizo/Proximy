@@ -86,6 +86,7 @@ class UsersController < ApplicationController
     @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
     @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
     @friendships = Friendship.where(user_id: @user.id, friend_id: current_user.id, status: "pending")
+    @acceptedFriendships = Friendship.where(user_id: @user.id, friend_id: current_user.id, status: "accepted")
 
 
     @interests = Interest.all
