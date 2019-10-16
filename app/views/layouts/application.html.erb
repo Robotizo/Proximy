@@ -285,7 +285,7 @@
 
     $(document).on("turbolinks:click", function(){
       $(".spinnerPage").show();
-      $(".complete").css({"z-index": 99999}).fadeTo(0, 0.5);
+      $("#theRest").css({"z-index": 99999}).fadeTo(0, 0.5);
     });
 
 
@@ -299,13 +299,14 @@
 
 
 <div id="clickable" onclick="closeNav()">
-  <div id="theRest" >
-
     <div class="spinnerPage">
       <div class="bounce1"></div>
       <div class="bounce2"></div>
       <div class="bounce3"></div>
     </div>
+  <div id="theRest" >
+
+
       <%= yield %>
   </div>
 </div>
