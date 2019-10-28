@@ -2,46 +2,40 @@
 <%= javascript_include_tag 'events' %>
 
 
-<div class="coverImage" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center;">
-  <%= image_tag("events_back.jpg", class: "iconImg", id:"coverImageTag") %>
+
+<div class="container">
+<div class="col-md-5 here">
+
+
+  <div class="text-center module1">
+
+  <div class="innerModule">
+
+    <div class="coverImage" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px 10px 0px 0px !important; ">
+      <%= image_tag("events_back.jpg", class: "iconImg", id:"coverImageTag") %>
+    </div>
+
+
+
+    <div class="eventContentForm">
+      <div class="eventTitleForm" id="eventPageTitle">New Event</div>
+    </div>
+  </div>
+
+
+  </div>
+
 </div>
 
 
 
-<script>
-$(document).ready(function() {
-  $(".loader").hide();
 
-    var ajaxLoadTimeout, ajaxLoadTimeout2;
-    
-    $(document).ajaxStart(function(){
-      ajaxLoadTimeout = setTimeout(function() { $(".loader").show(); });
-    });
-  
-  
-    $(document).ajaxStop(function(){
-      ajaxLoadTimeout2 = setTimeout(function() { $(".loader").hide(); }, 1000); 
-        }) .ajaxSuccess(function() { 
-          clearTimeout(ajaxLoadTimeout);
-          $("#loader").hide();
-      });
-
-});
-</script>
-
-
-
-<div class="eventContentForm">
-  <div class="eventTitleForm" id="eventPageTitle">New Event</div>
-</div>
-<div class="eventFormEqual container">
-
+<div class="col-md-7 noPad3">
   <%= render 'form', event: @event %>
+</div>
 
 
 </div>
-
-<div class="loader" />
 
 
 <script>

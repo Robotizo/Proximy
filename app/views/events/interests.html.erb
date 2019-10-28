@@ -34,32 +34,63 @@
   .mobNav{
     display: none !important;
   }
+
+    .buttonHov{
+    margin-top: -20px;
+    margin-bottom: 10px;
+  }
+
+  .innerModule{
+    padding-bottom: 150px;
+  }
+
+  .interestName{
+    font-size: 12px !important;
+  }
+
+  .interestTitleSec{
+    top: -27px !important;
+  }
 </style>
 
-  <div class="module1">
-
-
-    <div class="imageSec">
-      <%= image_tag(@event.image_url, class: "eventImageDisplay") if @event.image? %>
-          <div class="eventImgTitle">
-            <div class="eventTitleImg"><%= @event.title %></div>
-          </div>
-    </div>
 
 
 
-    <div class="col-md-6 col-xs-12 infoSec">
 
-      <div class="titleSecSub">Select interests that match this event</div>
-      <div class="titleSecSub2">The more interests you select the more people will find you</div>
+<div class="container noPad3">
 
+
+
+  <div class="col-md-5 here">
+    <div class="text-center module1">
+
+      <div class="innerModule">
+        <div class="imageSec">
+          <%= image_tag(@event.image_url, class: "eventImageDisplay") if @event.image? %>
+              <div class="eventImgTitle">
+                <div class="eventTitleImg"><%= @event.title %></div>
+              </div>
+        </div>
+
+
+
+      </div>
     </div>
   </div>
 
 
 
-<div class="container margBottom mobNavs">
-  <div style="margin-bottom: 80px;">
+
+  <div class="col-md-7 col-xs-12">
+
+
+  <div class="titleSecSub">Select interests that match this event</div>
+  <div class="titleSecSub2">The more interests you select the more people will find you</div>
+
+
+
+<div class=" margBottom mobNavs">
+
     <div class="panel-group" >
       <div class="panel-group" id="accordion" aria-multiselectable="true">
 
@@ -77,8 +108,8 @@
       <div class="arts" >
         <div class="panel-body">
          
-          <% @arts.first(5).each do |interest| %>
-              <div class="col-md-2 col-xs-6">
+          <% @arts.first(7).each do |interest| %>
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -118,12 +149,12 @@
             </div>
             </div>
           <% end %>
-          <% if @arts.count > 5 %>
+          <% if @arts.count > 7 %>
 
 
 
           
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-3 col-xs-6">
           <div class="interestMore text-center" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
             <%= image_tag("moreInt.png", class: "imageMore") %>
           </div>
@@ -141,8 +172,8 @@
           <div class="panel-body">
 
           <% @arts.each_with_index.each do | interest, index | %>
-          <% unless index < 5 %> 
-              <div class="col-md-2 col-xs-6">
+          <% unless index < 7 %> 
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -214,8 +245,8 @@
       <div class="arts" >
         <div class="panel-body">
          
-          <% @animals.first(5).each do |interest| %>
-              <div class="col-md-2 col-xs-6">
+          <% @animals.first(7).each do |interest| %>
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -255,12 +286,12 @@
             </div>
             </div>
           <% end %>
-          <% if @animals.count > 5 %>
+          <% if @animals.count > 7 %>
 
 
 
           
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-3 col-xs-6">
           <div class="interestMore text-center" data-toggle="collapse" data-target="#animals" aria-expanded="false" aria-controls="animals">
             <%= image_tag("moreInt.png", class: "imageMore") %>
           </div>
@@ -278,8 +309,8 @@
           <div class="panel-body">
 
           <% @animals.each_with_index.each do | interest, index | %>
-          <% unless index < 5 %> 
-              <div class="col-md-2 col-xs-6">
+          <% unless index < 7 %> 
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -350,8 +381,8 @@
       <div class="business" >
         <div class="panel-body">
          
-          <% @business.first(5).each do |interest| %>
-              <div class="col-md-2 col-xs-6">
+          <% @business.first(7).each do |interest| %>
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -391,12 +422,12 @@
             </div>
             </div>
           <% end %>
-          <% if @business.count > 5 %>
+          <% if @business.count > 7 %>
 
 
 
           
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-3 col-xs-6">
           <div class="interestMore text-center" data-toggle="collapse" data-target="#business" aria-expanded="false" aria-controls="business">
             <%= image_tag("moreInt.png", class: "imageMore") %>
           </div>
@@ -414,8 +445,8 @@
           <div class="panel-body">
 
           <% @business.each_with_index.each do | interest, index | %>
-          <% unless index < 5 %> 
-              <div class="col-md-2 col-xs-6">
+          <% unless index < 7 %> 
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -487,8 +518,8 @@
       <div class="community" >
         <div class="panel-body">
          
-          <% @community.first(5).each do |interest| %>
-              <div class="col-md-2 col-xs-6">
+          <% @community.first(7).each do |interest| %>
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -528,12 +559,12 @@
             </div>
             </div>
           <% end %>
-          <% if @community.count > 5 %>
+          <% if @community.count > 7 %>
 
 
 
           
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-3 col-xs-6">
           <div class="interestMore text-center" data-toggle="collapse" data-target="#community" aria-expanded="false" aria-controls="community">
             <%= image_tag("moreInt.png", class: "imageMore") %>
           </div>
@@ -551,8 +582,8 @@
           <div class="panel-body">
 
           <% @community.each_with_index.each do | interest, index | %>
-          <% unless index < 5 %> 
-              <div class="col-md-2 col-xs-6">
+          <% unless index < 7 %> 
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -623,8 +654,8 @@
       <div class="crafts" >
         <div class="panel-body">
          
-          <% @crafts.first(5).each do |interest| %>
-              <div class="col-md-2 col-xs-6">
+          <% @crafts.first(7).each do |interest| %>
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -664,12 +695,12 @@
             </div>
             </div>
           <% end %>
-          <% if @crafts.count > 5 %>
+          <% if @crafts.count > 7 %>
 
 
 
           
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-3 col-xs-6">
           <div class="interestMore text-center" data-toggle="collapse" data-target="#crafts" aria-expanded="false" aria-controls="crafts">
             <%= image_tag("moreInt.png", class: "imageMore") %>
           </div>
@@ -687,8 +718,8 @@
           <div class="panel-body">
 
           <% @crafts.each_with_index.each do | interest, index | %>
-          <% unless index < 5 %> 
-              <div class="col-md-2 col-xs-6">
+          <% unless index < 7 %> 
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -759,8 +790,8 @@
       <div class="dance" >
         <div class="panel-body">
          
-          <% @dance.first(5).each do |interest| %>
-              <div class="col-md-2 col-xs-6">
+          <% @dance.first(7).each do |interest| %>
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -800,12 +831,12 @@
             </div>
             </div>
           <% end %>
-          <% if @dance.count > 5 %>
+          <% if @dance.count > 7 %>
 
 
 
           
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-3 col-xs-6">
           <div class="interestMore text-center" data-toggle="collapse" data-target="#dance" aria-expanded="false" aria-controls="dance">
             <%= image_tag("moreInt.png", class: "imageMore") %>
           </div>
@@ -823,8 +854,8 @@
           <div class="panel-body">
 
           <% @dance.each_with_index.each do | interest, index | %>
-          <% unless index < 5 %> 
-              <div class="col-md-2 col-xs-6">
+          <% unless index < 7 %> 
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -895,8 +926,8 @@
       <div class="eating" >
         <div class="panel-body">
          
-          <% @eating.first(5).each do |interest| %>
-              <div class="col-md-2 col-xs-6">
+          <% @eating.first(7).each do |interest| %>
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -936,12 +967,12 @@
             </div>
             </div>
           <% end %>
-          <% if @eating.count > 5 %>
+          <% if @eating.count > 7 %>
 
 
 
           
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-3 col-xs-6">
           <div class="interestMore text-center" data-toggle="collapse" data-target="#eating" aria-expanded="false" aria-controls="eating">
             <%= image_tag("moreInt.png", class: "imageMore") %>
           </div>
@@ -959,8 +990,8 @@
           <div class="panel-body">
 
           <% @eating.each_with_index.each do | interest, index | %>
-          <% unless index < 5 %> 
-              <div class="col-md-2 col-xs-6">
+          <% unless index < 7 %> 
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -1031,8 +1062,8 @@
       <div class="education" >
         <div class="panel-body">
          
-          <% @education.first(5).each do |interest| %>
-              <div class="col-md-2 col-xs-6">
+          <% @education.first(7).each do |interest| %>
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -1072,12 +1103,12 @@
             </div>
             </div>
           <% end %>
-          <% if @education.count > 5 %>
+          <% if @education.count > 7 %>
 
 
 
           
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-3 col-xs-6">
           <div class="interestMore text-center" data-toggle="collapse" data-target="#education" aria-expanded="false" aria-controls="education">
             <%= image_tag("moreInt.png", class: "imageMore") %>
           </div>
@@ -1095,8 +1126,8 @@
           <div class="panel-body">
 
           <% @education.each_with_index.each do | interest, index | %>
-          <% unless index < 5 %> 
-              <div class="col-md-2 col-xs-6">
+          <% unless index < 7 %> 
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -1168,8 +1199,8 @@
       <div class="entertainment" >
         <div class="panel-body">
          
-          <% @entertainment.first(5).each do |interest| %>
-              <div class="col-md-2 col-xs-6">
+          <% @entertainment.first(7).each do |interest| %>
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -1209,12 +1240,12 @@
             </div>
             </div>
           <% end %>
-          <% if @entertainment.count > 5 %>
+          <% if @entertainment.count > 7 %>
 
 
 
           
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-3 col-xs-6">
           <div class="interestMore text-center" data-toggle="collapse" data-target="#entertainment" aria-expanded="false" aria-controls="entertainment">
             <%= image_tag("moreInt.png", class: "imageMore") %>
           </div>
@@ -1232,8 +1263,8 @@
           <div class="panel-body">
 
           <% @entertainment.each_with_index.each do | interest, index | %>
-          <% unless index < 5 %> 
-              <div class="col-md-2 col-xs-6">
+          <% unless index < 7 %> 
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -1305,8 +1336,8 @@
       <div class="fashion" >
         <div class="panel-body">
          
-          <% @fashion.first(5).each do |interest| %>
-              <div class="col-md-2 col-xs-6">
+          <% @fashion.first(7).each do |interest| %>
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -1346,12 +1377,12 @@
             </div>
             </div>
           <% end %>
-          <% if @fashion.count > 5 %>
+          <% if @fashion.count > 7 %>
 
 
 
           
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-3 col-xs-6">
           <div class="interestMore text-center" data-toggle="collapse" data-target="#fashion" aria-expanded="false" aria-controls="fashion">
             <%= image_tag("moreInt.png", class: "imageMore") %>
           </div>
@@ -1369,8 +1400,8 @@
           <div class="panel-body">
 
           <% @fashion.each_with_index.each do | interest, index | %>
-          <% unless index < 5 %> 
-              <div class="col-md-2 col-xs-6">
+          <% unless index < 7 %> 
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -1441,8 +1472,8 @@
       <div class="fitness" >
         <div class="panel-body">
          
-          <% @fitness.first(5).each do |interest| %>
-              <div class="col-md-2 col-xs-6">
+          <% @fitness.first(7).each do |interest| %>
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -1482,12 +1513,12 @@
             </div>
             </div>
           <% end %>
-          <% if @fitness.count > 5 %>
+          <% if @fitness.count > 7 %>
 
 
 
           
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-3 col-xs-6">
           <div class="interestMore text-center" data-toggle="collapse" data-target="#fitness" aria-expanded="false" aria-controls="fitness">
             <%= image_tag("moreInt.png", class: "imageMore") %>
           </div>
@@ -1505,8 +1536,8 @@
           <div class="panel-body">
 
           <% @fitness.each_with_index.each do | interest, index | %>
-          <% unless index < 5 %> 
-              <div class="col-md-2 col-xs-6">
+          <% unless index < 7 %> 
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -1576,8 +1607,8 @@
       <div class="games" >
         <div class="panel-body">
          
-          <% @games.first(5).each do |interest| %>
-              <div class="col-md-2 col-xs-6">
+          <% @games.first(7).each do |interest| %>
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -1617,12 +1648,12 @@
             </div>
             </div>
           <% end %>
-          <% if @games.count > 5 %>
+          <% if @games.count > 7 %>
 
 
 
           
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-3 col-xs-6">
           <div class="interestMore text-center" data-toggle="collapse" data-target="#games" aria-expanded="false" aria-controls="games">
             <%= image_tag("moreInt.png", class: "imageMore") %>
           </div>
@@ -1640,8 +1671,8 @@
           <div class="panel-body">
 
           <% @games.each_with_index.each do | interest, index | %>
-          <% unless index < 5 %> 
-              <div class="col-md-2 col-xs-6">
+          <% unless index < 7 %> 
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -1711,8 +1742,8 @@
       <div class="health" >
         <div class="panel-body">
          
-          <% @health.first(5).each do |interest| %>
-              <div class="col-md-2 col-xs-6">
+          <% @health.first(7).each do |interest| %>
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -1752,12 +1783,12 @@
             </div>
             </div>
           <% end %>
-          <% if @health.count > 5 %>
+          <% if @health.count > 7 %>
 
 
 
           
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-3 col-xs-6">
           <div class="interestMore text-center" data-toggle="collapse" data-target="#health" aria-expanded="false" aria-controls="health">
             <%= image_tag("moreInt.png", class: "imageMore") %>
           </div>
@@ -1775,8 +1806,8 @@
           <div class="panel-body">
 
           <% @health.each_with_index.each do | interest, index | %>
-          <% unless index < 5 %> 
-              <div class="col-md-2 col-xs-6">
+          <% unless index < 7 %> 
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -1846,8 +1877,8 @@
       <div class="culture" >
         <div class="panel-body">
          
-          <% @culture.first(5).each do |interest| %>
-              <div class="col-md-2 col-xs-6">
+          <% @culture.first(7).each do |interest| %>
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -1887,12 +1918,12 @@
             </div>
             </div>
           <% end %>
-          <% if @culture.count > 5 %>
+          <% if @culture.count > 7 %>
 
 
 
           
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-3 col-xs-6">
           <div class="interestMore text-center" data-toggle="collapse" data-target="#culture" aria-expanded="false" aria-controls="culture">
             <%= image_tag("moreInt.png", class: "imageMore") %>
           </div>
@@ -1910,8 +1941,8 @@
           <div class="panel-body">
 
           <% @culture.each_with_index.each do | interest, index | %>
-          <% unless index < 5 %> 
-              <div class="col-md-2 col-xs-6">
+          <% unless index < 7 %> 
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -1982,8 +2013,8 @@
       <div class="LGBTQA" >
         <div class="panel-body">
          
-          <% @LGBTQA.first(5).each do |interest| %>
-              <div class="col-md-2 col-xs-6">
+          <% @LGBTQA.first(7).each do |interest| %>
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -2023,12 +2054,12 @@
             </div>
             </div>
           <% end %>
-          <% if @LGBTQA.count > 5 %>
+          <% if @LGBTQA.count > 7 %>
 
 
 
           
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-3 col-xs-6">
           <div class="interestMore text-center" data-toggle="collapse" data-target="#LGBTQA" aria-expanded="false" aria-controls="LGBTQA">
             <%= image_tag("moreInt.png", class: "imageMore") %>
           </div>
@@ -2046,8 +2077,8 @@
           <div class="panel-body">
 
           <% @LGBTQA.each_with_index.each do | interest, index | %>
-          <% unless index < 5 %> 
-              <div class="col-md-2 col-xs-6">
+          <% unless index < 7 %> 
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -2121,8 +2152,8 @@
       <div class="auto" >
         <div class="panel-body">
          
-          <% @auto.first(5).each do |interest| %>
-              <div class="col-md-2 col-xs-6">
+          <% @auto.first(7).each do |interest| %>
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -2162,12 +2193,12 @@
             </div>
             </div>
           <% end %>
-          <% if @auto.count > 5 %>
+          <% if @auto.count > 7 %>
 
 
 
           
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-3 col-xs-6">
           <div class="interestMore text-center" data-toggle="collapse" data-target="#auto" aria-expanded="false" aria-controls="auto">
             <%= image_tag("moreInt.png", class: "imageMore") %>
           </div>
@@ -2185,8 +2216,8 @@
           <div class="panel-body">
 
           <% @auto.each_with_index.each do | interest, index | %>
-          <% unless index < 5 %> 
-              <div class="col-md-2 col-xs-6">
+          <% unless index < 7 %> 
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -2258,8 +2289,8 @@
       <div class="perspective" >
         <div class="panel-body">
          
-          <% @perspective.first(5).each do |interest| %>
-              <div class="col-md-2 col-xs-6">
+          <% @perspective.first(7).each do |interest| %>
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -2299,12 +2330,12 @@
             </div>
             </div>
           <% end %>
-          <% if @perspective.count > 5 %>
+          <% if @perspective.count > 7 %>
 
 
 
           
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-3 col-xs-6">
           <div class="interestMore text-center" data-toggle="collapse" data-target="#perspective" aria-expanded="false" aria-controls="perspective">
             <%= image_tag("moreInt.png", class: "imageMore") %>
           </div>
@@ -2322,8 +2353,8 @@
           <div class="panel-body">
 
           <% @perspective.each_with_index.each do | interest, index | %>
-          <% unless index < 5 %> 
-              <div class="col-md-2 col-xs-6">
+          <% unless index < 7 %> 
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -2394,8 +2425,8 @@
       <div class="outdoors" >
         <div class="panel-body">
          
-          <% @outdoors.first(5).each do |interest| %>
-              <div class="col-md-2 col-xs-6">
+          <% @outdoors.first(7).each do |interest| %>
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -2435,12 +2466,12 @@
             </div>
             </div>
           <% end %>
-          <% if @outdoors.count > 5 %>
+          <% if @outdoors.count > 7 %>
 
 
 
           
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-3 col-xs-6">
           <div class="interestMore text-center" data-toggle="collapse" data-target="#outdoors" aria-expanded="false" aria-controls="outdoors">
             <%= image_tag("moreInt.png", class: "imageMore") %>
           </div>
@@ -2458,8 +2489,8 @@
           <div class="panel-body">
 
           <% @outdoors.each_with_index.each do | interest, index | %>
-          <% unless index < 5 %> 
-              <div class="col-md-2 col-xs-6">
+          <% unless index < 7 %> 
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -2530,8 +2561,8 @@
       <div class="relationships" >
         <div class="panel-body">
          
-          <% @relationships.first(5).each do |interest| %>
-              <div class="col-md-2 col-xs-6">
+          <% @relationships.first(7).each do |interest| %>
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -2571,12 +2602,12 @@
             </div>
             </div>
           <% end %>
-          <% if @relationships.count > 5 %>
+          <% if @relationships.count > 7 %>
 
 
 
           
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-3 col-xs-6">
           <div class="interestMore text-center" data-toggle="collapse" data-target="#relationships" aria-expanded="false" aria-controls="relationships">
             <%= image_tag("moreInt.png", class: "imageMore") %>
           </div>
@@ -2594,8 +2625,8 @@
           <div class="panel-body">
 
           <% @relationships.each_with_index.each do | interest, index | %>
-          <% unless index < 5 %> 
-              <div class="col-md-2 col-xs-6">
+          <% unless index < 7 %> 
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -2665,8 +2696,8 @@
       <div class="sports" >
         <div class="panel-body">
          
-          <% @sports.first(5).each do |interest| %>
-              <div class="col-md-2 col-xs-6">
+          <% @sports.first(7).each do |interest| %>
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -2706,12 +2737,12 @@
             </div>
             </div>
           <% end %>
-          <% if @sports.count > 5 %>
+          <% if @sports.count > 7 %>
 
 
 
           
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-3 col-xs-6">
           <div class="interestMore text-center" data-toggle="collapse" data-target="#sports" aria-expanded="false" aria-controls="sports">
             <%= image_tag("moreInt.png", class: "imageMore") %>
           </div>
@@ -2729,8 +2760,8 @@
           <div class="panel-body">
 
           <% @sports.each_with_index.each do | interest, index | %>
-          <% unless index < 5 %> 
-              <div class="col-md-2 col-xs-6">
+          <% unless index < 7 %> 
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -2800,8 +2831,8 @@
       <div class="tech" >
         <div class="panel-body">
          
-          <% @tech.first(5).each do |interest| %>
-              <div class="col-md-2 col-xs-6">
+          <% @tech.first(7).each do |interest| %>
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -2841,12 +2872,12 @@
             </div>
             </div>
           <% end %>
-          <% if @tech.count > 5 %>
+          <% if @tech.count > 7 %>
 
 
 
           
-        <div class="col-md-2 col-xs-6">
+        <div class="col-md-3 col-xs-6">
           <div class="interestMore text-center" data-toggle="collapse" data-target="#tech" aria-expanded="false" aria-controls="tech">
             <%= image_tag("moreInt.png", class: "imageMore") %>
           </div>
@@ -2864,8 +2895,8 @@
           <div class="panel-body">
 
           <% @tech.each_with_index.each do | interest, index | %>
-          <% unless index < 5 %> 
-              <div class="col-md-2 col-xs-6">
+          <% unless index < 7 %> 
+              <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -2929,24 +2960,22 @@
 
 
 
-      </div>
+</div>
+
+
+
+
+  <%= link_to @event, method: :get, class: "specialA" do %>
+  <div class="fixedState">
+    <span class="editsText">Confirm</span>
+      <%= image_tag("confirm.png", class: "editsUserIcon") %>
     </div>
-  </div>
+  <% end %>
+
+
+
+
 </div>
-
-
-
-
-<div class="col-md-12">
-
-  <div class="actions col-md-12 col-xs-12 create">
-    <%= button_to "Confirm", @event, method: :get, class: "fileBtnSubmit" %>
-  </div>
-</div>
-
-
-
-
 
 
 

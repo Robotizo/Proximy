@@ -1,5 +1,15 @@
 <%= stylesheet_link_tag "events", :media => "all" %>
 <%= javascript_include_tag 'events', 'data-turbolinks-track': 'reload' %>
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+
+
+
 <% if flash[:notice] %>
 <div class="alert alert-success" role="alert">
   <%= notice %>
@@ -25,10 +35,14 @@
 </style>
 
 
-<div class="mobileArea">
-  <div class="module1">
 
 
+<div class="container">
+
+<div class="col-md-5 here">
+  <div class="text-center module1">
+
+    <div class="innerModule">
     <div class="imageSec">
       <%= image_tag(@event.image_url, class: "eventImageDisplay") if @event.image? %>
       <div class="eventImgTitle">
@@ -38,11 +52,11 @@
 
 
 
-    <div class="col-md-6 col-xs-12 infoSec">
+    <div class="col-md-12 col-xs-12 infoSec noPad3Desk">
 
 <div class="infoSec2">
 
-    <div class="infoTop">Event Details</div>
+    <div class="infoTop col-md-12">Event Details</div>
 
 
       <div class="col-md-6 col-xs-12 noPad3">
@@ -64,7 +78,7 @@
         <% end %>
       </div>
 
-      <div class="col-md-12 col-xs-12 noPad3">
+      <div class="col-md-12 col-xs-12 noPad3 text-left">
           <div class="eventTitle2">Created by</div>
           <%= image_tag(@event.user.avatar_url(:thumb), class: "organizerAv") if @event.user.avatar? %>
           <span class="organizerName"><%= @event.user.name %> <%= @event.user.last_name %></span>
@@ -75,7 +89,7 @@
       <% if Date.today <= @event.event_date %>
           <div class="buttonsEvent">
 
-            <div class="col-md-3 col-xs-3 noPad3 text-center">
+            <div class="col-md-3 col-xs-3 noPad3Desk text-center">
 
               <% if current_user.followingE?(@event) %>
 
@@ -105,7 +119,7 @@
 
             </div>
 
-            <div class="col-md-3 col-xs-3 noPad3 text-center">
+            <div class="col-md-3 col-xs-3 noPad3Desk text-center">
               <%= link_to edit_event_path(@event), method: :get, class: "specialA" do %>
 
                 <%= image_tag("geatInv.png", class: "iconImage") %>
@@ -117,7 +131,7 @@
             </div>
 
 
-            <div class="col-md-3 col-xs-3 noPad3 text-center">
+            <div class="col-md-3 col-xs-3 noPad3Desk text-center">
 
               <%= link_to interests_event_path(@event), method: :get, class: "specialA" do %>
 
@@ -130,7 +144,7 @@
             </div>
 
 
-            <div class="col-md-3 col-xs-3 noPad3 text-center" data-target="#show-interests" data-toggle="modal" >
+            <div class="col-md-3 col-xs-3 noPad3Desk text-center" data-target="#show-interests" data-toggle="modal" >
 
 
               <%= image_submit_tag "interestsInv.png", class: "iconImage" %>
@@ -162,18 +176,18 @@
 
      <div class="buttonsEvent">
           <% if current_user.followingE?(@event) %>
-          <div class="col-md-offset-1 col-md-4 col-xs-6 noPad3 text-center">
+          <div class="col-md-6 col-xs-6 noPad3 text-center">
             <%= render partial: "unfollowEvent" %>
           </div>
           <% else %>
-          <div class="col-md-offset-1 col-md-4 col-xs-6 noPad3 text-center">
+          <div class="col-md-6 col-xs-6 noPad3 text-center">
             <%= render partial: "followEvent" %>
           </div>
           <% end %>
 
 
 
-            <div class="col-md-offset-1 col-md-4 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" >
+            <div class="col-md-6 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" >
 
 
               <%= image_submit_tag "interestsLong.png", class: "iconImage" %>
@@ -199,11 +213,13 @@
 
   </div>
 
+
+</div>
+
     </div>
 
 
 
-
 </div>
 
 
@@ -214,13 +230,11 @@
 
 
 
-</div>
-
-<div class="container noPad3">
+<div class="col-md-7 noPad3">
 
       <div class="newsfeed1">
       <div class="titleSec">Description</div>
-        <div class="col-md-6 col-xs-12  descriptionSec">
+        <div class="col-md-12 col-xs-12  descriptionSec">
 
           <div class="address"><%= simple_format(@event.description) %></div>
         
@@ -230,13 +244,13 @@
 
     <div class="newsfeed1">
       <div class="titleSec">Location</div>
-      <div class="col-md-6 col-xs-12  descriptionSec">
+      <div class="col-md-12 col-xs-12  descriptionSec">
 
         <div class="address"><%= @event.address %></div>
         
       </div>
 
-      <div class="col-md-6 col-xs-12 postMob descriptionSec descMap">
+      <div class="col-md-12 col-xs-12 postMob descriptionSec descMap">
 
        <div id="map"></div>
       </div>
@@ -253,9 +267,11 @@
     <% else %>
       <div class="titleSec"><%= @eventFollowers.count %> People Attending</div>
     <% end %>
-    <div class="scrollEvents">
+  
     <% if !@eventFollowers.empty? %>
       <%  @eventFollowers.reverse.first(7).each do |eventFollower| %>
+      <div class="col-md-3 text-center">
+
       <%= link_to eventFollower, method: :get, class: "specialA" do %>
   
         <div class="followersSec">
@@ -268,6 +284,7 @@
         </div>
   
       <% end %>
+    </div>
       <% end %>
     <% else %>
       <div class="noFollowSec">
@@ -277,7 +294,6 @@
 
 
     
-    </div>
 
 
 
@@ -294,7 +310,22 @@
 
 
   </div>
+
+<!-- Implement posts here -->
+
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
 
 
 </div>
@@ -378,7 +409,7 @@
                 <div class="material-icons text-muted launch-modal align-middle">
                   <%= image_tag(eventFollower.avatar_url(:thumb), class: "card-img-top allPostsImage") if eventFollower.avatar? %>
                     <div class="card-body">
-                      <p class="card-text nameBold"><%= truncate eventFollower.name.gsub(/\s.+/, ''), length: 500, separator: ' ' %></p>
+                      <p class="card-text nameBold"><%= truncate eventFollower.name, length: 500, separator: ' ' %></p>
                     </div>
 
                 </div>
@@ -531,6 +562,8 @@
 
 
 
+
+
     function initMap() {
       // The location of Uluru
       var pos = {lat: <%= @event.latitude %> , lng: <%= @event.longitude %> };
@@ -543,6 +576,22 @@
 
 
 
+</script>
+
+
+<script>
+jQuery(window).on('load', function(){ var $ = jQuery;
+      var elem = document.querySelector('.grid');
+      var msnry = new Masonry(elem, {
+          // options
+          columnWidth: '.grid-sizer',
+          itemSelector: '.grid-item',
+          percentPosition: true,
+          gutter: 10,
+          horizontalOrder: true,
+          stagger: 30
+      });
+});
 </script>
 
 <script async defer

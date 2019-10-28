@@ -15,25 +15,30 @@
   
   input {
     margin: -2px;
-}
+  }
 </style>
 
 
 
 <!-- Request to join -->
+<div class="container">
+<!-- Group Intro Start -->
+
+<div class="col-md-4 here">
 
 
-
-<div class="mobileArea">
   <div class="text-center module1">
+
+<div class="innerModule">
+
     <%= image_tag(@group.cover_image_url, class: "groupImageCover") if @group.cover_image? %>
-  <div class="col-md-12 col-xs-12 titleInfo">
-    <div class="col-md-3 col-xs-6 connArea">
+  <div class="titleInfo">
+    <div class="col-md-12 col-xs-6 connArea">
       <div class="groupImageSec1">
         <%= image_tag(@group.image_url(:thumb),  class: "groupImage1") if @group.image? %>
       </div>
     </div>
-    <div class="col-md-5 groupInfoSec">
+    <div class="groupInfoSec">
       <div>
         <div class="groupTitle"><%= @group.title %></div>  
 
@@ -63,11 +68,14 @@
                 <% end %>
               </div>
       </div>
+
+
+
       <div class="col-md-3 text-center" id="follow_formDes">
           <%= link_to edit_group_path(@group), method: :get, class: "specialA" do %>
             <%= image_tag("geatInv.png", class: "iconImage") %>
             <div class="textOps">
-              Event settings
+              Group settings
             </div>
           <% end %>
       </div>
@@ -102,7 +110,7 @@
 
 <% else %>
 
-        <div id="follow_formDes" class="col-md-4 col-xs-6  text-center">
+        <div id="follow_formDes" class="col-md-6 col-xs-6  text-center">
           <% if current_user.followingG?(@group) %>
             <%= render 'unfollowGroup' %>
           <% else %>
@@ -111,7 +119,7 @@
         </div>
 
 
-          <div class="col-md-offset-1 col-md-4 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" id="follow_formDes">
+          <div class="col-md-6 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" id="follow_formDes">
 
 
               <%= image_submit_tag "interestsLong.png", class: "iconImage" %>
@@ -228,6 +236,23 @@
 
 <% end %>
 
+
+
+  <div class="userInfoArea">
+
+      <div class="userInfoTitle">
+        Description
+      </div>
+
+    <div class="userInfoElement">
+
+      <%= @group.description %>
+
+    </div>
+
+  </div>
+
+
 </div>
 
 
@@ -235,25 +260,32 @@
 
 
 
+</div>
+
+
+</div>
+
+
+<!-- Group Intro End -->
 
 
 
 
 
 
-<div class="container noPad3">
+<div class="col-md-8">
 <div class="newsfeed">
     <div class="titleSec">Upcoming Events</div>
-  <div class="scrollEvents">
     <% if !@group_events.empty? %>
       <% @group_events.each do |group_event| %>
       <% if Date.today <= group_event.event_date %>
+      <div class="col-md-6 userEvents">
       <%= link_to group_event, method: :get, class: "specialA" do %>
   
-        <div class="userEvents">
+        <div class="elementBox">
         
             <div class="eventImage">
-              <%= image_tag(group_event.image_url(:event), class: "eventImage1") if group_event.image? %>
+              <%= image_tag(group_event.image_url, class: "eventImage1") if group_event.image? %>
             </div>
                 <div class="eventContent1">
                     <div class="eventDateI"><%= group_event.event_date.strftime('%B %e') %></div>
@@ -280,6 +312,7 @@
         </div>
   
       <% end %>
+    </div>
       <% end %>
       <% end %>
     <% else %>
@@ -288,16 +321,17 @@
       </div>
     <% end %>
     
-    </div>
 </div>
 
 
 <div class="newsfeed">
 
     <div class="titleSec">Group Members</div>
-    <div class="scrollMembers">
     <% if !@groupFollowers.empty? %>
       <%  @groupFollowers.first(7).reverse.each do |groupFollower| %>
+
+      <div class="col-md-3 text-center">
+
       <%= link_to groupFollower, method: :get, class: "specialA" do %>
   
         <div class="followersSec">
@@ -310,7 +344,11 @@
         </div>
   
       <% end %>
+    </div>
+
       <% end %>
+
+
     <% else %>
       <div class="noFollowSec">
         <div class="noFollowSecText">This group has no members.</div>
@@ -318,8 +356,6 @@
     <% end %>
 
 
-    
-    </div>
     <div class="laterPostBox2">
 
       <div class="showAllPosts" data-toggle="modal" data-target="#show-users"><button type="button" class="btn btnShowAll">Show Users</button></div>
@@ -330,12 +366,15 @@
 
 
 
-</div>
 
 </div>
 
 
 </div>
+
+
+
+
 
 <div class="modal fade" id="postModalG" role="dialog">
   <div class="modal-dialog" role="document">

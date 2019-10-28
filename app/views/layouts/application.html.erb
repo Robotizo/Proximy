@@ -285,12 +285,13 @@
 
     $(document).on("turbolinks:click", function(){
       $(".spinnerPage").show();
-      $("#theRest").css({"z-index": 99999}).fadeTo(0, 0.5);
+      $("#theRest").css({"z-index": 99999, "display": "none"}).fadeTo(0, 0.5);
     });
 
 
     $(document).on("turbolinks:load", function(){
       $(".spinnerPage").hide();
+      $("#theRest").css({"display": "block"}).fadeTo(0, 1);
     });
 });
 

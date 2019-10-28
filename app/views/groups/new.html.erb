@@ -1,17 +1,63 @@
 <%= stylesheet_link_tag "groups", :media => "all" %>
 
-<div class="coverImage" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center;">
-  <%= image_tag("events_back.jpg", class: "iconImg", id: "coverImageTag") %>
+
+
+
+
+
+
+
+<div class="container">
+<div class="col-md-4 here">
+
+
+
+
+            <div class="text-center module1">
+
+
+            <div class="innerModule">
+
+
+            <div class="groupImageCover" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center;">
+                <%= image_tag("events_back.jpg", class: "groupImageCover", id: "coverImageTag") %>
+            </div>
+
+
+
+            <div class="groupContentForm">
+              <div class="titleInfo">
+                <div class="col-md-12 col-xs-6 connArea">
+                    <div class="groupImg" id="groupImg">
+                        <%= image_tag("logo_inv_square.png", id: "groupImgTag") %>
+                    </div>
+                </div>
+                <div class="groupInfoSec">
+                    <div id="groupTitleText" class="groupTitle">
+                        New Group   
+                    </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+
+        </div>
+
 </div>
-<div class="groupContentForm">
-  <div class="groupTitleForm valign-wrapper">
-    <div class="groupImg" id="groupImg"><%= image_tag("logo_inv_square.png", id: "groupImgTag") %></div>
-    <div id="groupTitleText">New Group</div>
-  </div>
-</div>
-<div class="groupFormEqual container">
+
+
+
+
+
+
+<div class="col-md-8">
   <%= render 'form', group: @group %>
 </div>
+
+
+</div>
+
 
 <script>
     $("#coverImageUpload").change(function(){

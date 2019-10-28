@@ -2,41 +2,134 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
-
-
-
-
-
-.spinner {
-  width: 70px;
-  text-align: center;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 999;
+.commonImg{
+  height: 20px;
 }
 
-.spinner > div {
-  width: 18px;
-  height: 18px;
+.sharedInts{
+  margin: 5px 8px 5px 8px;
+  font-weight: 900;
+      color: #6d95b0;
+}
+
+.editsUserIcon{
+  height: 35px;
+  width: 35px;
+}
+
+.editsText{
+  padding: 0px 10px;
+  color: white;
+  font-size: 14px;
+  font-weight: 900;
+  top: 2px;
+  position: relative;
+}
+
+
+.fixedState{
   background-color: #6c95af;
-
-  border-radius: 100%;
-  display: inline-block;
-  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  padding: 10px;
+  border-radius: 100px;
+  position: fixed;
+  right: 70px;
+  bottom: 50px;
+  box-shadow: 0px 0px 4px 0px #e2e2e2;
 }
 
-.spinner .bounce1 {
-  -webkit-animation-delay: -0.32s;
-  animation-delay: -0.32s;
+.fixedState:hover{
+      box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
 }
 
-.spinner .bounce2 {
-  -webkit-animation-delay: -0.16s;
-  animation-delay: -0.16s;
+
+.actions{
+  margin-top: 10px;
 }
+
+.addedInterest{
+  font-weight: 900;
+}
+
+
+.addInterest{
+  font-weight: 900;
+}
+
+
+.userInfoArea{
+  padding:  10px;
+  float: left;
+  width: 100%;
+  margin-bottom: 10px;
+
+  position: relative;
+
+}
+
+
+.userInfoTitle{
+  text-align: left;
+  font-size: 16px;
+  font-weight: 900;
+  margin: 5px 5px 5px 5px;
+}
+
+
+.userInfoElement{
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px 0px #e2e2e2;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+
+
+.here{
+    position: -webkit-sticky;
+  position: sticky; 
+
+  top: 50px;
+}
+
+
+
+
+.elementBox{
+  box-shadow: 0px 0px 4px 0px #e2e2e2;
+  height: 318px;
+  border-radius: 11px;
+  transition: box-shadow .3s;
+}
+
+.elementBox:hover{
+  box-shadow:0 0 11px rgba(33, 33, 33, 0.2);
+  
+}
+
+
+
+
+.innerModule {
+  float: left;
+  width: 100%;
+  margin-top: 20px;
+  box-shadow: 0px 0px 4px 0px #e2e2e2;
+  border-radius: 11px;
+  background-color: #f3f7fb;
+}
+
+
+.module1 {
+  padding-bottom: 20px;
+  background-color: white ;
+  float: left;
+
+  width: 400px;
+}
+
+
 
 @-webkit-keyframes sk-bouncedelay {
   0%, 80%, 100% { -webkit-transform: scale(0) }
@@ -65,12 +158,12 @@
 .textOps{
   margin: 10px 5px;
   font-weight: 900;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 
 .iconImage{
-  height: 70px;
+  height: 60px;
   border-radius: 10px;
   outline: none !important;
     border: 1px solid #ccc;
@@ -90,17 +183,12 @@
 }
 .panel-default > .panel-heading {
     background-color: #ffffff;
-    font-size: 23px;
+    font-size: 20px;
 }
 
 
 div .panel-interest{
     border-bottom: #6c95af 3px solid;
-}
-
-.panel-default > .panel-heading {
-    background-color: #ffffff;
-    font-size: 23px;
 }
 
 
@@ -154,28 +242,24 @@ div .panel-interest{
 
 
 .fileBtnSubmit{
-    border-color: #2e6da4;
-  background-color: #7fa6be;
-  width: 100%;
+    /* border-color: #2e6da4; */
+    background-color: #6c95af;
+    /* width: 100%; */
     border: none;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    font-family: 'Poppins', sans-serif;
     font-size: inherit;
-    font-weight: 600;
-    margin-bottom: 1rem;
+    font-weight: 900;
+    /* margin-bottom: 1rem; */
     outline: none;
-    padding: 1.7rem 50px;
+    padding: 1rem 40px;
     position: relative;
     transition: all 0.3s;
     vertical-align: middle;
 }
 
-.fileBtnSubmit:hover{
-  background-color: #204d74;
-}
 
 .create{
   position: fixed;
@@ -255,8 +339,8 @@ div .panel-interest{
 }
 
 .laterPostBox2{
-	margin-bottom: 22px;
-	 box-shadow: 0px 0px 0px 1px #dedddd;
+  margin-top: 20px;
+   box-shadow: 0px 0px 0px 1px #dedddd;
     border-radius: 5px;
     float: left;
     width: 100%;
@@ -530,8 +614,9 @@ div#modalPostImage {
 }
 
 .card-text:last-child {
-  margin-bottom: 0;
-  font-weight: 600;
+    margin-bottom: 0;
+    font-weight: 900;
+    text-align: center;
 }
 
 .card-link:hover {
@@ -825,20 +910,20 @@ div .show-more[aria-expanded="true"]{
 
 
 #groupImgTag {
-  height: 100px;
-  width: 100px;
+    border-radius: 15px;
+    height: 130px;
+    width: 130px;
+    box-shadow: 0px 0px 4px 0px #6f6f6f;
+    -o-object-fit: cover;
+    object-fit: cover;
 }
 
 
 
 #groupTitleText {
   display: inline-block;
-  position: relative;
-  top: -40px;
-  width: calc(90vw - 150px);
-  white-space: nowrap;
+  white-space: normal;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 
@@ -855,11 +940,10 @@ div .show-more[aria-expanded="true"]{
 
 
 .groupImg {
-  height: 100px;
-  width: 100px;
-  margin-right: 20px;
-  border-radius: 8px;
-  border: 3px #f2f2f2 solid;
+  height: 130px;
+  width: 130px;
+  border-radius:15px;
+      box-shadow: 0px 0px 4px 0px #6f6f6f;
 }
 
 
@@ -913,15 +997,9 @@ div .show-more[aria-expanded="true"]{
 
 
 .groupContentForm {
-  position: relative;
-  top: -148px;
-  /* background-color: #00000054; */
-  padding: 10px;
-  /* opacity: 0.8; */
-  border-radius: 0px;
-  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
-  white-space: nowrap;
-  overflow: hidden;
+
+
+
   text-overflow: ellipsis;
 }
 
@@ -929,6 +1007,7 @@ div .show-more[aria-expanded="true"]{
 .fileBtnDiv, .form-control {
   width: 80%;
   margin: 10px 40px 40px 0;
+  font-weight: 900;
 
 }
 
@@ -1032,7 +1111,7 @@ div .show-more[aria-expanded="true"]{
 	margin-bottom: 15px;
 }
 .interestTitleSec{
-	background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
+	background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
 	position: relative;
 	top: -30px;
 	border-radius: 0px 0px 5px 5px;
@@ -1103,11 +1182,10 @@ div .show-more[aria-expanded="true"]{
   padding-top: 10px;
   padding-bottom: 10px;
   font-weight: 800;
-  font-size: 20px;
+  font-size: 18px;
   white-space: normal;
   color: white;
 }
-
 
 
 
@@ -1127,11 +1205,10 @@ div.scrollMembers a {
 
 .eventContent1 {
   position: relative;
-  top: -68px;
+  top: -65px;
   /* background-color: #00000054; */
   padding: 10px;
   /* opacity: 0.8; */
-  border-radius: 0px 0px 5px 5px;
   background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
 }
 
@@ -1200,7 +1277,7 @@ div.scrollGroupsI a {
 }
 
 .groupImageDisc{
-	border-radius: 8px;
+	border-radius: 10px 10px 0px 0px;
 	width: 100%;
   background-color: white;  
 }
@@ -1224,10 +1301,12 @@ div.scrollGroupsI a {
 
 
 .groupImage1{
-    border-radius: 10px;
-    height: 220px;
-    background-color: white;
-    border: 3px white solid;
+    border-radius: 15px;
+    height: 130px;
+    width: 130px;
+    box-shadow: 0px 0px 4px 0px #6f6f6f;
+    -o-object-fit: cover;
+    object-fit: cover;
 }
 
 
@@ -1240,12 +1319,12 @@ div.scrollGroupsI a {
 
 
 .btnShowAll{
-	color: black;
-	border-radius: 10px;
-	text-align: center;
-	outline: none !important; 
-	font-size: 14px;
-	background-color: white;
+  color: black;
+  border-radius: 10px;
+  font-weight: 900;
+  text-align: center;
+  outline: none !important; 
+  background-color: white;
 }
 
 .specialA{
@@ -1257,14 +1336,21 @@ div.scrollGroupsI a {
 
 .followerNameSec{
 	font-size: 12px;
-    margin: 10px;
+    padding: 10px;
     font-weight: 900;
 }
 
 
 .followersSec{
     margin: 10px;
+        box-shadow: 0px 0px 4px 0px #e2e2e2;
+        border-radius: 9px;
     
+}
+
+
+.followersSec:hover{
+      box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
 }
 
 
@@ -1286,8 +1372,9 @@ div.scrollEvents a {
 
 
 .titleInfo{
-	height: 164px;
   margin-bottom: 10px;
+  width: 100%;
+  float: left;
 }
 
 
@@ -1295,15 +1382,15 @@ div.scrollEvents a {
 .titleSec{
 	font-size: 25px;
 	font-weight: 900;
-	margin-top: 10px;
+	margin-top: 20px;
 	margin-left: 15px;
 	margin-right: 15px;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 
 .newsfeed{
 	float: left;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 	width: 100%;
 }
 
@@ -1372,35 +1459,38 @@ div.scrollEvents a {
 
 
 
+
 .groupImage2{
-    border-radius: 8px;
-    height: 128px;
+    border-radius: 8px 8px 0px 0px;
+    width: 100%;
 }
 
-
 .groupImageCover{
-	width: 100%;
-	height: 320px;
-    object-fit: cover;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
+
 }
 
 
 .connArea{
 	position: relative;
-  top: -85px;
-  text-align: end;
+  top: -81px;
 }
 
 
 .groupInfoSec{
-	text-align: left;
-	padding: 10px 5px;
+	text-align: center;
+  float: left;
+  width: 100%;
+  margin-top: -70px;
 }
 
 .groupTitle{
-	font-size: 28px;
+	font-size: 22px;
 	font-weight: 900;
-	padding-bottom: 10px;
+	padding-bottom: 25px;
 }
 
 
@@ -1408,14 +1498,13 @@ div.scrollEvents a {
 	margin: 5px;
     border-radius: 5px;
     height: 100px;
-    width: 260px;
     text-align: center;
 }
 
 .noFollowSecText{
 	padding-top: 30px;
 	font-size: 18px;
-	font-weight: 300;
+	font-weight: 900;
 	margin-left: 30px;
 	margin-right: 30px;
 }
@@ -1460,10 +1549,12 @@ div.scrollEvents a {
 	float: left;
 }
 
-.userImage2{
-    border-radius: 10px;
-    height: 30px;
+img.userImage2 {
+  height: 35px;
+  border-radius: 10px;
+  margin-right: 2px;
 }
+
 
 .contentUserPost{
 	width: 85%;
@@ -1568,47 +1659,46 @@ div.scrollEvents a {
 
 /* Events Start */
 .userEvents{
-    margin: 5px;
+  height: 350px;
 }
 
 
 .eventImage1{
-    border-radius: 5px;
-    box-shadow: 0px 0px 1px 0px;
+  border-radius: 10px 10px 0px 0px;
+  height: 220px;
+  width: 100%;
+  object-fit: cover;
 }
 
 .eventContent{
-	padding-top: 10px;
-	padding-bottom: 5px;
-	padding-right: 5px;
-	padding-left: 5px;
+  padding: 15px 8px 4px 8px;
 }
 
 .titleGroups{
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 900;
 	text-align: left;
 }
 
-.creatorSign{
-	width: 100%;
-	height: 42px;
-	text-align: left;
-	padding: 6px;
+.creatorSign {
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  float: left;
 }
 
 
 
 .imageUserEvent{
-	width: 10%;
+	width: 11%;
 	float: left;
 
 }
 
 .contentUserPost{
-	width: 85%;
+	width: 70%;
 	float: left;
-    margin-top: 4px;
+    margin-top: 6px;
 
 }
 
@@ -1618,19 +1708,6 @@ div.scrollEvents a {
 }
 
 
-.noFollowSec{
-	margin: 5px;
-    border-radius: 5px;
-    height: 100px;
-    width: 260px;
-    text-align: center;
-}
-
-.noFollowSecText{
-	padding-top: 30px;
-	font-size: 18px;
-	font-weight: 300;
-}
 
 
 
@@ -1990,7 +2067,7 @@ div.scrollEvents{
 	}
 	.titleSec{
 	    font-size: 22px;
-	    margin-top: 10px;
+	    margin-top: 20px;
 	    margin-left: 10px;
 	    margin-right: 10px;
 	    margin-bottom: 5px;

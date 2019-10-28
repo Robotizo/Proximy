@@ -2,35 +2,101 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
-
-
-
-.spinner {
-  margin: 100px auto 0;
-  width: 70px;
-  text-align: center;
+div.scrollMembersEvents {
+    overflow: auto;
+    white-space: nowrap;
+    height: 320px;
+    overflow-y: hidden;
+    overflow-x: scroll; /* Must be 'scroll' not 'auto' */
+    -webkit-overflow-scrolling: touch;
 }
 
-.spinner > div {
-  width: 18px;
-  height: 18px;
-  background-color: #333;
-
-  border-radius: 100%;
-  display: inline-block;
-  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+div.scrollMembersEvents a {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
 }
 
-.spinner .bounce1 {
-  -webkit-animation-delay: -0.32s;
-  animation-delay: -0.32s;
+
+
+
+.actions{
+  margin-top: 10px;
 }
 
-.spinner .bounce2 {
-  -webkit-animation-delay: -0.16s;
-  animation-delay: -0.16s;
+.addedInterest{
+  font-weight: 900;
 }
+
+
+.addInterest{
+  font-weight: 900;
+}
+
+.scrollNorm{
+    position: -webkit-sticky;
+  position: sticky; 
+
+  top: 50px;
+}
+
+
+.userInfoTitle{
+  text-align: left;
+  font-size: 16px;
+  font-weight: 900;
+  margin: 15px 5px 5px 5px;
+}
+
+
+.userInfoElement{
+  margin-top: 15px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px 0px #e2e2e2;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.userInfoElementMore{
+  margin-top: 30px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px 0px #e2e2e2;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+
+
+.userInfoArea{
+  padding:  10px;
+  float: left;
+  width: 100%;
+  top: -55px;
+  position: relative;
+
+}
+
+
+.elementBox{
+  box-shadow: 0px 0px 4px 0px #e2e2e2;
+  height: 318px;
+  border-radius: 11px;
+  transition: box-shadow .3s;
+}
+
+.elementBox:hover{
+  box-shadow:0 0 11px rgba(33, 33, 33, 0.2);
+  
+}
+
+
+
+
 
 @-webkit-keyframes sk-bouncedelay {
   0%, 80%, 100% { -webkit-transform: scale(0) }
@@ -81,12 +147,12 @@ margin: 5px 0px;
 .textOps{
   margin: 10px;
   font-weight: 900;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 
 .iconImage{
-  height: 70px;
+  height: 55px;
   border-radius: 10px;
   outline: none !important;
     border: 1px solid #ccc;
@@ -144,7 +210,7 @@ margin: 5px 0px;
 }
 .panel-default > .panel-heading {
     background-color: #ffffff;
-    font-size: 23px;
+    font-size: 20px;
 }
 
 
@@ -154,10 +220,6 @@ div .panel-interest{
 
 
 
-.panel-default > .panel-heading {
-    background-color: #ffffff;
-    font-size: 23px;
-}
 
 
 .allInt {
@@ -295,11 +357,8 @@ div .panel-interest{
 .create{
   position: fixed;
   bottom: 0px;
-  left: 0px;
-  padding-left: 35px;
-  padding-right: 35px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  left: 33%;
+
 }
 
 
@@ -428,7 +487,7 @@ input.checkDist{
   padding: 0px 10px;
   color: white;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 900;
   top: 2px;
   position: relative;
 }
@@ -446,8 +505,13 @@ input.checkDist{
   position: fixed;
   right: 70px;
   bottom: 50px;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+  box-shadow: 0px 0px 4px 0px #e2e2e2;
 }
+
+.fixedState:hover{
+      box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
+
 
 /* User Edits Start */
 
@@ -567,9 +631,7 @@ input.checkDist{
 
 .followBtn{
 
-
-    left: -15%;
-    top: 15px;
+    top: -55px;
 }
 
 
@@ -629,13 +691,14 @@ div .show-more[aria-expanded="true"]{
   margin-top: 10px;
 }
 
-.titleSec {
-  font-size: 27px;
+.titleSec{
+  font-size: 25px;
   font-weight: 900;
-  margin: 15px 0px;
-  margin-bottom: 18px !important;
+  margin-top: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
 }
-
 
 /* User Settings End */
 
@@ -1036,16 +1099,18 @@ body {
   border-radius: 3px;
   margin-top: 15px;
   margin-bottom: 15px;
+
 }
 
 
 .interestImage {
   width: 100%;
   border-radius: 5px 5px 5px 5px;
+    box-shadow: 0px 0px 4px 0px #e2e2e2;
 }
 
 .interestTitleSec {
-  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
+  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
   position: relative;
   top: -30px;
   border-radius: 0px 0px 5px 5px;
@@ -1090,9 +1155,9 @@ body {
 
 .userImage1 {
   border-radius: 15px;
-  height: 180px;
-  width: 180px;
-  border: 3px white solid;
+  height: 130px;
+  width: 130px;
+  box-shadow: 0px 0px 4px 0px #6f6f6f;
   object-fit: cover;
 }
 
@@ -1104,13 +1169,13 @@ body {
 }
 
 .groupImage1 {
-  border-radius: 5px;
+  border-radius: 10px 10px 0px 0px;
+  height: 220px;
+  width: 100%;
+  object-fit: cover;
 }
 
-.eventImage {
-  overflow: hidden;
-  border-radius: 7px;
-}
+
 
 .MultiCarousel {
   float: left;
@@ -1468,12 +1533,7 @@ body {
   border-radius: 5px 5px 5px 5px;
 }
 
-.interestTitleSec{
-  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
-  position: relative;
-  top: -30px;
-  border-radius: 0px 0px 5px 5px;
-}
+
 
 
 
@@ -1507,24 +1567,16 @@ body {
 }
 .module1 {
   padding-bottom: 20px;
-  height: 490px;
   background-color: white ;
+  float: left;
+
+  width: 400px;
 }
 
 .mainField {
   background-color: white;
   width: 100%;
   float: left;
-}
-
-.groupImage1 {
-  border-radius: 5px;
-  max-width: 100%;
-}
-
-.eventImage {
-  overflow: hidden;
-  border-radius: 7px;
 }
 
 .MultiCarousel {
@@ -1601,7 +1653,7 @@ body {
 }
 
 .titleGroups {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 900;
   text-align: left;
 }
@@ -1620,7 +1672,7 @@ body {
 }
 
 .eventContent {
-  padding: 10px 0px 5px 0px;
+  padding: 15px 8px 4px 8px;
 }
 
 .eventOverall {
@@ -1642,18 +1694,18 @@ body {
   padding-top: 10px;
   padding-bottom: 10px;
   font-weight: 800;
-  font-size: 20px;
+  font-size: 18px;
   white-space: normal;
   color: white;
 }
 
 .eventContent1 {
   position: relative;
-  top: -68px;
+  top: -65px;
   /* background-color: #00000054; */
   padding: 10px;
   /* opacity: 0.8; */
-  border-radius: 0px 0px 5px 5px;
+  border-radius: 0px 0px 7px 7px;
   background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
 }
 
@@ -1682,20 +1734,20 @@ body {
 
 .creatorSign {
   width: 100%;
-  height: 42px;
   text-align: left;
-  padding: 6px;
+  padding: 10px;
+  float: left;
 }
 
 .imageUserGroup {
-  width: 14%;
+  width: 18%;
   float: left;
 }
 
 .contentUserPost {
   width: 85%;
   float: left;
-  margin-top: 4px;
+  margin-top: 6px;
 
 }
 
@@ -1704,7 +1756,7 @@ body {
 }
 
 .imageUserEvent {
-  width: 10%;
+  width: 11%;
   float: left;
 
 }
@@ -1715,10 +1767,17 @@ body {
 }
 
 .userEvents {
-  margin: 5px;
+  height: 350px;
 }
 
 .eventsSection {
+  margin-bottom: 25px;
+  float: left;
+  width: 100%;
+}
+
+
+.groupSection {
   margin-bottom: 25px;
   float: left;
   width: 100%;
@@ -1841,10 +1900,11 @@ body {
 
 
 .innerModule {
-  position: relative;
-  width: 100%;
   float: left;
-  height: 370px;
+  margin-top: 20px;
+  box-shadow: 0px 0px 4px 0px #e2e2e2;
+  border-radius: 11px;
+  background-color: #f3f7fb;
 }
 
 .innerModuleAvatar {
@@ -1856,14 +1916,14 @@ body {
 
 .userImageCover {
   width: 100%;
-  height: 320px;
+  height: 200px;
   object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .connArea {
   position: relative;
-  top: -130px;
-  margin-bottom: -130px;
+  top: -81px;
 }
 
 
@@ -1902,7 +1962,7 @@ body {
 }
 
 .userName {
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 900;
 }
 
@@ -2142,6 +2202,75 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px) {
+/* Rework Start */
+  .boxGMod{
+    width: 250px !important;
+  }
+  .mobileVG{
+    width: 95%;
+  }
+  div.scrollMembersEvents{
+    height: 340px;
+  }
+  .elementBox{
+
+    width: 315px;
+  }
+  .userInfoElementMore{
+    box-shadow: 0px 0px 4px 0px #bdbdbd;
+  }
+  .userInfoElement{
+    box-shadow: 0px 0px 0px 0px;
+    margin-top: 0px;
+  }
+  .userInfoTitle{
+    margin: 20px 5px 5px 5px;
+  }
+  .userInfoArea{
+    top: -100px;
+  }
+  .userImageCover {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .innerModule {
+    position: relative;
+    width: 100%;
+    float: left;
+    height: 765px;
+    margin-top: 10px;
+    box-shadow: 0px 0px 0px 0px;
+    background-color: white;
+  }
+
+  .module1 {
+    border-radius: 0px;
+    height: auto !important;
+    width: auto !important;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+
+  .scrollNorm{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 100%;
+    float: left;
+    position: initial !important;
+  }
+
+  .eventsSection{
+    margin-top: -155px;
+  }
+
+
+/* Rework End */
+
+
+
   .mobText{
     font-size: 10px;
   }
@@ -2573,12 +2702,7 @@ div.scrollEvents a {
     margin-bottom: 5px;
   }
 
-  .innerModule {
-    position: relative;
-    width: 100%;
-    float: left;
-    height: 455px;
-  }
+
   .innerModuleAvatar {
     position: relative;
     width: 100%;
@@ -2588,11 +2712,7 @@ div.scrollEvents a {
   .mainField {
     border-radius: 0px;
   }
-  .userImageCover {
-    border-radius: 0px 0px 0px 0px;
-    height: 200px;
-    object-fit: cover;
-  }
+
 
   .mobileArea {
     padding-left: 0px;
@@ -2614,12 +2734,7 @@ div.scrollEvents a {
     width: 140px;
     object-fit: cover;
   }
-  .module1 {
-    border-radius: 0px;
-    height: 280px;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
+
   .subArea {
     padding-left: 0px;
     padding-right: 0px;
@@ -2707,10 +2822,7 @@ div.scrollEvents a {
     width: 14%;
   }
 
-  .groupImage1 {
-    height: 190px;
 
-  }
 
   .btnActions {
     font-size: 12px;
@@ -2742,9 +2854,6 @@ div.scrollEvents a {
     box-shadow: 0px 0px 0px;
   }
 
-  .module1 {
-    box-shadow: 0px 0px 0px;
-  }
 }
 
 

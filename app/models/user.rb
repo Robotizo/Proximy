@@ -7,7 +7,6 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, on: :create
   validates :password, allow_nil: true, length: { minimum: 6 }, confirmation: true, on: :update
   before_validation { self.email = self.email.downcase }
-  validates :bio, length: { maximum: 50 }
 
 
   before_create :confirmation_token

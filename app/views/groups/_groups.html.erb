@@ -1,9 +1,26 @@
+      <style type="text/css">
+        .elementBox{
+          height: 325px !important;
+        }
+
+
+
+      </style>
+
+
       <% @groups.each do |group| %>
-        <div class="col-md-3 col-xs-6 testMarge" data-aos="fade-up">
+      <% collide = current_user.followingI.ids & group.fgI.ids %>
+        <div class="col-md-3 col-xs-6 testMarge">
           <%= link_to group, method: :get, class: "specialA" do %>
-            <div class="groupBlock">
+            <div class="elementBox">
               <%= image_tag(group.image_url(:group), class: "groupImageDisc") if group.image? %>
-              <div class="groupTitleDisc"><%= truncate(group.title, length: 30) %></div>
+              <div class="eventContent">
+                <div class="titleGroups"><%= truncate(group.title, length: 50) %></div>
+              </div>
+              <div class="sharedInts">
+            
+                <%= collide.count %> Shared interests
+              </div>
             </div>
           <% end %>
           </div>

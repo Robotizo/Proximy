@@ -21,11 +21,31 @@
 $nprogress-color: #6c95af;
 $nprogress-zindex: 10100;
 
-
 @import 'nprogress';
 @import 'nprogress-bootstrap';
 
 
+
+.spinner {
+  margin: 100px auto 0;
+  width: 100px;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 30px !important;
+  height: 30px !important;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.noPad3Desk{
+	padding-left: 0px !important; 
+	padding-right: 0px !important; 
+}
 
 
 

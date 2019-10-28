@@ -11,15 +11,24 @@
 
 <style type="text/css">
   
+.interestImage{
+  box-shadow: none !important;
+}
 
-
-  .interestCard{
+.interestCard{
   margin-top: 0px;
   margin-bottom: 0px;
 }
 
 </style>
 
+
+<!-- Profile Intro Begin -->
+
+
+
+<div class="container noPad3">
+<div class="col-md-4 col-xs-12 scrollNorm">
 
 <div class="text-center module1">
 
@@ -31,7 +40,7 @@
 
       <%= image_tag(@user.image_url, class: "userImageCover") if @user.image? %>
     </div>
-    <div class="col-md-6 col-xs-12 connArea">
+    <div class="col-md-12 col-xs-12 connArea">
       <div class="userImageSec1">
  
         <%= avatar_for(@user) %>
@@ -43,23 +52,41 @@
           <%= @user.name %>
           <%= @user.last_name %>
         </div>
-        <div class="bio">
-          <%= @user.bio %>
-        </div>
       </div>
     </div>
 
 
-    <div class="col-md-6 col-xs-12 followBtn connArea2">
+    <div class="col-md-12 col-xs-12 followBtn connArea2 text-center">
 
 
     <% if current_user.id == @user.id %>
-      <div id="follow_form" class="cUser">
-           <%= button_to "Contacts", contacts_path, method: :get, class: "btn connectBtn" %>
-      </div>
-      <div id="follow_form" class="cUser">
-           <%= button_to "Edit Profile", edit_user_path, method: :get, class: "btn connectBtn" %>
-      </div>
+
+
+          <div class="col-md-6 col-xs-6 noPad3 text-center">
+              <%= link_to contacts_path, class: "specialA" do %>
+
+                <%= image_tag("contacts.png", class: "iconImage") %>
+                <div class="textOps">
+                  Freinds
+                </div>
+              <% end %>
+
+            </div>
+
+
+
+
+          <div class="col-md-6 col-xs-6 noPad3 text-center">
+              <%= link_to edit_user_path, class: "specialA" do %>
+
+                <%= image_tag("userSettings.png", class: "iconImage") %>
+                <div class="textOps">
+                  Edit profile
+                </div>
+              <% end %>
+
+            </div>
+
      <% end %>
 
 
@@ -74,7 +101,7 @@
           </div>
           <% end %>
         <% else %>
-            <div class="col-md-4 col-xs-6 noPad3 text-center" >
+            <div class="col-md-6 col-xs-6 noPad3 text-center" >
 
       
               <% if current_user.friends.include?(@user) %>
@@ -96,7 +123,7 @@
    
             </div>
 
-            <div class="col-md-4 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" >
+            <div class="col-md-6 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" >
 
 
               <%= image_submit_tag "interestsLong.png", class: "iconImage" %>
@@ -117,22 +144,63 @@
 
     </div>
 
+    <div class="userInfoArea">
+
+      <div class="userInfoElement">
+        
+        <%= @user.bio %>
+
+      </div>
+
+      <div class="userInfoElement">
+        
+        Student at UBC
+
+      </div>
+
+
+      <div class="userInfoElement">
+        
+        Single
+
+
+      </div>
+
+
+
+
+      <div class="userInfoElementMore">
+        
+        View More...
+
+      </div>
+
+
+    </div>
 
 
 
 
     </div>
 
+
+
+
      <% else %>
 
-      <div class="innerModule2">
+
+<!-- Profile Friend Start -->
+
+
+
+      <div class="innerModule">
         <div class="userImageSec1">
  
             <%= image_for(@user) %>
 
           <%= image_tag(@user.image_url, class: "userImageCover") if @user.image? %>
         </div>
-        <div class="col-md-6 col-xs-12 connArea">
+        <div class="col-md-12 col-xs-12 connArea">
           <div class="userImageSec1">
 
               <%= avatar_for(@user) %>
@@ -148,20 +216,12 @@
 
             </div>
 
-        <div class="bio">
-          <%= @user.bio %>
-        </div>
 
-                      <% if @user.distance_is_checked == true and current_user.id != @user.id and @user.friends.include?(current_user) %>
-                <div class="userDistance">
-                  <%= @user.getDistance(current_user.latitude, current_user.longitude) %> km away
-                </div>
-              <% end %>
           </div>
         </div>
 
 
-        <div class="col-md-6 col-xs-12 followBtn connArea2">
+        <div class="col-md-12 col-xs-12 followBtn connArea2 text-center">
 
 
         <% if current_user.id == @user.id %>
@@ -176,7 +236,7 @@
          <% end %>
 
         <% unless @user.id == current_user.id %>
-            <div class="col-md-4 col-xs-6 noPad3 text-center" >
+            <div class="col-md-6 col-xs-6 noPad3 text-center" >
 
       
               <% if current_user.friends.include?(@user) %>
@@ -202,7 +262,7 @@
 
 
 
-            <div class="col-md-4 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" >
+            <div class="col-md-6 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" >
 
 
               <%= image_submit_tag "interestsLong.png", class: "iconImage" %>
@@ -218,44 +278,134 @@
 
 
 
+
+
+
+
         </div>
 
+
+
+    <div class="userInfoArea">
+
+      <div class="userInfoElement">
+        
+        <%= @user.bio %>
+
+      </div>
+          
+
+
+  <% if @user.distance_is_checked == true and current_user.id != @user.id and @user.friends.include?(current_user) %>
+      <div class="userInfoTitle">
+        Distance
+      </div>
+
+      <div class="userInfoElement">
+
+
+
+ 
+              <%= @user.getDistance(current_user.latitude, current_user.longitude) %> km away
+  
+    
+
+      </div>
+      <% end %>
+    
+
+      <div class="userInfoTitle">
+        Work
+      </div>
+
+      <div class="userInfoElement">
+        
+        Relationship Status
+
+
+      </div>
+
+
+
+
+    <div class="userInfoTitle">
+        Work
+      </div>
+      <div class="userInfoElement">
+        
+        Testing Text
+
+      </div>
+
+
+    </div>
 
 
 
 
 
     </div>
-
+    
+<!-- Profile Friend End -->
 
      <% end %>
 
 
 
   </div>
-
+</div>
 
     
+<!-- Profile Intro End -->
 
 
 
+<!-- Profile Rest Begin -->
 
 
-
-<div class="container mobileArea">
+<div class="mobileArea col-md-8 ">
  
 
 <% if @user.friends.include?(current_user) or @user == current_user %>
+
+
+<script type="text/javascript">
+$(function () { 
+  if ($(window).width() < 960) {
+     $(".mobileVE").removeClass("col-md-6");
+     $(".mobileVE").removeClass("userEvents");
+
+  }
+  else {
+    $(".deskVE").removeClass("scrollMembersEvents");
+  }
+});
+</script>
+
+
+<!-- Event Section Start -->
+
+
     <div class="eventsSection">
       <div class="titleSec">Events</div>
-      <div class="scrollEvents scrollable">
+
+  
+  
         <% if !@eventsFollow.empty? %>
+
+<div class="scrollMembersEvents deskVE">
+  
+
           <% @eventsFollow.each do |eventsFollowing| %>
+          
           <% if Date.today <= eventsFollowing.event_date %>
+
+
+          <span class="col-md-6 userEvents mobileVE">
             <%= link_to eventsFollowing, method: :get, class: "specialA" do %>
-              <div class="userEvents">
+            <div class="elementBox">
                 <div class="eventImage">
-                  <%= image_tag(eventsFollowing.image_url(:event), class: "groupImage1") if eventsFollowing.image? %>
+                  <%= image_tag(eventsFollowing.image_url, class: "groupImage1") if eventsFollowing.image? %>
                 </div>
                 <div class="eventContent1">
                   <div class="eventDateI"><%= eventsFollowing.event_date.strftime('%B %e') %></div>
@@ -273,10 +423,23 @@
                     </div>
                   </div>
                 </div>
-              </div>
+            </div>
             <% end %>
+
+
+            </span>
+
+
+
+
+
             <% end %>
           <% end %>
+</div>
+
+
+      </div>
+
 
 
         <% else %>
@@ -284,19 +447,48 @@
             <div class="noFollowSecText">No groups have been joined</div>
           </div>
         <% end %>
-      </div>
-    </div>
 
 
-    <div class="eventsSection">
+<!-- Event Section End -->
+
+
+
+
+
+
+<script type="text/javascript">
+$(function () { 
+  if ($(window).width() < 960) {
+     $(".mobileVG").removeClass("col-md-4");
+     $(".mobileVG").removeClass("userEvents");
+
+  }
+  else {
+    $(".deskVG").removeClass("scrollMembersEvents");
+  }
+});
+</script>
+
+
+<!-- Group Section Start -->
+
+
+    <div class="groupSection">
       <div class="titleSec">Groups</div>
-      <div class="scrollGroups">
+
+
+    <div class="scrollMembersEvents deskVG">
+
+     
         <% if !@groupsFollow.empty? %>
           <% @groupsFollow.reverse.each do |groupsFollowing| %>
+
+
+          <span class="col-md-4 userEvents mobileVG">
             <%= link_to groupsFollowing, method: :get, class: "specialA" do %>
-              <div class="userGroups">
+              <div class="elementBox boxGMod">
                 <div class="eventImage">
-                  <%= image_tag(groupsFollowing.image_url(:group), class: "groupImage1") if groupsFollowing.image? %>
+                  <%= image_tag(groupsFollowing.image_url, class: "groupImage1") if groupsFollowing.image? %>
                 </div>
                 <div class="eventContent">
                   <div class="titleGroups"><%= truncate(groupsFollowing.title, length: 25) %></div>
@@ -315,26 +507,40 @@
                 <% end %>
               </div>
             <% end %>
+            </span>
+
+
+
           <% end %>
         <% else %>
           <div class="noFollowSec">
             <div class="noFollowSecText">No groups have been joined</div>
           </div>
         <% end %>
-      </div>
+   
+        </div>
+
+
     </div>
+
+<!-- Group Section End -->
+
+
+
+
 
 
   <% else %>
   <% end %>
+
+
+    </div>
   </div>
-</div>
-
-  </div>
 
 
 
-</div>
+
+  <!-- Profile Rest End -->
 
 <div class="modal fade" id="postModal" role="dialog">
   <div class="modal-dialog" role="document">

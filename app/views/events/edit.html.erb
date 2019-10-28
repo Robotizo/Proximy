@@ -3,47 +3,43 @@
 
 
 
-<script>
-$(document).ready(function() {
-  $(".loader").hide();
 
-    var ajaxLoadTimeout, ajaxLoadTimeout2;
-    
-    $(document).ajaxStart(function(){
-      ajaxLoadTimeout = setTimeout(function() { $(".loader").show(); });
-    });
-  
-  
-    $(document).ajaxStop(function(){
-      ajaxLoadTimeout2 = setTimeout(function() { $(".loader").hide(); }, 1000); 
-        }) .ajaxSuccess(function() { 
-          clearTimeout(ajaxLoadTimeout);
-          $("#loader").hide();
-      });
+<div class="container">
+<div class="col-md-5 here">
 
-});
-</script>
+
+  <div class="text-center module1">
+
+  <div class="innerModule">
+
+    <div class="coverImage" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px 10px 0px 0px; height: auto !important; ">
+    	<%= image_tag(@event.image_url, class: "eventImageDisplay", id: "coverImageTag") if @event.image? %>
+    </div>
 
 
 
+    <div class="eventContentForm">
+      <div class="eventTitleForm" id="eventPageTitle"><%= @event.title %></div>
+    </div>
+  </div>
 
-<div class="coverImage" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center;">
-	<%= image_tag(@event.image_url, class: "iconImg", id: "coverImageTag") if @event.image? %>
+
+  </div>
+
 </div>
 
 
 
-<div class="eventContentForm">
-  <div class="eventTitleForm" id="eventPageTitle"><%= @event.title %></div>
-</div>
-<div class="eventFormEqual container">
 
-
-<%= render 'form', event: @event %>
+<div class="col-md-7 noPad3">
+  <%= render 'form', event: @event %>
 </div>
 
 
-<div class="loader" />
+</div>
+
+
+
 
 <script>
     $("#coverImageUpload").change(function(){

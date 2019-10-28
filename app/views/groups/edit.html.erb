@@ -2,22 +2,61 @@
 
 
 
-<div class="coverImage" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center;">
-	<%= image_tag(@group.cover_image_url, class: "iconImg", id: "coverImageTag") if @group.cover_image? %>
+
+<div class="container">
+
+    <div class="col-md-4 here">
+
+        <div class="text-center module1">
+
+
+            <div class="innerModule">
+
+
+            <div class="groupImageCover" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center;">
+            	<%= image_tag(@group.cover_image_url, class: "groupImageCover", id: "coverImageTag") if @group.cover_image? %>
+            </div>
+
+
+
+            <div class="groupContentForm">
+              <div class="titleInfo">
+                <div class="col-md-12 col-xs-6 connArea">
+                    <div class="groupImg" id="groupImg">
+                        <%= image_tag(@group.image_url, id: "groupImgTag") if @group.image? %>  
+                    </div>
+                </div>
+                <div class="groupInfoSec">
+                    <div id="groupTitleText" class="groupTitle">
+                        <%= @group.title %>    
+                    </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+
+        </div>
+
+
+
+    </div>
+
+    <div class="col-md-8">
+    
+        	<%= render 'form', group: @group %>
+  
+    </div>
+
+
 </div>
 
 
 
-<div class="groupContentForm">
-  <div class="groupTitleForm valign-wrapper">
-    <div class="groupImg" id="groupImg"><%= image_tag(@group.image_url, id: "groupImgTag") if @group.image? %></div>
-    <div id="groupTitleText"><%= @group.title %></div>
-  </div>
-</div>
 
-<div class="groupFormEqual container">
-	<%= render 'form', group: @group %>
-</div>
+
+
+
 <script>
     $("#coverImageUpload").change(function(){
         coverFileURL = URL.createObjectURL(event.target.files[0]);

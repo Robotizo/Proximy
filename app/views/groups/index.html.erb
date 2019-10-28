@@ -5,39 +5,7 @@
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<script>
-    AOS.init();
-</script>
 
-
-<script type="text/javascript">
-  
-
-    $( document ).ready(function() {
-
-      $(".spinner").hide();
-
-
-    $(document).on("page:fetch", function(){
-      $(".spinner").show();
-      $(".complete").css({"z-index": 99999}).fadeTo(0, 0.5).html('<%= j(render "groups") %>');
-    });
-
-    $(document).on("page:receive", function(){
-      $(".spinner").hide();
-    });
-
-  });
-</script>
-
-
-
-<div class="spinner">
-  <div class="bounce1"></div>
-  <div class="bounce2"></div>
-  <div class="bounce3"></div>
-</div>
-      
 
 
 <div class="container mobileArea indexMar">
