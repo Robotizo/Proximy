@@ -2,6 +2,47 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+div.scrollMembersEvents {
+    overflow: auto;
+    white-space: nowrap;
+    height: 320px;
+    overflow-y: hidden;
+    overflow-x: scroll; /* Must be 'scroll' not 'auto' */
+    -webkit-overflow-scrolling: touch;
+}
+
+div.scrollMembersEvents a {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+}
+
+
+div.scrollMembersUsers {
+    overflow: auto;
+    white-space: nowrap;
+    height: 320px;
+    overflow-y: hidden;
+    overflow-x: scroll; /* Must be 'scroll' not 'auto' */
+    -webkit-overflow-scrolling: touch;
+}
+
+div.scrollMembersUsers a {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+}
+
+
+
+.eventsSection {
+  margin-bottom: 25px;
+  float: left;
+  width: 100%;
+}
+
 .commonImg{
   height: 20px;
 }
@@ -29,10 +70,11 @@
 
 .fixedState{
   background-color: #6c95af;
-  padding: 10px;
+  padding: 16px;
   border-radius: 100px;
   position: fixed;
   right: 70px;
+  z-index: 100;
   bottom: 50px;
   box-shadow: 0px 0px 4px 0px #e2e2e2;
 }
@@ -85,13 +127,13 @@
 }
 
 
-
-.here{
+.scrollNorm{
     position: -webkit-sticky;
   position: sticky; 
 
   top: 50px;
 }
+
 
 
 
@@ -254,7 +296,7 @@ div .panel-interest{
     font-weight: 900;
     /* margin-bottom: 1rem; */
     outline: none;
-    padding: 1rem 40px;
+    padding: 0.5rem 40px;
     position: relative;
     transition: all 0.3s;
     vertical-align: middle;
@@ -1741,6 +1783,109 @@ div.scrollEvents{
 }
 
 @media screen and (max-width: 776px){
+
+
+/* Rework Start */
+
+  .groupImage2{
+    height: 150px;
+    width: 150px;
+  }
+
+  .userInfoArea{
+    margin-top: -10px;
+  }
+  .groupImageCover{
+    height: 200px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+ .boxGMod{
+    width: 250px !important;
+  }
+  .mobileVG{
+    width: 95%;
+  }
+  div.scrollMembersEvents{
+    height: 340px;
+  }
+  .userInfoElementMore{
+    box-shadow: 0px 0px 4px 0px #bdbdbd;
+  }
+  .userInfoElement{
+    box-shadow: 0px 0px 0px 0px;
+    margin-top: 0px;
+  }
+  .userInfoTitle{
+    margin: 20px 5px 5px 5px;
+  }
+
+  .userImageCover {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+
+
+  .module1 {
+    border-radius: 0px;
+    height: auto !important;
+    width: auto !important;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+  }
+
+
+
+
+
+  .innerModule {
+    position: relative;
+    width: 100%;
+    float: left;
+    margin-top: 10px;
+    box-shadow: 0px 0px 0px 0px;
+    background-color: white;
+  }
+
+
+  .scrollNorm{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 100%;
+    float: left;
+    position: initial !important;
+  }
+
+  .groupInfoSec{
+    float: left;
+  }
+  .groupTitle{
+    font-size: 18px;
+  }
+  div.scrollMembersUsers {
+      height: 215px;
+  }
+
+  .fixedState {
+      right: 15px;
+      bottom: 55px;
+      width: 130px;
+      text-align: center;
+  }
+  .editsText{
+    display: none;
+  }
+
+/* Rework End */
+
+
+
+
   .interestTitleSec{
     top: -27px;
   }
@@ -1874,14 +2019,6 @@ div.scrollEvents{
 	}
 
 
-	.titleInfo{
-		height: 160px;
-	}
-
-
-	.panel{
-		padding: 5px;
-	}
 
 
 	.descriptionSec{
@@ -2055,15 +2192,10 @@ div.scrollEvents{
 	/* Newsfeed End Mob */
 
 
-	.groupImageCover{
-		border-radius: 0px !important;
-	}
+
 	.followerNameSec{
 		font-size: 12px;
-		font-weight: 700 !important;
-	}
-	.groupImage2{
-		height: 100px;
+		font-weight: 900 !important;
 	}
 	.titleSec{
 	    font-size: 22px;
@@ -2076,14 +2208,8 @@ div.scrollEvents{
 	.unfollowGroupBtn{
 		padding: 10px 14px;
 	}
-	.groupTitle{
-		font-size: 18px;
-    	padding-top: 18px;
-	}
-	.groupInfoSec{
-		width: 60%;
-		float: left;
-	}
+
+
 	.mainField{
 		border-radius: 0px;
 	}
@@ -2092,34 +2218,30 @@ div.scrollEvents{
 		border-radius: 0px;
 		box-shadow: 0px 0px 0px;
 	}
-	.groupImageSec1{
-		margin-left: 10px;
-		margin-right: 10px;
-		margin-top: 12px;
-		margin-bottom: 10px;
-	}
+
 	.groupImage1{
 		height: 130px;
 	}
 	.titleInfo{
 		padding-left: 0px;
 		padding-right: 0px;
+    margin-bottom: 0px;
 	}
 	.mobileArea{
 		padding-left: 0px;
 		padding-right: 0px;
-	}
-	.groupImageCover{
-		height: 180px;
+    float: left;
+    width: 100%;
+    margin-top: -40px;
 	}
 
-	.connArea{
-		padding-left: 0px;
-		padding-right: 0px;
-		top: 0px;
-		width: 40%;
-		float: left;
-	}
+  .connArea {
+    top: -84px;
+    position: relative;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 0px;
+  }
 
 	/* Events Starts */
 
@@ -2143,10 +2265,6 @@ div.scrollEvents{
 	}
 
 
-	.eventImage1{
-		height: 170px;
-
-	}
 
 	.titleGroups{
 		font-size: 16px;
@@ -2159,11 +2277,6 @@ div.scrollEvents{
 	.poster{
 		font-size: 12px;
 	}
-
-	.noFollowSec{
-		margin-left: 15px;
-	}
-
 
 	#follow_formDes{
 		display: none !important;

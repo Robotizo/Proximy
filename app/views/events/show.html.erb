@@ -37,9 +37,9 @@
 
 
 
-<div class="container">
+<div class="container noPad3">
 
-<div class="col-md-5 here">
+<div class="col-md-5 col-xs-12 scrollNorm">
   <div class="text-center module1">
 
     <div class="innerModule">
@@ -56,10 +56,10 @@
 
 <div class="infoSec2">
 
-    <div class="infoTop col-md-12">Event Details</div>
+    <div class="infoTop col-md-12 col-xs-12 noPad3">Event Details</div>
 
 
-      <div class="col-md-6 col-xs-12 noPad3">
+      <div class="col-md-6 col-xs-12 noPad3 text-left">
         <div class="eventTitle2">Event Date</div>
           <span class="eventTitle"><%= @event.event_date.strftime('%B %e') %></span>
           <% if @event.event_end_date.present? %>
@@ -69,7 +69,7 @@
       </div>
 
 
-      <div class="col-md-6 col-xs-12 noPad3">
+      <div class="col-md-6 col-xs-12 noPad3 text-left">
         <div class="eventTitle2">Event Time</div>
           <span class="eventTitle"><%= @event.event_time.strftime("%I:%M %p") %></span>
           <% if @event.event_end_time.present? %>
@@ -79,9 +79,15 @@
       </div>
 
       <div class="col-md-12 col-xs-12 noPad3 text-left">
-          <div class="eventTitle2">Created by</div>
-          <%= image_tag(@event.user.avatar_url(:thumb), class: "organizerAv") if @event.user.avatar? %>
-          <span class="organizerName"><%= @event.user.name %> <%= @event.user.last_name %></span>
+          <div class="eventTitle2">Hosted by</div>
+          <% if @event.group.present? %>
+            <%= image_tag(@event.group.image_url(:thumb), class: "organizerAv") if @event.group.image? %>
+            <span class="organizerName"><%= truncate(@event.group.title, length: 30) %></span>
+          <% else %>
+            <%= image_tag(@event.user.avatar_url(:thumb), class: "organizerAv") if @event.user.avatar? %>
+            <span class="organizerName"><%= @event.user.name %> <%= @event.user.last_name %></span>
+          <% end %>
+          
       </div>
 
 </div>
@@ -258,6 +264,24 @@
 
 
 
+<script type="text/javascript">
+$(function () { 
+  if ($(window).width() < 960) {
+     $(".mobileVU").removeClass("col-md-3");
+     $(".mobileVU").removeClass("text-center");
+
+
+  }
+  else {
+    $(".deskVU").removeClass("scrollMembersEvents");
+  }
+});
+</script>
+
+
+
+
+
   <div class="newsfeed1" >
 
       
@@ -268,9 +292,17 @@
       <div class="titleSec"><%= @eventFollowers.count %> People Attending</div>
     <% end %>
   
+
+
+  <div class="scrollMembersEvents deskVU">
+
     <% if !@eventFollowers.empty? %>
       <%  @eventFollowers.reverse.first(7).each do |eventFollower| %>
-      <div class="col-md-3 text-center">
+      <span class="col-md-3 text-center mobileVU">
+
+
+
+
 
       <%= link_to eventFollower, method: :get, class: "specialA" do %>
   
@@ -284,22 +316,31 @@
         </div>
   
       <% end %>
-    </div>
+
+
+
+    </span>
       <% end %>
+
+
+
+
+
+
     <% else %>
       <div class="noFollowSec">
         <div class="noFollowSecText">This event has no attendees.</div>
       </div>
     <% end %>
 
-
+</div>
     
 
 
 
     <div class="laterPostBox2">
 
-      <div class="showAllPosts" data-toggle="modal" data-target="#show-users"><button type="button" class="btn btnShowAll">Show Users</button></div>
+      <div class="showAllPosts" data-toggle="modal" data-target="#show-users"><button type="button" class="btn btnShowAll">Show all users</button></div>
     </div>
 
 

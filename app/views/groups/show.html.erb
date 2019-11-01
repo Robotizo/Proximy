@@ -16,15 +16,20 @@
   input {
     margin: -2px;
   }
+@media screen and (max-width: 776px){
+  .elementBox {
+    width: 315px;
+  }
+}
 </style>
 
 
 
 <!-- Request to join -->
-<div class="container">
+<div class="container noPad3">
 <!-- Group Intro Start -->
 
-<div class="col-md-4 here">
+<div class="col-md-4 col-xs-12 scrollNorm">
 
 
   <div class="text-center module1">
@@ -33,7 +38,7 @@
 
     <%= image_tag(@group.cover_image_url, class: "groupImageCover") if @group.cover_image? %>
   <div class="titleInfo">
-    <div class="col-md-12 col-xs-6 connArea">
+    <div class="col-md-12 col-xs-12 connArea">
       <div class="groupImageSec1">
         <%= image_tag(@group.image_url(:thumb),  class: "groupImage1") if @group.image? %>
       </div>
@@ -240,9 +245,6 @@
 
   <div class="userInfoArea">
 
-      <div class="userInfoTitle">
-        Description
-      </div>
 
     <div class="userInfoElement">
 
@@ -273,64 +275,149 @@
 
 
 
-<div class="col-md-8">
-<div class="newsfeed">
+<div class="mobileArea col-md-8">
+
+
+
+<script type="text/javascript">
+$(function () { 
+  if ($(window).width() < 960) {
+     $(".mobileVE").removeClass("col-md-6");
+     $(".mobileVE").removeClass("userEvents");
+
+  }
+  else {
+    $(".deskVE").removeClass("scrollMembersEvents");
+  }
+});
+</script>
+
+
+<!-- Event Section Start -->
+
+<div class="eventsSection">
+
+
+
     <div class="titleSec">Upcoming Events</div>
+
+
+
+
     <% if !@group_events.empty? %>
+
+
+<div class="scrollMembersEvents deskVE">
+
       <% @group_events.each do |group_event| %>
+
+
       <% if Date.today <= group_event.event_date %>
-      <div class="col-md-6 userEvents">
-      <%= link_to group_event, method: :get, class: "specialA" do %>
-  
-        <div class="elementBox">
-        
-            <div class="eventImage">
-              <%= image_tag(group_event.image_url, class: "eventImage1") if group_event.image? %>
-            </div>
-                <div class="eventContent1">
-                    <div class="eventDateI"><%= group_event.event_date.strftime('%B %e') %></div>
-                  </div>
-             <div class="eventOverall">
-                <div class="eventContent">
-                  <div class="titleGroups"><%= truncate(group_event.title, length: 30)%></div> 
-                </div>
 
-              <% if group_event.user.present? %>
-                <div class="creatorSign">
-                  <div class="imageUserEvent">
 
-                    <%= image_tag(group_event.user.avatar_url(:thumb), class: "userImage2") if group_event.user.avatar? %>
-                  </div>
-                  <div class="contentUserPost">
-                    <span class="poster"><%= group_event.user.name %></span>
-                  </div>
-                </div>
-              <% end %>
-            </div>
+        <span class="col-md-6 userEvents mobileVE">
+          <%= link_to group_event, method: :get, class: "specialA" do %>
+      
+            <div class="elementBox">
             
-        
-        </div>
-  
+                <div class="eventImage">
+                  <%= image_tag(group_event.image_url, class: "eventImage1") if group_event.image? %>
+                </div>
+                    <div class="eventContent1">
+                        <div class="eventDateI"><%= group_event.event_date.strftime('%B %e') %></div>
+                      </div>
+                 <div class="eventOverall">
+                    <div class="eventContent">
+                      <div class="titleGroups"><%= truncate(group_event.title, length: 30)%></div> 
+                    </div>
+
+                  <% if group_event.user.present? %>
+                    <div class="creatorSign">
+                      <div class="imageUserEvent">
+
+                        <%= image_tag(group_event.user.avatar_url(:thumb), class: "userImage2") if group_event.user.avatar? %>
+                      </div>
+                      <div class="contentUserPost">
+                        <span class="poster"><%= group_event.user.name %></span>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+                
+            
+            </div>
+      
+          <% end %>
+        </span>
+
+
       <% end %>
-    </div>
+
+
+
       <% end %>
-      <% end %>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
     <% else %>
       <div class="noFollowSec">
         <div class="noFollowSecText">There are no upcoming events.</div>
       </div>
     <% end %>
     
-</div>
+
+
+
+
+<!-- Event Section End -->
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function () { 
+  if ($(window).width() < 960) {
+     $(".mobileVU").removeClass("col-md-3");
+     $(".mobileVU").removeClass("text-center");
+
+
+  }
+  else {
+    $(".deskVU").removeClass("scrollMembersUsers");
+  }
+});
+</script>
+
+
 
 
 <div class="newsfeed">
 
+
+
     <div class="titleSec">Group Members</div>
-    <% if !@groupFollowers.empty? %>
+
+
+
+  <div class="scrollMembersUsers deskVU ">
+    <% if !@groupFollowers.empty? %> 
       <%  @groupFollowers.first(7).reverse.each do |groupFollower| %>
 
-      <div class="col-md-3 text-center">
+      <span class="col-md-3 text-center mobileVU">
 
       <%= link_to groupFollower, method: :get, class: "specialA" do %>
   
@@ -344,7 +431,7 @@
         </div>
   
       <% end %>
-    </div>
+    </span>
 
       <% end %>
 
@@ -355,6 +442,13 @@
       </div>
     <% end %>
 
+</div>
+
+
+
+
+
+
 
     <div class="laterPostBox2">
 
@@ -363,6 +457,11 @@
 
 
 </div>
+
+
+
+
+
 
 
 

@@ -29,13 +29,13 @@
 <div class="container noPad3">
 
 
-  <div class="col-md-4 col-xs-12 noPad3 here">
+  <div class="col-md-4 col-xs-12  scrollNorm">
     <div class="text-center module1">
       <div class="innerModule">
         <%= image_tag(@group.cover_image_url, class: "groupImageCover") if @group.cover_image? %>
 
     <div class="titleInfo">
-    <div class="col-md-12 col-xs-6 connArea">
+    <div class="col-md-12 col-xs-12 connArea">
       <div class="groupImageSec1">
         <%= image_tag(@group.image_url(:thumb),  class: "groupImage1") if @group.image? %>
       </div>
@@ -57,7 +57,7 @@
 
 
 
-  <div class="col-md-8 col-xs-12">
+  <div class="col-md-8 col-xs-12 noPad3">
 
       <div class=" margTop mobNavs ">
 

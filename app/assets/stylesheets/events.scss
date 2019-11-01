@@ -4,6 +4,38 @@
 
 
 
+
+div.scrollMembersEvents {
+    overflow: auto;
+    white-space: nowrap;
+    height: 320px;
+    overflow-y: hidden;
+    overflow-x: scroll; /* Must be 'scroll' not 'auto' */
+    -webkit-overflow-scrolling: touch;
+}
+
+div.scrollMembersEvents a {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+}
+
+
+
+.scrollNorm{
+    position: -webkit-sticky;
+  position: sticky; 
+
+  top: 50px;
+}
+
+
+.infoSec2{
+  float: left;
+}
+
+
 .sharedInts{
   margin: 5px 8px 5px 8px;
   font-weight: 900;
@@ -42,7 +74,7 @@
 
 .fixedState{
   background-color: #6c95af;
-  padding: 10px;
+  padding: 16px;
   border-radius: 100px;
   position: fixed;
   right: 70px;
@@ -243,7 +275,7 @@ div .panel-interest{
     font-weight: 900;
     /* margin-bottom: 1rem; */
     outline: none;
-    padding: 1rem 40px;
+    padding: 0.5rem 40px;
     position: relative;
     transition: all 0.3s;
     vertical-align: middle;
@@ -856,7 +888,7 @@ div .show-more[aria-expanded="true"]{
 
 .infoSec{
     float: left;
-    height: 385px;
+    height: 375px;
     position: relative;
 }
 
@@ -1296,7 +1328,7 @@ div.scrollGroupsI a {
 
 
 .eventTitle{
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: 900;
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -1643,13 +1675,53 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px){
+
+
+/* Rework Start */
+  .groupImage2{
+    height: 150px;
+    width: 150px;
+  }
+
+
+  div.scrollMembersEvents{
+    height: 215px;
+  }
+  .innerModule{
+    margin-top: 0px;
+  }
+
+  .module1{
+    margin-bottom: 0px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0px 0px 0px;
+    background-color: white;
+    float: left;
+    padding-bottom: 15px;
+    width: 100%;
+  }
+
+
+  .scrollNorm{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    width: 100%;
+    float: left;
+    position: initial !important;
+  }
+
+  .descMap{
+    margin-top: 0px;
+  }
+
+/* Rework End */
+
   .textOps{
     font-size: 12px;
   }
 
   .buttonsEvent{
-
-    margin-bottom: 30px;
     position: initial;
   }
   .interestTitleSec{
@@ -1819,14 +1891,14 @@ div.scrollEvents a {
   	}
 	.infoSec{
 		width: 100%;
-		margin-top: -80px;
+		margin-top: -100px;
 		height: auto !important;
     padding-left: 5px !important;
     padding-right: 5px !important;
 	}
   .infoSec2{
-    padding-left: 10px !important;
-    padding-right: 10px !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
     float: left;
     width: 100%;
   }
@@ -1896,9 +1968,7 @@ div.scrollEvents a {
 	}
 
 	.infoTop{
-	    font-size: 20px;
-	    margin-bottom: 0px;
-	    margin-top: 5px;
+    display: none;
 	}
 
 	.eventTitle2{
@@ -1943,20 +2013,9 @@ div.scrollEvents a {
 	}
 	.followerNameSec{
 		font-size: 12px;
-		font-weight: 700 !important;
+		font-weight: 900 !important;
 	}
-	.groupImage2{
-		height: 100px;
-	}
-	.module1{
-		margin-bottom: 0px;
-		height: auto;
-	    border-radius: 5px;
-	    box-shadow: 0px 0px 0px;
-	    background-color: white;
-	    float: left;
-    	padding-bottom: 15px;
-	}
+
 	.unAttendGroupBtn{
 		width: 100%;
 		margin-top: 15px;

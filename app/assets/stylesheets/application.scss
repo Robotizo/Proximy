@@ -653,6 +653,26 @@ body{
 }
 
 @media screen and (max-width: 776px){
+
+
+
+	.spinner {
+	  margin: 60px auto 0;
+	  width: 50px;
+	  text-align: center;
+	}
+
+	.spinner > div {
+	  width: 30px !important;
+	  height: 30px !important;
+	  
+
+	  border-radius: 100%;
+	  display: inline-block;
+	  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+	  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+	}
+
 	.notificationsNav{
 		margin-left: -3px;
 	}
