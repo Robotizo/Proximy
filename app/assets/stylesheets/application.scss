@@ -210,9 +210,9 @@ label{
 }
 
 .alert{
-	width: calc(100% - 20px);
+	width: calc(30% - 20px);
 	margin: 10px;
-	position: absolute;
+	position: fixed;
 	z-index: 100;
 	
 }
@@ -226,9 +226,10 @@ label{
     border-radius: 5px;
 }
 .alert-success{
-	background-color: #ffffff;
-    border-color: #6c95af;
-    color: #6c95af;
+    background-color: #d6e9c6;
+    border-color: #2ECC40;
+    color: #3c763d;
+    font-weight: 900;
 
 }
 
@@ -724,9 +725,9 @@ body{
 	    padding-right: 0px !important;
 	  }
 	.alert{
-		border-radius: 0px;
-		width: 100%;
-		margin: 0px;
+	    border-radius: 20px;
+	    width: 90%;
+	    margin: 19px;
 	}
 
 	.navElement{

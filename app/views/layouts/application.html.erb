@@ -85,7 +85,7 @@
 
 
       function openNav2() {
-        document.getElementById("mySidenav2").style.height = "250px";
+        document.getElementById("mySidenav2").style.height = "195px";
       }
 
       function closeNav2() {
@@ -253,9 +253,6 @@
         <li>
           <%= link_to "Create Group", new_group_path, method: :get, class: "dropItem" %>
         </li>
-        <li>
-          <%= link_to "Create Post", new_post_path, method: :get, class: "dropItem" %>
-        </li>
       </ul>
     </div>
 
@@ -341,14 +338,6 @@
         </div> 
       <% end %>
 
-            <%= link_to new_post_path, method: :get, class: "specialA navElement" do %>
-        <div class="menuSec"> 
-            <span class="menuElements">
-              <%= image_tag("post.png", class: "ImageNavB") %>
-            </span>
-              <%= label_tag "Create Post" , nil, class: "ImageNavB" %>
-        </div> 
-      <% end %>
 
 
   </div>

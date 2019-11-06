@@ -41,6 +41,14 @@ class UsersController < ApplicationController
 
   end
 
+  def interestsMenu
+    @user = current_user
+  end
+
+  def location
+    @user = current_user
+  end
+
   def avatar
     @user = current_user
 

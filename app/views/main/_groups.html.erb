@@ -1,15 +1,19 @@
 
-    <div class="scrollMembersGroups container">
+    <div class="container">
   
-    <% @groups.first(10).each do |group| %>
-
+    <% @groups.first(8).each do |group| %>
+    <% collide = current_user.followingI.ids & group.fgI.ids %>
+    <div class="col-md-3 col-xs-6 testMarge">
       <%= link_to group, method: :get, class: "specialA" do %>
-        <div class="groupBlock">
+        <div class="elementBox">
           <%= image_tag(group.image_url(:group), class: "groupImageDisc") if group.image? %>
 
-            <div class="groupTitleDisc2"><%= truncate(group.title, length: 25) %></div>
+            <div class="groupTitleDiscG"><%= truncate(group.title, length: 25) %></div>
+              <div class="sharedIntsG">
+                <%= collide.count %> Shared interests
+              </div>
         </div>
       <% end %>
-
+    </div>
     <% end %>
   </div>

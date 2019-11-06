@@ -15,15 +15,6 @@
   <% end %>
 
 
-<style type="text/css">
-  .fileBtnDiv, .form-control {
-    width: 100%;
-    margin: 15px 0 32px 0 !important;
-  }
-
-
-
-</style>
 
 
 
@@ -33,16 +24,16 @@
 
 
 
+ <div class="col-md-12 col-xs-12 noPad3">
 
-
-  <div class="field fileField col-md-6 col-xs-6 minPadR ">
+  <div class="field fileField col-xs-6 noPad3 ">
     <label class="btn btn-primary fileBtnDiv">
       <%= f.file_field :avatar, class: "fileBtn form-control", id: "avatarImageUpload" %>
       Profile Photo
     </label>
   </div>
 
-  <div class="field fileField col-md-6 col-xs-6 minPadL ">
+  <div class="field fileField col-xs-6 noPad3">
     <label class="btn btn-primary fileBtnDiv">
       <%= f.file_field :image, class: "fileBtn form-control", id: "coverImageUpload" %> 
       Cover Photo
@@ -50,35 +41,51 @@
   </div>
 
 
+</div>
+
 
 
 <% end %>
 
 
-<div class="nameFields">
+<div class="col-md-12 col-xs-12 noPad3">
 
-<div class="col-md-6 section1 minPadR">
-  <div class="field">
-    <div>First Name</div>
+
+  <div class="field col-md-6">
+    <div class="labelSide">
+      First Name
+    </div>
     <%= f.text_field :name, class: "form-control", placeholder: "First name", id: "text_field" %>
   </div>
-</div>
-<div class="col-md-6 section1 minPadL">
-  <div class="field">
-    <div>Last Name</div>
+
+
+
+  <div class="field col-md-6">
+    <div class="labelSide">
+      Last Name
+    </div>
     <%= f.text_field :last_name, class: "form-control", placeholder: "Last name" %>
   </div>
-</div>
 
-  <div class="field section1 ">
-    <div>Email</div>
+
+
+
+  <div class="field field col-xs-12 noPad3">
+    <div class="labelSide">
+      <%= f.label :email %>
+    </div>
     <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
   </div>
+
+
 <% if action_name == 'edit' or action_name == 'update' or action_name == "avatar" %>
-  <div class="field section1 ">
-    <div>Bio</div>
-    <%= f.text_field :bio, class: "form-control", placeholder: "Describe yourself." %>
+
+<div class="field field col-xs-12 noPad3">
+  <div class="labelSide">
+    <%= f.label :bio %>
   </div>
+    <%= f.text_field :bio, class: "form-control", placeholder: "Describe yourself." %>
+</div>
 <% end %>
   <div class="field">
     <%= f.hidden_field :latitude, class: "form-control", id: "latField" %>
@@ -115,12 +122,26 @@
 <% end %>
 
 
+
+
 <% if action_name == 'edit' or action_name == 'update' or action_name == "avatar" %>
-  <div class="actions col-md-12 create col-xs-12">
-    <%= f.submit "Confirm", class: "fileBtnSubmit" %>
-  </div>
+  
+    <div class="fixedState">
+      <%= f.button "Confirm", class: "fileBtnSubmit", data: {disable_with: "<i class='fa fa-circle-o-notch fa-spin'></i> Building..."} %>
+    </div>
 
 <% end %>
+
+
+
+
+  
+
+
+
+
+
+
 
 
 <% end %>

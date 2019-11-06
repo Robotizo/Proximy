@@ -1,11 +1,3 @@
-      <style type="text/css">
-        .elementBox{
-          height: 325px !important;
-        }
-
-
-
-      </style>
 
 
       <% @groups.each do |group| %>
@@ -15,7 +7,7 @@
             <div class="elementBox">
               <%= image_tag(group.image_url(:group), class: "groupImageDisc") if group.image? %>
               <div class="eventContent">
-                <div class="titleGroups"><%= truncate(group.title, length: 50) %></div>
+                <div class="titleGroups"><%= truncate(group.title, length: 20) %></div>
               </div>
               <div class="sharedInts">
             

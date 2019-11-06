@@ -2,6 +2,39 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+
+/* User Edits Start */
+.editContent{
+  margin-top: 60px;
+}
+
+
+
+.groupInfoSec{
+  text-align: center;
+  float: left;
+  width: 100%;
+  margin-top: -70px;
+}
+
+.labelSide {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+
+.groupImageCover{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
+
+}
+
+
+
+/* User Edits End */
+
 div.scrollMembersEvents {
     overflow: auto;
     white-space: nowrap;
@@ -137,6 +170,8 @@ margin: 5px 0px;
 
 .field{
   font-weight: 900;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .bio{
@@ -331,27 +366,22 @@ div .panel-interest{
 
 
 .fileBtnSubmit{
-    border-color: #2e6da4;
-  background-color: #7fa6be;
-  width: 100%;
+    /* border-color: #2e6da4; */
+    background-color: #6c95af;
+    /* width: 100%; */
     border: none;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    font-family: 'Poppins', sans-serif;
     font-size: inherit;
-    font-weight: 600;
-    margin-bottom: 1rem;
+    font-weight: 900;
+    /* margin-bottom: 1rem; */
     outline: none;
-    padding: 1.7rem 50px;
+    padding: 0.5rem 40px;
     position: relative;
     transition: all 0.3s;
     vertical-align: middle;
-}
-
-.fileBtnSubmit:hover{
-  background-color: #204d74;
 }
 
 .create{
@@ -504,6 +534,7 @@ input.checkDist{
   border-radius: 100px;
   position: fixed;
   right: 70px;
+  z-index: 100;
   bottom: 50px;
   box-shadow: 0px 0px 4px 0px #e2e2e2;
 }
@@ -523,13 +554,14 @@ input.checkDist{
 
 
 .avatarImage2{
-  height: 140px;
-  width: 140px;
-  object-fit: cover;
-  border-radius: 10px;
-  position: relative;
-  left: 200px;
-  top: -73px;
+  height: 130px;
+  width: 130px;
+  border-radius:15px;
+      box-shadow: 0px 0px 4px 0px #6f6f6f;
+        overflow: hidden;
+  background-size: cover;
+  background-position: center;
+    display: inline-block;
 
 }
 
@@ -547,21 +579,21 @@ input.checkDist{
 
 
 .imgProfile{
-  height: 140px;
-  width: 140px;
-  object-fit: cover;
-  border-radius: 10px;
-  position: relative;
-  border: 3px solid white;
+    border-radius: 15px;
+    height: 130px;
+    width: 130px;
+    box-shadow: 0px 0px 4px 0px #6f6f6f;
+    -o-object-fit: cover;
+    object-fit: cover;
 
 }
 
 
 .imgCover {
   width: 100%;
-  height: 230px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 10px 10px 0px 0px;
   box-shadow: 0px 0px 1px;
 }
 
@@ -756,15 +788,15 @@ div .show-more[aria-expanded="true"]{
 }
 
 .fileBtnDiv, .form-control {
-  width: 100%;
-  margin: 32px 0;
+  width: 80%;
+  margin: 10px 0px 40px 0;
 
 }
 
 .fileBtnDiv {
     border-color: #2e6da4;
-  background-color: #7fa6be;
-  width: 100%;
+    background-color: #7fa6be;
+    width: 100%;
     border: none;
     border-radius: 5px;
     color: #fff;
@@ -1658,18 +1690,6 @@ body {
   text-align: left;
 }
 
-.groupTitleI {
-  text-align: left;
-  width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  position: relative;
-  font-weight: 600;
-  margin: 5px;
-  top: -75px;
-  font-size: 20px;
-  white-space: normal;
-}
 
 .eventContent {
   padding: 15px 8px 4px 8px;
@@ -2012,13 +2032,6 @@ body {
 }
 
 
-.groupTitle {
-  font-size: 14px;
-  font-weight: 400;
-  margin-left: 10px;
-  padding-top: 5px;
-  float: left;
-}
 
 
 .groupsCol {

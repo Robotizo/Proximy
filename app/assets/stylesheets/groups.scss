@@ -1048,7 +1048,7 @@ div .show-more[aria-expanded="true"]{
 
 .fileBtnDiv, .form-control {
   width: 80%;
-  margin: 10px 40px 40px 0;
+  margin: 10px 0px 40px 0;
   font-weight: 900;
 
 }
@@ -1787,6 +1787,10 @@ div.scrollEvents{
 
 /* Rework Start */
 
+  .negativeMarg{
+    margin-top: -30px;
+  }
+
   .groupImage2{
     height: 150px;
     width: 150px;
@@ -1794,6 +1798,7 @@ div.scrollEvents{
 
   .userInfoArea{
     margin-top: -10px;
+    margin-bottom: 30px;
   }
   .groupImageCover{
     height: 200px;
@@ -1873,7 +1878,7 @@ div.scrollEvents{
 
   .fixedState {
       right: 15px;
-      bottom: 55px;
+      bottom: 25px;
       width: 130px;
       text-align: center;
   }
@@ -1932,8 +1937,8 @@ div.scrollEvents{
   }
      
   .testMarge{
-    padding: 20px 10px;
-        height: 214px;
+    padding: 15px 10px;
+      
   }
 
   .titleSecSub{
@@ -2015,7 +2020,7 @@ div.scrollEvents{
   	}
 
 	.marginMob{
-		margin-bottom: 30px;
+		margin-bottom: 10px;
 	}
 
 
@@ -2232,7 +2237,7 @@ div.scrollEvents{
 		padding-right: 0px;
     float: left;
     width: 100%;
-    margin-top: -40px;
+    margin-top: -30px;
 	}
 
   .connArea {
@@ -2267,7 +2272,7 @@ div.scrollEvents{
 
 
 	.titleGroups{
-		font-size: 16px;
+		font-size: 14px;
 	}
 
 	.imageUserEvent{

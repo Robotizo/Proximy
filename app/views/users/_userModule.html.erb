@@ -1,0 +1,35 @@
+	<div class="col-md-4 col-xs-12 scrollNorm">
+		<div class="text-center module1">
+			<div class="innerModule">
+				<% if @user.image.present? %>
+					<div class="groupImageCover" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px 10px 0px 0px;">
+						<%= image_tag(@user.image_url, class: "imgCover", id: "coverImageTag") if @user.image? %>
+					</div>
+				<% else %>
+					<div class="groupImageCover" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px 10px 0px 0px;">
+					  <%= image_tag("cover.jpg", class: "imgCover", id: "coverImageTag") %>
+					</div>
+				<% end %>
+
+				<% if @user.avatar.present? %>
+				<div class="connArea">
+					<div class="avatarImage2" id="avatarImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 15px;">
+						<%= image_tag(@user.avatar_url, class: "imgProfile", id: "avatarImageTag") if @user.avatar? %>
+					</div>
+				</div>
+				<% else %>
+				<div class="connArea">
+					<div class="avatarImage2" id="avatarImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 15px;  ">
+					  <%= image_tag("profile.jpg", class: "imgProfile", id: "avatarImageTag") %>
+					</div>
+				</div>
+				<% end %>
+
+				 <div class="connArea">
+                    <div id="groupTitleText" class="userName">
+                        <%= @user.name %>  <%= @user.last_name %>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>

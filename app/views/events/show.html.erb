@@ -54,43 +54,30 @@
 
     <div class="col-md-12 col-xs-12 infoSec noPad3Desk">
 
+
+
+
 <div class="infoSec2">
 
-    <div class="infoTop col-md-12 col-xs-12 noPad3">Event Details</div>
+      <div class="col-md-12 col-xs-12 noPad3 text-left">
 
-
-      <div class="col-md-6 col-xs-12 noPad3 text-left">
-        <div class="eventTitle2">Event Date</div>
           <span class="eventTitle"><%= @event.event_date.strftime('%B %e') %></span>
           <% if @event.event_end_date.present? %>
-          to
+          <span class="eventTitle">to</span>
           <span class="eventTitle"><%= @event.event_end_date.strftime('%B %e') %></span>
         <% end %>
-      </div>
-
-
-      <div class="col-md-6 col-xs-12 noPad3 text-left">
-        <div class="eventTitle2">Event Time</div>
-          <span class="eventTitle"><%= @event.event_time.strftime("%I:%M %p") %></span>
-          <% if @event.event_end_time.present? %>
-          to
+        <span class="eventTitle">at</span>
+        <span class="eventTitle"><%= @event.event_time.strftime("%I:%M %p") %></span>
+        <% if @event.event_end_time.present? %>
+          <span class="eventTitle">to</span>
           <span class="eventTitle"><%= @event.event_end_time.strftime("%I:%M %p") %></span>
         <% end %>
       </div>
 
-      <div class="col-md-12 col-xs-12 noPad3 text-left">
-          <div class="eventTitle2">Hosted by</div>
-          <% if @event.group.present? %>
-            <%= image_tag(@event.group.image_url(:thumb), class: "organizerAv") if @event.group.image? %>
-            <span class="organizerName"><%= truncate(@event.group.title, length: 30) %></span>
-          <% else %>
-            <%= image_tag(@event.user.avatar_url(:thumb), class: "organizerAv") if @event.user.avatar? %>
-            <span class="organizerName"><%= @event.user.name %> <%= @event.user.last_name %></span>
-          <% end %>
-          
-      </div>
 
-</div>
+
+
+      <!-- Buttons Start -->
       <% if current_user == @event.user %>
       <% if Date.today <= @event.event_date %>
           <div class="buttonsEvent">
@@ -213,6 +200,26 @@
       <% end %>
 
       <% end %>
+<!-- Buttons End -->
+
+
+
+      <div class="col-md-12 col-xs-12 noPad3 text-left">
+          <div class="eventTitle2">Hosted by</div>
+          <% if @event.group.present? %>
+            <%= image_tag(@event.group.image_url(:thumb), class: "organizerAv") if @event.group.image? %>
+            <span class="organizerName"><%= truncate(@event.group.title, length: 30) %></span>
+          <% else %>
+            <%= image_tag(@event.user.avatar_url(:thumb), class: "organizerAv") if @event.user.avatar? %>
+            <span class="organizerName"><%= @event.user.name %> <%= @event.user.last_name %></span>
+          <% end %>
+          
+      </div>
+
+</div>
+
+
+
 
 
 

@@ -3,13 +3,56 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+.dots{
+  font-size: 60px;
+  text-align: center;
+  font-weight: 900;
+}
+.elementBoxMore{
+
+  height: 322px;
+  border-radius: 11px;
+  transition: box-shadow .3s;
+
+}
+
+.testMarge{
+  padding:20px;
+}
+
+
+
+.sharedIntsG{
+  margin: 5px 8px 5px 8px;
+  font-weight: 900;
+      color: #6d95b0;
+      text-align: left;
+}
+
+
+.sharedInts{
+  margin: 5px 8px 5px 8px;
+  font-weight: 900;
+  color: #6d95b0;
+  margin-top: -72px;
+  text-align: left;
+}
 
 
 
 
 
+.elementBox{
+  box-shadow: 0px 0px 4px 0px #e2e2e2;
+  height: 322px;
+  border-radius: 11px;
+  transition: box-shadow .3s;
+}
 
-
+.elementBox:hover{
+  box-shadow:0 0 11px rgba(33, 33, 33, 0.2);
+  
+}
 
 
 .card:hover{
@@ -100,25 +143,22 @@
   margin-bottom: -80px;
 }
 
-
 .groupImageDisc{
-  border-radius: 8px;
+  border-radius: 10px 10px 0px 0px;
   width: 100%;
-    background-color: white;
+  background-color: white;
     
 }
 
-
 .eventContentDisc{
-  position: relative;
-  top: -68px;
-  /* background-color: #00000054; */
-  padding: 10px;
-  /* opacity: 0.8; */
-  border-radius: 0px 0px 9px 9px;
-  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
+    position: relative;
+         top: -68px;
+    /* background-color: #00000054; */
+    padding: 10px;
+    /* opacity: 0.8; */
+        border-radius: 0px 0px 9px 9px;
+        background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
 }
-
 
 .eventDateDisc{
   text-align: left;
@@ -131,20 +171,29 @@
     color: white;
 }
 
+
+
+.groupTitleDiscG{
+    text-align: left;
+    width: 100%;
+    padding: 15px 8px 4px 8px;
+    position: relative;
+    font-weight: 900;
+    font-size: 18px;
+    white-space: normal;
+
+}
+
+
 .groupTitleDisc{
-  text-align: left;
-  width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  position: relative;
-  font-weight: 900;
-  margin-top: 5px;
-  margin-left: 2px; 
-  margin-right: 2px;
-  margin-bottom: 5px;
-  top: -75px;
-  font-size: 16px;
-  white-space: normal;
+    text-align: left;
+    width: 100%;
+    padding: 15px 8px 4px 8px;
+    position: relative;
+    font-weight: 900;
+    top: -75px;
+    font-size: 18px;
+    white-space: normal;
 
 }
 
@@ -1388,7 +1437,6 @@ div.scrollMembers a {
 div.scrollMembersEvents {
     overflow: auto;
     white-space: nowrap;
-    height: 320px;
     overflow-y: hidden;
     overflow-x: scroll; /* Must be 'scroll' not 'auto' */
     -webkit-overflow-scrolling: touch;
@@ -1406,7 +1454,7 @@ div.scrollMembersEvents a {
 div.scrollMembersGroups {
     overflow: auto;
     white-space: nowrap;
-    height: 285px;
+
     overflow-y: hidden;
     overflow-x: scroll; /* Must be 'scroll' not 'auto' */
     -webkit-overflow-scrolling: touch;

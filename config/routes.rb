@@ -76,6 +76,8 @@
     member do
       get :following, :followers
       get :interests
+      get :interestsMenu
+      get :location
       get :avatar
       patch :save_avatar
       get :confirm_email

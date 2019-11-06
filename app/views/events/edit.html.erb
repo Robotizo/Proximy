@@ -3,9 +3,15 @@
 
 
 
+<style type="text/css">
+  .module1{
+    padding-bottom: 0px !important;
+  }
+</style>
 
-<div class="container">
-<div class="col-md-5 here">
+
+<div class="container noPad3">
+<div class="col-md-5 col-xs-12 scrollNorm">
 
 
   <div class="text-center module1">
@@ -18,8 +24,8 @@
 
 
 
-    <div class="eventContentForm">
-      <div class="eventTitleForm" id="eventPageTitle"><%= @event.title %></div>
+    <div class="eventImgTitle">
+      <div class="eventTitleImg" id="eventPageTitle"><%= @event.title %></div>
     </div>
   </div>
 
@@ -31,7 +37,7 @@
 
 
 
-<div class="col-md-7 noPad3">
+<div class="col-md-7 col-xs-12">
   <%= render 'form', event: @event %>
 </div>
 

@@ -1,0 +1,38 @@
+<%= stylesheet_link_tag "users", :media => "all" %>
+<div class="container noPad3">
+	<%= render 'userModule' %>	
+
+
+	<div class="mobileArea col-md-8">
+
+		<%= render 'editMenu' %>	
+
+		<div clas="editContent">
+		  <% current_user.followingI.each do |interest| %>
+		    <div class="col-md-3 col-xs-6">
+		      <div class="interestCard">
+		        <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
+		        <div class="interestTitleSec">
+		          <div class="interestName"><%= interest.name %></div>
+		        
+		        </div>
+
+		      </div>
+		    </div>
+
+
+		  <% end %>
+
+
+
+
+	    
+	    	<%= link_to interests_user_path, method: :get, class: "specialA" do %>
+	    	<div class="fixedState">
+					<span class="editsText">Edit</span>
+	         	<%= image_tag("settings2.png", class: "editsUserIcon") %>
+	        </div>
+	        <% end %>
+	     </div>
+	</div>
+  </div>
