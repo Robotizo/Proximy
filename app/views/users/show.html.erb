@@ -152,6 +152,8 @@
 
       </div>
 
+</div>
+<!--
       <div class="userInfoElement">
         
         Student at UBC
@@ -175,8 +177,8 @@
 
       </div>
 
-
-    </div>
+-->
+    
 
 
 
@@ -363,7 +365,7 @@
 <!-- Profile Rest Begin -->
 
 
-<div class="mobileArea col-md-8 ">
+<div class="col-md-8 col-xs-12 noPad3">
  
 
 <% if @user.friends.include?(current_user) or @user == current_user %>
@@ -414,16 +416,46 @@ $(function () {
                   <div class="eventContent">
                     <div class="titleGroups"><%= truncate(eventsFollowing.title, length: 30) %></div>
                   </div>
+
+             
+
+
+<!-- Add a hotdet by -->
+
+
+
+
+
+
                   <div class="creatorSign">
+                    <% if eventsFollowing.group.present? %>
                     <div class="imageUserEvent">
+                      <%= image_tag(eventsFollowing.group.image_url(:thumb), class: "userImage2") if eventsFollowing.group.image? %>
+                    </div>
+
+                    <div class="contentUserPost">
+                      <span class="poster"><%= truncate(eventsFollowing.group.title, length: 30) %></span>
+                    </div>
+
+                <% else %>
+                     <div class="imageUserEvent">
                       <%= image_tag(eventsFollowing.user.avatar_url(:thumb), class: "userImage2") if eventsFollowing.user.avatar? %>
                     </div>
+
                     <div class="contentUserPost">
-                      <span class="poster"><%= truncate(eventsFollowing.user.name, length: 30) %></span>
+                      <span class="poster"><%= eventsFollowing.user.name %></span>
                     </div>
+                <% end %>
                   </div>
+
+
+
+
+
                 </div>
             </div>
+
+
             <% end %>
 
 

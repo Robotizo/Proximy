@@ -2,8 +2,8 @@
 
 
 
- <div class="container ">
-    <div class="titleSec">Notifications</div>
+ <div class="container noPad3">
+    <div class="topTitle2">Notifications</div>
  </div>
 
 
@@ -56,28 +56,35 @@
 <div class="container noPad3">
 	<% @eventNotifsPage.reverse.each do |eventNotif| %>
 
-			<div class="col-md-4 col-xs-12">
-<%= link_to update_notif_notification_path(eventNotif), method: :patch, class: "specialA" do %>
 
 
-<% if eventNotif.is_checked == false %>
+
+
+			<div class="col-md-4 col-xs-12 testMarge">
+		<%= link_to update_notif_notification_path(eventNotif), method: :patch, class: "specialA" do %>
+
+
+			<% if eventNotif.is_checked == false %>
 				
-				<%= image_tag(eventNotif.event.image_url(:event), class: "interestImageEventUnseen") if eventNotif.event.image? %>
-		        <div class="interestTitleSec">
-                  <div class="interestName"><%= eventNotif.event.event_date.strftime('%B %e') %></div>
+                <div class="elementBox">
+                  <%= image_tag(eventNotif.event.image_url(:event), class: "groupImageDisc") if eventNotif.event.image? %>
+                  <div class="eventContentDisc">
+                    <div class="eventDateDisc"><%= eventNotif.event.event_date.strftime('%B %e') %></div>
+                  </div>
+                  <div class="groupTitleDisc"><%= truncate(eventNotif.event.title, length: 35) %></div>
+     
                 </div>
-                <div class="interestNameBlack"><%= eventNotif.event.title %></div>
 
 
 				<% else %>
-					<%= image_tag(eventNotif.event.image_url(:event), class: "interestImageEventSeen") if eventNotif.event.image? %>
-				        <div class="interestTitleSec">
-		                  <div class="interestName"><%= eventNotif.event.event_date.strftime('%B %e') %></div>
-		                </div>
-		                <div class="interestNameBlack"><%= truncate(eventNotif.event.title, length: 30) %></div>
-
-
-
+                <div class="elementBox">
+                  <%= image_tag(eventNotif.event.image_url(:event), class: "groupImageDisc") if eventNotif.event.image? %>
+                  <div class="eventContentDisc">
+                    <div class="eventDateDisc"><%= eventNotif.event.event_date.strftime('%B %e') %></div>
+                  </div>
+                  <div class="groupTitleDisc"><%= truncate(eventNotif.event.title, length: 35) %></div>
+     
+                </div>
 
 				<% end %>
 		
@@ -88,10 +95,15 @@
 
 
 
+
+
+
+
 	<% end %>
 </div>
 <% else %>
 <% end %>
+
 
 
 

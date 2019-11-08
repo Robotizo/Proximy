@@ -1194,7 +1194,7 @@ div .show-more[aria-expanded="true"]{
     /* background-color: #00000054; */
     padding: 10px;
     /* opacity: 0.8; */
-        border-radius: 0px 0px 9px 9px;
+      
         background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
 }
 
@@ -1256,6 +1256,7 @@ div.scrollGroupsI a {
     top: -75px;
     font-size: 18px;
     white-space: normal;
+    color: black;
 
 }
 
@@ -1954,7 +1955,7 @@ div.scrollEvents a {
 		width: 50%;
 	}
 	.nav-tabs{
-		padding-top: 10px;
+		padding-top: 5px;
     	padding-bottom: 5px;
 	}
 	div.scrollGroupsI{

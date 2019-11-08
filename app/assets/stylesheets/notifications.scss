@@ -5,6 +5,67 @@
 
 
 
+.testMarge{
+  padding:20px;
+}
+
+
+.groupImageDisc{
+  border-radius: 10px 10px 0px 0px;
+  width: 100%;
+  background-color: white;
+    
+}
+
+.groupTitleDisc{
+    text-align: left;
+    width: 100%;
+    padding: 15px 8px 4px 8px;
+    position: relative;
+    font-weight: 900;
+    top: -75px;
+    font-size: 18px;
+    white-space: normal;
+    color: black;
+
+}
+.eventDateDisc{
+  text-align: left;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 800;
+    font-size: 20px;
+    white-space: normal;
+    color: white;
+}
+
+
+.eventContentDisc{
+    position: relative;
+         top: -68px;
+    /* background-color: #00000054; */
+    padding: 10px;
+    /* opacity: 0.8; */
+ 
+        background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
+} 
+
+
+
+.elementBox{
+  box-shadow: 0px 0px 4px 0px #e2e2e2;
+  height: 318px;
+  border-radius: 11px;
+  transition: box-shadow .3s;
+}
+
+.elementBox:hover{
+  box-shadow:0 0 11px rgba(33, 33, 33, 0.2);
+  
+}
+
+
 .specialA:hover{
   color: white;
   text-decoration: none !important;
@@ -12,27 +73,6 @@
 }
 
 
-.groupTitleDisc{
-    text-align: center;
-    width: 100%;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    position: relative;
-    font-weight: 600;
-    border-radius: 5px;
-    /* margin-top: 5px; */
-    /* margin-left: 2px; */
-    /* margin-right: 2px; */
-    /* margin-bottom: 5px; */
-    top: -23px;
-    font-size: 16px;
-    white-space: normal;
-        background-color: #6c95af;
-        color: white !important; 
-
-}
 
 .interestTitleSec {
     position: relative;
@@ -141,26 +181,38 @@
 .titleSecSub {
   font-size: 20px;
   font-weight: 900;
-  margin: 15px 0px;
+  margin: 20px;
   margin-bottom: 10px !important;
 }
 
-.titleSec {
-  font-size: 30px;
+.topTitle2{
+  font-size: 25px;
+  margin: 20px;
   font-weight: 900;
-  margin: 15px 0px;
-  margin-bottom: 10px !important;
 }
-
 
 @media screen and (max-width: 776px) {
+
+
+  .topTitle2{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: 900;
+  }
+  .testMarge{
+    padding: 15px 10px;
+  }
 
 	.titleSec{
 		font-size: 20px;
 	}
 
 	.titleSecSub{
-		font-size: 18px;
+    margin: 0px;
+		font-size: 14px;
 	}
 	.noPad3{
     	padding-left: 0px !important;

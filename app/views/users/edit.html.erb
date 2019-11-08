@@ -31,21 +31,23 @@
 
 
 
-	<div class="mobileArea col-md-8">
+	<div class="mobileArea col-md-8 col-xs-12 noPad3">
 
+<div class="col-xs-12 noPad3">
+	<%= render 'editMenu' %>
+</div>
 
-	<%= render 'editMenu' %>	
+	<div class="col-xs-12">
 
+		<div>
 
-	<div class="editContent">
-
-		<%= render 'form', user: @user %>	
-		
-	</div>
+			<%= render 'form', user: @user %>	
+			
+		</div>
 
 
 	
-		
+	</div>
 
 
 

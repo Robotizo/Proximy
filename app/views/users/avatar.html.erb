@@ -19,94 +19,107 @@
   }
 
 
+  @media screen and (max-width: 776px){
+  .avatarInfo{
+    margin-top: -70px;
+  }
+    .noPadTemp{
+    padding-right: 2px !important;
+    padding-left: 0px;
+  }
+}
+
+
+
+
+
 </style>
 
 
 
+<div class="container noPad3">
+  <div class="col-md-4 col-xs-12 scrollNorm">
+<%= render 'userModule' %>  
 
-<div class="text-center module1">
-  <div class="innerModuleAvatar">
-    <div class="userImageSec1">
-    <% if @user.image.present? %>
-      <div class="coverImage" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; ">
-        <%= image_tag(@user.image_url, class: "userImageCover", id: "coverImageTag") if @user.image? %>
-      </div>
-    <% else %>
-      <div class="coverImage" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; ">
-        <%= image_tag("cover.jpg", class: "userImageCover", id: "coverImageTag") %>
-      </div>
-    <% end %>
+  </div>
+
+
+
+
+
+  <div class="col-md-8 col-xs-12 avatarInfo">
+
+
+
+  <%= form_for [@user], url: save_avatar_user_path do |f|  %>
+  <div class=" col-md-12 col-xs-12 noPad3">
+    <div class="titleSec">Customize your profile</div>
+    <div class="field fileField col-xs-6  noPadTemp">
+      <label class="btn btn-primary fileBtnDiv">
+        <%= f.file_field :avatar, class: "fileBtn form-control", id: "avatarImageUpload" %>
+        Profile Photo
+      </label>
     </div>
-    <div class="col-md-6 col-xs-12 connArea">
-    	<div class="userImageSec1">
-
-
-
-          <% if @user.avatar.present? %>
-            <div class="avatarImage" id="avatarImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px;">
-              <%= image_tag(@user.avatar_url, class: "userImage1", id: "avatarImageTag") if @user.avatar? %>
-            </div>
-          <% else %>
-            <div class="avatarImage" id="avatarImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px;  ">
-              <%= image_tag("profile.jpg", class: "userImage1", id: "avatarImageTag") %>
-            </div>
-          <% end %>
-
-      	</div>
 
 
 
 
+    <div class="field fileField col-xs-6 noPad3">
+      <label class="btn btn-primary fileBtnDiv">
+        <%= f.file_field :image, class: "fileBtn form-control", id: "coverImageUpload" %> 
+        Cover Photo
+      </label>
     </div>
 
   </div>
 
-</div>
-
-<div class="formPart">
-<%= form_for [@user], url: save_avatar_user_path do |f|  %>
-<div class=" col-md-6 col-xs-12 noPad3">
-  <div class="titleSec text-center">Customize your profile</div>
-  <div class="field fileField col-md-6 col-xs-6  ">
-    <label class="btn btn-primary fileBtnDiv">
-      <%= f.file_field :avatar, class: "fileBtn form-control", id: "avatarImageUpload" %>
-      Profile Photo
-    </label>
-  </div>
-   <div class="field fileField col-md-6 col-xs-6 ">
-    <label class="btn btn-primary fileBtnDiv">
-      <%= f.file_field :image, class: "fileBtn form-control", id: "coverImageUpload" %> 
-      Cover Photo
-    </label>
-  </div>
-</div>
-
-<div class="col-md-6 col-xs-12 noPad1" style="margin-top: 30px; margin-bottom: 100px;">
-  <div class="titleSec text-center">Add a bio</div>
-  <div class="field fileField col-md-12 col-xs-12 ">
-    <%= f.text_field :bio, placeholder: "Describe yourself.", class: "form-control", id: "eventTitle" %>
-  </div>
-</div>
-
-<div class="container">
-  <div class="actions col-md-9 col-xs-9 createAvatar">
-    <%= f.submit "Confirm", class: "fileBtnSubmit", id: "submitButtonId", disabled: true  %>
+  <div class="col-md-12 col-xs-12 noPad3" style="margin-bottom: 100px;">
+    <div class="titleSec">Add a bio</div>
+    <div class="field fileField col-md-12 col-xs-12 noPad3">
+      <%= f.text_field :bio, placeholder: "Describe yourself.", class: "form-control", id: "eventTitle" %>
+    </div>
   </div>
 
 
 
+ 
+    <div class="fixedState">
+      <%= f.button "Confirm", class: "fileBtnSubmit", data: {disable_with: "<i class='fa fa-circle-o-notch fa-spin'></i> Building..."} %>
+    </div>
 
 
- <% end %>
-</div>
-   <div class="actions col-md-3 col-xs-3 createAvatar2">
-    <%= button_to "Skip", root_path, method: :get, class: "fileBtnSubmit2" %>
+
+
+
+   <% end %>
+
+
+
+     <div class="fixedStateSkip">
+      <%= button_to "Skip", root_path, method: :get, class: "fileBtnSubmitSkip" %>
+    </div>
+
+
+
+
   </div>
 
-</div>
+
+
+
+
 
 
 </div>
+
+
+
+
+
+
+
+
+
 
 
 <script>
@@ -123,7 +136,7 @@
     $("#avatarImageUpload").change(function(){
       coverFileURL = URL.createObjectURL(event.target.files[0]);
       $("#avatarImageTag").css("visibility", "hidden");
-      $("#avatarImage").css({"background-image": "url("+coverFileURL+")", "border": "3px solid white"});
+      $("#avatarImage").css({"background-image": "url("+coverFileURL+")"});
     });
   
 

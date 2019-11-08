@@ -11,13 +11,30 @@
 
 <body>
 
+	<style scoped>
+
+	@media (max-width: 776px) { 
+	    .coverImage {   
+	        border-radius: 0px !important;
+	    }
+	    .mobNav{
+	    	display: none !important;
+	    }
+	}
+</style>
+
+
 <div class="container noPad3">
 
 	<%= render 'userModule' %>	
 
-	<div class="mobileArea col-md-8">
-		<%= render 'editMenu' %>	
+	<div class="mobileArea col-md-8 col-xs-12 noPad3">
 
+		<div class="col-xs-12 noPad3">
+			<%= render 'editMenu' %>
+		</div>	
+
+<div class="col-xs-12">
 		<div class="editContent">
 			<div id="map"></div>
 
@@ -52,6 +69,9 @@
 
 			<% end %>
 		</div>
+
+</div>
+
 
 	</div>
 

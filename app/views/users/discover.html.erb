@@ -23,6 +23,9 @@
     <% unless user.id == current_user.id %>
         <%= link_to user, method: :get, class: "specialA" do %>
         <div class="col-md-2 col-xs-6 noPad8PX " data-aos="fade-up" >
+          <div class="elementBoxPpl">
+
+
           <% unless user.avatar.present? %>
             <%= avatarDiscover_for(user) %>
           <% end %>
@@ -31,13 +34,13 @@
           <div class="discoverTitleSec">
             <div class="discoverName"><%= truncate(user.name.gsub(/\s.+/, '')) %></div>
             <div class="discoverNum"><%= collide.count %> shared interests</div>
-
-            
-
           </div>
 
 
+          
+
           </div>
+        </div>
      
 
 

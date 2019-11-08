@@ -5,14 +5,20 @@
     <% collide = current_user.followingI.ids & user.followingI.ids %>
 
         <%= link_to user, method: :get, class: "specialA" do %>
-        <div class="followersSec">
+        <div class="followersSec ">
+
+
+          <div class="elementBoxPpl">
           <% unless user.avatar.present? %>
             <%= avatarFront_for(user) %>
           <% end %>
           <%= image_tag(user.avatar_url(:thumb), class: "userImg") if user.avatar? %>
           <div class="followerNameSec"><%= truncate(user.name.gsub(/\s.+/, '')) %></div>
           <div class="followerNameSec2"><%= collide.count %> shared interests</div>
+        </div>
 
+
+        
         </div>
         <% end %>
 
