@@ -1,19 +1,64 @@
 
-    <div class="container">
-  
-    <% @groups.first(8).each do |group| %>
-    <% collide = current_user.followingI.ids & group.fgI.ids %>
-    <div class="col-md-3 col-xs-6 testMarge">
-      <%= link_to group, method: :get, class: "specialA" do %>
-        <div class="elementBox">
-          <%= image_tag(group.image_url(:group), class: "groupImageDisc") if group.image? %>
+    <div class="container noPad3">
+<script type="text/javascript">
+$(function () { 
+  if ($(window).width() < 960) {
+     $(".mobileVE").removeClass("col-md-3");
 
-            <div class="groupTitleDiscG"><%= truncate(group.title, length: 25) %></div>
-              <div class="sharedIntsG">
-                <%= collide.count %> Shared interests
-              </div>
-        </div>
+  }
+  else {
+    $(".deskVE").removeClass("scrollMembersEvents");
+  }
+});
+</script>
+<style type="text/css">
+  @media screen and (max-width: 776px){
+  .boxGMod {
+    width: 250px !important;
+  }
+}
+</style>
+
+
+   <div class="scrollMembersEvents deskVE">
+
+
+      <% @groups.first(8).each do |group| %>
+      <% collide = current_user.followingI.ids & group.fgI.ids %>
+
+
+
+      <span class="col-md-3 testMarge mobileVE">
+        <%= link_to group, method: :get, class: "specialA" do %>
+          <div class="elementBox boxGMod">
+            <%= image_tag(group.image_url(:group), class: "groupImageDisc") if group.image? %>
+
+              <div class="groupTitleDiscG"><%= truncate(group.title, length: 25) %></div>
+                <div class="sharedIntsG">
+                  <%= collide.count %> Shared interests
+                </div>
+          </div>
+        <% end %>
+      </span>
+
+
+
       <% end %>
-    </div>
-    <% end %>
+
+        <span class="col-md-3 mobileVE testMargeMore">
+          <%= link_to groups_path, class: "specialA" do %>
+          <div class="testMargeIn">
+            
+              See more groups ...
+            
+          </div>
+          <% end %>
+      </span>
+
+
+
+  </div>
+
+
+
   </div>

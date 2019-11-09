@@ -1,26 +1,56 @@
    
-  <div class="container">
-    <% @events.first(6).each do |event| %>
-    <% collide = current_user.followingI.ids & event.fgE.ids %>
-    <div class="col-md-4 col-xs-12 testMarge">
-      <%= link_to event, method: :get, class: "specialA" do %>
-        <div class="elementBox">
-          <%= image_tag(event.image_url(:event), class: "groupImageDisc") if event.image? %>
-            <div class="eventContentDisc">
-              <div class="eventDateDisc"><%= event.event_date.strftime('%B %e') %></div>
-            </div>
-            <div class="groupTitleDisc"><%= truncate(event.title, length: 35) %></div>
-            <div class="sharedInts">
-              <%= collide.count %> Shared interests
-            </div>
+  <div class="container noPad3">
+
+<script type="text/javascript">
+$(function () { 
+  if ($(window).width() < 960) {
+     $(".mobileVE").removeClass("col-md-4");
+
+  }
+  else {
+    $(".deskVE").removeClass("scrollMembersEvents");
+  }
+});
+</script>
+  <div class="scrollMembersEvents deskVE">
+
+
+
+      <% @events.first(6).each do |event| %>
+      <% collide = current_user.followingI.ids & event.fgE.ids %>
+      <span class="col-md-4 testMarge mobileVE">
+        <%= link_to event, method: :get, class: "specialA" do %>
+          <div class="elementBox">
+            <%= image_tag(event.image_url(:event), class: "groupImageDisc") if event.image? %>
+              <div class="eventContentDisc">
+                <div class="eventDateDisc"><%= event.event_date.strftime('%B %e') %></div>
+              </div>
+              <div class="groupTitleDisc"><%= truncate(event.title, length: 35) %></div>
+              <div class="sharedInts">
+                <%= collide.count %> Shared interests
+              </div>
+          </div>
+         <% end %>
+
+
+        </span>
+
+      <% end %>
+      <span class="col-md-4 mobileVE testMargeMore">
+        <%= link_to events_path, class: "specialA" do %>
+        <div class="testMargeIn">
+          
+            See more events ...
+          
         </div>
-       <% end %>
-      </div>
+        <% end %>
+      </span>
+    
 
-    <% end %>
 
-      <!--  See More  Proximy Blue, font weight 800, font dmaller than title --> 
-
+    </div>
 
 
 </div>
+
+

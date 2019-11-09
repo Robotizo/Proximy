@@ -1,4 +1,7 @@
 <%= stylesheet_link_tag "events", :media => "all" %>
+<%= stylesheet_link_tag "datepicker", :media => "all" %>
+<%= javascript_include_tag( 'datepicker.js' ) %>
+
 <%= form_for(event) do |f| %>
   <% if event.errors.any? %>
     <div id="error_explanation">
@@ -14,6 +17,8 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo48DWSAQY1Qc3Tg4LjO8DtBJ32jSDbZI&libraries=places&callback=initAutocomplete"
          async defer></script> 
 
+
+  
 <script>
 
     $(function () { 
@@ -29,7 +34,8 @@
       });
 
     });
-  
+
+
 
 </script>
 
@@ -123,7 +129,7 @@
         <%= f.label :event_date %>
       </div>
       <div class="formSide">
-        <%= f.date_field :event_date, class: "form-control" %>
+        <%= f.date_field :event_date, class: "datepicker-here", id:"dateSelect" %>
       </div>
   </div>
 
@@ -218,6 +224,21 @@
 </div>
 
 <% end %>
+
+
+
+
+<script type="text/javascript">
+  
+
+  $('#my-element').datepicker([options])
+// Access instance of plugin
+$('#my-element').data('datepicker')
+
+
+
+</script>
+
 
 
 
