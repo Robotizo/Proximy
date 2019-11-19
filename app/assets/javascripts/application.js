@@ -25,7 +25,7 @@
 $(document).ready(function() {
   NProgress.start();
 	NProgress.configure({
-		showSpinner: false,
+		showSpinner: true,
 		ease: 'ease',
 		speed: 500
 	});
