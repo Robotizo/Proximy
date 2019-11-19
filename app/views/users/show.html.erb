@@ -22,10 +22,13 @@
 
 </style>
 
-
 <!-- Profile Intro Begin -->
 
-
+<div class="backButton">
+  <%= link_to 'javascript:history.back()' do %>
+        <%= image_tag("left-arrow.png", class: "leftArrow") %>
+  <% end %>
+</div>
 
 <div class="container noPad3">
 <div class="col-md-4 col-xs-12 scrollNorm">
@@ -145,13 +148,13 @@
     </div>
 
     <div class="userInfoArea">
-
+<% if @user.bio.present? %>
       <div class="userInfoElement">
         
         <%= @user.bio %>
 
       </div>
-
+<% end %>
 </div>
 <!--
       <div class="userInfoElement">
@@ -289,19 +292,18 @@
 
 
     <div class="userInfoArea">
+    <% if @user.bio.present? %>
 
       <div class="userInfoElement">
         
         <%= @user.bio %>
 
       </div>
-          
+    <% end %>
 
 
   <% if @user.distance_is_checked == true and current_user.id != @user.id and @user.friends.include?(current_user) %>
-      <div class="userInfoTitle">
-        Distance
-      </div>
+
 
       <div class="userInfoElement">
 
@@ -316,28 +318,7 @@
       <% end %>
     
 
-      <div class="userInfoTitle">
-        Work
-      </div>
 
-      <div class="userInfoElement">
-        
-        Relationship Status
-
-
-      </div>
-
-
-
-
-    <div class="userInfoTitle">
-        Work
-      </div>
-      <div class="userInfoElement">
-        
-        Testing Text
-
-      </div>
 
 
     </div>
@@ -368,6 +349,14 @@
 <div class="col-md-8 col-xs-12 noPad3">
  
 
+
+
+
+
+<!-- Area of work start -->
+
+
+
 <% if @user.friends.include?(current_user) or @user == current_user %>
 
 
@@ -395,12 +384,16 @@ $(function () {
   
         <% if !@eventsFollow.empty? %>
 
+
+
+
+
 <div class="scrollMembersEvents deskVE">
   
 
           <% @eventsFollow.each do |eventsFollowing| %>
           
-          <% if Date.today <= eventsFollowing.event_date %>
+  
 
 
           <span class="col-md-6 userEvents mobileVE">
@@ -420,7 +413,7 @@ $(function () {
              
 
 
-<!-- Add a hotdet by -->
+<!-- Add a hosted by -->
 
 
 
@@ -464,10 +457,11 @@ $(function () {
 
 
 
-
-            <% end %>
           <% end %>
 </div>
+
+
+
 
 
       </div>
@@ -476,7 +470,7 @@ $(function () {
 
         <% else %>
           <div class="noFollowSec">
-            <div class="noFollowSecText">No groups have been joined</div>
+            <div class="noFollowSecText">No current events have been joined</div>
           </div>
         <% end %>
 
@@ -563,7 +557,346 @@ $(function () {
 
 
   <% else %>
+
+
+
+
+
+
+<!-- Area of Work 3311 START -->
+
+<script type="text/javascript">
+$(function () { 
+  if ($(window).width() < 960) {
+     $(".mobileVI").removeClass("col-md-3");
+  }
+  else {
+    $(".deskVI").removeClass("scrollMembersInterests");
+  }
+});
+</script>
+
+
+
+    <div class="interestsSection" style="margin-top: -122px;">
+
+        <div class="titleSecInts">You have <%= @collideInterests.count %> interest in common with <%= @user.name %></div>
+
+
+
+<div class="scrollMembersInterests deskVI">
+                <% @collideInterests.first(8).each do |interestCollide| %>
+
+
+
+                 <span class="col-md-3 mobileVI">
+                  
+
+
+
+                  <div class="interestCard">
+                    <%= image_tag(interestCollide.image_url(:thumb), class: "interestImageNotF") if interestCollide.image? %>
+                    <div class="interestTitleSecNotF">
+                      <div class="interestNameNotF"><%= interestCollide.name %></div>
+                    
+                    </div>
+
+                  </div>
+               
+
+
+
+
+
+                </span>
+
+
+
+              <% end %>
+
+            <span class="col-md-3 mobileVI testMargeMore">
+             <div class="seeMore" data-target="#show-interests" data-toggle="modal" >
+              <div class="testMargeIn">
+
+                
+                  See more ...
+                
+              </div>
+            </div>
+            </span>
+      </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+<!-- Area of Work 3311 END -->
+
+
+
+
+
+
+
+
+
+<!-- Area of Work 3311 START -->
+
+<script type="text/javascript">
+$(function () { 
+  if ($(window).width() < 960) {
+     $(".mobileVE").removeClass("col-md-6");
+
+  }
+  else {
+    $(".deskVE").removeClass("scrollMembersEvents");
+  }
+});
+</script>
+
+
+
+
+
+
+
+    <div class="eventsSection" style="margin-top: 0px;">
+
+
+
+     <div class="titleSec">Events</div>
+
+
+
+
+ <% if !@eventsFollow.empty? %>
+   
+      <div class="titleSecNonF">
+          <div class="titleTextNonF">Add <%= @user.name %> to see their events </div>
+      </div>
+    <% end %>
+
+
+
+
+     
+     <div class="scrollMembersEvents deskVE">
+
+    <% if !@eventsFollow.empty? %>
+          <% @eventsFollow.last(2).each do |eventsFollowing| %>
+          
+     
+
+
+          <span class="col-md-6 userEventsNonF mobileVE">
+        
+
+
+            <div class="elementBox">
+
+
+
+                <div class="eventImage">
+                  <%= image_tag(eventsFollowing.image_url, class: "groupImage1") if eventsFollowing.image? %>
+                </div>
+                <div class="eventContent1">
+                  <div class="eventDateI"><%= eventsFollowing.event_date.strftime('%B %e') %></div>
+                </div>
+
+
+                <div class="eventOverall">
+                  <div class="eventContent">
+                    <div class="titleGroups"><%= truncate(eventsFollowing.title, length: 30) %></div>
+                  </div>
+
+             
+
+
+<!-- Add a hosted by -->
+
+
+
+
+
+
+                  <div class="creatorSign">
+                    <% if eventsFollowing.group.present? %>
+                    <div class="imageUserEvent">
+                      <%= image_tag(eventsFollowing.group.image_url(:thumb), class: "userImage2") if eventsFollowing.group.image? %>
+                    </div>
+
+                    <div class="contentUserPost">
+                      <span class="poster"><%= truncate(eventsFollowing.group.title, length: 30) %></span>
+                    </div>
+
+                <% else %>
+                     <div class="imageUserEvent">
+                      <%= image_tag(eventsFollowing.user.avatar_url(:thumb), class: "userImage2") if eventsFollowing.user.avatar? %>
+                    </div>
+
+                    <div class="contentUserPost">
+                      <span class="poster"><%= eventsFollowing.user.name %></span>
+                    </div>
+                <% end %>
+                  </div>
+
+
+
+
+
+                </div>
+            </div>
+
+
+
+            </span>
+
+
+          <% end %>
+    </div>
+
+</div>
+
+
+
+
+        <% else %>
+          <div class="noFollowSec">
+            <div class="noFollowSecText">No current events have been joined</div>
+          </div>
+        <% end %>
+
+
+
+
+
+
+<!-- Area of Work 3311 END -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Area of Work 3311 START -->
+
+<script type="text/javascript">
+$(function () { 
+  if ($(window).width() < 960) {
+     $(".mobileVG").removeClass("col-md-4");
+
+  }
+  else {
+    $(".deskVG").removeClass("scrollMembersEvents");
+  }
+});
+</script>
+
+
+<div class="groupSection">
+      <div class="titleSec">Groups</div>
+
+
+    <% if !@groupsFollow.empty? %>
+      <div class="titleSecNonF">
+          <div class="titleTextNonF">Add <%= @user.name %> to see their groups </div>
+      </div>
+    <% end %>
+
+
+
+    <div class="scrollMembersEvents deskVG">
+
+     
+        <% if !@groupsFollow.empty? %>
+          <% @groupsFollow.last(3).each do |groupsFollowing| %>
+
+
+
+
+
+
+
+          <span class="col-md-4 userEventsNonF mobileVG">
+
+              <div class="elementBox boxGMod">
+                <div class="eventImage">
+                  <%= image_tag(groupsFollowing.image_url, class: "groupImage1") if groupsFollowing.image? %>
+                </div>
+                <div class="eventContent">
+                  <div class="titleGroups"><%= truncate(groupsFollowing.title, length: 25) %></div>
+                </div>
+                <% if groupsFollowing.user.present? %>
+                <div class="creatorSign">
+                  <div class="imageUserGroup">
+                  
+                    <%= image_tag(groupsFollowing.user.avatar_url(:thumb), class: "userImage2") if groupsFollowing.user.avatar? %>
+                  
+                  </div>
+                  <div class="contentUserPost">
+                    <span class="poster"><%= truncate(groupsFollowing.user.name, length: 30) %></span>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+       
+
+
+            </span>
+
+
+
+          <% end %>
+
+   
+        </div>
+
+
+    </div>
+
+
+
+        <% else %>
+          <div class="noFollowSec">
+            <div class="noFollowSecText">No groups have been joined</div>
+          </div>
+        <% end %>
+
+
+
+<!-- Area of Work 3311 END -->
+
+
+
+
+
+
+
+
+
+
+
+
+
   <% end %>
+<!-- Area of work end -->
+
+
+
 
 
     </div>
@@ -627,12 +960,17 @@ $(function () {
 
 
   <div class="modal fade" id="show-interests" tabindex="-1">
+            <button type="button" class="closeInts" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
     <div class="modal-dialog modal-dialog-centered allPostsDialog" role="document">
+
       <div class="modal-content-users">
+
         <div class="modal-body">
           <div class="grid" id="masonry">
             <div class="grid-sizer"></div>
-
 
             <% @collideInterests.each do |interestCollide| %>
                <div class="col-md-3 col-xs-6 noPad1">

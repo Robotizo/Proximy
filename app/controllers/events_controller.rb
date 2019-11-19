@@ -7,6 +7,7 @@ class EventsController < ApplicationController
   def interests
     @interests = Interest.all
     @event = Event.find(params[:id])
+
     # Interest List Start
       @arts = Interest.where(category: "Arts")
       @animals = Interest.where(category: "Animals")
@@ -36,6 +37,14 @@ class EventsController < ApplicationController
     end
   end
 
+
+  def myevents
+    @user = current_user
+    followingEventsIds = @user.followingE.map(&:id)
+    @eventsFollow = Event.find(params = followingEventsIds).sort_by &:event_date
+    @user_events = @user.events.order(:event_date)
+  end 
+
   # GET /events
   # GET /events.json
   def index
@@ -44,10 +53,8 @@ class EventsController < ApplicationController
     @user_events = @user.events.order(:event_date)
     followingEventsIds = @user.followingE.map(&:id)
     @eventsFollow = Event.find(params = followingEventsIds).sort_by &:event_date
-
     @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
     @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
-
   end
 
   # GET /events/1
@@ -133,7 +140,9 @@ class EventsController < ApplicationController
 
     def set_groups_list
       followingGroupsIds = current_user.followingG.map(&:id)
-      @groupsFollow = Group.find(params = followingGroupsIds).sort_by &:updated_at
+      groupsFollow = Group.find(params = followingGroupsIds).sort_by &:updated_at
+      user_groups = current_user.groups
+      @overallGroups = groupsFollow + user_groups
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

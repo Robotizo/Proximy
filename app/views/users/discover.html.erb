@@ -29,7 +29,7 @@
           <% unless user.avatar.present? %>
             <%= avatarDiscover_for(user) %>
           <% end %>
-          <%= image_tag(user.avatar_url(:thumb), class: "interestImage") if user.avatar? %>
+          <%= image_tag(user.avatar_url(:thumb), class: "peopleImage") if user.avatar? %>
 
           <div class="discoverTitleSec">
             <div class="discoverName"><%= truncate(user.name.gsub(/\s.+/, '')) %></div>

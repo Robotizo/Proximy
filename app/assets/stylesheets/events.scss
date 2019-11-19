@@ -2,7 +2,127 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
  
+/* Events Modal Start */
 
+.groupPassed{
+    text-align: left;
+    width: 100%;
+    padding: 15px 8px 4px 8px;
+    position: relative;
+    font-weight: 900;
+    top: -66px;
+    font-size: 14px;
+    white-space: normal;
+    color: #6d95af;
+}
+
+
+ .elementBox2{
+  height: 318px;
+  border-radius: 11px;
+  transition: box-shadow .3s;
+  background-color: white;
+}
+
+
+
+
+.groupImageDisc2{
+  border-radius: 10px 10px 0px 0px;
+  width: 100%;
+  background-color: white;
+    
+}
+
+.eventContentDisc2{
+    position: relative;
+         top: -63px;
+    /* background-color: #00000054; */
+    padding: 10px;
+    /* opacity: 0.8; */
+      
+        background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
+}
+
+
+.eventDateDisc2{
+  text-align: left;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 800;
+    font-size: 16px;
+    white-space: normal;
+    color: white;
+}
+
+.groupTitleDisc2{
+    text-align: left;
+    width: 100%;
+    padding: 15px 8px 4px 8px;
+    position: relative;
+    font-weight: 900;
+    top: -66px;
+    font-size: 16px;
+    white-space: normal;
+
+
+}
+
+
+
+/* Events Modal End */
+
+
+
+
+
+.testMargeMore{
+  padding: 0px 20px 20px 20px;
+  font-weight: 900;
+  font-size: 16px;
+  
+}
+
+
+
+.testMargeIn{
+  padding: 20px 20px 20px 20px;
+  box-shadow: 0px 0px 4px 0px #e2e2e2;
+  border-radius: 8px;
+}
+
+
+.testMargeIn:hover{
+  color: #23527c;
+  box-shadow:0 0 11px rgba(33, 33, 33, 0.2);
+}
+
+
+
+
+.leftArrow{
+    height: 54px;
+    padding: 10px;
+
+}
+
+
+.backButton{
+    float: left;
+    background-color: white;
+    margin: 10px;
+    border-radius: 100px;
+    transition: 0.3s;
+    position: fixed;
+}
+
+.backButton:hover{
+    float: left;
+    background-color: #6d95af40;
+    margin: 10px;
+    border-radius: 100px;
+}
 
 
 #dateSelect{
@@ -27,6 +147,13 @@ div.scrollMembersEvents {
 }
 
 div.scrollMembersEvents a {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+}
+
+div.scrollMembersEvents .seeMore {
     display: inline-block;
     text-align: center;
     padding: 5px;
@@ -926,13 +1053,13 @@ div .show-more[aria-expanded="true"]{
 	background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
 	position: relative;
 	top: -30px;
-	border-radius: 0px 0px 5px 5px;
+	border-radius: 0px 0px 8px 8px;
 }
 
 
 .interestImage{
 	width: 100%;
-	border-radius: 5px;
+	border-radius: 8px;
 }
 
 
@@ -1064,6 +1191,24 @@ div .show-more[aria-expanded="true"]{
 }
 
 
+.date {
+    border-radius: 0px;
+    border-color: white;
+    border-left: 0px; 
+    border-top: 0px;
+    border-bottom: 1px black solid !important;
+
+ 
+}
+.date:focus{
+  outline: none;
+  box-shadow: 0px 0px 0px 0px !important;
+  border-bottom: 1px #7ea5c0 solid !important;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
 
 
 .eventContentForm{
@@ -1077,13 +1222,15 @@ div .show-more[aria-expanded="true"]{
 }
 
 
-.fileBtnDiv, .form-control{
+.fileBtnDiv, .form-control, .date{
 	width: 80%;
 	margin: 10px 40px 40px 0;
   font-weight: 900;
 
 
 }
+
+
 .fileBtnDiv{
     border-color: #2e6da4;
   background-color: #7fa6be;
@@ -1240,10 +1387,13 @@ div.scrollGroupsI a {
 	font-weight: 600;
 }
 
+
 .topTitle2{
-	font-size: 25px;
-	margin: 20px;
-	font-weight: 900;
+  font-size: 25px;
+    margin: 20px 20px 10px 20px;
+    font-weight: 900;
+    float: left;
+    width: 100%;
 }
 .groupTitleI{
     text-align: left;
@@ -1265,10 +1415,10 @@ div.scrollGroupsI a {
     padding: 15px 8px 4px 8px;
     position: relative;
     font-weight: 900;
-    top: -75px;
+    top: -72px;
     font-size: 18px;
     white-space: normal;
-    color: black;
+
 
 }
 
@@ -1684,6 +1834,28 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px){
+  .testMargeMore {
+    position: relative;
+    top: -100px;
+  }
+  .testMargeIn {
+    padding: 30px 30px 30px 30px;
+  }
+
+  .leftArrow {
+    height: 50px;
+    padding: 10px;
+  }
+  .backButton{
+      float: left;
+    background-color: white;
+    margin: 10px;
+    position: absolute;
+    border-radius: 100px;
+    transition: 0.3s;
+    z-index: 100;
+    margin-left: 5px;
+  }
 
 
 /* Rework Start */
@@ -1883,14 +2055,16 @@ div.scrollEvents a {
 		font-weight: 600;
 	}
 
-	.topTitle2{
-		font-size: 20px;
-		margin-top: 20px;
-		margin-bottom: 20px;
-		margin-left: 10px;
-		margin-right: 10px;
-		font-weight: 900;
-	}
+  .topTitle2{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 900;
+  }
 	.eventImgTitle{
 		border-radius: 0px;
 	}
@@ -1945,7 +2119,7 @@ div.scrollEvents a {
 		font-size: 16px;
 	}
 	.eventDateDisc{
-		font-size: 18px;
+		font-size: 16px;
 	}
 	.eventContent1{
 		top: -62px;
@@ -1954,14 +2128,14 @@ div.scrollEvents a {
 
 	.eventContentDisc{
 	    position: relative;
-	         top: -65px;
+	         top: -62px;
 	}
 	.groupTitleI{
 		font-size: 16px;
 		top: -70px;
 	}
 	.groupTitleDisc{
-		font-size: 18px;
+		font-size: 17px;
 	}
 	.nav-tabs > li{
 		width: 50%;

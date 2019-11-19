@@ -1,0 +1,103 @@
+      
+
+
+
+
+<script type="text/javascript">
+$(function () { 
+  if ($(window).width() < 960) {
+     $(".mobileVE").removeClass("col-md-4");
+
+  }
+  else {
+    $(".deskVE").removeClass("scrollMembersEvents");
+  }
+});
+</script>
+
+
+
+  <div class="scrollMembersEvents deskVE">
+
+
+
+      <% @user_events.last(6).each do |event| %>
+
+
+         
+      <% if Date.today <= event.event_date %>
+            <span class="col-md-4 mobileVE testMarge">
+              <%= link_to event, method: :get, class: "specialA" do %>
+                <div class="elementBox">
+                  <%= image_tag(event.image_url(:event), class: "groupImageDisc") if event.image? %>
+                  <div class="eventContentDisc">
+                    <div class="eventDateDisc"><%= event.event_date.strftime('%B %e') %></div>
+                  </div>
+                  <div class="groupTitleDisc"><%= truncate(event.title, length: 35) %></div>
+  
+                </div>
+              <% end %>
+              </span>
+        
+          <% end %>
+            <% end %>
+
+
+            <span class="col-md-4 testMargeMore">
+             <span class="seeMore" data-target="#user-created" data-toggle="modal" >
+              <div class="testMargeIn">
+
+                
+                  See more events...
+                
+              </div>
+            </sapn>
+            </span>
+
+</div>
+
+
+
+  <div class="modal fade" id="user-created" tabindex="-1">
+                    <button type="button" class="closeInts" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    <div class="modal-dialog modal-dialog-centered allPostsDialog" role="document">
+      <div class="modal-content-users">
+        <div class="modal-body">
+          <div class="grid" id="masonry">
+            <div class="grid-sizer"></div>
+
+
+          <% @user_events.each do |event| %>
+         
+    
+            <div class="col-md-4 col-xs-12 testMarge">
+              <%= link_to event, method: :get, class: "specialA" do %>
+                <div class="elementBox2">
+                  <%= image_tag(event.image_url(:event), class: "groupImageDisc2") if event.image? %>
+                  <div class="eventContentDisc2">
+                    <div class="eventDateDisc2"><%= event.event_date.strftime('%B %e') %></div>
+                  </div>
+                  <div class="groupTitleDisc2"><%= truncate(event.title, length: 35) %></div>
+                  <% unless Date.today <= event.event_date %>
+                  <div class="groupPassed">
+                    Passed Event
+                  </div>
+                  <% end %>
+  
+                </div>
+              <% end %>
+              </div>
+
+
+
+
+          <% end %>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

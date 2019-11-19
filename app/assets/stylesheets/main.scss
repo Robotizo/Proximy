@@ -226,7 +226,7 @@ div.scrollMembersEvents a {
     /* background-color: #00000054; */
     padding: 10px;
     /* opacity: 0.8; */
-        border-radius: 0px 0px 9px 9px;
+
         background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
 }
 
@@ -1411,7 +1411,7 @@ div.scrollMembersEvents a {
 
 
 .titleSec {
-  font-size: 28px;
+  font-size: 25px;
   font-weight: 900;
   margin: 15px 0px;
   margin-bottom: 10px !important;
@@ -1991,7 +1991,7 @@ img.userImage2 {
 @media screen and (max-width: 776px){
   @media screen and (min-width: 400px){
     div.scrollMembersEvents {
-      height: 340px;
+      height: 305px;
     }
     div.scrollMembersGroups {
       height: 290px;
@@ -2001,7 +2001,7 @@ img.userImage2 {
 
   @media screen and (max-width: 400px){
     div.scrollMembersEvents {
-      height: 340px;
+      height: 305px;
     }
     div.scrollMembersGroups {
       height: 290px;
@@ -2013,8 +2013,15 @@ img.userImage2 {
 
 
 @media screen and (max-width: 776px){
+  .eventContentDisc{
+    top: -64px;
+  }
+  .eventDateDisc{
+    font-size: 17px;
+  }
   .elementBox {
-    width: 315px;
+      width: 275px;
+      height: 290px;
   }
   .testMargeMore{
     position: relative;

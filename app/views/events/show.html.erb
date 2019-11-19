@@ -35,7 +35,11 @@
 </style>
 
 
-
+<div class="backButton">
+  <%= link_to 'javascript:history.back()' do %>
+        <%= image_tag("left-arrow.png", class: "leftArrow") %>
+  <% end %>
+</div>
 
 <div class="container noPad3">
 
@@ -207,11 +211,15 @@
       <div class="col-md-12 col-xs-12 noPad3 text-left">
           <div class="eventTitle2">Hosted by</div>
           <% if @event.group.present? %>
-            <%= image_tag(@event.group.image_url(:thumb), class: "organizerAv") if @event.group.image? %>
-            <span class="organizerName"><%= truncate(@event.group.title, length: 30) %></span>
+            <%= link_to @event.group, method: :get, class: "specialA" do %>
+              <%= image_tag(@event.group.image_url(:thumb), class: "organizerAv") if @event.group.image? %>
+              <span class="organizerName"><%= truncate(@event.group.title, length: 30) %></span>
+            <% end %>
           <% else %>
+          <%= link_to @event.user, method: :get, class: "specialA" do %>
             <%= image_tag(@event.user.avatar_url(:thumb), class: "organizerAv") if @event.user.avatar? %>
             <span class="organizerName"><%= @event.user.name %> <%= @event.user.last_name %></span>
+           <% end %>
           <% end %>
           
       </div>
@@ -477,6 +485,9 @@ $(function () {
 
 
   <div class="modal fade" id="show-interests" tabindex="-1">
+                    <button type="button" class="closeInts" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
     <div class="modal-dialog modal-dialog-centered allPostsDialog" role="document">
       <div class="modal-content-users">
         <div class="modal-body">

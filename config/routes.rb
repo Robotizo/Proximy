@@ -43,12 +43,25 @@
 
 
   resources :events do
+    collection do 
+      get :myevents
+    end
+
     member do 
       get :interests
     end 
   end
 
+
+
+
+
+
   resources :groups do 
+    collection do 
+      get :mygroups
+    end
+
     member do 
       get :interests
     end 

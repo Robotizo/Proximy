@@ -25,6 +25,14 @@
 
 
 
+<div class="backButton">
+  <%= link_to 'javascript:history.back()' do %>
+        <%= image_tag("left-arrow.png", class: "leftArrow") %>
+  <% end %>
+</div>
+
+
+
 <!-- Request to join -->
 <div class="container noPad3">
 <!-- Group Intro Start -->
@@ -306,6 +314,7 @@ $(function () {
 
     <% if !@group_events.empty? %>
 
+<!-- Work area START Nov 18 -->
 
 <div class="scrollMembersEvents deskVE">
 
@@ -362,6 +371,10 @@ $(function () {
 
 
 
+
+
+
+<!-- Work area END Nov 18 -->
 
 </div>
 
@@ -563,6 +576,9 @@ $(function () {
 
 
   <div class="modal fade" id="show-interests" tabindex="-1">
+                <button type="button" class="closeInts" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
     <div class="modal-dialog modal-dialog-centered allPostsDialog" role="document">
       <div class="modal-content-users">
         <div class="modal-body">

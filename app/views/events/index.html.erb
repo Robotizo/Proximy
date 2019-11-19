@@ -9,18 +9,7 @@
 
 <div class="container mobileArea indexMar">
 
-  <ul class="nav nav-tabs" id="events-nav" role="tablist">
-    <li class="nav-item active col-md-3 col-md-offset-2 mobNavs navSelect">
-      <a class="nav-link btn btn-prox" id="events-tab" data-toggle="tab" href="#events" role="tab" aria-controls="my events tab">
-        Discover
-      </a>
-    </li>
-    <li class="nav-item col-md-3 col-md-offset-2 mobNavs navSelect">
-      <a class="nav-link btn btn-prox" id="discover-tab" data-toggle="tab" href="#discover" role="tab" aria-controls="discover tab">
-        My Events
-      </a>
-    </li>
-  </ul>
+ <%= render 'eventsMenu' %>
 
   <div class="tab-content" id="events-nav-content">
     <div class="tab-pane active" id="events" role="events-tab-pane" aria-labelledby="events-tab">
@@ -37,80 +26,12 @@
 
 
     </div>
-    <div class="tab-pane" id="discover" role="discover-tab-pane" aria-labelledby="discover-tab">
-        <div class="mainField">
-        <h2 class="topTitle2">My Events</h2>
-        <div class="newsfeedIndex text-center ">
-        <% if @eventsFollow.present? %>
-          <div class="scrollGroupsI">
-            
 
-                  <% @eventsFollow.each do |eventsFollowing| %>
-                    <%= link_to eventsFollowing, method: :get, class: "specialA item" do %>
-                      <div class="groupBlock">
-                        <%= image_tag(eventsFollowing.image_url(:event), class: "groupImageI") if eventsFollowing.image? %>
-                        <div class="eventContent1">
-                          <div class="eventDateI"><%= eventsFollowing.event_date.strftime('%B %e') %></div>
-                        </div>
-                        <div class="groupTitleI"><%= truncate(eventsFollowing.title, length: 30) %></div>
-                      </div>
-                    <% end %>
-                  <% end %>
-
-          </div>
-
-          <% else %>
-            <div class="nothing">
-              You haven't joined any event
-            </div>
-          <% end %>
-        </div>
-      </div>
-
-            <div class="mainField">
-        <h2 class="topTitle2">Created Events</h2>
-        <div class="newsfeedIndex text-center ">
-        <% if @user_events.present? %>
-          <div class="scrollGroupsI">
-
-                  <% @user_events.each do |events| %>
-                    <%= link_to events, method: :get, class: "specialA item" do %>
-                      <div class="groupBlock">
-                        <%= image_tag(events.image_url(:event), class: "groupImageI") if events.image? %>
-                        <div class="eventContent1">
-                          <div class="eventDateI"><%= events.event_date.strftime('%B %e') %></div>
-                        </div>
-                        <div class="groupTitleI"><%= truncate(events.title, length: 30) %></div>
-                      </div>
-                    <% end %>
-                  <% end %>
-  
-          </div>
-          <% else %>
-            <div class="nothing">
-              You haven't created any event
-            </div>
-          <% end %>
-        </div>
-      </div>
-
-
-          
-
-
-    </div>
   </div>
 
 
 
 </div>
 
-  <div class="col-md-12">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
 
-  </div>
 

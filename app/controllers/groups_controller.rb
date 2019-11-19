@@ -36,7 +36,12 @@ class GroupsController < ApplicationController
 
 
 
-
+  def mygroups
+    @user = current_user
+    followingGroupsIds = @user.followingG.map(&:id)
+    @groupsFollow = Group.find(params = followingGroupsIds).sort_by &:updated_at
+    @user_groups = @user.groups
+  end 
 
 
   # GET /groups

@@ -1,4 +1,4 @@
-/*
+ /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -25,6 +25,18 @@ $nprogress-zindex: 10100;
 @import 'nprogress-bootstrap';
 
 
+button.closeInts {
+    padding: 57px;
+    padding-left: 50px;
+    cursor: pointer;
+    padding-right: 100px;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    font-size: 60px;
+    float: right;
+    color: white;
+}
 
 .spinner {
   margin: 100px auto 0;
@@ -45,6 +57,11 @@ $nprogress-zindex: 10100;
 .noPad3Desk{
 	padding-left: 0px !important; 
 	padding-right: 0px !important; 
+}
+
+
+a:hover{
+	color: #23527c !important;
 }
 
 
@@ -654,6 +671,23 @@ body{
 }
 
 @media screen and (max-width: 776px){
+
+	#theRest{
+		margin-bottom: 60px;
+	}
+
+	button.closeInts {
+	    padding: 0px;
+	    padding-left: 100%;
+	    cursor: pointer;
+	    padding-right: 22px;
+	    background: transparent;
+	    border: 0;
+	    -webkit-appearance: none;
+	    font-size: 60px;
+	    float: right;
+	    color: white;
+	}
 
 
 

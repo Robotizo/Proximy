@@ -1,0 +1,17 @@
+
+	<div class=" noPad3 col-md-12 col-xs-12 text-center">
+		<ul class="nav nav-tabs" id="events-nav" role="tablist">
+			<li class="<%= 'active' if current_page?(groups_path) %> col-md-3 col-md-offset-2  col-xs-6 noPad3">
+			   <%= link_to groups_path do %>Discover
+			     <%= (content_tag :span, "(current)", :class => "sr-only") if current_page?(groups_path) %>
+			   <% end %>
+			</li>
+			<li class="<%= 'active' if current_page?(mygroups_groups_path) %> col-md-3 col-md-offset-2  col-xs-6 noPad3">
+			   <%= link_to mygroups_groups_path do %>My Groups
+			     <%= (content_tag :span, "(current)", :class => "sr-only") if current_page?(mygroups_groups_path) %>
+			   <% end %>
+			</li>
+
+
+		</ul>
+	</div>

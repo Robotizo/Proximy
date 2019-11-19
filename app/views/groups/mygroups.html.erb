@@ -1,0 +1,57 @@
+<%= stylesheet_link_tag "groups", :media => "all" %>
+
+
+<style type="text/css">
+	@media screen and (max-width: 776px){
+		.elementBox{
+		    width: 210px;
+		    height: 250px;
+		}
+		div.scrollMembersEvents{
+			height: 270px !important;
+			margin-top: 15px;
+		}
+		.testMarge{
+			padding: 15px 2px;
+		}
+	}
+</style>
+
+
+
+<div class="container mobileArea indexMar">
+
+<%= render 'groupsMenu' %> 
+
+<h2 class="topTitle2">Groups you joined</h2>
+
+<div class="eventsSection">
+	
+<%= render 'userFollowingGroups' %> 
+
+</div>
+
+
+<h2 class="topTitle2">Groups you created</h2>
+
+<div class="eventsSection">
+	
+<%= render 'userCreatedGroups' %> 
+
+</div>
+
+
+
+
+</div>
+
+<div class="col-md-12 col-xs-12">
+  
+<br>
+<br>
+<br>
+<br>
+
+
+
+</div>

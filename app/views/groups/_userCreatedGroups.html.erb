@@ -1,0 +1,88 @@
+   
+
+<script type="text/javascript">       
+$(function () { 
+  if ($(window).width() < 960) {
+     $(".mobileVE").removeClass("col-md-4");
+
+  }
+  else {
+    $(".deskVE").removeClass("scrollMembersEvents");
+  }
+});
+</script>
+
+
+  <div class="scrollMembersEvents deskVE">
+        <% @user_groups.last(8).each do |group| %>
+
+          <span class="col-md-3 mobileVE testMarge">
+            <%= link_to group, method: :get, class: "specialA" do %>
+              <div class="elementBox">
+                <%= image_tag(group.image_url(:group), class: "groupImageDisc") if group.image? %>
+                <div class="eventContent">
+                  <div class="titleGroups"><%= truncate(group.title, length: 20) %></div>
+                </div>
+
+              </div>
+            <% end %>
+            </span>
+
+
+
+
+        <% end %>
+
+
+
+            <span class="col-md-3 mobileVE testMargeMore">
+             <span class="seeMore" data-target="#user-created" data-toggle="modal" >
+              <div class="testMargeIn">
+
+                
+                  See more groups...
+                
+              </div>
+            </span>
+            </span>
+
+</div>
+
+
+
+  <div class="modal fade" id="user-created" tabindex="-1">
+        <button type="button" class="closeInts" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    <div class="modal-dialog modal-dialog-centered allPostsDialog" role="document">
+      <div class="modal-content-users">
+        <div class="modal-body">
+          <div class="grid" id="masonry">
+            <div class="grid-sizer"></div>
+
+        <% @user_groups.last(8).each do |group| %>
+
+          <div class="col-md-3 col-xs-12 testMarge">
+            <%= link_to group, method: :get, class: "specialA" do %>
+              <div class="elementBox2">
+                <%= image_tag(group.image_url(:group), class: "groupImageDisc2") if group.image? %>
+                <div class="eventContent2">
+                  <div class="titleGroups2"><%= truncate(group.title, length: 20) %></div>
+                </div>
+
+              </div>
+            <% end %>
+            </div>
+
+
+
+
+        <% end %>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

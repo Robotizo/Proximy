@@ -118,7 +118,7 @@ class UsersController < ApplicationController
 
     @user_events = @user.events.order("created_at DESC")
     followingEventsIds = @user.followingE.map(&:id)
-    @eventsFollow = Event.find(params = followingEventsIds).sort_by &:event_date
+    @eventsFollow = Event.where(id: [followingEventsIds]).where('event_date > ?', Date.today).sort_by &:event_date
 
     @user_posts = @user.posts.order("created_at DESC")
     
@@ -138,6 +138,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    # Request IP for Geocoder
     params[:user][:ip] = request.ip
 
     

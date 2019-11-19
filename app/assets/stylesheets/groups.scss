@@ -2,6 +2,121 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+
+
+/* Events Modal Start */
+
+
+.titleGroups2{
+  font-size: 16px;
+  font-weight: 900;
+  text-align: left;
+}
+
+.groupPassed{
+    text-align: left;
+    width: 100%;
+    padding: 15px 8px 4px 8px;
+    position: relative;
+    font-weight: 900;
+    top: -66px;
+    font-size: 14px;
+    white-space: normal;
+    color: #6d95af;
+}
+
+
+ .elementBox2{
+  height: 318px;
+  border-radius: 11px;
+  transition: box-shadow .3s;
+  background-color: white;
+}
+
+
+
+.groupImageDisc2{
+  border-radius: 10px 10px 0px 0px;
+  width: 100%;
+  background-color: white;
+    
+}
+
+.eventContent2{
+  padding: 15px 8px 4px 8px;
+}
+
+
+
+
+.groupTitleDisc2{
+    text-align: left;
+    width: 100%;
+    padding: 15px 8px 4px 8px;
+    position: relative;
+    font-weight: 900;
+    top: -66px;
+    font-size: 16px;
+    white-space: normal;
+
+
+}
+
+
+
+/* Events Modal End */
+
+
+.testMargeMore{
+  padding: 0px 20px 20px 20px;
+  font-weight: 900;
+  font-size: 16px;
+  
+}
+
+
+
+.testMargeIn{
+  padding: 20px 20px 20px 20px;
+  box-shadow: 0px 0px 4px 0px #e2e2e2;
+  border-radius: 8px;
+}
+
+
+.testMargeIn:hover{
+  color: #23527c;
+  box-shadow:0 0 11px rgba(33, 33, 33, 0.2);
+}
+
+
+
+
+.leftArrow{
+    height: 54px;
+    padding: 10px;
+
+}
+
+
+.backButton{
+    float: left;
+    background-color: white;
+    margin: 10px;
+    border-radius: 100px;
+    transition: 0.3s;
+        position: fixed;
+}
+
+
+.backButton:hover{
+    float: left;
+    background-color: #6d95af40;
+    margin: 10px;
+    border-radius: 100px;
+}
+
+
+
 div.scrollMembersEvents {
     overflow: auto;
     white-space: nowrap;
@@ -12,6 +127,13 @@ div.scrollMembersEvents {
 }
 
 div.scrollMembersEvents a {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+}
+
+div.scrollMembersEvents .seeMore {
     display: inline-block;
     text-align: center;
     padding: 5px;
@@ -1156,13 +1278,13 @@ div .show-more[aria-expanded="true"]{
 	background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
 	position: relative;
 	top: -30px;
-	border-radius: 0px 0px 5px 5px;
+	border-radius: 0px 0px 8px 8px;
 }
 
 
 .interestImage{
 	width: 100%;
-	border-radius: 5px 5px 5px 5px;
+	border-radius: 8px 8px 8px 8px;
 }
 
 
@@ -1285,9 +1407,11 @@ div.scrollGroupsI a {
 }
 
 .topTitle2{
-	font-size: 25px;
-	margin: 20px;
-	font-weight: 900;
+  font-size: 25px;
+    margin: 20px 20px 10px 20px;
+    font-weight: 900;
+    float: left;
+    width: 100%;
 }
 .groupTitleI{
 	padding-bottom: 25px;
@@ -1784,6 +1908,32 @@ div.scrollEvents{
 
 @media screen and (max-width: 776px){
 
+    .testMargeMore {
+    position: relative;
+    top: -70px;
+  }
+  .testMargeIn {
+    padding: 30px 30px 30px 30px;
+    font-size: 14px;
+  }
+
+
+      .leftArrow {
+    height: 50px;
+    padding: 10px;
+}
+  .backButton{
+      float: left;
+    background-color: white;
+    margin: 10px;
+    position: absolute;
+    border-radius: 100px;
+    transition: 0.3s;
+    z-index: 100;
+    margin-left: 5px;
+  }
+
+
 
 /* Rework Start */
 
@@ -2037,14 +2187,16 @@ div.scrollEvents{
     	font-size: 12px;
     	width:100%;
  	}
-	.topTitle2{
-		font-size: 20px;
-		margin-top: 20px;
-		margin-bottom: 20px;
-		margin-left: 10px;
-		margin-right: 10px;
-		font-weight: 900;
-	}
+  .topTitle2{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 900;
+  }
 
 	.mobNavs{
 		padding-right: 0px;

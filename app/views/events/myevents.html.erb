@@ -1,0 +1,47 @@
+<%= stylesheet_link_tag "events", :media => "all" %>
+
+
+<style type="text/css">
+	@media screen and (max-width: 776px){
+		.elementBox{
+			width: 275px;
+			height: 270px;
+		}
+		div.scrollMembersEvents{
+			height: 290px !important;
+			margin-top: 15px;
+		}
+		.testMarge{
+			padding: 15px 2px;
+		}
+	}
+
+
+</style>
+
+<div class="container mobileArea indexMar">
+
+<%= render 'eventsMenu' %> 
+
+<h2 class="topTitle2">Events your attending</h2>
+
+
+<div class="newsfeed1">
+	
+<%= render 'userFollowingEvents' %> 
+
+</div>
+
+
+<h2 class="topTitle2">Events you created</h2>
+
+
+<div class="newsfeed1">
+	
+<%= render 'userCreatedEvents' %> 
+
+</div>
+
+
+
+</div>

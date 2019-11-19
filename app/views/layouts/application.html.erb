@@ -215,7 +215,7 @@
 
     
     <%= link_to groups_path, class: "specialA dispNone" do %>
-       <div class="navTitleEnd1 <%= 'activeNav' if current_page?(groups_path) %>">
+       <div class="navTitleEnd1 <%= 'activeNav' if current_page?(groups_path) or current_page?(mygroups_groups_path) %>">
          <%= (image_tag("groups.png", class: "ImageNav"))  %>
       </div>
      <% end %>
@@ -223,7 +223,7 @@
 
 
   <%= link_to events_path, class: "specialA dispNone" do %>
-    <div class="navTitleEnd1 <%= 'activeNav' if current_page?(events_path) %>">
+    <div class="navTitleEnd1 <%= 'activeNav' if current_page?(events_path) or current_page?(myevents_events_path) %>">
       <%= (image_tag("event.png", class: "ImageNav")) %>
     </div>
   <% end %>
@@ -359,7 +359,7 @@
           </span>
 
           <%= link_to groups_path, class: "specialA" do %>
-            <div class="navTitleEndMob  <%= 'activeNav' if current_page?(groups_path) %>">
+            <div class="navTitleEndMob  <%= 'activeNav' if current_page?(groups_path) or current_page?(mygroups_groups_path) %>">
               <% if current_page?(groups_path) %>
                 <%= image_tag("groupsActive.png", class: "ImageNavB") %>
               <% else %>
@@ -386,7 +386,7 @@
 
 
           <%= link_to events_path, class: "specialA" do %>
-            <div class="navTitleEndMob  <%= 'activeNav' if current_page?(events_path) %>">
+            <div class="navTitleEndMob  <%= 'activeNav' if current_page?(events_path) or current_page?(myevents_events_path) %>">
               <% if current_page?(events_path) %>
                 <%= image_tag("eventActive.png", class: "ImageNavB") %>
               <% else %>

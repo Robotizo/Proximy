@@ -1,8 +1,84 @@
 /*// Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
-/* TS Edits Start */
+.seeMore:hover{
+   box-shadow:0 0 11px rgba(33, 33, 33, 0.2);
+   border-radius: 8px;
+   color: #23527c;
+}
 
+
+.testMargeIn{
+  padding: 20px 20px 20px 20px;
+  box-shadow: 0px 0px 4px 0px #e2e2e2;
+  border-radius: 8px;
+}
+
+.testMargeMore{
+  font-weight: 900;
+  font-size: 16px;
+  
+}
+
+
+.titleTextNonF{
+  color: black;
+}
+
+.titleSecNonF{
+font-size: 25px;
+    font-weight: 900;
+    padding: 14px;
+    margin-top: 80px;
+    background-color: #ffffff70;
+    z-index: 100;
+    border-radius: 8px;
+    /* margin-left: 15px; */
+    /* margin-right: 15px; */
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 15px;
+    text-align: center;
+    width: 82%;
+    position: absolute;
+  
+
+}
+
+
+.userEventsNonF {
+    height: 350px;
+    opacity: 0.3;
+    filter: blur(8px);
+    -webkit-filter: blur(5px);
+}
+
+.leftArrow{
+    height: 54px;
+    padding: 10px;
+
+}
+
+
+.backButton{
+    float: left;
+    background-color: white;
+    margin: 10px;
+    border-radius: 100px;
+    transition: 0.3s;
+    position: fixed;
+}
+
+.backButton:hover{
+    float: left;
+    background-color: #6d95af40;
+    margin: 10px;
+    border-radius: 100px;
+}
+
+
+
+/* TS Edits Start */
 
 
 .elementBoxPpl{
@@ -67,6 +143,34 @@ div.scrollMembersEvents a {
     padding: 5px;
     text-decoration: none;
 }
+
+div.scrollMembersEvents .mobileVE {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+}
+
+div.scrollMembersEvents .mobileVG {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+}
+
+
+
+
+
+div.scrollMembersInterests {
+    overflow: auto;
+    white-space: nowrap;
+    height: auto;
+    overflow-y: hidden;
+    overflow-x: scroll; /* Must be 'scroll' not 'auto' */
+    -webkit-overflow-scrolling: touch;
+}
+
 
 
 
@@ -719,7 +823,7 @@ input.checkDist{
 #follow_form{
 
   top: 30px;
-  float: left;
+
 }
 
 .titleSecSub{
@@ -779,6 +883,17 @@ div .show-more[aria-expanded="true"]{
   margin-left: 15px;
   margin-right: 15px;
   margin-bottom: 15px;
+}
+
+
+.titleSecInts{
+  font-size: 25px;
+  font-weight: 900;
+  margin-top: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+
 }
 
 /* User Settings End */
@@ -1190,11 +1305,25 @@ body {
     box-shadow: 0px 0px 4px 0px #e2e2e2;
 }
 
+.interestImageNotF {
+  width: 100%;
+  border-radius: 5px 5px 5px 5px;
+    box-shadow: 0px 0px 4px 0px #e2e2e2;
+}
+
+
 .interestTitleSec {
   background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
   position: relative;
   top: -30px;
-  border-radius: 0px 0px 5px 5px;
+  border-radius: 0px 0px 8px 8px;
+}
+
+.interestTitleSecNotF {
+  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
+  position: relative;
+  top: -30px;
+  border-radius: 0px 0px 8px 8px;
 }
 
 .interestName {
@@ -1203,6 +1332,14 @@ body {
   color: white;
   font-weight: 900;
 }
+
+.interestNameNotF {
+  font-size: 14px;
+  padding: 5px;
+  color: white;
+  font-weight: 900;
+}
+
 
 
 .buttonEventHov {
@@ -1609,10 +1746,14 @@ body {
 }
 .interestImage{
   width: 100%;
-  border-radius: 8px 8px 0px 0px;
+  border-radius: 8px 8px 8px 8px;
 }
 
 
+.peopleImage{
+  width: 100%;
+  border-radius: 8px 8px 0px 0px;
+}
 
 
 
@@ -1843,6 +1984,13 @@ body {
   margin-bottom: 25px;
   float: left;
   width: 100%;
+}
+
+.interestsSection {
+  margin-bottom: 25px;
+  float: left;
+  width: 100%;
+  margin-top: 0px !important;
 }
 
 
@@ -2143,14 +2291,14 @@ body {
   margin: 5px;
   border-radius: 5px;
   height: 100px;
-  width: 260px;
+
   text-align: center;
 }
 
 .noFollowSecText {
   padding-top: 30px;
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 900;
 }
 
 .buttonsField {
@@ -2234,6 +2382,25 @@ div.scrollEvents a {
 }
 
 
+div.scrollMembersInterests .interestCard {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  text-decoration: none;
+
+}
+
+
+div.scrollMembersInterests .seeMore {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+
+}
+
+
+
 
 .btnActions {
   font-size: 12px;
@@ -2269,6 +2436,54 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px) {
+
+  .testMargeIn{
+    padding: 20px 20px 20px 20px;
+    box-shadow: 0px 0px 4px 0px #e2e2e2;
+    border-radius: 8px;
+    position: relative;
+    top: -100px;
+  }
+
+  .interestsSection {
+    margin-bottom: 25px;
+    float: left;
+    width: 100%;
+    margin-top: -122px !important;
+  }
+
+  .titleSecNonF{
+    width: auto;
+  }
+  .titleSecInts {
+    font-size: 15px;
+    margin-top: 18px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    color: #6d95af;
+  }
+  .userEventsNonF{
+        height: 350px;
+    opacity: 0.3;
+    filter: blur(8px);
+    -webkit-filter: blur(5px);
+  }
+  .leftArrow {
+    height: 50px;
+    padding: 10px;
+}
+  .backButton{
+      float: left;
+    background-color: white;
+    margin: 10px;
+    position: absolute;
+    border-radius: 100px;
+    transition: 0.3s;
+    z-index: 100;
+    margin-left: 5px;
+  }
+  
 /* Rework Start */
   .editContent{
     margin-top: 10px;
@@ -2282,12 +2497,16 @@ div.scrollEvents a {
   .boxGMod{
     width: 250px !important;
   }
-  .mobileVG{
-    width: 95%;
-  }
+
   div.scrollMembersEvents{
     height: 340px;
   }
+  div.scrollMembersInterests{
+    height: 200px;
+    padding-right: 10px;
+  }
+
+
   .elementBox{
 
     width: 315px;
@@ -2361,6 +2580,14 @@ div.scrollEvents a {
     color: white;
     font-weight: 900;
   }
+
+  .interestNameNotF {
+    font-size: 14px;
+    padding: 5px;
+    color: white;
+    font-weight: 900;
+    text-align: left;
+  }
   .panel-heading {
     height: 50px;
     position: sticky;
@@ -2414,6 +2641,15 @@ div.scrollEvents a {
   .interestImage {
     object-fit: cover;
     width: 100%;
+    height: 180px;
+
+  
+  }
+
+
+  .interestImageNotF {
+    object-fit: cover;
+    width: 160px;
     height: 180px;
 
   

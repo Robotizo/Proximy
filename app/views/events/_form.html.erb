@@ -2,6 +2,15 @@
 <%= stylesheet_link_tag "datepicker", :media => "all" %>
 <%= javascript_include_tag( 'datepicker.js' ) %>
 
+<script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+
+<script src="pikaday.js"></script>
+<script>
+    var picker = new Pikaday({ field: $('#datepicker')[0] });
+</script>
+
 <%= form_for(event) do |f| %>
   <% if event.errors.any? %>
     <div id="error_explanation">
@@ -39,8 +48,9 @@
 
 </script>
 
-
-
+<script type="text/javascript">
+  $('.date').datepicker (dateFormat: 'yy-mm-dd')
+</script>
 
 
 <style type="text/css">
@@ -52,33 +62,26 @@
 
 
 <script>
+  function initAutocomplete() {
+    // Create the search box and link it to the UI element.
+    var input = document.getElementById('eventTitleLoc');
+    var searchBox = new google.maps.places.Autocomplete(input);
 
+    searchBox.addListener('place_changed', function() {
+      var place = searchBox.getPlace();
+      var lat = place.geometry.location.lat();
+      var lng = place.geometry.location.lng();
+        $(document).ready(function () {
+          $("#latEvent").val(lat);
+        })
 
-    function initAutocomplete() {
-
-      // Create the search box and link it to the UI element.
-      var input = document.getElementById('eventTitleLoc');
-      var searchBox = new google.maps.places.Autocomplete(input);
-
-      searchBox.addListener('place_changed', function() {
-        var place = searchBox.getPlace();
-        var lat = place.geometry.location.lat();
-        var lng = place.geometry.location.lng();
-          $(document).ready(function () {
-            $("#latEvent").val(lat);
-          })
-
-          $(document).ready(function () {
-            $("#lngEvent").val(lng);
-          })
-        console.log(lat);
-        console.log(lng);
-      });
-
-
-
+        $(document).ready(function () {
+          $("#lngEvent").val(lng);
+        })
+      console.log(lat);
+      console.log(lng);
+    });
   }
-
 </script>
 
 
@@ -129,7 +132,13 @@
         <%= f.label :event_date %>
       </div>
       <div class="formSide">
-        <%= f.date_field :event_date, class: "datepicker-here", id:"dateSelect" %>
+
+      
+
+
+
+            <hr>
+        <%= f.date_field :event_date,  class: "date", id: "datepicker" %>
       </div>
   </div>
 
@@ -147,7 +156,9 @@
             <%= f.label "Event end date" %>
           </div>
           <div class="formSide">
-            <%= f.date_field :event_end_date, class: "form-control" %>
+
+
+            <%= f.date_field :event_end_date, class: "date", id: "datepicker" %>
           </div>
         </div>
       </div>
@@ -163,7 +174,7 @@
       <%= f.label :event_time %>
     </div>
     <div class="formSide">
-      <%= f.time_field :event_time, class: "form-control" %>
+      <%= f.time_field :event_time, class: "form-control", type: "time" %>
     </div>
   </div>
 
@@ -202,7 +213,7 @@
       <%= f.label "Group Hosting" %>
     </div>
   <div class="field">
-    <%= f.collection_select(:group_id, @groupsFollow, :id, :title, {prompt: "Choose a Group"}, class: "form-control") %>
+    <%= f.collection_select(:group_id, @overallGroups, :id, :title, {prompt: "Choose a Group"}, class: "form-control") %>
   </div>
   <div class="field">
     <div class="labelSide">
@@ -229,11 +240,10 @@
 
 
 <script type="text/javascript">
-  
 
-  $('#my-element').datepicker([options])
-// Access instance of plugin
-$('#my-element').data('datepicker')
+if ( $('[type="date"]').prop('type') != 'date' ) {
+    $('[type="date"]').datepicker();
+}
 
 
 
