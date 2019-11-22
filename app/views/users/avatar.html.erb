@@ -62,8 +62,6 @@
     </div>
 
 
-
-
     <div class="field fileField col-xs-6 noPad3">
       <label class="btn btn-primary fileBtnDiv">
         <%= f.file_field :image, class: "fileBtn form-control", id: "coverImageUpload" %> 
@@ -77,6 +75,13 @@
     <div class="titleSec">Add a bio</div>
     <div class="field fileField col-md-12 col-xs-12 noPad3">
       <%= f.text_field :bio, placeholder: "Describe yourself.", class: "form-control", id: "eventTitle" %>
+    </div>
+  </div>
+
+  <div class="col-md-12 col-xs-12 noPad3" style="margin-bottom: 100px;">
+    <div class="titleSec">Where are you from?</div>
+    <div class="field fileField col-md-12 col-xs-12 noPad3">
+      <%= f.country_select :country %>
     </div>
   </div>
 

@@ -42,16 +42,21 @@ class UsersController < ApplicationController
   end
 
   def interestsMenu
-    @user = current_user
+    if session[:user_id]
+      @user = current_user
+    end
   end
 
   def location
-    @user = current_user
+    if session[:user_id]
+      @user = current_user
+    end
   end
 
   def avatar
-    @user = current_user
-
+    if session[:user_id]
+      @user = current_user
+    end
   end
 
   def save_avatar
@@ -189,7 +194,7 @@ class UsersController < ApplicationController
     end
 
     def avatar_params
-      params.require(:user).permit(:avatar, :image, :bio)
+      params.require(:user).permit(:avatar, :image, :bio, :country)
     end
 
 

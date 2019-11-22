@@ -2970,11 +2970,14 @@
 </div>
 
 <% if @user.sign_in_count == 1 %>
-  <div class="actions col-md-12">
-    <div class="create">
-      <%= button_to "Confirm", avatar_user_path(@user), method: :get, class: "fileBtnSubmit" %>
+
+
+<%= link_to avatar_user_path(@user), method: :get, class: "specialA" do %>
+  <div class="fixedState">
+    <span class="editsText">Confirm</span>
+      <%= image_tag("confirm.png", class: "editsUserIcon") %>
     </div>
-  </div>
+  <% end %>
 
 <% else %>
 

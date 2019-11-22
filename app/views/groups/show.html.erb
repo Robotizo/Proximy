@@ -16,11 +16,13 @@
   input {
     margin: -2px;
   }
-@media screen and (max-width: 776px){
-  .elementBox {
-    width: 315px;
+
+  @media screen and (max-width: 776px){
+    .elementBox {
+      width: 275px;
+    }
   }
-}
+
 </style>
 
 
@@ -251,16 +253,24 @@
 
 
 
-  <div class="userInfoArea">
+<div class="userInfoArea">
+  <div class="userInfoElement">
 
-
-    <div class="userInfoElement">
-
-      <%= @group.description %>
-
-    </div>
+      <div class="infoTitle">
+        <%= image_tag("info.png", class: "miniIcon") %>  Description
+      </div>
+      <div class="infoContent">
+        <%= @group.description %>
+      </div>
 
   </div>
+</div>
+
+
+
+
+
+
 
 
 </div>
@@ -428,7 +438,7 @@ $(function () {
 
   <div class="scrollMembersUsers deskVU ">
     <% if !@groupFollowers.empty? %> 
-      <%  @groupFollowers.first(7).reverse.each do |groupFollower| %>
+      <%  @groupFollowers.last(8).reverse.each do |groupFollower| %>
 
       <span class="col-md-3 text-center mobileVU">
 

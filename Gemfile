@@ -5,6 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+
+gem 'country_select', '~> 4.0'
+
+gem 'countries', require: 'countries/global'
+
+
+
+
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'carrierwave'
@@ -70,7 +78,7 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
-    gem 'sqlite3'
+  gem 'sqlite3', '~> 1.3.13'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'

@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag "contacts", :media => "all" %>
+<%= stylesheet_link_tag "users", :media => "all" %>
 
 
 
@@ -18,17 +18,31 @@
  	
  		<% if friend.status == "accepted" and friend.friend.present? %>
 
-		 		<div class="col-md-2 col-xs-6 noPad1">
-		 			<%= link_to friend.friend, method: :get, class: "specialA" do %>
-						<%= image_tag(friend.friend.avatar_url(:thumb), class: "interestImage") if friend.friend.avatar? %>
-                        <div class="interestTitleSec">
-                          <div class="interestName"><%= friend.friend.name %> <%= friend.friend.last_name %></div>
-                        </div>
 
-			
-				 	<% end %>
-		 		</div>
-	
+ 			<%= link_to friend.friend, method: :get, class: "specialA" do %>
+		        <div class="col-md-2 col-xs-6 noPad8PX">
+		          <div class="elementBoxPpl">
+
+
+		          <% unless friend.friend.avatar.present? %>
+		            <%= avatarDiscover_for(user) %>
+		          <% end %>
+		          <%= image_tag(friend.friend.avatar_url(:thumb), class: "peopleImage") if friend.friend.avatar? %>
+
+		          <div class="discoverTitleSec">
+		            <div class="discoverName"><%= truncate(friend.friend.name.gsub(/\s.+/, '')) %></div>
+		        
+		          </div>
+
+
+		          
+
+		          </div>
+		        </div>
+
+
+
+	     <% end %>
 
 
  		<% end %>

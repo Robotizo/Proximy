@@ -7,6 +7,7 @@ class Group < ApplicationRecord
 	validates_presence_of :title
 	validates_presence_of :image
 	validates_presence_of :cover_image
+	has_many :eventnotifs, through: :events
 
 
 	has_many :passive_relationships_groups, class_name: "GroupsRelationship", foreign_key: "followedG_id", dependent: :destroy

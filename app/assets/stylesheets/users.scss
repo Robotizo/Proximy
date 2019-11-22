@@ -1,6 +1,45 @@
 /*// Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+
+.miniIcon{
+  height: 20px;
+  width: 20px;
+}
+
+.infoTitle{
+  text-align: left;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+
+.infoTitleSub{
+  text-align: left;
+  font-weight: 900;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+
+.infoContentFirst{
+  font-size: 14px;
+  text-align: left;
+  font-weight: 300;
+  padding: 2px 0px 0px 24px;
+}
+
+.infoContent{
+  font-size: 14px;
+  text-align: left;
+  font-weight: 300;
+  padding: 2px 0px 0px 24px;
+  padding-left: 24px;
+}
+
+
+
 .seeMore:hover{
    box-shadow:0 0 11px rgba(33, 33, 33, 0.2);
    border-radius: 8px;
@@ -54,7 +93,7 @@ font-size: 25px;
 }
 
 .leftArrow{
-    height: 54px;
+
     padding: 10px;
 
 }
@@ -140,7 +179,6 @@ div.scrollMembersEvents {
 div.scrollMembersEvents a {
     display: inline-block;
     text-align: center;
-    padding: 5px;
     text-decoration: none;
 }
 
@@ -204,22 +242,26 @@ div.scrollMembersInterests {
 }
 
 
+
+
 .userInfoElement{
-  margin-top: 15px;
+
   background-color: white;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 4px 0px #e2e2e2;
-  font-size: 12px;
-  font-weight: 900;
+  padding: 10px 15px;
+      box-shadow: 0px 0px 4px 0px #e2e2e2;
+        border-radius: 8px;
+
 }
+
+
+
 
 .userInfoElementMore{
   margin-top: 30px;
   background-color: white;
   padding: 10px;
   border-radius: 10px;
-  box-shadow: 0px 0px 4px 0px #e2e2e2;
+
   font-size: 12px;
   font-weight: 900;
 }
@@ -227,11 +269,13 @@ div.scrollMembersInterests {
 
 
 .userInfoArea{
-  padding:  10px;
   float: left;
   width: 100%;
   top: -55px;
   position: relative;
+  margin-top: 15px;
+  padding: 5px;
+
 
 }
 
@@ -311,7 +355,7 @@ margin: 5px 0px;
   height: 55px;
   border-radius: 10px;
   outline: none !important;
-    border: 1px solid #ccc;
+    box-shadow: 0px 0px 4px 0px #e2e2e2;
     transition: box-shadow .3s;
 }
 
@@ -808,7 +852,7 @@ input.checkDist{
 
 .connectBtn:hover{
   background-color: #6c95af;
-  color: white;
+  color: white !important;
   opacity: 1;
   transition: 0.3s;
 }
@@ -1373,8 +1417,7 @@ body {
 
 .userImage1 {
   border-radius: 15px;
-  height: 130px;
-  width: 130px;
+
   box-shadow: 0px 0px 4px 0px #6f6f6f;
   object-fit: cover;
 }
@@ -1915,7 +1958,6 @@ body {
   /* background-color: #00000054; */
   padding: 10px;
   /* opacity: 0.8; */
-  border-radius: 0px 0px 7px 7px;
   background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
 }
 
@@ -2504,7 +2546,7 @@ div.scrollMembersInterests .seeMore {
       width: 100%;
   }
   .boxGMod{
-    width: 250px !important;
+    width: 220px !important;
   }
 
   div.scrollMembersEvents{
@@ -2516,22 +2558,24 @@ div.scrollMembersInterests .seeMore {
   }
 
 
-  .elementBox{
-
-    width: 315px;
+  .elementBox {
+    width: 275px;
   }
+
   .userInfoElementMore{
     box-shadow: 0px 0px 4px 0px #bdbdbd;
   }
   .userInfoElement{
     box-shadow: 0px 0px 0px 0px;
     margin-top: 0px;
+        padding: 10px 10px;
   }
   .userInfoTitle{
     margin: 20px 5px 5px 5px;
   }
   .userInfoArea{
     top: -100px;
+    margin-top: 5px;
   }
   .userImageCover {
     height: 200px;
@@ -2904,7 +2948,7 @@ div.scrollMembersInterests .seeMore {
     /* background-color: #00000054; */
     padding: 10px;
     /* opacity: 0.8; */
-    border-radius: 0px 0px 5px 5px;
+
     background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
   }
   .posterMini {
@@ -2928,7 +2972,7 @@ div.scrollMembersInterests .seeMore {
   }
 
   .imageUserGroup {
-    width: 17%;
+    width: 20%;
   }
 
   .userSignMini {
@@ -3050,8 +3094,7 @@ div.scrollMembersInterests .seeMore {
 
   .userImage1 {
     border-radius: 15px;
-    height: 140px;
-    width: 140px;
+
     object-fit: cover;
   }
 
@@ -3139,9 +3182,8 @@ div.scrollMembersInterests .seeMore {
     text-decoration: none;
   }
   .imageUserEvent {
-    width: 14%;
+    width: 16%;
   }
-
 
 
   .btnActions {

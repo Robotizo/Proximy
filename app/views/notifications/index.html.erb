@@ -7,7 +7,7 @@
  </div>
 
 
-
+<div class="section">
 <% if @userFriendships.present? %>
  <div class="container ">
 	<div class="titleSecSub">Friend Requests</div>
@@ -18,25 +18,42 @@
 
 	<% @userFriendships.each do |invFriends| %>
 	<% unless invFriends.status == "accepted" %>
-		 		<div class="col-md-2 col-xs-6 noPad1">
-		 			<%= link_to invFriends.user, method: :get, class: "specialA" do %>
-						<%= image_tag(invFriends.user.avatar_url(:thumb), class: "interestImage") if invFriends.user.avatar? %>
-                        <div class="interestTitleSec">
-                          <div class="interestName"><%= invFriends.user.name %> </div>
-                        </div>
-
-                        <%= link_to update_friendship_friendship_path(invFriends), method: :patch, class: "specialA" do %>
-                        <div class="groupTitleDisc">
+	 <% collide = current_user.followingI.ids & invFriends.user.followingI.ids %>
+ 		<%= link_to invFriends.user, method: :get, class: "specialA" do %>
+		<div class="col-md-2 col-xs-6 noPad8PX " >
+	     <div class="elementBoxPpl">
 
 
-                        Accept
+          <% unless invFriends.user.avatar.present? %>
+            <%= avatarDiscover_for(user) %>
+          <% end %>
+          <%= image_tag(invFriends.user.avatar_url(:thumb), class: "peopleImage") if invFriends.user.avatar? %>
 
-                    	</div>
-                    <% end %>
-						
-			
-				 	<% end %>
-		 		</div>
+          <div class="discoverTitleSec">
+            <div class="discoverName"><%= truncate(invFriends.user.name.gsub(/\s.+/, '')) %></div>
+            <div class="discoverNum"><%= collide.count %> shared interests</div>
+          </div>
+
+
+          
+
+          </div>
+
+
+          <%= link_to update_friendship_friendship_path(invFriends), method: :patch, class: "specialA" do %>
+            <div class="acceptButton">
+
+
+            Accept
+
+        	</div>
+        <% end %>
+         </div>
+
+<% end %>
+
+
+
 	<% end %>
 	<% end %>
 </div>
@@ -44,8 +61,10 @@
 <% else %>
 
 <% end %>
+</div>
 
 
+<div class="section">
 <% if @eventNotifsPage.present? %>
 <div class="container">
 	<div class="titleSecSub">New events from your groups</div>
@@ -55,12 +74,13 @@
 
 <div class="container noPad3">
 	<% @eventNotifsPage.reverse.each do |eventNotif| %>
-
+    <% if eventNotif.event.event_date > Date.today %>
 
 
 
 
 			<div class="col-md-4 col-xs-12 testMarge">
+        
 		<%= link_to update_notif_notification_path(eventNotif), method: :patch, class: "specialA" do %>
 
 
@@ -72,6 +92,8 @@
                     <div class="eventDateDisc"><%= eventNotif.event.event_date.strftime('%B %e') %></div>
                   </div>
                   <div class="groupTitleDisc"><%= truncate(eventNotif.event.title, length: 35) %></div>
+                  <div class="newEvent">New event for <%= eventNotif.event.group.title %> </div>
+
      
                 </div>
 
@@ -96,6 +118,7 @@
 
 
 
+  <% end %>
 
 
 
@@ -104,7 +127,7 @@
 <% else %>
 <% end %>
 
-
+</div>
 
 
 

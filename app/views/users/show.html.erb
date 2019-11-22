@@ -26,7 +26,7 @@
 
 <div class="backButton">
   <%= link_to 'javascript:history.back()' do %>
-        <%= image_tag("left-arrow.png", class: "leftArrow") %>
+        <%= image_tag("left-arrow.png", size: "54x54", class: "leftArrow") %>
   <% end %>
 </div>
 
@@ -48,7 +48,7 @@
  
         <%= avatar_for(@user) %>
  
-        <%= image_tag(@user.avatar_url(:thumb), class: "userImage1") if @user.avatar? %>
+        <%= image_tag(@user.avatar_url(:thumb), size: "140x140", class: "userImage1") if @user.avatar? %>
       </div>
       <div class="userSec1">
         <div class="userName">
@@ -147,15 +147,66 @@
 
     </div>
 
-    <div class="userInfoArea">
-<% if @user.bio.present? %>
-      <div class="userInfoElement">
-        
-        <%= @user.bio %>
 
+<!-- Friends Profile Info Items START -->
+
+
+
+<div class="userInfoArea">
+  <div class="userInfoElement">
+
+  <% if @user.bio.present? %>
+  
+      <div class="infoTitle">
+        <%= image_tag("userBio.png", class: "miniIcon") %> Bio
       </div>
-<% end %>
+      <div class="infoContentFirst">
+        <%= @user.bio %>
+      </div>
+
+  <% end %>
+
+  <% if current_user.distance_is_checked == true and current_user.id == @user.id  %>
+  
+      <div class="infoTitleSub">
+       <%= image_tag("userLoc.png", class: "miniIcon") %> Show Distance
+      </div>
+      <div class="infoContent">
+        Activated
+      </div>
+  <% elsif current_user.distance_is_checked == false and current_user.id == @user.id %>
+    <div class="infoTitleSub">
+      <%= image_tag("userLoc.png", class: "miniIcon") %> Show Distance
+    </div>
+    <div class="infoContent">
+      Not Activated
+    </div>
+  <% elsif !current_user.friends.include?(@user) %>
+
+ 
+  <% end %>
+
+
+    <% if @user.country.present? %>
+
+      
+      <div class="infoTitleSub">
+        <%= image_tag("from.png", class: "miniIcon") %> From
+      </div>
+      <div class="infoContentFirst">
+        <span class="flagTest"><%= Country[@user.country].emoji_flag %></span> <%= @user.country_name %> 
+      </div>
+  <% end %>
+
+   </div>
+
 </div>
+
+<!-- Friends Profile Info Items END -->
+
+
+
+
 <!--
       <div class="userInfoElement">
         
@@ -210,7 +261,7 @@
 
               <%= avatar_for(@user) %>
   
-            <%= image_tag(@user.avatar_url(:thumb), class: "userImage1") if @user.avatar? %>
+            <%= image_tag(@user.avatar_url(:thumb), size: "140x140", class: "userImage1") if @user.avatar? %>
           </div>
           <div class="userSec1">
             <div class="userName">
@@ -291,37 +342,63 @@
 
 
 
-    <div class="userInfoArea">
-    <% if @user.bio.present? %>
 
-      <div class="userInfoElement">
-        
-        <%= @user.bio %>
 
+
+
+
+<!-- Friends Profile Info Items START -->
+
+
+<div class="userInfoArea">
+  <div class="userInfoElement">
+
+  <% if @user.bio.present? %>
+  
+      <div class="infoTitle">
+        <%= image_tag("userBio.png", class: "miniIcon") %>  Bio
       </div>
-    <% end %>
+      <div class="infoContentFirst">
+        <%= @user.bio %>
+      </div>
 
+  <% end %>
 
   <% if @user.distance_is_checked == true and current_user.id != @user.id and @user.friends.include?(current_user) %>
-
-
-      <div class="userInfoElement">
-
-
-
- 
-              <%= @user.getDistance(current_user.latitude, current_user.longitude) %> km away
   
-    
-
+      <div class="infoTitleSub">
+       <%= image_tag("userLoc.png", class: "miniIcon") %> Distance
       </div>
-      <% end %>
-    
+      <div class="infoContent">
+        <%= @user.getDistance(current_user.latitude, current_user.longitude) %> km away
+      </div>
+ 
+  <% end %>
+
+  <% if @user.country.present? %>
+      
+      <div class="infoTitleSub">
+        <%= image_tag("from.png", class: "miniIcon") %> From
+      </div>
+      <div class="infoContentFirst">
+        <%= @user.country_name %> <%= @user.country_emoji %>
+      </div>
+  <% end %>
 
 
 
 
-    </div>
+
+   </div>
+
+</div>
+
+
+<!-- Friends Profile Info Items END -->
+
+
+
+
 
 
 

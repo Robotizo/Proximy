@@ -3,6 +3,33 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+.miniIcon{
+  height: 20px;
+  width: 20px;
+}
+
+.infoTitle{
+  text-align: left;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+
+.infoContentFirst{
+  font-size: 14px;
+  text-align: left;
+  font-weight: 300;
+  padding: 2px 0px 15px 24px;
+}
+
+.infoContent{
+  font-size: 14px;
+  text-align: left;
+  font-weight: 300;
+  padding: 2px 0px;
+  padding-left: 24px;
+}
+
 
 /* Events Modal Start */
 
@@ -220,14 +247,14 @@ div.scrollMembersUsers a {
 }
 
 
+
 .userInfoArea{
-  padding:  10px;
   float: left;
   width: 100%;
-  margin-bottom: 10px;
-
+  top: -10px;
   position: relative;
-
+  margin-top: 15px;
+  padding: 5px;
 }
 
 
@@ -239,15 +266,15 @@ div.scrollMembersUsers a {
 }
 
 
-.userInfoElement{
-  background-color: white;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 4px 0px #e2e2e2;
-  font-size: 12px;
-  font-weight: 900;
-}
 
+.userInfoElement{
+
+  background-color: white;
+  padding: 10px 15px;
+      box-shadow: 0px 0px 4px 0px #e2e2e2;
+        border-radius: 8px;
+
+}
 
 .scrollNorm{
     position: -webkit-sticky;
@@ -326,11 +353,12 @@ div.scrollMembersUsers a {
 }
 
 
+
 .iconImage{
-  height: 60px;
+  height: 55px;
   border-radius: 10px;
   outline: none !important;
-    border: 1px solid #ccc;
+    box-shadow: 0px 0px 4px 0px #e2e2e2;
     transition: box-shadow .3s;
 }
 
@@ -1907,6 +1935,12 @@ div.scrollEvents{
 }
 
 @media screen and (max-width: 776px){
+  .sharedInts{
+    font-size: 10px;
+  }
+
+
+
 
     .testMargeMore {
     position: relative;
@@ -1947,8 +1981,8 @@ div.scrollEvents{
   }
 
   .userInfoArea{
-    margin-top: -10px;
-    margin-bottom: 30px;
+    margin-top: 10px;
+
   }
   .groupImageCover{
     height: 200px;
@@ -1972,6 +2006,7 @@ div.scrollEvents{
   .userInfoElement{
     box-shadow: 0px 0px 0px 0px;
     margin-top: 0px;
+    padding: 10px 10px;
   }
   .userInfoTitle{
     margin: 20px 5px 5px 5px;
@@ -2424,11 +2459,11 @@ div.scrollEvents{
 
 
 	.titleGroups{
-		font-size: 14px;
+		font-size: 16px;
 	}
 
 	.imageUserEvent{
-		width: 14%;
+		width: 16%;
 	}
 
 	.poster{
