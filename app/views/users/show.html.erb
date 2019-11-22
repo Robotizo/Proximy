@@ -41,7 +41,7 @@
 
       <%= image_for(@user) %>
 
-      <%= image_tag(@user.image_url, class: "userImageCover") if @user.image? %>
+      <%= image_tag(@user.image_url, height: "200", class: "userImageCover") if @user.image? %>
     </div>
     <div class="col-md-12 col-xs-12 connArea">
       <div class="userImageSec1">
@@ -254,7 +254,7 @@
  
             <%= image_for(@user) %>
 
-          <%= image_tag(@user.image_url, class: "userImageCover") if @user.image? %>
+          <%= image_tag(@user.image_url, size: "400x200", class: "userImageCover") if @user.image? %>
         </div>
         <div class="col-md-12 col-xs-12 connArea">
           <div class="userImageSec1">
@@ -477,7 +477,7 @@ $(function () {
             <%= link_to eventsFollowing, method: :get, class: "specialA" do %>
             <div class="elementBox">
                 <div class="eventImage">
-                  <%= image_tag(eventsFollowing.image_url, class: "groupImage1") if eventsFollowing.image? %>
+                  <%= image_tag(eventsFollowing.image_url, height: "220", class: "groupImage1") if eventsFollowing.image? %>
                 </div>
                 <div class="eventContent1">
                   <div class="eventDateI"><%= eventsFollowing.event_date.strftime('%B %e') %></div>
@@ -591,7 +591,7 @@ $(function () {
             <%= link_to groupsFollowing, method: :get, class: "specialA" do %>
               <div class="elementBox boxGMod">
                 <div class="eventImage">
-                  <%= image_tag(groupsFollowing.image_url, class: "groupImage1") if groupsFollowing.image? %>
+                  <%= image_tag(groupsFollowing.image_url, height: "220", class: "groupImage1") if groupsFollowing.image? %>
                 </div>
                 <div class="eventContent">
                   <div class="titleGroups"><%= truncate(groupsFollowing.title, length: 25) %></div>

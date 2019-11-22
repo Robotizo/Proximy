@@ -9,6 +9,19 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+
+    <script >
+      
+      $(document).ready(function() {
+        NProgress.start();
+        NProgress.configure({
+          showSpinner: true,
+          ease: 'ease',
+          speed: 500
+        });
+      });
+    </script>
+
     <script>
       function openNav() {
         document.getElementById("mySidenav").style.width = "250px";

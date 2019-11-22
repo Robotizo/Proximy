@@ -12,7 +12,7 @@
           <% unless user.avatar.present? %>
             <%= avatarFront_for(user) %>
           <% end %>
-          <%= image_tag(user.avatar_url(:thumb), class: "userImg") if user.avatar? %>
+          <%= image_tag(user.avatar_url(:thumb), size: "127x127", class: "userImg") if user.avatar? %>
           <div class="followerNameSec"><%= truncate(user.name.gsub(/\s.+/, '')) %></div>
           <div class="followerNameSec2"><%= collide.count %> shared interests</div>
         </div>

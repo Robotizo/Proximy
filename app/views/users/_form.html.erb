@@ -1,6 +1,13 @@
 <%= stylesheet_link_tag "users", :media => "all" %>
 
-<body onload="getLocation()">
+
+
+<% if action_name == 'new' or action_name == 'create' %>
+  <body onload="getLocation()">
+<% end %>
+
+
+
 <%= form_for(user) do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -98,8 +105,10 @@
 
 </div>
 
-  <div class="col-md-12 col-xs-12 noPad3" style="margin-bottom: 100px;">
-    <div class="titleSec">Where are you from?</div>
+  <div class="col-md-12 field noPad3" style="margin-bottom: 100px;">
+    <div class="labelSide">
+      Where are you from?
+    </div>
     <div class="field fileField col-md-12 col-xs-12 noPad3">
       <%= f.country_select :country %>
     </div>
