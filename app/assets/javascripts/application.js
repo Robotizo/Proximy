@@ -22,3 +22,11 @@
 //= require nprogress-turbolinks
 
 
+$(document).ready(function() {
+  NProgress.start();
+	NProgress.configure({
+		showSpinner: true,
+		ease: 'ease',
+		speed: 500
+	});
+});
