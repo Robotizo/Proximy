@@ -87,7 +87,7 @@
 
 
       <div class="col-md-3 text-center" id="follow_formDes">
-          <%= link_to edit_group_path(@group), method: :get, class: "specialA" do %>
+          <%= link_to edit_group_path(@group), class: "specialA" do %>
             <%= image_tag("geatInv.png", class: "iconImage") %>
             <div class="textOps">
               Group settings
@@ -97,7 +97,7 @@
 
       <div class="col-md-3 text-center" id="follow_formDes">
 
-     <%= link_to interests_group_path(@group), method: :get, class: "specialA" do %>
+     <%= link_to interests_group_path(@group),  class: "specialA" do %>
 
           <%= image_tag("filterInv.png", class: "iconImage") %>
           <div class="textOps">
@@ -190,7 +190,7 @@
 
 
 <div class="col-xs-3 marginMob text-center" id="follow_formMob">
-          <%= link_to edit_group_path(@group), method: :get, class: "specialA" do %>
+          <%= link_to edit_group_path(@group), class: "specialA" do %>
             <%= image_tag("geatInv.png", class: "iconImage") %>
             <div class="textOps">
               Edit group
@@ -200,7 +200,7 @@
 </div>
 <div class="col-xs-3 marginMob text-center" id="follow_formMob">
        
-     <%= link_to interests_group_path(@group), method: :get, class: "specialA" do %>
+     <%= link_to interests_group_path(@group),  class: "specialA" do %>
 
           <%= image_tag("filterInv.png", class: "iconImage") %>
           <div class="textOps">
@@ -335,7 +335,7 @@ $(function () {
 
 
         <span class="col-md-6 userEvents mobileVE">
-          <%= link_to group_event, method: :get, class: "specialA" do %>
+          <%= link_to group_event, class: "specialA" do %>
       
             <div class="elementBox">
             
@@ -442,7 +442,7 @@ $(function () {
 
       <span class="col-md-3 text-center mobileVU">
 
-      <%= link_to groupFollower, method: :get, class: "specialA" do %>
+      <%= link_to groupFollower, class: "specialA" do %>
   
         <div class="followersSec">
         
@@ -533,7 +533,7 @@ $(function () {
                     </div>
                   <% end %>
                   <div class="card-footer">
-                    <%= link_to group_post.group, method: :get, class: "specialA bottomSign" do %>
+                    <%= link_to group_post.group, class: "specialA bottomSign" do %>
                       <%= image_tag(group_post.group.image_url(:thumb), class: "userImage2") if group_post.group.image? %>
                     <% end %>
                     <small class="text-muted"><%= group_post.group.title %> on <%= group_post.updated_at.to_time.strftime('%B %e') %></small>
@@ -560,7 +560,7 @@ $(function () {
 
 
             <% @groupFollowers.each do |groupFollower| %>
-             <%= link_to groupFollower, method: :get, class: "specialA" do %>
+             <%= link_to groupFollower, class: "specialA" do %>
               <div class="card grid-item-user allPostsCard">
                 <div class="material-icons text-muted launch-modal align-middle">
                   <%= image_tag(groupFollower.avatar_url(:thumb), class: "card-img-top allPostsImage") if groupFollower.avatar? %>

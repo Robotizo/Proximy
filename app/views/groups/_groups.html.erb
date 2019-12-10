@@ -1,9 +1,9 @@
-
+<%= javascript_include_tag( 'jquery.lazyload.js' ) %>
 
       <% @groups.each do |group| %>
       <% collide = current_user.followingI.ids & group.fgI.ids %>
         <div class="col-md-3 col-xs-6 testMarge">
-          <%= link_to group, method: :get, class: "specialA" do %>
+          <%= link_to group, class: "specialA" do %>
             <div class="elementBox">
               <%= image_tag(group.image_url(:group), class: "groupImageDisc", lazy: true) if group.image? %>
               <div class="eventContent">
