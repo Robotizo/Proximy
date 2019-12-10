@@ -13,7 +13,6 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 //= require cable
 //= require popper
@@ -21,12 +20,3 @@
 //= require nprogress
 //= require nprogress-turbolinks
 
-
-$(document).ready(function() {
-  NProgress.start();
-	NProgress.configure({
-		showSpinner: true,
-		ease: 'ease',
-		speed: 500
-	});
-});

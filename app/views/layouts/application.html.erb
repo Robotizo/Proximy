@@ -6,8 +6,8 @@
     <%= csrf_meta_tags %>
     
     <%= favicon_link_tag asset_path('faviconF.ico') %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
 
     <script>
       function openNav() {
@@ -95,7 +95,25 @@
 
 
           </script>
+
+
+          <script type="text/javascript">
+
+              $(document).ready(function() {
+                NProgress.start();
+                window.onload = function () { NProgress.done(); }
+                NProgress.configure({
+                  showSpinner: true,
+                  ease: 'ease',
+                  speed: 500
+                });
+              });
+
+
+          </script>
+
   </head>
+
   <body>
 
 
