@@ -74,14 +74,14 @@
   <div class="col-md-12 col-xs-12 noPad3" style="margin-bottom: 10px;">
     <div class="titleSec">Add a bio</div>
     <div class="field fileField col-md-12 col-xs-12 noPad3">
-      <%= f.text_field :bio, placeholder: "Describe yourself.", class: "form-control", id: "eventTitle" %>
+      <%= f.text_area :bio, placeholder: "Describe yourself.", class: "form-control textField", id: "eventTitle" %>
     </div>
   </div>
 
   <div class="col-md-12 col-xs-12 noPad3" style="margin-bottom: 100px;">
     <div class="titleSec">Where are you from?</div>
     <div class="field fileField col-md-12 col-xs-12 noPad3">
-      <%= f.country_select :country %>
+      <%= f.country_select :country,  {prompt: "Select a country"}, class: 'selectBox' %>
     </div>
   </div>
 

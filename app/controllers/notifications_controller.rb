@@ -4,9 +4,13 @@ class NotificationsController < ApplicationController
 
 		@user = current_user
 
+
+		@invitations = NotificationEvent.where(recipient_id: current_user.id)
+
 		@userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
     	userContacts = @user.following.map(&:id)
     	@contacts = User.find(params = userContacts)
+
 
 
 

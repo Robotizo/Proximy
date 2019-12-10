@@ -1,16 +1,13 @@
 <%= stylesheet_link_tag "sessions", :media => "all" %>
 
 
-<style>
-    body{
-         overflow-y: scroll;
-         overflow-x: hidden;
-        height: 100vh !important;
-        background-size: 100% auto ;
-        object-fit: cover;
-        
-       
-    }
+
+<style type="text/css">
+  body, html {
+    height: 100vh;
+    margin: 0;
+  }
+
 </style>
 
 
@@ -41,10 +38,40 @@
 
   </style>
 
+
+
 <!-- for the background image: -->
+
+
+
 <%= image_tag("signUp.jpg", class: "imageHere") %>
+<div class="whiteContainerLeft">
+
+          <div class="logoParent">
+                <%= image_tag("proximy_inv_t.png", class: "logoImg2") %>
+          </div>
 
 
+
+</div>
+
+
+<div class="whiteContainer">
+  <div class="whitePlatform">
+
+
+<%= render 'signUp', user: @user %>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+<!--
 <div class=" newUser">
 
 
@@ -69,9 +96,4 @@
          </div>
    </div>
   </div>
-
-
-</div>
-
-
-
+-->

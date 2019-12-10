@@ -4,6 +4,126 @@
 
 
 
+
+/* Sign Up START */
+
+.logoImg2{
+	height: 110px;
+}
+
+#error_explanation{
+	font-size: 20px;
+	font-weight: 900 !important;
+	text-align: center;
+	color: #7fa6be;
+
+}
+
+
+.form-control{
+	font-weight: 300 !important;
+}
+
+.field{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-right: 20px;
+	padding-left: 20px;
+	
+}
+
+.signButton{
+	margin-top: 30px;
+}
+
+
+.titleSign{
+	margin: 20px;
+	font-size: 38px;
+	text-align: left;
+	font-weight: 900;
+	margin-bottom: 20px;
+}
+
+.fileBtnSubmit2{
+
+  background-color: #7fa6be;
+  width: 100%;
+  border: 1px solid #7fa6be;
+
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: inherit;
+    font-weight: 900;
+    margin-bottom: 10px;
+    outline: none;
+    padding: 1.7rem 50px;
+    position: relative;
+    transition: all 0.3s;
+    vertical-align: middle;
+    box-shadow: 0px 0px 10px 0px #7fa6be;
+
+}
+
+.fileBtnSubmit2:hover{
+  background-color: #7fa6be;
+  color: white;
+  box-shadow: 0px 0px 10px 3px #7fa6be;
+}
+
+
+
+/* Sign Up END */
+
+
+
+.whiteContainerLeft{
+
+
+
+    position: absolute;
+    width: calc(50vw - 150px);
+    min-height: calc(100vh - 200px);
+   
+    top: 0;
+    left:  0;
+    margin: 100px;
+    border-radius: 8px;
+
+}
+
+
+.whiteContainer{
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    position: absolute;
+    width: calc(50vw - 200px);
+    min-height: calc(100vh - 200px);
+    background-color: white;
+    top: 0;
+    right: 0;
+    margin: 100px;
+    border-radius: 8px;
+    box-shadow:0 0 11px 15px rgba(33, 33, 33, 0.3);
+
+}
+
+
+.whiteContainer .whitePlatform{
+	 max-width:100%;
+    max-height:100%;
+
+    
+}
+
+
 .fileBtnSubmitSign2{
   border-color: #7fa6be;
   background-color: white;
@@ -95,9 +215,12 @@
 
 
 .form-control {
-    border-radius: 3px;
+    border-radius: 8px !important;
     border-color: white;
-    border-bottom: 1px #a2a2a2 solid !important
+    /* border-bottom: 1px #a2a2a2 solid !important; */
+    background-color: #f5f3f4;
+    border-radius: 8px;
+    padding: 20px;
 
 }
 
@@ -105,7 +228,8 @@
 .form-control:focus{
 	outline: none;
 	box-shadow: 0px 0px 0px 0px !important;
-	border-bottom: 1px #7ea5c0 solid !important;
+	background-color: #7ea5c01c;
+	border: 2px solid #66afe9;
 	border-top: 0px;
 	border-left: 0px;
 	border-right: 0px;
@@ -259,12 +383,16 @@ nav{
 }
 
 .imageHere{
-	margin-top:-8vh;
-	height: 110vh; 
-    width: 100%; 
+
+	height: 100vh; 
+	width: 100%;
 	object-fit: cover;
-    
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 
 
 @media screen and (min-width: 1800px){
@@ -281,7 +409,7 @@ nav{
 	width: 100%;
 	margin: 10px 0;
 	font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
 }
 .fileBtnDiv{
 	border-color: #2e6da4;
@@ -365,8 +493,47 @@ body{
 }
 
 @media screen and (max-width: 776px){
+	.titleSign{
+		font-size: 30px;
+	}
+
+	.whiteContainerLeft {
+	    position: absolute;
+	    width: calc(100% - 30px);
+	    min-height: calc(100vh - 200px);
+	    top: 0;
+	    left: 0;
+	    margin: 15px;
+	    border-radius: 8px;
+	}
+
+	.whiteContainer {
+	    display: -webkit-box;
+	    display: flex;
+	    -webkit-box-pack: center;
+	    justify-content: center;
+	    -webkit-box-align: center;
+	    align-items: center;
+	    position: absolute;
+	    width: calc(100% - 30px);
+	    min-height: calc(100vh - 200px);
+	    background-color: white;
+	    top: 0;
+	    right: 0;
+	    margin: 15px;
+	    margin-top: 150px !important;
+	    border-radius: 8px;
+	    box-shadow: 0 0 11px 15px rgba(33, 33, 33, 0.3);
+	    /* background-color: white; */
+	}
 	.imageHere{
-		    height: 140vh;
+		 position: fixed;
+	    padding: 0;
+	    margin: 0;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
 	}
 	.centerDiv{
 		width: auto;

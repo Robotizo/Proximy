@@ -207,6 +207,12 @@
 <!-- Buttons End -->
 
 
+     <div class="col-md-12 col-xs-12 noPad3 inviteButton" data-target="#show-inv" data-toggle="modal">
+           <%= button_tag "Invite friends", class: "btn btn-primary inviteButtonDesign" %>
+        </div>
+
+
+
 
       <div class="col-md-12 col-xs-12 noPad3 text-left">
           <div class="eventTitle2">Hosted by</div>
@@ -223,6 +229,37 @@
           <% end %>
           
       </div>
+
+
+
+
+
+<!-- Invitations System START -->
+
+
+
+          
+ 
+
+
+
+<!-- Modal -->
+
+
+
+
+
+<!-- Invitations System END -->
+
+
+
+
+
+
+
+
+
+
 
 </div>
 
@@ -513,7 +550,94 @@ $(function () {
     </div>
   </div>
 
+  <div class="modal fade" id="show-inv" tabindex="-1">
+    <button type="button" class="closeInts" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    <div class="modal-dialog modal-dialog-centered allPostsDialog" role="document">
+      <div class="modal-content-users">
+        <div class="modal-body">
+          <div class="grid" id="masonry">
+            <div class="grid-sizer"></div>
 
+
+
+
+
+
+            <% @fullyFriends.each do |friend| %>
+          
+              <div class="card grid-item-user allPostsCard">
+                <div class="material-icons text-muted launch-modal align-middle">
+                  <%= image_tag(friend.avatar_url(:thumb), class: "card-img-top allPostsImage") if friend.avatar? %>
+                    <div class="card-body">
+                      <p class="card-text nameBold"><%= truncate friend.name, length: 500, separator: ' ' %></p>
+
+   
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+
+        <div class="invite">
+
+  
+
+            <% if (friend.invitations.ids & @eventInvites.ids).any? %>
+
+
+
+            <div class="invitedFriend">
+             Already invited
+
+            </div>
+
+            <% else %>
+
+                        <%= form_for(@notification_event) do |f| %>
+
+                              <%= f.hidden_field :event_id, value: @event.id %>
+                              <%= f.hidden_field :recipient_id, value: friend.id %>
+                              <%= f.hidden_field :sender_id, value: current_user.id %>
+
+                              <%= f.submit "Invite", class: "btn btn-primary inviteFriend" %>
+      
+                          <% end %>
+
+
+            <% end %>
+
+                   
+          </div>
+
+
+
+
+
+
+
+
+
+
+              </div>
+
+
+
+   
+            <% end %>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 

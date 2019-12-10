@@ -33,7 +33,7 @@ class NotificationEventsController < ApplicationController
 
     respond_to do |format|
       if @notification_event.save
-        format.html { redirect_to @notification_event, notice: 'Notification event was successfully created.' }
+        format.html
         format.json { render :show, status: :created, location: @notification_event }
       else
         format.html { render :new }

@@ -9,6 +9,37 @@
 </div>
 <% end %>
 
+
+
+<script type="text/javascript">
+		  function getLocation() {
+		    if (navigator.geolocation) {
+		      navigator.geolocation.getCurrentPosition(getLat2);
+		      navigator.geolocation.getCurrentPosition(getLon2);
+		    } else {
+		      x.innerHTML = "Geolocation is not supported by this browser.";
+		    }
+		  }
+
+
+		  function getLat2(position) {
+		    var lat2 = position.coords.latitude;
+
+		    $(document).ready(function () {
+		      $("#latField2").val(lat2);
+		    })
+		  }
+
+
+		  function getLon2(position) {
+		    var lon2 = position.coords.longitude;
+
+		    $(document).ready(function () {
+		      $("#lonField2").val(lon2);
+		    })
+		  }
+</script>
+
 <body onload="getLocation()">
 
 	<style scoped>
@@ -22,6 +53,13 @@
 	    }
 	}
 </style>
+
+
+<div class="backButton">
+  <%= link_to 'javascript:history.back()' do %>
+        <%= image_tag("left-arrow.png", size: "54x54", class: "leftArrow") %>
+  <% end %>
+</div>
 
 
 <div class="container noPad3">
@@ -42,12 +80,12 @@
 
 			<%= form_for @user do |f| %>
 			  <div class="field">
-			    <%= f.hidden_field :latitude, class: "form-control", id: "latField2", onchange: 'this.form.submit()' %>
+			    <%= f.hidden_field :latitude, class: "form-control", id: "latField2" %>
 			  </div>
 
 
 			  <div class="field">
-			    <%= f.hidden_field :longitude, class: "form-control", id: "lonField2", onchange: 'this.form.submit()'  %>
+			    <%= f.hidden_field :longitude, class: "form-control", id: "lonField2"  %>
 			  </div>
 
 			<hr>
@@ -101,7 +139,7 @@
 
 
 
-        <script>
+    <script>
 
 		// Initialize and add the map
 		function initMap() {
@@ -114,33 +152,6 @@
 		  var marker = new google.maps.Marker({position: pos, map: map});
 		}
 
-
-		  function getLocation() {
-		    if (navigator.geolocation) {
-		      navigator.geolocation.getCurrentPosition(getLat2);
-		      navigator.geolocation.getCurrentPosition(getLon2);
-		    } else {
-		      x.innerHTML = "Geolocation is not supported by this browser.";
-		    }
-		  }
-
-
-		  function getLat2(position) {
-		    var lat2 = position.coords.latitude;
-
-		    $(document).ready(function () {
-		      $("#latField2").val(lat2);
-		    })
-		  }
-
-
-		  function getLon2(position) {
-		    var lon2 = position.coords.longitude;
-
-		    $(document).ready(function () {
-		      $("#lonField2").val(lon2);
-		    })
-		  }
 
     </script>
 

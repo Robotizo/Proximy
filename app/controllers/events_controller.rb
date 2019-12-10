@@ -60,6 +60,16 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+
+    @notification_event = NotificationEvent.new
+
+
+
+
+
+    @eventInvites = NotificationEvent.where(event_id: @event.id)
+
+    @fullyFriends = current_user.inverse_friends
     @eventNotifs = EventNotif.all
     @interests = Interest.all
     followingEventIds = @event.followersE.map(&:id)

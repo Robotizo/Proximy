@@ -6,7 +6,7 @@
             <div class="col-md-4 col-xs-12 testMarge">
               <%= link_to event, method: :get, class: "specialA" do %>
                 <div class="elementBox">
-                  <%= image_tag(event.image_url(:event), class: "groupImageDisc") if event.image? %>
+                  <%= image_tag(event.image_url(:event), class: "groupImageDisc", lazy: true) if event.image? %>
                   <div class="eventContentDisc">
                     <div class="eventDateDisc"><%= event.event_date.strftime('%B %e') %></div>
                   </div>
@@ -19,3 +19,10 @@
               </div>
           <% end %>
           <% end %>
+
+
+
+
+          <script type="text/javascript">
+             $("img").lazyload();
+          </script>

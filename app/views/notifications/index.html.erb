@@ -64,6 +64,58 @@
 </div>
 
 
+
+
+<!-- Invivtations Section START -->
+
+
+<div class="section">
+<div class="container">
+  <div class="titleSecSub">Event invitations</div>
+</div>
+
+
+
+<div class="container noPad3">
+  <% @invitations.reverse.each do |invitation| %>
+ 
+
+
+
+
+      <div class="col-md-4 col-xs-12 testMarge">
+        
+        
+                <div class="elementBox">
+                  <%= image_tag(invitation.event.image_url(:event), class: "groupImageDisc") if invitation.event.image? %>
+                  <div class="eventContentDisc">
+                    <div class="eventDateDisc"><%= invitation.event.event_date.strftime('%B %e') %></div>
+                  </div>
+                  <div class="groupTitleDisc"><%= truncate(invitation.event.title, length: 35) %></div>
+                  <div class="newEvent"><%= invitation.sender.name %> invited you to this event </div>
+                </div>
+
+
+
+
+    
+
+    
+      </div>
+
+
+
+
+
+  <% end %>
+</div>
+
+</div>
+
+
+<!-- Invivtations Section END -->
+
+
 <div class="section">
 <% if @eventNotifsPage.present? %>
 <div class="container">

@@ -2,10 +2,6 @@
 
 
 
-<% if action_name == 'new' or action_name == 'create' %>
-  <body onload="getLocation()">
-<% end %>
-
 
 
 <%= form_for(user) do |f| %>
@@ -91,7 +87,7 @@
   <div class="labelSide">
     <%= f.label :bio %>
   </div>
-    <%= f.text_field :bio, class: "form-control", placeholder: "Describe yourself." %>
+    <%= f.text_area :bio, class: "form-control textField", placeholder: "Describe yourself." %>
 </div>
 <% end %>
   <div class="field">
@@ -104,15 +100,23 @@
   </div>
 
 </div>
-
+<% if action_name == 'edit' or action_name == 'update' or action_name == "avatar" %>
   <div class="col-md-12 field noPad3" style="margin-bottom: 100px;">
     <div class="labelSide">
       Where are you from?
     </div>
+
+
+
+
     <div class="field fileField col-md-12 col-xs-12 noPad3">
-      <%= f.country_select :country %>
+      <%= f.country_select :country,  {prompt: "Select a country"}, class: 'selectBox' %>
     </div>
+
+
+
   </div>
+<% end %>
 
 
 
@@ -129,13 +133,6 @@
 
 
 
-
-  <br />
-<% if action_name == 'new' or action_name == 'create' %>
-  <div class="text-center loginSec col-xs-12">
-        <%= f.submit "Confirm", class: "fileBtnSubmitSign", id: "submitButtonId" %>
-    </div>
-<% end %>
 
 
 

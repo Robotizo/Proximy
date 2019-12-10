@@ -13,6 +13,16 @@ gem 'countries', require: 'countries/global'
 
 
 
+
+gem "lazyload-rails"
+
+
+
+
+
+
+
+
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'carrierwave'

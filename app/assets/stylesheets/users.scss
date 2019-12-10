@@ -2,6 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+
+.textField {
+  resize: none;
+  height: 100px !important;
+}
+
+
+
+.selectBox{
+  padding: 1em 10px;
+  height: 40px;
+  background-color: white;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.loginSec{
+  padding: 1em 10px;
+}
+
 .miniIcon{
   height: 20px;
   width: 20px;
@@ -448,14 +468,14 @@ div .panel-interest{
   width: 100%;
   border: 1px solid #7fa6be;
 
-    border-radius: 5px;
+    border-radius: 8px;
     color: #7fa6be;
     cursor: pointer;
     display: inline-block;
     font-family: 'Poppins', sans-serif;
     font-size: inherit;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
     outline: none;
     padding: 1.7rem 50px;
     position: relative;
@@ -464,7 +484,7 @@ div .panel-interest{
 }
 
 .fileBtnSubmit2:hover{
-  background-color: #204d74;
+  background-color: #7fa6be;
   color: white;
 }
 
@@ -750,8 +770,8 @@ input.checkDist{
 
 
 .avatarImage2{
-  height: 130px;
-  width: 130px;
+  height: 140px;
+  width: 140px;
   border-radius:15px;
       box-shadow: 0px 0px 4px 0px #6f6f6f;
         overflow: hidden;
@@ -785,13 +805,7 @@ input.checkDist{
 }
 
 
-.imgCover {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px 10px 0px 0px;
 
-}
 
 
 /* User Edits End */
@@ -1025,9 +1039,14 @@ div .show-more[aria-expanded="true"]{
 }
 
 .form-control {
-    border-radius: 3px;
+    border-radius: 8px !important;
     border-color: white;
-    border-bottom: 1px #a2a2a2 solid !important
+    /* border-bottom: 1px #a2a2a2 solid !important; */
+    background-color: #f5f3f4;
+    border-radius: 8px;
+    padding: 20px;
+
+    font-weight: 300px !important;
 
 }
 
@@ -1035,7 +1054,8 @@ div .show-more[aria-expanded="true"]{
 .form-control:focus{
   outline: none;
   box-shadow: 0px 0px 0px 0px !important;
-  border-bottom: 1px #7ea5c0 solid !important;
+  background-color: #7ea5c01c;
+  border: 2px solid #66afe9;
   border-top: 0px;
   border-left: 0px;
   border-right: 0px;
@@ -1416,7 +1436,8 @@ body {
 
 .userImage1 {
   border-radius: 15px;
-
+  height: 140px;
+  width: 140px;
   box-shadow: 0px 0px 4px 0px #6f6f6f;
   object-fit: cover;
 }
@@ -3093,7 +3114,8 @@ div.scrollMembersInterests .seeMore {
 
   .userImage1 {
     border-radius: 15px;
-
+    height: 140px;
+    width: 140px;
     object-fit: cover;
   }
 

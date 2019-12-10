@@ -1,6 +1,80 @@
 /*// Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+
+.inviteButtonDesign{
+  background-color: white;
+  border-radius: 8px;
+    height: 45px;
+    width: 100%;
+    color: #6c95af;
+    font-weight: 700;
+    box-shadow: 0px 0px 4px 0px #e2e2e2;
+    border: 0px !important;
+    width: 100%;
+    float: left;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+
+
+.inviteButtonDesign:hover{
+  background-color: #6c95af;
+  transition: 0.3s;
+  color: white;
+}
+
+.inviteButton{
+  margin-top: 18px;
+  margin-bottom: 24px;
+
+
+}
+
+
+
+.inviteFriend{
+  background-color: white;
+  color: white;
+  border: 0px !important;
+  background-color: #7fa6bd;
+  width: 100%;
+  border-radius: 0px 0px 8px 8px;
+  font-weight: 900;
+}
+
+
+.invitedFriend{
+    background-color: white;
+    color: white;
+    border: 0px !important;
+    background-color: #2eb930;
+    width: 100%;
+    border-radius: 0px 0px 8px 8px;
+    font-weight: 900;
+    padding: 5px;
+}
+
+
+.invitedFriend:hover{
+  background-color: white;
+  color: white;
+border: 0px !important;
+    background-color: #2eb930;
+    width: 100%;
+  border-radius: 0px 0px 8px 8px;
+  font-weight: 900;
+}
+
+
+
+.invite{
+  text-align: center;
+}
+
+
  
 /* Events Modal Start */
 
@@ -318,7 +392,7 @@ div.scrollMembersEvents .seeMore {
 .buttonsEvent{
   padding-top: 30px;
   float: left;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
   width: 100%;
   bottom: 0px;
 }
@@ -1176,19 +1250,26 @@ div .show-more[aria-expanded="true"]{
 }
 
 .form-control {
-    border-radius: 0px;
+    border-radius: 8px !important;
     border-color: white;
-    border-bottom: 1px black solid !important;
+    /* border-bottom: 1px #a2a2a2 solid !important; */
+    background-color: #f5f3f4;
+    border-radius: 8px;
+    padding: 20px;
 
- 
+    font-weight: 300px !important;
+
 }
+
+
 .form-control:focus{
-	outline: none;
-	box-shadow: 0px 0px 0px 0px !important;
-	border-bottom: 1px #7ea5c0 solid !important;
-	border-top: 0px;
-	border-left: 0px;
-	border-right: 0px;
+  outline: none;
+  box-shadow: 0px 0px 0px 0px !important;
+  background-color: #7ea5c01c;
+  border: 2px solid #66afe9;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
 }
 
 
@@ -1835,6 +1916,23 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px){
+  .invitedFriend{
+    background-color: white;
+    color: white;
+    border: 0px !important;
+    background-color: #2eb930;
+    width: 100%;
+    border-radius: 0px 0px 8px 8px;
+    font-weight: 900;
+    font-size: 14px;
+    padding: 7px;
+  }
+  .inviteFriend{
+    font-weight: 900 !important;
+    font-size: 14px !important;
+    width: 100% !important;
+    padding: 8px !important;
+  }
   .testMargeMore {
     position: relative;
     top: -100px;
