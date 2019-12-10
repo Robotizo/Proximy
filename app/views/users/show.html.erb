@@ -1,5 +1,7 @@
 <%= stylesheet_link_tag "users", :media => "all" %>
 <%= javascript_include_tag 'users', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag( 'jquery.lazyload.js' ) %>
+
 <% if flash[:notice] %>
 <div class="alert alert-success" role="alert">
   <%= notice %>
