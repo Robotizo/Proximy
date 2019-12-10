@@ -104,7 +104,7 @@
     <nav class="navbar topNav navbar-fixed-top nav-down" id="navbar">
   <div class="container">
     <div class="navTitle">
-      <%= link_to root_path, method: :get, class: "specialA" do %>
+      <%= link_to root_path, class: "specialA" do %>
           <%= image_tag("proximy-top.jpg", class: "logoMain") %>
         <% end %>
       </div>
@@ -117,13 +117,13 @@
       <div class="navTitleEndNew dropdown-toggle" type="button" data-toggle="dropdown"><%= image_tag("arrowDown.png", class: "imageNavDrop") %></div>
       <ul class="dropdown-menu moreOps">
          <li>
-          <%= link_to "Settings", edit_user_path(current_user), method: :get, class: "dropItem" %>
+          <%= link_to "Settings", edit_user_path(current_user), class: "dropItem" %>
         </li>
         <li>
             <%= link_to "Log Out", logout_path, method: :delete, data: {confirm: 'Are you sure?'}%>
         </li>
         <li>
-            <%= link_to "Feedback", new_feedback_path, method: :get %>
+            <%= link_to "Feedback", new_feedback_path %>
         </li>
 
       </ul>
@@ -136,7 +136,7 @@
 
 
 
-<%= link_to current_user, method: :get, class: "specialA navElement" do %>
+<%= link_to current_user, class: "specialA navElement" do %>
   <div class="menuSec"> 
             <span class="menuElements">
               <%= image_tag("user.png", class: "ImageNavB") %>
@@ -145,7 +145,7 @@
   </div> 
 <% end %>
    
-<%= link_to edit_user_path(current_user), method: :get, class: "specialA navElement" do %>
+<%= link_to edit_user_path(current_user), class: "specialA navElement" do %>
 <div class="menuSec"> 
            <span class="menuElements">
             <%= image_tag("settings.png", class: "ImageNavB") %>
@@ -248,10 +248,10 @@
       <div class="navTitleEnd1 dropdown-toggle" type="button" data-toggle="dropdown"><%= image_tag("create.png", class: "ImageNav") %></div>
       <ul class="dropdown-menu">
         <li>
-          <%= link_to "Create Event", new_event_path, method: :get, class: "dropItem" %>
+          <%= link_to "Create Event", new_event_path, class: "dropItem" %>
         </li>
         <li>
-          <%= link_to "Create Group", new_group_path, method: :get, class: "dropItem" %>
+          <%= link_to "Create Group", new_group_path, class: "dropItem" %>
         </li>
       </ul>
     </div>
@@ -320,7 +320,7 @@
       
 <div class="overallCreate">
 
-      <%= link_to new_event_path, method: :get, class: "specialA navElement" do %>
+      <%= link_to new_event_path, class: "specialA navElement" do %>
         <div class="menuSec"> 
             <span class="menuElements">
               <%= image_tag("event.png", class: "ImageNavB") %>
@@ -329,7 +329,7 @@
         </div> 
       <% end %>
 
-            <%= link_to new_group_path, method: :get, class: "specialA navElement" do %>
+            <%= link_to new_group_path, class: "specialA navElement" do %>
         <div class="menuSec"> 
             <span class="menuElements">
               <%= image_tag("groups.png", class: "ImageNavB") %>

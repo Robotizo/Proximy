@@ -21,6 +21,8 @@
 
 
 
-          <script type="text/javascript">
-             $("img").lazyload();
-          </script>
+      <script type="text/javascript">
+        $(document).on('turbolinks:load', function() {
+         $("img").lazyload();
+         })
+      </script>
