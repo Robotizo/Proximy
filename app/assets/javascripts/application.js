@@ -18,5 +18,4 @@
 //= require popper
 //= require materialize
 //= require nprogress
-//= require nprogress-turbolinks
 
