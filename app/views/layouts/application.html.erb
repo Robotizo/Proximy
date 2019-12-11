@@ -292,16 +292,15 @@
 
 <script type="text/javascript">
   
-    $( document ).ready(function() {
+ 
 
 
 
 
-    $(window).on("turbolinks:load", function(){
+    document.addEventListener("turbolinks:load", function() {
       $(".spinnerPage").fadeOut("slow");
       $("#theRest").css({"display": "block"}).fadeTo(0, 1);
     });
-});
 
 
 </script>
