@@ -43,14 +43,14 @@
 
       <%= image_for(@user) %>
 
-      <%= image_tag(@user.image_url, class: "userImageCover") if @user.image? %>
+      <%= image_tag(@user.image_url, class: "userImageCover", lazy: true) if @user.image? %>
     </div>
     <div class="col-md-12 col-xs-12 connArea">
       <div class="userImageSec1">
  
         <%= avatar_for(@user) %>
  
-        <%= image_tag(@user.avatar_url(:thumb),  class: "userImage1") if @user.avatar? %>
+        <%= image_tag(@user.avatar_url(:thumb),  class: "userImage1", lazy: true) if @user.avatar? %>
       </div>
       <div class="userSec1">
         <div class="userName">
@@ -263,7 +263,7 @@
 
               <%= avatar_for(@user) %>
   
-            <%= image_tag(@user.avatar_url(:thumb), class: "userImage1") if @user.avatar? %>
+            <%= image_tag(@user.avatar_url(:thumb), class: "userImage1", lazy: true) if @user.avatar? %>
           </div>
           <div class="userSec1">
             <div class="userName">
@@ -479,7 +479,7 @@ $(function () {
             <%= link_to eventsFollowing, class: "specialA" do %>
             <div class="elementBox">
                 <div class="eventImage">
-                  <%= image_tag(eventsFollowing.image_url,  class: "groupImage1") if eventsFollowing.image? %>
+                  <%= image_tag(eventsFollowing.image_url,  class: "groupImage1", lazy: true) if eventsFollowing.image? %>
                 </div>
                 <div class="eventContent1">
                   <div class="eventDateI"><%= eventsFollowing.event_date.strftime('%B %e') %></div>
@@ -502,7 +502,7 @@ $(function () {
                   <div class="creatorSign">
                     <% if eventsFollowing.group.present? %>
                     <div class="imageUserEvent">
-                      <%= image_tag(eventsFollowing.group.image_url(:thumb), class: "userImage2") if eventsFollowing.group.image? %>
+                      <%= image_tag(eventsFollowing.group.image_url(:thumb), class: "userImage2", lazy: true) if eventsFollowing.group.image? %>
                     </div>
 
                     <div class="contentUserPost">
@@ -511,7 +511,7 @@ $(function () {
 
                 <% else %>
                      <div class="imageUserEvent">
-                      <%= image_tag(eventsFollowing.user.avatar_url(:thumb), class: "userImage2") if eventsFollowing.user.avatar? %>
+                      <%= image_tag(eventsFollowing.user.avatar_url(:thumb), class: "userImage2", lazy: true) if eventsFollowing.user.avatar? %>
                     </div>
 
                     <div class="contentUserPost">
@@ -593,7 +593,7 @@ $(function () {
             <%= link_to groupsFollowing, class: "specialA" do %>
               <div class="elementBox boxGMod">
                 <div class="eventImage">
-                  <%= image_tag(groupsFollowing.image_url,  class: "groupImage1") if groupsFollowing.image? %>
+                  <%= image_tag(groupsFollowing.image_url,  class: "groupImage1", lazy: true) if groupsFollowing.image? %>
                 </div>
                 <div class="eventContent">
                   <div class="titleGroups"><%= truncate(groupsFollowing.title, length: 25) %></div>
@@ -602,7 +602,7 @@ $(function () {
                 <div class="creatorSign">
                   <div class="imageUserGroup">
                   
-                    <%= image_tag(groupsFollowing.user.avatar_url(:thumb), class: "userImage2") if groupsFollowing.user.avatar? %>
+                    <%= image_tag(groupsFollowing.user.avatar_url(:thumb), class: "userImage2", lazy: true) if groupsFollowing.user.avatar? %>
                   
                   </div>
                   <div class="contentUserPost">
@@ -783,7 +783,7 @@ $(function () {
 
 
                 <div class="eventImage">
-                  <%= image_tag(eventsFollowing.image_url, class: "groupImage1") if eventsFollowing.image? %>
+                  <%= image_tag(eventsFollowing.image_url, class: "groupImage1", lazy: true) if eventsFollowing.image? %>
                 </div>
                 <div class="eventContent1">
                   <div class="eventDateI"><%= eventsFollowing.event_date.strftime('%B %e') %></div>
@@ -808,7 +808,7 @@ $(function () {
                   <div class="creatorSign">
                     <% if eventsFollowing.group.present? %>
                     <div class="imageUserEvent">
-                      <%= image_tag(eventsFollowing.group.image_url(:thumb), class: "userImage2") if eventsFollowing.group.image? %>
+                      <%= image_tag(eventsFollowing.group.image_url(:thumb), class: "userImage2", lazy: true) if eventsFollowing.group.image? %>
                     </div>
 
                     <div class="contentUserPost">
@@ -817,7 +817,7 @@ $(function () {
 
                 <% else %>
                      <div class="imageUserEvent">
-                      <%= image_tag(eventsFollowing.user.avatar_url(:thumb), class: "userImage2") if eventsFollowing.user.avatar? %>
+                      <%= image_tag(eventsFollowing.user.avatar_url(:thumb), class: "userImage2", lazy: true) if eventsFollowing.user.avatar? %>
                     </div>
 
                     <div class="contentUserPost">
@@ -914,7 +914,7 @@ $(function () {
 
               <div class="elementBox boxGMod">
                 <div class="eventImage">
-                  <%= image_tag(groupsFollowing.image_url, class: "groupImage1") if groupsFollowing.image? %>
+                  <%= image_tag(groupsFollowing.image_url, class: "groupImage1", lazy: true) if groupsFollowing.image? %>
                 </div>
                 <div class="eventContent">
                   <div class="titleGroups"><%= truncate(groupsFollowing.title, length: 25) %></div>
@@ -923,7 +923,7 @@ $(function () {
                 <div class="creatorSign">
                   <div class="imageUserGroup">
                   
-                    <%= image_tag(groupsFollowing.user.avatar_url(:thumb), class: "userImage2") if groupsFollowing.user.avatar? %>
+                    <%= image_tag(groupsFollowing.user.avatar_url(:thumb), class: "userImage2", lazy: true) if groupsFollowing.user.avatar? %>
                   
                   </div>
                   <div class="contentUserPost">
@@ -1054,7 +1054,7 @@ $(function () {
             <% @collideInterests.each do |interestCollide| %>
                <div class="col-md-3 col-xs-6 noPad1">
                 <div class="interestCard">
-                  <%= image_tag(interestCollide.image_url(:thumb), class: "interestImage") if interestCollide.image? %>
+                  <%= image_tag(interestCollide.image_url(:thumb), class: "interestImage", lazy: true) if interestCollide.image? %>
                   <div class="interestTitleSec">
                     <div class="interestName"><%= interestCollide.name %></div>
                   
@@ -1071,6 +1071,15 @@ $(function () {
       </div>
     </div>
   </div>
+
+
+  <script type="text/javascript">
+  document.addEventListener("turbolinks:load", function() {
+      $("img").lazyload();
+    });
+
+
+  </script>
 
 
 
