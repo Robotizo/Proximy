@@ -18,6 +18,11 @@
 @import "bootstrap";
 @import "font-awesome";
 
+$nprogress-color: #6c95af;
+$nprogress-zindex: 10100;
+
+@import 'nprogress';
+@import 'nprogress-bootstrap';
 
 
 button.closeInts {
