@@ -14,6 +14,7 @@ Rails.application.config.assets.precompile += %w( jquery.pagepiling.js )
 Rails.application.config.assets.precompile += %w( jquery.pagepiling.min.js )
 Rails.application.config.assets.precompile += %w( datepicker.js )
 Rails.application.config.assets.precompile += %w( jquery.lazyload.js )
+Rails.application.config.assets.precompile += %w( jquery.lazy.js )
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.

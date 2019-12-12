@@ -10,6 +10,8 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="turbolinks-cache-control" content="no-cache">
+    <meta name="turbolinks-cache-control" content="no-preview">
+    
     <script>
       function openNav() {
         document.getElementById("mySidenav").style.width = "250px";
@@ -97,6 +99,11 @@
 
           </script>
 
+    <script>
+        Turbolinks.clearCache();
+    </script>
+
+
   </head>
 
   <body>
@@ -177,7 +184,7 @@
 
   </div> 
 
-      <%= link_to current_user, class: "specialA" do %>
+      <%= link_to current_user, method: :get, class: "specialA" do %>
       <% unless current_user.avatar.present? %>
         <div class="navTitleEnd1 ifMob1"><%= avatarNav_for(current_user) %></div>
       <% end %>
@@ -278,9 +285,12 @@
 
 <script type="text/javascript">
   
- 
 
 
+    document.addEventListener("turbolinks:click", function() {
+      $(".spinnerPage").fadeIn();
+      $("#theRest").css({"z-index": 99999, "display": "none"}).fadeTo(0, 0.5);
+    });
 
 
     document.addEventListener("turbolinks:load", function() {

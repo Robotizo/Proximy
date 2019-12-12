@@ -29,7 +29,7 @@
 
 <div class="backButton">
   <%= link_to 'javascript:history.back()' do %>
-        <%= image_tag("left-arrow.png", class: "leftArrow") %>
+        <%= image_tag("left-arrow.png", size: "54x54", class: "leftArrow") %>
   <% end %>
 </div>
 
@@ -620,7 +620,17 @@ $(function () {
 
 
 
-
+<script>
+  if(!window.reloadTimer) {
+    var SECONDS = 30;
+    window.reloadTimer=setTimeout(function(){
+      console.log("Reload!");
+      window.reloadTimer=undefined;
+        Turbolinks.visit(location.toString(),{action: "replace"});
+    }, SECONDS * 1000);
+    document.addEventListener("turbolinks:visit",function() {clearTimeout(window.reloadTimer);window.reloadTimer=undefined;});
+  }
+</script>
 
 
 

@@ -1,6 +1,7 @@
 <%= stylesheet_link_tag "users", :media => "all" %>
-<%= javascript_include_tag 'users', 'data-turbolinks-track': 'reload' %>
-<%= javascript_include_tag( 'jquery.lazy.min.js' ) %>
+<%= javascript_include_tag 'users' %>
+<%= javascript_include_tag( 'jquery.lazy.js' ) %>
+
 
 <% if flash[:notice] %>
 <div class="alert alert-success" role="alert">
@@ -24,11 +25,13 @@
 
 </style>
 
+
 <!-- Profile Intro Begin -->
 
 <div class="backButton">
   <%= link_to 'javascript:history.back()' do %>
         <%= image_tag("left-arrow.png", size: "54x54", class: "leftArrow") %>
+
   <% end %>
 </div>
 
@@ -45,8 +48,7 @@
 
 
 
-      <%= image_tag(@user.image_url, class: "userImageCover", lazy: true) if @user.image? %>
-
+  <%= image_tag(@user.image_url, class: "userImageCover") if @user.image? %>
 
 
 
@@ -59,7 +61,7 @@
  
         <%= avatar_for(@user) %>
  
-        <%= image_tag(@user.avatar_url(:thumb),  class: "userImage1", lazy: true) if @user.avatar? %>
+        <%= image_tag(@user.avatar_url(:thumb),  class: "userImage1") if @user.avatar? %>
       </div>
       <div class="userSec1">
         <div class="userName">
@@ -469,6 +471,8 @@ $(function () {
       <div class="titleSec">Events</div>
 
   
+
+
   
         <% if !@eventsFollow.empty? %>
 
@@ -485,10 +489,13 @@ $(function () {
 
 
           <span class="col-md-6 userEvents mobileVE">
-            <%= link_to eventsFollowing, class: "specialA" do %>
+            <%= link_to eventsFollowing, method: :get, class: "specialA" do %>
             <div class="elementBox">
                 <div class="eventImage">
-                  <%= image_tag(eventsFollowing.image_url,  class: "groupImage1", lazy: true) if eventsFollowing.image? %>
+    
+    <%= image_tag("rolling.gif", class: "groupImage1 lazy", data: { src: image_path(eventsFollowing.image_url) } ) if eventsFollowing.image? %>
+ 
+
                 </div>
                 <div class="eventContent1">
                   <div class="eventDateI"><%= eventsFollowing.event_date.strftime('%B %e') %></div>
@@ -511,7 +518,7 @@ $(function () {
                   <div class="creatorSign">
                     <% if eventsFollowing.group.present? %>
                     <div class="imageUserEvent">
-                      <%= image_tag(eventsFollowing.group.image_url(:thumb), class: "userImage2", lazy: true) if eventsFollowing.group.image? %>
+                      <%= image_tag(eventsFollowing.group.image_url(:thumb), class: "userImage2") if eventsFollowing.group.image? %>
                     </div>
 
                     <div class="contentUserPost">
@@ -520,7 +527,7 @@ $(function () {
 
                 <% else %>
                      <div class="imageUserEvent">
-                      <%= image_tag(eventsFollowing.user.avatar_url(:thumb), class: "userImage2", lazy: true) if eventsFollowing.user.avatar? %>
+                      <%= image_tag(eventsFollowing.user.avatar_url(:thumb), class: "userImage2") if eventsFollowing.user.avatar? %>
                     </div>
 
                     <div class="contentUserPost">
@@ -599,10 +606,15 @@ $(function () {
 
 
           <span class="col-md-4 userEvents mobileVG">
-            <%= link_to groupsFollowing, class: "specialA" do %>
+            <%= link_to groupsFollowing, method: :get, class: "specialA" do %>
               <div class="elementBox boxGMod">
                 <div class="eventImage">
-                  <%= image_tag(groupsFollowing.image_url,  class: "groupImage1") if groupsFollowing.image? %>
+                
+
+
+
+
+  <%= image_tag("rolling.gif", class: "groupImage1 lazy", data: { src: image_path(groupsFollowing.image_url) } ) if groupsFollowing.image? %>
                 </div>
                 <div class="eventContent">
                   <div class="titleGroups"><%= truncate(groupsFollowing.title, length: 25) %></div>
@@ -610,8 +622,8 @@ $(function () {
                 <% if groupsFollowing.user.present? %>
                 <div class="creatorSign">
                   <div class="imageUserGroup">
-                  
-                    <%= image_tag(groupsFollowing.user.avatar_url(:thumb), class: "userImage2") if groupsFollowing.user.avatar? %>
+      <%= image_tag("rolling.gif", class: "userImage2 lazy", data: { src: image_path(groupsFollowing.user.avatar_url(:thumb)) } ) if groupsFollowing.user.avatar? %>
+        
                   
                   </div>
                   <div class="contentUserPost">
@@ -1084,16 +1096,22 @@ $(function () {
 
 
 <script type="text/javascript">
-  
+document.addEventListener("turbolinks:load", function() {
 
-   $(document).on('turbolinks:load', function () {
-        $("img").lazyload({
-            effect : "show"
+    $(function() {
+        $('.lazy').lazy({
         });
     });
 
+});
 
 </script>
+
+
+
+
+
+
 <script>
     $('#postModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
