@@ -218,7 +218,7 @@
 
 <!--Start-->
 
-<%= link_to notifications_path, method: :get,class: "specialA dispNone" do %>
+<%= link_to notifications_path, class: "specialA dispNone" do %>
     <div class="navTitleEnd1 <%= 'activeNav' if current_page?(notifications_path) %>">
        
           <%= image_tag("notifications.png", class: "ImageNav") %>   
@@ -231,7 +231,7 @@
 
 
     
-    <%= link_to groups_path, method: :get, class: "specialA dispNone" do %>
+    <%= link_to groups_path, class: "specialA dispNone" do %>
        <div class="navTitleEnd1 <%= 'activeNav' if current_page?(groups_path) or current_page?(mygroups_groups_path) %>">
          <%= (image_tag("groups.png", class: "ImageNav"))  %>
       </div>
@@ -239,13 +239,13 @@
 
 
 
-  <%= link_to events_path, method: :get, class: "specialA dispNone" do %>
+  <%= link_to events_path, class: "specialA dispNone" do %>
     <div class="navTitleEnd1 <%= 'activeNav' if current_page?(events_path) or current_page?(myevents_events_path) %>">
       <%= (image_tag("event.png", class: "ImageNav")) %>
     </div>
   <% end %>
 
-<%= link_to root_path,method: :get, class: "specialA dispNone" do %>
+<%= link_to root_path, class: "specialA dispNone" do %>
     <div class="navTitleEnd1 <%= 'activeNav' if current_page?(root_path) %>">
        
          <%= (image_tag("home.png", class: "ImageNav")) %>
