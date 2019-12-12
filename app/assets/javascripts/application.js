@@ -22,3 +22,14 @@
 //= require nprogress-turbolinks
 //= require jquery.lazyload
 
+
+
+  $(document).ready(function() {
+
+    NProgress.configure({
+      showSpinner: true,
+      ease: 'ease',
+      speed: 500
+    });
+  });
+
