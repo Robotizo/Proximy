@@ -20,4 +20,5 @@
 //= require materialize
 //= require nprogress
 //= require nprogress-turbolinks
+//= require jquery.lazyload
 
