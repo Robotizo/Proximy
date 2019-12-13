@@ -1,7 +1,9 @@
 <%= stylesheet_link_tag "users", :media => "all" %>
 <%= javascript_include_tag 'users' %>
 <%= javascript_include_tag( 'jquery.lazy.js' ) %>
-
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/placeholder-loading/dist/css/placeholder-loading.min.css">
+</head>
 
 <% if flash[:notice] %>
 <div class="alert alert-success" role="alert">
@@ -48,10 +50,8 @@
 
 
 
-  <%= image_tag(@user.image_url, class: "userImageCover") if @user.image? %>
 
-
-
+<%= image_tag("wheel.gif", class: "userImageCover lazy", data: { src: image_path(@user.image_url) } ) if @user.image? %>
 
 
 
@@ -61,7 +61,11 @@
  
         <%= avatar_for(@user) %>
  
-        <%= image_tag(@user.avatar_url(:thumb),  class: "userImage1") if @user.avatar? %>
+
+        <%= image_tag("wheel.gif", class: "userImage1 lazy", data: { src: image_path(@user.avatar_url(:thumb)) } ) if @user.avatar? %>
+
+
+
       </div>
       <div class="userSec1">
         <div class="userName">
@@ -470,7 +474,6 @@ $(function () {
     <div class="eventsSection">
       <div class="titleSec">Events</div>
 
-  
 
 
   
@@ -488,12 +491,12 @@ $(function () {
   
 
 
-          <span class="col-md-6 userEvents mobileVE">
+          <span class="col-md-6 ph-col-6 userEvents mobileVE">
             <%= link_to eventsFollowing, method: :get, class: "specialA" do %>
             <div class="elementBox">
                 <div class="eventImage">
     
-    <%= image_tag("rolling.gif", class: "groupImage1 lazy", data: { src: image_path(eventsFollowing.image_url) } ) if eventsFollowing.image? %>
+    <%= image_tag("wheel.gif", class: "groupImage1 lazy", data: { src: image_path(eventsFollowing.image_url) } ) if eventsFollowing.image? %>
  
 
                 </div>
@@ -518,7 +521,8 @@ $(function () {
                   <div class="creatorSign">
                     <% if eventsFollowing.group.present? %>
                     <div class="imageUserEvent">
-                      <%= image_tag(eventsFollowing.group.image_url(:thumb), class: "userImage2") if eventsFollowing.group.image? %>
+
+<%= image_tag("wheel.gif", class: "userImage2 lazy", data: { src: image_path(eventsFollowing.group.image_url) } ) if eventsFollowing.group.image? %>
                     </div>
 
                     <div class="contentUserPost">
@@ -614,7 +618,7 @@ $(function () {
 
 
 
-  <%= image_tag("rolling.gif", class: "groupImage1 lazy", data: { src: image_path(groupsFollowing.image_url) } ) if groupsFollowing.image? %>
+  <%= image_tag("wheel.gif", class: "groupImage1 lazy", data: { src: image_path(groupsFollowing.image_url) } ) if groupsFollowing.image? %>
                 </div>
                 <div class="eventContent">
                   <div class="titleGroups"><%= truncate(groupsFollowing.title, length: 25) %></div>
@@ -622,7 +626,7 @@ $(function () {
                 <% if groupsFollowing.user.present? %>
                 <div class="creatorSign">
                   <div class="imageUserGroup">
-      <%= image_tag("rolling.gif", class: "userImage2 lazy", data: { src: image_path(groupsFollowing.user.avatar_url(:thumb)) } ) if groupsFollowing.user.avatar? %>
+      <%= image_tag("wheel.gif", class: "userImage2 lazy", data: { src: image_path(groupsFollowing.user.avatar_url(:thumb)) } ) if groupsFollowing.user.avatar? %>
         
                   
                   </div>
@@ -1096,14 +1100,15 @@ $(function () {
 
 
 <script type="text/javascript">
-document.addEventListener("turbolinks:load", function() {
+ document.addEventListener("turbolinks:load", function() {
 
     $(function() {
         $('.lazy').lazy({
+          delay: 1000
         });
     });
-
 });
+
 
 </script>
 

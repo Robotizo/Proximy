@@ -1,9 +1,47 @@
 /*// Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+
+
+.timeline-item {
+    background: #fff;
+    border: 1px solid;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    border-radius: 3px;
+    padding: 12px;
+
+    margin: 0 auto;
+    max-width: 472px;
+    min-height: 200px;
+}
+
+@keyframes placeHolderShimmer{
+    0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+}
+
+.animated-background {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+    background-size: 800px 104px;
+    height: 96px;
+    position: relative;
+}
+
+
  img.lazy {
 
-        display: block;
+        display: inline-block;
 
     }
 
@@ -1448,6 +1486,7 @@ body {
   width: 140px;
   box-shadow: 0px 0px 4px 0px #6f6f6f;
   object-fit: cover;
+  display: inline-block;
 }
 
 .mainField {
@@ -1530,9 +1569,11 @@ body {
 
 /* CARDS */
 img.userImage2 {
-  height: 35px;
-  border-radius: 10px;
-  margin-right: 2px;
+    height: 35px;
+    border-radius: 10px;
+    width: 35px;
+    margin-right: 2px;
+    object-fit: cover;
 }
 
 /* BOOTSTRAP */
@@ -2206,6 +2247,7 @@ body {
   height: 200px;
   object-fit: cover;
   border-radius: 10px 10px 0px 0px;
+  display: block;
 }
 
 .connArea {

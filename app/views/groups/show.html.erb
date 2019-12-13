@@ -29,7 +29,7 @@
 
 <div class="backButton">
   <%= link_to 'javascript:history.back()' do %>
-        <%= image_tag("left-arrow.png", size: "54x54", class: "leftArrow") %>
+        <%= image_tag("left-arrow.png", class: "leftArrow") %>
   <% end %>
 </div>
 
@@ -442,7 +442,7 @@ $(function () {
 
       <span class="col-md-3 text-center mobileVU">
 
-      <%= link_to groupFollower, class: "specialA" do %>
+      <%= link_to groupFollower, method: :get, class: "specialA" do %>
   
         <div class="followersSec">
         
@@ -619,18 +619,6 @@ $(function () {
 
 
 
-
-<script>
-  if(!window.reloadTimer) {
-    var SECONDS = 30;
-    window.reloadTimer=setTimeout(function(){
-      console.log("Reload!");
-      window.reloadTimer=undefined;
-        Turbolinks.visit(location.toString(),{action: "replace"});
-    }, SECONDS * 1000);
-    document.addEventListener("turbolinks:visit",function() {clearTimeout(window.reloadTimer);window.reloadTimer=undefined;});
-  }
-</script>
 
 
 

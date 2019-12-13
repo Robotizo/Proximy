@@ -176,11 +176,13 @@ border: 0px !important;
 
 
 .leftArrow{
-    height: 54px;
+  display: block;
+  height: 54px;
+  width: 54px;
+
     padding: 10px;
 
 }
-
 
 .backButton{
     float: left;
