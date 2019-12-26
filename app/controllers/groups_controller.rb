@@ -36,17 +36,34 @@ class GroupsController < ApplicationController
 
 
 
+  def follow
+    @user = current_user
+    followingGroupsIds = @user.followingG.map(&:id)
+    @groupsFollow = Group.find(params = followingGroupsIds).sort_by &:updated_at
+    render :layout => false
+  end
+
+
+
   def mygroups
     @user = current_user
     followingGroupsIds = @user.followingG.map(&:id)
     @groupsFollow = Group.find(params = followingGroupsIds).sort_by &:updated_at
     @user_groups = @user.groups
+
+    respond_to do |format|
+      format.html # show_rec_horses.html.erb
+      format.js   # show_rec_horses.js.erb
+    end
   end 
 
 
   # GET /groups
   # GET /groups.json
   def index
+
+
+
 
     @groups = Group.all.sort_by {|group| group.groupsInterest(current_user)}.reverse
     @user = current_user
@@ -56,6 +73,14 @@ class GroupsController < ApplicationController
 
     @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
     @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
+
+
+    respond_to do |format|
+      format.html # show_rec_horses.html.erb
+      format.js   # show_rec_horses.js.erb
+    end
+
+
 
   end
 

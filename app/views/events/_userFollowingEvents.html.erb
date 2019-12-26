@@ -28,7 +28,7 @@ $(function () {
                   <div class="eventContentDisc">
                     <div class="eventDateDisc"><%= event.event_date.strftime('%B %e') %></div>
                   </div>
-                  <div class="groupTitleDisc"><%= truncate(event.title, length: 35) %></div>
+                  <div class="eventTitleDisc"><%= truncate(event.title, length: 35) %></div>
   
                 </div>
               <% end %>

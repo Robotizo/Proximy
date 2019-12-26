@@ -1,0 +1,4 @@
+$('#menu').html('<%=j render partial: 'groups/groupsMenu' %>')
+$('#joined').html('<%=j render partial: 'groups/userFollowingGroups' %>').show() 
+$('#discover').hide()
+window.history.pushState(null, null, "/groups/mygroups");

@@ -2,6 +2,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user
   before_action :authorize
+  after_action :set_vary_header
+
+  
 
 
 
@@ -11,6 +14,27 @@ class ApplicationController < ActionController::Base
     	Friendship.create!(user_id: current_user.id, friend_id: @friendship.user_id, status: "accepted")
     	redirect_to @friendship.user, notice: 'You are now friends'
   	end
+
+
+
+  	def groups
+
+	    @groups = Group.all.sort_by {|group| group.groupsInterest(current_user)}.reverse
+	    @user = current_user
+
+	    followingGroupsIds = @user.followingG.map(&:id)
+	    @groupsFollow = Group.find(params = followingGroupsIds).sort_by &:updated_at
+
+	    @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
+	    @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
+
+
+	    respond_to do |format|
+	      format.html # show_rec_horses.html.erb
+	      format.js   # show_rec_horses.js.erb
+	    end
+
+  	end 
 
   	
 
@@ -25,6 +49,13 @@ class ApplicationController < ActionController::Base
 	      	session[:user_id] = user.id
 	      	user
 	    end
+
+
+	    def set_vary_header
+		    if request.xhr?
+		      response.headers["Vary"] = "accept"
+		    end
+  		end
 
 
     protected

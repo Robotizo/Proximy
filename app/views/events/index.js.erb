@@ -1,0 +1,4 @@
+$('#discoverEvents').html('<%=j render partial: 'events/events', locals: { events: @events } %>').show()
+$('#discover').hide()
+$('#yield').hide()
+window.history.pushState(null, null, "/events");

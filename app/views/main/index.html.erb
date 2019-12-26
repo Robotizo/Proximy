@@ -1,7 +1,6 @@
 <%= stylesheet_link_tag 'main', media: 'all' %>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 
@@ -372,20 +371,6 @@ $(document).ready(function(){
 <% end %>   
 
 
-<script>
-jQuery(window).on('load', function(){ var $ = jQuery;
-      var elem = document.querySelector('.grid');
-      var msnry = new Masonry(elem, {
-          // options
-          columnWidth: '.grid-sizer',
-          itemSelector: '.grid-item',
-          percentPosition: true,
-          gutter: 10,
-          horizontalOrder: true,
-          stagger: 30
-      });
-});
-</script>
 
 
 

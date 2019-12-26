@@ -9,16 +9,25 @@ $(function () {
   }
 });
 </script>
-    
+
+
+
+
+
 
 
   <div class="scrollMembersEvents deskVE">
-        <% @groupsFollow.last(8).each do |group| %>
+        <% @groupsFollow.first(8).each do |group| %>
 
           <span class="col-md-3 mobileVE testMarge">
             <%= link_to group, method: :get, class: "specialA" do %>
               <div class="elementBox">
-                <%= image_tag(group.image_url(:group), class: "groupImageDisc") if group.image? %>
+
+
+             <%= image_tag("wheel.gif", class: "groupImageDisc lazy", data: { src: image_path(group.image_url(:group)) } ) if group.image? %>
+
+
+
                 <div class="eventContent">
                   <div class="titleGroups"><%= truncate(group.title, length: 20) %></div>
                 </div>
@@ -48,6 +57,11 @@ $(function () {
 </div>
 
 
+
+
+
+
+
     <div class="modal fade" id="user-following" tabindex="-1">
         <button type="button" class="closeInts" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -58,7 +72,7 @@ $(function () {
           <div class="grid" id="masonry">
             <div class="grid-sizer"></div>
 
-        <% @groupsFollow.last(8).each do |group| %>
+        <% @groupsFollow.each do |group| %>
 
           <div class="col-md-3 col-xs-12 testMarge">
             <%= link_to group, method: :get, class: "specialA" do %>
@@ -84,6 +98,26 @@ $(function () {
       </div>
     </div>
   </div>
+
+
+
+
+
+<script type="text/javascript">
+
+    $(function() {
+        $('.lazy').lazy({
+        });
+    });
+
+
+
+</script>
+
+
+
+
+
 
 
 

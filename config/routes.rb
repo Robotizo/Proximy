@@ -72,6 +72,8 @@
 
 
 
+  get 'main/test'
+
 
 
   get 'sessions/new'

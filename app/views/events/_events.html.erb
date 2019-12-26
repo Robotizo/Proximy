@@ -4,14 +4,14 @@
           <% if Date.today <= event.event_date %>
 
             <div class="col-md-4 col-xs-12 testMarge">
-              <%= link_to event, method: :get, class: "specialA" do %>
+              <%= link_to event, class: "specialA" do %>
                 <div class="elementBox">
-                  <%= image_tag(event.image_url(:event), class: "groupImageDisc", lazy: true) if event.image? %>
+                  <%= image_tag(event.image_url(:event), class: "groupImageDisc" ) if event.image? %>
                   <div class="eventContentDisc">
                     <div class="eventDateDisc"><%= event.event_date.strftime('%B %e') %></div>
                   </div>
-                  <div class="groupTitleDisc"><%= truncate(event.title, length: 35) %></div>
-                    <div class="sharedInts">
+                  <div class="eventTitleDisc"><%= truncate(event.title, length: 35) %></div>
+                    <div class="sharedIntsEvents">
                       <%= collide.count %> Shared interests
                     </div>
                 </div>
@@ -23,6 +23,3 @@
 
 
 
-          <script type="text/javascript">
-             $("img").lazyload();
-          </script>
