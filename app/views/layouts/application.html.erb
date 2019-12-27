@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no " />
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
 
 <html>
   <head>
@@ -8,11 +8,8 @@
     
     <%= favicon_link_tag asset_path('faviconF.ico') %>
    
-
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-
-
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     
     <script>
@@ -115,12 +112,40 @@
 
 
 
+<script type="text/javascript">
+  
+    $( document ).ready(function() {
 
+      $(".spinnerPage").hide();
+
+
+    $(document).on("turbolinks:click", function(){
+      $(".spinnerPage").show();
+      $("#theRest").css({"z-index": 99999, "display": "none"}).fadeTo(0, 0.5);
+    });
+
+
+    $(document).on("turbolinks:load", function(){
+      $(".spinnerPage").hide();
+      $("#theRest").css({"display": "block"}).fadeTo(0, 1);
+    });
+});
+
+    
+
+
+</script>
 
 
 
 
 <div id="clickable" onclick="closeNav()">
+
+    <div class="spinnerPage">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
 <div id="theRest" >
 
 
@@ -139,6 +164,23 @@
 
 
 
+
+<script type="text/javascript">
+
+   $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+
+        var currTabTarget = $(e.target).attr('href');
+        var remoteUrl = $(this).attr('data-tab-remote');
+        var loadedOnce = $(this).data('loaded');
+        window.history.pushState(null, null, remoteUrl);
+        if (remoteUrl !== '' && !loadedOnce) {
+            $(currTabTarget).load(remoteUrl)
+            $(this).data('loaded',true);
+        }
+    })
+
+
+</script>
 
     <div id="mySidenav2" class="sidenav2">
 

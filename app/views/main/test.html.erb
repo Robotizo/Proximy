@@ -2,9 +2,8 @@
 
 
 
-
 <div class="container">
-  <ul class="nav nav-tabs" style="border-right:solid" id="tabs">
+  <ul class="nav nav-tabs"  id="tabs">
       <li><a href="#tab2" data-toggle="tab" data-tab-remote="/events">Events</a></li>
       <li><a href="#tab3" data-toggle="tab" data-tab-remote="/groups">Groups</a></li>
   </ul>            
@@ -28,9 +27,10 @@
 
 <script type="text/javascript">
 
-   $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
-        var currTabTarget = $(e.target).attr('href');
 
+   $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+
+        var currTabTarget = $(e.target).attr('href');
         var remoteUrl = $(this).attr('data-tab-remote');
         var loadedOnce = $(this).data('loaded');
         window.history.pushState(null, null, remoteUrl);
