@@ -1947,6 +1947,13 @@ div.scrollEvents{
 }
 
 @media screen and (max-width: 776px){
+
+  .groupImageDisc{
+    border-radius: 10px 10px 0px 0px;
+    width: 100%;
+    height: auto;
+    background-color: white;  
+  }
   .sharedInts{
     font-size: 10px;
   }

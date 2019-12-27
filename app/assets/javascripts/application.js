@@ -17,7 +17,5 @@
 //= require_tree .
 //= require cable
 //= require popper
-//= require nprogress
-//= require nprogress-turbolinks
 
 
