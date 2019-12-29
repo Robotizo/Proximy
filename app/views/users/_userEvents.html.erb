@@ -1,0 +1,120 @@
+
+   
+<script type="text/javascript">
+$(function () { 
+  if ($(window).width() < 960) {
+     $(".mobileVE").removeClass("col-md-6");
+     $(".mobileVE").removeClass("userEvents");
+
+  }
+  else {
+    $(".deskVE").removeClass("scrollMembersEvents");
+  }
+});
+</script>
+
+
+
+
+      <div class="titleSec">Events</div>
+
+
+
+  
+        <% if !@eventsFollow.empty? %>
+
+
+
+
+
+<div class="scrollMembersEvents deskVE">
+  
+
+          <% @eventsFollow.last(4).each do |eventsFollowing| %>
+          
+  
+
+
+          <span class="col-md-6  userEvents mobileVE">
+            <%= link_to eventsFollowing, class: "specialA" do %>
+            <div class="elementBox">
+                <div class="eventImage">
+
+
+                  <%= image_tag(eventsFollowing.image_url, class: "groupImage1") if eventsFollowing.image? %>
+
+    
+
+                </div>
+                <div class="eventContent1">
+                  <div class="eventDateI"><%= eventsFollowing.event_date.strftime('%B %e') %></div>
+                </div>
+                <div class="eventOverall">
+                  <div class="eventContent">
+                    <div class="titleGroups"><%= truncate(eventsFollowing.title, length: 30) %></div>
+                  </div>
+
+             
+
+
+<!-- Add a hosted by -->
+
+
+
+
+
+
+                  <div class="creatorSign">
+                    <% if eventsFollowing.group.present? %>
+                    <div class="imageUserEvent">
+
+
+                 <%= image_tag(eventsFollowing.group.image_url, class: "userImage2") if eventsFollowing.group.image? %>
+
+                    </div>
+
+                    <div class="contentUserPost">
+                      <span class="poster"><%= truncate(eventsFollowing.group.title, length: 30) %></span>
+                    </div>
+
+                <% else %>
+                     <div class="imageUserEvent">
+                      <%= image_tag(eventsFollowing.user.avatar_url(:thumb), class: "userImage2") if eventsFollowing.user.avatar? %>
+                    </div>
+
+                    <div class="contentUserPost">
+                      <span class="poster"><%= eventsFollowing.user.name %></span>
+                    </div>
+                <% end %>
+                  </div>
+
+
+
+
+
+                </div>
+            </div>
+
+
+            <% end %>
+
+
+            </span>
+
+
+
+
+          <% end %>
+</div>
+
+
+
+
+
+
+
+        <% else %>
+          <div class="noFollowSec">
+            <div class="noFollowSecText">No current events have been joined</div>
+          </div>
+        <% end %>

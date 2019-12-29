@@ -14,6 +14,7 @@
 </div>
 <% end %>
 
+
 <style type="text/css">
   
 .interestImage{
@@ -29,13 +30,13 @@
 
 
 <!-- Profile Intro Begin -->
-
 <div class="backButton">
   <%= link_to 'javascript:history.back()' do %>
         <%= image_tag("left-arrow.png", size: "54x54", class: "leftArrow") %>
 
   <% end %>
 </div>
+
 
 <div class="container noPad3">
 <div class="col-md-4 col-xs-12 scrollNorm">
@@ -51,7 +52,7 @@
 
 
 
-<%= image_tag("wheel.gif", class: "userImageCover lazy", data: { src: image_path(@user.image_url) } ) if @user.image? %>
+      <%= image_tag(@user.image_url, class: "userImageCover") if @user.image? %>
 
 
 
@@ -60,9 +61,8 @@
       <div class="userImageSec1">
  
         <%= avatar_for(@user) %>
- 
 
-        <%= image_tag("wheel.gif", class: "userImage1 lazy", data: { src: image_path(@user.avatar_url(:thumb)) } ) if @user.avatar? %>
+        <%= image_tag(@user.avatar_url(:thumb), class: "userImage1") if @user.avatar? %>
 
 
 
@@ -454,131 +454,82 @@
 <% if @user.friends.include?(current_user) or @user == current_user %>
 
 
-<script type="text/javascript">
-$(function () { 
-  if ($(window).width() < 960) {
-     $(".mobileVE").removeClass("col-md-6");
-     $(".mobileVE").removeClass("userEvents");
-
-  }
-  else {
-    $(".deskVE").removeClass("scrollMembersEvents");
-  }
-});
-</script>
-
 
 <!-- Event Section Start -->
 
 
-    <div class="eventsSection">
-      <div class="titleSec">Events</div>
 
+<div class="eventsSection">
+  <div class="titleSec">Events</div>
 
+<div class="ph-item">
+    <div class="ph-col-6 marginSkeleton">
+      <div class="boxEventSkeleton">
+        <div class="ph-picture"></div>
+        <div class="ph-row">
+          <div class="ph-col-6 big"></div>
+        </div>
+        <div class="ph-row">
+          <div class="userIcon"></div>
+        </div>
+      </div>
+    </div>
+    <div class="ph-col-6 marginSkeleton">
+      <div class="boxEventSkeleton">
+        <div class="ph-picture"></div>
+        <div class="ph-row">
+          <div class="ph-col-6 big"></div>
+        </div>
+        <div class="ph-row">
+          <div class="userIcon"></div>
+        </div>
+      </div>
+    </div>
 
-  
-        <% if !@eventsFollow.empty? %>
+    <div class="ph-col-6 marginSkeleton">
+      <div class="boxEventSkeleton">
+        <div class="ph-picture"></div>
+        <div class="ph-row">
+          <div class="ph-col-6 big"></div>
+        </div>
+        <div class="ph-row">
+          <div class="userIcon"></div>
+        </div>
+      </div>
+    </div>
+    <div class="ph-col-6 marginSkeleton">
+      <div class="boxEventSkeleton">
+        <div class="ph-picture"></div>
+        <div class="ph-row">
+          <div class="ph-col-6 big"></div>
+        </div>
+        <div class="ph-row">
+          <div class="userIcon"></div>
+        </div>
+      </div>
+    </div>
 
-
-
-
-
-<div class="scrollMembersEvents deskVE">
-  
-
-          <% @eventsFollow.each do |eventsFollowing| %>
-          
-  
-
-
-          <span class="col-md-6 ph-col-6 userEvents mobileVE">
-            <%= link_to eventsFollowing, method: :get, class: "specialA" do %>
-            <div class="elementBox">
-                <div class="eventImage">
-    
-    <%= image_tag("wheel.gif", class: "groupImage1 lazy", data: { src: image_path(eventsFollowing.image_url) } ) if eventsFollowing.image? %>
- 
-
-                </div>
-                <div class="eventContent1">
-                  <div class="eventDateI"><%= eventsFollowing.event_date.strftime('%B %e') %></div>
-                </div>
-                <div class="eventOverall">
-                  <div class="eventContent">
-                    <div class="titleGroups"><%= truncate(eventsFollowing.title, length: 30) %></div>
-                  </div>
-
-             
-
-
-<!-- Add a hosted by -->
-
-
-
-
-
-
-                  <div class="creatorSign">
-                    <% if eventsFollowing.group.present? %>
-                    <div class="imageUserEvent">
-
-<%= image_tag("wheel.gif", class: "userImage2 lazy", data: { src: image_path(eventsFollowing.group.image_url) } ) if eventsFollowing.group.image? %>
-                    </div>
-
-                    <div class="contentUserPost">
-                      <span class="poster"><%= truncate(eventsFollowing.group.title, length: 30) %></span>
-                    </div>
-
-                <% else %>
-                     <div class="imageUserEvent">
-                      <%= image_tag(eventsFollowing.user.avatar_url(:thumb), class: "userImage2") if eventsFollowing.user.avatar? %>
-                    </div>
-
-                    <div class="contentUserPost">
-                      <span class="poster"><%= eventsFollowing.user.name %></span>
-                    </div>
-                <% end %>
-                  </div>
-
-
-
-
-
-                </div>
-            </div>
-
-
-            <% end %>
-
-
-            </span>
-
-
-
-
-          <% end %>
 </div>
 
 
-
-
-
-      </div>
-
-
-
-        <% else %>
-          <div class="noFollowSec">
-            <div class="noFollowSecText">No current events have been joined</div>
-          </div>
-        <% end %>
-
+</div>
 
 <!-- Event Section End -->
 
 
 
+ <script>
+    $( document ).ready(function() {
 
+      function load_partial() {     
+        $("div.eventsSection").replaceWith('<%= escape_javascript(render partial: 'userEvents') %>');
+                                          }
+
+                        setTimeout(load_partial)
+
+      });
+
+  </script>
 
 
 <script type="text/javascript">
@@ -597,61 +548,6 @@ $(function () {
 
 <!-- Group Section Start -->
 
-
-    <div class="groupSection">
-      <div class="titleSec">Groups</div>
-
-
-    <div class="scrollMembersEvents deskVG">
-
-     
-        <% if !@groupsFollow.empty? %>
-          <% @groupsFollow.reverse.each do |groupsFollowing| %>
-
-
-          <span class="col-md-4 userEvents mobileVG">
-            <%= link_to groupsFollowing, method: :get, class: "specialA" do %>
-              <div class="elementBox boxGMod">
-                <div class="eventImage">
-                
-
-
-
-
-  <%= image_tag("wheel.gif", class: "groupImage1 lazy", data: { src: image_path(groupsFollowing.image_url) } ) if groupsFollowing.image? %>
-                </div>
-                <div class="eventContent">
-                  <div class="titleGroups"><%= truncate(groupsFollowing.title, length: 25) %></div>
-                </div>
-                <% if groupsFollowing.user.present? %>
-                <div class="creatorSign">
-                  <div class="imageUserGroup">
-      <%= image_tag("wheel.gif", class: "userImage2 lazy", data: { src: image_path(groupsFollowing.user.avatar_url(:thumb)) } ) if groupsFollowing.user.avatar? %>
-        
-                  
-                  </div>
-                  <div class="contentUserPost">
-                    <span class="poster"><%= truncate(groupsFollowing.user.name, length: 30) %></span>
-                  </div>
-                </div>
-                <% end %>
-              </div>
-            <% end %>
-            </span>
-
-
-
-          <% end %>
-        <% else %>
-          <div class="noFollowSec">
-            <div class="noFollowSecText">No groups have been joined</div>
-          </div>
-        <% end %>
-   
-        </div>
-
-
-    </div>
 
 <!-- Group Section End -->
 
@@ -1097,19 +993,6 @@ $(function () {
     </div>
   </div>
 
-
-
-<script type="text/javascript">
-
-
-    $(function() {
-        $('.lazy').lazy({
-        });
-    });
-
-
-
-</script>
 
 
 

@@ -73,7 +73,7 @@
 
   </div> 
 
-      <%= link_to current_user, method: :get, class: "specialA" do %>
+      <%= link_to current_user,  class: "specialA" do %>
       <% unless current_user.avatar.present? %>
         <div class="navTitleEnd1 ifMob1"><%= avatarNav_for(current_user) %></div>
       <% end %>
@@ -102,7 +102,7 @@
 
 
 
-  <%= link_to notifications_path, method: :get, class: "specialA dispNone" do %>
+  <%= link_to notifications_path, class: "specialA dispNone" do %>
       <div class="navTitleEnd1 <%= 'activeNav' if current_page?(notifications_path) %>">
          
             <%= image_tag("notifications.png", class: "ImageNav") %>   

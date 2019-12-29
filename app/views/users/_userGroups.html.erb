@@ -1,0 +1,61 @@
+
+    <div class="groupSection">
+      <div class="titleSec">Groups</div>
+
+
+    <div class="scrollMembersEvents deskVG">
+
+     
+        <% if !@groupsFollow.empty? %>
+          <% @groupsFollow.reverse.last(6).each do |groupsFollowing| %>
+
+
+          <span class="col-md-4 userEvents mobileVG">
+            <%= link_to groupsFollowing, class: "specialA" do %>
+              <div class="elementBox boxGMod">
+                <div class="eventImage">
+                
+
+
+
+
+                 <%= image_tag(groupsFollowing.image_url, class: "groupImage1") if groupsFollowing.image? %>
+
+                </div>
+                <div class="eventContent">
+                  <div class="titleGroups"><%= truncate(groupsFollowing.title, length: 25) %></div>
+                </div>
+                <% if groupsFollowing.user.present? %>
+                <div class="creatorSign">
+                  <div class="imageUserGroup">
+
+
+                      <%= image_tag(groupsFollowing.user.avatar_url, class: "userImage2") if groupsFollowing.user.avatar? %>
+
+
+
+        
+                  
+                  </div>
+                  <div class="contentUserPost">
+                    <span class="poster"><%= truncate(groupsFollowing.user.name, length: 30) %></span>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+            <% end %>
+            </span>
+
+
+
+          <% end %>
+        <% else %>
+          <div class="noFollowSec">
+            <div class="noFollowSecText">No groups have been joined</div>
+          </div>
+        <% end %>
+   
+        </div>
+
+
+    </div>
