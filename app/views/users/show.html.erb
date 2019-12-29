@@ -519,15 +519,16 @@
 
 
  <script>
-    $( document ).ready(function() {
-
       function load_partial() {     
-        $("div.eventsSection").replaceWith('<%= escape_javascript(render partial: 'userEvents') %>');
-                                          }
+            $("div.eventsSection").replaceWith('<%= escape_javascript(render partial: 'userEvents') %>');
+                          }
 
-                        setTimeout(load_partial)
 
-      });
+$(window).load(function(){
+      load_partial()
+
+  });
+
 
   </script>
 
