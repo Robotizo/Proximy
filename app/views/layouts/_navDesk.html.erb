@@ -73,7 +73,7 @@
 
   </div> 
 
-      <%= link_to current_user,  class: "specialA" do %>
+      <%= link_to current_user, turbolinks: true, class: "specialA" do %>
       <% unless current_user.avatar.present? %>
         <div class="navTitleEnd1 ifMob1"><%= avatarNav_for(current_user) %></div>
       <% end %>
