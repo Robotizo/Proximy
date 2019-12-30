@@ -2,6 +2,34 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+.marginSkeleton{
+  margin-bottom: 30px !important;
+}
+
+.boxEventSkeleton{
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+}
+
+
+.big{
+     margin-left: 8px !important
+
+}
+
+
+
+.userIcon{
+  height: 35px !important;
+  width: 35px !important;
+  border-radius: 10px;
+   margin-left: 8px !important;
+}
+
+.ph-item{
+  border: 0px solid #e6e6e6 !important;
+
+}
 
 
 

@@ -5,6 +5,9 @@
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/placeholder-loading/dist/css/placeholder-loading.min.css">
+</head>
 
 <style type="text/css">
 @media screen and (max-width: 776px){
@@ -32,9 +35,65 @@
 
       <h2 class="topTitle2">Discover Groups</h2>
 
-      <div class="complete">
 
-          <%= render "groups" %>
+
+      <div class="groups">
+
+      
+
+      <div class="ph-item">
+          <div class="ph-col-3 marginSkeleton">
+            <div class="boxEventSkeleton">
+              <div class="ph-picture"></div>
+              <div class="ph-row">
+                <div class="ph-col-8 big"></div>
+              </div>
+              <div class="ph-row">
+                <div class="ph-col-6 big"></div>
+              </div>
+            </div>
+          </div>
+          <div class="ph-col-3 marginSkeleton">
+            <div class="boxEventSkeleton">
+              <div class="ph-picture"></div>
+              <div class="ph-row">
+                <div class="ph-col-8 big"></div>
+              </div>
+              <div class="ph-row">
+                <div class="ph-col-6 big"></div>
+              </div>
+    
+            </div>
+          </div>
+
+          <div class="ph-col-3 marginSkeleton">
+            <div class="boxEventSkeleton">
+              <div class="ph-picture"></div>
+              <div class="ph-row">
+                <div class="ph-col-8 big"></div>
+              </div>
+              <div class="ph-row">
+                <div class="ph-col-6 big"></div>
+              </div>
+      
+            </div>
+          </div>
+          <div class="ph-col-3 marginSkeleton">
+            <div class="boxEventSkeleton">
+              <div class="ph-picture"></div>
+              <div class="ph-row">
+                <div class="ph-col-8 big"></div>
+              </div>
+              <div class="ph-row">
+                <div class="ph-col-6 big"></div>
+              </div>
+            </div>
+          </div>
+
+
+      </div>
+
+
           
       </div>
 
@@ -46,6 +105,29 @@
   </div>
 
 
+
+ <script>
+
+
+      function load_partial() {     
+            $("div.groups").replaceWith('<%= escape_javascript(render partial: 'groups') %>');
+          }
+
+
+$(document).on("turbolinks:load", function(){
+      
+  
+
+      load_partial()
+
+    
+
+
+  });
+
+
+
+  </script>
 
 
 

@@ -519,6 +519,9 @@
 
 
  <script>
+
+
+
       function load_partial() {     
             $("div.eventsSection").replaceWith('<%= escape_javascript(render partial: 'userEvents') %>');
                           }
@@ -530,9 +533,11 @@ $(document).on("turbolinks:load", function(){
 
       load_partial()
 
-      $(".ph-item").hide();
+  
 
   });
+
+
   </script>
 
 
