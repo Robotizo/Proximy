@@ -35,7 +35,7 @@
 
 
 
-<%= link_to method: :get, class: "specialA navElement" do %>
+<%= link_to current_user, method: :get, class: "specialA navElement" do %>
   <div class="menuSec"> 
             <span class="menuElements">
               <%= image_tag("user.png", class: "ImageNavB") %>
@@ -73,7 +73,7 @@
 
   </div> 
 
-      <%= link_to current_user, method: :get,, class: "specialA" do %>
+      <%= link_to current_user, method: :get, class: "specialA" do %>
       <% unless current_user.avatar.present? %>
         <div class="navTitleEnd1 ifMob1"><%= avatarNav_for(current_user) %></div>
       <% end %>
