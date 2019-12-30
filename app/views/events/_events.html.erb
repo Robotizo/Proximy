@@ -4,7 +4,7 @@
           <% if Date.today <= event.event_date %>
 
             <div class="col-md-4 col-xs-12 testMarge">
-              <%= link_to event, class: "specialA" do %>
+              <%= link_to event, method: :get, class: "specialA" do %>
                 <div class="elementBox">
                   <%= image_tag(event.image_url(:event), class: "groupImageDisc", lazy: true) if event.image? %>
                   <div class="eventContentDisc">

@@ -25,7 +25,7 @@
 
 
 		          <% unless friend.friend.avatar.present? %>
-		            <%= avatarDiscover_for(friend) %>
+		            <%= avatarDiscover_for(@user) %>
 		          <% end %>
 		          <%= image_tag(friend.friend.avatar_url(:thumb), class: "peopleImage") if friend.friend.avatar? %>
 

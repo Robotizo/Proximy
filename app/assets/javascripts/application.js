@@ -18,5 +18,8 @@
 //= require cable
 //= require popper
 //= require jquery.lazyload
+//= require nprogress
+//= require nprogress-turbolinks
+
 
 
