@@ -8,7 +8,7 @@
             <div class="elementBox">
 
 
-<%= image_tag(group.image_url(:group), class: "groupImageDisc" ) if group.image? %>
+<%= image_tag(group.image_url(:group), class: "groupImageDisc", lazy: true) if group.image? %>
 
               <div class="eventContent">
                 <div class="titleGroups"><%= truncate(group.title, length: 20) %></div>

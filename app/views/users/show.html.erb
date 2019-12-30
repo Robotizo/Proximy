@@ -50,9 +50,7 @@
       <%= image_for(@user) %>
 
 
-
-<%= image_tag("wheel.gif", class: "userImageCover lazy", data: { src: image_path(@user.image_url) } ) if @user.image? %>
-
+        <%= image_tag(@user.image_url, class: "userImageCover", lazy: true) %>
 
 
     </div>
@@ -61,8 +59,9 @@
  
         <%= avatar_for(@user) %>
 
-<%= image_tag("wheel.gif", class: "userImage1 lazy", data: { src: image_path(@user.avatar_url(:thumb)) } ) if @user.avatar? %>
 
+
+        <%= image_tag(@user.avatar_url(:thumb), class: "userImage1", lazy: true) %>
 
 
       </div>
@@ -448,19 +447,7 @@
 
 <!-- Area of work start -->
 
-
-
-<% if @user.friends.include?(current_user) or @user == current_user %>
-
-
-
-<!-- Event Section Start -->
-
-
-
-<div class="eventsSection">
-  <div class="titleSec">Events</div>
-
+<!--
 <div class="ph-item">
     <div class="ph-col-6 marginSkeleton">
       <div class="boxEventSkeleton">
@@ -510,6 +497,23 @@
 
 </div>
 
+-->
+
+<% if @user.friends.include?(current_user) or @user == current_user %>
+
+
+
+<!-- Event Section Start -->
+
+
+
+<div class="eventsSection">
+
+
+
+<%= render "userEvents" %>
+
+
 
 </div>
 
@@ -517,52 +521,14 @@
 
 
 
- <script>
-
-
-
-      function load_partial() {     
-            $("div.eventsSection").replaceWith('<%= escape_javascript(render partial: 'userEvents') %>');
-                          }
-
-
- $("img").ready(function () {
-      
-      load_partial()
-
-  });
-
-
-  </script>
-
-  <script type="text/javascript">
-
-    $(document).ready(function () {
-        $('.lazy').lazy();
-    });
-
-
-
-</script>
-
-
-
-<script type="text/javascript">
-$(function () { 
-  if ($(window).width() < 960) {
-     $(".mobileVG").removeClass("col-md-4");
-     $(".mobileVG").removeClass("userEvents");
-
-  }
-  else {
-    $(".deskVG").removeClass("scrollMembersEvents");
-  }
-});
-</script>
-
 
 <!-- Group Section Start -->
+    <div class="groupSection">
 
+
+<%= render "userGroups" %>
+
+          </div>
 
 <!-- Group Section End -->
 
@@ -1007,7 +973,6 @@ $(function () {
       </div>
     </div>
   </div>
-
 
 
 

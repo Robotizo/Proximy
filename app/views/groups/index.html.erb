@@ -38,8 +38,62 @@
 
 
       <div class="groups">
+        <%= render "groups" %>
+          
+      </div>
 
+
+    </div>
+
+
+
+  </div>
+
+
+<!--
+ <script>
+
+
+
+      function load_partial() {     
+            $("div.groups").replaceWith('<%= escape_javascript(render partial: 'groups') %>');
+                          }
+
+
+ $("img").ready(function () {
       
+      load_partial()
+
+  });
+
+
+  </script>
+
+
+=->
+
+
+
+
+
+
+
+</div>
+<div class="col-md-12 col-xs-12">
+  
+<br>
+<br>
+<br>
+<br>
+
+
+
+</div>
+
+
+
+
+      <!--
 
       <div class="ph-item">
           <div class="ph-col-3 marginSkeleton">
@@ -92,63 +146,7 @@
 
 
       </div>
-
-
-          
-      </div>
-
-
-    </div>
-
-
-
-  </div>
-
-
-
- <script>
-
-
-
-      function load_partial() {     
-            $("div.groups").replaceWith('<%= escape_javascript(render partial: 'groups') %>');
-                          }
-
-
- $("img").ready(function () {
-      
-      load_partial()
-
-  });
-
-
-  </script>
-
-
-
-
-
-
-
-
-
-
-</div>
-<div class="col-md-12 col-xs-12">
-  
-<br>
-<br>
-<br>
-<br>
-
-
-
-</div>
-
-
-
-
-
+-->
 
 
 

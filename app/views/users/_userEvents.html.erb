@@ -41,7 +41,7 @@ $(function () {
                 <div class="eventImage">
 
 
-                  <%= image_tag(eventsFollowing.image_url, class: "groupImage1") if eventsFollowing.image? %>
+                  <%= image_tag(eventsFollowing.image_url, class: "groupImage1", lazy: true) if eventsFollowing.image? %>
 
     
 

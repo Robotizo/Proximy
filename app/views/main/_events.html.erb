@@ -28,7 +28,7 @@ $(function () {
       <span class="col-md-4 testMarge mobileVE">
         <%= link_to event, class: "specialA" do %>
           <div class="elementBox">
-            <%= image_tag(event.image_url(:event), class: "groupImageDisc") if event.image? %>
+            <%= image_tag(event.image_url(:event), class: "groupImageDisc", lazy: true) if event.image? %>
               <div class="eventContentDisc">
                 <div class="eventDateDisc"><%= event.event_date.strftime('%B %e') %></div>
               </div>

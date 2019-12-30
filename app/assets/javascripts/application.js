@@ -17,5 +17,6 @@
 //= require_tree .
 //= require cable
 //= require popper
+//= require jquery.lazyload
 
 

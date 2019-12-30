@@ -48,7 +48,7 @@
 
     <div class="innerModule">
     <div class="imageSec">
-      <%= image_tag(@event.image_url, class: "eventImageDisplay") if @event.image? %>
+      <%= image_tag(@event.image_url, class: "eventImageDisplay", lazy: true) if @event.image? %>
       <div class="eventImgTitle">
         <div class="eventTitleImg"><%= @event.title %></div>
       </div>
@@ -356,7 +356,7 @@ $(function () {
 
 
 
-      <%= link_to eventFollower, method: :get, class: "specialA" do %>
+      <%= link_to eventFollower,  class: "specialA" do %>
   
         <div class="followersSec">
         

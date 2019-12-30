@@ -1,5 +1,19 @@
 
-    <div class="groupSection">
+
+
+<script type="text/javascript">
+$(function () { 
+  if ($(window).width() < 960) {
+     $(".mobileVG").removeClass("col-md-4");
+     $(".mobileVG").removeClass("userEvents");
+
+  }
+  else {
+    $(".deskVG").removeClass("scrollMembersEvents");
+  }
+});
+</script>
+ 
       <div class="titleSec">Groups</div>
 
 
@@ -19,7 +33,7 @@
 
 
 
-                 <%= image_tag(groupsFollowing.image_url, class: "groupImage1") if groupsFollowing.image? %>
+                 <%= image_tag(groupsFollowing.image_url, class: "groupImage1", lazy: true) if groupsFollowing.image? %>
 
                 </div>
                 <div class="eventContent">
@@ -57,5 +71,3 @@
    
         </div>
 
-
-    </div>
