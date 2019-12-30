@@ -46,11 +46,11 @@
 
 <div class="innerModule">
 
-    <%= image_tag(@group.cover_image_url, class: "groupImageCover") if @group.cover_image? %>
+    <%= image_tag(@group.cover_image_url, class: "groupImageCover", lazy: true) if @group.cover_image? %>
   <div class="titleInfo">
     <div class="col-md-12 col-xs-12 connArea">
       <div class="groupImageSec1">
-        <%= image_tag(@group.image_url(:thumb),  class: "groupImage1") if @group.image? %>
+        <%= image_tag(@group.image_url(:thumb),  class: "groupImage1", lazy: true) if @group.image? %>
       </div>
     </div>
     <div class="groupInfoSec">
