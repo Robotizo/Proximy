@@ -109,22 +109,17 @@
  <script>
 
 
+
       function load_partial() {     
-            $("div.groups").replaceWith('<%= escape_javascript(render partial: 'groups') %>');
-          }
+            $("div.eventsSection").replaceWith('<%= escape_javascript(render partial: 'userEvents') %>');
+                          }
 
 
-$(document).on("turbolinks:load", function(){
+ $("img").ready(function () {
       
-  
-
       load_partial()
 
-    
-
-
   });
-
 
 
   </script>
