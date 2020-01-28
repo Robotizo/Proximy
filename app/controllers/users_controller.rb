@@ -88,10 +88,6 @@ class UsersController < ApplicationController
     @latTest = params[:lat]
 
 
-    if current_user.is_admin == false or current_user.is_admin == nil
-      redirect_to root_path
-    end
-
   end
 
   # GET /users/1 
