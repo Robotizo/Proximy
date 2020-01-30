@@ -3,6 +3,210 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+.lp_outside_title_2{
+
+  width: 100%;
+  text-align: center;
+  font-weight: 3600;
+  font-size: 38px;
+  margin-bottom: 4rem;
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+
+
+.lp_app_icons{
+  height: 100px;
+
+}
+
+
+.friendsInDiscover{
+    font-size: 10px;
+    font-weight: 900;
+    margin: 5px 6px;
+    text-align: left;
+    color: #48D996;
+}
+
+/* Landing Page Start */
+
+.testMargeMoreMain{
+  font-weight: 900;
+    font-size: 16px;
+    position: relative;
+    top: -70px;
+}
+
+.logoFooter{
+  height: 60px;
+  width: 60px;
+
+}
+.lp_footer_content{
+  max-width: 81%;
+      padding-top: 5rem;
+}
+
+.lp_footer{
+
+  float: left;
+  width: 100%;
+  height: 230px;
+      border-top: 1px solid #0000001a;
+}
+
+
+.lp_logo{
+  height: 65px;
+}
+.lp_sub_text_2{
+  margin: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 300;
+
+}
+.lp_title_sub{
+font-size: 30px;
+    font-weight: 500;
+    letter-spacing: -1px;
+    text-align: center;
+    margin-top: 145px;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+.lp_section{
+    margin-top: 7em;
+    margin-bottom: 7em;
+    float: left;
+    width: 100%;
+}
+.lp_container{
+  margin-left: 30px !important;
+  margin-right: 30px !important;
+}
+.lp_sub_text{
+  margin: 15px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+
+}
+.lp_sub_title{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+}
+.lp_image_area_sub{
+  float: left;
+  width: 39%;
+}
+
+.lp_main_image {
+    height: 85vh;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.lp_tet{
+  width: 100%;
+      -o-object-fit: cover;
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: initial;
+    border-radius: 30px !important;
+  
+}
+
+.lp_main{
+    padding-bottom: 5rem;
+}
+
+.lp_area_column{
+  padding: 0px 35px;
+}
+
+.lp_additional_padding{
+  padding: 20px 35px; 
+}
+
+.lp_outside_title_1{
+
+  width: 100%;
+  text-align: center;
+  font-weight: 3600;
+  font-size: 38px;
+  margin-bottom: 6rem;
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+
+.lp_outside_sub_1{
+    font-size: 20px;
+  width: 100%;
+  text-align: center;
+  font-weight: 400;
+}
+
+.lp_text_within{
+  position: relative;
+  bottom: 150px;
+  /* left: 40%; */
+  font-size: 30px;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding-left: 45px;
+  padding-right: 45px;
+      font-weight: 800;
+
+}
+.lp_2{
+    height: 320px;
+    width: 100%;
+
+    -o-object-fit: cover;
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: initial;
+    border-radius: 10px !important;
+    box-shadow: 0px 0px 4px 0px #e2e2e2;
+}
+
+.lp_3{
+    height: 411px;
+    width: 100%;
+
+    -o-object-fit: cover;
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: initial;
+    border-radius: 10px !important;
+    box-shadow: 0px 0px 11px 0px #b7b7b7;
+}
+
+
+
+/* Landing Page End */
+
+
+
+
+
+
+
+
 div.scrollMembersEvents {
     overflow: auto;
     white-space: nowrap;
@@ -1986,6 +2190,9 @@ img.userImage2 {
   display: none;
 }
 
+  .mobile_lp{
+    display: none !important;
+  }
 
 /* Specific scalling events HS */
 @media screen and (max-width: 776px){
@@ -2013,6 +2220,7 @@ img.userImage2 {
 
 
 @media screen and (max-width: 776px){
+
   .groupTitleDisc{
     top: -70px;
     height: 60px;
@@ -2328,6 +2536,35 @@ img.userImage2 {
 
 
 @media screen and (max-width: 776px){
+
+  .switchPos{
+      display: flex;
+  flex-direction: column-reverse;
+  }
+  .lp_section{
+    margin-bottom: 0em;
+
+  }
+  .lp_title_sub{
+        font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -1px;
+    text-align: center;
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+  .lp_3{
+    height: auto;
+  }
+
+  .lp_logo{
+    height: 40px;
+  }
+
+
+
   .testMarge{
     padding: 0px;
   }

@@ -1,0 +1,320 @@
+/*// Place all the styles related to the Chats controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+
+
+
+.imageSent{
+  border-radius: 15px;
+  outline: none !important;
+}
+
+
+img.emoji {
+    width: 36px !important;
+    height: 70px !important;
+}
+
+.emoji {
+    padding: 17px 0px !important;
+}
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+  .chat__main--sub-section {
+
+    float: left;
+  }
+
+.chat__main--wrapper {
+  float: left;
+  width: 100%;
+  
+
+
+}
+
+
+  .chat__contact--panel {
+
+
+
+    border-right: 1px solid rgba(0, 0, 0, .10);
+ 
+    padding-left: 5px;
+    padding-right: 5px;
+
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    /* height: 100%; */
+    padding-left: 5px;
+    padding-right: 5px;
+
+    /* width: 150px; */
+    top: 55px;
+    bottom: 0;
+    width: 25%;
+    float: left;
+
+    position: fixed;
+    overflow-y: scroll;
+
+
+
+  }
+  
+
+    .chat__contact--element {
+      width: 100%;
+      padding: 10px;
+      cursor: pointer;
+      float: left;
+      border-radius: 11px;
+      transition: box-shadow .3s;
+    }
+    
+    .is-active { 
+      background: #e1e8ef;
+    }
+    
+    .is-new-message {
+      border: 1px solid red;
+    }
+
+
+
+
+  .chat__message--panel {
+    width: 75%;
+    float: left;
+
+    position: fixed;
+    overflow-y: scroll;
+    left: 25%;
+    height: 100vh;
+
+
+  }
+
+
+
+    #messages{
+      width: 75%;
+      height: calc(100% - 115px);
+      overflow:scroll;
+      position: fixed;
+
+      padding-left: 15px;
+      padding-right: 15px;
+      top: 55px;
+
+    }
+
+.contactMargin{
+  margin-top: 10px;
+}
+
+.messageField{
+
+
+  float: left;
+     position: fixed;
+    overflow-y: scroll;
+  
+
+  bottom: 0px;
+  background-color: white;
+  width: 75%;
+}
+
+
+
+
+.uploadItems{
+  float: left;
+  width: 20%;
+}
+
+
+.messageForm{
+  float: left;
+  width: 70%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.form-control{
+  width: 100% !important;
+  resize: none;
+}
+
+.form-control:focus{
+  outline: none;
+    box-shadow: 0px 0px 0px 0px !important;
+    background-color: #7ea5c01c;
+    border-bottom: 0px !important;
+
+}
+
+
+
+
+.userImageMessage{
+  border-radius: 8px 8px 8px 8px;
+  height: 30px;
+  width: 30px;
+  object-fit: cover;
+  display: inline-block;
+}
+
+
+
+
+.sendButton{
+  width: 10%;
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+.form-group{
+  margin-bottom: 0px !important;
+}
+
+label{
+  margin-bottom: 0px !important;
+}
+
+
+
+
+
+.form__input-body{
+      max-height: 200px;
+      padding: 10px !important;
+      font-size: 16px;
+
+
+
+}
+
+.message{
+  width: 100%;
+      flex-direction: column;
+          margin: 50px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.imageSent{
+  height: 300px;
+  object-fit: contain;
+}
+
+
+
+
+
+.senderMessage{
+  background-color: #619bc1;
+  padding: 15px;
+  border-radius: 15px 15px 0px 15px;
+      color: white;
+}
+
+.senderMessageAJAX{
+    background-color: #619bc1;
+  border-radius: 15px 15px 0px 15px;
+      color: white;
+}
+
+.receiverMessage{
+    background-color: #f1f0f0;
+        color: black;
+  padding: 15px;
+  border-radius: 15px 15px 15px 0px;
+
+}
+
+
+.emoji-menu{
+      top: -250px !important;
+      left: -95px !important;
+}
+
+
+
+
+
+.emoji-picker-icon {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    font-size: 28px;
+    opacity: 0.9;
+    z-index: 100;
+    -webkit-transition: none;
+    transition: none;
+    color: #6d95af;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

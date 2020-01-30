@@ -2,7 +2,120 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+.testMargeInterest{
+  padding: 20px 20px 20px 20px;
+  box-shadow: 0px 0px 4px 0px #e2e2e2;
+  border-radius: 8px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
 
+.panel-group .panel + .panel{
+  margin-top: 10px !important;
+}
+
+  .friendsInDiscover{
+    font-size: 14px;
+    padding: 0px 5px;
+    color: #48D996;
+    font-weight: 900;
+  }
+
+  .panel-heading {
+    height: 50px;
+    position: sticky;
+    top: 55px;
+    z-index: 90 !important;
+    padding-top: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px; 
+
+  }
+
+  .panel-heading:nth-of-type(1){
+    background-color: white;
+  }
+
+  .panel-heading:nth-of-type(2){
+     background-color: white;
+  }
+
+  .panel-heading:nth-of-type(3){
+     background-color: white;
+  }
+
+
+
+/* Messaging Edits Start */
+
+.fileBtnDiv, .form-control{
+      margin: 10px 0px !important;
+}
+.col_4{
+  width: 33.3333333%;
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+}
+
+.iconImageMessage{
+  height: 45px;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px 0px;
+  outline: none !important;
+    box-shadow: 0px 0px 4px 0px #e2e2e2;
+    transition: box-shadow .3s;
+}
+
+.iconImageMessage:hover{
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
+
+.proximyName{
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 900;
+}
+.proximyLogo{
+  text-align: center;
+  padding: 40px;
+  float: left;
+  width: 100%;
+
+}
+
+.userNameChat{
+  font-size: 16px;
+  font-weight: 900;
+  float: left;
+  width: 100%;
+  margin-top: 12px
+}
+
+
+.oneThird{
+  width: 30%;
+    padding-left: 0px;
+    padding-right: 0px;
+    float: left;
+}
+
+
+.userImageChat{
+  border-radius: 8px 8px 8px 8px;
+  height: 100px;
+  width: 100px;
+  box-shadow: 0px 0px 4px 0px #6f6f6f;
+  object-fit: cover;
+  display: inline-block;
+}
+
+
+/* Messaginng Edits End */
 
 
 .marginSkeleton{
@@ -2273,6 +2386,7 @@ body {
   box-shadow: 0px 0px 4px 0px #e2e2e2;
   border-radius: 11px;
   background-color: #f3f7fb;
+  width: 100%;
 }
 
 .innerModuleAvatar {
@@ -2293,9 +2407,13 @@ body {
 .connArea {
   position: relative;
   top: -81px;
+
 }
 
-
+.connArea2{
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
 .addImage {
   height: 40px;
   float: right;
@@ -2750,25 +2868,6 @@ div.scrollMembersInterests .seeMore {
     color: white;
     font-weight: 900;
     text-align: left;
-  }
-  .panel-heading {
-    height: 50px;
-    position: sticky;
-    top: 0px;
-    z-index: 90 !important;
-    padding-top: 10px;
-  }
-
-  .panel-heading:nth-of-type(1){
-    background-color: white;
-  }
-
-  .panel-heading:nth-of-type(2){
-     background-color: white;
-  }
-
-  .panel-heading:nth-of-type(3){
-     background-color: white;
   }
 
 
