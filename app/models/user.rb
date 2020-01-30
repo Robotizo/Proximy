@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include Clearance::User
 
   validates :name, presence: true
   validates :last_name, presence: true
@@ -8,8 +9,6 @@ class User < ApplicationRecord
   validates :password, allow_nil: true, length: { minimum: 6 }, confirmation: true, on: :update
   before_validation { self.email = self.email.downcase }
 
-
-  before_create :confirmation_token
 
 
 
@@ -23,8 +22,6 @@ class User < ApplicationRecord
 
 
 
-
-  has_secure_password
   mount_uploader :avatar, AvatarUploader
   mount_uploader :image, ImageUploader 
 

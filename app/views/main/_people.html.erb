@@ -14,7 +14,16 @@
           <% end %>
           <%= image_tag(user.avatar_url(:thumb), class: "userImg", lazy: true) if user.avatar? %>
           <div class="followerNameSec"><%= truncate(user.name.gsub(/\s.+/, '')) %></div>
-          <div class="followerNameSec2"><%= collide.count %> shared interests</div>
+
+
+          <% if current_user.friends.include?(user) %>
+            <div class="friendsInDiscover">Already friends</div>
+          <% else %>
+            <div class="followerNameSec2"><%= collide.count %> shared interests</div>
+          <% end %>
+
+          
+          
         </div>
 
 
@@ -25,10 +34,16 @@
       <% end %>
 
     <% end %>
-  <%= link_to discover_users_path, method: :get, class: "specialA" do %>
-        <%= image_tag("plus.png", class: "viewAll") %>
-  <% end %>
 
 
+    <span class="mobileVE testMargeMoreMain">
+          <%= link_to discover_users_path, class: "specialA" do %>
+          <div class="testMargeIn">
+            
+              ...
+            
+          </div>
+          <% end %>
+      </span>
 
   </div>

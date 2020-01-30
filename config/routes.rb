@@ -3,6 +3,8 @@
 
 
 
+  get 'chats/index'
+
   resources :event_comments
   resources :group_comments
   resources :comments
@@ -102,7 +104,15 @@
 
   resources :relationships, only: [:create, :destroy]
 
-    
+    resource :session,
+      controller: 'sessions',
+      only: [:create]
+
+
+get '/sign_in' => 'sessions#new', :as => nil
+
+
+
 
   root to: 'main#index'
 
@@ -110,9 +120,9 @@
 
   resources :users
 
-
-
   mount ActionCable.server => '/cable'
+  
+  get 'chats/list_messages/:id', :to => 'chats#list_messages'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 

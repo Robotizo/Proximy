@@ -1,7 +1,6 @@
 class MainController < ApplicationController
-	skip_before_action :authorize
 	  def index
-	  	if session[:user_id] 
+	  	 if signed_in?
 	  		@user = current_user
 	  		@users = User.all.sort_by {|user| user.userInterests(current_user) + user.ccLocation(current_user.latitude, current_user.longitude) }.reverse
 	  		

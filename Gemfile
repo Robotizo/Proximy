@@ -18,8 +18,15 @@ gem "lazyload-rails"
 
 
 
+# Use clearance for simple auth without devise
+gem 'clearance', '~> 1.16'
 
 
+
+# Use shrine for message attachments upload
+gem 'shrine', '~> 2.6'
+
+gem 'rails_emoji_picker'
 
 
 

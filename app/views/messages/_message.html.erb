@@ -1,11 +1,62 @@
-   <div class="item">
-    <div class="content">
-     <div class="header"><strong><%= message.user.name %></strong>     <%= message.message_time %></div>
-      <div class="list">
-       <div class="item">
-        <i class="right triangle icon"></i>
-         <%= message.body %>
-      </div>
-    </div>
-   </div>
- </div>
+<%= stylesheet_link_tag "chats", :media => "all" %>
+
+
+
+
+
+<% if current_user == message.sender %>
+
+
+  <div class="message align-right">
+
+
+    <% if message.attachment_data? %>
+    <% else %>
+      <span class="senderMessage">
+    <% end %>
+
+
+<% else %>
+
+
+
+  <div class="message align-left">
+
+  <% if message.attachment_data? %>
+    <% else %>
+      <span class="receiverMessage">
+    <% end %>
+
+
+<% end %>
+
+
+  <%= content_with_emoji(message.body) %>
+<!--
+  <br>
+  <small>at <%= l message.created_at, format: :short %></small>
+
+-->
+</span>
+
+
+
+  <% if message.attachment_data? %>
+    <br>
+    <% if message.attachment.metadata['mime_type'].include? 'image' %>
+      <%= link_to message.attachment.url, target: '_blank', class: "specialA" do %>
+        <img src="<%= message.attachment.url %>" alt="" class="imageSent">
+      <% end %>
+    <% end %>
+    
+    <% if message.attachment.metadata['mime_type'].include? 'video' %>
+      <video  controls class="imageSent">
+        <source src="<%= message.attachment.url %>" type="<%= message.attachment.metadata['mime_type'] %>">
+      </video>
+      <br>
+    <% end %>
+    
+    <br/>
+  <% end %>
+
+</div>

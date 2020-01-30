@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user
-  before_action :authorize
   after_action :set_vary_header
+  include Clearance::Controller
 
   
 
@@ -42,15 +41,6 @@ class ApplicationController < ActionController::Base
 
 
     private 
-	    def current_user 
-	     	User.find(session[:user_id])
-	    rescue ActiveRecord::RecordNotFound
-	     	user = User.create
-	      	session[:user_id] = user.id
-	      	user
-	    end
-
-
 	    def set_vary_header
 		    if request.xhr?
 		      response.headers["Vary"] = "accept"
@@ -58,10 +48,4 @@ class ApplicationController < ActionController::Base
   		end
 
 
-    protected
-	  	def authorize
-	  		unless User.find_by(id: session[:user_id])
-	  			redirect_to root_url
-	  		end
-	  	end
 end

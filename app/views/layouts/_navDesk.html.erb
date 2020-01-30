@@ -8,7 +8,7 @@
         <% end %>
       </div>
 
-    <% if session[:user_id] %>
+    <%  if signed_in? %>
 
 
 
@@ -19,7 +19,8 @@
           <%= link_to "Settings", edit_user_path(current_user), class: "dropItem" %>
         </li>
         <li>
-            <%= link_to "Log Out", logout_path, method: :delete, data: {confirm: 'Are you sure?'}%>
+            <%= link_to "Log Out", sign_out_path, method: :delete, data: {confirm: 'Are you sure?'}%>
+      
         </li>
         <li>
             <%= link_to "Feedback", new_feedback_path %>
@@ -114,18 +115,11 @@
     <% end %>
 
 
-      
-      <%= link_to groups_path, turbolinks: true, class: "specialA dispNone" do %>
-         <div class="navTitleEnd1 <%= 'activeNav' if current_page?(groups_path) or current_page?(mygroups_groups_path) %>">
-           <%= (image_tag("groups.png", class: "ImageNav"))  %>
-        </div>
-       <% end %>
 
 
-
-    <%= link_to events_path,turbolinks: true, class: "specialA dispNone" do %>
-      <div class="navTitleEnd1 <%= 'activeNav' if current_page?(events_path) or current_page?(myevents_events_path) %>">
-        <%= (image_tag("event.png", class: "ImageNav")) %>
+    <%= link_to chats_index_path, method: :get, class: "specialA dispNone" do %>
+      <div class="navTitleEnd1 <%= 'activeNav' if current_page?(chats_index_path)  %>">
+        <%= (image_tag("chat.png", class: "ImageNav")) %>
       </div>
     <% end %>
 

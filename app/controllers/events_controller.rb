@@ -43,6 +43,7 @@ class EventsController < ApplicationController
     followingEventsIds = @user.followingE.map(&:id)
     @eventsFollow = Event.find(params = followingEventsIds).sort_by &:event_date
     @user_events = @user.events.order(:event_date)
+    @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
   end 
 
   # GET /events

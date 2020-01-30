@@ -18,14 +18,14 @@
 
 	<% @userFriendships.each do |invFriends| %>
 	<% unless invFriends.status == "accepted" %>
-	 <% collide = current_user.followingI.ids & invFriends.user.followingI.ids %>
+     <% collide = current_user.followingI.ids & invFriends.user.followingI.ids %>
  		<%= link_to invFriends.user, method: :get, class: "specialA" do %>
 		<div class="col-md-2 col-xs-6 noPad8PX " >
 	     <div class="elementBoxPpl">
 
 
           <% unless invFriends.user.avatar.present? %>
-            <%= avatarDiscover_for(user) %>
+            <%= avatarDiscover_for(@user) %>
           <% end %>
           <%= image_tag(invFriends.user.avatar_url(:thumb), class: "peopleImage") if invFriends.user.avatar? %>
 

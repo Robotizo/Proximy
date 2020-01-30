@@ -1,5 +1,4 @@
 class RelationshipsController < ApplicationController
-	before_action :authorize
 
 
 	def create

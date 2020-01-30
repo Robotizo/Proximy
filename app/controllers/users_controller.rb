@@ -42,19 +42,19 @@ class UsersController < ApplicationController
   end
 
   def interestsMenu
-    if session[:user_id]
+    if signed_in?
       @user = current_user
     end
   end
 
   def location
-    if session[:user_id]
+    if signed_in?
       @user = current_user
     end
   end
 
   def avatar
-    if session[:user_id]
+    if signed_in?
       @user = current_user
     end
   end
@@ -87,6 +87,10 @@ class UsersController < ApplicationController
     @user = current_user
     @latTest = params[:lat]
 
+
+    if current_user.is_admin == false or current_user.is_admin == nil
+      redirect_to root_path
+    end
 
   end
 

@@ -4,15 +4,7 @@
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 
-<script>
-$(document).ready(function(){
-  $(".centerDiv").hide();
-  $(".button2").click(function(){
-    $(".junk").fadeOut("slow");
-    $(".centerDiv").fadeIn("slow");
-  });
-});
-</script>
+
 
 
 
@@ -22,118 +14,12 @@ $(document).ready(function(){
 <body >
 <!-- Posted by artist bottom right -->
 
-  <% if !session[:user_id] %>
+  <% if !signed_in? %>
   <%= stylesheet_link_tag "sessions", :media => "all" %>
 
-    <script>document.body.className += ' fade-out';</script>
-
-  <script>
-    
-
-
-    $(function() {
-        $('body').removeClass('fade-out');
-    });
 
 
 
-    
-  </script>
-
-  <style type="text/css">
-    html {
-      background-color: black;
-    }
-    body {
-      opacity: 1;
-      transition: 1s opacity;
-      visibility: visible;
-    }
-    body.fade-out {
-        opacity: 0;
-        transition: none;
-    } 
-
-
-  </style>
-
-
-
-  <%= javascript_include_tag( 'jquery.pagepiling.js' ) %>
-  <%= javascript_include_tag( 'jquery.pagepiling.min.js' ) %>
-  <%= stylesheet_link_tag 'jquery.pagepiling.css' %>
-
-  <script type="text/javascript">
-      $(document).ready(function() {
-        if (window.innerWidth > 776) {
-          $('#pagepiling').pagepiling();
-        }
-        else{
-
-        }
-        
-      });
-  </script>
-
-  <style>
-    {
-      margin-top: 0px !important;
-      margin-bottom: 0px !important;
-    }
-
-
-    .topNav{
-      display: none;
-    }
-
-
-
-    .slide1 {
-
-            background-size: cover;
-          animation:fade 30s infinite;
-      -webkit-animation:fade 30s infinite;
-
-      } 
-
-
-
-    .slide2 {
-      background: url('<%= asset_path 'front2.jpg' %>')no-repeat center;
-          background-size: cover;
-        animation:fade2 30s infinite;
-    -webkit-animation:fade2 30s infinite;
-    }
-    .slide3 {
-        background: url('<%= asset_path 'front3.jpg' %>')no-repeat center;
-          background-size: cover;
-        animation:fade3 30s infinite;
-    -webkit-animation:fade3 30s infinite;
-    }
-
-      #pagepiling{
-        display: block !important;
-      }
-
-      .simple{
-        display: none !important;
-      }
-
-    @media screen and (max-width: 776px){
-      .bottomNav{
-        display: none;
-      }
-
-      #pagepiling{
-        display: none !important;
-      }
-
-      .simple{
-        display: block !important;
-      }
-    }
-
-  </style>
 
       
   <%= render "landingPage" %>
@@ -148,7 +34,7 @@ $(document).ready(function(){
 
 
 
-  <% if session[:user_id] %>
+ <% if signed_in? %>
 
 
 

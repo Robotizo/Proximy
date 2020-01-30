@@ -1,5 +1,5 @@
-class SessionsController < ApplicationController
-	skip_before_action :authorize
+class SessionsController < Clearance::SessionsController
+
 
 
 	
@@ -7,14 +7,14 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		user = User.find_by(email: params[:session][:email].downcase)
+		@user = authenticate(params)
  
-		if user && user.authenticate(params[:session][:password])
+		if sign_in(@user)
 			#if user.email_confirmed == true
-			    session[:user_id] = user.id
-				user.login_increment
-				if user.sign_in_count == 1
-					redirect_to interests_user_path(user)
+
+				@user.login_increment
+				if @user.sign_in_count == 1
+					redirect_to interests_user_path(@user)
 				else 
 					redirect_to root_url
 				end

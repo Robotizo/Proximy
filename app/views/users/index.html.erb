@@ -6,8 +6,6 @@
   <div class="titleCon">Contacts</div>
 <div class="section">
   <div class="subTitleCon">Close Friends</div>
-
-
   	
 	<% @users.each do |user| %>
 		<% unless user.id == current_user.id %>
@@ -15,11 +13,23 @@
 		      <div class="usersSec col-md-3">
 		        <%= image_tag(user.avatar_url(:thumb), class: "userImg") if user.avatar? %>
 		        <span class="userNameNotTaken"><%= user.name %></span>
-		        <span class="userNameNotTaken"><%= user.last_name %></span>
-		        <span class="userNameNotTaken"><%= user.email %></span>
 		      </div>
+		      <div class="usersSec col-md-3">
+		      	<div class="userNameNotTaken">Latitude: <%= user.latitude %></div>
+		        <div class="userNameNotTaken">Longitude: <%= user.longitude %></div>
+		      </div>
+		      <div class="usersSec col-md-3">
+		      	<div class="userNameNotTaken">Distance in km: <%= user.getDistance(current_user.latitude, current_user.longitude) %></div>
+		      </div>
+		      <div class="usersSec col-md-3">
 
-<br>
+		      	<div class="userNameNotTaken">Interests CC: <%= user.userInterests(current_user) %></div>
+		      	<div class="userNameNotTaken">Location CC: <%= user.ccLocation(current_user.latitude, current_user.longitude) %></div>
+		      	<div class="userNameNotTaken"><%= user.overallCC %></div>
+
+		      	<%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+	
+		      </div>
 		     </div>
 		<% end %>
     <% end %>

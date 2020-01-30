@@ -119,7 +119,7 @@
           </div>
           <% end %>
         <% else %>
-            <div class="col-md-6 col-xs-6 noPad3 text-center" >
+            <div class="col-md-4 col-xs-6 noPad3 text-center" >
 
       
               <% if current_user.friends.include?(@user) %>
@@ -141,7 +141,21 @@
    
             </div>
 
-            <div class="col-md-6 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" >
+
+
+
+          <div class="col-md-4 col-xs-6 noPad3 text-center">
+              <%= link_to chats_index_path, method: :get, class: "specialA" do %>
+
+                <%= image_tag("message.png", class: "iconImage") %>
+                <div class="textOps">
+                  Message
+                </div>
+              <% end %>
+
+          </div>
+
+            <div class="col-md-4 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" >
 
 
               <%= image_submit_tag "interestsLong.png", class: "iconImage" %>
@@ -307,7 +321,7 @@
          <% end %>
 
         <% unless @user.id == current_user.id %>
-            <div class="col-md-6 col-xs-6 noPad3 text-center" >
+            <div class="col-md-4 col-xs-6 noPad3 text-center" >
 
       
               <% if current_user.friends.include?(@user) %>
@@ -333,7 +347,23 @@
 
 
 
-            <div class="col-md-6 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" >
+
+
+
+          <div class="col-md-4 col-xs-6 noPad3 text-center">
+              <%= link_to chats_index_path, method: :get, class: "specialA" do %>
+
+                <%= image_tag("message.png", class: "iconImage") %>
+                <div class="textOps">
+                  Message
+                </div>
+              <% end %>
+
+          </div>
+
+
+
+            <div class="col-md-4 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" >
 
 
               <%= image_submit_tag "interestsLong.png", class: "iconImage" %>
@@ -343,13 +373,6 @@
         
    
             </div>
-
-
-
-
-
-
-
 
 
 
@@ -576,7 +599,7 @@ $(function () {
 
 
                   <div class="interestCard">
-                    <%= image_tag(interestCollide.image_url(:thumb), class: "interestImageNotF") if interestCollide.image? %>
+                    <%= image_tag(interestCollide.image_url(:thumb), class: "interestImageNotF", lazy: true) if interestCollide.image? %>
                     <div class="interestTitleSecNotF">
                       <div class="interestNameNotF"><%= interestCollide.name %></div>
                     
