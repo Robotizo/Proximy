@@ -20,6 +20,36 @@
 //= require jquery.lazyload
 //= require nprogress
 //= require nprogress-turbolinks
+//= require rails_emoji_picker
 
 
 
+
+
+$(window).on('load', () => {
+  const $messages = $('#messages')
+  const $contactElement = $('.chat__contact--element')
+  const $inputActiveUser = $('.input__active--user')
+  
+  $contactElement.on('click', (e) => {
+    $contactElement.removeClass('is-active')
+    $contactElement.removeClass('is-new-message')
+    const $selectedContactElement = $(e.currentTarget)
+    const selectedUserId = $selectedContactElement.data('id')
+
+    //ScrollTop
+    
+    $.ajax({
+      type: "GET", 
+      url: "/chats/list_messages/" + selectedUserId,
+      data: {},
+      success: function(data, textStatus, jqXHR){
+        $messages.html(data)
+      },
+      error: function(jqXHR, textStatus, errorThrown){}
+    })
+
+    $selectedContactElement.addClass('is-active')
+    $inputActiveUser.val(selectedUserId)
+  })
+})
