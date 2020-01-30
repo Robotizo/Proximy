@@ -1,121 +1,243 @@
 
+
+
+<style type="text/css">
+  
+body{
+  margin-top: 0px !important;
+}
+
+.navbar {
+    position: relative;
+    min-height: 50px;
+    position: absolute;
+    /* margin-bottom: 20px; */
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+.navbar-brand {
+    float: left;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    height: 96px;
+}
+</style>
+
+
   <!-- Front Page Start -->
 
 
-  <div class="simple">
-    <div class="junk">
-      <%= image_tag("proximyLogo.png", class: "logoImage") %>
-      <div class='titleSub'>Get involved in <strong>your</strong> community with people like <strong>you</strong>.</div>  
-      <div class='button '><%= button_to "Get Started", signup_path, method: :get, class: "btnFront" %></div> 
-      <div class='button2'><%= button_tag "Sign In" ,  class: "btnFront2" %></div> 
+
+
+
+
+<div class="lp_main">
+<div class="container">
+  <nav class="navbar fixed-top navbar-light bg-light">
+    <div class="navbar-brand">
+       <%= image_tag("proximyLogo.png", class: "lp_logo", lazy: true) %>
     </div>
-    <div class="centerDiv">
-
-  
-        <div class="logoParent">
-            <%= image_tag("proximy_inv_t.png", class: "logoImg") %>
-        </div>
-
-       
-            <div class="text-center logField">
-                <div class="logField-edits">
-                    <%= form_for(:session, url: login_path) do |f| %>
-                    <div class="emailField">
-                        <%= f.email_field :email, class: 'form-control' , placeholder: "Email" %>
-                    </div>
-                    <div class="passField">
-                        <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
-                    </div>
-                </div>
-
-                <div class="text-center loginSec">
-                     <%= f.submit "Log in", class: "fileBtnSubmitSign" %>
-                </div>
-            
-                <% end %>
-
-
-                <div class="text-center loginSec2">
-                     <%= button_to "Not a member? Sign Up", signup_path, method: :get, class: "fileBtnSubmitSign2" %>s
-                </div>
-
-            </div>
-        
-   
-    <div class="mobileBottom"></div>
+  </nav>
 </div>
-        
-      <%= image_tag("image1.jpg", class: "imageHere") %>
+
+<%= video_tag(["videotest.mp4"], controls: false, autoplay: true, muted: true, loop: true, class: "lp_main_image", lazy: true) %>
+
+</div>
+
+
+<div class="lp_container mobile_lp">
+  <h2 class="lp_outside_title_2">
+    Comming Soon
+  </h2>
+  <div class="col-xs-6 text-center">
+    <%= image_tag("apple.png", class: "lp_app_icons", lazy: true) %>
+  </div>
+  <div class="col-xs-6 text-center">
+    <%= image_tag("android.png", class: "lp_app_icons", lazy: true) %>
+  </div>
+
+</div>
+   
+
+   
+<div class="lp_container">
+
+<h2 class="lp_outside_title_1 col-xs-12">
+  
+Bring people together
+
+</h2>
+
+
+
+<div class="col-md-4 col-xs-12 noPad3" style="margin-top: 20px;">
+  <%= image_tag("lp_3.jpg", class: "lp_2 ", lazy: true) %>
+  <div class="lp_sub_text">
+   Make meaningful face to face connections
+  </div>
+
+</div>
+
+
+<div class="col-md-4 col-xs-12 noPad3" style="margin-top: 20px;">
+  
+  <%= image_tag("lp_4.jpg", class: "lp_2 ", lazy: true) %>
+
+  <div class="lp_sub_text">
+    Find out what's going on around you 
+  </div>
+
+</div>
+      
+<div class="col-md-4 col-xs-12 noPad3" style="margin-top: 20px;">
+  
+  <%= image_tag("lp_5.jpg", class: "lp_2 ", lazy: true) %>
+  <div class="lp_sub_text">
+    Get involved with what interests you most
+  </div>
+
+</div>
+
+</div>
+
+<div class="col-md-12">
+<hr>
+</div>
+
+<div class="container">
+<div class="lp_section">
+  <div class="col-md-7">
+    <%= image_tag("lp_people.png", class: "lp_3", lazy: true) %>
+  </div>
+  <div class="col-md-5">
+    <div class="lp_title_sub">
+     Discover like-minded people near you based on common interests
+    </div>
+    
+  </div>
+  
+</div>
+
+
+<div class="lp_section switchPos">
+
+  <div class="col-md-5">
+    <div class="lp_title_sub">
+      Start a conversation with people based on your common interests
+    </div>
+  </div>
+
+    <div class="col-md-7">
+    <%= image_tag("lp_message.png", class: "lp_3", lazy: true) %>
+  </div>
+  
+</div>
+
+
+<div class="lp_section">
+
+  <div class="col-md-7">
+    <%= image_tag("lp_events.png", class: "lp_3", lazy: true) %>
+  </div>
+
+  <div class="col-md-5">
+    <div class="lp_title_sub">
+      Create and attend personalized events with people near you
+    </div>
+    
+  </div>
+  
+</div>
+
+
+
+<div class="lp_section switchPos">
+
+
+
+  <div class="col-md-5">
+    <div class="lp_title_sub">
+      Create and join personalized groups with people near you
+    </div>
+
+    
+  </div>
+
+  <div class="col-md-7">
+    <%= image_tag("lp_groups.png", class: "lp_3", lazy: true) %>
+  </div>
+  
+</div>
+
+
+</div>
+
+<div class="col-md-12">
+
+
+<br>
+<br>
+<br> 
+<br>
+
+
+
+</div>
+
+
+<!-- Footer -->
+<footer class="lp_footer">
+<div class="lp_footer_content container">
+  <div class="col-md-4">
+    <%= image_tag("proximyClear.png", class: "logoFooter") %>
+
+  </div>
+  <div class="col-md-8">
+    
 
   </div>
 
-
-<div id="pagepiling">
-
+ </div>
 
 
-    <div class="section">
-    <div class="junk">
-      <%= image_tag("proximyLogo.png", class: "logoImage") %>
-      <div class='titleSub'>Get involved in <strong>your</strong> community with people like <strong>you</strong>.</div>  
-      <div class='button '><%= button_to "Get Started", signup_path, method: :get, class: "btnFront" %></div> 
-      <div class='button2'><%= button_tag "Sign In" ,  class: "btnFront2" %></div> 
-    </div>
+</footer>
+<!-- Footer -->
 
 
-
-<div class="centerDiv">
-
-  
-        <div class="logoParent">
-            <%= image_tag("proximy_inv_t.png", class: "logoImg") %>
-        </div>
-
-       
-            <div class="text-center logField">
-                <div class="logField-edits">
-                    <%= form_for(:session, url: login_path) do |f| %>
-
-
-                    <div class="emailField">
-                        <%= f.email_field :email, class: 'form-control' , placeholder: "Email" %>
-                    </div>
-                    <div class="passField">
-                        <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
-                    </div>
-                </div>
-
-                <div class="text-center loginSec">
-                     <%= f.submit "Log in", class: "fileBtnSubmitSign" %>
-                </div>
-            
-                <% end %>
-
-
-                <div class="text-center loginSec">
-                     <%= button_to "Creat an account", signup_path, method: :get, class: "fileBtnSubmitSign2" %>s
-                </div>
-
-            </div>
-        
-   
-    <div class="mobileBottom"></div>
-</div>
-        
-      <%= image_tag("image1.jpg", class: "imageHere") %>
-
-
-
-    </div>
+<!-- Front Page End -->
 
 
 
 
 
 
-    
-      
 
 
 
-    <!-- Front Page End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
