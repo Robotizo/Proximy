@@ -2,26 +2,54 @@
 
 
 
- <div class="container noPad3">
-    <div class="topTitle2">Notifications</div>
- </div>
 
 
-<div class="section">
-<% if @userFriendships.present? %>
- <div class="container ">
-	<div class="titleSecSub">Friend Requests</div>
+
+
+<div class="selectPanel">
+  <div class=" noPad3">
+  <div class="topTitle2">Notifications</div>
+
+
+  <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <div class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+      Friend Requests
+    </div>
+    <div class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+      Profile
+    </div>
+    <div class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+      Messages
+    </div>
+    <div class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+      Settings
+    </div>
+  </div>
+
+
+
+  </div>
 </div>
-<div class="container noPad1">
 
 
 
-	<% @userFriendships.each do |invFriends| %>
-	<% unless invFriends.status == "accepted" %>
+<div class="notificationPanel">
+  
+
+<div class="tab-content" id="v-pills-tabContent">
+  <div class="tab-pane fade show active in" id="v-pills-home" >
+
+
+<div class="noPad1">
+
+
+
+  <% @userFriendships.each do |invFriends| %>
+  <% unless invFriends.status == "accepted" %>
      <% collide = current_user.followingI.ids & invFriends.user.followingI.ids %>
- 		<%= link_to invFriends.user, method: :get, class: "specialA" do %>
-		<div class="col-md-2 col-xs-6 noPad8PX " >
-	     <div class="elementBoxPpl">
+    <%= link_to invFriends.user, method: :get, class: "specialA" do %>
+    <div class="col-md-20 noPad3 " >
+       <div class="elementBoxPpl">
 
 
           <% unless invFriends.user.avatar.present? %>
@@ -46,7 +74,7 @@
 
             Accept
 
-        	</div>
+          </div>
         <% end %>
          </div>
 
@@ -54,9 +82,23 @@
 
 
 
-	<% end %>
-	<% end %>
+  <% end %>
+  <% end %>
 </div>
+  
+
+
+</div>
+  <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">B</div>
+  <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">C</div>
+  <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">D</div>
+</div>
+<% if @userFriendships.present? %>
+
+
+
+
+
 
 <% else %>
 
@@ -66,8 +108,15 @@
 
 
 
+
+
+
+
+
+
 <!-- Invivtations Section START -->
 
+<!--
 
 <div class="section">
 <div class="container">
@@ -114,7 +163,7 @@
 
 
 <!-- Invivtations Section END -->
-
+<!--
 
 <div class="section">
 <% if @eventNotifsPage.present? %>
@@ -192,6 +241,9 @@
 			<%= image_tag("alarm.png", class: "noNotifs") %>
 			<div class="titleSecSub">No notifications at the moment</div>
 		</div>
+
+
+
 
 
 

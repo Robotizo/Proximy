@@ -70,7 +70,7 @@ class EventsController < ApplicationController
 
     @eventInvites = NotificationEvent.where(event_id: @event.id)
 
-    @fullyFriends = current_user.inverse_friends
+    @fullyFriends = current_user.friends
     @eventNotifs = EventNotif.all
     @interests = Interest.all
     followingEventIds = @event.followersE.map(&:id)

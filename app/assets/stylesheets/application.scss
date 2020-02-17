@@ -28,6 +28,47 @@ $nprogress-zindex: 10100;
 
 
 
+
+
+/* Tooltop Start */
+
+.textHover {
+  position: relative;
+  display: inline-block;
+}
+
+.textHover .textHoverShow {
+  visibility: hidden;
+  width: 100px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 75%;
+  font-size: 14px;
+  margin-top: 4px;
+  margin-left: -60px;
+}
+
+.textHover:hover .textHoverShow {
+  visibility: visible;
+}
+
+
+
+/* Tooltop End */
+
+
+
+
+
+
 button.closeInts {
     padding: 57px;
     padding-left: 50px;
@@ -426,7 +467,7 @@ a:focus{
 
 .ImageNav{
 	padding: 10px;
-	height: 45px;
+	height: 42px;
    
 }
 
@@ -549,7 +590,7 @@ button{
 
 .navTitleEnd1{
 	float: right;
-	padding: 5px;
+	padding: 7px;
 	display: inline-block;
 	color: white;
 }

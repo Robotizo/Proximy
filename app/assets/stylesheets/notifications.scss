@@ -2,9 +2,84 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
-.section{
-  margin-bottom: 40px;
+
+
+/* Select Panel Start */
+
+.tab-content > .active{
+      display: block !important;
 }
+
+.nav-pills{
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 20px;
+}
+
+.nav-link {
+  margin: 10px;
+  font-weight: 700;
+}
+
+
+.col-md-20{
+  width: 25%;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.selectPanel{
+
+    border-right: 1px solid rgba(0, 0, 0, .10);
+ 
+    padding-left: 5px;
+    padding-right: 5px;
+
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    /* height: 100%; */
+    padding-left: 5px;
+    padding-right: 5px;
+
+    /* width: 150px; */
+    top: 55px;
+    bottom: 0;
+    width: 25%;
+    float: left;
+
+    position: fixed;
+    overflow-y: scroll;
+
+}
+
+.notificationPanel{
+    width: 75%;
+    float: left;
+    position: fixed;
+    overflow-y: scroll;
+    left: 25%;
+    height: 100vh;
+     padding-bottom: 80px;
+}
+  
+
+.section{
+      width: 75%;
+      height: 100vh;
+
+      overflow:scroll;
+      position: fixed;
+
+      padding-left: 15px;
+      padding-right: 15px;
+      top: 55px;
+     
+
+}
+
+/* Select Panel End */
+
+
 .newEvent{
     text-align: left;
     width: 100%;
@@ -34,14 +109,14 @@
 }
 
   .discoverNum{
-    font-size: 14px;
+    font-size: 12px;
     padding: 0px 5px;
     color: #6d95b0;
     font-weight: 900;
   }
 
   .discoverName{
-    font-size: 16px;
+    font-size: 18px;
     padding: 5px;
     color: black;
     font-weight: 900;
@@ -58,6 +133,7 @@
   padding-bottom: 20px;
   border-radius: 11px;
   transition: box-shadow .3s;
+  margin-top: 30px;
 }
 
 .elementBoxPpl:hover{
@@ -253,9 +329,11 @@
 
 .topTitle2{
   font-size: 25px;
-  margin: 20px;
+  margin-top: 20px;
   margin-bottom: 5px;
   font-weight: 900;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 @media screen and (max-width: 776px) {

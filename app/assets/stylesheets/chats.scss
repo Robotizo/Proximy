@@ -12,13 +12,11 @@
 
 
 img.emoji {
-    width: 36px !important;
-    height: 70px !important;
+    width: 25px !important;
+    height: 25px !important;
 }
 
-.emoji {
-    padding: 17px 0px !important;
-}
+
 .align-left {
   text-align: left;
 }
@@ -106,7 +104,7 @@ img.emoji {
     #messages{
       width: 75%;
       height: calc(100% - 115px);
-      overflow:scroll;
+      overflow: scroll;
       position: fixed;
 
       padding-left: 15px;
