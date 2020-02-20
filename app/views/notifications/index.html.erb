@@ -11,20 +11,29 @@
   <div class="topTitle2">Notifications</div>
 
 
-  <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-    <div class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+
+
+
+  <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+  <li class="nav-item active">
+    <div class="nav-link active" id="v-pills-friend-tab" data-toggle="pill" href="#v-pills-friend" role="tab" aria-controls="v-pills-friend" aria-selected="true">
       Friend Requests
     </div>
-    <div class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
-      Profile
+  </li>
+  <li class="nav-item">
+    <div class="nav-link" id="v-pills-new-events-tab" data-toggle="pill" href="#v-pills-new-events" role="tab" aria-controls="v-pills-new-events" aria-selected="false">
+      New Events
     </div>
-    <div class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
-      Messages
+  </li>
+
+  <li class="nav-item">
+    <div class="nav-link" id="v-pills-events-invs-tab" data-toggle="pill" href="#v-pills-events-invs" role="tab" aria-controls="v-pills-events-invs" aria-selected="false">
+      Events Invites
     </div>
-    <div class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
-      Settings
-    </div>
-  </div>
+  </li>
+
+
+  </ul>
 
 
 
@@ -37,72 +46,209 @@
   
 
 <div class="tab-content" id="v-pills-tabContent">
-  <div class="tab-pane fade show active in" id="v-pills-home" >
+<div class="tab-pane fade show active in" id="v-pills-friend" >
 
 
-<div class="noPad1">
+  <div class="noPad1">
+
+    <% if @userFriendships.present? %>
+
+      <% @userFriendships.each do |invFriends| %>
+      <% unless invFriends.status == "accepted" %>
+         <% collide = current_user.followingI.ids & invFriends.user.followingI.ids %>
+        <%= link_to invFriends.user, method: :get, class: "specialA" do %>
+        <div class="col-md-20 noPad3 " >
+           <div class="elementBoxPpl">
+
+
+              <% unless invFriends.user.avatar.present? %>
+                <%= avatarDiscover_for(@user) %>
+              <% end %>
+              <%= image_tag(invFriends.user.avatar_url(:thumb), class: "peopleImage") if invFriends.user.avatar? %>
+
+              <div class="discoverTitleSec">
+                <div class="discoverName"><%= truncate(invFriends.user.name.gsub(/\s.+/, '')) %></div>
+                <div class="discoverNum"><%= collide.count %> shared interests</div>
+              </div>
+
+
+              
+
+              </div>
+
+
+              <%= link_to update_friendship_friendship_path(invFriends), method: :patch, class: "specialA" do %>
+                <div class="acceptButton">
+
+
+                Accept
+
+              </div>
+            <% end %>
+             </div>
+
+    <% end %>
 
 
 
-  <% @userFriendships.each do |invFriends| %>
-  <% unless invFriends.status == "accepted" %>
-     <% collide = current_user.followingI.ids & invFriends.user.followingI.ids %>
-    <%= link_to invFriends.user, method: :get, class: "specialA" do %>
-    <div class="col-md-20 noPad3 " >
-       <div class="elementBoxPpl">
+      <% end %>
+      <% end %>
+
+    <% else %>
+    <div class="text-center">
+      <div class=" noReqArea">
+        <%= image_tag("support.png", class: "noReqIcon") %>
+      </div>
+      <div class="noReqText">
+        There are no new friends requests
+      </div>
+    </div>
+    
+
+    <% end %>
+
+    </div>
 
 
-          <% unless invFriends.user.avatar.present? %>
-            <%= avatarDiscover_for(@user) %>
-          <% end %>
-          <%= image_tag(invFriends.user.avatar_url(:thumb), class: "peopleImage") if invFriends.user.avatar? %>
-
-          <div class="discoverTitleSec">
-            <div class="discoverName"><%= truncate(invFriends.user.name.gsub(/\s.+/, '')) %></div>
-            <div class="discoverNum"><%= collide.count %> shared interests</div>
-          </div>
+</div>
 
 
+
+<div class="tab-pane fade" id="v-pills-new-events" role="tabpanel" aria-labelledby="v-pills-new-events-tab">
+  <div class="section">
+      
+  <% if @eventNotifsPage.present? %>
+
+ <div class="noPad1">
+
+
+    <% @eventNotifsPage.reverse.each do |eventNotif| %>
+    
+
+
+
+
+    <div class="col-md-4 col-xs-12" style="margin-top: 20px;">
           
-
-          </div>
-
-
-          <%= link_to update_friendship_friendship_path(invFriends), method: :patch, class: "specialA" do %>
-            <div class="acceptButton">
+      <%= link_to update_notif_notification_path(eventNotif), method: :patch, class: "specialA" do %>
 
 
-            Accept
+        <% if eventNotif.is_checked == false %>
+          
+                  <div class="elementBox">
+                    <%= image_tag(eventNotif.event.image_url(:event), class: "groupImageDisc") if eventNotif.event.image? %>
+                    <div class="eventContentDisc">
+                      <div class="eventDateDisc"><%= eventNotif.event.event_date.strftime('%B %e') %></div>
+                  </div>
+                  <div class="groupTitleDisc"><%= truncate(eventNotif.event.title, length: 35) %></div>
+                  <div class="newEvent">New event for <%= eventNotif.event.group.title %> </div>
 
-          </div>
+     
+                </div>
+
+
+        <% else %>
+                <div class="elementBox">
+                  <%= image_tag(eventNotif.event.image_url(:event), class: "groupImageDisc") if eventNotif.event.image? %>
+                  <div class="eventContentDisc">
+                    <div class="eventDateDisc"><%= eventNotif.event.event_date.strftime('%B %e') %></div>
+                  </div>
+                  <div class="groupTitleDisc"><%= truncate(eventNotif.event.title, length: 35) %></div>
+     
+                </div>
+
         <% end %>
-         </div>
+    
 
-<% end %>
+      <% end %>
+    
+      </div>
 
 
 
-  <% end %>
-  <% end %>
+
+    <% end %>
+
+
+
+
+
+
+  <% else %>
+
+          There are no new events 
+
+      
+
+
+    <% end %>
+
+
+
+    </div>
+  </div>
+
+
+
+
+
 </div>
-  
 
 
+
+  <div class="tab-pane fade" id="v-pills-events-invs" role="tabpanel" aria-labelledby="v-pills-events-invs-tab">
+
+      <!-- Invivtations Section START -->
+
+
+      <div class="section">
+
+
+
+      <div class="noPad1">
+        <% @invitations.reverse.each do |invitation| %>
+       
+
+
+            <div class="col-md-4 col-xs-12" style="margin-top: 20px;">
+               <%= link_to invitation.event, method: :get, class: "specialA" do %>
+              
+                      <div class="elementBox">
+                        <%= image_tag(invitation.event.image_url(:event), class: "groupImageDisc") if invitation.event.image? %>
+                        <div class="eventContentDisc">
+                          <div class="eventDateDisc"><%= invitation.event.event_date.strftime('%B %e') %></div>
+                        </div>
+                        <div class="groupTitleDisc"><%= truncate(invitation.event.title, length: 35) %></div>
+                        <div class="newEvent"><%= invitation.sender.name %> invited you to this event </div>
+                      </div>
+          
+              <% end %>
+          
+            </div>
+
+
+
+        <% end %>
+      </div>
+
+      </div>
+
+
+      <!-- Invivtations Section END -->
+    
+
+
+
+  </div>
 </div>
-  <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">B</div>
-  <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">C</div>
-  <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">D</div>
-</div>
-<% if @userFriendships.present? %>
 
 
 
 
 
 
-<% else %>
 
-<% end %>
+
 </div>
 
 
@@ -115,7 +261,6 @@
 
 
 <!-- Invivtations Section START -->
-
 <!--
 
 <div class="section">
@@ -160,97 +305,9 @@
 </div>
 
 </div>
-
+-->
 
 <!-- Invivtations Section END -->
-<!--
-
-<div class="section">
-<% if @eventNotifsPage.present? %>
-<div class="container">
-	<div class="titleSecSub">New events from your groups</div>
-</div>
-
-
-
-<div class="container noPad3">
-	<% @eventNotifsPage.reverse.each do |eventNotif| %>
-    <% if eventNotif.event.event_date > Date.today %>
-
-
-
-
-			<div class="col-md-4 col-xs-12 testMarge">
-        
-		<%= link_to update_notif_notification_path(eventNotif), method: :patch, class: "specialA" do %>
-
-
-			<% if eventNotif.is_checked == false %>
-				
-                <div class="elementBox">
-                  <%= image_tag(eventNotif.event.image_url(:event), class: "groupImageDisc") if eventNotif.event.image? %>
-                  <div class="eventContentDisc">
-                    <div class="eventDateDisc"><%= eventNotif.event.event_date.strftime('%B %e') %></div>
-                  </div>
-                  <div class="groupTitleDisc"><%= truncate(eventNotif.event.title, length: 35) %></div>
-                  <div class="newEvent">New event for <%= eventNotif.event.group.title %> </div>
-
-     
-                </div>
-
-
-				<% else %>
-                <div class="elementBox">
-                  <%= image_tag(eventNotif.event.image_url(:event), class: "groupImageDisc") if eventNotif.event.image? %>
-                  <div class="eventContentDisc">
-                    <div class="eventDateDisc"><%= eventNotif.event.event_date.strftime('%B %e') %></div>
-                  </div>
-                  <div class="groupTitleDisc"><%= truncate(eventNotif.event.title, length: 35) %></div>
-     
-                </div>
-
-				<% end %>
-		
-
-			<% end %>
-		
-			</div>
-
-
-
-
-  <% end %>
-
-
-
-	<% end %>
-</div>
-<% else %>
-<% end %>
-
-</div>
-
-
-
-
-
-<% unless @userFriendships.present? or @eventNotifsPage.present? %>
-	<div class="container">
-		
-		<div class="text-center">
-			<%= image_tag("alarm.png", class: "noNotifs") %>
-			<div class="titleSecSub">No notifications at the moment</div>
-		</div>
-
-
-
-
-
-
-
-	</div>
-
-<% end %>
 
 
 

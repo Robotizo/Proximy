@@ -109,7 +109,6 @@
   border-radius: 8px 8px 8px 8px;
   height: 100px;
   width: 100px;
-  box-shadow: 0px 0px 4px 0px #6f6f6f;
   object-fit: cover;
   display: inline-block;
 }
@@ -1050,19 +1049,20 @@ input.checkDist{
 }
 
 .connectBtn{
-    background-color: #ffffff;
-    color: #6c95af;
+
     font-weight: 900;
     padding: 10px 30px;
     border-radius: 5px;
-    border: 1px solid #6c95af;
+       border: 1px solid #508cf721;
     outline: none !important;
 
+color: #508CF7;
+    background-color: #e7f3ff;
 }
 
 
 .connectBtn:hover{
-  background-color: #6c95af;
+  background-color: #508CF7;
   color: white !important;
   opacity: 1;
   transition: 0.3s;
@@ -1637,7 +1637,7 @@ body {
   border-radius: 15px;
   height: 140px;
   width: 140px;
-  box-shadow: 0px 0px 4px 0px #6f6f6f;
+
   object-fit: cover;
   display: inline-block;
 }
@@ -2699,7 +2699,7 @@ div.scrollMembersInterests .seeMore {
   .discoverNum{
     font-size: 14px;
     padding: 0px 5px;
-    color: #6d95b0;
+    color: #508cf7;
     font-weight: 900;
   }
 
