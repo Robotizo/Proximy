@@ -29,9 +29,11 @@ class EventPostsController < ApplicationController
   def create
  
     @event_post = current_user.event_posts.build(event_post_params)
+    
 
     respond_to do |format|
       if @event_post.save
+        format.js
         format.html { redirect_to @event_post.event, notice: 'Your post was successfully created.' }
         format.json { render :show, status: :created, location: @event_post }
       else
@@ -46,8 +48,8 @@ class EventPostsController < ApplicationController
   def update
     respond_to do |format|
       if @event_post.update(event_post_params)
-        format.html { redirect_to @event_post, notice: 'Event post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event_post }
+        format.html {}
+        format.json {}
       else
         format.html { render :edit }
         format.json { render json: @event_post.errors, status: :unprocessable_entity }

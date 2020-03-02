@@ -189,13 +189,39 @@ Bring people together
 <!-- Footer -->
 <footer class="lp_footer">
 <div class="lp_footer_content container">
-  <div class="col-md-4">
+  <div class="col-md-2">
     <%= image_tag("proximyClear.png", class: "logoFooter") %>
 
   </div>
-  <div class="col-md-8">
-    
+  <div class="col-md-10">
+    <div class="col-md-4  text-left">
+      <div class="legalTitle">
+        Legal
+      </div>
+   
+      <br>
+      <div style="margin-bottom: 8px;">
+        <%= link_to "Privacy Policy", main_privacy_path, method: :get, class: "legalLinks" %>
+        
+      </div>
+      <div style="margin-bottom: 8px;">
+        <%= link_to "Terms & Conditions", main_terms_path, method: :get, class: "legalLinks" %>
 
+      </div>
+    </div>
+
+
+
+    <div class="col-md-4  text-left">
+      <div class="legalTitle">
+        Support
+      </div>
+      <br>
+
+      <div class="legalStatic">
+        info@proximy.ca
+      </div>  
+    </div>
   </div>
 
  </div>

@@ -76,7 +76,8 @@
 
   get 'main/test'
 
-
+  get 'main/privacy'
+  get 'main/terms'
 
   get 'sessions/new'
   get    '/signup',  to: 'users#new'

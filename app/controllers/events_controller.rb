@@ -62,11 +62,9 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
 
+
     @notification_event = NotificationEvent.new
-
-
-
-
+    @event_posts = @event.event_posts
 
     @eventInvites = NotificationEvent.where(event_id: @event.id)
 
@@ -75,6 +73,7 @@ class EventsController < ApplicationController
     @interests = Interest.all
     followingEventIds = @event.followersE.map(&:id)
     @eventFollowers = User.find(params = followingEventIds).sort_by &:updated_at
+    
 
     @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
     @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)

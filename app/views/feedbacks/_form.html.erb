@@ -11,12 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <div class="titleSec2">Tell us what you think of Proximy</div>
-    <%= f.text_area :body, class: "feedField" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Confirm", class: "btn btn-primary signIn " %>
-  </div>
-<% end %>
+
+
+<div class="boxSet">
+    <div class="field">
+      <div class="titleSec2">Tell us what you think of Proximy</div>
+      <%= f.text_area :body, class: "form-control" %>
+    </div>
+
+
+
+    <div class="actions text-center">
+      <%= f.submit "Confirm", class: "btn btn-primary signIn " %>
+    </div>
+
+
+
+</div>
+
+
+  <% end %>

@@ -27,6 +27,40 @@ $nprogress-zindex: 10100;
 @import 'nprogress-bootstrap';
 
 
+.field_with_errors {
+    padding: 2px;
+    background-color: #ff00009c;
+    display: table;
+    width: 100%;
+    border-radius: 8px;
+}
+
+
+
+.navTitleEndAlt{
+	float: right;
+	padding: 7px;
+	display: inline-block;
+	
+
+}
+
+.feedbackButton{
+	font-weight: 700 !important;
+	background-color: #e7f3ff;
+	padding: 10px;
+	border-radius: 10px;
+	color: #508CF7;
+
+}
+
+.feedbackButton:hover{
+	
+	background-color: #508CF7;
+
+	color: white;
+
+}
 
 
 
@@ -585,6 +619,9 @@ button{
 	width: 100px;
 	height: 100px;
 }
+
+
+
 
 
 

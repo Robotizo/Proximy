@@ -1,0 +1,119 @@
+
+<!-- Info Section Begin -->
+      <div class="newsfeed1">
+      <div class="titleSec">Description</div>
+        <div class="col-md-12 col-xs-12  descriptionSec">
+
+          <div class="address"><%= simple_format(@event.description) %></div>
+        
+      </div>
+
+    </div>
+
+    <div class="newsfeed1">
+      <div class="titleSec">Location</div>
+      <div class="col-md-12 col-xs-12  descriptionSec">
+
+        <div class="address"><%= @event.address %></div>
+        
+      </div>
+
+      <div class="col-md-12 col-xs-12 postMob descriptionSec descMap">
+
+       <div id="map"></div>
+      </div>
+    </div>
+
+
+
+<script type="text/javascript">
+$(function () { 
+  if ($(window).width() < 960) {
+     $(".mobileVU").removeClass("col-md-3");
+     $(".mobileVU").removeClass("text-center");
+
+
+  }
+  else {
+    $(".deskVU").removeClass("scrollMembersEvents");
+  }
+});
+</script>
+
+
+
+
+
+  <div class="newsfeed1" >
+
+      
+
+    <% if @eventFollowers.count ==  1 %>
+      <div class="titleSec"><%= @eventFollowers.count %> Person Attending</div>
+    <% else %>
+      <div class="titleSec"><%= @eventFollowers.count %> People Attending</div>
+    <% end %>
+  
+
+
+  <div class="scrollMembersEvents deskVU">
+
+    <% if !@eventFollowers.empty? %>
+      <%  @eventFollowers.reverse.first(8).each do |eventFollower| %>
+      <span class="col-md-3 text-center mobileVU">
+
+
+
+
+
+      <%= link_to eventFollower, method: :get, class: "specialA" do %>
+  
+        <div class="followersSec">
+        
+            <div class="eImage">
+              <div class="followerImageSec"><%= image_tag(eventFollower.avatar_url(:thumb), class: "groupImage2") if eventFollower.avatar? %></div>
+              <div class="followerNameSec"><%= truncate(eventFollower.name.gsub(/\s.+/, ''), length: 20) %></div>
+            </div>
+        
+        </div>
+  
+      <% end %>
+
+
+
+    </span>
+      <% end %>
+
+
+
+
+
+
+    <% else %>
+      <div class="noFollowSec">
+        <div class="noFollowSecText">This event has no attendees.</div>
+      </div>
+    <% end %>
+
+</div>
+    
+
+
+
+    <div class="laterPostBox2">
+
+      <div class="showAllPosts" data-toggle="modal" data-target="#show-users"><button type="button" class="btn btnShowAll">Show all users</button></div>
+    </div>
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+<!-- Info Section End -->

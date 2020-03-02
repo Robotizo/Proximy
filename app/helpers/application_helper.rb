@@ -1,4 +1,10 @@
 module ApplicationHelper
+
+	def show_photo(size)
+    	Unsplash::Photo.find("tAKXap853rY")[:urls][size.to_sym]
+  	end
+
+  	
 	def avatar_for(user)
 	    @avatar = user.avatar
 	    unless @avatar.present?

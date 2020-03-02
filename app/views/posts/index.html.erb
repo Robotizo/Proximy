@@ -17,6 +17,7 @@
   
         <td><%= post.content %></td>
         <td><%= link_to 'View Post', post_path(post), remote: true %></td>
+        <td><%= link_to 'Destroy', post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
       </tr>
     <% end %>
@@ -24,6 +25,23 @@
 </table>
 
 <br>
+
+
+<%= form_tag posts_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+
+    <% @bears.each do |photo| %>
+      <%= image_tag(photo[:urls][:small], height: "300") %>
+    <% end %>
+
+
+
+
 
 
 <div id='post-content'></div>

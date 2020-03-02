@@ -1,0 +1,17 @@
+
+            <div class="postSection">
+              <div class="col-md-2">
+                <%= image_tag(event_post.user.avatar_url(:thumb), class: "postUserImage") if event_post.user.avatar? %>
+              </div>
+              <div class="col-md-9 postContent">
+                <div class="postUserName">
+                  <%= event_post.user.name %>
+                </div>
+                <div>
+                  <%= event_post.content %>
+                </div>
+              </div>
+              <div class="col-md-12 text-right col-md-pull-1 dateContent">
+                <%= event_post.created_at.to_time.strftime('%B %e') %>
+              </div>
+            </div>

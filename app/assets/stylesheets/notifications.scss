@@ -6,10 +6,30 @@
 
 /* Select Panel Start */
 
+.connectBtn{
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: 1px solid #508cf721;
+  outline: none !important;
+  color: #508CF7;
+  background-color: #e7f3ff;
+}
+
+.connectBtn:hover{
+  background-color: #508CF7;
+  color: white !important;
+  opacity: 1;
+  transition: 0.3s;
+}
+
 .noReqText{
   font-size: 20px;
   margin-top: 20px;
 }
+
+
 
 
 .noReqArea2{
@@ -17,7 +37,7 @@
 }
 
 .noReqArea{
-  margin-top: 15%;
+  margin-top: 10%;
 }
 
 .noReqIcon{

@@ -1,45 +1,19 @@
 <%= stylesheet_link_tag "posts", :media => "all" %>
 
-<%= form_for(event_post) do |f| %>
-  <% if event_post.errors.any? %>
+<%= form_for @event_post, remote: true do |f| %>
+  <% if @event_post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(event_post.errors.count, "error") %> prohibited this event_post from being saved:</h2>
 
       <ul>
-      <% event_post.errors.full_messages.each do |message| %>
+      <% @event_post.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-<% if action_name == 'new' or action_name == 'create' %>
-<div class="extraInf">
-  <div class="s1">
-    <%= image_tag(@event.image_url(:thumb), class: "userImage") if @event.image? %>
-   
-  </div>
 
-
-   <div class="eventName"><%= @event.title %></div>
-</div>
-<% end %>
-
-
-
-
-
-<% if action_name == 'edit' or action_name == 'update' %>
-<div class="extraInf">
-  <div class="s1">
-    <%= image_tag(@event_post.event.image_url(:thumb), class: "userImage") if @event_post.event.image? %>
-   
-  </div>
-
-
-   <div class="eventName"><%= @event_post.event.title %></div>
-</div>
-<% end %>
 
 
 
@@ -48,28 +22,19 @@
 
 
 
-    <div class="s2">
+   <div class="col-md-8 noPad3Desk">
 
-      <%= f.text_area :content, class: "form-control reduxForm", placeholder: "Share your memories..." %>
-
-
-
-<label class="btn btn-primary fileBtnDiv">
-    <div><%= f.file_field :image, class: "fileBtn form-control", id: "filetag" %></div>
-     Upload an Image
-</label>
+      <%= f.text_area :content, class: "form-control reduxForm", placeholder: "Ask questions, write comments, etc." , required: true %>
 
 
-
-    <img src="" id="preview">
-     
 </div>
 
 
 
 
 
-  <div class="actions col-md-12 create">
+
+  <div class=" col-md-4 noPad3Desk">
     <%= f.button "Share", class: "fileBtnSubmit", data: {disable_with: "<i class='fa fa-circle-o-notch fa-spin'></i> Building..."} %>
   </div>
 <% end %>
@@ -79,7 +44,7 @@
 
 
 
-
+<!--
 
 <script>
 var fileTag = document.getElementById("filetag"),
@@ -105,3 +70,5 @@ function changeImage(input) {
 
   
 </script>
+
+-->

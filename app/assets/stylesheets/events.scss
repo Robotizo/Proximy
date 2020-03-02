@@ -2,6 +2,198 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+
+/* Select Panel Start */
+
+.dateContent{
+  color: #757575;
+  padding-right: 0px;
+}
+
+.buttonSection{
+  padding-left: 24px; 
+  margin-bottom: 10px;
+    float: left;
+  width: 100%;
+}
+
+.postImage{
+  padding-left: 0px !important;
+}
+.postUserName{
+  font-size: 18px;
+  font-weight: 700;
+  color: #508CF7;
+
+}
+
+.postContent{
+   background-color: #e7f3ff;
+   min-height: 90px;
+   padding: 10px !important;
+   border-radius: 8px;
+}
+
+
+
+.postUserImage{
+  width: 100%;
+  border-radius: 8px;
+}
+
+
+.postSection{
+  margin: 10px;
+  float: left;
+  width: 100%;
+}
+
+
+.event_post_area{
+  margin-top: 20px;
+}
+
+
+.nav-pills > li + li{
+  margin-left: 0px;
+}
+
+.tab-pane:not(.active) {
+    display: none !important; 
+}
+
+
+.nav-pills > li{
+  width: 50% ;
+  text-align: center;
+}
+
+.connectBtn{
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: 1px solid #508cf721;
+  outline: none !important;
+  color: #508CF7;
+  background-color: #e7f3ff;
+}
+
+.connectBtn:hover{
+  background-color: #508CF7;
+  color: white !important;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.noReqText{
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+
+
+
+.noReqArea2{
+   margin-top: 15%;
+}
+
+.noReqArea{
+  margin-top: 10%;
+}
+
+.noReqIcon{
+  width: 190px;
+
+}
+
+
+
+.nav-pills > li.active > div, .nav-pills > li.active > div:hover, .nav-pills > li.active > div:focus{
+      color: #508CF7;
+    background-color: #e7f3ff;
+   
+}
+
+
+
+
+.tab-content > .active{
+      display: block !important;
+}
+
+.nav-pills{
+   margin-top: 10px;
+
+  font-size: 20px;
+}
+
+.nav-link {
+  padding: 10px;
+   border-radius: 8px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+
+.col-md-20{
+  width: 25%;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.selectPanel{
+
+    border-right: 1px solid rgba(0, 0, 0, .10);
+ 
+    padding-left: 5px;
+    padding-right: 5px;
+
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    /* height: 100%; */
+    padding-left: 5px;
+    padding-right: 5px;
+
+    /* width: 150px; */
+    top: 55px;
+    bottom: 0;
+    width: 25%;
+    float: left;
+
+    position: fixed;
+    overflow-y: scroll;
+
+}
+
+.notificationPanel{
+    width: 75%;
+    float: left;
+    position: fixed;
+    overflow-y: scroll;
+    left: 25%;
+    height: 100vh;
+     padding-bottom: 80px;
+}
+  
+
+.section{
+      width: 75%;
+      height: 100vh;
+
+      overflow:scroll;
+      position: fixed;
+
+      padding-left: 15px;
+      padding-right: 15px;
+      top: 55px;
+      padding-bottom: 80px; 
+     
+
+}
+
+/* Select Panel End */
+
 .testMargeInterest{
   padding: 20px 20px 20px 20px;
   box-shadow: 0px 0px 4px 0px #e2e2e2;
@@ -143,7 +335,7 @@ border: 0px !important;
     padding: 10px;
     /* opacity: 0.8; */
       
-        background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
+        background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
 }
 
 
@@ -223,7 +415,7 @@ border: 0px !important;
 
 .backButton:hover{
     float: left;
-    background-color: #6d95af40;
+    background-color: #508cf740;
     margin: 10px;
     border-radius: 100px;
 }
@@ -491,22 +683,7 @@ div .panel-interest{
   color: white;
 }
 
-.connectBtn{
-    background-color: #ffffff;
-    color: #6c95af;
-    font-weight: 600;
-    border-radius: 5px;
-    border: 1px solid #6c95af;
-    width: 100%;
-}
 
-
-.connectBtn:hover{
-  background-color: #6c95af;
-  color: white;
-  opacity: 1;
-  transition: 0.3s;
-}
 
 .fileBtnSubmit{
     /* border-color: #2e6da4; */
@@ -1190,7 +1367,7 @@ div .show-more[aria-expanded="true"]{
 	background-color: white;
 	color: white;
 	border: 0px !important;
-	background-color: #7fa6bd;
+	background-color: #508cf7;
 	width: 100%;
 
 }
@@ -1466,7 +1643,7 @@ div .show-more[aria-expanded="true"]{
     padding: 10px;
     /* opacity: 0.8; */
       
-        background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
+        background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
 }
 
 div.scrollGroupsI {
@@ -1787,9 +1964,7 @@ div.scrollEvents a {
 	padding: 15px;
 }
 
-.postContent{
-	font-size: 16px;
-}
+
 
 .postUserSec{
 	float: left;
@@ -1876,12 +2051,7 @@ div.scrollEvents a {
 	float: left;
 }
 
-.postContent2{
-    font-size: 14px;
-    margin: 15px;
-    margin-left: 10px;
-    height: 80px;
-}
+
 
 
 .userSignMini{
@@ -2373,9 +2543,7 @@ div.scrollEvents a {
 		border-radius: 5px;
 		margin: 8px !important;
 	}
-	.postContent{
-		font-size: 14px;
-	}
+
 	.postImageCover{
 		border-radius: 5px 5px 0px 0px;
 	}

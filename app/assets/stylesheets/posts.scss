@@ -52,9 +52,9 @@
 
 
 .fileBtnSubmit{
-    border-color: #2e6da4;
-  background-color: #7fa6be;
-  width: 100%;
+    border-color: #659bf8;
+    background-color: #4f8cf7;
+  width: 90%;
     border: none;
     border-radius: 5px;
     color: #fff;
@@ -64,6 +64,7 @@
     font-size: inherit;
     font-weight: 600;
     margin-bottom: 1rem;
+    margin-top: 1.5rem;
     outline: none;
     padding: 1.7rem 50px;
     position: relative;
@@ -71,9 +72,7 @@
     vertical-align: middle;
 }
 
-.fileBtnSubmit:hover{
-  background-color: #204d74;
-}
+
 
 .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle{
   background-color: #7fa6be;
@@ -90,17 +89,14 @@
 
 .reduxForm{
   resize: none;
-  height: 130px !important;
-  width: 80%;
-    font-size: 20px;
+  height: 100px !important;
+  width: 98%;
+    font-size: 16px;
   font-weight: 600; 
+  margin: 0px !important;
 }
 
-.fileBtnDiv, .form-control {
 
-  margin: 24px;
-
-}
 
 .fileBtnDiv {
   border-color: #2e6da4;
@@ -129,7 +125,7 @@
 .form-control {
     border-radius: 3px;
     border-color: white;
-    border-bottom: 1px #a2a2a2 solid !important
+
 
 }
 
@@ -137,7 +133,7 @@
 .form-control:focus{
   outline: none;
   box-shadow: 0px 0px 0px 0px !important;
-  border-bottom: 2px #7ea5c0 solid !important;
+  border-bottom: 2px #508cf7 solid !important;
   border-top: 0px;
   border-left: 0px;
   border-right: 0px;

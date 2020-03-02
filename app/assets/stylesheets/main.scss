@@ -3,6 +3,41 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+
+
+
+
+
+.termsTitle{
+  font-size: 50px;
+}
+
+.legalTitle{
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.legalStatic{
+    font-size: 14px;
+  font-weight: 700;
+  color: #508cf7 !important;
+}
+
+
+.legalLinks{
+  color: #767676;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+.legalLinks:hover{
+  text-decoration: none !important;
+  color: #508cf7 !important;
+}
+
+
+
 .lp_outside_title_2{
 
   width: 100%;
@@ -431,7 +466,7 @@ div.scrollMembersEvents a {
     padding: 10px;
     /* opacity: 0.8; */
 
-        background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
+        background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
 }
 
 .eventDateDisc{

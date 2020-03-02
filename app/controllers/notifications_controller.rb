@@ -16,10 +16,12 @@ class NotificationsController < ApplicationController
 		followingGroupsIds = @user.followingG.map(&:id)
    
 
+	# Called event through a filtering process
 
-		events = Event.where(group_id: followingGroupsIds)
 
-		@eventNotifsPage = EventNotif.where(user_id: current_user)
+		futureEvents = Event.where('event_date >= ?', Date.today)
+
+		@eventNotifsPage = EventNotif.where(user_id: current_user, event_id: futureEvents)
 
 
 
