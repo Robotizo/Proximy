@@ -12,6 +12,7 @@ gem 'countries', require: 'countries/global'
 
 
 
+gem 'unsplash'
 
 
 gem "lazyload-rails"
