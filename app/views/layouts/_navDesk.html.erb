@@ -75,7 +75,7 @@
 
   </div> 
 
-      <%= link_to current_user, turbolinks: true, class: "specialA" do %>
+      <%= link_to current_user, method: :get, class: "specialA" do %>
       <% unless current_user.avatar.present? %>
         <div class="navTitleEnd1 ifMob1"><%= avatarNav_for(current_user) %></div>
       <% end %>
@@ -104,7 +104,7 @@
 
 
 
-  <%= link_to notifications_path, turbolinks: true, class: "specialA dispNone" do %>
+  <%= link_to notifications_path, method: :get, class: "specialA dispNone" do %>
       <div class="navTitleEnd1 <%= 'activeNav' if current_page?(notifications_path) %>">
          <div class="textHover">
             <%= image_tag("notifications.png", class: "ImageNav") %>   
@@ -138,7 +138,7 @@
 
 
 
-  <%= link_to root_path, turbolinks: true, class: "specialA dispNone" do %>
+  <%= link_to root_path, method: :get, class: "specialA dispNone" do %>
       <div class="navTitleEnd1 <%= 'activeNav' if current_page?(root_path) %>">
         <div class="textHover">
            <%= (image_tag("home.png", class: "ImageNav")) %>

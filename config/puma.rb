@@ -15,6 +15,13 @@ port        ENV.fetch("PORT") { 3000 }
 #
 environment ENV.fetch("RAILS_ENV") { "development" }
 
+on_worker_boot do
+  # ...
+  if defined?(Resque)
+     Resque.redis = ENV["REDIS_URL"] || "redis://127.0.0.1:6379"
+  end
+end
+
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
 # the concurrency of the application would be max `threads` * `workers`.
