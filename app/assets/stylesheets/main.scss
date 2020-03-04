@@ -334,7 +334,7 @@ div.scrollMembersEvents a {
 .sharedIntsG{
   margin: 5px 8px 5px 8px;
   font-weight: 900;
-      color: #6d95b0;
+      color: #508cf7;
       text-align: left;
 }
 
@@ -342,7 +342,7 @@ div.scrollMembersEvents a {
 .sharedInts{
   margin: 5px 8px 5px 8px;
   font-weight: 900;
-  color: #6d95b0;
+  color: #508cf7;
   margin-top: -72px;
   text-align: left;
 }
@@ -357,6 +357,16 @@ div.scrollMembersEvents a {
   border-radius: 11px;
   transition: box-shadow .3s;
 }
+
+
+.elementBoxBox{
+  box-shadow: 0px 0px 4px 0px #e2e2e2;
+  height: 200px;
+  border-radius: 11px;
+  transition: box-shadow .3s;
+}
+
+
 
 .elementBox:hover{
   box-shadow:0 0 11px rgba(33, 33, 33, 0.2);
