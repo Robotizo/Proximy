@@ -3,6 +3,7 @@
 
 
 
+  resources :test_users
   get 'chats/index'
 
   resources :event_comments

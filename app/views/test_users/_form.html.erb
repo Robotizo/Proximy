@@ -1,0 +1,78 @@
+<%= stylesheet_link_tag "events", :media => "all" %>
+<%= form_for(@test_user) do |f| %>
+  <% if @test_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@test_user.errors.count, "error") %> prohibited this test_user from being saved:</h2>
+
+      <ul>
+      <% @test_user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<style type="text/css">
+  
+.form1{
+      border-radius: 8px !important;
+    border-color: white;
+    /* border-bottom: 1px #a2a2a2 solid !important; */
+    background-color: #f5f3f4;
+    border-radius: 8px;
+    padding: 20px;
+
+      width: 50%;
+  font-weight: 900;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0px 0px 0px 0px;
+    border: 0px;
+}
+
+.form1:focus{
+  outline: none;
+  box-shadow: 0px 0px 0px 0px !important;
+  background-color: #7ea5c01c;
+  border: 2px solid #66afe9;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.feedbackButton2{
+  font-weight: 700 !important;
+  background-color: #e7f3ff;
+  padding: 10px;
+  border-radius: 10px;
+  color: #508CF7;
+  border: 0px;
+  width: 20%;
+  outline: none !important;
+
+}
+
+.feedbackButton2:hover{
+  
+  background-color: #508CF7;
+
+  color: white;
+
+}
+
+
+
+</style>
+
+
+<div class="text-center">
+  <div class="field">
+    <%= f.text_field :email, class: "form1", placeholder: "Enter email" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit( "Signup", class: "feedbackButton2") %>
+  </div>
+
+</div>
+<% end %>

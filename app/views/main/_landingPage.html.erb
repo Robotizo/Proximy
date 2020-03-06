@@ -1,6 +1,14 @@
 
 
 
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+
+<script>
+    AOS.init();
+</script>
 
 
 <!-- Add animation -->
@@ -23,7 +31,7 @@ body{
 
 .navbar-brand {
     float: left;
-    padding: 15px 15px;
+    padding: 25px 15px;
     font-size: 18px;
     line-height: 20px;
     height: 96px;
@@ -41,7 +49,7 @@ body{
 <div class="container">
   <nav class="navbar fixed-top navbar-light bg-light">
     <div class="navbar-brand">
-       <%= image_tag("proximyLogo.png", class: "lp_logo") %>
+       <%= image_tag("logoNew.png", class: "lp_logo") %>
     </div>
   </nav>
 </div>
@@ -112,7 +120,7 @@ Bring people together
 
 <div class="container">
 <div class="lp_section">
-  <div class="col-md-7">
+  <div class="col-md-7 " data-aos="fade-up">
     <%= image_tag("lp_main.png", class: "lp_3") %>
   </div>
   <div class="col-md-5">
@@ -129,11 +137,11 @@ Bring people together
 
   <div class="col-md-5">
     <div class="lp_title_sub">
-      Start a conversation with people based on your common interests
+      Start a conversation with new people 
     </div>
   </div>
 
-    <div class="col-md-7">
+    <div class="col-md-7 " data-aos="fade-up">
     <%= image_tag("lp_message.png", class: "lp_3") %>
   </div>
   
@@ -142,7 +150,7 @@ Bring people together
 
 <div class="lp_section">
 
-  <div class="col-md-7">
+  <div class="col-md-7" data-aos="fade-up">
     <%= image_tag("lp_events.png", class: "lp_3") %>
   </div>
 
@@ -157,23 +165,38 @@ Bring people together
 
 
 
-<div class="lp_section switchPos">
+<div class="lp_section switchPos" style="margin-bottom: 0em !important">
 
 
 
   <div class="col-md-5">
     <div class="lp_title_sub">
-      Create and join personalized groups with people near you
+      Create and join personalized groups 
     </div>
 
     
   </div>
 
-  <div class="col-md-7">
+  <div class="col-md-7" data-aos="fade-up">
     <%= image_tag("lp_groups.png", class: "lp_3") %>
   </div>
   
 </div>
+
+
+
+<div class="lp_section ">
+
+  <div class="lp_title_sub2 text-center">
+      Interested in joining?
+    </div>
+
+
+  <%= render 'test_users/form', test_user: @test_user %>
+
+  
+</div>
+
 
 
 </div>

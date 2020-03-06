@@ -12,7 +12,7 @@ class MainController < ApplicationController
 	  		@eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
 	  	end
 
-
+		@test_user = TestUser.new
 
 	  	posts = Post.all
 	  	group_posts = GroupPost.all
