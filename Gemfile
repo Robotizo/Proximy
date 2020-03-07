@@ -81,7 +81,7 @@ gem 'redis', '~> 3.2'
 gem 'bcrypt-ruby', '3.1.5', :require => 'bcrypt'
 
 
-
+gem 'redis-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
