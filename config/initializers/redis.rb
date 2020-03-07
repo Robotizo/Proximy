@@ -1,1 +1,2 @@
-Redis.new(:url => "redis://h:p7f4d654e6fca052a0419ca067afdff1a1f52ff79647e1021ef66bda128760489@ec2-50-17-35-92.compute-1.amazonaws.com:9929")
+uri = URI.parse(ENV["REDISTOGO_URL"])
+REDIS = Redis.new(:url => uri)
