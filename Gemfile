@@ -80,6 +80,9 @@ gem 'redis', '~> 3.2'
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '3.1.5', :require => 'bcrypt'
 
+
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :production do
