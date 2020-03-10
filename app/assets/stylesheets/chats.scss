@@ -103,7 +103,7 @@ img.emoji {
 
     #messages{
       width: 75%;
-      height: calc(100% - 115px);
+      height: calc(100% - 125px);
       overflow: scroll;
       position: fixed;
 
@@ -213,9 +213,12 @@ label{
 }
 
 .message{
-  width: 100%;
-      flex-direction: column;
-          margin: 50px 0px;
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    margin: 5px 0px;
+    display: inline-block;
 }
 
 
@@ -238,23 +241,41 @@ label{
 
 
 .senderMessage{
-  background-color: #508cf7;
-  padding: 15px;
-  border-radius: 15px 15px 0px 15px;
-      color: white;
+    background-color: #508cf7;
+    padding: 15px;
+    border-radius: 15px 15px 15px 15px;
+    color: white;
+    width: auto;
+    float: right;
+    line-height: inherit;
+    max-width: 43%;
+    text-align: left;
 }
 
 .senderMessageAJAX{
     background-color: #508cf7;
-  border-radius: 15px 15px 0px 15px;
-      color: white;
+    padding: 15px;
+    border-radius: 15px 15px 15px 15px;
+    color: white;
+    width: auto;
+    float: right;
+    line-height: inherit;
+    max-width: 43%;
+     text-align: left;
 }
 
 .receiverMessage{
     background-color: #f1f0f0;
         color: black;
-  padding: 15px;
-  border-radius: 15px 15px 15px 0px;
+
+    padding: 15px;
+    border-radius: 15px 15px 15px 15px;
+
+    width: auto;
+    float: left;
+    line-height: inherit;
+    max-width: 43%;
+    text-align: left;
 
 }
 

@@ -283,7 +283,7 @@
  
             <%= image_for(@user) %>
 
-          <%= image_tag(@user.image_url, class: "userImageCover") if @user.image? %>
+          <%= image_tag(@user.image_url(:cover), class: "userImageCover") if @user.image? %>
         </div>
         <div class="col-md-12 col-xs-12 connArea">
           <div class="userImageSec1">

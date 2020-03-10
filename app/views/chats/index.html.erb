@@ -207,13 +207,8 @@
 </div>
 
 
-<script type="text/javascript">
-  function auto_grow(element) {
-    element.style.height = "48px";
-    element.style.height = (element.scrollHeight)+"px";
-}
-$('#messages').animate({scrollTop: document.body.scrollHeight},"fast");
-</script>
+
+
 
 
 <script type="text/javascript">
@@ -231,7 +226,7 @@ $('#messages').animate({scrollTop: document.body.scrollHeight},"fast");
     const itemsToShow = 5
     
     $window.on('scroll', () => {
-      if ($document.height() - $window.height() - $(this).scrollTop() == -100) {
+      if ($document.height() - $window.height() - $(this).scrollTop() == 0) {
         $(`.message:hidden:lt(${itemsToShow})`).show()
       }
     })
@@ -254,7 +249,7 @@ $('#messages').animate({scrollTop: document.body.scrollHeight},"fast");
         $newFriendRequestManage.removeClass('hidden')
       }
       
-      $htmlBody.animate({ scrollTop: $(document).height() }, "slow")
+      $messages.animate({ scrollTop: $(document).height() }, "slow")
       
       $.ajax({
         type: "GET", 
