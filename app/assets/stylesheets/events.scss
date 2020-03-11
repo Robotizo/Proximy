@@ -5,6 +5,13 @@
 
 /* Select Panel Start */
 
+
+.marginSetsA{
+  margin-top: 0em !important;
+  border-radius: 12px 12px 0px 0px;
+  max-height: 500px;
+}
+
 .dateContent{
   color: #757575;
   padding-right: 0px;
@@ -1801,6 +1808,7 @@ div.scrollGroupsI a {
     border-radius: 10px 10px 0px 0px;
     object-fit: cover;
     height: auto !important; 
+    max-height: 500px;
 }
 
 .module1 {

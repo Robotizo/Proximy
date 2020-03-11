@@ -3,6 +3,13 @@
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+
+<%= stylesheet_link_tag "lazy-load-images.min", :media => "all" %>
+<%= javascript_include_tag 'lazy-load-images.min', 'data-turbolinks-track': 'reload' %>
+
+
+
 <script>
   AOS.init();
 </script>
@@ -46,9 +53,17 @@
 <div class="col-md-5 col-xs-12 scrollNorm">
   <div class="text-center module1">
 
+
     <div class="innerModule">
     <div class="imageSec">
-      <%= image_tag(@event.image_url, class: "eventImageDisplay", lazy: true) if @event.image? %>
+
+
+<a href="<%= @event.image_url %>" class="lazy-load replace marginSetsA">
+      <%= image_tag(@event.image_url, class: "eventImageDisplay preview") if @event.image? %>
+ </a>
+
+
+
       <div class="eventImgTitle">
         <div class="eventTitleImg"><%= @event.title %></div>
       </div>
@@ -622,8 +637,16 @@
 <script>
 
 
+$(document).on("turbolinks:load", function(){
+   $("img").lazyload({
+      effect: "fadeIn"
+   });
 
-var value = "Bear"
+  });
+
+
+
+
 
 
 
@@ -744,10 +767,16 @@ var value = "Bear"
 
 
 
+
+
 </script>
 
 
 <script>
+
+
+
+
 jQuery(window).on('load', function(){ var $ = jQuery;
       var elem = document.querySelector('.grid');
       var msnry = new Masonry(elem, {

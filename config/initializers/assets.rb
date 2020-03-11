@@ -15,6 +15,8 @@ Rails.application.config.assets.precompile += %w( jquery.pagepiling.min.js )
 Rails.application.config.assets.precompile += %w( datepicker.js )
 Rails.application.config.assets.precompile += %w( jquery.lazyload.js )
 Rails.application.config.assets.precompile += %w( jquery.lazy.js )
+Rails.application.config.assets.precompile += %w( lazy-load-images.min.js )
+
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
@@ -33,3 +35,4 @@ Rails.application.config.assets.precompile += %w( feedbacks.css )
 Rails.application.config.assets.precompile += %w( jquery.pagepiling.css )
 Rails.application.config.assets.precompile += %w( datepicker.css )
 Rails.application.config.assets.precompile += %w( chats.css )
+Rails.application.config.assets.precompile += %w( lazy-load-images.min.css )

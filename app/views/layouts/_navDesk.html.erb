@@ -120,8 +120,8 @@
 
 
 
-    <%= link_to chats_index_path, method: :get, class: "specialA dispNone" do %>
-      <div class="navTitleEnd1 <%= 'activeNav' if current_page?(chats_index_path)  %>">
+    <%= link_to chats_path, method: :get, class: "specialA dispNone" do %>
+      <div class="navTitleEnd1 <%= 'activeNav' if current_page?(chats_path)  %>">
 
          <div class="textHover">
             <%= (image_tag("chat.png", class: "ImageNav")) %>

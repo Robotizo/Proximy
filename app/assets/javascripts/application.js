@@ -26,6 +26,7 @@
 
 
 
+
 $(window).on('load', () => {
   const $messages = $('#messages')
   const $contactElement = $('.chat__contact--element')

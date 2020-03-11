@@ -4,7 +4,7 @@
 
 
   resources :test_users
-  get 'chats/index'
+  get 'chats', :to => 'chats#index'
 
   resources :event_comments
   resources :group_comments
