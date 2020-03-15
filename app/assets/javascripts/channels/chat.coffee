@@ -34,6 +34,7 @@ jQuery(document).on 'turbolinks:load', ->
               else
                 messageTemplate = "<div class='message align-left'><span class='receiverMessage'>#{data['message']}</span></div>"
               $messages.append messageTemplate
+              $messages.animate { scrollTop: $(document).height() }, "slow"
           else
             selector = ".chat__contact--element[data-id='#{data['sender_id']}']"
             $(selector).addClass('is-new-message')
@@ -117,7 +118,12 @@ jQuery(document).on 'turbolinks:load', ->
           reader.readAsDataURL $newMessageDocumentAttachment.get(0).files[0] # read file in base 64 format
         else
           App.chat.send_message messageBody
-      
+
+
+
+        $messages.animate { scrollTop: $(document).height() }, "slow"
+
+        
       e.preventDefault()
       
       return false

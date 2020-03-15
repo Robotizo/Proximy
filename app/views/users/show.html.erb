@@ -3,6 +3,10 @@
 <%= javascript_include_tag( 'jquery.lazy.js' ) %>
 <head>
   <link rel="stylesheet" href="https://unpkg.com/placeholder-loading/dist/css/placeholder-loading.min.css">
+
+<%= stylesheet_link_tag "lazy-load-images.min", :media => "all" %>
+<%= javascript_include_tag 'lazy-load-images.min', 'data-turbolinks-track': 'reload' %>
+
 </head>
 
 <% if flash[:notice] %>
@@ -50,7 +54,11 @@
       <%= image_for(@user) %>
 
 
-        <%= image_tag(@user.image_url, class: "userImageCover", lazy: true) %>
+
+
+    <a href="<%= @user.image_url %>" class="lazy-load replace marginSetsA">
+      <%= image_tag(@user.image_url(:preview), class: "userImageCover preview") if @user.image? %>
+    </a>
 
 
     </div>

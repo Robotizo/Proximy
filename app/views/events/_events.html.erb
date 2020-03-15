@@ -1,4 +1,5 @@
-
+<%= stylesheet_link_tag "lazy-load-images.min", :media => "all" %>
+<%= javascript_include_tag 'lazy-load-images.min', 'data-turbolinks-track': 'reload' %>
           <% @events.each do |event| %>
           <% collide = current_user.followingI.ids & event.fgE.ids %>
           <% if Date.today <= event.event_date %>
@@ -19,6 +20,8 @@
               </div>
           <% end %>
           <% end %>
+
+
 
 
 

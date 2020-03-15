@@ -59,7 +59,7 @@
 
 
 <a href="<%= @event.image_url %>" class="lazy-load replace marginSetsA">
-      <%= image_tag(@event.image_url, class: "eventImageDisplay preview") if @event.image? %>
+      <%= image_tag(@event.image_url(:preview), class: "eventImageDisplay preview") if @event.image? %>
  </a>
 
 
