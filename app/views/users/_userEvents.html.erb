@@ -16,6 +16,8 @@ $(function () {
 
 
 
+
+
       <div class="titleSec">Events</div>
 
 
@@ -36,13 +38,17 @@ $(function () {
 
 
           <span class="col-md-6  userEvents mobileVE">
-            <%= link_to eventsFollowing, method: :get, class: "specialA" do %>
+           
             <div class="elementBox">
                 <div class="eventImage">
 
 
-                  <%= image_tag(eventsFollowing.image_url, class: "groupImage1", lazy: true) if eventsFollowing.image? %>
+                <a href="/events/<%= eventsFollowing.id %>" data-method="get" data-href="<%= eventsFollowing.image_url %>" class="lazy-load replace marginSetsA eventsF">
+                  <%= image_tag(eventsFollowing.image_url(:preview), class: "groupImage1 preview eventsF") if eventsFollowing.image? %>
+                </a>
 
+
+ <%= link_to eventsFollowing, method: :get, class: "specialA" do %>
     
 
                 </div>

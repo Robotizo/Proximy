@@ -5,6 +5,20 @@
 
 /* Select Panel Start */
 
+img:hover > .eventTitleDisc{
+
+    color: #457bda !important;
+}
+
+
+
+.marginSetsB{
+  margin-top: 0em !important;
+  border-radius: 12px 12px 0px 0px;
+  height: 244px;
+}
+
+
 
 .marginSetsA{
   margin-top: 0em !important;
@@ -120,6 +134,28 @@
       color: #508CF7;
     background-color: #e7f3ff;
    
+}
+
+#events-nav {
+    padding: 10px;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 18px;
+}
+
+
+.nav-tabs > li > a{
+      padding: 10px;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    font-size: 18px;
+}
+
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+        color: #508CF7;
+    background-color: #e7f3ff;
+    border: 0px !important;
 }
 
 
@@ -515,7 +551,7 @@ div.scrollMembersEvents .seeMore {
 
 
 .fixedState{
-  background-color: #6c95af;
+  background-color: #508CF7;
   padding: 16px;
   border-radius: 100px;
   position: fixed;
@@ -671,7 +707,7 @@ div .panel-interest{
   border: 1px solid #7fa6be;
 
     border-radius: 5px;
-    color: #7fa6be;
+    color: #508CF7z;
     cursor: pointer;
     display: inline-block;
     font-family: 'Poppins', sans-serif;
@@ -694,7 +730,7 @@ div .panel-interest{
 
 .fileBtnSubmit{
     /* border-color: #2e6da4; */
-    background-color: #6c95af;
+    background-color: #508CF7;
     /* width: 100%; */
     border: none;
     /* border-radius: 5px; */
@@ -702,7 +738,7 @@ div .panel-interest{
     cursor: pointer;
     display: inline-block;
     font-size: inherit;
-    font-weight: 900;
+    font-weight: 700;
     /* margin-bottom: 1rem; */
     outline: none;
     padding: 0.5rem 40px;
@@ -1528,11 +1564,11 @@ div .show-more[aria-expanded="true"]{
 
 
 .fileBtnDiv{
-    border-color: #2e6da4;
-  background-color: #7fa6be;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
+
+  background-color: #e7f3ff;
+        border: 1px solid #508cf71f;
+    border-radius: 30px;
+    color: #508CF7;
     cursor: pointer;
     display: inline-block;
     font-family: 'Poppins', sans-serif;

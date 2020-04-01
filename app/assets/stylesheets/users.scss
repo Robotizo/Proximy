@@ -4,13 +4,22 @@
 
 
 .lazy-load img{
-  height: 200px !important;
+  height: 220px !important;
   object-fit: cover  !important;
 }
+
+
 
 .marginSetsA{
   margin-top: 0em !important;
   border-radius: 12px 12px 0px 0px;
+  width: 100%;
+
+}
+
+.marginSetsInts{
+  margin-top: 0em !important;
+  border-radius: 12px;
 
 }
 
@@ -1593,10 +1602,10 @@ body {
 }
 
 .interestTitleSecNotF {
-  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
+  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
   position: relative;
-  top: -30px;
-  border-radius: 0px 0px 8px 8px;
+  top: -32px;
+  border-radius: 0px 0px 12px 12px;
 }
 
 .interestName {
@@ -1608,7 +1617,7 @@ body {
 }
 
 .interestNameNotF {
-  font-size: 14px;
+  font-size: 16px;
   padding: 5px;
   color: white;
   font-weight: 900;

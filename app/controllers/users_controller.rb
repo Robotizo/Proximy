@@ -113,11 +113,6 @@ class UsersController < ApplicationController
     @collideInterests = Interest.find(params = collide).sort_by &:updated_at
 
 
-
-
-
-    
-    
     @user_groups = @user.groups.order("created_at DESC")
     followingGroupsIds = @user.followingG.map(&:id)
     @groupsFollow = Group.find(params = followingGroupsIds).sort_by &:updated_at
@@ -201,6 +196,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :last_name, :email, :image, :avatar, :bio, :password, :password_confirmation, :latitude, :longitude, :distance_is_checked, :ip, :country)
+      params.require(:user).permit(:name, :last_name, :email, :image, :avatar, :bio, :password, :password_confirmation, :latitude, :longitude, :distance_is_checked, :ip, :country, :provider, :uid)
     end
 end

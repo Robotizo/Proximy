@@ -4,6 +4,10 @@
 
 
 
+#sign_in{
+	height: 40px;
+}
+
 
 /* Sign Up START */
 
@@ -47,9 +51,9 @@
 
 .fileBtnSubmit2{
 
-  background-color: #7fa6be;
+  background-color: #508cf7;
   width: 100%;
-  border: 1px solid #7fa6be;
+  border: 1px solid #508cf7;
 
     border-radius: 8px;
     color: white;
@@ -64,14 +68,14 @@
     position: relative;
     transition: all 0.3s;
     vertical-align: middle;
-    box-shadow: 0px 0px 10px 0px #7fa6be;
+    box-shadow: 0px 0px 10px 0px #508cf7;
 
 }
 
 .fileBtnSubmit2:hover{
-  background-color: #7fa6be;
+  background-color: #508cf7;
   color: white;
-  box-shadow: 0px 0px 10px 3px #7fa6be;
+  box-shadow: 0px 0px 8px 3px #508cf79c;
 }
 
 
@@ -125,12 +129,12 @@
 
 
 .fileBtnSubmitSign2{
-  border-color: #7fa6be;
+
   background-color: white;
-  width: 100%;
+  width: 81%;
   border: none;
   border-radius: 5px;
-  color: #7fa6be;
+  color: #508cf7;
   cursor: pointer;
   display: inline-block;
   font-family: 'Poppins', sans-serif;
@@ -146,9 +150,9 @@
 
 
 .fileBtnSubmitSign{
-  border-color: #2e6da4;
-  background-color: #7fa6be;
-  width: 100%;
+  border-color: #508cf7;
+  background-color: #508cf7;
+  width: 81%;
   border: none;
   border-radius: 5px;
   color: #fff;
@@ -375,12 +379,7 @@
 .logField, .signUpForm{
 	margin-top: 20px;
 }
-.logField-edits input{
-    background: rgba(0, 0, 0, 0.5);
-    border: none;
-    color: white;
-    font-size: 14px;
-}
+
 
 .imageHere{
 
@@ -452,8 +451,8 @@ body{
 }
 
 .centerDiv{
-	width: 27em;
-    height: 30em;
+	width: 28em;
+    height: 38em;
 	position: absolute;
 	top:0;
 	bottom: 0;
@@ -544,10 +543,10 @@ body{
 
 
 	.logField-edits input{
-	    background: rgba(0, 0, 0, 0.5);
+	    background: rgba(216, 216, 216, 0.5);
 	    border: none;
-	    color: white;
-	    font-size: 16px;
+	    color: black;
+	    font-size: 14px;
 	}
 
 

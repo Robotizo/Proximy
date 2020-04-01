@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag "sessions", :media => "all" %>
+<%= stylesheet_link_tag "animate", :media => "all" %>
 
 
 
@@ -6,27 +7,38 @@
 
 
 
-    <% if flash[:notice] %>
-<div class="alertSign alert-success" role="alert">
-  <%= notice %>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<script type="text/javascript">
+  $(document).ready(function () {
+   
+
+
+
+      setTimeout(function() {
+       $(".alert").fadeOut("1000");
+      }, 4000);
+
+
+    })
+
+</script>
+
+
+
+<% if flash[:notice] %>
+<div class="alert animated pulse infinate" role="alert">
+  <div class="alert-success">
+      <%= notice %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
+  </div>
+
+
 </div>
 <% end %>
-<style>
-    body{
-         overflow-y:hidden;
-         overflow-x: hidden;
-        height: 100vh !important;
-        background: white url('<%= asset_path 'image1.jpg' %>') no-repeat;
-        background-size: 100% auto ;
-        object-fit: cover;
-        
-       
-    }
-</style>
-<%= image_tag("image1.jpg", class: "imageHere") %>
+
+
+
 <div class="centerDiv">
 
 
@@ -34,8 +46,11 @@
 
   
         <div class="logoParent">
-            <%= image_tag("proximy_inv_t.png", class: "logoImg") %>
+            <%= image_tag("proximyNew.png", class: "logoImg") %>
         </div>
+
+
+
 
        
             <div class="text-center logField">
@@ -51,13 +66,22 @@
 
                 <div class="text-center loginSec">
                      <%= f.submit "Log in", class: "fileBtnSubmitSign" %>
+                 <% end %>
+                    <div class="text-center loginSec2">
+                        <%= button_to "Sign up", signup_path, method: :get, class: "fileBtnSubmitSign2" %>
+                    </div>
+                     <hr>
+                    <%= link_to image_tag("fbButton.png", id: "sign_in"),  "/auth/facebook"  %>
+          
                 </div>
 
+
+
+                   
+    
             
-                <% end %>
-                <div class="text-center loginSec2">
-                    <%= button_to "Sign up", signup_path, method: :get, class: "fileBtnSubmitSign2" %>
-                </div>
+            
+       
                
             </div>
         

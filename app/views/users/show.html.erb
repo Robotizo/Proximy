@@ -55,10 +55,12 @@
 
 
 
+      
+          <a href="<%= @user.image_url %>" class="lazy-load replace marginSetsA">
+                <%= image_tag(@user.image_url(:preview), class: "eventImageDisplay preview") if @user.image? %>
+           </a>
 
-    <a href="<%= @user.image_url %>" class="lazy-load replace marginSetsA">
-      <%= image_tag(@user.image_url(:preview), class: "userImageCover preview") if @user.image? %>
-    </a>
+
 
 
     </div>
@@ -291,7 +293,13 @@
  
             <%= image_for(@user) %>
 
-          <%= image_tag(@user.image_url(:cover), class: "userImageCover") if @user.image? %>
+      
+          <a href="<%= @user.image_url %>" class="lazy-load replace marginSetsA">
+                <%= image_tag(@user.image_url(:preview), class: "eventImageDisplay preview") if @user.image? %>
+           </a>
+
+
+
         </div>
         <div class="col-md-12 col-xs-12 connArea">
           <div class="userImageSec1">
@@ -607,7 +615,12 @@ $(function () {
 
 
                   <div class="interestCard">
-                    <%= image_tag(interestCollide.image_url(:thumb), class: "interestImageNotF", lazy: true) if interestCollide.image? %>
+
+                  <a href="<%= interestCollide.image_url(:thumb) %>" class="lazy-load replace marginSetsInts">
+                    <%= image_tag(interestCollide.image_url(:thumb), class: "interestImageNotF preview") if interestCollide.image? %>
+                  </a>
+
+
                     <div class="interestTitleSecNotF">
                       <div class="interestNameNotF"><%= interestCollide.name %></div>
                     

@@ -17,6 +17,10 @@ gem 'unsplash'
 
 gem "lazyload-rails"
 
+gem "omniauth-facebook"
+
+gem 'omniauth'
+
 
 
 # Use clearance for simple auth without devise

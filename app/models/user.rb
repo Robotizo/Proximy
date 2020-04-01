@@ -10,8 +10,6 @@ class User < ApplicationRecord
   before_validation { self.email = self.email.downcase }
 
 
-
-
  
   geocoded_by :ip, :latitude => :latitude, :longitude => :longitude
   after_validation :geocode, if: ->(obj){ !obj.latitude.present? and !obj.longitude.present?}
@@ -19,7 +17,6 @@ class User < ApplicationRecord
 
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
-
 
 
   mount_uploader :avatar, AvatarUploader
@@ -81,6 +78,27 @@ class User < ApplicationRecord
 
   has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
   has_many :inverse_friends, through: :inverse_friendships, source: :user
+
+
+
+  def self.sign_in_from_omniauth(auth)
+
+    where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
+      user.email = auth.info.email
+      user.provider = auth.provider
+      user.name = auth.info.name.gsub(/\s.+/, '')
+      user.last_name = auth.info.name.gsub(/.*\s+/, '')
+      user.uid = auth.uid
+      user.password = SecureRandom.urlsafe_base64.to_s
+      user.remote_avatar_url = auth.info.image
+      user.sign_in_count = 0
+
+    end
+  end
+
+
+
+
 
 
   

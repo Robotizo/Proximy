@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag "events", :media => "all" %>
+<%= stylesheet_link_tag "animate", :media => "all" %>
 <%= javascript_include_tag 'events', 'data-turbolinks-track': 'reload' %>
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
@@ -14,17 +15,40 @@
   AOS.init();
 </script>
 
+<script type="text/javascript">
+  $(document).ready(function () {
+   
+
+
+
+      setTimeout(function() {
+       $(".alert").fadeOut("1000");
+      }, 4000);
+
+
+    })
+
+</script>
+
 
 
 
 <% if flash[:notice] %>
-<div class="alert alert-success" role="alert">
-  <%= notice %>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<div class="alert animated pulse " role="alert">
+  <div class="alert-success">
+      <%= notice %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
+  </div>
+
+
 </div>
 <% end %>
+
+
+
+
 
 
 <style type="text/css">
@@ -42,7 +66,7 @@
 </style>
 
 
-<div class="backButton">
+<div class="backButton ">
   <%= link_to 'javascript:history.back()' do %>
         <%= image_tag("left-arrow.png", class: "leftArrow") %>
   <% end %>

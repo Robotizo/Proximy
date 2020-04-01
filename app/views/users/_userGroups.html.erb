@@ -32,8 +32,12 @@ $(function () {
 
 
 
+                <a href="/groups/<%= groupsFollowing.id %>" data-method="get" data-href="<%= groupsFollowing.image_url %>" class="lazy-load replace marginSetsA eventsF">
+                  <%= image_tag(groupsFollowing.image_url(:event), class: "groupImage1 preview eventsF") if groupsFollowing.image? %>
+                </a>
 
-                 <%= image_tag(groupsFollowing.image_url, class: "groupImage1", lazy: true) if groupsFollowing.image? %>
+
+
 
                 </div>
                 <div class="eventContent">

@@ -52,6 +52,7 @@
       <div class="userImageSec1">
         <%= avatar_for(current_user) %>
         <%= image_tag(@user.avatar_url(:thumb), class: "userImage1") if @user.avatar? %>
+
       </div>
       <div class="userSec1">
         <div class="userName">

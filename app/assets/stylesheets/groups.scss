@@ -3,6 +3,29 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+        color: #508CF7;
+    background-color: #e7f3ff;
+    border: 0px !important;
+}
+
+
+#events-nav {
+    padding: 10px;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 18px;
+}
+
+
+.nav-tabs > li > a{
+      padding: 10px;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    font-size: 18px;
+}
+
+
 
 .testMargeInterest{
   padding: 20px 20px 20px 20px;

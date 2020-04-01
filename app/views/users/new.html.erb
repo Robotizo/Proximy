@@ -1,42 +1,19 @@
 <%= stylesheet_link_tag "sessions", :media => "all" %>
+<%= stylesheet_link_tag "lazy-load-images.min", :media => "all" %>
+<%= javascript_include_tag 'lazy-load-images.min', 'data-turbolinks-track': 'reload' %>
 
 
 
 <style type="text/css">
-  body, html {
+  body {
     height: 100vh;
     margin: 0;
+    overflow-y: hidden !important;
+
   }
 
 </style>
 
-
-    <script>document.body.className += ' fade-out';</script>
-
-  <script>
-    
-
-
-    $(function() {
-        $('body').removeClass('fade-out');
-    });
-  </script>
-
-  <style type="text/css">
-    html {
-      background-color: black;
-    }
-    body {
-      opacity: 1;
-      transition: 0.5s opacity;
-    }
-    body.fade-out {
-        opacity: 0;
-        transition: none;
-    } 
-
-
-  </style>
 
 
 
@@ -44,19 +21,21 @@
 
 
 
-<%= image_tag("signUp.jpg", class: "imageHere") %>
+    <a href="<%= asset_path 'signUp.jpg' %>" class="lazy-load replace marginSetsA">
+          <%= image_tag("signUpSmall.jpg", class: "imageHere preview")  %>
+     </a>
 
 
-
-<div class="whiteContainerLeft">
-
-          <div class="logoParent">
-                <%= image_tag("proximy_inv_t.png", class: "logoImg2") %>
+<div class="whiteContainer">
+        <div class="logoParent">
+                <%= image_tag("proximyNew.png", class: "logoImg2") %>
           </div>
 
-
-
 </div>
+
+
+
+
 
 
 <div class="whiteContainer">
