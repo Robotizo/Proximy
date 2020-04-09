@@ -453,13 +453,13 @@ body{
 .centerDiv{
 	width: 28em;
     height: 38em;
-	position: absolute;
-	top:0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-  	
-	margin: auto;
+    position: inherit;
+    top: 0;
+    margin-top: 80px !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 

@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag "sessions", :media => "all" %>
 <%= stylesheet_link_tag "animate", :media => "all" %>
-
+<%= stylesheet_link_tag 'main', media: 'all' %>
 
 
 
@@ -21,6 +21,13 @@
     })
 
 </script>
+<style type="text/css">
+    
+body{
+  margin-top: 0px !important;
+}
+
+</style>
 
 
 
@@ -89,6 +96,51 @@
     <div class="mobileBottom"></div>
 </div>
 
+<!-- Footer -->
+<footer class="lp_footer">
+<div class="lp_footer_content container">
+  <div class="col-md-2 col-xs-12">
+    <%= image_tag("proximyClear.png", class: "logoFooter") %>
+
+  </div>
+  <div class="col-md-10 col-xs-12">
+    <div class="col-md-4 col-xs-12 text-left">
+      <div class="legalTitle" style="margin-top: 30px;">
+        Legal
+      </div>
+   
+      <br>
+      <div style="margin-bottom: 8px;">
+        <%= link_to "Privacy Policy", main_privacy_path, method: :get, class: "legalLinks" %>
+        
+      </div>
+      <div style="margin-bottom: 8px;">
+        <%= link_to "Terms & Conditions", main_terms_path, method: :get, class: "legalLinks" %>
+
+      </div>
+    </div>
+
+
+
+    <div class="col-md-4 col-xs-12 text-left" style="margin-top: 30px;">
+      <div class="legalTitle">
+        Support
+      </div>
+      <br>
+
+      <div class="legalStatic" style="margin-bottom: 50px;">
+        info@proximy.ca
+      </div>  
+    </div>
+
+
+  </div>
+
+ </div>
+
+
+</footer>
+<!-- Footer -->
 
 
 

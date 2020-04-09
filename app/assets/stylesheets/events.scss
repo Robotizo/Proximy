@@ -5,6 +5,51 @@
 
 /* Select Panel Start */
 
+
+.none{
+    width: 130px;
+    margin: 0 auto;
+    text-align: center;
+  
+
+}
+
+.msg{
+  background: #525252;
+  width: 130px;
+  text-align: center;
+  border-radius: 100px;
+  color: white;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 12px;
+}
+
+.linkToCopy{
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  opacity: 0;
+}
+
+
+
+.inviteLinkArea{
+  border: 1px solid #508cf7;
+  display: inline-flex;
+  padding: 8px;
+  border-radius: 300px;
+  margin-bottom: 5px;
+}
+
+
+
+.inviteLinkText{
+  font-weight: 800;
+  font-size: 14px;
+  padding-top: 2px;
+}
+
 img:hover > .eventTitleDisc{
 
     color: #457bda !important;

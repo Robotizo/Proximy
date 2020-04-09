@@ -1,0 +1,290 @@
+<%= stylesheet_link_tag "users", :media => "all" %>
+
+
+
+
+
+  <style type="text/css">
+  .mobNav{
+    display: none !important;
+  }
+
+  .topNav{
+  	display: none;
+  }
+
+  body{
+  	margin-top: 10px !important;
+  }
+
+  .buttonHov{
+    margin-top: -20px;
+    margin-bottom: 10px;
+  }
+  	.modal-content {
+		border-radius: 11px;
+		padding: 80px;
+	}
+
+
+	.modal.in .modal-dialog{
+		margin-top: 40px !important;
+	}
+</style>
+
+
+<style type="text/css">
+  .mobNav{
+    display: none !important;
+  }
+
+  .fileBtnDiv, .form-control {
+    width: 100%;
+    margin: 10px 0 !important;
+  }
+  .module1{
+    height: auto !important;
+  }
+  .formPart{
+    margin-top: 30px;
+    float: left;
+    width: 100%;
+  }
+
+    body{
+  	margin-top: 45px !important;
+  }
+
+
+
+  @media screen and (max-width: 776px){
+  .avatarInfo{
+    margin-top: -70px;
+  }
+    .noPadTemp{
+    padding-right: 2px !important;
+    padding-left: 0px;
+  }
+}
+
+
+
+
+
+</style>
+
+
+<div class="backButton">
+  <%= link_to 'javascript:history.back()' do %>
+        <%= image_tag("left-arrow.png", size: "54x54", class: "leftArrow") %>
+  <% end %>
+</div>
+
+
+
+<div class="container noPad3">
+
+<%= render 'users/userModule' %>  
+
+  
+
+
+
+
+  <div class="col-md-8 col-xs-12 avatarInfo">
+
+
+
+<%= form_for @user, url: wizard_path, method: :put do |f| %>
+
+  <div class=" col-md-12 col-xs-12 noPad3">
+    <div class="titleSec">Upload images</div>
+    <div class="field fileField col-xs-6  noPadTemp">
+      <label class="btn btn-primary fileBtnDiv">
+        <%= f.file_field :avatar, class: "fileBtn form-control", id: "avatarImageUpload" %>
+        Profile Photo
+      </label>
+    </div>
+
+
+    <div class="field fileField col-xs-6 noPad3">
+      <label class="btn btn-primary fileBtnDiv">
+        <%= f.file_field :image, class: "fileBtn form-control", id: "coverImageUpload" %> 
+        Cover Photo
+      </label>
+    </div>
+
+  </div>
+
+  <div class="col-md-12 col-xs-12 noPad3" style="margin-bottom: 10px;">
+    <div class="titleSec">Add a bio</div>
+    <div class="field fileField col-md-12 col-xs-12 noPad3">
+      <%= f.text_area :bio, placeholder: "Describe yourself.", class: "form-control textField", id: "eventTitle" %>
+    </div>
+  </div>
+
+  <div class="col-md-12 col-xs-12 noPad3" style="margin-bottom: 100px;">
+    <div class="titleSec">Where are you from?</div>
+    <div class="field fileField col-md-12 col-xs-12 noPad3">
+      <%= f.country_select :country,  {prompt: "Select a country"}, class: 'selectBox' %>
+    </div>
+  </div>
+
+
+
+ 
+    <div class="fixedState">
+      <%= f.button "Confirm", class: "fileBtnSubmit", data: {disable_with: "<i class='fa fa-circle-o-notch fa-spin'></i> Building..."} %>
+    </div>
+
+
+
+
+
+   <% end %>
+
+
+
+     <div class="fixedStateSkip">
+      <%= button_to "Skip", next_wizard_path, method: :get, class: "fileBtnSubmitSkip" %>
+    </div>
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+   		<%= image_tag("person1.png", class: "welcomeIcon") %>
+      </div>
+      <div class="welcomeTitle">
+      	Customize your profile
+      </div>
+       <div class="welcomeText">
+       	Now you can give flair to your profile by adding a picture of yourself and a cover photo. Also you can tell us a bit about yourself, where you're from and how old you are.
+      </div>
+    </div>
+  </div>
+
+
+    	<div class="fixedStatePro" data-dismiss="modal">
+          <div class="editsTextPro">Continue</div>
+        </div>
+
+
+
+
+</div>
+
+
+
+
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('#myModal').modal('show');
+    });
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  
+
+  $("#coverImageUpload").change(function(){
+      coverFileURL = URL.createObjectURL(event.target.files[0]);
+      $("#coverImageTag").css("visibility", "hidden");
+      $("#coverImage").css("background-image", "url("+coverFileURL+")");
+    });
+
+
+
+    $("#avatarImageUpload").change(function(){
+      coverFileURL = URL.createObjectURL(event.target.files[0]);
+      $("#avatarImageTag").css("visibility", "hidden");
+      $("#avatarImage").css({"background-image": "url("+coverFileURL+")"});
+    });
+  
+
+
+
+</script>
+
+<script>
+
+  
+$(document).ready(
+    function(){
+        $('#eventTitle').change(
+            function(){
+                if ($(this).val()) {
+                    $('#submitButtonId').attr('disabled',false);
+                    // or, as has been pointed out elsewhere:
+                    // $('input:submit').removeAttr('disabled'); 
+                } 
+            }
+            );
+    });
+
+$(document).ready(
+    function(){
+        $('#avatarImageUpload').change(
+            function(){
+                if ($(this).val()) {
+                    $('#submitButtonId').attr('disabled',false);
+                    // or, as has been pointed out elsewhere:
+                    // $('input:submit').removeAttr('disabled'); 
+                } 
+            }
+            );
+    });
+
+$(document).ready(
+    function(){
+        $('#coverImageUpload').change(
+            function(){
+                if ($(this).val()) {
+                    $('#submitButtonId').attr('disabled',false);
+                    // or, as has been pointed out elsewhere:
+                    // $('input:submit').removeAttr('disabled'); 
+                } 
+            }
+            );
+    });
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

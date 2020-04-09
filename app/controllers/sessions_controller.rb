@@ -17,7 +17,7 @@ class SessionsController < Clearance::SessionsController
 
 			user.login_increment
 			if user.sign_in_count == 1
-				redirect_to interests_user_path(user)
+				redirect_to after_signup_path(:interests)
 				user.update_attribute(:ip, request.ip)
 			else
 				redirect_to root_url
@@ -27,16 +27,15 @@ class SessionsController < Clearance::SessionsController
 		else
 
 			user = authenticate(params)
+			sign_in(user)
 
 			if sign_in(user)
 				#if user.email_confirmed == true
 
 					user.login_increment
-					if user.sign_in_count == 1
-						redirect_to interests_user_path(user)
-					else 
+		
 						redirect_to root_url
-					end
+	
 				#else 
 					#flash.now[:alert] = 'Confirm your email my dood'
 					#render 'new'
