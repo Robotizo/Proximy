@@ -4,6 +4,28 @@
 
 
 
+
+.legalLinks{
+  color: #767676;
+  font-size: 14px;
+  font-weight: 700;
+  color: #508cf7 !important;
+}
+
+
+.legalLinks:hover{
+  text-decoration: none !important;
+  color: #508cf7 !important;
+}
+.agreements{
+	padding-left: 30px;
+	padding-right: 30px;
+	text-align: center;
+	margin-top: 25px;
+	  font-size: 14px;
+  font-weight: 700;
+}
+
 #sign_in{
 	height: 40px;
 }

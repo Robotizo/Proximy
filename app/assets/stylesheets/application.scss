@@ -26,7 +26,7 @@ $nprogress-zindex: 10100;
 @import 'nprogress';
 @import 'nprogress-bootstrap';
 
-
+* {-webkit-font-smoothing: antialiased;}
 
 .btn-primary:hover{
 	background-color: #508CF7 !important;
@@ -760,6 +760,9 @@ body{
 	margin-top: 55px;
 	font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
 }
+
+
+
 
 .topNav{
 	box-shadow: 0 1px 1px rgba(0,0,0,.15);

@@ -2,6 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+
+#movie-area{
+  height: 85vh;
+  width: 100%;
+  background-color: black;
+}
+
+
+.lp_main_image {
+  height: 85vh;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .lp_title_sub2{
 font-size: 30px;
     font-weight: 500;
@@ -17,7 +35,7 @@ font-size: 30px;
 }
 
 
-
+* {-webkit-font-smoothing: antialiased;}
 
 .termsTitle{
   font-size: 50px;
@@ -85,7 +103,7 @@ font-size: 30px;
 }
 
 .logoFooter{
-  height: 60px;
+  height: 90px;
   width: 60px;
 
 }
@@ -483,7 +501,7 @@ div.scrollMembersEvents a {
 
 .eventContentDisc{
     position: relative;
-         top: -68px;
+         top: -65px;
     /* background-color: #00000054; */
     padding: 10px;
     /* opacity: 0.8; */
@@ -497,7 +515,7 @@ div.scrollMembersEvents a {
     padding-top: 10px;
     padding-bottom: 10px;
     font-weight: 800;
-    font-size: 20px;
+    font-size: 18px;
     white-space: normal;
     color: white;
 }
@@ -1672,11 +1690,15 @@ div.scrollMembersEvents a {
 
 
 .titleSec {
-  font-size: 25px;
-  font-weight: 900;
+  font-size: 19px;
+  font-weight: 900 !important;
   margin: 15px 0px;
   margin-bottom: 10px !important;
 }
+
+
+
+
 
 
 .dropbtn {
