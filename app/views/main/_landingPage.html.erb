@@ -9,6 +9,9 @@
 <%= javascript_include_tag 'lazy-load-images.min', 'data-turbolinks-track': 'reload' %>
 
 
+<%= javascript_include_tag 'jquery.waitforimages.js', 'data-turbolinks-track': 'reload' %>
+
+
 <script>
     AOS.init();
 </script>
@@ -39,12 +42,28 @@ body{
     line-height: 20px;
     height: 96px;
 }
+#cover{
+  position: fixed;
+  height: 100%;
+  width: 100%; 
+  top:0; 
+  left: 0; 
+  background: #000; 
+  z-index:9999;
+}
 </style>
 
 
   <!-- Front Page Start -->
 
+<script type="text/javascript">
+  
+  $(window).on('load', function(){
+    $("#cover").fadeOut(200);
+  });
+</script>
 
+<div id="cover"></div>
 
 <div class="lp_main">
 <div class="container">
@@ -55,13 +74,6 @@ body{
   </nav>
 </div>
 
-<script type="text/javascript">
-var vid = document.getElementById("myVideo");
-vid.onloadeddata = function() {
-  alert("Browser has loaded the current frame");
-};
-
-</script>
 
 
 <div id="movie-area" class="myVideo">
