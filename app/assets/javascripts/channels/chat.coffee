@@ -15,14 +15,11 @@ jQuery(document).on 'turbolinks:load', ->
       channel: 'ChatChannel'
     },
     connected: ->
-      
     disconnected: ->
-      
     received: (data) ->
       currentUser = parseInt($inputCurrentUser.val())
       activeUser = parseInt($inputActiveUser.val())
       
-      debugger
       if activeUser != -1
         if data['receiver_id'] == currentUser
           if data['sender_id'] == activeUser
@@ -77,21 +74,17 @@ jQuery(document).on 'turbolinks:load', ->
       if !!!$inputActiveUser.val()
         alert('Please select a user to send message first!')
         return
-
       
       $this = $(this)
 
-      # messageBody = $newMessageBody.val()
       messageBody = {
         content: $newMessageBody.val(),
         sender_id: $inputCurrentUser.val(),
         receiver_id: $inputActiveUser.val()
       }
-      
 
       if $.trim(messageBody).length > 0 or $newMessageVideoAttachment.get(0).files.length > 0 or $newMessageImageAttachment.get(0).files.length > 0 or $newMessageDocumentAttachment.get(0).files.length > 0
         #Scroll Top
-
         if $newMessageVideoAttachment.get(0).files.length > 0 # if file is chosen
           reader = new FileReader()  # use FileReader API
           fileName = $newMessageVideoAttachment.get(0).files[0].name # get the name of the first chosen file
@@ -118,20 +111,6 @@ jQuery(document).on 'turbolinks:load', ->
           reader.readAsDataURL $newMessageDocumentAttachment.get(0).files[0] # read file in base 64 format
         else
           App.chat.send_message messageBody
-
-
-
         $messages.animate { scrollTop: $(document).height() }, "slow"
-
-        
       e.preventDefault()
-      
       return false
-
-
-
-
-
-      
-
-      
