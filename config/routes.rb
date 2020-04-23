@@ -132,6 +132,7 @@ get '/sign_in' => 'sessions#new', :as => nil
   mount ActionCable.server => '/cable'
   
   get 'chats/list_messages/:id', :to => 'chats#list_messages'
+  get 'chats/ajax_messages', :to => 'chats#ajax_messages'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
