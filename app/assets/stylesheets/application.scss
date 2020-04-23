@@ -26,12 +26,12 @@ $nprogress-zindex: 10100;
 @import 'nprogress';
 @import 'nprogress-bootstrap';
 
-
+* {-webkit-font-smoothing: antialiased;}
 
 .btn-primary:hover{
 	background-color: #508CF7 !important;
 	color: white !important;
-	border: 1px solid #508cf71f;
+	border-color: #4f8cf7 !important;
 }
 
 
@@ -694,8 +694,8 @@ button{
 }
 
 .logoMain{
-	height: 50px;
-	width: 50px;
+    height: 58px;
+    width: 42px;
 }
 
 .dropDown{
@@ -761,6 +761,9 @@ body{
 	font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
 }
 
+
+
+
 .topNav{
 	box-shadow: 0 1px 1px rgba(0,0,0,.15);
 	border-radius: 0px;
@@ -769,7 +772,7 @@ body{
 }
 
 .navTitle{
-        margin-top: 2px;
+    margin-top: -2px;
     font-size: 30px;
     display: inline-block;
 }

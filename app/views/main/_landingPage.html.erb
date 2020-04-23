@@ -5,6 +5,9 @@
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
+<%= stylesheet_link_tag "lazy-load-images.min", :media => "all" %>
+<%= javascript_include_tag 'lazy-load-images.min', 'data-turbolinks-track': 'reload' %>
+
 
 <script>
     AOS.init();
@@ -45,6 +48,9 @@ body{
 
 
 
+
+
+
 <div class="lp_main">
 <div class="container">
   <nav class="navbar fixed-top navbar-light bg-light">
@@ -54,7 +60,16 @@ body{
   </nav>
 </div>
 
-<%= video_tag(["Proximy.mp4"], controls: false, autoplay: true, muted: true, loop: true, class: "lp_main_image", lazy: true, playsinline: true) %>
+
+
+<div id="movie-area" class="myVideo">
+
+ <%= video_tag(["Proximy.mp4"], controls: false, autoplay: true, muted: true, loop: true, class: "lp_main_image", lazy: true, playsinline: true, preload: "auto", id: "myVideo") %>
+
+</div>
+
+
+
 
 </div>
 
@@ -218,7 +233,7 @@ Bring people together
 <footer class="lp_footer">
 <div class="lp_footer_content container">
   <div class="col-md-2 col-xs-12">
-    <%= image_tag("proximyClear.png", class: "logoFooter") %>
+    <%= image_tag("logoFooter.png", class: "logoFooter") %>
 
   </div>
   <div class="col-md-10 col-xs-12">
@@ -252,6 +267,15 @@ Bring people together
     </div>
 
 
+    <div class="col-md-4 col-xs-12 text-left" style="margin-top: 30px;">
+      <div class="legalTitle">
+        Enterprise (Coming Soon)
+      </div>
+      <br>
+
+    </div>
+
+
   </div>
 
  </div>
@@ -260,13 +284,7 @@ Bring people together
 </footer>
 <!-- Footer -->
 
-
 <!-- Front Page End -->
-
-
-
-
-
 
 
 

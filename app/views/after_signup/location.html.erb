@@ -1,0 +1,254 @@
+<%= stylesheet_link_tag "users", :media => "all" %>
+
+<% if flash[:notice] %>
+<div class="alert alert-success" role="alert">
+  <%= notice %>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<% end %>
+
+
+
+<script type="text/javascript">
+		  function getLocation() {
+		    if (navigator.geolocation) {
+		      navigator.geolocation.getCurrentPosition(getLat2);
+		      navigator.geolocation.getCurrentPosition(getLon2);
+		    } else {
+		      x.innerHTML = "Geolocation is not supported by this browser.";
+		    }
+		  }
+
+
+		  function getLat2(position) {
+		    var lat2 = position.coords.latitude;
+
+		    $(document).ready(function () {
+		      $("#latField2").val(lat2);
+		    })
+		  }
+
+
+		  function getLon2(position) {
+		    var lon2 = position.coords.longitude;
+
+		    $(document).ready(function () {
+		      $("#lonField2").val(lon2);
+		    })
+		  }
+</script>
+
+ <style type="text/css">
+  .mobNav{
+    display: none !important;
+  }
+
+  .topNav{
+  	display: none;
+  }
+
+  body{
+  	margin-top: 40px !important;
+  }
+
+  .buttonHov{
+    margin-top: -20px;
+    margin-bottom: 10px;
+  }
+  	.modal-content {
+		border-radius: 11px;
+		padding: 80px;
+	}
+
+
+	.modal.in .modal-dialog{
+		margin-top: 40px !important;
+	}
+</style>
+
+<body onload="getLocation()">
+
+	<style scoped>
+
+	@media (max-width: 776px) { 
+	    .coverImage {   
+	        border-radius: 0px !important;
+	    }
+	    .mobNav{
+	    	display: none !important;
+	    }
+	}
+</style>
+
+
+<div class="backButton">
+  <%= link_to 'javascript:history.back()' do %>
+        <%= image_tag("left-arrow.png", size: "54x54", class: "leftArrow") %>
+  <% end %>
+</div>
+
+
+<div class="container noPad3">
+
+	<%= render 'users/userModule' %>	
+
+
+
+
+
+
+<div class="mobileArea col-md-8 col-xs-12 noPad3">
+<% if @user.latitude.present? or @user.longitude.present? %>
+
+	<div class="col-xs-12">
+			<div class="editContent">
+				<div id="map"></div>
+
+				<div class="disclaimer">Only you can see your exact location.</div>
+
+				<%= form_for @user, url: wizard_path, method: :put do |f| %>
+				  <div class="field">
+				    <%= f.hidden_field :latitude, class: "form-control", id: "latField2" %>
+				  </div>
+
+
+				  <div class="field">
+				    <%= f.hidden_field :longitude, class: "form-control", id: "lonField2"  %>
+				  </div>
+
+
+
+				<div class="fixedState">
+			      <%= f.button "Continue", class: "fileBtnSubmit", id: "submitButtonId", data: {disable_with: "<i class='fa fa-circle-o-notch fa-spin'></i> Building..."} %>
+			    </div>
+
+				<% end %>
+			</div>
+
+	</div>
+
+
+<% else %>
+	<div class="col-md-4">
+		<%= image_tag "destination.svg", class: "locationImage" %>
+	</div>
+	<div class="col-md-8">
+		<div class="infoOnLocation">Click on "Update location" to continue</div>
+	</div>
+<%= form_for @user, url: wizard_path, method: :put do |f| %>
+				  <div class="field">
+				    <%= f.hidden_field :latitude, class: "form-control", id: "latField2" %>
+				  </div>
+
+
+				  <div class="field">
+				    <%= f.hidden_field :longitude, class: "form-control", id: "lonField2"  %>
+				  </div>
+
+
+
+				<div class="fixedState">
+			      <%= f.button "Update location", class: "fileBtnSubmit", id: "submitButtonId", data: {disable_with: "<i class='fa fa-circle-o-notch fa-spin'></i> Building..."} %>
+			    </div>
+
+	<% end %>
+	
+<% end %>
+
+
+
+</div>
+
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+   		<%= image_tag("map.png", class: "welcomeIcon") %>
+      </div>
+      <div class="welcomeTitle">
+      	Your location
+      </div>
+       <div class="welcomeText">
+       	Lastly, we need your permission to get your location to match with others, events and groups around you. 
+      </div>
+    </div>				
+  </div>
+
+
+
+    	<div class="fixedStatePro" data-dismiss="modal">
+          <div class="editsTextPro">Done</div>
+        </div>
+
+
+</div>
+
+
+
+
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('#myModal').modal('show');
+    });
+</script>
+
+
+
+
+
+
+
+
+
+    <style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+        border-radius: 8px;
+       }
+    </style>
+
+
+
+    <script>
+
+		// Initialize and add the map
+		function initMap() {
+		  // The location of Uluru
+		  var pos = {lat: <%= current_user.latitude %> , lng: <%= current_user.longitude %> };
+		  // The map, centered at Uluru
+		  var map = new google.maps.Map(
+		      document.getElementById('map'), {zoom: 12, center: pos});
+		  // The marker, positioned at Uluru
+		  var marker = new google.maps.Marker({position: pos, map: map});
+		}
+
+
+    </script>
+
+
+
+
+	<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo48DWSAQY1Qc3Tg4LjO8DtBJ32jSDbZI&callback=initMap">
+	</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+

@@ -38,6 +38,9 @@ class EventsController < ApplicationController
   end
 
 
+  
+
+
   def myevents
     @user = current_user
     followingEventsIds = @user.followingE.map(&:id)
