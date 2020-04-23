@@ -46,6 +46,11 @@ body{
 
 
 
+
+
+
+
+
 <div class="lp_main">
 <div class="container">
   <nav class="navbar fixed-top navbar-light bg-light">
@@ -55,18 +60,11 @@ body{
   </nav>
 </div>
 
-<script type="text/javascript">
-var vid = document.getElementById("myVideo");
-vid.onloadeddata = function() {
-  alert("Browser has loaded the current frame");
-};
-
-</script>
 
 
 <div id="movie-area" class="myVideo">
 
- <%= video_tag(["Proximy.mp4"], controls: false, autoplay: true, muted: true, loop: true, class: "lp_main_image", lazy: true, playsinline: true, preload: "metadata", id: "myVideo") %>
+ <%= video_tag(["Proximy.mp4"], controls: false, autoplay: true, muted: true, loop: true, class: "lp_main_image", lazy: true, playsinline: true, preload: "auto", id: "myVideo") %>
 
 </div>
 
@@ -286,13 +284,7 @@ Bring people together
 </footer>
 <!-- Footer -->
 
-
 <!-- Front Page End -->
-
-
-
-
-
 
 
 
