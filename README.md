@@ -1,3 +1,5 @@
 # README
-App is 
+App is on a beta test trial. 
+
+# [checkbox:unchecked]
 
