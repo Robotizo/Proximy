@@ -9,5 +9,5 @@ App is on a beta test trial. We plan to do testing among friends next week. We m
 - [ ] Confirmation emails
 - [ ] Notifications page re-do 
 
-# Almost done :muscle:
+**Almost done :muscle:**
 
