@@ -178,6 +178,7 @@ font-size: 30px;
   margin-bottom: 4rem;
   font-weight: 500;
   letter-spacing: -1px;
+  float: left;
 }
 
 
@@ -1574,6 +1575,9 @@ div.scrollMembersEvents a {
 
 
 @media (min-width: 768px) {
+
+
+
   .imageHere{
     height: 100vh;
     object-fit: cover;
@@ -2718,6 +2722,21 @@ img.userImage2 {
 
 
 @media screen and (max-width: 776px){
+  .lp_outside_title_2{
+    margin-top: 0px;
+  }
+
+    html { 
+  scroll-snap-type: none;
+}
+
+.section {
+  width: 100%;
+
+  margin-top: 0em;
+  margin-bottom: 7em;
+  float: left;
+}
 
   .switchPos{
       display: flex;
