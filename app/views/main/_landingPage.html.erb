@@ -134,9 +134,16 @@ body{
 
   <h2 class="lp_outside_title_1 col-xs-12 ">
       
-    Bring people together
+    Meet people with your same interests
 
   </h2>
+
+
+  <div class="lp_text col-xs-12 ">
+     
+    Select your interests and start matching with people around you. 
+
+  </div>
 
 </div>
 
@@ -144,8 +151,17 @@ body{
 <div class="scrollmenu">
   <div class="scrollItem noPad3" style="margin-top: 20px;">
     <% @interests.each do |interest| %>
-     
+     <span class="scrollItem">
         <%= image_tag interest.image_url, class: "interestsImages" %>
+                          <div class="interestTitleSec">
+                  
+                      <div class="interestName"><%= interest.name %></div>
+                  
+                  </div>
+
+
+      </span>
+
 
     <% end %>
   </div>

@@ -25,7 +25,32 @@ html {
 }
 
 
+.scrollItem {
+  border-radius: 3px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 
+}
+
+.interestTitleSec {
+  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
+  position: relative;
+  top: -30px;
+  border-radius: 0px 0px 8px 8px;
+}
+
+.interestName {
+  font-size: 14px;
+  padding: 5px;
+  color: white;
+  font-weight: 900;
+  text-align: center;
+}
+
+.lp_text{
+    font-size: 22px;
+    text-align: center;
+}
 
 
 .lp_section{
@@ -42,7 +67,7 @@ div.scrollmenu {
   width: 100%;
   float: left;
   overflow: hidden;
-  margin-top: calc(25% + 10px);
+  margin-top: calc(20% + 10px);
 }
 
 
@@ -50,7 +75,6 @@ div.scrollmenu {
 .interestsImages{
   height: 250px;
   width: 200px;
-  margin: 8px;
   border-radius: 8px !important;
   object-fit: cover;
   box-shadow:  0 30px 70px -30px rgba(0, 0, 0, 0.4);
@@ -63,6 +87,7 @@ div.scrollmenu .scrollItem {
   text-align: center;
   padding: 14px;
   text-decoration: none;
+
 }
 
 
