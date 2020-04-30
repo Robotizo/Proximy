@@ -2,22 +2,99 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+html { 
+  scroll-snap-type: y mandatory;
+}
+
+.section {
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  margin-top: 7em;
+  margin-bottom: 7em;
+  float: left;
+}
+
+.section2 {
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  margin-top: 7em;
+  margin-bottom: 7em;
+  float: left;
+}
+
+
+
+
+
+.lp_section{
+    margin-top: 11em;
+    margin-bottom: 7em;
+    float: left;
+
+}
+
+
+div.scrollmenu {
+  overflow-y: scroll;
+  white-space: nowrap;
+  width: 100%;
+  float: left;
+  overflow: hidden;
+  margin-top: calc(25% + 10px);
+}
+
+
+
+.interestsImages{
+  height: 250px;
+  width: 200px;
+  margin: 8px;
+  border-radius: 8px !important;
+  object-fit: cover;
+  box-shadow:  0 30px 70px -30px rgba(0, 0, 0, 0.4);
+}
+
+
+div.scrollmenu .scrollItem {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+
+
+.tickerDiv{
+  width: 100%;
+  float: left;
+}
+
+
+
+.coloredDiv{
+  background-color: #508cf7 !important;
+}
+
 
 #movie-area{
-  height: 85vh;
+  height: 100vh;
   width: 100%;
   background-color: black;
 }
 
 
 .lp_main_image {
-  height: 85vh;
+  height: 100vh;
   width: 100%;
   -o-object-fit: cover;
   object-fit: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  opacity: 0.6;
 }
 
 .lp_title_sub2{
@@ -140,12 +217,7 @@ font-size: 30px;
     margin-right: 40px;
     margin-left: 40px;
 }
-.lp_section{
-    margin-top: 7em;
-    margin-bottom: 7em;
-    float: left;
-    width: 100%;
-}
+
 .lp_container{
   margin-left: 30px !important;
   margin-right: 30px !important;
@@ -169,16 +241,6 @@ font-size: 30px;
   width: 39%;
 }
 
-.lp_main_image {
-    height: 85vh;
-    width: 100%;
-    -o-object-fit: cover;
-    object-fit: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-}
 
 .lp_tet{
   width: 100%;
@@ -207,11 +269,12 @@ font-size: 30px;
 
   width: 100%;
   text-align: center;
-  font-weight: 3600;
+  font-weight: 600;
   font-size: 38px;
   margin-bottom: 6rem;
   font-weight: 500;
   letter-spacing: -1px;
+  margin-top: 1em;
 }
 
 .lp_outside_sub_1{
@@ -257,7 +320,7 @@ font-size: 30px;
     background-repeat: no-repeat;
     background-size: initial;
     border-radius: 10px !important;
-    box-shadow: 0px 0px 11px 0px #b7b7b7;
+    box-shadow: 1px 1px 4px 0 rgba(0,0,10,0.04), 0 40px 100px -20px rgba(0,0,10,0.2), 0 30px 70px -30px rgba(0,0,0,0.4);
 }
 
 
@@ -2644,7 +2707,7 @@ img.userImage2 {
     font-weight: 500;
     letter-spacing: -1px;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 70px;
     margin-right: 20px;
     margin-bottom: 20px;
     margin-left: 20px;

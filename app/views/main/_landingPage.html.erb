@@ -9,9 +9,6 @@
 <%= javascript_include_tag 'lazy-load-images.min', 'data-turbolinks-track': 'reload' %>
 
 
-<%= javascript_include_tag 'jquery.waitforimages.js', 'data-turbolinks-track': 'reload' %>
-
-
 <script>
     AOS.init();
 </script>
@@ -24,6 +21,8 @@
   
 body{
   margin-top: 0px !important;
+      background: linear-gradient(to bottom, #f8f8f8 0%, rgba(255,255,255,0) 100%);
+
 }
 
 .navbar {
@@ -33,6 +32,7 @@ body{
     /* margin-bottom: 20px; */
     background-color: transparent;
     border: 1px solid transparent;
+    z-index: 100;
 }
 
 .navbar-brand {
@@ -51,6 +51,8 @@ body{
   background: #000; 
   z-index:9999;
 }
+
+
 </style>
 
 
@@ -61,32 +63,55 @@ body{
   $(window).on('load', function(){
     $("#cover").fadeOut(200);
   });
+
+
+  $(document).ready(function animateThis() {
+    var scrollWidth = $('.scrollmenu').width();
+    $('.scrollmenu').animate({ scrollLeft: scrollWidth + (scrollWidth + 100)},
+      {
+        duration: 25000,
+        complete: function (){
+          $('.scrollmenu').animate({ scrollLeft: 0 },
+          {
+            duration: 25000, 
+            complete: function () {
+              animateThis();
+            }
+          })
+        }
+      });
+
+  });
+
 </script>
+
+
+
+
 
 <div id="cover"></div>
 
-<div class="lp_main">
-<div class="container">
-  <nav class="navbar fixed-top navbar-light bg-light">
-    <div class="navbar-brand">
-       <%= image_tag("logoNew.png", class: "lp_logo") %>
+
+<div class="section">
+  <div class="lp_main">
+    <div class="container">
+      <nav class="navbar fixed-top navbar-light bg-light">
+        <div class="navbar-brand">
+           <%= image_tag("logoNew.png", class: "lp_logo") %>
+        </div>
+      </nav>
     </div>
-  </nav>
+
+
+
+    <div id="movie-area">
+
+     <%= video_tag(["Proximy.mp4"], controls: false, autoplay: true, muted: true, loop: true, class: "lp_main_image",  playsinline: true) %>
+
+    </div>
+
+  </div>
 </div>
-
-
-
-<div id="movie-area" class="myVideo">
-
- <%= video_tag(["Proximy.mp4"], controls: false, autoplay: true, muted: true, loop: true, class: "lp_main_image", lazy: true, playsinline: true, preload: "metadata", id: "myVideo") %>
-
-</div>
-
-
-
-
-</div>
-
 
 <div class="lp_container mobile_lp">
   <h2 class="lp_outside_title_2">
@@ -103,64 +128,64 @@ body{
    
 
 
+
+<div class="section">
 <div class="lp_container">
 
-<h2 class="lp_outside_title_1 col-xs-12">
-  
-Bring people together
-
-</h2>
-
-
-
-<div class="col-md-4 col-xs-12 noPad3" style="margin-top: 20px;">
-  <%= image_tag("lp_3.jpg", class: "lp_2 ") %>
-  <div class="lp_sub_text">
-   Make meaningful face to face connections
-  </div>
-
-</div>
-
-
-<div class="col-md-4 col-xs-12 noPad3" style="margin-top: 20px;">
-  
-  <%= image_tag("lp_4.jpg", class: "lp_2") %>
-
-  <div class="lp_sub_text">
-    Find out what's going on around you 
-  </div>
-
-</div>
+  <h2 class="lp_outside_title_1 col-xs-12 ">
       
-<div class="col-md-4 col-xs-12 noPad3" style="margin-top: 20px;">
-  
-  <%= image_tag("lp_5.jpg", class: "lp_2") %>
-  <div class="lp_sub_text">
-    Get involved with what interests you most
+    Bring people together
+
+  </h2>
+
+</div>
+
+
+<div class="scrollmenu">
+  <div class="scrollItem noPad3" style="margin-top: 20px;">
+    <% @interests.each do |interest| %>
+     
+        <%= image_tag interest.image_url, class: "interestsImages" %>
+
+    <% end %>
   </div>
+</div>
+
 
 </div>
 
-</div>
+
+
 
 <div class="col-md-12">
 <hr>
 </div>
 
 <div class="container">
-<div class="lp_section">
-  <div class="col-md-7 " data-aos="fade-up">
-    <%= image_tag("lp_main.png", class: "lp_3") %>
-  </div>
-  <div class="col-md-5">
-    <div class="lp_title_sub">
-     Discover like-minded people near you based on common interests
+
+
+
+
+
+<div class="section">
+  <div class="lp_section">
+    <div class="col-md-7 " data-aos="fade-up">
+      <%= image_tag("lp_main.png", class: "lp_3") %>
     </div>
-    
+    <div class="col-md-5">
+      <div class="lp_title_sub">
+       Discover like-minded people near you based on common interests
+      </div>
+      
+    </div>
   </div>
-  
 </div>
 
+
+
+
+
+<div class="section">
 
 <div class="lp_section switchPos">
 
@@ -175,17 +200,50 @@ Bring people together
   </div>
   
 </div>
+  
+</div>
 
 
-<div class="lp_section">
 
-  <div class="col-md-7" data-aos="fade-up">
-    <%= image_tag("lp_events.png", class: "lp_3") %>
+<div class="section">
+
+  <div class="lp_section">
+
+    <div class="col-md-7" data-aos="fade-up">
+      <%= image_tag("lp_events.png", class: "lp_3") %>
+    </div>
+
+    <div class="col-md-5">
+      <div class="lp_title_sub">
+        Create and attend personalized events with people near you
+      </div>
+      
+    </div>
+    
   </div>
 
-  <div class="col-md-5">
-    <div class="lp_title_sub">
-      Create and attend personalized events with people near you
+  
+</div>
+
+
+
+
+<div class="section">
+
+  <div class="lp_section switchPos" style="margin-bottom: 0em !important">
+
+
+
+    <div class="col-md-5">
+      <div class="lp_title_sub">
+        Create and join personalized groups 
+      </div>
+
+      
+    </div>
+
+    <div class="col-md-7" data-aos="fade-up">
+      <%= image_tag("lp_groups.png", class: "lp_3") %>
     </div>
     
   </div>
@@ -194,57 +252,46 @@ Bring people together
 
 
 
-<div class="lp_section switchPos" style="margin-bottom: 0em !important">
 
 
 
-  <div class="col-md-5">
-    <div class="lp_title_sub">
-      Create and join personalized groups 
-    </div>
-
-    
-  </div>
-
-  <div class="col-md-7" data-aos="fade-up">
-    <%= image_tag("lp_groups.png", class: "lp_3") %>
-  </div>
-  
-</div>
 
 
 
-<div class="lp_section ">
-
-  <div class="lp_title_sub2 text-center">
-      Interested in joining?
-    </div>
-
-
-  <%= render 'test_users/form', test_user: @test_user %>
-
-  
-</div>
 
 
 
-</div>
-
-<div class="col-md-12">
-
-
-<br>
-<br>
-<br> 
-<br>
 
 
 
-</div>
+
+
+
+
+
+<!-- 
+  <div class="section">
+
+
+      <div class="lp_section ">
+
+        <div class="lp_title_sub2 text-center">
+            Interested in joining?
+          </div>
+
+
+        <%= render 'test_users/form', test_user: @test_user %>
+
+        
+      </div>
+
+    </div> 
+
+</div> -->
 
 
 <!-- Footer -->
-<footer class="lp_footer">
+<!-- <footer class="lp_footer">
 <div class="lp_footer_content container">
   <div class="col-md-2 col-xs-12">
     <%= image_tag("logoFooter.png", class: "logoFooter") %>
@@ -295,7 +342,7 @@ Bring people together
  </div>
 
 
-</footer>
+</footer> -->
 <!-- Footer -->
 
 
