@@ -52,6 +52,16 @@ body{
   z-index:9999;
 }
 
+.lazy-load img {
+    display: block;
+    width: 100%;
+    width: 220px;
+    max-width: none;
+    height: 250px;
+    border: 0;
+    object-fit: cover;
+}
+
 
 </style>
 
@@ -152,7 +162,20 @@ body{
   <div class="scrollItem noPad3" style="margin-top: 20px;">
     <% @interests.each do |interest| %>
      <span class="scrollItem">
-        <%= image_tag interest.image_url, class: "interestsImages" %>
+
+
+
+  
+                <%= image_tag(interest.image_url(:thumb), class: "interestsImages")%>
+
+
+
+
+
+    
+
+
+
                           <div class="interestTitleSec">
                   
                       <div class="interestName"><%= interest.name %></div>
