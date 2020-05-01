@@ -28,7 +28,15 @@ $(function () {
       <span class="col-md-4 testMarge mobileVE">
         <%= link_to event, method: :get,  class: "specialA" do %>
           <div class="elementBox">
-            <%= image_tag(event.image_url(:event), class: "groupImageDisc", lazy: true) if event.image? %>
+   
+                <a href="events/<%= event.id %>" data-method="get" data-href="<%= event.image_url(:event) %>" class="lazy-load replace marginSetsB">
+                  <%= image_tag(event.image_url(:preview), class: "groupImageDisc preview") if event.image? %>
+                </a>
+
+      
+
+
+
               <div class="eventContentDisc">
                 <div class="eventDateDisc"><%= event.event_date.strftime('%B %e') %></div>
               </div>

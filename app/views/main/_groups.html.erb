@@ -31,7 +31,17 @@ $(function () {
       <span class="col-md-3 testMarge mobileVE">
         <%= link_to group, method: :get, class: "specialA" do %>
           <div class="elementBox boxGMod">
-            <%= image_tag(group.image_url(:group), class: "groupImageDisc", lazy: true) if group.image? %>
+
+
+
+       
+            <a href="groups/<%= group.id %>" data-method="get" data-href="<%= group.image_url(:group) %>" class="lazy-load replace marginSetsB">
+                  <%= image_tag(group.image_url(:preview), class: "groupImageDisc preview") if group.image? %>
+                </a>
+
+
+
+
 
               <div class="groupTitleDiscG"><%= truncate(group.title, length: 25) %></div>
                 <div class="sharedIntsG">
