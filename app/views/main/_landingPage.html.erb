@@ -102,26 +102,28 @@ body{
 <div id="cover"></div>
 
 
-<div class="section">
-  <div class="lp_main">
-    <div class="container">
-      <nav class="navbar fixed-top navbar-light bg-light">
-        <div class="navbar-brand">
-           <%= image_tag("logoNew.png", class: "lp_logo") %>
-        </div>
-      </nav>
+  <div class="section">
+    <div class="lp_main">
+      <div class="container">
+        <nav class="navbar fixed-top navbar-light bg-light">
+          <div class="navbar-brand">
+             <%= image_tag("logoNew.png", class: "lp_logo") %>
+          </div>
+        </nav>
+      </div>
+
+
+
+      <div id="movie-area">
+
+        <%= video_tag(["Proximy.mp4"], controls: false, autoplay: true, muted: true, loop: true, class: "lp_main_image", playsinline: true) %>
+
+      </div>
+
     </div>
-
-
-
-    <div id="movie-area">
-
-     <%= video_tag(["Proximy.mp4"], controls: false, autoplay: true, muted: true, loop: true, class: "lp_main_image",  playsinline: true) %>
-
-    </div>
-
   </div>
-</div>
+
+
 
 <div class="lp_container mobile_lp">
   <h2 class="lp_outside_title_2">
@@ -138,8 +140,6 @@ body{
    
 
 
-
-<div class="section">
 <div class="lp_container">
 
   <h2 class="lp_outside_title_1 col-xs-12 ">
@@ -191,7 +191,6 @@ body{
 </div>
 
 
-</div>
 
 
 
@@ -203,90 +202,99 @@ body{
 <div class="container">
 
 
+<div class="scrollSec">
 
 
-
-<div class="section">
-  <div class="lp_section">
-    <div class="col-md-7 " data-aos="fade-up">
-      <%= image_tag("lp_main.png", class: "lp_3") %>
+  <div class="section">
+    <div class="lp_section">
+      <div class="col-md-7 " data-aos="fade-up">
+        <%= image_tag("lp_main.png", class: "lp_3") %>
+      </div>
+      <div class="col-md-5">
+        <div class="lp_title_sub">
+         Discover like-minded people near you based on common interests
+        </div>
+        
+      </div>
     </div>
+  </div>
+
+
+
+
+
+  <div class="section">
+
+  <div class="lp_section switchPos">
+
     <div class="col-md-5">
       <div class="lp_title_sub">
-       Discover like-minded people near you based on common interests
+        Start a conversation with new people 
+      </div>
+    </div>
+
+      <div class="col-md-7 " data-aos="fade-up">
+      <%= image_tag("lp_message.png", class: "lp_3") %>
+    </div>
+    
+  </div>
+    
+  </div>
+
+
+
+  <div class="section">
+
+    <div class="lp_section">
+
+      <div class="col-md-7" data-aos="fade-up">
+        <%= image_tag("lp_events.png", class: "lp_3") %>
+      </div>
+
+      <div class="col-md-5">
+        <div class="lp_title_sub">
+          Create and attend personalized events with people near you
+        </div>
+        
       </div>
       
     </div>
-  </div>
-</div>
 
-
-
-
-
-<div class="section">
-
-<div class="lp_section switchPos">
-
-  <div class="col-md-5">
-    <div class="lp_title_sub">
-      Start a conversation with new people 
-    </div>
+    
   </div>
 
-    <div class="col-md-7 " data-aos="fade-up">
-    <%= image_tag("lp_message.png", class: "lp_3") %>
-  </div>
-  
-</div>
-  
-</div>
 
 
 
-<div class="section">
+  <div class="section">
 
-  <div class="lp_section">
+    <div class="lp_section switchPos" style="margin-bottom: 0em !important">
 
-    <div class="col-md-7" data-aos="fade-up">
-      <%= image_tag("lp_events.png", class: "lp_3") %>
-    </div>
 
-    <div class="col-md-5">
-      <div class="lp_title_sub">
-        Create and attend personalized events with people near you
+
+      <div class="col-md-5">
+        <div class="lp_title_sub">
+          Create and join personalized groups 
+        </div>
+
+        
+      </div>
+
+      <div class="col-md-7" data-aos="fade-up">
+        <%= image_tag("lp_groups.png", class: "lp_3") %>
       </div>
       
     </div>
     
   </div>
 
-  
-</div>
 
 
 
 
-<div class="section">
-
-  <div class="lp_section switchPos" style="margin-bottom: 0em !important">
 
 
 
-    <div class="col-md-5">
-      <div class="lp_title_sub">
-        Create and join personalized groups 
-      </div>
-
-      
-    </div>
-
-    <div class="col-md-7" data-aos="fade-up">
-      <%= image_tag("lp_groups.png", class: "lp_3") %>
-    </div>
-    
-  </div>
-  
 </div>
 
 
@@ -300,15 +308,6 @@ body{
 
 
 
-
-
-
-
-
-
-
-
-<!-- 
   <div class="section">
 
 
@@ -319,18 +318,22 @@ body{
           </div>
 
 
-        <%= render 'test_users/form', test_user: @test_user %>
+          <div class="col-md-12 text-center" style="margin-top: 15px;">
 
-        
+
+            <%= button_to "Signup", signup_path, method: :get, class: "feedbackButton2" %>
+
+
+        </div>
       </div>
 
     </div> 
 
-</div> -->
+</div>
 
 
 <!-- Footer -->
-<!-- <footer class="lp_footer">
+<footer class="lp_footer">
 <div class="lp_footer_content container">
   <div class="col-md-2 col-xs-12">
     <%= image_tag("logoFooter.png", class: "logoFooter") %>
@@ -381,7 +384,8 @@ body{
  </div>
 
 
-</footer> -->
+</footer>
+
 <!-- Footer -->
 
 
