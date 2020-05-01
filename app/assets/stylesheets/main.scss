@@ -2,6 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+
+
+.loadingGif{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
+
 /* Button Start */
 
 .marginSetsB{

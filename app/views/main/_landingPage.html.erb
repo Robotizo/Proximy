@@ -100,7 +100,11 @@ body{
 
 
 
-<div id="cover"></div>
+<div id="cover">
+  <div class="loadingGif text-center">
+    <%= image_tag("loadingGif.gif", class: "lp_app_icons") %>
+  </div>
+</div>
 
 
   <div class="section">
@@ -123,7 +127,7 @@ body{
         <div class="textWithin fadeIn animated delay-1s"><%= button_to "Login", sign_in_path, method: :get, class: "loginButton" %></div>
         <div class="textWithin fadeIn animated delay-1s"><%= button_to "Signup", signup_path, method: :get, class: "loginButton2" %></div>
         <div class="textWithin2 fadeIn animated delay-1s">Scroll down to learn more</div>
-        <div class="textWithin2 fadeIn animated delay-1s"><i class="arrow down"></i></div>
+        <div class="textWithin2 slideOutDown animated delay-1s infinite slow"><i class="arrow down"></i></div>
       </div>
 
     </div>
