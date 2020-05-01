@@ -3,6 +3,79 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 /* Button Start */
+
+
+.showMobile{
+  display: none !important;
+}
+
+.showMobileDont{
+  display: block !important; 
+}
+
+.arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.loginButton{
+ 
+  background-color: #508CF7;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px !important;
+  border: 0px;
+  width: 25%;
+  font-weight: 600;
+  outline: none !important;
+  transition: 0.3s;
+  margin-top: 25px;
+}
+
+
+.loginButton:hover{
+  
+  background-color: #0845b3;
+
+  color: white;
+
+}
+
+
+
+
+
+.loginButton2{
+  
+  background-color: #e7f3ff;
+  padding: 10px;
+  border-radius: 10px;
+  color: #508CF7;
+  border: 0px;
+  font-weight: 600;
+  font-size: 18px !important;
+  width: 25%;
+  outline: none !important;
+  transition: 0.3s;
+  margin-top: 25px;
+}
+
+.loginButton2:hover{
+  
+  background-color: #508CF7;
+
+  color: white;
+
+}
 .feedbackButton2{
   font-weight: 700 !important;
   background-color: #e7f3ff;
@@ -10,7 +83,7 @@
   border-radius: 10px;
   color: #508CF7;
   border: 0px;
-  width: 30%;
+  width: 30% !important;
   outline: none !important;
   transition: 0.3s;
 
@@ -24,6 +97,30 @@
 
 }
 /* Button End */
+
+
+.textWithin{
+position: relative;
+    top: -350px;
+
+    font-weight: 800;
+    color: white;
+    text-align: center;
+    font-size: 19px;
+    width: 100%;
+}
+
+.textWithin2{
+position: relative;
+    top: -265px;
+    font-weight: 900;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    width: 100%;
+}
+
+
 
 
 .scrollSec { 
@@ -2747,6 +2844,30 @@ img.userImage2 {
 
 
 @media screen and (max-width: 776px){
+
+  .showMobile{
+    display: block !important;
+  }
+
+  .showMobileDont{
+  display: none !important; 
+}
+
+
+  .loginButton{
+    display: none;
+  }
+
+    .loginButton2{
+    display: none;
+  }
+  .feedbackButton2{
+    width: 80%;
+  }
+
+  #movie-area{
+    margin-top: -20px;
+  }
   .lp_outside_title_2{
     margin-top: 0px;
   }

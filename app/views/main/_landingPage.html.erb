@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<%= stylesheet_link_tag "animate", :media => "all" %>
 
 <%= stylesheet_link_tag "lazy-load-images.min", :media => "all" %>
 <%= javascript_include_tag 'lazy-load-images.min', 'data-turbolinks-track': 'reload' %>
@@ -118,6 +119,11 @@ body{
 
         <%= video_tag(["Proximy.mp4"], controls: false, autoplay: true, muted: true, loop: true, class: "lp_main_image", playsinline: true) %>
 
+        <div class="textWithin fadeIn animated delay-1s">New experiences start here</div>
+        <div class="textWithin fadeIn animated delay-1s"><%= button_to "Login", sign_in_path, method: :get, class: "loginButton" %></div>
+        <div class="textWithin fadeIn animated delay-1s"><%= button_to "Signup", signup_path, method: :get, class: "loginButton2" %></div>
+        <div class="textWithin2 fadeIn animated delay-1s">Scroll down to learn more</div>
+        <div class="textWithin2 fadeIn animated delay-1s"><i class="arrow down"></i></div>
       </div>
 
     </div>
@@ -320,8 +326,18 @@ body{
 
           <div class="col-md-12 text-center" style="margin-top: 15px;">
 
+            <div class="showMobile">
+              <%= render "test_users/form" %>
+            </div>
 
-            <%= button_to "Signup", signup_path, method: :get, class: "feedbackButton2" %>
+
+            <div class="showMobileDont">
+             <%= button_to "Signup", signup_path, method: :get, class: "feedbackButton2" %>
+            </div>
+
+
+
+            
 
 
         </div>
@@ -334,7 +350,7 @@ body{
 
 <!-- Footer -->
 <footer class="lp_footer">
-<div class="lp_footer_content container">
+<div class="lp_footer_content container noPad3" >
   <div class="col-md-2 col-xs-12">
     <%= image_tag("logoFooter.png", class: "logoFooter") %>
 
