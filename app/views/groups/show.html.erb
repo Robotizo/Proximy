@@ -1,16 +1,10 @@
 <%= javascript_include_tag 'groups', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag "groups", :media => "all" %>
-<% if flash[:notice] %>
-<div class="alert alert-success" role="alert">
-  <%= notice %>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<% end %>
+<%= stylesheet_link_tag "animate", :media => "all" %>
 
 
-
+<%= stylesheet_link_tag "lazy-load-images.min", :media => "all" %>
+<%= javascript_include_tag 'lazy-load-images.min', 'data-turbolinks-track': 'reload' %>
 <style type="text/css">
   
   input {
@@ -24,6 +18,36 @@
   }
 
 </style>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+   
+
+
+
+      setTimeout(function() {
+       $(".alert").fadeOut("1000");
+      }, 4000);
+
+
+    })
+
+</script>
+
+
+<% if flash[:notice] %>
+<div class="alert animated pulse " role="alert">
+  <div class="alert-success">
+      <%= notice %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+
+
+</div>
+<% end %>
+
 
 
 
@@ -46,11 +70,26 @@
 
 <div class="innerModule">
 
-    <%= image_tag(@group.cover_image_url, class: "groupImageCover", lazy: true) if @group.cover_image? %>
+  
+
+
+         <a href="<%= @group.cover_image_url %>" class="lazy-load replace coverImage">
+              <%= image_tag(@group.cover_image_url(:preview), class: "groupImageCover preview") if @group.cover_image? %>
+            </a>
+
+
   <div class="titleInfo">
     <div class="col-md-12 col-xs-12 connArea">
       <div class="groupImageSec1">
-        <%= image_tag(@group.image_url(:thumb),  class: "groupImage1", lazy: true) if @group.image? %>
+
+
+             <a href="<%= @group.image_url %>" class="lazy-load replace marginSetsA">
+                  <%= image_tag(@group.image_url(:preview), class: "groupImage1 preview") if @group.image? %>
+                </a>
+
+
+
+
       </div>
     </div>
     <div class="groupInfoSec">
@@ -87,7 +126,7 @@
 
 
       <div class="col-md-3 text-center" id="follow_formDes">
-          <%= link_to edit_group_path(@group), class: "specialA" do %>
+          <%= link_to edit_group_path(@group), method: :get, class: "specialA" do %>
             <%= image_tag("geatInv.png", class: "iconImage") %>
             <div class="textOps">
               Group settings
