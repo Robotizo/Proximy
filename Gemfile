@@ -40,6 +40,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'redis', '~> 3.2'
 gem 'bcrypt-ruby', '3.1.5', :require => 'bcrypt'
 gem 'redis-rails'
+gem 'rubocop', require: false
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
