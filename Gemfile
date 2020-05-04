@@ -24,7 +24,6 @@ gem 'omniauth'
 
 
 
-
 # Use clearance for simple auth without devise
 gem 'clearance', '~> 1.16'
 
