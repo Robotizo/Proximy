@@ -14,13 +14,9 @@ gem 'unsplash'
 gem "lazyload-rails"
 gem "omniauth-facebook"
 gem 'omniauth'
-<<<<<<< HEAD
-=======
-
 
 
 # Use clearance for simple auth without devise
->>>>>>> c6c9f2feae226009cdc2de0423b78c5734be4642
 gem 'clearance', '~> 1.16'
 gem 'shrine', '~> 2.6'
 gem 'rails_emoji_picker'
