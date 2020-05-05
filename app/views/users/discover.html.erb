@@ -1,6 +1,11 @@
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+
+<%= stylesheet_link_tag "lazy-load-images.min", :media => "all" %>
+<%= javascript_include_tag 'lazy-load-images.min', 'data-turbolinks-track': 'reload' %>
+
 <script>
     AOS.init();
 </script>
@@ -9,6 +14,8 @@
 
 
 <%= stylesheet_link_tag "users", :media => "all" %>
+
+
 
 </header>
 
@@ -26,10 +33,17 @@
           <div class="elementBoxPpl">
 
 
-          <% unless user.avatar.present? %>
-            <%= avatarDiscover_for(user) %>
-          <% end %>
-          <%= image_tag(user.avatar_url(:thumb), class: "peopleImage") if user.avatar? %>
+       
+
+      <% if user.avatar.present? %>
+          <a href="/users/<%= user.id %>" data-href="<%= user.avatar_url(:thumb) %>" data-method="get" class="lazy-load replace userImages">
+                <%= image_tag(user.avatar_url(:thumb), class: "userImages preview") if @user.avatar? %>
+        
+
+           </a>
+      <% else %>
+      <% end %>
+     
 
           <div class="discoverTitleSec">
             <div class="discoverName"><%= truncate(user.name.gsub(/\s.+/, '')) %></div>

@@ -15,6 +15,7 @@ class MainController < ApplicationController
 		@test_user = TestUser.new
 
 	  	posts = Post.all
+	  	@interests = Interest.all
 	  	group_posts = GroupPost.all
 	  	event_posts = EventPost.all
 	  	all_posts = posts + group_posts + event_posts

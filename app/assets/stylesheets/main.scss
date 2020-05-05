@@ -2,6 +2,269 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+
+
+.loadingGif{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
+
+/* Button Start */
+
+.marginSetsB{
+  margin-top: 0em !important;
+  border-radius: 12px 12px 0px 0px;
+  height: 244px;
+}
+
+
+
+
+.showMobile{
+  display: none !important;
+}
+
+.showMobileDont{
+  display: block !important; 
+}
+
+.arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.loginButton{
+ 
+  background-color: #508CF7;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px !important;
+  border: 0px;
+  width: 25%;
+  font-weight: 600;
+  outline: none !important;
+  transition: 0.3s;
+  margin-top: 25px;
+}
+
+
+.loginButton:hover{
+  
+  background-color: #0845b3;
+
+  color: white;
+
+}
+
+
+
+
+
+.loginButton2{
+  
+  background-color: #e7f3ff;
+  padding: 10px;
+  border-radius: 10px;
+  color: #508CF7;
+  border: 0px;
+  font-weight: 600;
+  font-size: 18px !important;
+  width: 25%;
+  outline: none !important;
+  transition: 0.3s;
+  margin-top: 25px;
+}
+
+.loginButton2:hover{
+  
+  background-color: #508CF7;
+
+  color: white;
+
+}
+.feedbackButton2{
+  font-weight: 700 !important;
+  background-color: #e7f3ff;
+  padding: 10px;
+  border-radius: 10px;
+  color: #508CF7;
+  border: 0px;
+  width: 30% !important;
+  outline: none !important;
+  transition: 0.3s;
+
+}
+
+.feedbackButton2:hover{
+  
+  background-color: #508CF7;
+
+  color: white;
+
+}
+/* Button End */
+
+
+.textWithin{
+position: relative;
+    top: -350px;
+
+    font-weight: 800;
+    color: white;
+    text-align: center;
+    font-size: 19px;
+    width: 100%;
+}
+
+.textWithin2{
+position: relative;
+    top: -265px;
+    font-weight: 900;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    width: 100%;
+}
+
+
+
+
+.scrollSec { 
+  scroll-snap-type: y proximity;
+}
+
+.section {
+
+  width: 100%;
+  scroll-snap-align: start;
+  margin-bottom: 3em;
+  float: left;
+}
+
+.section2 {
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  margin-top: 7em;
+  margin-bottom: 7em;
+  float: left;
+}
+
+
+.scrollItem {
+  border-radius: 3px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+}
+
+.interestTitleSec {
+  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.08) 3%, #4a4a4a91 100%) !important;
+  position: relative;
+  top: -30px;
+  border-radius: 0px 0px 8px 8px;
+}
+
+.interestName {
+  font-size: 14px;
+  padding: 5px;
+  color: white;
+  font-weight: 900;
+  text-align: center;
+}
+
+.lp_text{
+    font-size: 22px;
+    text-align: center;
+}
+
+
+.lp_section{
+    margin-top: 9em;
+    margin-bottom: 7em;
+    float: left;
+    width: 100%;
+
+}
+
+
+div.scrollmenu {
+  overflow-y: scroll;
+  white-space: nowrap;
+  width: 100%;
+  float: left;
+  overflow: hidden;
+  margin-top: 50px;
+}
+
+
+
+.interestsImages{
+  height: 250px;
+  width: 200px;
+  border-radius: 8px !important;
+  object-fit: cover;
+  box-shadow:  0 30px 70px -30px rgba(0, 0, 0, 0.4);
+}
+
+
+div.scrollmenu .scrollItem {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+
+}
+
+
+
+.tickerDiv{
+  width: 100%;
+  float: left;
+}
+
+
+
+.coloredDiv{
+  background-color: #508cf7 !important;
+}
+
+
+#movie-area{
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  box-shadow: 1px 1px 8px 0 rgba(0, 0, 0, 1);
+}
+
+
+.lp_main_image {
+  height: 100vh;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.6;
+}
+
 .lp_title_sub2{
 font-size: 30px;
     font-weight: 500;
@@ -17,7 +280,7 @@ font-size: 30px;
 }
 
 
-
+* {-webkit-font-smoothing: antialiased;}
 
 .termsTitle{
   font-size: 50px;
@@ -58,6 +321,7 @@ font-size: 30px;
   margin-bottom: 4rem;
   font-weight: 500;
   letter-spacing: -1px;
+  float: left;
 }
 
 
@@ -85,7 +349,7 @@ font-size: 30px;
 }
 
 .logoFooter{
-  height: 60px;
+  height: 90px;
   width: 60px;
 
 }
@@ -122,12 +386,7 @@ font-size: 30px;
     margin-right: 40px;
     margin-left: 40px;
 }
-.lp_section{
-    margin-top: 7em;
-    margin-bottom: 7em;
-    float: left;
-    width: 100%;
-}
+
 .lp_container{
   margin-left: 30px !important;
   margin-right: 30px !important;
@@ -151,16 +410,6 @@ font-size: 30px;
   width: 39%;
 }
 
-.lp_main_image {
-    height: 85vh;
-    width: 100%;
-    -o-object-fit: cover;
-    object-fit: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-}
 
 .lp_tet{
   width: 100%;
@@ -189,11 +438,12 @@ font-size: 30px;
 
   width: 100%;
   text-align: center;
-  font-weight: 3600;
+  font-weight: 600;
   font-size: 38px;
   margin-bottom: 6rem;
   font-weight: 500;
   letter-spacing: -1px;
+  margin-top: 1em;
 }
 
 .lp_outside_sub_1{
@@ -239,7 +489,7 @@ font-size: 30px;
     background-repeat: no-repeat;
     background-size: initial;
     border-radius: 10px !important;
-    box-shadow: 0px 0px 11px 0px #b7b7b7;
+    box-shadow: 1px 1px 4px 0 rgba(0,0,10,0.04), 0 40px 100px -20px rgba(0,0,10,0.2), 0 30px 70px -30px rgba(0,0,0,0.4);
 }
 
 
@@ -483,7 +733,7 @@ div.scrollMembersEvents a {
 
 .eventContentDisc{
     position: relative;
-         top: -68px;
+         top: -65px;
     /* background-color: #00000054; */
     padding: 10px;
     /* opacity: 0.8; */
@@ -497,7 +747,7 @@ div.scrollMembersEvents a {
     padding-top: 10px;
     padding-bottom: 10px;
     font-weight: 800;
-    font-size: 20px;
+    font-size: 18px;
     white-space: normal;
     color: white;
 }
@@ -1468,6 +1718,9 @@ div.scrollMembersEvents a {
 
 
 @media (min-width: 768px) {
+
+
+
   .imageHere{
     height: 100vh;
     object-fit: cover;
@@ -1672,11 +1925,15 @@ div.scrollMembersEvents a {
 
 
 .titleSec {
-  font-size: 25px;
-  font-weight: 900;
+  font-size: 19px;
+  font-weight: 900 !important;
   margin: 15px 0px;
   margin-bottom: 10px !important;
 }
+
+
+
+
 
 
 .dropbtn {
@@ -2609,6 +2866,45 @@ img.userImage2 {
 
 @media screen and (max-width: 776px){
 
+  .showMobile{
+    display: block !important;
+  }
+
+  .showMobileDont{
+  display: none !important; 
+}
+
+
+  .loginButton{
+    display: none;
+  }
+
+    .loginButton2{
+    display: none;
+  }
+  .feedbackButton2{
+    width: 80%;
+  }
+
+  #movie-area{
+    margin-top: -20px;
+  }
+  .lp_outside_title_2{
+    margin-top: 0px;
+  }
+
+    html { 
+  scroll-snap-type: none;
+}
+
+.section {
+  width: 100%;
+
+  margin-top: 0em;
+  margin-bottom: 7em;
+  float: left;
+}
+
   .switchPos{
       display: flex;
   flex-direction: column-reverse;
@@ -2622,7 +2918,7 @@ img.userImage2 {
     font-weight: 500;
     letter-spacing: -1px;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 70px;
     margin-right: 20px;
     margin-bottom: 20px;
     margin-left: 20px;

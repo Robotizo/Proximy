@@ -1,4 +1,8 @@
+  
+
+
   <div class="scrollMembers container ">
+
   
     <% @users.first(9).each do |user| %>
     <% unless user.id == current_user.id %>
@@ -9,12 +13,16 @@
 
 
           <div class="elementBoxPpl">
+
+        <% if user.avatar.present? %>
   
           <a href="users/<%= user.id %>" data-href="<%= user.avatar_url(:thumb) %>" data-method="get" class="lazy-load replace userImages">
                 <%= image_tag(user.avatar_url(:thumb), class: "userImg preview") if @user.avatar? %>
           
 
            </a>
+      <% else %>
+      <% end %>
 
 
 
@@ -48,7 +56,7 @@
 
 
     <span class="mobileVE testMargeMoreMain">
-          <%= link_to discover_users_path, class: "specialA" do %>
+          <%= link_to discover_users_path, method: :get, class: "specialA" do %>
           <div class="testMargeIn">
             
               ...

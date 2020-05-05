@@ -18,11 +18,19 @@
   <li class="nav-item active">
     <div class="nav-link active" id="v-pills-friend-tab" data-toggle="pill" href="#v-pills-friend" role="tab" aria-controls="v-pills-friend" aria-selected="true">
       Friend Requests
+      <% if @userFriendships.present? %> 
+         <span><%= image_tag "redCircle.png", class: "newNotif" %></span>
+      <% else %>
+      <% end %>
     </div>
   </li>
   <li class="nav-item">
     <div class="nav-link" id="v-pills-new-events-tab" data-toggle="pill" href="#v-pills-new-events" role="tab" aria-controls="v-pills-new-events" aria-selected="false">
       New Events
+      <% if @eventNotifsNew.present? %> 
+         <span><%= image_tag "redCircle.png", class: "newNotif" %></span>
+      <% else %>
+      <% end %>
     </div>
   </li>
 

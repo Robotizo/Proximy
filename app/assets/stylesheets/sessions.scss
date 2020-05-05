@@ -4,6 +4,28 @@
 
 
 
+
+.legalLinks{
+  color: #767676;
+  font-size: 14px;
+  font-weight: 700;
+  color: #508cf7 !important;
+}
+
+
+.legalLinks:hover{
+  text-decoration: none !important;
+  color: #508cf7 !important;
+}
+.agreements{
+	padding-left: 30px;
+	padding-right: 30px;
+	text-align: center;
+	margin-top: 25px;
+	  font-size: 14px;
+  font-weight: 700;
+}
+
 #sign_in{
 	height: 40px;
 }
@@ -453,13 +475,13 @@ body{
 .centerDiv{
 	width: 28em;
     height: 38em;
-	position: absolute;
-	top:0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-  	
-	margin: auto;
+    position: inherit;
+    top: 0;
+    margin-top: 80px !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 

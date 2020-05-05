@@ -9,6 +9,10 @@
 
 
 
+  resources :after_signup
+
+
+
 
   resources :test_users
   get 'chats', :to => 'chats#index'

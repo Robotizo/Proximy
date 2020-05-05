@@ -10,6 +10,7 @@ gem 'country_select', '~> 4.0'
 
 gem 'countries', require: 'countries/global'
 
+gem 'wicked'
 
 
 gem 'unsplash'
@@ -20,6 +21,7 @@ gem "lazyload-rails"
 gem "omniauth-facebook"
 
 gem 'omniauth'
+
 
 
 

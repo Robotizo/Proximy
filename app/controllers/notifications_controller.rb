@@ -24,6 +24,9 @@ class NotificationsController < ApplicationController
 		@eventNotifsPage = EventNotif.where(user_id: current_user, event_id: futureEvents)
 
 
+		@eventNotifsNew = EventNotif.where(user_id: current_user, is_checked: false, event_id: futureEvents)
+
+
 
 		@user_groups = @user.groups.order("created_at DESC")
 		followingGroupsIds = @user.followingG.map(&:id)

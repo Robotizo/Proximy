@@ -3,10 +3,107 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+.userImages img{
+      border-radius: 8px 8px 0px 0px !important;
+}
+
+
+
+.userImages{
+  position: relative;
+  height: 200px !important;
+  border-radius: 8px 8px 0px 0px !important;
+  object-fit: cover;
+}
+
+
+
+
+.locationImage{
+  text-align: center;
+    height: 200px;
+    margin-left: 60px;
+    margin-top: 30px;
+}
+
+.infoOnLocation{
+    font-size: 18px;
+    font-weight: 800;
+    padding-top: 6em;
+    margin-left: 20px;
+}
+
+.fixedStatePro{
+    background-color: #508cf7;
+    padding: 16px;
+    border-radius: 100px;
+    position: fixed;
+    display: block;
+    left: 50%;
+    width: 42%;
+    text-align: center;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 74%;
+    height: 50px;
+    z-index: 100;
+    bottom: 50px;
+    opacity: 1 !important;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.fixedStatePro:hover{
+  background-color: #4980e2;
+}
+
+
+.editsTextPro{
+  padding: 0px 10px;
+  color: white;
+  font-size: 14px;
+  font-weight: 900;
+
+  position: relative;
+}
+
+.special-modal-body{
+
+  width: 250px;
+  margin: 0 auto;
+
+}
+
+.welcomeTitle{
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 18px;
+  font-weight: 800;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.welcomeText{
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+
+.welcomeIcon{
+  height: 250px;
+}
+
+
 .lazy-load img{
   height: 220px !important;
   object-fit: cover  !important;
 }
+
 
 
 
@@ -45,7 +142,7 @@
 
   .panel-heading {
     height: 50px;
-    position: sticky;
+
     top: 55px;
     z-index: 90 !important;
     padding-top: 10px;
@@ -687,7 +784,7 @@ div .panel-interest{
   border: 1px solid #7fa6be;
 
     border-radius: 8px;
-    color: #7fa6be;
+    color: #508cf7;
     cursor: pointer;
     display: inline-block;
     font-family: 'Poppins', sans-serif;
@@ -761,7 +858,7 @@ div .panel-interest{
 
 .fileBtnSubmit{
     /* border-color: #2e6da4; */
-    background-color: #6c95af;
+    background-color: #508cf7;
     /* width: 100%; */
     border: none;
     /* border-radius: 5px; */
@@ -786,7 +883,7 @@ div .panel-interest{
     /* width: 100%; */
     border: none;
     /* border-radius: 5px; */
-    color: #6c95af;
+    color: #508cf7;
     cursor: pointer;
     display: inline-block;
     font-size: inherit;
@@ -944,7 +1041,7 @@ input.checkDist{
 
 
 .fixedState{
-  background-color: #6c95af;
+  background-color: #508cf7;
   padding: 16px;
   border-radius: 100px;
   position: fixed;
@@ -955,8 +1052,10 @@ input.checkDist{
 }
 
 .fixedState:hover{
-      box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+      box-shadow: 0 0 11px #508cf7;
 }
+
+
 
 
 
@@ -1143,7 +1242,7 @@ div .show-more[aria-expanded="true"]{
 
 /* User Settings Begin */
 .topTitle2{
-  font-size: 25px;
+  font-size: 19px;
   margin: 20px;
   font-weight: 900;
 }
@@ -1153,11 +1252,12 @@ div .show-more[aria-expanded="true"]{
 }
 
 .titleSec{
-  font-size: 25px;
+  font-size: 19px;
   font-weight: 900;
   margin-top: 20px;
   margin-left: 15px;
   margin-right: 15px;
+
   margin-bottom: 15px;
 }
 
@@ -1383,13 +1483,6 @@ div .show-more[aria-expanded="true"]{
 .userNameNotTaken{
   margin-left: 10px;
   font-size: 18px;
-}
-
-.userImg {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  border-radius: 3%;
 }
 
 
@@ -1642,7 +1735,7 @@ body {
   background-color: white;
   color: white;
   border: 0px !important;
-  background-color: #7fa6bd;
+  background-color: #508cf7;
   width: 100%;
 
 }
@@ -2059,15 +2152,6 @@ body {
 }
 
 
-.addInterest{
-  background-color: white;
-  color: white;
-  border: 0px !important;
-  background-color: #7fa6bd;
-  width: 100%;
-
-}
-
 
 .buttonEventHov{
   position: relative;
@@ -2419,7 +2503,7 @@ body {
 
 .userImageCover {
   width: 100%;
-  height: 400px;
+
   object-fit: cover;
   border-radius: 10px 10px 0px 0px;
   display: block;
@@ -2470,7 +2554,7 @@ body {
 }
 
 .userName {
-  font-size: 22px;
+  font-size: 19px;
   font-weight: 900;
 }
 
@@ -3287,6 +3371,7 @@ div.scrollMembersInterests .seeMore {
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 5px;
+    font-weight: 900;
   }
 
 
