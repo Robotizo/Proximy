@@ -707,13 +707,16 @@ div.scrollMembersEvents .seeMore {
   bottom: 0px;
 }
 
-
-.panel-default > .panel-heading {
+.panel-default > .panel-interest{
     background-color: #ffffff;
     font-size: 18px;
     font-weight: 900;
 }
-
+.panel-default > .panel-heading {
+    background-color: #ffffff;
+    font-size: 19px;
+    margin-top: 20px;
+}
 
 div .panel-interest{
     border-bottom: #6c95af 3px solid;
@@ -1439,6 +1442,7 @@ div .show-more[aria-expanded="true"]{
 	padding: 5px;	
 	color: white;
   font-weight: 900;
+  text-align: center;
 }
 
 
@@ -1456,8 +1460,9 @@ div .show-more[aria-expanded="true"]{
 	background-color: white;
 	color: white;
 	border: 0px !important;
-	background-color: #508cf7;
+	background-color: #84b0ff;
 	width: 100%;
+  transition: 0.3s;
 
 }
 
@@ -1639,7 +1644,7 @@ div .show-more[aria-expanded="true"]{
     padding-top: 10px;
     padding-bottom: 10px;
     font-weight: 900;
-    font-size: 22px;
+    font-size: 19px;
 
 
 }

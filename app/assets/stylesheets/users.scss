@@ -3,6 +3,22 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+.userImages img{
+      border-radius: 8px 8px 0px 0px !important;
+}
+
+
+
+.userImages{
+  position: relative;
+  height: 200px !important;
+  border-radius: 8px 8px 0px 0px !important;
+  object-fit: cover;
+}
+
+
+
+
 .locationImage{
   text-align: center;
     height: 200px;
@@ -51,7 +67,7 @@
   position: relative;
 }
 
-.modal-body{
+.special-modal-body{
 
   width: 250px;
   margin: 0 auto;
@@ -87,6 +103,7 @@
   height: 220px !important;
   object-fit: cover  !important;
 }
+
 
 
 
@@ -1225,7 +1242,7 @@ div .show-more[aria-expanded="true"]{
 
 /* User Settings Begin */
 .topTitle2{
-  font-size: 25px;
+  font-size: 19px;
   margin: 20px;
   font-weight: 900;
 }
@@ -1466,13 +1483,6 @@ div .show-more[aria-expanded="true"]{
 .userNameNotTaken{
   margin-left: 10px;
   font-size: 18px;
-}
-
-.userImg {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  border-radius: 3%;
 }
 
 
@@ -1725,8 +1735,9 @@ body {
   background-color: white;
   color: white;
   border: 0px !important;
-  background-color: #508cf7;
+  background-color: #84b0ff;
   width: 100%;
+  transition: 0.3s;
 
 }
 

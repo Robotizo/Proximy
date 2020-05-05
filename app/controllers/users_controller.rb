@@ -146,9 +146,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-
         sign_in(@user)
-
         #UserMailer.registration_confirmation(@user).deliver
         format.html { redirect_to after_signup_path(:interests), notice: 'Please confirm your email to sign in.' }
         format.json { render :show, status: :created, location: @user }

@@ -16,6 +16,7 @@ Rails.application.config.assets.precompile += %w( datepicker.js )
 Rails.application.config.assets.precompile += %w( jquery.lazyload.js )
 Rails.application.config.assets.precompile += %w( jquery.lazy.js )
 Rails.application.config.assets.precompile += %w( lazy-load-images.min.js )
+Rails.application.config.assets.precompile += %w( jquery.waitforimages.js )
 
 
 # Precompile additional assets.
