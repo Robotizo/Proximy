@@ -1,10 +1,8 @@
 source 'https://rubygems.org'
 
-<<<<<<< HEAD
-ruby "2.4.1"
-=======
+
 ruby "2.6.3"
->>>>>>> master
+
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -18,12 +16,10 @@ gem 'unsplash'
 gem "lazyload-rails"
 gem "omniauth-facebook"
 gem 'omniauth'
-<<<<<<< HEAD
-=======
 
 
 # Use clearance for simple auth without devise
->>>>>>> master
+
 gem 'clearance', '~> 1.16'
 gem 'shrine', '~> 2.6'
 gem 'rails_emoji_picker'
