@@ -1,122 +1,24 @@
 <%= stylesheet_link_tag "chats", :media => "all" %>
 
-
-
-<style type="text/css">
-
-
-
-    img:hover {
-         cursor: pointer;
-     }
-     input[type=file] {
-         display: none;
-     }
-
-
-     #image{
-          height: 45px;
-    border-radius: 10px;
-    padding: 5px;
-    margin: 10px 0px;
-    outline: none !important;
-    box-shadow: 0px 0px 4px 0px #e2e2e2;
-    -webkit-transition: box-shadow .3s;
-    transition: box-shadow .3s;
-     }
-
-
-
- #image:hover{
-  box-shadow: 0 0 11px rgba(33,33,33,.2);
-}
-
-
-     #video{
-          height: 45px;
-    border-radius: 10px;
-    padding: 5px;
-    margin: 10px 0px;
-    outline: none !important;
-    box-shadow: 0px 0px 4px 0px #e2e2e2;
-    -webkit-transition: box-shadow .3s;
-    transition: box-shadow .3s;
-     }
-
-
-
- #video:hover{
-  box-shadow: 0 0 11px rgba(33,33,33,.2);
-}
-
-
-
-
-     #doc{
-          height: 45px;
-    border-radius: 10px;
-    padding: 5px;
-    margin: 10px 0px;
-    outline: none !important;
-    box-shadow: 0px 0px 4px 0px #e2e2e2;
-    -webkit-transition: box-shadow .3s;
-    transition: box-shadow .3s;
-     }
-
-
-
- #doc:hover{
-  box-shadow: 0 0 11px rgba(33,33,33,.2);
-}
-
-</style>
-
-
-
-
-
-
-
-
-
-
-
+<!-- chat__main--wrapper -->
 <div class="chat__main--wrapper">
   <input type="hidden" class="input__active--user" name="active_user" value="-1">
   <input type="hidden" class="input__current--user" name="current_user" value="<%= current_user.id %>">
-  
-  <div class="chat__main--sub-section chat__contact--panel ">
 
+  <!-- chat__contact--panel -->
+  <div class="chat__main--sub-section chat__contact--panel ">
     <div class="contactMargin">
       <%= render @users %>
       <div class="proximyLogo">
-        
-
-          <%= image_tag("proximy-top.jpg", class: "logoMain") %>
-
+        <%= image_tag("proximy-top.jpg", class: "logoMain") %>
       </div>
     </div>
+  </div> <!-- /.chat__contact--panel -->
 
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="chat__main--sub-section chat__message--panel">
-
-
-
+  <!-- chat__message--panel -->
+  <div class="chat__main--sub-section chat__message--panel">
+    <!-- #messages -->
     <div id="messages">
-
       <div class="text-center">
         <div class=" noReqArea">
           <%= image_tag("chatBubbles.png", class: "noReqIcon") %>
@@ -124,102 +26,50 @@
         <div class="noReqText">
           Select someone to start chatting
         </div>
-
       </div>
+    </div> <!-- /#messages -->
 
-    </div>
-
-
-
-          <div class="messageField">
-              <form class="form__message-new" action="#">
-                  <div class="uploadItems">
-
-
-   
-
-                          <div class="col_4">
-                            <div class="form-group">
-                              <label for="doc">
-                                <input class="form__input-attachment-doc" id="doc" type="file" accept=".xls,.xlsx,.pdf,.docx">
-                                <img src='<%= asset_path 'addDoc.png' %>' id="doc">
-                              </label>
-                            </div>
-                          </div>
-
-
-                          <div class="col_4">
-                            <div class="form-group">
-                              <label for="video">
-                                <input class="form__input-attachment-video" id="video" type="file" accept=".mp4,.avi,.mpg">
-                                <img src='<%= asset_path 'addVideo.png' %>' id="video">
-                              </label>
-                            </div>
-                          </div>
-
-
-                         
-                          <div class="col_4">
-                            <div class="form-group">
-                              <label for="image">
-                                <input class="form__input-attachment-image" id="image" type="file" accept=".png,.jpg,.gif">
-                                <img src='<%= asset_path 'addImage.png' %>' id="image">
-                              </label>
-                            </div>
-                          </div>
-
-
-
- 
-
-
-
-                            
-
-  
-
-
-
-                </div> 
-
-
-
-              <div class="messageForm">
-
-                <div class="form-group">
-
-                  <textarea class="form-control form__input-body" placeholder="Type message here..."  oninput="auto_grow(this)" style="height: 45px;" data-emojiable="true"></textarea>
-                </div>
-              </div>
-             
-
-          <div class="sendButton">
-             <%= image_submit_tag "sendMessage.png", class: "iconImageMessage" %>
-  
-
-              </div>
-                          
-                     
-                      
-
-
-
-
-
-              </form>
-
+    <!-- chat__message--panel-input -->
+    <div class="messageField chat__message--panel-input">
+      <form class="form__message-new">
+        <div class="uploadItems">
+          <div class="col_4">
+            <div class="form-group">
+              <label for="doc">
+                <input class="form__input-attachment-doc" id="doc" type="file" accept=".xls,.xlsx,.pdf,.docx">
+                <img src='<%= asset_path 'addDoc.png' %>' id="doc">
+              </label>
+            </div>
+          </div>
+          <div class="col_4">
+            <div class="form-group">
+              <label for="video">
+                <input class="form__input-attachment-video" id="video" type="file" accept=".mp4,.avi,.mpg">
+                <img src='<%= asset_path 'addVideo.png' %>' id="video">
+              </label>
+            </div>
+          </div>
+          <div class="col_4">
+            <div class="form-group">
+              <label for="image">
+                <input class="form__input-attachment-image" id="image" type="file" accept=".png,.jpg,.gif">
+                <img src='<%= asset_path 'addImage.png' %>' id="image">
+              </label>
+            </div>
+          </div>
         </div>
-
-
-
-
-  </div>
-</div>
-
-
-
-
-
+        <div class="messageForm">
+          <div class="form-group">
+            <textarea class="form-control form__input-body" placeholder="Type message here..."  oninput="auto_grow(this)" style="height: 45px;" data-emojiable="true"></textarea>
+          </div>
+        </div>
+        <div class="sendButton">
+          <%= image_submit_tag "sendMessage.png", class: "iconImageMessage" %>
+        </div>
+      </form>
+    </div> <!-- /.chat__message--panel-input -->
+  </div> <!-- /.chat__message--panel -->
+</div> <!-- /.chat__main--wrapper -->
 
 <script type="text/javascript">
   $(document).ready(() => {
@@ -230,23 +80,17 @@
     const $newFriendRequestManage = $('.form__friend--request-manage')
     const $btnFriendRequestAccept = $('.btn__friend--request-accept')
     const $btnFriendRequestDeny = $('.btn__friend--request-deny')
-    
-    const $document = $(document)
-    const $window = $(window)
-    const itemsToShow = 5
-    
-    $window.on('scroll', () => {
-      if ($document.height() - $window.height() - $(this).scrollTop() == 0) {
-        $(`.message:hidden:lt(${itemsToShow})`).show()
-      }
-    })
-    
+    const messagesElement = document.querySelector('#messages');
+    const itemsToAdd = 10
+
     $('.chat__contact--element').on('click', (e) => {
       const $htmlBody = $('html, body')
       const $selectedContactElement = $(e.currentTarget)
       const selectedUserId = $selectedContactElement.data('id')
       const isFriendRequest = $selectedContactElement.data('is-friend-request')
       
+      let pageNumber = 0;
+
       if ($selectedContactElement.hasClass('unknown') && !$selectedContactElement.hasClass('is-friend-request')) {
         alert("This user is not in your friends list yet, you can't send message to him now.")
         return
@@ -267,22 +111,31 @@
         data: {},
         success: (data, textStatus, jqXHR) => {
           $messages.html(data)
-          
-          $('.message').filter(function(index) {
-              return (($(this).offset().top) > $window.height())
-          }).hide()
         },
         error: (jqXHR, textStatus, errorThrown) => {}
       })
 
       $selectedContactElement.addClass('is-active')
       $inputActiveUser.val(selectedUserId)
+      
+      messagesElement.addEventListener('scroll', function() {
+        if (messagesElement.scrollTop + messagesElement.clientHeight >= messagesElement.scrollHeight) {
+          $.ajax({
+            type: "GET", 
+            url: "/chats/ajax_messages/",
+            data: {
+              id: selectedUserId,
+              start: pageNumber * itemsToAdd,
+              end: (pageNumber + 1) * itemsToAdd,
+            },
+            success: (data, textStatus, jqXHR) => {
+              $messages.append(data)
+              pageNumber += 1
+            },
+            error: (jqXHR, textStatus, errorThrown) => {}
+          })
+        }
+      });
     })
   })
 </script>
-
-
-
-
-
-
