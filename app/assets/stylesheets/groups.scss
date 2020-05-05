@@ -3,6 +3,38 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+
+.groupImageSec1{
+  width: 33.33333%;
+  margin: 0 auto;
+}
+
+.marginSetsC{
+  border-radius: 10px 10px 0px 0px;
+  width: 100%;
+  background-color: white;
+  height: 215px;
+    
+}
+
+
+.marginSetsA{
+  margin-top: 0em !important;
+  border-radius: 15px;
+
+      height: 130px;
+    width: 130px;
+
+}
+
+.coverImage{
+    margin-top: 0em !important;
+    border-radius: 12px 12px 0px 0px;
+    width: 100%;
+      height: 200px;
+}
+
+
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
         color: #508CF7;
     background-color: #e7f3ff;
@@ -311,8 +343,9 @@ div.scrollMembersUsers a {
 }
 
 
+
 .fixedState{
-  background-color: #6c95af;
+  background-color: #508CF7;
   padding: 16px;
   border-radius: 100px;
   position: fixed;
@@ -469,7 +502,8 @@ div.scrollMembersUsers a {
 }
 .panel-default > .panel-heading {
     background-color: #ffffff;
-    font-size: 20px;
+    font-size: 19px;
+    margin-top: 20px;
 }
 
 
@@ -529,7 +563,7 @@ div .panel-interest{
 
 .fileBtnSubmit{
     /* border-color: #2e6da4; */
-    background-color: #6c95af;
+    background-color: #508CF7;
     /* width: 100%; */
     border: none;
     /* border-radius: 5px; */
@@ -537,7 +571,7 @@ div .panel-interest{
     cursor: pointer;
     display: inline-block;
     font-size: inherit;
-    font-weight: 900;
+    font-weight: 700;
     /* margin-bottom: 1rem; */
     outline: none;
     padding: 0.5rem 40px;
@@ -545,7 +579,6 @@ div .panel-interest{
     transition: all 0.3s;
     vertical-align: middle;
 }
-
 
 .create{
   position: fixed;
@@ -601,7 +634,7 @@ div .panel-interest{
 }
 
 .titleSecSub{
-  font-size: 25px;
+  font-size: 19px;
   font-weight: 900;
    margin: 20px;
 }
@@ -1305,13 +1338,14 @@ div .show-more[aria-expanded="true"]{
 
 }
 
-.fileBtnDiv {
-    border-color: #2e6da4;
-  background-color: #7fa6be;
-  width: 100%;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
+
+
+.fileBtnDiv{
+
+  background-color: #e7f3ff;
+        border: 1px solid #508cf71f;
+    border-radius: 30px;
+    color: #508CF7;
     cursor: pointer;
     display: inline-block;
     font-family: 'Poppins', sans-serif;
@@ -1323,13 +1357,11 @@ div .show-more[aria-expanded="true"]{
     position: relative;
     transition: all 0.3s;
     vertical-align: middle;
+  .fileBtn{
 
-
-  .fileBtn {
     display: none;
   }
 }
-
 
 .groupTitleForm {
   text-align: left;
@@ -1423,6 +1455,7 @@ div .show-more[aria-expanded="true"]{
 	padding: 5px;	
 	color: white;
   font-weight: 900;
+  text-align: center;
 }
 
 
@@ -1441,15 +1474,16 @@ div .show-more[aria-expanded="true"]{
 }
 
 
+
 .addInterest{
-	background-color: white;
-	color: white;
-	border: 0px !important;
-	background-color: #7fa6bd;
-	width: 100%;
+  background-color: white;
+  color: white;
+  border: 0px !important;
+  background-color: #84b0ff;
+  width: 100%;
+  transition: 0.3s;
 
 }
-
 
 .buttonEventHov{
 	position: relative;
@@ -1537,7 +1571,7 @@ div.scrollGroupsI a {
 }
 
 .topTitle2{
-  font-size: 25px;
+  font-size: 19px;
     margin: 20px 20px 10px 20px;
     font-weight: 900;
     float: left;
@@ -1677,7 +1711,7 @@ div.scrollEvents a {
 
 
 .titleSec{
-	font-size: 25px;
+	font-size: 19px;
 	font-weight: 900;
 	margin-top: 20px;
 	margin-left: 15px;
@@ -1785,7 +1819,7 @@ div.scrollEvents a {
 }
 
 .groupTitle{
-	font-size: 22px;
+	font-size: 19px;
 	font-weight: 900;
 	padding-bottom: 25px;
 }
