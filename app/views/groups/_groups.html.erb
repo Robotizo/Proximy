@@ -12,7 +12,7 @@
            <a href="groups/<%= group.id %>" data-method="get" data-href="<%= group.image_url(:group) %>" class="lazy-load replace marginSetsC">
                   <%= image_tag(group.image_url(:preview), class: "groupImageDisc preview") if group.image? %>
                 </a>
-
+<%= link_to group, method: :get, class: "specialA" do %>
 
               <div class="eventContent">
                 <div class="titleGroups"><%= truncate(group.title, length: 20) %></div>
@@ -26,8 +26,9 @@
           </div>
 
       <% end %>
+        <% end %>
 
-</div>
+
 
 
 

@@ -60,6 +60,11 @@
 	        <%= f.button "Confirm", class: "fileBtnSubmit2", data: {disable_with: "<i class='fa fa-circle-o-notch fa-spin'></i> Building..."} %>
 	    </div>
 
+      <div class="text-center specialA col-xs-12 noPad3">
+          <%= link_to "Log in", login_path, method: :get, class: "fileBtnSubmitSign2" %>
+      </div>
+
+
 <div class="col-md-12">
 
       <div class="agreements">By creating an account you agre to <%= link_to "Terms & Conditions", main_terms_path, method: :get, class: "legalLinks" %> and <%= link_to "Privacy Policy", main_privacy_path, method: :get, class: "legalLinks" %>.</div>

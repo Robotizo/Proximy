@@ -4,6 +4,7 @@ class EventsController < ApplicationController
 
 
 
+
   def interests
     @interests = Interest.all
     @event = Event.find(params[:id])
@@ -38,9 +39,6 @@ class EventsController < ApplicationController
   end
 
 
-  
-
-
   def myevents
     @user = current_user
     followingEventsIds = @user.followingE.map(&:id)
@@ -66,20 +64,26 @@ class EventsController < ApplicationController
   def show
 
 
-    @notification_event = NotificationEvent.new
-    @event_posts = @event.event_posts
+    if signed_in?
+      @notification_event = NotificationEvent.new
+      @event_posts = @event.event_posts
+      @eventInvites = NotificationEvent.where(event_id: @event.id)
+      @fullyFriends = current_user.friends
+      @eventNotifs = EventNotif.all
+      @interests = Interest.all
+      followingEventIds = @event.followersE.map(&:id)
+      @eventFollowers = User.find(params = followingEventIds).sort_by &:updated_at
+      @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
+      @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
+    else
+      @event_posts = @event.event_posts
+      followingEventIds = @event.followersE.map(&:id)
+      @eventFollowers = User.find(params = followingEventIds).sort_by &:updated_at
+      @interests = Interest.all
 
-    @eventInvites = NotificationEvent.where(event_id: @event.id)
+    end
 
-    @fullyFriends = current_user.friends
-    @eventNotifs = EventNotif.all
-    @interests = Interest.all
-    followingEventIds = @event.followersE.map(&:id)
-    @eventFollowers = User.find(params = followingEventIds).sort_by &:updated_at
-    
 
-    @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
-    @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
   end
 
   # GET /events/new

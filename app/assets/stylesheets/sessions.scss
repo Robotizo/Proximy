@@ -59,7 +59,7 @@
 }
 
 .signButton{
-	margin-top: 30px;
+	margin-top: 20px;
 }
 
 
@@ -151,7 +151,7 @@
 
 
 .fileBtnSubmitSign2{
-
+  text-decoration: none !important;
   background-color: white;
   width: 81%;
   border: none;
@@ -159,7 +159,7 @@
   color: #508cf7;
   cursor: pointer;
   display: inline-block;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif !important;
   font-size: inherit;
   font-weight: 600;
   margin-bottom: 1rem;
