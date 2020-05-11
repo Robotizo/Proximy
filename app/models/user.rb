@@ -10,6 +10,20 @@ class User < ApplicationRecord
   before_validation { self.email = self.email.downcase }
 
 
+  attr_accessor :current_step
+
+
+  def current_step?(step_key)
+
+    current_step.blank? || current_step == step_key
+  end
+
+
+
+  validates_presence_of :avatar, if: -> { current_step?("personal") }, on: :update
+  validates_presence_of :image, if: -> { current_step?("personal") }, on: :update
+
+
  
   geocoded_by :ip, :latitude => :latitude, :longitude => :longitude
   after_validation :geocode, if: ->(obj){ !obj.latitude.present? and !obj.longitude.present?}
@@ -19,8 +33,16 @@ class User < ApplicationRecord
   friendly_id :slug_candidates, use: :slugged
 
 
+
+
+
+
   mount_uploader :avatar, AvatarUploader
   mount_uploader :image, ImageUploader 
+
+
+
+
 
 
   has_many :posts, dependent: :destroy
@@ -92,7 +114,6 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64.to_s
       user.remote_avatar_url = auth.info.image
       user.sign_in_count = 0
-
     end
   end
 

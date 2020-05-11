@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag "sessions", :media => "all" %>
+
 <%= stylesheet_link_tag "lazy-load-images.min", :media => "all" %>
 <%= javascript_include_tag 'lazy-load-images.min', 'data-turbolinks-track': 'reload' %>
 
@@ -14,6 +15,20 @@
 
 </style>
 
+<script type="text/javascript">
+  $(document).ready(function () {
+   
+
+
+
+      setTimeout(function() {
+       $(".alert").fadeOut("1000");
+      }, 4000);
+
+
+    })
+
+</script>
 
 
 

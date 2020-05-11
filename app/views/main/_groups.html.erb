@@ -12,6 +12,9 @@ $(function () {
 });
 </script>
 <style type="text/css">
+
+
+
   @media screen and (max-width: 776px){
   .boxGMod {
     width: 210px !important;
@@ -40,13 +43,14 @@ $(function () {
                 </a>
 
 
-
+<%= link_to group, method: :get, class: "specialA" do %>
 
 
               <div class="groupTitleDiscG"><%= truncate(group.title, length: 25) %></div>
                 <div class="sharedIntsG">
                   <%= collide.count %> Shared interests
                 </div>
+        <% end %>
           </div>
         <% end %>
       </span>

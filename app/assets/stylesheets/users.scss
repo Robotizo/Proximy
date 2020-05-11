@@ -9,14 +9,9 @@
 
 
 
-.userImages{
-  position: relative;
-  height: 200px !important;
-  border-radius: 8px 8px 0px 0px !important;
-  object-fit: cover;
-}
-
-
+  .userImages img{
+    height: 190px !important;
+  }
 
 
 .locationImage{
@@ -44,7 +39,7 @@
     text-align: center;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    top: 74%;
+    top: 630px;
     height: 50px;
     z-index: 100;
     bottom: 50px;
@@ -93,15 +88,31 @@
 }
 
 
+.welcomeText2{
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+
 
 .welcomeIcon{
   height: 250px;
 }
 
 
-.lazy-load img{
-  height: 220px !important;
-  object-fit: cover  !important;
+
+
+
+.marginSetsC{
+  border-radius: 10px 10px 0px 0px;
+  width: 100%;
+  background-color: white;
+    
 }
 
 
@@ -1263,7 +1274,7 @@ div .show-more[aria-expanded="true"]{
 
 
 .titleSecInts{
-  font-size: 25px;
+  font-size: 18px;
   font-weight: 900;
   margin-top: 20px;
   margin-left: 15px;
@@ -1327,19 +1338,21 @@ div .show-more[aria-expanded="true"]{
   margin: 0;
 }
 
-.fileBtnDiv, .form-control {
+.fileBtnDiv, .form-control, .date{
   width: 80%;
-  margin: 10px 0px 40px 0;
+  margin: 10px 40px 40px 0;
+  font-weight: 900;
+
 
 }
 
-.fileBtnDiv {
-    border-color: #2e6da4;
-    background-color: #7fa6be;
-    width: 100%;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
+
+.fileBtnDiv{
+
+  background-color: #e7f3ff;
+        border: 1px solid #508cf71f;
+    border-radius: 30px;
+    color: #508CF7;
     cursor: pointer;
     display: inline-block;
     font-family: 'Poppins', sans-serif;
@@ -1351,11 +1364,12 @@ div .show-more[aria-expanded="true"]{
     position: relative;
     transition: all 0.3s;
     vertical-align: middle;
+  .fileBtn{
 
-  .fileBtn {
     display: none;
   }
 }
+
 
 .form-control {
     border-radius: 8px !important;
@@ -1764,9 +1778,9 @@ body {
   margin-bottom: 30px;
 }
 
-.groupImage1 {
+.groupImage1 img{
   border-radius: 10px 10px 0px 0px;
-  height: 220px;
+  height: 195px;
   width: 100%;
   object-fit: cover;
 }

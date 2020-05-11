@@ -1,4 +1,25 @@
 
+
+
+<style type="text/css">
+  
+
+  .marginSetsB img{
+    margin-top: 0em !important;
+    border-radius: 12px 12px 0px 0px;
+    height: 224px;
+    object-fit: cover;
+  }
+
+.eventsF img{
+  border-radius: 10px 10px 0px 0px;
+  height: 224px !important;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+</style>
    
 <script type="text/javascript">
 $(function () { 
@@ -32,7 +53,7 @@ $(function () {
 <div class="scrollMembersEvents deskVE">
   
 
-          <% @eventsFollow.last(4).each do |eventsFollowing| %>
+          <% @eventsFollow.first(4).each do |eventsFollowing| %>
           
   
 
@@ -43,8 +64,8 @@ $(function () {
                 <div class="eventImage">
 
 
-                <a href="/events/<%= eventsFollowing.id %>" data-method="get" data-href="<%= eventsFollowing.image_url %>" class="lazy-load replace marginSetsA eventsF">
-                  <%= image_tag(eventsFollowing.image_url(:preview), class: "groupImage1 preview eventsF") if eventsFollowing.image? %>
+                <a href="/events/<%= eventsFollowing.id %>" data-method="get" data-href="<%= eventsFollowing.image_url(:event) %>" class="lazy-load replace marginSetsA eventsF">
+                  <%= image_tag(eventsFollowing.image_url(:preview), class: "preview eventsF") if eventsFollowing.image? %>
                 </a>
 
 

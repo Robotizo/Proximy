@@ -102,7 +102,6 @@ class UsersController < ApplicationController
     @friendships = Friendship.where(user_id: @user.id, friend_id: current_user.id, status: "pending")
     @acceptedFriendships = Friendship.where(user_id: @user.id, friend_id: current_user.id, status: "accepted")
 
-
     @interests = Interest.all
 
     @users = User.all
@@ -147,8 +146,11 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         sign_in(@user)
+        @user.login_increment
+
         #UserMailer.registration_confirmation(@user).deliver
-        format.html { redirect_to after_signup_path(:interests), notice: 'Please confirm your email to sign in.' }
+        format.html { redirect_to after_signup_path(:interests)}
+
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

@@ -385,16 +385,26 @@ $(function () {
 
 
         <span class="col-md-6 userEvents mobileVE">
-          <%= link_to group_event, method: :get, class: "specialA" do %>
+        
     
             <div class="elementBox">
             
                 <div class="eventImage">
-                  <%= image_tag(group_event.image_url, class: "eventImage1") if group_event.image? %>
+
+              <a href="/events/<%= group_event.id %>" data-method="get" data-href="<%= group_event.image_url(:event) %>" class="lazy-load replace marginSetsB">
+                  <%= image_tag(group_event.image_url(:preview), class: "eventImageDisplay preview") if group_event.image? %>
+                </a>
+
+
+
                 </div>
+
+      <%= link_to group_event, method: :get, class: "specialA" do %>
                     <div class="eventContent1">
                         <div class="eventDateI"><%= group_event.event_date.strftime('%B %e') %></div>
                       </div>
+
+
                  <div class="eventOverall">
                     <div class="eventContent">
                       <div class="titleGroups"><%= truncate(group_event.title, length: 30)%></div> 

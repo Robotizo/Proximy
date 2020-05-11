@@ -2,6 +2,8 @@
 <%= stylesheet_link_tag "lazy-load-images.min", :media => "all" %>
 <%= javascript_include_tag 'lazy-load-images.min', 'data-turbolinks-track': 'reload' %>
 
+
+
       <% @groups.each do |group| %>
       <% collide = current_user.followingI.ids & group.fgI.ids %>
         <div class="col-md-3 col-xs-6 testMarge">

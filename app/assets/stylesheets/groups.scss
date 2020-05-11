@@ -3,6 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+.eventImageDisplay{
+  width: 100%;
+    border-radius: 10px 10px 0px 0px;
+    object-fit: cover;
+    height: auto !important; 
+    max-height: 500px;
+}
+
+
+
+.marginSetsB{
+  margin-top: 0em !important;
+  border-radius: 12px 12px 0px 0px;
+  height: 224px;
+}
+
+
 
 .groupImageSec1{
   width: 33.33333%;

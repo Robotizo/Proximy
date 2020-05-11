@@ -1,6 +1,25 @@
 
 
 
+
+<style type="text/css">
+  
+
+
+  .marginSetsC img{
+    height: 215px;
+    object-fit: cover;
+  }
+
+  .preview img{
+  border-radius: 10px 10px 0px 0px;
+  height: 215px !important;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+</style>
 <script type="text/javascript">
 $(function () { 
   if ($(window).width() < 960) {
@@ -32,33 +51,38 @@ $(function () {
 
 
 
-                <a href="/groups/<%= groupsFollowing.id %>" data-method="get" data-href="<%= groupsFollowing.image_url %>" class="lazy-load replace marginSetsA eventsF">
-                  <%= image_tag(groupsFollowing.image_url(:event), class: "groupImage1 preview eventsF") if groupsFollowing.image? %>
+                <a href="/groups/<%= groupsFollowing.id %>" data-method="get" data-href="<%= groupsFollowing.image_url(:group) %>" class="lazy-load replace marginSetsC">
+                  <%= image_tag(groupsFollowing.image_url(:preview), class: "groupImage1 preview") if groupsFollowing.image? %>
                 </a>
 
 
 
 
                 </div>
-                <div class="eventContent">
-                  <div class="titleGroups"><%= truncate(groupsFollowing.title, length: 25) %></div>
-                </div>
-                <% if groupsFollowing.user.present? %>
-                <div class="creatorSign">
-                  <div class="imageUserGroup">
 
 
-                      <%= image_tag(groupsFollowing.user.avatar_url, class: "userImage2") if groupsFollowing.user.avatar? %>
-
-
-
-        
-                  
+             <%= link_to groupsFollowing, method: :get, class: "specialA" do %>
+                  <div class="eventContent">
+                    <div class="titleGroups"><%= truncate(groupsFollowing.title, length: 25) %></div>
                   </div>
-                  <div class="contentUserPost">
-                    <span class="poster"><%= truncate(groupsFollowing.user.name, length: 30) %></span>
+                  <% if groupsFollowing.user.present? %>
+                  <div class="creatorSign">
+                    <div class="imageUserGroup">
+
+
+                        <%= image_tag(groupsFollowing.user.avatar_url, class: "userImage2") if groupsFollowing.user.avatar? %>
+
+
+
+          
+                    
+                    </div>
+                    <div class="contentUserPost">
+                      <span class="poster"><%= truncate(groupsFollowing.user.name, length: 30) %></span>
+                    </div>
                   </div>
-                </div>
+                <% end %>
+
                 <% end %>
               </div>
             <% end %>

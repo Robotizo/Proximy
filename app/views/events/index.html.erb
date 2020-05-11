@@ -7,6 +7,12 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
+
+<div class="backButton">
+  <%= link_to 'javascript:history.back()' do %>
+        <%= image_tag("left-arrow.png", class: "leftArrow") %>
+  <% end %>
+</div>
 <div class="container mobileArea indexMar">
 
  <%= render 'eventsMenu' %>
