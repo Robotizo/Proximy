@@ -5,21 +5,6 @@
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 
-<script>
-
-
-  $(function () { 
-      $('.panel-heading').on('click', function (e) {
-          var menuItem = $( e.currentTarget );
-          if (menuItem.attr('aria-expanded') == 'true') {
-              $(this).children(".imageMore").text("Show More");
-          } else {
-              $(this).children(".imageMore").text("Show Less");
-          }
-      });
-    });
-
-</script>
 
 
 
@@ -154,7 +139,7 @@
 
           
         <div class="col-md-3 col-xs-6">
-          <div class="interestMore text-center" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          <div class="interestMore text-center collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                 <div class="testMargeInterest testMargeMore seeMore">
 
                 
@@ -2886,7 +2871,7 @@
 
           
         <div class="col-md-3 col-xs-6">
-          <div class="interestMore text-center" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          <div class="interestMore text-center collapse" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                 <div class="testMargeInterest testMargeMore seeMore">
 
                 
