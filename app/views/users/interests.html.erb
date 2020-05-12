@@ -137,9 +137,9 @@
 
 
 
-
+          
         <div class="col-md-3 col-xs-6">
-        <button class="interestMore text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                 <div class="testMargeInterest testMargeMore seeMore">
 
                 
@@ -149,7 +149,7 @@
 
 
 
-          </button>
+          </div>
         </div>
 
 
@@ -2815,13 +2815,25 @@
 
 
 
+
+
+
+
+
+
+
 <!-- BEGIN -->
 
     <div class="panel panel-default" data-aos="fade-up">
         <div class="panel-heading" href="#sports" >
          Sports 
         </div>
+
+
       <div class="sports" >
+
+
+
         <div class="panel-body">
          
           <% @sports.first(7).each do |interest| %>
@@ -2871,7 +2883,7 @@
 
           
         <div class="col-md-3 col-xs-6">
-          <button class="interestMore text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          <div class="interestMore text-center" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                 <div class="testMargeInterest testMargeMore seeMore">
 
                 
@@ -2881,18 +2893,19 @@
 
 
 
-          </button>
+          </div>
         </div>
 
 
 
           <% end %>
-        </div>
+    </div>
 
 
+        <!-- class="collapse" -->
 
-
-        <div id="sports" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+        
+        <div id="sports"  aria-labelledby="headingOne" data-parent="#accordionExample">
           <div class="panel-body">
 
           <% @sports.each_with_index.each do | interest, index | %>
@@ -2947,6 +2960,9 @@
 
 
 
+
+
+
       </div>
 
 
@@ -2957,6 +2973,16 @@
 
 
 <!-- END -->
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- BEGIN -->
