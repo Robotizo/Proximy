@@ -31,6 +31,7 @@ class AfterSignupController < ApplicationController
 			    @sports = Interest.where(category: "Sports")
 			    @tech = Interest.where(category: "Tech")
 			when :personal
+		
 			 
 			when :location
 				@user = current_user
