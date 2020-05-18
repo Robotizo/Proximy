@@ -97,6 +97,9 @@ class UsersController < ApplicationController
   # GET /users/1 
   # GET /users/1.json
   def show
+
+    
+
     @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
     @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
     @friendships = Friendship.where(user_id: @user.id, friend_id: current_user.id, status: "pending")
@@ -121,6 +124,8 @@ class UsersController < ApplicationController
     @eventsFollow = Event.where(id: [followingEventsIds]).where('event_date > ?', Date.today).sort_by &:event_date
 
     @user_posts = @user.posts.order("created_at DESC")
+    
+    @age = current_user.age(current_user.date_of_birth)
     
   end
 
@@ -199,6 +204,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :last_name, :email, :image, :avatar, :bio, :password, :password_confirmation, :latitude, :longitude, :distance_is_checked, :ip, :country, :provider, :uid)
+      params.require(:user).permit(:name, :last_name, :email, :image, :avatar, :bio, :password, :password_confirmation, :latitude, :longitude, :distance_is_checked, :ip, :country, :provider, :uid, :gender, :date_of_birth)
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200331225705) do
+ActiveRecord::Schema.define(version: 20200515004130) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -246,6 +246,8 @@ ActiveRecord::Schema.define(version: 20200331225705) do
     t.string   "remember_token",      limit: 128,                 null: false
     t.string   "provider"
     t.string   "uid"
+    t.string   "gender"
+    t.date     "date_of_birth"
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end

@@ -90,6 +90,7 @@
 
   get 'main/privacy'
   get 'main/terms'
+  get 'main/dmca'
 
   get 'sessions/new'
   get    '/signup',  to: 'users#new'

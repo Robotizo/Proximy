@@ -17,6 +17,12 @@
 </script>
 
 
+<!-- Add radio button with gender -->
+<!-- Add selction for age -->
+<!-- Get rid of "Where are you from?" replace with geolocation request.location.city -->
+
+
+
 
   <style type="text/css">
   .mobNav{
@@ -48,9 +54,6 @@
 
 
 <style type="text/css">
-  .field_with_errors{
-    display: none;
-  }
   .mobNav{
     display: none !important;
   }
@@ -163,13 +166,52 @@
     </div>
   </div>
 
+<div class="col-md-12 col-xs-12 noPad3" style="margin-bottom: 20px;" >
+  <div class="titleSec">Gender</div>
+
+      <div class="radio-toolbar">
+        <div class="col-md-3" >
+          <%= f.radio_button :gender, 'Male', class: 'radioButton' %>
+          <%= f.label :gender, 'Male', for: "user_gender_male" %>
+        </div>
+
+        <div class="col-md-3">
+          <%= f.radio_button :gender, 'Female', class: 'radioButton' %>
+          <%= f.label :gender, 'Female', for: "user_gender_female"  %>
+        </div>
+
+        <div class="col-md-3">
+          <%= f.radio_button :gender, 'Non Binary', class: 'radioButton' %>
+          <%= f.label :gender, 'Non Binary', for: "user_gender_non_binary"  %>
+        </div>
+
+        </div>
+          
+      </div>
+
+      <div class="col-md-12 col-xs-12 noPad3" style="margin-bottom: 100px;">
+   <div class="titleSec">Date of Birth</div>
+
+
+   <%= f.date_select :date_of_birth, class: "dateChoose", start_year: Date.current.year, end_year: 1950, order: [:month, :day, :year], prompt: {day: 'Day', month: 'Month', year: 'Year'} %>
+
+</div>
+
+</div>
+
+
+
+
+
+
+<!-- 
   <div class="col-md-12 col-xs-12 noPad3" style="margin-bottom: 100px;">
     <div class="titleSec">Where are you from?</div>
     <div class="field fileField col-md-12 col-xs-12 noPad3">
       <%= f.country_select :country,  {prompt: "Select a country"}, class: 'selectBox' %>
     </div>
   </div>
-
+ -->
 
 
  

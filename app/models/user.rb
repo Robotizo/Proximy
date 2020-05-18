@@ -14,7 +14,6 @@ class User < ApplicationRecord
 
 
   def current_step?(step_key)
-
     current_step.blank? || current_step == step_key
   end
 
@@ -22,6 +21,7 @@ class User < ApplicationRecord
 
   validates_presence_of :avatar, if: -> { current_step?("personal") }, on: :update
   validates_presence_of :image, if: -> { current_step?("personal") }, on: :update
+  validates_presence_of :date_of_birth, if: -> { current_step?("personal") }, on: :update
 
 
  
@@ -291,6 +291,10 @@ class User < ApplicationRecord
   end
 
 
+  def age(dob)
+    now = Time.now.utc.to_date
+    now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+  end
 
 
 

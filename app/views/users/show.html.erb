@@ -100,7 +100,7 @@
 
 
           <div class="col-md-6 col-xs-6 noPad3 text-center">
-              <%= link_to contacts_path, class: "specialA" do %>
+              <%= link_to contacts_path, method: :get, class: "specialA" do %>
 
                 <%= image_tag("contacts.png", class: "iconImage") %>
                 <div class="textOps">
@@ -114,7 +114,7 @@
 
 
           <div class="col-md-6 col-xs-6 noPad3 text-center">
-              <%= link_to edit_user_path, class: "specialA" do %>
+              <%= link_to edit_user_path, method: :get, class: "specialA" do %>
 
                 <%= image_tag("userSettings.png", class: "iconImage") %>
                 <div class="textOps">
@@ -206,10 +206,11 @@
   <% if @user.bio.present? %>
   
       <div class="infoTitle">
-        <%= image_tag("userBio.png", class: "miniIcon") %> Bio
+        <%= image_tag("userBio.png", class: "miniIcon") %> Bio 
       </div>
       <div class="infoContentFirst">
         <%= @user.bio %>
+
       </div>
 
   <% end %>
@@ -336,11 +337,11 @@
 
         <% if current_user.id == @user.id %>
           <div id="follow_form" class="cUser" >
-               <%= button_to "Contacts", contacts_path, class: "btn connectBtn" %>
+               <%= button_to "Contacts", contacts_path, method: :get, class: "btn connectBtn" %>
           </div>
 
           <div id="follow_form" class="cUser">
-           <%= button_to "Edit Profile", edit_user_path, class: "btn connectBtn" %>
+           <%= button_to "Edit Profile", edit_user_path, method: :get, class: "btn connectBtn" %>
           </div>
  
          <% end %>
