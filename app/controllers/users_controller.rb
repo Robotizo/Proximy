@@ -124,8 +124,10 @@ class UsersController < ApplicationController
     @eventsFollow = Event.where(id: [followingEventsIds]).where('event_date > ?', Date.today).sort_by &:event_date
 
     @user_posts = @user.posts.order("created_at DESC")
-    
-    @age = current_user.age(current_user.date_of_birth)
+
+    if @user.date_of_birth.present?
+      @age = current_user.age(current_user.date_of_birth)
+    end
     
   end
 
