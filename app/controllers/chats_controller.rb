@@ -48,8 +48,10 @@ class ChatsController < ApplicationController
     @messages = Message.order(created_at: :asc)
   end
 
+  # Display only friends and followers for now
+  # TODO (Andy Lee): Consider and implement messaing request & limit feature for users 
   def get_users
-    @users = User.all
+    @users = current_user.friends || current_user.active_relationships
   end
 
   def get_notifications
