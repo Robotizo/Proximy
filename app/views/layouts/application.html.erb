@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
-<meta property="og:image" content="https://cdn.mos.cms.futurecdn.net/iVzDgRJPRAKkrmJnpu86mU-1200-80.jpg" />
+
+
+<% if content_for?(:head) %>
+  <%= yield(:head) %>
+<% end %>
+
 
 <html>
   <head>
@@ -150,7 +155,6 @@
       <div class="bounce3"></div>
     </div>
 <div id="theRest" >
-
 
 
 
