@@ -21,7 +21,10 @@ class User < ApplicationRecord
 
   validates_presence_of :avatar, if: -> { current_step?("personal") }, on: :update
   validates_presence_of :image, if: -> { current_step?("personal") }, on: :update
+  
   validates_presence_of :date_of_birth, if: -> { current_step?("personal") }, on: :update
+
+
 
 
  

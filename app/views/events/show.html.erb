@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<meta property="og:image" content="https://cdn.mos.cms.futurecdn.net/iVzDgRJPRAKkrmJnpu86mU-1200-80.jpg" />
 
 
 <%= stylesheet_link_tag "lazy-load-images.min", :media => "all" %>
@@ -29,6 +30,9 @@
     })
 
 </script>
+
+
+
 
 
 
@@ -140,6 +144,7 @@
 
       <div class="eventImgTitle">
         <div class="eventTitleImg"><%= @event.title %></div>
+         <div class="eventFBInvite">Invite</div>
       </div>
     </div>
 
@@ -884,14 +889,39 @@ $(document).on("turbolinks:load", function(){
 
 
 
+</script>
 
 
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '559603124962178',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v7.0'
+    });
+  };
+</script>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+<script type="text/javascript">
 
 
-
-
+  $('.eventFBInvite').click(function(){
+    FB.ui({
+      method: 'send',
+      link: 'proximy.ca/events/9',
+      description: "Hello",
+      picture: 'https://cdn.mos.cms.futurecdn.net/iVzDgRJPRAKkrmJnpu86mU-1200-80.jpg'
+    });
+  });
 
 </script>
+
+
+
+
+
 
 
 <script type="text/javascript">
