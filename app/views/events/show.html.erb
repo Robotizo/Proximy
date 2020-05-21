@@ -693,6 +693,7 @@
 
               <div class="col-md-6">
                 <div class="inviteLinkArea"> <div class="inviteLinkIcon"> &nbsp;</div> </div><div class="inviteLinkText">Copy event link</div>
+                 <input class="linkToCopy"  value="<%= request.original_url %>" />
               </div>
 
 
@@ -705,7 +706,7 @@
               </div>
         
 
-              <input class="linkToCopy"  value="<%= request.original_url %>" />
+             
 
 
 
@@ -719,7 +720,7 @@
         <div class="none animated pulse"></div>
 
     <div class="modal-dialog modal-dialog-centered allPostsDialog" role="document">
-      <div class="modal-content-users " style="float: left;">
+      <div class="modal-content-users " style="float: left; width: 100%;">
         <div class="modal-body">
           <div class="grid" id="masonry">
             <div class="grid-sizer"></div>
