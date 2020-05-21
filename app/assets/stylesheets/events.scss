@@ -23,6 +23,8 @@
   font-size: 16px;
   font-weight: 800;
   padding: 12px;
+  float: left;
+  margin: 12px 0px;
 }
 
 .linkToCopy{
@@ -44,9 +46,19 @@
 
 
 
+.inviteLinkAreaFB{
+  border: 1px solid #508cf7;
+  display: inline-flex;
+  padding: 8px;
+  border-radius: 300px;
+  margin-bottom: 5px;
+}
+
+
+
 .inviteLinkText{
   font-weight: 800;
-  font-size: 14px;
+  font-size: 12px;
   padding-top: 2px;
 }
 

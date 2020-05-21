@@ -68,6 +68,32 @@
 }
 
 
+.inviteLinkFB{
+    width:25px; /*width of your image*/
+   height:25px;
+    margin:0; /* If you want no margin */
+   padding:0; 
+
+  background: url(<%= asset_path 'messenger.svg' %>) no-repeat 0 0; 
+  background-size: 25px 25px;
+}
+
+.inviteLinkFB:hover{
+
+
+    width:25px; /*width of your image*/
+   height:25px;
+    margin:0; /* If you want no margin */
+   padding:0; 
+
+  background: url(<%= asset_path 'messengerHover.svg' %>) no-repeat 0 0; 
+  background-size: 25px 25px;
+  transition: 0.2s ease-in-out;
+  background-color: #508cf7;
+}
+
+
+
 
 </style>
 
@@ -78,6 +104,15 @@
     }, function() {
       // on mouseout, reset the background colour
       $('.inviteLinkArea').css('background-color', '');
+    });
+  });
+
+  $(function() {
+    $('.inviteLinkFB').hover(function() {
+      $('.inviteLinkAreaFB').css('background-color', '#508cf7');
+    }, function() {
+      // on mouseout, reset the background colour
+      $('.inviteLinkAreaFB').css('background-color', '');
     });
   });
 </script>
@@ -151,8 +186,6 @@
         <div class="eventTitleImg"><%= @event.title %></div>
 
 
-
-     <div class="eventFBInvite">Invite</div> 
 
 
       </div>
@@ -654,11 +687,22 @@
           <span aria-hidden="true">&times;</span>
         </button>
 
-        <div class="modal-dialog" role="document" style="width: 20%">
-          <div class="modal-content">
+        <div class="modal-dialog" role="document" style="width: 20%;">
+          <div class="modal-content" style="float: left;">
             <div class="text-center">
-              <div class="inviteLinkArea"> <div class="inviteLinkIcon"> &nbsp;</div> </div><div class="inviteLinkText">Copy event link</div>
 
+              <div class="col-md-6">
+                <div class="inviteLinkArea"> <div class="inviteLinkIcon"> &nbsp;</div> </div><div class="inviteLinkText">Copy event link</div>
+              </div>
+
+
+              <div class="col-md-6">
+                    
+
+
+                <div class="inviteLinkAreaFB"> <div class="inviteLinkFB"> &nbsp;</div> </div><div class="inviteLinkText">Share on Messagner</div>
+
+              </div>
         
 
               <input class="linkToCopy"  value="<%= request.original_url %>" />
@@ -675,7 +719,7 @@
         <div class="none animated pulse"></div>
 
     <div class="modal-dialog modal-dialog-centered allPostsDialog" role="document">
-      <div class="modal-content-users">
+      <div class="modal-content-users " style="float: left;">
         <div class="modal-body">
           <div class="grid" id="masonry">
             <div class="grid-sizer"></div>
@@ -918,7 +962,7 @@ $(document).on("turbolinks:load", function(){
 <script type="text/javascript">
 
 
-  $('.eventFBInvite').click(function(){
+  $('.inviteLinkAreaFB').click(function(){
     FB.ui({
       method: 'send',
       link: 'proximy.ca/events/<%= @event.id %>'
