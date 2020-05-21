@@ -6,6 +6,7 @@
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 <% content_for :head do %>
+  <meta property="og:title" content="<%= @event.title %>" />
 
   <meta property="og:image" content="<%= @event.image_url %>" />
 
