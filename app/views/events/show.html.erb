@@ -151,7 +151,8 @@
         <div class="eventTitleImg"><%= @event.title %></div>
 
 
-<!--          <div class="eventFBInvite">Invite</div> -->
+
+     <div class="eventFBInvite">Invite</div> 
 
 
       </div>
@@ -920,9 +921,7 @@ $(document).on("turbolinks:load", function(){
   $('.eventFBInvite').click(function(){
     FB.ui({
       method: 'send',
-      link: 'proximy.ca/events/9',
-      description: "Hello",
-      picture: 'https://cdn.mos.cms.futurecdn.net/iVzDgRJPRAKkrmJnpu86mU-1200-80.jpg'
+      link: 'proximy.ca/events/<%= @event.id %>'
     });
   });
 
