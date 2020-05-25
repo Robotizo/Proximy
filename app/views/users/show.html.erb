@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag "users", :media => "all" %>
 <%= javascript_include_tag 'users' %>
+<%= stylesheet_link_tag "animate", :media => "all" %>
 <%= javascript_include_tag( 'jquery.lazy.js' ) %>
 <head>
   <link rel="stylesheet" href="https://unpkg.com/placeholder-loading/dist/css/placeholder-loading.min.css">
@@ -9,16 +10,37 @@
 
 </head>
 
+<script type="text/javascript">
+  $(document).ready(function () {
+   
+
+
+
+      setTimeout(function() {
+       $(".alert").fadeOut("1000");
+      }, 4000);
+
+
+    })
+
+</script>
+
+
+
+
 
 <% if flash[:notice] %>
-<div class="alert alert-success" role="alert">
-  <%= notice %>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<div class="alert animated pulse " role="alert">
+  <div class="alert-success">
+      <%= notice %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
+  </div>
+
+
 </div>
 <% end %>
-
 
 
 
@@ -322,12 +344,7 @@
             <div class="userName">
               <%= @user.name %>
               <%= @user.last_name %>
-
-
-
             </div>
-
-
           </div>
         </div>
 
@@ -885,6 +902,7 @@ $(function () {
                   <div class="contentUserPost">
                     <span class="poster"><%= truncate(groupsFollowing.user.name, length: 30) %></span>
                   </div>
+
                 </div>
                 <% end %>
               </div>
