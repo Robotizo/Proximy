@@ -6,4 +6,4 @@ test:
 
 production:
   adapter: redis
-  url: redis://h:p7f4d654e6fca052a0419ca067afdff1a1f52ff79647e1021ef66bda128760489@ec2-54-159-207-93.compute-1.amazonaws.com:24129
+  url: <%= ENV["REDIS_URL"] %>

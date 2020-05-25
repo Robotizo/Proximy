@@ -6,11 +6,11 @@ class ChatsController < ApplicationController
   before_action :set_active_user, only: %i[list_messages ajax_messages]
   before_action :filter_page_number, only: %i[ajax_messages]
 
-  def index; end
+  def index
+  end
 
   def list_messages
-    @messages = Message.users_messages(current_user, @active_user).last(20)
-    
+    @messages = Message.users_messages(current_user, @active_user).last(10)
     render partial: 'list_messages', locals: { messages: @messages }
   end
 
@@ -48,11 +48,18 @@ class ChatsController < ApplicationController
     @messages = Message.order(created_at: :asc)
   end
 
+  # Display only friends and followers for now
+  # TODO (Andy Lee): Consider and implement messaing request & limit feature for users 
   def get_users
-    @users = User.all
+    @users = current_user.friends || current_user.active_relationships
   end
 
   def get_notifications
     @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
   end
 end
+
+
+
+
+

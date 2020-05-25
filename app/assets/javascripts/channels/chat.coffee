@@ -4,11 +4,14 @@ jQuery(document).on 'turbolinks:load', ->
   $inputActiveUser = $('.input__active--user')
   $newMessageForm = $('.form__message-new')
   $newMessageBody = $newMessageForm.find('.form__input-body')
-  $newMessageVideoAttachment = $newMessageForm.find('.form__input-attachment-video')
-  $newMessageImageAttachment = $newMessageForm.find('.form__input-attachment-image')
-  $newMessageDocumentAttachment = $newMessageForm.find('.form__input-attachment-doc')
+  $newMessageAttachment = $newMessageForm.find('.form__input-attachment')
+
+  # $newMessageImageAttachment = $newMessageForm.find('.form__input-attachment-image')
+  # $newMessageDocumentAttachment = $newMessageForm.find('.form__input-attachment-doc')
   
   currentUser = $inputCurrentUser.val()
+
+
     
   if $messages.length
     App.chat = App.cable.subscriptions.create {
@@ -31,16 +34,26 @@ jQuery(document).on 'turbolinks:load', ->
               else
                 messageTemplate = "<div class='message align-left'><span class='receiverMessage'>#{data['message']}</span></div>"
               $messages.append messageTemplate
-              $messages.animate { scrollTop: $(document).height() }, "slow"
+              $messages.animate { scrollTop: $(document).height()  + "300px" }, "slow"
+         
+
+
           else
             selector = ".chat__contact--element[data-id='#{data['sender_id']}']"
             $(selector).addClass('is-new-message')
+
+
+
         
         if data['message']
           if data['sender_id'] == currentUser
-            $newMessageVideoAttachment.val('')
-            $newMessageImageAttachment.val('')
-            $newMessageDocumentAttachment.val('')
+
+            # $newMessageVideoAttachment.val('')
+            # $newMessageImageAttachment.val('')
+            $newMessageAttachment.val('')
+
+            # $newMessageDocumentAttachment.val('')
+
             $newMessageBody.val('')
             $newMessageBody.text('')
           
@@ -83,34 +96,34 @@ jQuery(document).on 'turbolinks:load', ->
         receiver_id: $inputActiveUser.val()
       }
 
-      if $.trim(messageBody).length > 0 or $newMessageVideoAttachment.get(0).files.length > 0 or $newMessageImageAttachment.get(0).files.length > 0 or $newMessageDocumentAttachment.get(0).files.length > 0
+      if $.trim(messageBody).length > 0 or $newMessageAttachment.get(0).files.length > 0 
         #Scroll Top
-        if $newMessageVideoAttachment.get(0).files.length > 0 # if file is chosen
+        if $newMessageAttachment.get(0).files.length > 0 # if file is chosen
           reader = new FileReader()  # use FileReader API
-          fileName = $newMessageVideoAttachment.get(0).files[0].name # get the name of the first chosen file
+          fileName = $newMessageAttachment.get(0).files[0].name # get the name of the first chosen file
           reader.addEventListener "loadend", -> # perform the following action after the file is loaded
             App.chat.send_message messageBody, reader.result, fileName  # send message with file
             # at this point reader.result is a BASE64-encoded file
             
-          reader.readAsDataURL $newMessageVideoAttachment.get(0).files[0] # read file in base 64 format
-        else if $newMessageImageAttachment.get(0).files.length > 0 # if file is chosen
-          reader = new FileReader()  # use FileReader API
-          fileName = $newMessageImageAttachment.get(0).files[0].name # get the name of the first chosen file
-          reader.addEventListener "loadend", -> # perform the following action after the file is loaded
-            App.chat.send_message messageBody, reader.result, fileName  # send message with file
-            # at this point reader.result is a BASE64-encoded file
+        #   reader.readAsDataURL $newMessageVideoAttachment.get(0).files[0] # read file in base 64 format
+        # else if $newMessageImageAttachment.get(0).files.length > 0 # if file is chosen
+        #   reader = new FileReader()  # use FileReader API
+        #   fileName = $newMessageImageAttachment.get(0).files[0].name # get the name of the first chosen file
+        #   reader.addEventListener "loadend", -> # perform the following action after the file is loaded
+        #     App.chat.send_message messageBody, reader.result, fileName  # send message with file
+        #     # at this point reader.result is a BASE64-encoded file
             
-          reader.readAsDataURL $newMessageImageAttachment.get(0).files[0] # read file in base 64 format
-        else if $newMessageDocumentAttachment.get(0).files.length > 0 # if file is chosen
-          reader = new FileReader()  # use FileReader API
-          fileName = $newMessageDocumentAttachment.get(0).files[0].name # get the name of the first chosen file
-          reader.addEventListener "loadend", -> # perform the following action after the file is loaded
-            App.chat.send_message messageBody, reader.result, fileName  # send message with file
-            # at this point reader.result is a BASE64-encoded file
+        #   reader.readAsDataURL $newMessageImageAttachment.get(0).files[0] # read file in base 64 format
+        # else if $newMessageDocumentAttachment.get(0).files.length > 0 # if file is chosen
+        #   reader = new FileReader()  # use FileReader API
+        #   fileName = $newMessageDocumentAttachment.get(0).files[0].name # get the name of the first chosen file
+        #   reader.addEventListener "loadend", -> # perform the following action after the file is loaded
+        #     App.chat.send_message messageBody, reader.result, fileName  # send message with file
+        #     # at this point reader.result is a BASE64-encoded file
             
-          reader.readAsDataURL $newMessageDocumentAttachment.get(0).files[0] # read file in base 64 format
+          reader.readAsDataURL $newMessageAttachment.get(0).files[0] # read file in base 64 format
         else
           App.chat.send_message messageBody
-        $messages.animate { scrollTop: $(document).height() }, "slow"
+        $messages.animate { scrollTop: $(document).height()  + "300px" }, "slow"
       e.preventDefault()
       return false

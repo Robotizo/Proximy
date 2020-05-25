@@ -300,7 +300,7 @@ option{
 /* Messaging Edits Start */
 
 .fileBtnDiv, .form-control{
-      margin: 10px 0px !important;
+      margin: 12px 0px !important;
 }
 .col_4{
   width: 33.3333333%;
@@ -1464,8 +1464,8 @@ div .show-more[aria-expanded="true"]{
 
 .fileBtnDiv, .form-control, .date{
   width: 80%;
-  margin: 10px 40px 40px 0;
-  font-weight: 900;
+
+  font-weight: 600;
 
 
 }
@@ -1496,11 +1496,9 @@ div .show-more[aria-expanded="true"]{
 
 
 .form-control {
-    border-radius: 8px !important;
+    border-radius: 9px !important;
     border-color: white;
-    /* border-bottom: 1px #a2a2a2 solid !important; */
     background-color: #f5f3f4;
-    border-radius: 8px;
     padding: 20px;
 
     font-weight: 300px !important;

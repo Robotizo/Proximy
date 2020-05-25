@@ -1,3 +1,12 @@
+.emoji-wysiwyg-editor{
+  height: auto !important;
+}
+
+
+.emoji-menu{
+  border-radius: 12px;
+}
+
 .noReqIcon{
   width: 190px;
 }
@@ -67,7 +76,7 @@ img.emoji {
 }
 
 .is-new-message {
-  border: 1px solid red;
+  border: 5px solid red;
 }
 
 .chat__message--panel {
@@ -104,12 +113,12 @@ img.emoji {
 
 .uploadItems {
   float: left;
-  width: 20%;
+  width: 7%;
 }
 
 .messageForm {
   float: left;
-  width: 70%;
+  width: 84%;
   padding-right: 10px;
   padding-left: 10px;
 }
@@ -135,7 +144,7 @@ img.emoji {
 }
 
 .sendButton {
-  width: 10%;
+  width: 8%;
   float: left;
   padding-left: 10px;
   padding-right: 10px;
@@ -151,7 +160,7 @@ label {
 
 .form__input-body {
   max-height: 200px;
-  padding: 10px !important;
+  padding: 12px !important;
   font-size: 16px;
 }
 
@@ -215,13 +224,13 @@ label {
 .emoji-picker-icon {
   position: absolute;
   right: 15px;
-  top: 5px;
+  top: 7px;
   font-size: 28px;
   opacity: 0.9;
   z-index: 100;
   -webkit-transition: none;
   transition: none;
-  color: #6d95af;
+  color: #508cf7;
   -moz-user-select: none;
   -webkit-user-select: none;
   -o-user-select: none;
@@ -252,7 +261,7 @@ input[type=file] {
   box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
 
-#video {
+#attachment {
   height: 45px;
   border-radius: 10px;
   padding: 5px;
@@ -263,7 +272,7 @@ input[type=file] {
   transition: box-shadow .3s;
 }
 
-#video:hover {
+#attachment:hover {
   box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
 
