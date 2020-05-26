@@ -13,15 +13,17 @@ jQuery(document).on 'turbolinks:load', ->
 
 
     
-  if $messages.length
+  if true
     App.chat = App.cable.subscriptions.create {
       channel: 'ChatChannel'
     },
     connected: ->
     disconnected: ->
     received: (data) ->
+      alert("Message received!")
       currentUser = parseInt($inputCurrentUser.val())
       activeUser = parseInt($inputActiveUser.val())
+      
       
       if activeUser != -1
         if data['receiver_id'] == currentUser
