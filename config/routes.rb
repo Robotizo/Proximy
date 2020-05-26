@@ -88,9 +88,14 @@
 
   get 'main/test'
 
-  get 'main/privacy'
-  get 'main/terms'
-  get 'main/dmca'
+  get 'privacy', :to => 'main#privacy'
+  get 'terms', :to => 'main#terms'
+  get 'dmca', :to => 'main#dmca'
+  get 'guidelines', :to => 'main#guidelines'
+  get 'faq', :to => 'main#faq'
+
+
+
 
   get 'sessions/new'
   get    '/signup',  to: 'users#new'

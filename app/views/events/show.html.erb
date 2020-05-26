@@ -718,6 +718,7 @@
 
 
         <div class="none animated pulse"></div>
+        <div class="none2 animated pulse"></div>
 
     <div class="modal-dialog modal-dialog-centered allPostsDialog" role="document">
       <div class="modal-content-users " style="float: left; width: 100%;">
@@ -808,6 +809,13 @@
 
 
 <script type="text/javascript">
+
+  $('.inviteFriend').on('click', function () {
+    $(".none2").append("<div class=\"msg animated pulse\">Invitation Sent</div>").hide().fadeIn(500);
+     setTimeout(function(){
+          $(".none2").fadeOut("1000");
+     },4000)
+  })
 
 
 

@@ -1,11 +1,34 @@
 <%= stylesheet_link_tag "users", :media => "all" %>
+<%= stylesheet_link_tag "animate", :media => "all" %>
+<script type="text/javascript">
+  $(document).ready(function () {
+   
+
+
+
+      setTimeout(function() {
+       $(".alert").fadeOut("1000");
+      }, 4000);
+
+
+    })
+
+</script>
+
+
+
+
 
 <% if flash[:notice] %>
-<div class="alert alert-success" role="alert">
-  <%= notice %>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<div class="alert animated pulse " role="alert">
+  <div class="alert-success">
+      <%= notice %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
+  </div>
+
+
 </div>
 <% end %>
 

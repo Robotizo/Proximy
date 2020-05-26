@@ -1,0 +1,193 @@
+<%= stylesheet_link_tag "main", :media => "all" %>
+
+
+<style type="text/css">
+	
+.termsTitle{
+	margin-top: 40px;
+	font-size: 25px !important;
+}
+
+.termsSubTitle{
+	margin-top: 10px;
+	font-size: 22px !important;
+}
+
+
+.termsTitleText{
+	margin-top: 10px;
+	font-size: 19px !important;
+	font-weight: 900;
+}
+.termsText{
+	margin-top: 20px;
+	font-size: 18px !important;
+}
+
+.legalLinks{
+	font-size: 18px !important;
+}
+.signIn {
+  width: 25%;
+  background-color: #e7f3ff;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 20px;
+  font-weight: 700;
+  color: #508CF7;
+  border: 0px !important;
+  transition: 0.3s;
+}
+
+.signIn:hover {
+  background-color: #508CF7;
+  color: white;
+}
+
+.form-control {
+  width: 30%;
+  height: 100px !important;
+    border-radius: 8px !important;
+    border-color: white;
+    font-size: 16px;
+    
+        margin: 10px auto;
+
+    background-color: #f5f3f4;
+    border-radius: 8px;
+    padding: 10px;
+
+    font-weight: 700 !important;
+    resize: none !important;
+
+}
+
+
+.form-control:focus{
+  outline: none;
+  box-shadow: 0px 0px 0px 0px !important;
+  background-color: #7ea5c01c;
+  border: 2px solid #66afe9;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+.titleSec2{
+	display: none; 
+}
+
+</style>
+
+<div class="container" >
+	<div class="termsTitle text-center">
+		PROXIMY FAQ
+	</div>
+</div>
+<div class="container" style="padding-right: 100px; padding-left: 100px;">
+	<div class="termsTitleText" style="color: #508cf7;">
+		Creating an Account
+	</div>
+	<div class="termsTitleText">
+		How can I sign up for Proximy?
+	</div>
+	<div class="termsText">
+		Proximy is free for users. You can sign-up through a Facebook account, Google account, or a verifiable email address.
+	</div>
+	<br>
+	<div class="termsTitleText">
+		What’s the minimum age requirement?
+	</div>
+	<div class="termsText">
+		All Proximy account holders must be over 14 years of age.
+	</div>
+	<br><br>
+	<div class="termsTitleText" style="color: #508cf7;">
+		Connecting & Messaging
+	</div>
+	<div class="termsTitleText">
+		What's the difference between People Near You and Hangouts?
+	</div>
+	<div class="termsText">
+		People Near You is a section on the platform to show you people nearby who share the same interests. <br>
+		A Hangout is just that, a hangout! It’s a function on the platform that allows you to message new friends based on your common interests to organize either an in-person or virtual hangout. A user has the ability to accept or decline a new message.
+	</div>
+
+	<br><br>
+	<div class="termsTitleText" style="color: #508cf7;">
+		Profile & Settings
+	</div>
+	<div class="termsTitleText">
+		Why does Proximy need access to my location?
+	</div>
+	<div class="termsText">
+		Proximy helps you make connections in your proximity. By sharing your location, you are allowing others nearby to connect with you, invite you to Hangouts, or message you. Safety is paramount; your exact location is never shown, it is only shown as a distance. We will never sell your personal data to anyone. 
+	</div>
+	<br>
+	<div class="termsTitleText">
+		Why does Proximy need access to my camera or my photo library?
+	</div>
+	<div class="termsText">
+		Proximy needs access to your photos in order for you to upload a profile picture to the app.
+	</div>
+	<br>
+	<div class="termsTitleText">
+		Can other people see my new friends on Proximy?
+	</div>
+	<div class="termsText">
+		Only you are able to see your friends on Proximy! 
+	</div>
+
+	<br><br>
+
+	<div class="termsTitleText text-center" style="color: #508cf7;">
+		Ask your own question.
+		<%= render 'feedbacks/form', feedback: @feedback %>
+	</div>
+	<br><br>
+	<div class="termsTitleText text-center" style="color: #508cf7;">
+		Or send an email at 
+	</div>
+	<div class="termsTitleText text-center" style="color: #508cf7;">
+		info@proximy.ca 
+	</div>
+
+<br>
+<br>
+
+<br>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

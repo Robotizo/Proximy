@@ -1,4 +1,4 @@
-<%= form_for(feedback) do |f| %>
+<%= form_for(@feedback) do |f| %>
   <% if feedback.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(feedback.errors.count, "error") %> prohibited this feedback from being saved:</h2>
@@ -21,11 +21,16 @@
     </div>
 
 
-
+<% if signed_in? %>
     <div class="actions text-center">
       <%= f.submit "Confirm", class: "btn btn-primary signIn " %>
     </div>
+<% else %>
+    <div class="actions text-center">
+      <%= link_to "Login to continue", login_path, method: :get ,class: "btn btn-primary signIn " %>
+    </div>
 
+<% end %>
 
 
 </div>

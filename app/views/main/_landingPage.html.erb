@@ -360,40 +360,47 @@ body{
   </div>
   <div class="col-md-10 col-xs-12">
     <div class="col-md-4 col-xs-12 text-left">
-      <div class="legalTitle" style="margin-top: 30px;">
+      <div class="legalTitle" style="margin-top: 15px;">
         Legal
       </div>
    
       <br>
       <div style="margin-bottom: 8px;">
-        <%= link_to "Privacy Policy", main_privacy_path, method: :get, class: "legalLinks" %>
-        
+        <%= link_to "Privacy Policy", privacy_path, method: :get, class: "legalLinks" %>
       </div>
       <div style="margin-bottom: 8px;">
-        <%= link_to "Terms & Conditions", main_terms_path, method: :get, class: "legalLinks" %>
-
+        <%= link_to "Terms & Conditions", terms_path, method: :get, class: "legalLinks" %>
       </div>
       <div style="margin-bottom: 8px;">
-        <%= link_to "DMCA Policy", main_dmca_path, method: :get, class: "legalLinks" %>
-
+        <%= link_to "DMCA Policy", dmca_path, method: :get, class: "legalLinks" %>
       </div>
+
+
     </div>
 
 
 
-    <div class="col-md-4 col-xs-12 text-left" style="margin-top: 30px;">
+    <div class="col-md-4 col-xs-12 text-left" style="margin-top: 15px;">
       <div class="legalTitle">
         Support
       </div>
       <br>
 
-      <div class="legalStatic" style="margin-bottom: 50px;">
+      <div class="legalStatic" style="margin-bottom: 8px;">
         info@proximy.ca
       </div>  
+
+      <div style="margin-bottom: 8px;">
+        <%= link_to "Community Guidelines", guidelines_path, method: :get, class: "legalLinks" %>
+      </div>
+
+      <div style="margin-bottom: 8px;">
+        <%= link_to "FAQ", faq_path, method: :get, class: "legalLinks" %>
+      </div>
     </div>
 
 
-    <div class="col-md-4 col-xs-12 text-left" style="margin-top: 30px;">
+    <div class="col-md-4 col-xs-12 text-left" style="margin-top: 15px;">
       <div class="legalTitle">
         Enterprise (Coming Soon)
       </div>

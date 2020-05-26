@@ -37,9 +37,9 @@
 
 
  <% if signed_in? %>
+<!-- Signed in -->
 
-
-
+<% if current_user.avatar.present? %> 
 
 <div style="margin-top: 60px;">
   <div class="container">
@@ -261,6 +261,136 @@
   </script>
 
 
+
+
+
+<% else %>
+
+
+  <style type="text/css">
+  .mobNav{
+    display: none !important;
+  }
+
+  .topNav{
+    display: none;
+  }
+
+  body{
+    margin-top: 10px !important;
+  }
+
+  .buttonHov{
+    margin-top: -20px;
+    margin-bottom: 10px;
+  }
+    .modal-content {
+    border-radius: 11px;
+    padding: 80px;
+  }
+
+
+  .modal.in .modal-dialog{
+    margin-top: 40px !important;
+  }
+</style>
+
+
+<style type="text/css">
+  .mobNav{
+    display: none !important;
+  }
+
+  .fileBtnDiv, .form-control {
+    width: 100%;
+    margin: 10px 0 !important;
+  }
+  .module1{
+    height: auto !important;
+  }
+  .formPart{
+    margin-top: 30px;
+    float: left;
+    width: 100%;
+  }
+
+    body{
+    margin-top: 45px !important;
+  }
+
+
+
+  .alert{
+    width: 100%;
+  }
+
+  .goBack{
+    color: white;
+
+  }
+
+  .goBack:hover{
+    color: white !important;
+    text-decoration: none !important;
+    
+  }
+
+
+  @media screen and (max-width: 776px){
+  .avatarInfo{
+    margin-top: -70px;
+  }
+    .noPadTemp{
+    padding-right: 2px !important;
+    padding-left: 0px;
+  }
+}
+
+
+
+
+
+
+
+
+</style>
+
+<%= stylesheet_link_tag "users", :media => "all" %>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="special-modal-body">
+      <%= image_tag("lost.svg", class: "welcomeIcon") %>
+      </div>
+      <div class="welcomeTitle">
+        Are you lost?
+      </div>
+       <div class="welcomeText">
+        It seems that you did not finish registration. Don't worry click on the button below to continue. 
+      </div>
+    </div>        
+  </div>
+
+
+<%= link_to after_signup_path(:personal), method: :get, class: "goBack" do %>
+      <div class="fixedStatePro" data-dismiss="modal">
+          <div class="editsTextPro"> Finish Registration </div>
+        </div>
+  <% end %>
+
+
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('#myModal').modal({backdrop: 'static', keyboard: false});
+    });
+</script>
+
+
+</div>
+
+<% end %>
+
+<!-- /Signed in -->
 <% end %>   
 
 

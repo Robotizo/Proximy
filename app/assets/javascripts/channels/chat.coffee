@@ -20,10 +20,10 @@ jQuery(document).on 'turbolinks:load', ->
     connected: ->
     disconnected: ->
     received: (data) ->
-      alert("Message received!")
       currentUser = parseInt($inputCurrentUser.val())
       activeUser = parseInt($inputActiveUser.val())
-      
+      if !currentUser
+        alert("Message received!")
       
       if activeUser != -1
         if data['receiver_id'] == currentUser

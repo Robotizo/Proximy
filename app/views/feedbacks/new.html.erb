@@ -19,16 +19,16 @@
    
       <br>
       <div style="margin-bottom: 8px;">
-        <%= link_to "Privacy Policy", main_privacy_path, method: :get, class: "legalLinks" %>
+        <%= link_to "Privacy Policy", privacy_path, method: :get, class: "legalLinks" %>
         
       </div>
       <div style="margin-bottom: 8px;">
-        <%= link_to "Terms & Conditions", main_terms_path, method: :get, class: "legalLinks" %>
+        <%= link_to "Terms & Conditions", terms_path, method: :get, class: "legalLinks" %>
 
       </div>
 
         <div style="margin-bottom: 8px;">
-        <%= link_to "DMCA Policy", main_dmca_path, method: :get, class: "legalLinks" %>
+        <%= link_to "DMCA Policy", dmca_path, method: :get, class: "legalLinks" %>
 
       </div>
     </div>
@@ -41,9 +41,17 @@
       </div>
       <br>
 
-      <div class="legalStatic">
+      <div class="legalStatic" style="margin-bottom: 8px;">
         info@proximy.ca
-      </div>  
+      </div> 
+
+      <div style="margin-bottom: 8px;">
+        <%= link_to "Community Guidelines", guidelines_path, method: :get, class: "legalLinks" %>
+      </div>
+
+      <div style="margin-bottom: 8px;">
+        <%= link_to "FAQ", faq_path, method: :get, class: "legalLinks" %>
+      </div> 
     </div>
   </div>
 
