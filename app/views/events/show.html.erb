@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag "events", :media => "all" %>
+r<%= stylesheet_link_tag "events", :media => "all" %>
 <%= stylesheet_link_tag "animate", :media => "all" %>
 <%= javascript_include_tag 'events', 'data-turbolinks-track': 'reload' %>
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
@@ -810,8 +810,8 @@
 
 <script type="text/javascript">
 
-  $('.inviteFriend').on('click', function () {
-    $(".none2").append("<div class=\"msg animated pulse\">Invitation Sent</div>").hide().fadeIn(500);
+  $('.inviteFriend').one('click', function () {
+    $(".none2").html("<div class=\"msg animated pulse\">Invitation Sent</div>").hide().fadeIn(500);
      setTimeout(function(){
           $(".none2").fadeOut("1000");
      },4000)

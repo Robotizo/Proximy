@@ -1,0 +1,446 @@
+<!-- UserModule Start -->
+<div class="text-center module1">
+
+<% unless current_user.friends.include?(@user) %>
+  <div class="innerModule">
+    <div class="userImageSec1">
+
+      <%= image_for(@user) %>
+
+
+
+      
+          <a href="<%= @user.image_url %>" class="lazy-load replace marginSetsA">
+                <%= image_tag(@user.image_url(:preview), class: "eventImageDisplay preview") if @user.image? %>
+           </a>
+
+
+
+
+    </div>
+    <div class="col-md-12 col-xs-12 connArea">
+      <div class="userImageSec1">
+ 
+        <%= avatar_for(@user) %>
+
+
+
+        <%= image_tag(@user.avatar_url(:thumb), class: "userImage1", lazy: true) %>
+
+
+      </div>
+      <div class="userSec1">
+        <div class="userName">
+          <%= @user.name %>
+          <%= @user.last_name %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-12 col-xs-12 followBtn connArea2 text-center">
+
+
+    <% if current_user.id == @user.id %>
+
+
+          <div class="col-md-6 col-xs-6 noPad3 text-center">
+              <%= link_to contacts_path, method: :get, class: "specialA" do %>
+
+                <%= image_tag("contacts.png", class: "iconImage") %>
+                <div class="textOps">
+                  Friends
+                </div>
+              <% end %>
+
+            </div>
+
+
+
+
+          <div class="col-md-6 col-xs-6 noPad3 text-center">
+              <%= link_to edit_user_path, method: :get, class: "specialA" do %>
+
+                <%= image_tag("userSettings.png", class: "iconImage") %>
+                <div class="textOps">
+                  Edit profile
+                </div>
+              <% end %>
+
+            </div>
+
+     <% end %>
+
+
+    <% unless @user.id == current_user.id %>
+      <% unless current_user.friends.include?(@user) %>
+        <% if @friendships.collect(&:user_id).include?(@user.id) %>
+          <% @friendships.each do |invFriends| %>
+          <div id="follow_form">
+            <%= link_to update_friendship_friendship_path(invFriends), method: :patch, class: "btn connectBtn" do %>
+                Accept Request
+            <% end %>
+          </div>
+          <% end %>
+        <% else %>
+            <div class="col-md-4 col-xs-6 noPad3 text-center" >
+
+      
+              <% if current_user.friends.include?(@user) %>
+                  <% if @acceptedFriendships.collect(&:user_id).include?(@user.id) %>
+                    <%= image_submit_tag "friends.png", class: "iconImage" %>
+                      <div class="textOps">
+                        Friends
+                      </div>
+                  <% end %>
+
+                  
+              <% else %>
+
+                <%= render 'befriend' %>
+              <% end %>
+          
+
+              
+   
+            </div>
+
+
+
+
+
+
+    <!-- Message Request START -->
+
+    <% if current_user.following?(@user) %>
+    
+          <div class="col-md-4 col-xs-6 noPad3 text-center">
+              <%= link_to chats_path, method: :get, class: "specialA" do %>
+
+                <%= image_tag("message.png", class: "iconImage") %>
+                <div class="textOps">
+                  Message
+                </div>
+              <% end %>
+
+          </div>
+    <% else %>
+              <div class="col-md-4 col-xs-6 noPad3 text-center">
+                <%= render 'follow' %>
+              </div>
+    <% end %>
+
+    <!-- Message Request END -->
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="col-md-4 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" >
+
+
+              <%= image_submit_tag "interestsLong.png", class: "iconImage" %>
+              <div class="textOps">
+                Interests in common 
+              </div>
+        
+   
+            </div>
+
+        <% end %>
+      <% end %> 
+    <% end %>
+
+
+
+
+
+    </div>
+
+
+<!-- Friends Profile Info Items START -->
+
+
+
+<div class="userInfoArea">
+  <div class="userInfoElement">
+
+  <% if @user.bio.present? %>
+  
+      <div class="infoTitle">
+        <%= image_tag("userBio.png", class: "miniIcon") %> Bio 
+      </div>
+      <div class="infoContentFirst">
+        <%= @user.bio %>
+
+      </div>
+
+  <% end %>
+
+  <% if current_user.distance_is_checked == true and current_user.id == @user.id  %>
+  
+      <div class="infoTitleSub">
+       <%= image_tag("userLoc.png", class: "miniIcon") %> Show Distance
+      </div>
+      <div class="infoContent">
+        Activated
+      </div>
+  <% elsif current_user.distance_is_checked == false and current_user.id == @user.id %>
+    <div class="infoTitleSub">
+      <%= image_tag("userLoc.png", class: "miniIcon") %> Show Distance
+    </div>
+    <div class="infoContent">
+      Not Activated
+    </div>
+  <% elsif !current_user.friends.include?(@user) %>
+
+ 
+  <% end %>
+
+
+    <% if @user.country.present? %>
+
+      
+      <div class="infoTitleSub">
+        <%= image_tag("from.png", class: "miniIcon") %> From
+      </div>
+      <div class="infoContentFirst">
+        <span class="flagTest"><%= Country[@user.country].emoji_flag %></span><%= @user.country_name %> 
+      </div>
+  <% end %>
+
+   </div>
+
+</div>
+
+<!-- Friends Profile Info Items END -->
+
+
+
+
+<!--
+      <div class="userInfoElement">
+        
+        Student at UBC
+
+      </div>
+
+
+      <div class="userInfoElement">
+        
+        Single
+
+
+      </div>
+
+
+
+
+      <div class="userInfoElementMore">
+        
+        View More...
+
+      </div>
+
+-->
+    
+
+
+
+
+    </div>
+
+
+
+
+     <% else %>
+
+
+<!-- Profile Friend Start -->
+
+
+
+      <div class="innerModule">
+        <div class="userImageSec1">
+ 
+            <%= image_for(@user) %>
+
+      
+          <a href="<%= @user.image_url %>" class="lazy-load replace marginSetsA">
+                <%= image_tag(@user.image_url(:preview), class: "eventImageDisplay preview") if @user.image? %>
+           </a>
+
+
+
+        </div>
+        <div class="col-md-12 col-xs-12 connArea">
+          <div class="userImageSec1">
+
+              <%= avatar_for(@user) %>
+  
+            <%= image_tag(@user.avatar_url(:thumb), class: "userImage1") if @user.avatar? %>
+          </div>
+          <div class="userSec1">
+            <div class="userName">
+              <%= @user.name %>
+              <%= @user.last_name %>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-12 col-xs-12 followBtn connArea2 text-center">
+
+
+        <% if current_user.id == @user.id %>
+          <div id="follow_form" class="cUser" >
+               <%= button_to "Contacts", contacts_path, method: :get, class: "btn connectBtn" %>
+          </div>
+
+          <div id="follow_form" class="cUser">
+           <%= button_to "Edit Profile", edit_user_path, method: :get, class: "btn connectBtn" %>
+          </div>
+ 
+         <% end %>
+
+        <% unless @user.id == current_user.id %>
+            <div class="col-md-4 col-xs-6 noPad3 text-center" >
+
+      
+              <% if current_user.friends.include?(@user) %>
+                  <% if @acceptedFriendships.collect(&:user_id).include?(@user.id) %>
+                    <%= image_submit_tag "friends.png", class: "iconImage" %>
+                      <div class="textOps">
+                        Friends
+                      </div>
+                  <% end %>
+
+                  
+              <% else %>
+
+                <%= render 'befriend' %>
+              <% end %>
+          
+
+              
+   
+            </div>
+        <% end %>
+
+
+
+
+
+
+
+          <div class="col-md-4 col-xs-6 noPad3 text-center">
+              <%= link_to chats_path, method: :get, class: "specialA" do %>
+
+                <%= image_tag("message.png", class: "iconImage") %>
+                <div class="textOps">
+                  Message
+                </div>
+              <% end %>
+
+          </div>
+
+
+
+            <div class="col-md-4 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" >
+
+
+              <%= image_submit_tag "interestsLong.png", class: "iconImage" %>
+              <div class="textOps">
+                Interests in common 
+              </div>
+        
+   
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+<!-- Friends Profile Info Items START -->
+
+
+<div class="userInfoArea">
+  <div class="userInfoElement">
+
+  <% if @user.bio.present? %>
+  
+      <div class="infoTitle">
+        <%= image_tag("userBio.png", class: "miniIcon") %>  Bio
+      </div>
+      <div class="infoContentFirst">
+        <%= @user.bio %>
+      </div>
+
+  <% end %>
+
+  <% if @user.distance_is_checked == true and current_user.id != @user.id and @user.friends.include?(current_user) %>
+  
+      <div class="infoTitleSub">
+       <%= image_tag("userLoc.png", class: "miniIcon") %> Distance
+      </div>
+      <div class="infoContent">
+        <%= @user.getDistance(current_user.latitude, current_user.longitude) %> km away
+      </div>
+ 
+  <% end %>
+
+  <% if @user.country.present? %>
+      
+      <div class="infoTitleSub">
+        <%= image_tag("from.png", class: "miniIcon") %> From
+      </div>
+      <div class="infoContentFirst">
+        <span class="flagTest"><%= Country[@user.country].emoji_flag %></span><%= @user.country_name %>
+      </div>
+  <% end %>
+
+
+
+
+
+   </div>
+
+</div>
+
+
+<!-- Friends Profile Info Items END -->
+
+
+
+
+
+
+
+
+
+    </div>
+    
+<!-- Profile Friend End -->
+
+     <% end %>
+
+
+
+  </div>
+
+
+<!-- User Module End -->

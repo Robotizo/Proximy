@@ -15,6 +15,8 @@ class MainController < ApplicationController
 		event_posts = EventPost.all
 		all_posts = posts + group_posts + event_posts
 		@all_posts = all_posts.sort_by &:updated_at
+		# @connections_two = Redis.new.pubsub("channels", "action_cable/*")
+		# @connections = ActionCable.server.connections.length
 	end
 
 	def faq

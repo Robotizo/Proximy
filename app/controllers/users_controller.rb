@@ -109,6 +109,7 @@ class UsersController < ApplicationController
 
     @users = User.all
     @userNow = current_user
+    @following = current_user.following
 
 
     collide = current_user.followingI.ids & @user.followingI.ids

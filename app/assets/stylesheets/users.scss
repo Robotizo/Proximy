@@ -8,6 +8,23 @@ option{
 }
 
 
+
+.is_friends{
+  font-size: 10px;
+      color: grey;
+
+}
+
+
+.is_friends_not{
+  font-size: 10px;
+      color: grey;
+  
+}
+
+
+
+
 #user_date_of_birth_2i{
   margin: 10px !important;
   height: 50px;
@@ -1225,7 +1242,7 @@ input.checkDist{
   height: 140px;
   width: 140px;
   border-radius:15px;
-      box-shadow: 0px 0px 4px 0px #6f6f6f;
+
         overflow: hidden;
   background-size: cover;
   background-position: center;

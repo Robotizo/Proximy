@@ -7,9 +7,11 @@
   <input type="hidden" class="input__current--user" name="current_user" value="<%= current_user.id %>">
 
   <!-- chat__contact--panel -->
-  <div class="chat__main--sub-section chat__contact--panel ">
+  <div class="chat__main--sub-section chat__contact--panel">
     <div class="contactMargin">
+
       <%= render @users %>
+
       <div class="proximyLogo">
         <%= image_tag("logoIcon.png", class: "logoMain") %>
       </div>
@@ -18,6 +20,7 @@
 
   <!-- chat__message--panel -->
   <div class="chat__main--sub-section chat__message--panel">
+    
     <!-- #messages -->
     <div id="messages">
       <div class="text-center">
@@ -31,6 +34,8 @@
     </div> 
     <!-- /#messages -->
 
+
+<div class="newStart"></div>
     <!-- chat__message--panel-input -->
     <div class="messageField chat__message--panel-input">
       <form class="form__message-new">
@@ -85,6 +90,8 @@
   </div> <!-- /.chat__message--panel -->
 </div> <!-- /.chat__main--wrapper -->
 
+<input type="hidden" name="user_name" id="the_user_name" value="">
+
 <script type="text/javascript">
 
   var textarea = jQuery('.emoji-wysiwyg-editor');
@@ -94,16 +101,38 @@
   });
 
 
+
+
+
+
   $(document).ready(() => {
     const $messages = $('#messages')
     const $contactElement = $('.chat__contact--element')
     const $inputActiveUser = $('.input__active--user')
     const $inputCurrentUser = $('.input__current--user')
 
+
+    function count_messages() {       
+      var length = $messages.children().length;
+      console.log(length);
+      if(length > 0){
+        console.log("has messages");
+        $('.newStart').empty();
+      }
+      else{
+        $('.newStart').html('<div>This is a new conversation, say hi to *name*! </div>');
+      }
+    }
+
     const messagesElement = document.querySelector('#messages');
     const itemsToAdd = 10
 
+
     $('.chat__contact--element').on('click', (e) => {
+
+
+
+
       const $htmlBody = $('html, body')
       const $selectedContactElement = $(e.currentTarget)
       const selectedUserId = $selectedContactElement.data('id')
@@ -112,11 +141,23 @@
       let pageNumber = 0;
 
 
+
       $contactElement.removeClass('is-active')
       $contactElement.removeClass('is-new-message')
       
 
       $messages.animate({ scrollTop: $(document).height() + "1000px" }, "slow")
+
+
+        // Need to figure out a way to get user id into index in controller
+
+        // $.ajax({
+        //   method: "GET",
+        //   url: "/chats/",
+        //   data: { id: selectedUserId  }
+        // })
+
+
 
       $.ajax({
         type: "GET", 
@@ -126,6 +167,7 @@
         },
         success: (data, textStatus, jqXHR) => {
           $messages.html(data)
+          count_messages();
         },
         error: (jqXHR, textStatus, errorThrown) => {}
       })

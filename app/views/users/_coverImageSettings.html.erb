@@ -1,3 +1,4 @@
-	<div class="groupImageCover" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px 10px 0px 0px;">
-		<%= image_tag(@user.image_url, class: "imgCover", id: "coverImageTag") if @user.image? %>
-	</div>
+
+	          <div class="groupImageCover" id="coverImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px 10px 0px 0px;">
+                <%= image_tag(@user.image_url, class: "imgCover", id: "coverImageTag" , lazy: true) if @user.image? %>
+           </div>

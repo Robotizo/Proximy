@@ -5,6 +5,7 @@ jQuery(document).on 'turbolinks:load', ->
   $newMessageForm = $('.form__message-new')
   $newMessageBody = $newMessageForm.find('.form__input-body')
   $newMessageAttachment = $newMessageForm.find('.form__input-attachment')
+  $newConvo = $('.newStart')
 
   # $newMessageImageAttachment = $newMessageForm.find('.form__input-attachment-image')
   # $newMessageDocumentAttachment = $newMessageForm.find('.form__input-attachment-doc')
@@ -22,27 +23,42 @@ jQuery(document).on 'turbolinks:load', ->
     received: (data) ->
       currentUser = parseInt($inputCurrentUser.val())
       activeUser = parseInt($inputActiveUser.val())
-      if !currentUser
-        alert("Message received!")
+
+      
+      if data['receiver_id'] == parseInt(currentUserRuby) && !currentUser
+        $(".messageAlert").html("<div class=\"notificationInnerBox\">New Message</div><div class=\"notificationInnerBox2\">" + data['message']  + "</div>").hide().fadeIn(500);
+        setTimeout ->
+          $(".messageAlert").fadeOut("1000");
+        , 6000
+
+
+
+      # if !currentUser 
+      #   if currentUser == data['receiver_id']
+      #     console.log(data['receiver_id'])
+          # # alert(currentUserName)
+          # $(".messageAlert").html("<div class=\"notificationInnerBox\">New Message</div> <div class=\"notificationInnerBox2\">" + data['message'] + "</div>").hide().fadeIn(500);
+          # # setTimeout ->
+          # #   $(".messageAlert").fadeOut("1000");
+          # # , 6000
+
       
       if activeUser != -1
         if data['receiver_id'] == currentUser
           if data['sender_id'] == activeUser
             if data['message']
               messageTemplate = ''
-            
               if (data['sender_id'] == parseInt(currentUser))
                 messageTemplate = "<div class='message align-right'><span class='senderMessage'>#{data['message']}</span></div>"
               else
                 messageTemplate = "<div class='message align-left'><span class='receiverMessage'>#{data['message']}</span></div>"
               $messages.append messageTemplate
               $messages.animate { scrollTop: $(document).height() + "1000px" }, "slow"
-         
-
 
           else
             selector = ".chat__contact--element[data-id='#{data['sender_id']}']"
             $(selector).addClass('is-new-message')
+
 
 
 
@@ -84,6 +100,7 @@ jQuery(document).on 'turbolinks:load', ->
         
     send_message: (message, file_uri, original_name) ->
       @perform 'send_message', message: message, file_uri: file_uri, original_name: original_name
+      $newConvo.empty()
 
     $newMessageForm.submit (e) ->
       if !!!$inputActiveUser.val()

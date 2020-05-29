@@ -140,6 +140,8 @@ get '/sign_in' => 'sessions#new', :as => nil
   resources :users
 
   mount ActionCable.server => '/cable'
+
+
   
   get 'chats/list_messages/:id', :to => 'chats#list_messages'
   get 'chats/ajax_messages', :to => 'chats#ajax_messages'

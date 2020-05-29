@@ -111,7 +111,9 @@
 
 	$("#coverImageUpload").change(function(){
 	    coverFileURL = URL.createObjectURL(event.target.files[0]);
-	    $("#coverImageTag").css("visibility", "hidden");
+	    
+	    $("#coverImage").attr("href", coverFileURL);
+	    $("#coverImageTag").attr("src", coverFileURL);
 	    $("#coverImage").css("background-image", "url("+coverFileURL+")");
     });
 

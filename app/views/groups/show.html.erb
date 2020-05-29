@@ -620,7 +620,7 @@ $(function () {
 
 
             <% @groupFollowers.each do |groupFollower| %>
-             <%= link_to groupFollower, class: "specialA" do %>
+             <%= link_to groupFollower, method: :get,  class: "specialA" do %>
               <div class="card grid-item-user allPostsCard">
                 <div class="material-icons text-muted launch-modal align-middle">
                   <%= image_tag(groupFollower.avatar_url(:thumb), class: "card-img-top allPostsImage") if groupFollower.avatar? %>

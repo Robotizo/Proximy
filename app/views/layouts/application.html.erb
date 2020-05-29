@@ -139,13 +139,16 @@
     });
 });
 
-    
 
 
 </script>
+<% if signed_in? %>
+  <%= javascript_tag do %>
+    window.currentUserRuby = "<%= current_user.id %>";
+  <% end %>
+<% end %>
 
-
-
+<%= stylesheet_link_tag "animate", :media => "all" %>
 
 <div id="clickable" onclick="closeNav()">
 
@@ -154,10 +157,13 @@
       <div class="bounce2"></div>
       <div class="bounce3"></div>
     </div>
+
+
+    <div class="messageAlert"></div>
+
+
+
 <div id="theRest" >
-
-
-
 
 
 

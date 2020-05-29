@@ -44,10 +44,6 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader 
 
 
-
-
-
-
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :group_comments, dependent: :destroy
@@ -68,6 +64,8 @@ class User < ApplicationRecord
 
 
   has_many :interests, dependent: :destroy
+
+
 
 
   has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
@@ -107,7 +105,6 @@ class User < ApplicationRecord
 
 
   def self.sign_in_from_omniauth(auth)
-
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
       user.email = auth.info.email
       user.provider = auth.provider
@@ -132,6 +129,9 @@ class User < ApplicationRecord
   end
 
 
+    def is_friends?(other_user)
+      friends.include?(other_user)
+    end 
 
 
     def follow(other_user)

@@ -1,3 +1,6 @@
+<%= javascript_include_tag( 'jquery.lazy.js' ) %>
+<%= stylesheet_link_tag "lazy-load-images.min", :media => "all" %>
+<%= javascript_include_tag 'lazy-load-images.min', 'data-turbolinks-track': 'reload' %>
 	<style type="text/css">
 		.imgCover {
 		  width: 100%;
@@ -15,6 +18,13 @@
 			  }
 
 		}
+
+
+		.marginSetsA img{
+		  height: 210px !important; 
+		  object-fit: cover;
+		}
+		  
 
 
 	</style>
@@ -35,7 +45,7 @@
 				<% if @user.avatar.present? %>
 				<div class="connArea">
 					<div class="avatarImage2" id="avatarImage" style="background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 15px;">
-						<%= image_tag(@user.avatar_url, class: "imgProfile", id: "avatarImageTag") if @user.avatar? %>
+						<%= image_tag(@user.avatar_url, class: "imgProfile", id: "avatarImageTag", lazy: true) if @user.avatar? %>
 					</div>
 				</div>
 				<% else %>

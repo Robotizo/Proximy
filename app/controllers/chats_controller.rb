@@ -9,6 +9,7 @@ class ChatsController < ApplicationController
   def index
   end
 
+
   def list_messages
     @messages = Message.users_messages(current_user, @active_user).last(10)
     render partial: 'list_messages', locals: { messages: @messages }
@@ -51,7 +52,8 @@ class ChatsController < ApplicationController
   # Display only friends and followers for now
   # TODO (Andy Lee): Consider and implement messaing request & limit feature for users 
   def get_users
-    @users = current_user.friends || current_user.active_relationships
+    listOfContacts = current_user.friends + current_user.following + current_user.followers
+    @users = listOfContacts.sort_by &:updated_at
   end
 
   def get_notifications
