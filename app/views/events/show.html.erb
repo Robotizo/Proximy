@@ -1,4 +1,4 @@
-r<%= stylesheet_link_tag "events", :media => "all" %>
+<%= stylesheet_link_tag "events", :media => "all" %>
 <%= stylesheet_link_tag "animate", :media => "all" %>
 <%= javascript_include_tag 'events', 'data-turbolinks-track': 'reload' %>
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
@@ -159,6 +159,7 @@ r<%= stylesheet_link_tag "events", :media => "all" %>
 
 </style>
 
+<% if mobile_device != "mobile" %>
 
 <div class="backButton ">
   <%= link_to 'javascript:history.back()' do %>
@@ -309,6 +310,8 @@ r<%= stylesheet_link_tag "events", :media => "all" %>
 
      <% if Date.today <= @event.event_date %>
 
+
+
      <div class="buttonsEvent">
       <% if signed_in? %>
           <% if current_user.followingE?(@event) %>
@@ -322,6 +325,10 @@ r<%= stylesheet_link_tag "events", :media => "all" %>
           <% end %>
 
       <% else %>
+
+
+
+
       <div class="col-md-6 col-xs-6 noPad3 text-center">
 
         <%= link_to login_path, method: :get, class: "specialA" do %>
@@ -354,6 +361,11 @@ r<%= stylesheet_link_tag "events", :media => "all" %>
            <%= button_tag "This event already happened", class: "btn btn-primary attendEventBtn" %>
         </div>
       <% end %>
+
+
+
+
+
 
       <% end %>
 <!-- Buttons End -->
@@ -554,8 +566,21 @@ r<%= stylesheet_link_tag "events", :media => "all" %>
 
 
 </div>
+<% else %>
+<div class="container text-center eventMobileAlert">
+  Please access Proximy App from desktop computer
+  <div>
+    <%= image_tag "meeting.svg", class: "eventImageDisplay" %>
+  </div>
+  <footer class="lp_footer">
+    <div class="footerMobileAlert">
+      Proximy comming soon to mobile
+    </div>
 
+  </footer>
+</div>
 
+<% end %>
 
 
 
@@ -1028,5 +1053,6 @@ jQuery(window).on('load', function(){ var $ = jQuery;
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo48DWSAQY1Qc3Tg4LjO8DtBJ32jSDbZI&callback=initMap">
 </script>
+
 
 
