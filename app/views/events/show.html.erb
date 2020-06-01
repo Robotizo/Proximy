@@ -567,11 +567,40 @@
 
 </div>
 <% else %>
+<!-- Mobile Temp Screen START -->
+
 <div class="container text-center eventMobileAlert">
+
   Please access Proximy App from desktop computer
-  <div>
-    <%= image_tag "meeting.svg", class: "eventImageDisplay" %>
+
+  <div class="alertCopy">
+    Tap on the event to copy link
   </div>
+<div class="inviteLinkAreaMobile">
+  <div class="elementBox ">
+
+    <a href="<%= @event.image_url(:event) %>"  class="lazy-load replace marginSetsB">
+      <%= image_tag(@event.image_url(:preview), class: " preview") if @event.image? %>
+    </a>
+
+       <div class="eventContentDisc">
+            <div class="eventDateDisc"><%= @event.event_date.strftime('%B %e') %></div>
+          </div>
+          <div class="eventTitleDisc"><%= truncate(@event.title, length: 35) %></div>
+          <div class="eventAddress"><%= @event.address %></div>
+
+  </div>
+
+       </div>
+<div class="col-xs-12 text-center">
+       <div class="noneMobile animated pulse"></div>
+
+    </div>
+
+
+
+                 <input class="linkToCopy"  value="<%= request.original_url %>" />
+
   <footer class="lp_footer">
     <div class="footerMobileAlert">
       Proximy comming soon to mobile
@@ -579,6 +608,9 @@
 
   </footer>
 </div>
+
+
+<!-- Mobile Temp Screen END -->
 
 <% end %>
 
@@ -851,6 +883,21 @@
   });
 
 
+
+  $('div.inviteLinkAreaMobile').click(function(){
+    $(this).siblings('.linkToCopy').select();      
+    document.execCommand("copy");
+  });
+
+
+$('div.inviteLinkAreaMobile').one('click', function(e) {
+  $(".noneMobile").append("<div class=\"msg animated pulse\">Copied</div>").hide().fadeIn(500);
+   setTimeout(function(){
+        $(".noneMobile").fadeOut("1000");
+   },4000)
+
+ 
+});
 
 
 $('div.inviteLinkArea').one('click', function(e) {

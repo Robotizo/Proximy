@@ -6,6 +6,13 @@
 /* Select Panel Start */
 
 
+.inviteLinkAreaMobile{
+
+  display: inline-flex;
+
+}
+
+
 .none{
     width: 200px;
     margin: 0 auto;
@@ -80,7 +87,7 @@ img:hover > .eventTitleDisc{
 .marginSetsB{
   margin-top: 0em !important;
   border-radius: 12px 12px 0px 0px;
-  height: 244px;
+
 }
 
 
@@ -438,7 +445,7 @@ border: 0px !important;
 
 .eventContentDisc2{
     position: relative;
-         top: -65px;
+         top: -62px;
     /* background-color: #00000054; */
     padding: 10px;
     /* opacity: 0.8; */
@@ -1752,7 +1759,7 @@ div .show-more[aria-expanded="true"]{
 
 .eventContentDisc{
     position: relative;
-         top: -65px;
+         top: -62px;
     /* background-color: #00000054; */
     padding: 10px;
     /* opacity: 0.8; */
@@ -2231,6 +2238,42 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px){
+  .eventAddress{
+    font-size: 10px;
+    font-weight: 900;
+    color: #508cf7;
+    /* margin-top: 10px; */
+    /* margin-bottom: 10px; */
+    top: -72px;
+    padding: 0px 8px 4px 8px;
+    text-align: left;
+    position: relative;
+  }
+  .alertCopy{
+    font-size: 14px;
+    font-weight: 900;
+    color: #508cf7;
+    margin-top: 10px;
+  }
+  .noneMobile{
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+  img.marginSetsB{
+  margin-top: 0em !important;
+  border-radius: 12px 12px 0px 0px;
+  height: 244px !important;
+}
+
+  img.eventImageDisplayMob{
+    border-radius: 0px;
+    width: 70%;
+    margin-top: 10px;
+    height: 244px !important;
+  }
+
   .footerMobileAlert{
     font-size: 12px;
     font-weight: 900;
@@ -2252,7 +2295,7 @@ div.scrollEvents a {
   .eventMobileAlert{
     font-size: 19px;
     font-weight: 900;
-    margin-top: 5em;
+    margin-top: 3em;
   }
   .invitedFriend{
     background-color: white;
@@ -2297,8 +2340,11 @@ div.scrollEvents a {
 
 /* Rework Start */
 .elementBox{
+
   padding-bottom: 15px;
-  height: auto;
+    height: auto;
+    margin: 30px;
+    height: 250px;
 }
 .editsText{
   display: none;
@@ -2563,10 +2609,7 @@ div.scrollEvents a {
 		
 	}
 
-	.eventContentDisc{
-	    position: relative;
-	         top: -65px;
-	}
+
 	.groupTitleI{
 		font-size: 16px;
 		top: -70px;
@@ -2654,11 +2697,7 @@ div.scrollEvents a {
 	    text-align: center;
 	    margin-top: 10px;
 	}
-	.eventImageDisplay{
-		border-radius: 0px;
-    width: 70%;
-    margin-top: 10px;
-	}
+
 	.mobileArea{
 		padding-left: 0px;
 		padding-right: 0px;
