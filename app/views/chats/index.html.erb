@@ -9,7 +9,6 @@
   <!-- chat__contact--panel -->
   <div class="chat__main--sub-section chat__contact--panel">
     <div class="contactMargin">
-
       <%= render @users %>
 
       <div class="proximyLogo">
@@ -124,6 +123,11 @@
       }
     }
 
+
+    function chnage_id(){
+      window.history.pushState(null, null, "/chats/" + selectedUserId);
+    }
+
     const messagesElement = document.querySelector('#messages');
     const itemsToAdd = 10
 
@@ -139,6 +143,9 @@
       // const isFriendRequest = $selectedContactElement.data('is-friend-request')
       
       let pageNumber = 0;
+
+
+     
 
 
 
@@ -157,6 +164,21 @@
         //   data: { id: selectedUserId  }
         // })
 
+        // $.ajax({
+        //   url: "/chats/test_active/" + selectedUserId,
+        //   type: "GET",
+        //   data:  {
+        //     id: selectedUserId 
+        //   },
+        //   success: function(){
+        //     alert('Saved Successfully and');
+        //   },
+        //   error:function(){
+        //    alert('Error');
+        //   }
+        // });
+
+
 
 
       $.ajax({
@@ -168,6 +190,7 @@
         success: (data, textStatus, jqXHR) => {
           $messages.html(data)
           count_messages();
+          // window.history.pushState(null, null, "/chats/" + selectedUserId);
         },
         error: (jqXHR, textStatus, errorThrown) => {}
       })

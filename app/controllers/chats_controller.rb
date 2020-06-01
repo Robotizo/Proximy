@@ -7,6 +7,7 @@ class ChatsController < ApplicationController
   before_action :filter_page_number, only: %i[ajax_messages]
 
   def index
+
   end
 
 
@@ -17,9 +18,13 @@ class ChatsController < ApplicationController
 
   def ajax_messages
     @messages = Message.users_messages(current_user, @active_user).between_range(@start, @last)
-
     render partial: 'ajax_messages', locals: { messages: @messages }
   end
+
+
+  # def test_active
+  #   @test_active_user = User.find(params[:id])
+  # end 
 
   private
 

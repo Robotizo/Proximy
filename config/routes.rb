@@ -15,7 +15,14 @@
 
 
   resources :test_users
+
+
+
+
   get 'chats', :to => 'chats#index'
+
+
+  # get '/chats/:id', to: 'chats#index'
 
   resources :event_comments
   resources :group_comments
@@ -128,7 +135,7 @@
       only: [:create]
 
 
-get '/sign_in' => 'sessions#new', :as => nil
+  get '/sign_in' => 'sessions#new', :as => nil
 
 
 
@@ -141,6 +148,8 @@ get '/sign_in' => 'sessions#new', :as => nil
 
   mount ActionCable.server => '/cable'
 
+
+  # get 'chats/test_active/:id', :to => 'chats#test_active'
 
   
   get 'chats/list_messages/:id', :to => 'chats#list_messages'
