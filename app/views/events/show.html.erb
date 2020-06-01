@@ -580,7 +580,7 @@
   <div class="elementBox ">
 
     <a href="<%= @event.image_url(:event) %>"  class="lazy-load replace marginSetsB">
-      <%= image_tag(@event.image_url(:preview), class: " preview") if @event.image? %>
+      <%= image_tag(@event.image_url(:preview), class: "preview") if @event.image? %>
     </a>
 
        <div class="eventContentDisc">
@@ -599,7 +599,14 @@
 
 
 
-                 <input class="linkToCopy"  value="<%= request.original_url %>" />
+
+
+                 <input class="linkToCopy"  value="<%= request.original_url %>" readonly="readonly"/>
+
+
+       
+             <%= button_to "Learn more about Proximy", root_path, method: :get, class: "feedbackButton2" %>
+       
 
   <footer class="lp_footer">
     <div class="footerMobileAlert">

@@ -2238,6 +2238,38 @@ div.scrollEvents a {
 
 
 @media screen and (max-width: 776px){
+  .feedbackButton2{
+font-weight: 700 !important;
+    background-color: #e7f3ff;
+    padding: 10px;
+    border-radius: 10px;
+    color: #508CF7;
+    border: 0px;
+    width: 75% !important;
+    font-size: 14px;
+    /* margin-top: 12em; */
+    /* left: 50px; */
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    /* top: 25em; */
+    bottom: 100px;
+    position: absolute;
+    outline: none !important;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+
+  }
+
+  .feedbackButton2:hover{
+    
+    background-color: #508CF7;
+
+    color: white;
+
+}
   .eventAddress{
     font-size: 10px;
     font-weight: 900;
