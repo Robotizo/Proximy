@@ -124,8 +124,7 @@ body{
         <%= video_tag(["Proximy.mp4"], controls: false, autoplay: true, muted: true, loop: true, class: "lp_main_image", playsinline: true) %>
 
         <div class="textWithin fadeIn animated delay-1s">New experiences start here</div>
-        <div class="textWithin fadeIn animated delay-1s"><%= button_to "Login", sign_in_path, method: :get, class: "loginButton" %></div>
-        <div class="textWithin fadeIn animated delay-1s"><%= button_to "Signup", signup_path, method: :get, class: "loginButton2" %></div>
+        <div class="textWithin fadeIn animated delay-1s"><%= button_to "Get Started", sign_in_path, method: :get, class: "loginButton" %></div>
         <div class="textWithin2 fadeIn animated delay-1s">Scroll down to learn more</div>
         <div class="textWithin2 slideOutDown animated delay-1s infinite slow"><i class="arrow down"></i></div>
       </div>
@@ -336,7 +335,7 @@ body{
 
 
             <div class="showMobileDont">
-             <%= button_to "Signup", signup_path, method: :get, class: "feedbackButton2" %>
+             <%= button_to "Create an account", signup_path, method: :get, class: "feedbackButton2" %>
             </div>
 
 
@@ -361,36 +360,47 @@ body{
   </div>
   <div class="col-md-10 col-xs-12">
     <div class="col-md-4 col-xs-12 text-left">
-      <div class="legalTitle" style="margin-top: 30px;">
+      <div class="legalTitle" style="margin-top: 15px;">
         Legal
       </div>
    
       <br>
       <div style="margin-bottom: 8px;">
-        <%= link_to "Privacy Policy", main_privacy_path, method: :get, class: "legalLinks" %>
-        
+        <%= link_to "Privacy Policy", privacy_path, method: :get, class: "legalLinks" %>
       </div>
       <div style="margin-bottom: 8px;">
-        <%= link_to "Terms & Conditions", main_terms_path, method: :get, class: "legalLinks" %>
-
+        <%= link_to "Terms & Conditions", terms_path, method: :get, class: "legalLinks" %>
       </div>
+      <div style="margin-bottom: 8px;">
+        <%= link_to "DMCA Policy", dmca_path, method: :get, class: "legalLinks" %>
+      </div>
+
+
     </div>
 
 
 
-    <div class="col-md-4 col-xs-12 text-left" style="margin-top: 30px;">
+    <div class="col-md-4 col-xs-12 text-left" style="margin-top: 15px;">
       <div class="legalTitle">
         Support
       </div>
       <br>
 
-      <div class="legalStatic" style="margin-bottom: 50px;">
+      <div class="legalStatic" style="margin-bottom: 8px;">
         info@proximy.ca
       </div>  
+
+      <div style="margin-bottom: 8px;">
+        <%= link_to "Community Guidelines", guidelines_path, method: :get, class: "legalLinks" %>
+      </div>
+
+      <div style="margin-bottom: 8px;">
+        <%= link_to "FAQ", faq_path, method: :get, class: "legalLinks" %>
+      </div>
     </div>
 
 
-    <div class="col-md-4 col-xs-12 text-left" style="margin-top: 30px;">
+    <div class="col-md-4 col-xs-12 text-left" style="margin-top: 15px;">
       <div class="legalTitle">
         Enterprise (Coming Soon)
       </div>

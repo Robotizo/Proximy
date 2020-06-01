@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag "users", :media => "all" %>
+
 <% if user.id != current_user.id %>
 <div class="chat__contact--element" data-id="<%= user.id %>">
 	<div class="oneThird">
@@ -6,9 +7,12 @@
 	</div>
 	<div class="col-md-8">
   		<span class="userNameChat"><%= user.name %> <%= user.last_name %><span>
-  		
+  		<% if current_user.is_friends?(user) %>
+  			<div class="is_friends">Friends</div>
+  		<% else %>
+  			<div class="is_friends_not">Not friends yet</div>
+  		<% end %>
   	</div>
-
   
 </div>
 <% end %>

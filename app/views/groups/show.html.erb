@@ -11,6 +11,17 @@
     margin: -2px;
   }
 
+
+  .marginSetsA img{
+    height: 130px;
+    object-fit: cover;
+  }
+
+  .coverImage img {
+        height: 250px;
+    object-fit: cover;
+  }
+
   @media screen and (max-width: 776px){
     .elementBox {
       width: 275px;
@@ -374,16 +385,26 @@ $(function () {
 
 
         <span class="col-md-6 userEvents mobileVE">
-          <%= link_to group_event, method: :get, class: "specialA" do %>
+        
     
             <div class="elementBox">
             
                 <div class="eventImage">
-                  <%= image_tag(group_event.image_url, class: "eventImage1") if group_event.image? %>
+
+              <a href="/events/<%= group_event.id %>" data-method="get" data-href="<%= group_event.image_url(:event) %>" class="lazy-load replace marginSetsB">
+                  <%= image_tag(group_event.image_url(:preview), class: "eventImageDisplay preview") if group_event.image? %>
+                </a>
+
+
+
                 </div>
+
+      <%= link_to group_event, method: :get, class: "specialA" do %>
                     <div class="eventContent1">
                         <div class="eventDateI"><%= group_event.event_date.strftime('%B %e') %></div>
                       </div>
+
+
                  <div class="eventOverall">
                     <div class="eventContent">
                       <div class="titleGroups"><%= truncate(group_event.title, length: 30)%></div> 
@@ -599,7 +620,7 @@ $(function () {
 
 
             <% @groupFollowers.each do |groupFollower| %>
-             <%= link_to groupFollower, class: "specialA" do %>
+             <%= link_to groupFollower, method: :get,  class: "specialA" do %>
               <div class="card grid-item-user allPostsCard">
                 <div class="material-icons text-muted launch-modal align-middle">
                   <%= image_tag(groupFollower.avatar_url(:thumb), class: "card-img-top allPostsImage") if groupFollower.avatar? %>

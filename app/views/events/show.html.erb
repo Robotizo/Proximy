@@ -1,9 +1,15 @@
-<%= stylesheet_link_tag "events", :media => "all" %>
+r<%= stylesheet_link_tag "events", :media => "all" %>
 <%= stylesheet_link_tag "animate", :media => "all" %>
 <%= javascript_include_tag 'events', 'data-turbolinks-track': 'reload' %>
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<% content_for :head do %>
+  <meta property="og:title" content="<%= @event.title %>" />
+  <meta property="og:image" content="<%= @event.image_url %>" />
+  <meta property="og:description" content="<%= @event.description %>" />
+<% end %>
 
 
 <%= stylesheet_link_tag "lazy-load-images.min", :media => "all" %>
@@ -29,6 +35,9 @@
     })
 
 </script>
+
+
+
 
 
 
@@ -59,6 +68,32 @@
 }
 
 
+.inviteLinkFB{
+    width:25px; /*width of your image*/
+   height:25px;
+    margin:0; /* If you want no margin */
+   padding:0; 
+
+  background: url(<%= asset_path 'messenger.svg' %>) no-repeat 0 0; 
+  background-size: 25px 25px;
+}
+
+.inviteLinkFB:hover{
+
+
+    width:25px; /*width of your image*/
+   height:25px;
+    margin:0; /* If you want no margin */
+   padding:0; 
+
+  background: url(<%= asset_path 'messengerHover.svg' %>) no-repeat 0 0; 
+  background-size: 25px 25px;
+  transition: 0.2s ease-in-out;
+  background-color: #508cf7;
+}
+
+
+
 
 </style>
 
@@ -69,6 +104,15 @@
     }, function() {
       // on mouseout, reset the background colour
       $('.inviteLinkArea').css('background-color', '');
+    });
+  });
+
+  $(function() {
+    $('.inviteLinkFB').hover(function() {
+      $('.inviteLinkAreaFB').css('background-color', '#508cf7');
+    }, function() {
+      // on mouseout, reset the background colour
+      $('.inviteLinkAreaFB').css('background-color', '');
     });
   });
 </script>
@@ -140,7 +184,12 @@
 
       <div class="eventImgTitle">
         <div class="eventTitleImg"><%= @event.title %></div>
+
+
+
+
       </div>
+
     </div>
 
 
@@ -261,6 +310,7 @@
      <% if Date.today <= @event.event_date %>
 
      <div class="buttonsEvent">
+      <% if signed_in? %>
           <% if current_user.followingE?(@event) %>
           <div class="col-md-6 col-xs-6 noPad3 text-center">
             <%= render partial: "unfollowEvent" %>
@@ -270,6 +320,19 @@
             <%= render partial: "followEvent" %>
           </div>
           <% end %>
+
+      <% else %>
+      <div class="col-md-6 col-xs-6 noPad3 text-center">
+
+        <%= link_to login_path, method: :get, class: "specialA" do %>
+         <%= image_submit_tag "attendLong.png", class: "iconImage" %>
+          <div class="textOps">
+            Log in to attend
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+
 
 
 
@@ -430,13 +493,16 @@
     <div class="event_post_area">
  <div class="buttonSection">
 
-
+<% if signed_in? %>
       <div id="newDiscussion">
                 <%= link_to new_event_post_path(event_id: @event.id), remote: true, class: "btn connectBtn" do %>
                   <div class="showAllPosts">
                     Create Post
                   </div>
                 <% end %>
+
+<% end %>
+
 
     </div>
 </div>
@@ -621,14 +687,26 @@
           <span aria-hidden="true">&times;</span>
         </button>
 
-        <div class="modal-dialog" role="document" style="width: 20%">
-          <div class="modal-content">
+        <div class="modal-dialog" role="document" style="width: 20%;">
+          <div class="modal-content" style="float: left;">
             <div class="text-center">
-              <div class="inviteLinkArea"> <div class="inviteLinkIcon"> &nbsp;</div> </div><div class="inviteLinkText">Copy event link</div>
 
+              <div class="col-md-6">
+                <div class="inviteLinkArea"> <div class="inviteLinkIcon"> &nbsp;</div> </div><div class="inviteLinkText">Copy event link</div>
+                 <input class="linkToCopy"  value="<%= request.original_url %>" />
+              </div>
+
+
+              <div class="col-md-6">
+                    
+
+
+                <div class="inviteLinkAreaFB"> <div class="inviteLinkFB"> &nbsp;</div> </div><div class="inviteLinkText">Share on Messenger</div>
+
+              </div>
         
 
-              <input class="linkToCopy"  value="<%= request.original_url %>" />
+             
 
 
 
@@ -640,9 +718,10 @@
 
 
         <div class="none animated pulse"></div>
+        <div class="none2 animated pulse"></div>
 
     <div class="modal-dialog modal-dialog-centered allPostsDialog" role="document">
-      <div class="modal-content-users">
+      <div class="modal-content-users " style="float: left; width: 100%;">
         <div class="modal-body">
           <div class="grid" id="masonry">
             <div class="grid-sizer"></div>
@@ -651,6 +730,7 @@
 
 
 
+<% if signed_in? %>
 
             <% @fullyFriends.each do |friend| %>
           
@@ -718,6 +798,7 @@
 
    
             <% end %>
+            <% end %>
 
 
           </div>
@@ -728,6 +809,13 @@
 
 
 <script type="text/javascript">
+
+  $('.inviteFriend').one('click', function () {
+    $(".none2").html("<div class=\"msg animated pulse\">Invitation Sent</div>").hide().fadeIn(500);
+     setTimeout(function(){
+          $(".none2").fadeOut("1000");
+     },4000)
+  })
 
 
 
@@ -865,14 +953,37 @@ $(document).on("turbolinks:load", function(){
 
 
 
+</script>
 
 
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '559603124962178',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v7.0'
+    });
+  };
+</script>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+<script type="text/javascript">
 
 
-
-
+  $('.inviteLinkAreaFB').click(function(){
+    FB.ui({
+      method: 'send',
+      link: 'proximy.ca/events/<%= @event.id %>'
+    });
+  });
 
 </script>
+
+
+
+
+
 
 
 <script type="text/javascript">

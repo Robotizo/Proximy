@@ -1,5 +1,18 @@
  <%= stylesheet_link_tag "sessions", :media => "all" %>
 
+
+<style type="text/css">
+  .fileBtnDiv, .form-control{
+    margin: 0px !important;
+  }
+</style>
+
+
+
+
+
+
+
   <body onload="getLocation()">
   	<%= form_for(user) do |f| %>
 
@@ -9,17 +22,14 @@
 <div class="col-md-12">
 
 
+
+
 	<div class="col-md-12 noPad3">
 		<div class="col-md-12 noPad3">
 <div class="titleSign">
   	Start connecting.
 </div>
 
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-     Please check your fields.
-    </div>
-  <% end %>
 
 
 
@@ -60,9 +70,14 @@
 	        <%= f.button "Confirm", class: "fileBtnSubmit2", data: {disable_with: "<i class='fa fa-circle-o-notch fa-spin'></i> Building..."} %>
 	    </div>
 
+      <div class="text-center col-xs-12 noPad3">
+          <%= link_to "Log in", login_path, method: :get, class: "fileBtnSubmitSign2" %>
+      </div>
+
+
 <div class="col-md-12">
 
-      <div class="agreements">By creating an account you agre to <%= link_to "Terms & Conditions", main_terms_path, method: :get, class: "legalLinks" %> and <%= link_to "Privacy Policy", main_privacy_path, method: :get, class: "legalLinks" %>.</div>
+      <div class="agreements">By creating an account you agree to <%= link_to "Terms & Conditions", terms_path, method: :get, class: "legalLinks" %> and <%= link_to "Privacy Policy", privacy_path, method: :get, class: "legalLinks" %>.</div>
 </div>
 
 

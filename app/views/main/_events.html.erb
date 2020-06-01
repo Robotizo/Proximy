@@ -35,16 +35,18 @@ $(function () {
 
       
 
-
+  <%= link_to event, method: :get, class: "specialA" do %>
 
               <div class="eventContentDisc">
                 <div class="eventDateDisc"><%= event.event_date.strftime('%B %e') %></div>
               </div>
+
               <div class="groupTitleDisc"><%= truncate(event.title, length: 35) %></div>
               <div class="sharedInts">
                 <%= collide.count %> Shared interests
               </div>
           </div>
+         <% end %>
          <% end %>
 
 

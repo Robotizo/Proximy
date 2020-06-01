@@ -2,6 +2,8 @@
 <%= stylesheet_link_tag "lazy-load-images.min", :media => "all" %>
 <%= javascript_include_tag 'lazy-load-images.min', 'data-turbolinks-track': 'reload' %>
 
+
+
       <% @groups.each do |group| %>
       <% collide = current_user.followingI.ids & group.fgI.ids %>
         <div class="col-md-3 col-xs-6 testMarge">
@@ -12,7 +14,7 @@
            <a href="groups/<%= group.id %>" data-method="get" data-href="<%= group.image_url(:group) %>" class="lazy-load replace marginSetsC">
                   <%= image_tag(group.image_url(:preview), class: "groupImageDisc preview") if group.image? %>
                 </a>
-
+<%= link_to group, method: :get, class: "specialA" do %>
 
               <div class="eventContent">
                 <div class="titleGroups"><%= truncate(group.title, length: 20) %></div>
@@ -26,8 +28,9 @@
           </div>
 
       <% end %>
+        <% end %>
 
-</div>
+
 
 
 

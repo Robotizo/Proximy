@@ -2,12 +2,12 @@
 	<div class=" noPad3 col-md-12 col-xs-12 text-center">
 		<ul class="nav nav-tabs" id="events-nav" role="tablist">
 			<li class="<%= 'active' if current_page?(edit_user_path) %> col-md-4  col-xs-4 noPad3">
-			   <%= link_to edit_user_path do %>General
+			   <%= link_to edit_user_path, method: :get  do %>General
 			     <%= (content_tag :span, "(current)", :class => "sr-only") if current_page?(edit_user_path) %>
 			   <% end %>
 			</li>
 			<li class="<%= 'active' if current_page?(interestsMenu_user_path) %> col-md-4  col-xs-4 noPad3">
-			  <%= link_to interestsMenu_user_path do %>Interests
+			  <%= link_to interestsMenu_user_path, method: :get  do %>Interests
 			    <%= (content_tag :span, "(current)", :class => "sr-only") if current_page?(interestsMenu_user_path) %>
 			  <% end %>
 			</li>

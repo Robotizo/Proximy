@@ -1,5 +1,25 @@
 <%= stylesheet_link_tag "users", :media => "all" %>
+<%= stylesheet_link_tag "animate", :media => "all" %>
 
+<script type="text/javascript">
+  $(document).ready(function () {
+   
+
+
+
+      setTimeout(function() {
+       $(".alert").fadeOut("1000");
+      }, 4000);
+
+
+    })
+
+</script>
+
+
+<!-- Add radio button with gender -->
+<!-- Add selction for age -->
+<!-- Get rid of "Where are you from?" replace with geolocation request.location.city -->
 
 
 
@@ -55,6 +75,9 @@
   	margin-top: 45px !important;
   }
 
+  .alert{
+    width: 100%;
+  }
 
 
   @media screen and (max-width: 776px){
@@ -71,14 +94,34 @@
 
 
 
+
+
+
 </style>
 
+
+
+    <%= hidden_field_tag(:current_step, value: "personal") %>
 
 <div class="backButton">
   <%= link_to 'javascript:history.back()' do %>
         <%= image_tag("left-arrow.png", size: "54x54", class: "leftArrow") %>
   <% end %>
 </div>
+
+
+
+<% if @user.errors.any? %>
+<div class="alert animated pulse " role="alert">
+  <div class="alert-success">
+      Profile and cover photo are required
+
+  </div>
+
+
+</div>
+<% end %>
+
 
 
 
@@ -123,13 +166,52 @@
     </div>
   </div>
 
+<div class="col-md-12 col-xs-12 noPad3" style="margin-bottom: 20px;" >
+  <div class="titleSec">Gender</div>
+
+      <div class="radio-toolbar">
+        <div class="col-md-3" >
+          <%= f.radio_button :gender, 'Male', class: 'radioButton' %>
+          <%= f.label :gender, 'Male', for: "user_gender_male" %>
+        </div>
+
+        <div class="col-md-3">
+          <%= f.radio_button :gender, 'Female', class: 'radioButton' %>
+          <%= f.label :gender, 'Female', for: "user_gender_female"  %>
+        </div>
+
+        <div class="col-md-3">
+          <%= f.radio_button :gender, 'Non Binary', class: 'radioButton' %>
+          <%= f.label :gender, 'Non Binary', for: "user_gender_non_binary"  %>
+        </div>
+
+        </div>
+          
+      </div>
+
+      <div class="col-md-12 col-xs-12 noPad3" style="margin-bottom: 100px;">
+   <div class="titleSec">Date of Birth</div>
+
+
+   <%= f.date_select :date_of_birth, class: "dateChoose", start_year: Date.current.year, end_year: 1950, order: [:month, :day, :year], prompt: {day: 'Day', month: 'Month', year: 'Year'} %>
+
+</div>
+
+</div>
+
+
+
+
+
+
+<!-- 
   <div class="col-md-12 col-xs-12 noPad3" style="margin-bottom: 100px;">
     <div class="titleSec">Where are you from?</div>
     <div class="field fileField col-md-12 col-xs-12 noPad3">
       <%= f.country_select :country,  {prompt: "Select a country"}, class: 'selectBox' %>
     </div>
   </div>
-
+ -->
 
 
  
@@ -143,11 +225,6 @@
 
    <% end %>
 
-
-
-     <div class="fixedStateSkip">
-      <%= button_to "Skip", next_wizard_path, method: :get, class: "fileBtnSubmitSkip" %>
-    </div>
 
 
 
@@ -173,7 +250,11 @@
       	Customize your profile
       </div>
        <div class="welcomeText">
-       	Now you can give flair to your profile by adding a picture of yourself and a cover photo. Also you can tell us a bit about yourself, where you're from and how old you are.
+       	Give flair to your profile by adding a profile picture and cover photo. Tell the community more about who you are, where you are from, and your favourite interests.
+      </div>
+      <div class="welcomeText2">
+        To keep the community colorful your profile and cover images are required. 
+        
       </div>
     </div>
   </div>

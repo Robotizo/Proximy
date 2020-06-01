@@ -25,9 +25,16 @@
 
 </style>
 
+<div class="backButton">
+  <%= link_to 'javascript:history.back()' do %>
+        <%= image_tag("left-arrow.png", class: "leftArrow") %>
+  <% end %>
+</div>
+
 <div class="container mobileArea indexMar" >
   <%= render 'groupsMenu' %> 
   
+
 
   <div class="tab-content" id="events-nav-content">
     <div class="tab-pane active" id="events" role="events-tab-pane" aria-labelledby="events-tab">

@@ -90,6 +90,7 @@
 </div>
 
 
+
 <div class="container noPad3">
 
 	<%= render 'users/userModule' %>	
@@ -121,7 +122,7 @@
 
 
 				<div class="fixedState">
-			      <%= f.button "Continue", class: "fileBtnSubmit", id: "submitButtonId", data: {disable_with: "<i class='fa fa-circle-o-notch fa-spin'></i> Building..."} %>
+			      <%= f.button "Continue", type: "submit", class: "fileBtnSubmit", id: "submitButtonId", data: {disable_with: "<i class='fa fa-circle-o-notch fa-spin'></i> Building..."} %>
 			    </div>
 
 				<% end %>
@@ -150,7 +151,7 @@
 
 
 				<div class="fixedState">
-			      <%= f.button "Update location", class: "fileBtnSubmit", id: "submitButtonId", data: {disable_with: "<i class='fa fa-circle-o-notch fa-spin'></i> Building..."} %>
+			      <%= f.button "Update location", type: "submit", class: "fileBtnSubmit", id: "submitButtonId", data: {disable_with: "<i class='fa fa-circle-o-notch fa-spin'></i> Building..."} %>
 			    </div>
 
 	<% end %>

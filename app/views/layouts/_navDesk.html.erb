@@ -3,7 +3,7 @@
     <nav class="navbar topNav navbar-fixed-top nav-down" id="navbar">
   <div class="container">
     <div class="navTitle">
-      <%= link_to root_path, class: "specialA" do %>
+      <%= link_to root_path, method: :get, class: "specialA" do %>
           <%= image_tag("logoIcon.png", class: "logoMain") %>
         <% end %>
       </div>
@@ -16,7 +16,7 @@
       <div class="navTitleEndNew dropdown-toggle" type="button" data-toggle="dropdown"><%= image_tag("arrowDown.png", class: "imageNavDrop") %></div>
       <ul class="dropdown-menu moreOps">
          <li>
-          <%= link_to "Settings", edit_user_path(current_user), class: "dropItem" %>
+          <%= link_to "Settings", edit_user_path(current_user), method: :get, class: "dropItem" %>
         </li>
         <li>
             <%= link_to "Log Out", sign_out_path, method: :delete, data: {confirm: 'Are you sure?'}%>

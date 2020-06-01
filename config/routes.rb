@@ -88,8 +88,14 @@
 
   get 'main/test'
 
-  get 'main/privacy'
-  get 'main/terms'
+  get 'privacy', :to => 'main#privacy'
+  get 'terms', :to => 'main#terms'
+  get 'dmca', :to => 'main#dmca'
+  get 'guidelines', :to => 'main#guidelines'
+  get 'faq', :to => 'main#faq'
+
+
+
 
   get 'sessions/new'
   get    '/signup',  to: 'users#new'
@@ -134,6 +140,8 @@ get '/sign_in' => 'sessions#new', :as => nil
   resources :users
 
   mount ActionCable.server => '/cable'
+
+
   
   get 'chats/list_messages/:id', :to => 'chats#list_messages'
   get 'chats/ajax_messages', :to => 'chats#ajax_messages'

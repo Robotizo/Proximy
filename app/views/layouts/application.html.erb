@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
 
+
+<% if content_for?(:head) %>
+  <%= yield(:head) %>
+<% end %>
+
+
 <html>
   <head>
     <title>Proximy</title>
@@ -13,7 +19,9 @@
 
 
     
-<!--     <script>
+     <script>
+
+      
       function openNav() {
         document.getElementById("mySidenav").style.width = "250px";
       }
@@ -98,7 +106,7 @@
       }
 
 
-          </script> -->
+          </script> 
 
 
 
@@ -131,13 +139,16 @@
     });
 });
 
-    
 
 
 </script>
+<% if signed_in? %>
+  <%= javascript_tag do %>
+    window.currentUserRuby = "<%= current_user.id %>";
+  <% end %>
+<% end %>
 
-
-
+<%= stylesheet_link_tag "animate", :media => "all" %>
 
 <div id="clickable" onclick="closeNav()">
 
@@ -146,11 +157,13 @@
       <div class="bounce2"></div>
       <div class="bounce3"></div>
     </div>
+
+
+    <div class="messageAlert"></div>
+
+
+
 <div id="theRest" >
-
-
-
-
 
 
 

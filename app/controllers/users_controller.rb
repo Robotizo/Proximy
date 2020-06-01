@@ -97,16 +97,19 @@ class UsersController < ApplicationController
   # GET /users/1 
   # GET /users/1.json
   def show
+
+    
+
     @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
     @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
     @friendships = Friendship.where(user_id: @user.id, friend_id: current_user.id, status: "pending")
     @acceptedFriendships = Friendship.where(user_id: @user.id, friend_id: current_user.id, status: "accepted")
 
-
     @interests = Interest.all
 
     @users = User.all
     @userNow = current_user
+    @following = current_user.following
 
 
     collide = current_user.followingI.ids & @user.followingI.ids
@@ -122,6 +125,10 @@ class UsersController < ApplicationController
     @eventsFollow = Event.where(id: [followingEventsIds]).where('event_date > ?', Date.today).sort_by &:event_date
 
     @user_posts = @user.posts.order("created_at DESC")
+
+    if @user.date_of_birth.present?
+      @age = current_user.age(current_user.date_of_birth)
+    end
     
   end
 
@@ -147,8 +154,11 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         sign_in(@user)
+        @user.login_increment
+
         #UserMailer.registration_confirmation(@user).deliver
-        format.html { redirect_to after_signup_path(:interests), notice: 'Please confirm your email to sign in.' }
+        format.html { redirect_to after_signup_path(:interests)}
+
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -197,6 +207,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :last_name, :email, :image, :avatar, :bio, :password, :password_confirmation, :latitude, :longitude, :distance_is_checked, :ip, :country, :provider, :uid)
+      params.require(:user).permit(:name, :last_name, :email, :image, :avatar, :bio, :password, :password_confirmation, :latitude, :longitude, :distance_is_checked, :ip, :country, :provider, :uid, :gender, :date_of_birth)
     end
 end

@@ -58,7 +58,7 @@
     <div class="labelSide">
       First Name
     </div>
-    <%= f.text_field :name, class: "form-control", placeholder: "First name", id: "text_field" %>
+    <%= f.text_field :name, class: "form-control", placeholder: "First name", id: "text_field", disabled: true %>
   </div>
 
 
@@ -67,7 +67,7 @@
     <div class="labelSide">
       Last Name
     </div>
-    <%= f.text_field :last_name, class: "form-control", placeholder: "Last name" %>
+    <%= f.text_field :last_name, class: "form-control", placeholder: "Last name", disabled: true %>
   </div>
 
 
@@ -112,6 +112,19 @@
     <div class="field fileField col-md-12 col-xs-12 noPad3">
       <%= f.country_select :country,  {prompt: "Select a country"}, class: 'selectBox' %>
     </div>
+
+
+
+
+
+
+      <div class="field fileField col-md-12 col-xs-12 noPad3">
+    
+       
+      </div>
+
+
+
 
 
 

@@ -1,7 +1,13 @@
 <%= stylesheet_link_tag "users", :media => "all" %>
 
-<%= form_for(@user.active_relationships.build, remote: true) do |f| %>
-  <div><%= hidden_field_tag :followed_id, @user.id %></div>
-  <%= f.submit "Let's Connect", class: "btn connectBtn" %>
+<%= form_for(current_user.active_relationships.build, method: :post) do |f| %>
+  <%= hidden_field_tag :followed_id, @user.id %>
+  <%= image_submit_tag "message.png", class: "iconImage" %>
+   <div class="textOps">
+      Message
+   </div>
 <% end %>
+
+
+
 

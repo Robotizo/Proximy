@@ -10,6 +10,23 @@ class User < ApplicationRecord
   before_validation { self.email = self.email.downcase }
 
 
+  attr_accessor :current_step
+
+
+  def current_step?(step_key)
+    current_step.blank? || current_step == step_key
+  end
+
+
+
+  validates_presence_of :avatar, if: -> { current_step?("personal") }, on: :update
+  validates_presence_of :image, if: -> { current_step?("personal") }, on: :update
+  
+  validates_presence_of :date_of_birth, if: -> { current_step?("personal") }, on: :update
+
+
+
+
  
   geocoded_by :ip, :latitude => :latitude, :longitude => :longitude
   after_validation :geocode, if: ->(obj){ !obj.latitude.present? and !obj.longitude.present?}
@@ -17,6 +34,10 @@ class User < ApplicationRecord
 
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
+
+
+
+
 
 
   mount_uploader :avatar, AvatarUploader
@@ -43,6 +64,8 @@ class User < ApplicationRecord
 
 
   has_many :interests, dependent: :destroy
+
+
 
 
   has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
@@ -82,7 +105,6 @@ class User < ApplicationRecord
 
 
   def self.sign_in_from_omniauth(auth)
-
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
       user.email = auth.info.email
       user.provider = auth.provider
@@ -92,7 +114,6 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64.to_s
       user.remote_avatar_url = auth.info.image
       user.sign_in_count = 0
-
     end
   end
 
@@ -108,6 +129,9 @@ class User < ApplicationRecord
   end
 
 
+    def is_friends?(other_user)
+      friends.include?(other_user)
+    end 
 
 
     def follow(other_user)
@@ -177,17 +201,20 @@ class User < ApplicationRecord
 
 
     def getDistance(lat, lon)
+      if !lat.nil? and !lon.nil? and !self[:latitude].nil? and !self[:longitude].nil?
+        dLat = deg2rad(self[:latitude]-lat)
+        dLon = deg2rad(self[:longitude]-lon)
 
-      dLat = deg2rad(lat)
-      dLon = deg2rad(lon)
-      
-      a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(deg2rad(lat)) * Math.cos(deg2rad(self[:latitude])) * Math.sin(dLon/2) * Math.sin(dLon/2)
-      c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
-      d = R * c
-      
-      return d.round(2)
-   
+        a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(deg2rad(lat)) * Math.cos(deg2rad(self[:latitude])) * Math.sin(dLon/2) * Math.sin(dLon/2)
+        c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
+        d = R * c
+
+        return d.round(2)
+      else 
+        return 0
+      end
     end
+
 
 
 
@@ -270,6 +297,10 @@ class User < ApplicationRecord
   end
 
 
+  def age(dob)
+    now = Time.now.utc.to_date
+    now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+  end
 
 
 
