@@ -583,7 +583,7 @@
       <%= image_tag(@event.image_url(:preview), class: "preview") if @event.image? %>
     </a>
 
-       <div class="eventContentDisc">
+       <div class="eventContentDiscMob">
             <div class="eventDateDisc"><%= @event.event_date.strftime('%B %e') %></div>
           </div>
           <div class="eventTitleDisc"><%= truncate(@event.title, length: 35) %></div>

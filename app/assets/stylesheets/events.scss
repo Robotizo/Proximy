@@ -1757,7 +1757,19 @@ div .show-more[aria-expanded="true"]{
         background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
 }
 
+
+
 .eventContentDisc{
+    position: relative;
+         top: -65px;
+    /* background-color: #00000054; */
+    padding: 10px;
+    /* opacity: 0.8; */
+      
+        background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.01) 3%, #4a4a4a91 100%) !important;
+}
+
+.eventContentDiscMob{
     position: relative;
          top: -62px;
     /* background-color: #00000054; */
@@ -1921,9 +1933,20 @@ div.scrollGroupsI a {
   width: 100%;
     border-radius: 10px 10px 0px 0px;
     object-fit: cover;
-    height: auto !important; 
+
     max-height: 500px;
 }
+
+.eventImageDisplayIndex{
+  width: 100%;
+    border-radius: 10px 10px 0px 0px;
+    object-fit: cover;
+    height: 244px !important; 
+
+}
+
+
+
 
 .module1 {
   padding-bottom: 20px;
