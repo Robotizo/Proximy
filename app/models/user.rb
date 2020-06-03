@@ -122,7 +122,21 @@ class User < ApplicationRecord
 
 
 
+
+
+  def test_avatar_exists?
+    if self.avatar.present?
+      return true
+    else 
+      return false
+    end
+  end 
   
+
+
+
+
+
   def country_name
      c = ISO3166::Country[self.country]
      return c.translations[I18n.locale.to_s] || c.name

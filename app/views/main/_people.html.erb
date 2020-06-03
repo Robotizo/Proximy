@@ -5,12 +5,11 @@
 
   
     <% @users.first(9).each do |user| %>
-  
-
-
+    <% if user.avatar.present? & user.image.present? %>
+    
     <% unless user.id == current_user.id %>
     <% collide = current_user.followingI.ids & user.followingI.ids %>
-  <% if user.avatar.present? & user.image.present? %>
+
       
         <div class="followersSec ">
 
@@ -51,13 +50,8 @@
 
         
         </div>
-
-
-<% end %>
-
-        
         <% end %>
-
+ <% end %>
       <% end %>
 
     <% end %>

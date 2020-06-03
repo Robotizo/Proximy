@@ -5,7 +5,14 @@ class UsersController < ApplicationController
 
   def discover
     @user = current_user
-    @users = User.all.sort_by {|user| user.userInterests(current_user) + user.ccLocation(current_user.latitude, current_user.longitude) }.reverse
+
+
+
+    @users = User.all.where.not(avatar: [nil, ""]).where.not(image: [nil, ""]).sort_by {|user| user.userInterests(current_user) + user.ccLocation(current_user.latitude, current_user.longitude) }.reverse
+
+
+
+
     @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
     @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
   end
