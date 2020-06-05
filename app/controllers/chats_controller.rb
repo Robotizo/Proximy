@@ -9,7 +9,6 @@ class ChatsController < ApplicationController
   def index
   end
 
-
   def list_messages
     @messages = Message.users_messages(current_user, @active_user).last(10)
     render partial: 'list_messages', locals: { messages: @messages }
@@ -19,6 +18,16 @@ class ChatsController < ApplicationController
     @messages = Message.users_messages(current_user, @active_user).between_range(@start, @last)
 
     render partial: 'ajax_messages', locals: { messages: @messages }
+  end
+
+  def list_user
+    selected_user = User.find(params[:id])
+
+    render json: {
+      id: selected_user.id,
+      name: selected_user.name,
+      email: selected_user.email,
+    }
   end
 
   private
@@ -52,8 +61,9 @@ class ChatsController < ApplicationController
   # Display only friends and followers for now
   # TODO (Andy Lee): Consider and implement messaing request & limit feature for users 
   def get_users
-    listOfContacts = current_user.friends + current_user.following + current_user.followers
-    @users = listOfContacts.sort_by &:updated_at
+    # listOfContacts = current_user.friends + current_user.following + current_user.followers
+    # @users = listOfContacts.sort_by &:updated_at
+    @users = User.all
   end
 
   def get_notifications

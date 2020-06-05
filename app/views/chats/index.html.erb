@@ -1,6 +1,7 @@
 <%= stylesheet_link_tag "chats", :media => "all" %>
 <%= stylesheet_link_tag "users", :media => "all" %>
 
+<h1 class="chat__main--active-user">Active User: </h1>
 <!-- chat__main--wrapper -->
 <div class="chat__main--wrapper">
   <input type="hidden" class="input__active--user" name="active_user" value="-1">
@@ -40,24 +41,6 @@
     <div class="messageField chat__message--panel-input">
       <form class="form__message-new">
         <div class="uploadItems">
-
-
-<!-- 
-
-          <div class="col_4">
-            <div class="form-group">
-              <label for="doc">
-                <input class="form__input-attachment-doc" id="doc" type="file" accept=".xls,.xlsx,.pdf,.docx">
-                <img src='<%= asset_path 'attachment.svg' %>' id="doc">
-              </label>
-            </div>
-          </div> -->
-
-
-
-
-
-
           <div class="col-md-12">
             <div class="form-group">
               <label for="image">
@@ -66,16 +49,6 @@
               </label>
             </div>
           </div>
-
-<!--           <div class="col_4">
-            <div class="form-group">
-              <label for="image">
-                <input class="form__input-attachment-image" id="image" type="file" accept=".png,.jpg,.gif">
-                <img src='<%= asset_path 'attachment.svg' %>' id="image">
-              </label>
-            </div>
-          </div> -->
-
         </div>
         <div class="messageForm">
           <div class="form-group">
@@ -99,12 +72,7 @@
       jQuery(this).css("height", ""); //reset the height
       jQuery(this).css("height", Math.min(jQuery(this).prop('scrollHeight'), 200) + "px");
   });
-
-
-
-
-
-
+  
   $(document).ready(() => {
     const $messages = $('#messages')
     const $contactElement = $('.chat__contact--element')
@@ -129,35 +97,32 @@
 
 
     $('.chat__contact--element').on('click', (e) => {
-
-
-
-
       const $htmlBody = $('html, body')
       const $selectedContactElement = $(e.currentTarget)
       const selectedUserId = $selectedContactElement.data('id')
       // const isFriendRequest = $selectedContactElement.data('is-friend-request')
+
+      // get info of selected user
+      $.ajax({
+        type: "GET", 
+        url: "/chats/user_info/" + selectedUserId,
+        success: (response) => {
+          $('.chat__main--active-user').html(`active user: ${response.name}`);
+        }
+      });
       
       let pageNumber = 0;
 
-
-
       $contactElement.removeClass('is-active')
       $contactElement.removeClass('is-new-message')
-      
-
       $messages.animate({ scrollTop: $(document).height() + "1000px" }, "slow")
+      // Need to figure out a way to get user id into index in controller
 
-
-        // Need to figure out a way to get user id into index in controller
-
-        // $.ajax({
-        //   method: "GET",
-        //   url: "/chats/",
-        //   data: { id: selectedUserId  }
-        // })
-
-
+      // $.ajax({
+      //   method: "GET",
+      //   url: "/chats/",
+      //   data: { id: selectedUserId  }
+      // })
 
       $.ajax({
         type: "GET", 
@@ -171,8 +136,6 @@
         },
         error: (jqXHR, textStatus, errorThrown) => {}
       })
-
-
 
       $selectedContactElement.addClass('is-active')
       $inputActiveUser.val(selectedUserId)
@@ -195,9 +158,6 @@
       //     })
       //   }
       // });
-
-
     });
-
   });
 </script>
