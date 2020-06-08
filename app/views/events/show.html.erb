@@ -1,4 +1,4 @@
-r<%= stylesheet_link_tag "events", :media => "all" %>
+<%= stylesheet_link_tag "events", :media => "all" %>
 <%= stylesheet_link_tag "animate", :media => "all" %>
 <%= javascript_include_tag 'events', 'data-turbolinks-track': 'reload' %>
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
@@ -159,6 +159,7 @@ r<%= stylesheet_link_tag "events", :media => "all" %>
 
 </style>
 
+<% if mobile_device != "mobile" %>
 
 <div class="backButton ">
   <%= link_to 'javascript:history.back()' do %>
@@ -309,6 +310,8 @@ r<%= stylesheet_link_tag "events", :media => "all" %>
 
      <% if Date.today <= @event.event_date %>
 
+
+
      <div class="buttonsEvent">
       <% if signed_in? %>
           <% if current_user.followingE?(@event) %>
@@ -321,16 +324,19 @@ r<%= stylesheet_link_tag "events", :media => "all" %>
           </div>
           <% end %>
 
-      <% else %>
-      <div class="col-md-6 col-xs-6 noPad3 text-center">
 
-        <%= link_to login_path, method: :get, class: "specialA" do %>
-         <%= image_submit_tag "attendLong.png", class: "iconImage" %>
-          <div class="textOps">
-            Log in to attend
-          </div>
-        </div>
-        <% end %>
+
+
+
+      <% else %>
+
+
+
+
+          <%= render 'loginModal' %>
+
+
+
       <% end %>
 
 
@@ -349,11 +355,23 @@ r<%= stylesheet_link_tag "events", :media => "all" %>
 
     </div>
 
+
+
+
+
+
+
+
       <% else %>
         <div class="col-md-12 col-xs-12 noPad3 buttonsEvent">
            <%= button_tag "This event already happened", class: "btn btn-primary attendEventBtn" %>
         </div>
       <% end %>
+
+
+
+
+
 
       <% end %>
 <!-- Buttons End -->
@@ -488,40 +506,11 @@ r<%= stylesheet_link_tag "events", :media => "all" %>
 
 <!-- Post Sec Start -->
 
+
   <div class="tab-pane fade " id="v-pills-new-events">
+    <%= render "eventDiscussions" %>
 
-    <div class="event_post_area">
- <div class="buttonSection">
-
-<% if signed_in? %>
-      <div id="newDiscussion">
-                <%= link_to new_event_post_path(event_id: @event.id), remote: true, class: "btn connectBtn" do %>
-                  <div class="showAllPosts">
-                    Create Post
-                  </div>
-                <% end %>
-
-<% end %>
-
-
-    </div>
 </div>
-   
-  <div id="eventPosts">
-
-     
-    <%= render @event_posts.reverse %>
-      
-
- </div>
-
-
-
-       </div>
-    
-  </div>
-
-
 
   <!-- Post Sec End -->
 
@@ -554,12 +543,64 @@ r<%= stylesheet_link_tag "events", :media => "all" %>
 
 
 </div>
+<% else %>
+<!-- Mobile Temp Screen START -->
+
+<div class="container text-center eventMobileAlert">
+
+  Please access Proximy App from desktop computer
+
+  <div class="alertCopy">
+    Tap on the event to copy link
+  </div>
+<div class="inviteLinkAreaMobile">
+  <div class="elementBox ">
+
+    <a href="<%= @event.image_url(:event) %>"  class="lazy-load replace marginSetsB">
+      <%= image_tag(@event.image_url(:preview), class: "preview") if @event.image? %>
+    </a>
+
+       <div class="eventContentDiscMob">
+            <div class="eventDateDisc"><%= @event.event_date.strftime('%B %e') %></div>
+          </div>
+          <div class="eventTitleDisc"><%= truncate(@event.title, length: 35) %></div>
+          <div class="eventAddress"><%= @event.address %></div>
+
+  </div>
+
+       </div>
+<div class="col-xs-12 text-center">
+       <div class="noneMobile animated pulse"></div>
+
+    </div>
 
 
 
 
 
+                 <input class="linkToCopy"  value="<%= request.original_url %>" readonly="readonly"/>
 
+
+       
+             <%= button_to "Learn more about Proximy", root_path, method: :get, class: "feedbackButton2" %>
+       
+
+  <footer class="lp_footer">
+    <div class="footerMobileAlert">
+      Proximy coming soon to mobile
+    </div>
+
+  </footer>
+</div>
+
+
+<!-- Mobile Temp Screen END -->
+
+<% end %>
+
+
+
+<!-- 
 
 
 <div class="modal fade" id="postModalE" role="dialog">
@@ -579,45 +620,14 @@ r<%= stylesheet_link_tag "events", :media => "all" %>
       </div>
     </div>
   </div>`
-</div>
+</div> -->
 
 
-<% if !@event.event_posts.empty? %>
-  <div class="modal fade" id="show-posts" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered allPostsDialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="grid" id="masonry">
-            <div class="grid-sizer"></div>
-            <% @event.event_posts.reverse.each do |event_post| %>
-              <div class="card grid-item allPostsCard">
-                <div class="material-icons text-muted launch-modal align-middle">
-                  <%= image_tag(event_post.image_url(:post), class: "card-img-top allPostsImage") if event_post.image? %>
-                  <% if !event_post.content.blank? %>
-                    <div class="card-body">
-                      <p class="card-text"><%= truncate event_post.content, length: 500, separator: ' ' %></p>
-                    </div>
-                  <% end %>
-                  <div class="card-footer">
-                    <%= link_to event_post.event, method: :get, class: "specialA bottomSign" do %>
-                      <%= image_tag(event_post.event.image_url(:thumb), class: "userImage2") if event_post.event.image? %>
-                    <% end %>
-                    <small class="text-muted"><%= event_post.event.title %> on <%= event_post.updated_at.to_time.strftime('%B %e') %></small>
-                  <!--
-                    <%= link_to event_post, method: :get, class: "specialA" do %>
-                      <%= image_tag("comments.png", class: "ImageIDerComm") %>
-                    <% end %>
-                  -->
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
+
+
+
+<!-- Modal 1-->
+
 
 <% if !@eventFollowers.empty? %>
   <div class="modal fade" id="show-users" tabindex="-1">
@@ -651,7 +661,8 @@ r<%= stylesheet_link_tag "events", :media => "all" %>
   </div>
 <% end %>
 
-
+<!-- /Modal 1 -->
+<!-- Modal 2 -->
 
   <div class="modal fade" id="show-interests" tabindex="-1">
                     <button type="button" class="closeInts" data-dismiss="modal" aria-label="Close">
@@ -681,6 +692,9 @@ r<%= stylesheet_link_tag "events", :media => "all" %>
       </div>
     </div>
   </div>
+<!-- /Modal 2 -->
+
+<!-- Modal 3 -->
 
   <div class="modal fade" id="show-inv" tabindex="-1">
     <button type="button" class="closeInts" data-dismiss="modal" aria-label="Close">
@@ -806,7 +820,21 @@ r<%= stylesheet_link_tag "events", :media => "all" %>
       </div>
     </div>
   </div>
+<!-- /Modal 3 -->
 
+<!-- Modal 4 -->
+<% if !signed_in? %>
+<div class="modal fade bd-example-modal-sm" id="accessModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" style="padding-left: 10%; padding-right: 10%; padding-top: 2%;">
+    <div class="modal-content"> 
+
+   <%= render 'sessions/loginForm' %>
+        
+    </div>
+  </div>
+</div>
+<% end %>
+<!-- /Modal 4 -->
 
 <script type="text/javascript">
 
@@ -826,6 +854,21 @@ r<%= stylesheet_link_tag "events", :media => "all" %>
   });
 
 
+
+  $('div.inviteLinkAreaMobile').click(function(){
+    $(this).siblings('.linkToCopy').select();      
+    document.execCommand("copy");
+  });
+
+
+$('div.inviteLinkAreaMobile').one('click', function(e) {
+  $(".noneMobile").append("<div class=\"msg animated pulse\">Copied</div>").hide().fadeIn(500);
+   setTimeout(function(){
+        $(".noneMobile").fadeOut("1000");
+   },4000)
+
+ 
+});
 
 
 $('div.inviteLinkArea').one('click', function(e) {
@@ -1028,5 +1071,6 @@ jQuery(window).on('load', function(){ var $ = jQuery;
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBo48DWSAQY1Qc3Tg4LjO8DtBJ32jSDbZI&callback=initMap">
 </script>
+
 
 

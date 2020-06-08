@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   after_action :set_vary_header
   include Clearance::Controller
 
-  
 
 
 

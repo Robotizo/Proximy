@@ -1,0 +1,249 @@
+
+  <style type="text/css">
+
+.fixedStatePro{
+background-color: #508cf7;
+    padding: 16px;
+    border-radius: 100px;
+    /* position: fixed; */
+    /* display: block; */
+    color: white;
+    text-align: center;
+    /* top: 580px; */
+    height: 50px;
+    z-index: 100;
+    font-weight: 900;
+    opacity: 1 !important;
+    cursor: pointer;
+    transition: 0.3s;
+    padding-left: 40px;
+    padding-right: 40px;
+    opacity: 1 !important;
+    cursor: pointer;
+    transition: 0.3s;
+    outline: none;
+    text-decoration: none;
+
+}
+
+.fixedStatePro:hover{
+  background-color: #4980e2;
+  text-decoration: none;
+  color: white !important;
+}
+
+
+.fixedStatePro2{
+    background-color: white;
+    color: #508cf7;
+    border-radius: 100px;
+    padding: 16px;
+    text-align: center;
+
+    z-index: 100;
+    font-weight: 900;
+    /* width: 373px; */
+    padding-left: 40px;
+    padding-right: 40px;
+    opacity: 1 !important;
+    cursor: pointer;
+    transition: 0.3s;
+    outline: none;
+    text-decoration: none;
+}
+
+
+.fixedStatePro2:hover{
+  color: #4980e2;
+  background-color: #f7f7f7;
+      text-decoration: none;
+}
+
+
+.positioned2{
+  position: fixed;
+  display: block; 
+    width: 100%;
+    top: 630px;
+    text-align: center;
+    height: 50px;
+    margin: 0 auto;
+
+}
+
+.positioned{
+  position: fixed;
+  display: block; 
+    width: 100%;
+    top: 690px;
+    text-align: center;
+    height: 50px;
+    margin: 0 auto;
+
+}
+
+  .buttonHov{
+    margin-top: -20px;
+    margin-bottom: 10px;
+  }
+    .modal-content {
+    border-radius: 11px;
+
+  }
+
+
+  .modal.in .modal-dialog{
+    margin-top: 40px !important;
+        width: 43%;
+  }
+  .welcomeTitle{
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 900;
+    color: #508cf7;
+  }
+  .welcomeText{
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: 700;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+</style>
+
+
+<style type="text/css">
+  .i_t_image{
+    border-radius: 10px 10px 0px 0px;
+
+  }
+  .mobNav{
+    display: none !important;
+  }
+
+  .fileBtnDiv, .form-control {
+    width: 100%;
+    margin: 10px 0 !important;
+  }
+  .module1{
+    height: auto !important;
+  }
+  .formPart{
+    margin-top: 30px;
+    float: left;
+    width: 100%;
+  }
+
+
+
+
+  .alert{
+    width: 100%;
+  }
+
+  .goBack{
+    color: white;
+
+  }
+
+  .goBack:hover{
+    color: white !important;
+    text-decoration: none !important;
+    
+  }
+
+
+
+}
+
+
+
+
+
+
+
+
+</style>
+
+
+
+<%= stylesheet_link_tag "main", :media => "all" %>
+<div class="modal fade" id="myModaTest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <%= image_tag 'modal1.png', class: "i_t_image" %>
+      </div>
+
+      <div class="item">
+        <%= image_tag 'modal2.png', class: "i_t_image" %>
+      </div>
+    
+      <div class="item">
+        <%= image_tag 'modal3.png', class: "i_t_image" %>
+      </div>
+    </div>
+
+
+  </div>
+
+    
+      <div class="modal-body" style="margin: 20px;">
+        <div class="welcomeTitle">
+          Welcome to Proximy
+        </div>
+         <div class="welcomeText">
+          Proximy works best when you select your inteests, you can see people, events and groups just like you. <br><br>
+          Would you like to do this now?
+        </div>
+      </div>
+
+
+
+    </div>        
+  </div>
+
+
+<div class="positioned2">
+
+  <%= link_to "Yes, go to interests page", countInterests_users_path(@user), method: :put,  data: {dismiss: "modal" }, class: "fixedStatePro" %>
+    
+</div>
+  
+
+
+<div class="positioned">
+
+  <%= link_to "No, skip this for now ", countDismiss_users_path(@user), method: :put,  data: {dismiss: "modal" }, class: "fixedStatePro2" %>
+    
+</div>
+  
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

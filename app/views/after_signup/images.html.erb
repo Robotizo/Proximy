@@ -1,0 +1,315 @@
+<%= stylesheet_link_tag "users", :media => "all" %>
+<%= stylesheet_link_tag "animate", :media => "all" %>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+   
+
+
+
+      setTimeout(function() {
+       $(".alert").fadeOut("1000");
+      }, 4000);
+
+
+    })
+
+</script>
+
+
+<!-- Add radio button with gender -->
+<!-- Add selction for age -->
+<!-- Get rid of "Where are you from?" replace with geolocation request.location.city -->
+
+
+
+
+  <style type="text/css">
+  .mobNav{
+    display: none !important;
+  }
+
+  .topNav{
+  	display: none;
+  }
+
+  body{
+  	margin-top: 10px !important;
+  }
+
+  .buttonHov{
+    margin-top: -20px;
+    margin-bottom: 10px;
+  }
+  	.modal-content {
+		border-radius: 11px;
+		padding: 80px;
+	}
+
+
+	.modal.in .modal-dialog{
+		margin-top: 40px !important;
+	}
+    .stepsIcon{
+    margin: 5px;
+    height: 20px;
+  }
+  .miniModule{
+    width: 300px;
+        box-shadow: 0px 0px 4px 0px #e2e2e2;
+    border-radius: 11px;
+    background-color: #f3f7fb;
+        margin-left: auto;
+  }
+  .groupImageCover{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
+
+}
+  .is-disabled{
+    opacity: 0.5;
+  }
+</style>
+
+
+<style type="text/css">
+  .mobNav{
+    display: none !important;
+  }
+
+  .fileBtnDiv, .form-control {
+    width: 54%;
+    margin: 10px !important;
+  }
+  .module1{
+    height: auto !important;
+  }
+  .formPart{
+    margin-top: 30px;
+    float: left;
+    width: 100%;
+  }
+
+    body{
+  	margin-top: 45px !important;
+  }
+
+  .alert{
+    width: 100%;
+  }
+
+
+  @media screen and (max-width: 776px){
+  .avatarInfo{
+    margin-top: -70px;
+  }
+    .noPadTemp{
+    padding-right: 2px !important;
+    padding-left: 0px;
+  }
+}
+
+
+
+
+
+
+
+
+</style>
+
+
+
+<div class="backButton">
+  <%= link_to 'javascript:history.back()' do %>
+        <%= image_tag("left-arrow.png", size: "54x54", class: "leftArrow") %>
+  <% end %>
+</div>
+
+
+
+<% if @user.errors.any? %>
+<div class="alert animated pulse " role="alert">
+  <div class="alert-success">
+      Profile and cover photo are required
+
+  </div>
+
+
+</div>
+<% end %>
+
+
+
+
+<div class="container noPad3">
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  <div class="col-md-12 col-xs-12 avatarInfo text-center">
+
+<div class="col-md-12 text-center">
+  <%= image_tag("circleBlue.svg", class: "stepsIcon") %>
+   <%= image_tag("circleBlue.svg", class: "stepsIcon") %>
+    <%= image_tag("circleBlue.svg", class: "stepsIcon") %>
+     <%= image_tag("circle.svg", class: "stepsIcon") %>
+  
+</div>
+
+
+  <div class="col-md-12 col-xs-12 avatarInfo">
+     <div class="logoParent">
+      <%= image_tag("logoIcon.png", class: "logoImg") %>
+  </div>
+    <div class="text-center" style="font-weight: 900; font-size: 16px;">
+      <span style="font-weight: 900; font-size: 16px; color: #508cf7; "><%= @user.name %></span>, now let's add images.
+    </div>
+    <div class="text-center" style="font-weight: 900; font-size: 12px; margin-top: 10px; color: grey">
+       Both images are required so get creative!
+    </div>
+
+
+
+<%= form_for @user, url: wizard_path, method: :put do |f| %>
+
+  <div class="col-md-2"></div>
+  <div class="col-md-4" style=" margin-top: 50px;">
+    <%= render 'users/miniModule' %>
+
+  </div>
+
+    <div class=" col-md-4 col-xs-12 noPad3" style=" margin-top: 50px;">
+
+     <span style="width: 200px;">
+        <label class="btn btn-primary fileBtnDiv">
+          <%= f.file_field :avatar, class: "fileBtn form-control", id: "avatarImageUpload", required: true %>
+          Profile Photo
+        </label>
+  </span>
+  <span style="width: 200px;">
+        <label class="btn btn-primary fileBtnDiv">
+          <%= f.file_field :image, class: "fileBtn form-control", id: "coverImageUpload", required: true  %> 
+          Cover Photo
+        </label>
+    </span>
+
+    </div>
+  <div class="col-md-2"></div>
+
+
+  </div>
+
+
+
+
+
+ 
+    <div class="fixedState popup">
+      <%= f.button "Continue", class: "fileBtnSubmit is-disabled", disabled: true, data: {disable_with: "<i class='fa fa-circle-o-notch fa-spin'></i> Building..."} %>
+      <span class="popuptext" id="myPopup">You must include both images to continue</span>
+      <span class="popuptext" id="myPopup2">Please include both images to continue</span>
+
+    </div>
+
+
+
+
+
+   <% end %>
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  
+
+  
+$(document).ready( function(){
+  $('#myPopup2').addClass('show');
+   $('#avatarImageUpload').change( function() {
+            $('.fileBtnSubmit').attr('disabled',false);
+            $('.fixedState, .fileBtnSubmit').removeClass('is-disabled');
+            
+          }
+       );
+    });
+
+
+
+
+
+  $(document).ready( function(){
+    $('.fileBtnSubmit').click( function () {
+       $('#myPopup2').remove();
+      $('#myPopup').addClass('show');
+
+    })
+  });
+
+
+  $("#coverImageUpload").change(function(){
+      coverFileURL = URL.createObjectURL(event.target.files[0]);
+      $("#coverImageTag").css("visibility", "hidden");
+      $("#coverImage").css("background-image", "url("+coverFileURL+")");
+    });
+
+
+
+    $("#avatarImageUpload").change(function(){
+      coverFileURL = URL.createObjectURL(event.target.files[0]);
+      $("#avatarImageTag").css("visibility", "hidden");
+      $("#avatarImage").css({"background-image": "url("+coverFileURL+")"});
+    });
+  
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

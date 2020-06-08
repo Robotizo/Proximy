@@ -106,7 +106,7 @@ $(function () {
 
                 <% else %>
                      <div class="imageUserEvent">
-                      <%= image_tag(eventsFollowing.user.avatar_url(:thumb), class: "userImage2") if eventsFollowing.user.avatar? %>
+                      <%= image_tag(eventsFollowing.user.avatar_url(:thumb), class: "userImage2", lazy: true) if eventsFollowing.user.avatar? %>
                     </div>
 
                     <div class="contentUserPost">

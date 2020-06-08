@@ -4,8 +4,11 @@
   <div class="scrollMembers container ">
 
   
-    <% @users.first(9).each do |user| %>
-    <% unless user.id == current_user.id %>
+    <% @users.first(8).each do |user| %>
+
+    <% if user.avatar.present? & user.image.present? %>
+    
+  
     <% collide = current_user.followingI.ids & user.followingI.ids %>
 
       
@@ -64,5 +67,6 @@
           </div>
           <% end %>
       </span>
+
 
   </div>

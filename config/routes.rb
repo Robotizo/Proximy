@@ -15,7 +15,14 @@
 
 
   resources :test_users
+
+
+
+
   get 'chats', :to => 'chats#index'
+
+
+  # get '/chats/:id', to: 'chats#index'
 
   resources :event_comments
   resources :group_comments
@@ -107,6 +114,8 @@
   resources :users do
     collection do 
       get :discover
+      put 'countInterests'
+      put 'countDismiss'
     end
     
     member do
@@ -128,7 +137,7 @@
       only: [:create]
 
 
-get '/sign_in' => 'sessions#new', :as => nil
+  get '/sign_in' => 'sessions#new', :as => nil
 
 
 

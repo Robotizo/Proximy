@@ -39,12 +39,12 @@
  <% if signed_in? %>
 <!-- Signed in -->
 
-<% if current_user.avatar.present? %> 
+<% if current_user.avatar.present? & current_user.image.present?  %> 
 
 <div style="margin-top: 60px;">
   <div class="container">
     <div class="titleSec">People Near You</div>
-       <!-- <%= request.location.country %> -->
+     
 
   </div>
 
@@ -89,11 +89,12 @@
 
 
 
+
 </div>
 
 
 
-
+<%= render 'interestsModal' %>
 
 
 
@@ -160,6 +161,16 @@
 
 </body>
 
+<% if current_user.sign_in_count == 1 %>
+
+<script type="text/javascript">
+    $(window).on('load',function(){
+      $('#myModaTest').modal({backdrop: 'static', keyboard: false});
+    });
+
+</script>
+
+<% end %>
 
   <script>
 
@@ -373,7 +384,7 @@
   </div>
 
 
-<%= link_to after_signup_path(:personal), method: :get, class: "goBack" do %>
+<%= link_to after_signup_path(:age), method: :get, class: "goBack" do %>
       <div class="fixedStatePro" data-dismiss="modal">
           <div class="editsTextPro"> Finish Registration </div>
         </div>

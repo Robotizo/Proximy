@@ -1,0 +1,83 @@
+    <%= javascript_include_tag( 'jquery.lazy.js' ) %>
+<%= stylesheet_link_tag "lazy-load-images.min", :media => "all" %>
+<%= javascript_include_tag 'lazy-load-images.min', 'data-turbolinks-track': 'reload' %>
+  <style type="text/css">
+    .imgCover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px 10px 0px 0px;
+
+    }
+    .imgProfile{
+      height: 100px !important;
+      width: 100px !important;
+    }
+    .connArea {
+      position: relative;
+      top: -54px !important;
+    }
+
+            .imgCover{
+       
+          object-fit: cover;
+     
+        }
+
+    @media screen and (max-width: 776px) {
+        .imgCover{
+         height: 200px;
+          object-fit: cover;
+          border-radius: 10px;
+        }
+
+    }
+
+
+    .marginSetsA img{
+      height: 210px !important; 
+      object-fit: cover;
+    }
+      
+
+
+  </style>
+
+
+    <div class="miniModule">
+      <% if @user.image.present? %>
+          <%= render 'users/coverImageSettings' %>  
+
+        <% else %>
+          <div class="groupImageCover" id="coverImage" style="height: 150px !important; background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 10px 10px 0px 0px;">
+            <%= image_tag("cover.jpg", class: "imgCover", id: "coverImageTag") %>
+          </div>
+        <% end %>
+
+        <% if @user.avatar.present? %>
+        <div class="connArea">
+          <div class="avatarImage2" id="avatarImage" style="height: 100px !important; width: 100px !important; background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 15px;">
+            <%= image_tag(@user.avatar_url, class: "imgProfile", id: "avatarImageTag", lazy: true) if @user.avatar? %>
+          </div>
+        </div>
+        <% else %>
+        <div class="connArea">
+          <div class="avatarImage2" id="avatarImage" style="height: 100px !important; width: 100px !important; background-size: cover;background-repeat: no-repeat;background-position: center; border-radius: 15px;  ">
+            <%= image_tag("profile.jpg", class: "imgProfile", id: "avatarImageTag") %>
+          </div>
+        </div>
+        <% end %>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+

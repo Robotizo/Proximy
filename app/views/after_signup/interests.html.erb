@@ -59,13 +59,23 @@
 	.modal.in .modal-dialog{
 		margin-top: 40px !important;
 	}
+
+  .elementCat{
+    border: 1px solid grey;
+    float: left;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+  }
 </style>
 
+
+
+
+
+
+
 <div class="container noPad3">
-
-
-
-
 
 
 
@@ -74,13 +84,45 @@
 <div class="col-md-8 col-md-push-2 col-xs-12 noPad3">
 
 
-
-
 <div class=" margTop mobNavs">
   <div class="titleSec">Select your interests</div>
 </div>
 
-<div class=" margBottom mobNavs">
+<div class="tags col-md-12" ></div>
+
+
+
+<script type="text/javascript">
+
+
+
+  $(document).ready(function(){
+
+    
+
+
+    var $interestsCategories = $('.panel-heading');
+    var testArr = [];
+    for(var i = 0; i < $interestsCategories.length; i++){
+      
+      $('.tags').append("<button class='elementCat' type='button'>" + $($interestsCategories[i]).text() + "</button>");
+    }
+
+    
+
+
+
+
+  })
+
+
+</script>
+
+
+
+
+
+<div class=" margBottom mobNavs col-md-12">
 
 
 
@@ -107,7 +149,7 @@
         <div class="panel-body">
          
           <% @arts.first(7).each do |interest| %>
-              <div class="col-md-3 col-xs-6">
+              <div class="col-md-3 col-xs-6" id="<%= interest.name %>">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -3125,14 +3167,29 @@
 
 
 
-  <%= link_to next_wizard_path, method: :get, class: "specialA" do %>
+  <%= button_to next_wizard_path, method: :get, class: "specialA" do %>
   <div class="fixedState">
     <span class="editsText">Confirm</span>
-      <%= image_tag("confirm.png", class: "editsUserIcon") %>
+    <span  class="editsText" id="countCurrent"><%= current_user.followingI.count %></span>
+    <span id="newCount"></span>
     </div>
   <% end %>
 
+<script type="text/javascript">
+  //Limit of 8
 
+  if('<%= current_user.followingI.count %>' > 8){
+    $('.specialA').attr('disabled', false);
+    $('.specialA').css('opacity', '1');
+  }else{
+    $('.specialA').attr('disabled', true);
+    $('.specialA').css('opacity', '0.5');
+  }
+
+  
+
+
+</script>
 
 
 
@@ -3172,7 +3229,7 @@
 
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(window).on('load',function(){
         $('#myModal').modal('show');
     });
@@ -3180,9 +3237,7 @@
 
 
 
-
-
-
+ -->
 
 
 

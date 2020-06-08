@@ -10,19 +10,6 @@ class User < ApplicationRecord
   before_validation { self.email = self.email.downcase }
 
 
-  attr_accessor :current_step
-
-
-  def current_step?(step_key)
-    current_step.blank? || current_step == step_key
-  end
-
-
-
-  validates_presence_of :avatar, if: -> { current_step?("personal") }, on: :update
-  validates_presence_of :image, if: -> { current_step?("personal") }, on: :update
-  
-  validates_presence_of :date_of_birth, if: -> { current_step?("personal") }, on: :update
 
 
 
@@ -39,9 +26,12 @@ class User < ApplicationRecord
 
 
 
-
   mount_uploader :avatar, AvatarUploader
   mount_uploader :image, ImageUploader 
+
+
+
+
 
 
   has_many :posts, dependent: :destroy
@@ -104,6 +94,11 @@ class User < ApplicationRecord
 
 
 
+
+
+
+ 
+
   def self.sign_in_from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
       user.email = auth.info.email
@@ -122,7 +117,15 @@ class User < ApplicationRecord
 
 
 
+
+
+  def test_avatar_exists
+    self.includes(:avatar).where.not(user: {avatar: nil})
+  end 
   
+
+
+
   def country_name
      c = ISO3166::Country[self.country]
      return c.translations[I18n.locale.to_s] || c.name
@@ -323,7 +326,6 @@ private
       self.confirm_token = SecureRandom.urlsafe_base64.to_s
     end
   end
-
 
 
   

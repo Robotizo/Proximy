@@ -1,11 +1,27 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authorize, except: [:new, :create, :confirm_email]
+  def countInterests
+    @user = current_user
+    @user.update_attributes(sign_in_count: 2)
+    redirect_to interests_user_path(@user)
+  end 
 
+  def countDismiss
+    @user = current_user
+    @user.update_attributes(sign_in_count: 2)
+  end 
 
   def discover
     @user = current_user
-    @users = User.all.sort_by {|user| user.userInterests(current_user) + user.ccLocation(current_user.latitude, current_user.longitude) }.reverse
+
+
+
+    @users = User.all.where.not(avatar: [nil, ""]).where.not(image: [nil, ""]).sort_by {|user| user.userInterests(current_user) + user.ccLocation(current_user.latitude, current_user.longitude) }.reverse
+
+
+
+
     @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
     @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
   end
@@ -157,7 +173,7 @@ class UsersController < ApplicationController
         @user.login_increment
 
         #UserMailer.registration_confirmation(@user).deliver
-        format.html { redirect_to after_signup_path(:interests)}
+        format.html { redirect_to after_signup_path(:age)}
 
         format.json { render :show, status: :created, location: @user }
       else

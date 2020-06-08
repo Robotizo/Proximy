@@ -1,8 +1,17 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :set_groups_list, only: [:edit, :update, :new, :create]
+  before_action :check, only: [:show, :index, :edit, :update, :destroy]
 
 
+
+  def check
+    if signed_in?
+      if !current_user.avatar? & !current_user.image?
+        redirect_to root_path
+      end
+    end
+  end 
 
 
   def interests

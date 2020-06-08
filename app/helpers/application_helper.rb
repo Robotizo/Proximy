@@ -1,5 +1,13 @@
 module ApplicationHelper
 
+
+	def mobile_device
+	  agent = request.user_agent
+	  return "tablet" if agent =~ /(tablet|ipad)|(android(?!.*mobile))/i
+	  return "mobile" if agent =~ /Mobile/
+	  return "desktop"
+	end
+
 	def show_photo(size)
     	Unsplash::Photo.find("tAKXap853rY")[:urls][size.to_sym]
   	end
