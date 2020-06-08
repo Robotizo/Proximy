@@ -27,6 +27,7 @@ class ChatsController < ApplicationController
       id: selected_user.id,
       name: selected_user.name,
       email: selected_user.email,
+      avatar: selected_user.avatar_url(:thumb),
     }
   end
 

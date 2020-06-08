@@ -107,6 +107,7 @@
         type: "GET", 
         url: "/chats/user_info/" + selectedUserId,
         success: (response) => {
+          console.log(response);
           $('.chat__main--active-user').html(`active user: ${response.name}`);
         }
       });
