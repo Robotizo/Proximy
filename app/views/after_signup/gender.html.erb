@@ -1,0 +1,247 @@
+<%= stylesheet_link_tag "users", :media => "all" %>
+<%= stylesheet_link_tag "animate", :media => "all" %>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+   
+
+
+
+      setTimeout(function() {
+       $(".alert").fadeOut("1000");
+      }, 4000);
+
+
+    })
+
+</script>
+
+
+<!-- Add radio button with gender -->
+<!-- Add selction for age -->
+<!-- Get rid of "Where are you from?" replace with geolocation request.location.city -->
+
+
+
+
+  <style type="text/css">
+  .mobNav{
+    display: none !important;
+  }
+
+  .topNav{
+  	display: none;
+  }
+
+  body{
+  	margin-top: 10px !important;
+  }
+
+  .buttonHov{
+    margin-top: -20px;
+    margin-bottom: 10px;
+  }
+  	.modal-content {
+		border-radius: 11px;
+		padding: 80px;
+	}
+
+
+	.modal.in .modal-dialog{
+		margin-top: 40px !important;
+	}
+
+	#user_date_of_birth_2i, #user_date_of_birth_3i, #user_date_of_birth_1i{
+		outline: none;
+	}
+
+	.is-disabled{
+		opacity: 0.5;
+	}
+    .stepsIcon{
+    margin: 5px;
+    height: 20px;
+  }
+</style>
+
+
+<style type="text/css">
+  .mobNav{
+    display: none !important;
+  }
+
+  .fileBtnDiv, .form-control {
+    width: 100%;
+    margin: 10px 0 !important;
+  }
+  .module1{
+    height: auto !important;
+  }
+  .formPart{
+    margin-top: 30px;
+    float: left;
+    width: 100%;
+  }
+
+    body{
+  	margin-top: 45px !important;
+  }
+
+  .alert{
+    width: 100%;
+  }
+
+
+  @media screen and (max-width: 776px){
+
+    .noPadTemp{
+    padding-right: 2px !important;
+    padding-left: 0px;
+  }
+}
+
+
+
+
+
+
+
+
+</style>
+
+
+
+<div class="backButton">
+  <%= link_to 'javascript:history.back()' do %>
+        <%= image_tag("left-arrow.png", size: "54x54", class: "leftArrow") %>
+  <% end %>
+</div>
+
+
+
+<% if @user.errors.any? %>
+<div class="alert animated pulse " role="alert">
+  <div class="alert-success">
+      Age is Required
+  </div>
+</div>
+<% end %>
+
+
+
+
+<div class="container noPad3">
+
+
+  
+<div class="col-md-12 col-xs-12 text-center">
+  <%= image_tag("circleBlue.svg", class: "stepsIcon") %>
+   <%= image_tag("circleBlue.svg", class: "stepsIcon") %>
+    <%= image_tag("circle.svg", class: "stepsIcon") %>
+     <%= image_tag("circle.svg", class: "stepsIcon") %>
+  
+</div>
+
+
+
+
+  <div class="col-md-12 col-xs-12 avatarInfo">
+     <div class="logoParent">
+    	<%= image_tag("logoIcon.png", class: "logoImg") %>
+	</div>
+  	<div class="text-center" style="font-weight: 900; font-size: 16px;">
+  		<span style="font-weight: 900; font-size: 16px; color: #508cf7; "><%= @user.name %></span>, how do you identity?
+  	</div>
+
+
+
+<%= form_for @user, url: wizard_path, method: :put do |f| %>
+
+
+
+      <div class="radio-toolbar  " style="margin: 0 auto; width: 100%; text-align: center; margin-top: 50px;">
+        <span style="margin: 8px;">
+          <%= f.radio_button :gender, 'Male', class: 'radioButton' %>
+          <%= f.label :gender, 'Male', for: "user_gender_male" %>
+        </span>
+
+        <span style="margin: 8px;">
+          <%= f.radio_button :gender, 'Female', class: 'radioButton' %>
+          <%= f.label :gender, 'Female', for: "user_gender_female"  %>
+        </span>
+
+        <span style="margin: 8px;">
+          <%= f.radio_button :gender, 'Non Binary', class: 'radioButton' %>
+          <%= f.label :gender, 'Non Binary', for: "user_gender_non_binary"  %>
+        </span>
+      </div>
+
+
+
+
+
+
+ 
+<div class="fixedState is-disabled">
+  <%= f.button "Continue", class: "fileBtnSubmit is-disabled",  data: {disable_with: "<i class='fa fa-circle-o-notch fa-spin'></i> Building..."} %>
+</div>
+
+
+
+
+
+   <% end %>
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<script>
+
+  
+$(document).ready( function(){
+     $('.radioButton').change( function() {
+                    $('.fileBtnSubmit').attr('disabled',false);
+                    $('.fixedState, .fileBtnSubmit').removeClass('is-disabled');
+            }
+         );
+    });
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

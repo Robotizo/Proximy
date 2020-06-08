@@ -8,6 +8,26 @@
         <% end %>
       </div>
 
+
+  <% if !signed_in? %>
+
+<div class="navTitleEnd">
+    <div class="modalSignUp" data-target="#accessModal" data-toggle="modal" >
+      <div class="navTitleEndAlt">
+
+         <div class="feedbackButton">
+
+          Log in / Sign Up
+
+        </div>
+      </div>
+    </div>
+
+</div>
+ 
+
+  <% end %>
+
     <%  if signed_in? %>
 
 
@@ -74,6 +94,8 @@
 
 
   </div> 
+
+
 
       <%= link_to current_user, method: :get, class: "specialA" do %>
       <% unless current_user.avatar.present? %>

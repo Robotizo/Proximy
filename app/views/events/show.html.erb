@@ -324,20 +324,19 @@
           </div>
           <% end %>
 
+
+
+
+
       <% else %>
 
 
 
 
-      <div class="col-md-6 col-xs-6 noPad3 text-center">
+          <%= render 'loginModal' %>
 
-        <%= link_to login_path, method: :get, class: "specialA" do %>
-         <%= image_submit_tag "attendLong.png", class: "iconImage" %>
-          <div class="textOps">
-            Log in to attend
-          </div>
-        </div>
-        <% end %>
+
+
       <% end %>
 
 
@@ -355,6 +354,13 @@
             </div>
 
     </div>
+
+
+
+
+
+
+
 
       <% else %>
         <div class="col-md-12 col-xs-12 noPad3 buttonsEvent">
@@ -500,40 +506,11 @@
 
 <!-- Post Sec Start -->
 
+
   <div class="tab-pane fade " id="v-pills-new-events">
+    <%= render "eventDiscussions" %>
 
-    <div class="event_post_area">
- <div class="buttonSection">
-
-<% if signed_in? %>
-      <div id="newDiscussion">
-                <%= link_to new_event_post_path(event_id: @event.id), remote: true, class: "btn connectBtn" do %>
-                  <div class="showAllPosts">
-                    Create Post
-                  </div>
-                <% end %>
-
-<% end %>
-
-
-    </div>
 </div>
-   
-  <div id="eventPosts">
-
-     
-    <%= render @event_posts.reverse %>
-      
-
- </div>
-
-
-
-       </div>
-    
-  </div>
-
-
 
   <!-- Post Sec End -->
 
@@ -623,7 +600,7 @@
 
 
 
-
+<!-- 
 
 
 <div class="modal fade" id="postModalE" role="dialog">
@@ -643,45 +620,14 @@
       </div>
     </div>
   </div>`
-</div>
+</div> -->
 
 
-<% if !@event.event_posts.empty? %>
-  <div class="modal fade" id="show-posts" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered allPostsDialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="grid" id="masonry">
-            <div class="grid-sizer"></div>
-            <% @event.event_posts.reverse.each do |event_post| %>
-              <div class="card grid-item allPostsCard">
-                <div class="material-icons text-muted launch-modal align-middle">
-                  <%= image_tag(event_post.image_url(:post), class: "card-img-top allPostsImage") if event_post.image? %>
-                  <% if !event_post.content.blank? %>
-                    <div class="card-body">
-                      <p class="card-text"><%= truncate event_post.content, length: 500, separator: ' ' %></p>
-                    </div>
-                  <% end %>
-                  <div class="card-footer">
-                    <%= link_to event_post.event, method: :get, class: "specialA bottomSign" do %>
-                      <%= image_tag(event_post.event.image_url(:thumb), class: "userImage2") if event_post.event.image? %>
-                    <% end %>
-                    <small class="text-muted"><%= event_post.event.title %> on <%= event_post.updated_at.to_time.strftime('%B %e') %></small>
-                  <!--
-                    <%= link_to event_post, method: :get, class: "specialA" do %>
-                      <%= image_tag("comments.png", class: "ImageIDerComm") %>
-                    <% end %>
-                  -->
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
+
+
+
+<!-- Modal 1-->
+
 
 <% if !@eventFollowers.empty? %>
   <div class="modal fade" id="show-users" tabindex="-1">
@@ -715,7 +661,8 @@
   </div>
 <% end %>
 
-
+<!-- /Modal 1 -->
+<!-- Modal 2 -->
 
   <div class="modal fade" id="show-interests" tabindex="-1">
                     <button type="button" class="closeInts" data-dismiss="modal" aria-label="Close">
@@ -745,6 +692,9 @@
       </div>
     </div>
   </div>
+<!-- /Modal 2 -->
+
+<!-- Modal 3 -->
 
   <div class="modal fade" id="show-inv" tabindex="-1">
     <button type="button" class="closeInts" data-dismiss="modal" aria-label="Close">
@@ -870,7 +820,21 @@
       </div>
     </div>
   </div>
+<!-- /Modal 3 -->
 
+<!-- Modal 4 -->
+<% if !signed_in? %>
+<div class="modal fade bd-example-modal-sm" id="accessModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" style="padding-left: 10%; padding-right: 10%; padding-top: 2%;">
+    <div class="modal-content"> 
+
+   <%= render 'sessions/loginForm' %>
+        
+    </div>
+  </div>
+</div>
+<% end %>
+<!-- /Modal 4 -->
 
 <script type="text/javascript">
 

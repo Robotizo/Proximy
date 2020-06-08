@@ -1,0 +1,41 @@
+
+
+
+  <div class="event_post_area">
+     <div class="buttonSection">
+
+    <% if signed_in? %>
+          <div id="newDiscussion">
+                    <%= link_to new_event_post_path(event_id: @event.id), remote: true, class: "btn connectBtn" do %>
+                      <div class="showAllPosts">
+                        Create Post
+                      </div>
+                    <% end %>
+            </div>
+    <% end %>
+
+
+        
+    </div>
+       
+      <div id="eventPosts">
+
+         
+        <%= render @event_posts.reverse %>
+          
+
+     </div>
+
+
+
+    </div>
+
+
+<script type="text/javascript">
+  if ($('#eventPosts').children().length == 0){
+    $('#eventPosts').html("<div class=\"moreinfo text-center\" > <img src='/assets/box.svg' width='200' height='200' style=\" margin-top: 30px;\">     <div style=\" font-size: 14px; font-weight: 900; margin-top: 10px;\">This is an empty discussion box, start the conversation.</div></div>");
+  }
+
+
+
+</script>

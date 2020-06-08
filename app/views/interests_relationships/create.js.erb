@@ -1,1 +1,11 @@
 $('#follow_<%= @interest.id %>').html("<%= escape_javascript render('interests/unfollowInterest') %>");
+$("#newCount").html("<span class='editsText'><%= current_user.followingI.count %></span>");
+$("#countCurrent").remove();
+
+
+
+if('<%= current_user.followingI.count %>' >= 8){
+  $('.specialA').attr('disabled', false);
+  $('.specialA').css('opacity', '1');
+}
+

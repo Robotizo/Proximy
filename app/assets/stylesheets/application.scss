@@ -26,9 +26,216 @@ $nprogress-zindex: 10100;
 @import 'nprogress';
 @import 'nprogress-bootstrap';
 
+
+
+/* POPUP */
+/* Popup container - can be anything you want */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+/* POPUP */
+
+
+
+
+
 * {-webkit-font-smoothing: antialiased;}
 
+  .stepsIcon{
+    margin: 5px;
+    height: 20px;
+  }
 
+/* Sign Up Area START */
+.logoParent{
+  text-align: center;
+}
+
+.logoImg{
+  height: 80px;
+    margin: 15px;
+  position: center;
+}
+.logField, .signUpForm{
+  margin-top: 20px;
+}
+
+.emailField{
+  margin: 32px 0px;
+  outline: none !important;
+}
+.passField .loginSec{
+  margin: 32px 0px;
+
+}
+
+.fileBtnSubmitSign{
+  border-color: #508cf7;
+  background-color: #508cf7;
+  width: 47%;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: inherit;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  outline: none;
+  padding: 1.2rem 50px;
+  position: relative;
+  transition: all 0.3s;
+  vertical-align: middle;
+}
+
+
+.fileBtnSubmitSign:hover{
+  background-color: #204d74;
+}
+
+
+
+.fileBtnSubmitSign2{
+  text-decoration: none !important;
+  background-color: white;
+  width: 81%;
+  border: none;
+  border-radius: 5px;
+  color: #508cf7;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: inherit;
+  font-weight: 600;
+  outline: none;
+  padding: 1.2rem 50px;
+  position: relative;
+  transition: all 0.3s;
+  vertical-align: middle;
+}
+
+.form-control {
+    border-radius: 8px !important;
+    border-color: white;
+    /* border-bottom: 1px #a2a2a2 solid !important; */
+    background-color: #f5f3f4;
+    border-radius: 8px;
+    padding: 20px;
+
+}
+
+
+.form-control:focus{
+  outline: none;
+  box-shadow: 0px 0px 0px 0px !important;
+  background-color: #7ea5c01c;
+  border: 2px solid #66afe9;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+
+#sign_in{
+  height: 35px;
+}
+
+.logField-edits{
+  margin: 0 auto;
+}
+
+
+.legalLinks{
+  color: #767676;
+  font-size: 14px;
+  font-weight: 700;
+  color: #508cf7 !important;
+}
+
+
+.legalLinks:hover{
+  text-decoration: none !important;
+  color: #508cf7 !important;
+}
+.agreements{
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: center;
+  margin-top: 25px;
+    font-size: 14px;
+  font-weight: 700;
+}
+
+
+
+/* Sign Up Area END */
+
+
+
+
+
+
+
+
+.navTitleEnd{
+  float: right;
+
+  display: inline-block;
+
+}
   .messageAlert{
     width: 300px;
     margin: 0 auto;
@@ -123,7 +330,7 @@ img.imageSent{
 	padding: 10px;
 	border-radius: 10px;
 	color: #508CF7;
-
+  transition: 0.2s;
 }
 
 .feedbackButton:hover{

@@ -51,46 +51,12 @@ body{
 
 
 
-  
-        <div class="logoParent">
-            <%= image_tag("proximyNew.png", class: "logoImg") %>
-        </div>
 
 
 
 
-       
-            <div class="text-center logField">
-                <div class="logField-edits">
-                    <%= form_for(:session, url: session_path) do |f| %>
-                    <div class="emailField">
-                        <%= f.email_field :email, class: 'form-control' , placeholder: "Email" %>
-                    </div>
-                    <div class="passField">
-                        <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
-                    </div>
-                </div>
 
-                <div class="text-center loginSec">
-                     <%= f.submit "Log in", class: "fileBtnSubmitSign" %>
-                 <% end %>
-                    <div class="text-center loginSec2">
-                        <%= button_to "Sign up", signup_path, method: :get, class: "fileBtnSubmitSign2" %>
-                    </div>
-                     <hr>
-                    <%= link_to image_tag("fbButton.png", id: "sign_in"),  "/auth/facebook"  %>
-          
-                </div>
-
-
-
-                   
-    
-            
-            
-       
-               
-            </div>
+      <%= render 'loginForm' %>
         
    
     <div class="mobileBottom"></div>

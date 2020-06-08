@@ -5,6 +5,21 @@
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 
+<script>
+
+
+  $(function () { 
+      $('.panel-heading').on('click', function (e) {
+          var menuItem = $( e.currentTarget );
+          if (menuItem.attr('aria-expanded') == 'true') {
+              $(this).children(".imageMore").text("Show More");
+          } else {
+              $(this).children(".imageMore").text("Show Less");
+          }
+      });
+    });
+
+</script>
 
 
 
@@ -18,55 +33,96 @@
     display: none !important;
   }
 
+  .topNav{
+    display: none;
+  }
+
+  body{
+    margin-top: 40px !important;
+  }
+
   .buttonHov{
     margin-top: -20px;
     margin-bottom: 10px;
   }
+
+  .titleSec{
+    text-align: center !important;
+  }
+  
+  .modal-content {
+    border-radius: 11px;
+    padding: 80px;
+  }
+
+
+  .modal.in .modal-dialog{
+    margin-top: 40px !important;
+  }
+
+  .elementCat{
+    border: 1px solid grey;
+    float: left;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+  }
 </style>
+
+
+
+
+
+
 
 <div class="container noPad3">
 
-<div class="col-md-4 col-xs-12 noPad3 here scrollNorm">
-<div class="text-center module1">
-  <div class="innerModule">
-    <div class="userImageSec1">
-      <%= image_for(current_user) %>
-      <%= image_tag(@user.image_url, class: "userImageCover") if @user.image? %>
-    </div>
-    <div class="col-md-12 col-xs-12 connArea">
-      <div class="userImageSec1">
-        <%= avatar_for(current_user) %>
-        <%= image_tag(@user.avatar_url(:thumb), class: "userImage1") if @user.avatar? %>
-
-      </div>
-      <div class="userSec1">
-        <div class="userName">
-          <%= @user.name %>
-          <%= @user.last_name %>
-
-          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
 
 
 
 
-
-
-<div class="col-md-8 col-xs-12 noPad3">
-
-
+<div class="col-md-8 col-md-push-2 col-xs-12 noPad3">
 
 
 <div class=" margTop mobNavs">
   <div class="titleSec">Select your interests</div>
 </div>
 
-<div class=" margBottom mobNavs">
+<div class="tags col-md-12" ></div>
+
+
+
+<script type="text/javascript">
+
+
+
+  $(document).ready(function(){
+
+    
+
+
+    var $interestsCategories = $('.panel-heading');
+    var testArr = [];
+    for(var i = 0; i < $interestsCategories.length; i++){
+      
+      $('.tags').append("<button class='elementCat' type='button'>" + $($interestsCategories[i]).text() + "</button>");
+    }
+
+    
+
+
+
+
+  })
+
+
+</script>
+
+
+
+
+
+<div class=" margBottom mobNavs col-md-12">
 
 
 
@@ -93,7 +149,7 @@
         <div class="panel-body">
          
           <% @arts.first(7).each do |interest| %>
-              <div class="col-md-3 col-xs-6">
+              <div class="col-md-3 col-xs-6" id="<%= interest.name %>">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
                   <div class="interestTitleSec">
@@ -111,7 +167,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -119,7 +175,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -163,7 +219,7 @@
 
 
 
-        <div id="arts" class="collapse" >
+        <div id="arts" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
           <div class="panel-body">
 
           <% @arts.each_with_index.each do | interest, index | %>
@@ -186,7 +242,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -194,7 +250,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -259,7 +315,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -267,7 +323,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -305,7 +361,7 @@
 
 
 
-        <div id="animals" class="collapse">
+        <div id="animals" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
           <div class="panel-body">
 
           <% @animals.each_with_index.each do | interest, index | %>
@@ -328,7 +384,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -336,7 +392,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -400,7 +456,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -408,7 +464,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -446,7 +502,7 @@
 
 
 
-        <div id="business" class="collapse">
+        <div id="business" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
           <div class="panel-body">
 
           <% @business.each_with_index.each do | interest, index | %>
@@ -469,7 +525,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -477,7 +533,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -542,7 +598,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -550,7 +606,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -590,7 +646,7 @@
 
 
 
-        <div id="community" class="collapse">
+        <div id="community" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
           <div class="panel-body">
 
           <% @community.each_with_index.each do | interest, index | %>
@@ -613,7 +669,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -621,7 +677,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -685,7 +741,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -693,7 +749,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -734,7 +790,7 @@
 
 
 
-        <div id="crafts" class="collapse">
+        <div id="crafts" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
           <div class="panel-body">
 
           <% @crafts.each_with_index.each do | interest, index | %>
@@ -757,7 +813,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -765,7 +821,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -810,7 +866,7 @@
       <div class="business" >
         <div class="panel-body">
          
-       <% @dance.first(7).each do |interest| %>
+          <% @dance.first(7).each do |interest| %>
               <div class="col-md-3 col-xs-6">
               <div class="interestCard">
                   <%= image_tag(interest.image_url(:thumb), class: "interestImage") if interest.image? %>
@@ -829,7 +885,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -837,7 +893,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -901,7 +957,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -909,7 +965,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -940,8 +996,8 @@
 
 
     </div>
- -->
 
+ -->
 <!-- END -->
 
 
@@ -973,7 +1029,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -981,7 +1037,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -1021,7 +1077,7 @@
 
 
 
-        <div id="eating" class="collapse" >
+        <div id="eating" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
           <div class="panel-body">
 
           <% @eating.each_with_index.each do | interest, index | %>
@@ -1044,7 +1100,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -1052,7 +1108,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -1116,7 +1172,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -1124,7 +1180,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -1188,7 +1244,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -1196,7 +1252,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -1260,7 +1316,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -1268,7 +1324,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -1332,7 +1388,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -1340,7 +1396,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -1403,7 +1459,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -1411,7 +1467,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -1474,7 +1530,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -1482,7 +1538,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -1546,7 +1602,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -1554,7 +1610,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -1617,7 +1673,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -1625,7 +1681,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -1691,7 +1747,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -1699,7 +1755,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -1761,7 +1817,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -1769,7 +1825,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -1834,7 +1890,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -1842,7 +1898,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -1905,7 +1961,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -1913,7 +1969,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -1976,7 +2032,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -1984,7 +2040,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -2048,7 +2104,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -2056,7 +2112,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -2121,7 +2177,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -2129,7 +2185,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -2191,7 +2247,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -2199,7 +2255,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -2264,7 +2320,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -2272,7 +2328,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -2335,7 +2391,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -2343,7 +2399,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -2408,7 +2464,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -2416,7 +2472,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -2480,7 +2536,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -2488,7 +2544,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -2553,7 +2609,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -2561,7 +2617,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -2624,7 +2680,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -2632,7 +2688,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -2698,7 +2754,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -2706,7 +2762,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -2770,7 +2826,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -2778,7 +2834,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -2815,25 +2871,13 @@
 
 
 
-
-
-
-
-
-
-
 <!-- BEGIN -->
 
     <div class="panel panel-default" data-aos="fade-up">
         <div class="panel-heading" href="#sports" >
          Sports 
         </div>
-
-
       <div class="sports" >
-
-
-
         <div class="panel-body">
          
           <% @sports.first(7).each do |interest| %>
@@ -2855,7 +2899,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -2863,7 +2907,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -2899,11 +2943,12 @@
 
 
           <% end %>
-    </div>
+        </div>
 
 
-        <!-- class="collapse" -->
-        <div id="sports"  class="collapse" >
+
+
+        <div id="sports" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
           <div class="panel-body">
 
           <% @sports.each_with_index.each do | interest, index | %>
@@ -2926,7 +2971,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -2934,7 +2979,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -2958,9 +3003,6 @@
 
 
 
-
-
-
       </div>
 
 
@@ -2971,16 +3013,6 @@
 
 
 <!-- END -->
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- BEGIN -->
@@ -3011,7 +3043,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -3019,7 +3051,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -3083,7 +3115,7 @@
           <% if @user.followingI?(interest) %>
 
 
-                  <%= render 'unfollowI', interest: interest %>
+                  <%= render 'users/unfollowI', interest: interest %>
 
 
 
@@ -3091,7 +3123,7 @@
                 <% else %>
 
 
-                  <%= render 'followI', interest: interest %>
+                  <%= render 'users/followI', interest: interest %>
 
 
                 <% end %>
@@ -3133,40 +3165,82 @@
 </div>
 </div>
 
-<% if @user.sign_in_count == 1 %>
 
-
-<%= link_to avatar_user_path(@user), method: :get, class: "specialA" do %>
-  <div class="fixedState">
+<div class="fixedState">
+  <%= button_to user_path, method: :get, class: "fileBtnSubmit" do %>
+  
     <span class="editsText">Confirm</span>
-      <%= image_tag("confirm.png", class: "editsUserIcon") %>
-    </div>
+    <span  class="editsText" id="countCurrent"><%= current_user.followingI.count %></span>
+    <span id="newCount"></span>
+    
   <% end %>
+</div>
 
-<% else %>
 
-  <%= link_to @user, method: :get, class: "specialA" do %>
-  <div class="fixedState">
-    <span class="editsText">Confirm</span>
-      <%= image_tag("confirm.png", class: "editsUserIcon") %>
+
+<script type="text/javascript">
+  //Limit of 8
+
+  if('<%= current_user.followingI.count %>' > 8){
+    $('.specialA').attr('disabled', false);
+    $('.specialA').css('opacity', '1');
+  }else{
+    $('.specialA').attr('disabled', true);
+    $('.specialA').css('opacity', '0.5');
+  }
+
+  
+
+
+</script>
+
+
+
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="special-modal-body">
+      <%= image_tag("welcome.png", class: "welcomeIcon") %>
+      </div>
+      <div class="welcomeTitle">
+        Welcome to Proximy
+      </div>
+       <div class="welcomeText">
+        We'll start you off by asking you a few question to make your experience better. <br><br>
+        Firstly, tell us what interests you. 
+      </div>
+
+
+      
+
     </div>
-  <% end %>
 
-<% end %>
+
+  </div>
+
+ 
+      <div class="fixedStatePro"  data-dismiss="modal" >
+          <div class="editsTextPro">Let's start</div>
+        </div>
+
 </div>
 
 
 
 
+<!-- <script type="text/javascript">
+    $(window).on('load',function(){
+        $('#myModal').modal('show');
+    });
+</script>
 
 
 
-
-
-
-
-
-
+ -->
 
 
 

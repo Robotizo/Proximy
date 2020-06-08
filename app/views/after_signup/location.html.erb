@@ -93,21 +93,37 @@
 
 <div class="container noPad3">
 
-	<%= render 'users/userModule' %>	
+  
+<div class="col-md-12 text-center">
+  <%= image_tag("circleBlue.svg", class: "stepsIcon") %>
+   <%= image_tag("circleBlue.svg", class: "stepsIcon") %>
+    <%= image_tag("circleBlue.svg", class: "stepsIcon") %>
+     <%= image_tag("circleBlue.svg", class: "stepsIcon") %>
+  
+</div>
 
 
 
 
 
 
-<div class="mobileArea col-md-8 col-xs-12 noPad3">
+
+<div class="mobileArea col-md-12 col-xs-12 text-center noPad3">
+	     <div class="logoParent">
+    	<%= image_tag("logoIcon.png", class: "logoImg") %>
+	</div>
+  	<div class="text-center" style="font-weight: 900; font-size: 16px;">
+  		Lastly <span style="font-weight: 900; font-size: 16px; color: #508cf7; "><%= @user.name %></span>, we need you to give us location permission.
+  	</div>
+
 <% if @user.latitude.present? or @user.longitude.present? %>
 
-	<div class="col-xs-12">
+	<div class="text-center">
 			<div class="editContent">
 				<div id="map"></div>
 
-				<div class="disclaimer">Only you can see your exact location.</div>
+				<div style="font-weight: 900; font-size: 12px; margin-top: 10px; color: grey">Only you can see your exact location.</div>
+				<div class="disclaimer" style=" margin-top: 10px;">Press continue to finalize.</div>
 
 				<%= form_for @user, url: wizard_path, method: :put do |f| %>
 				  <div class="field">
@@ -132,10 +148,12 @@
 
 
 <% else %>
-	<div class="col-md-4">
+
+
+	<div class="col-md-12">
 		<%= image_tag "destination.svg", class: "locationImage" %>
 	</div>
-	<div class="col-md-8">
+	<div class="col-md-12">
 		<div class="infoOnLocation">Click on "Update location" to continue</div>
 	</div>
 <%= form_for @user, url: wizard_path, method: :put do |f| %>
@@ -155,6 +173,13 @@
 			    </div>
 
 	<% end %>
+
+
+
+
+
+
+
 	
 <% end %>
 
@@ -162,41 +187,6 @@
 
 </div>
 
-
-
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="special-modal-body">
-   		<%= image_tag("map.png", class: "welcomeIcon") %>
-      </div>
-      <div class="welcomeTitle">
-      	Your location
-      </div>
-       <div class="welcomeText">
-       	Lastly, we need your permission to get your location to match with others, events and groups around you. 
-      </div>
-    </div>				
-  </div>
-
-
-
-    	<div class="fixedStatePro" data-dismiss="modal">
-          <div class="editsTextPro">Done</div>
-        </div>
-
-
-</div>
-
-
-
-
-<script type="text/javascript">
-    $(window).on('load',function(){
-        $('#myModal').modal('show');
-    });
-</script>
 
 
 
@@ -209,9 +199,10 @@
     <style>
        /* Set the size of the div element that contains the map */
       #map {
-        height: 400px;  /* The height is 400 pixels */
-        width: 100%;  /* The width is the width of the web page */
+        height: 150px;  /* The height is 400 pixels */
+        width: 30%;  /* The width is the width of the web page */
         border-radius: 8px;
+        margin: 0 auto;
        }
     </style>
 
@@ -225,7 +216,7 @@
 		  var pos = {lat: <%= current_user.latitude %> , lng: <%= current_user.longitude %> };
 		  // The map, centered at Uluru
 		  var map = new google.maps.Map(
-		      document.getElementById('map'), {zoom: 12, center: pos});
+		      document.getElementById('map'), {zoom: 12, center: pos, mapTypeControl: false});
 		  // The marker, positioned at Uluru
 		  var marker = new google.maps.Marker({position: pos, map: map});
 		}

@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
 
 
+
     def update_friendship
     	@friendship = Friendship.find(params[:id])
     	@friendship.update_attribute(:status, "accepted")

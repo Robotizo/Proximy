@@ -114,6 +114,8 @@
   resources :users do
     collection do 
       get :discover
+      put 'countInterests'
+      put 'countDismiss'
     end
     
     member do

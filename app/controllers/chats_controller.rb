@@ -5,6 +5,18 @@ class ChatsController < ApplicationController
   before_action :get_notifications, only: %i[index]
   before_action :set_active_user, only: %i[list_messages ajax_messages]
   before_action :filter_page_number, only: %i[ajax_messages]
+  before_action :check, only: [:index]
+
+
+
+  def check
+    if signed_in?
+      if !current_user.avatar? & !current_user.image?
+        redirect_to root_path
+      end
+    end
+  end 
+
 
   def index
 
@@ -57,14 +69,57 @@ class ChatsController < ApplicationController
   # Display only friends and followers for now
   # TODO (Andy Lee): Consider and implement messaing request & limit feature for users 
   def get_users
-    listOfContacts = current_user.friends + current_user.following + current_user.followers
+    filteredRelation = (current_user.following + current_user.followers)
+    listOfContacts = current_user.friends + filteredRelation.uniq
     @users = listOfContacts.sort_by &:updated_at
   end
+
+
+
+
 
   def get_notifications
     @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
   end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
