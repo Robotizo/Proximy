@@ -133,10 +133,16 @@
       const $selectedContactElement = $(e.currentTarget)
       const selectedUserId = $selectedContactElement.data('id')
       // const isFriendRequest = $selectedContactElement.data('is-friend-request')
-
-
-
-
+      jQuery.ajaxSetup({
+        beforeSend: function() {
+           $('#loader').show();
+        },
+        complete: function(){
+           $('#loader').hide();
+        },
+        success: function() {}
+      });
+            
       // get info of selected user
       $.ajax({
         type: "GET", 

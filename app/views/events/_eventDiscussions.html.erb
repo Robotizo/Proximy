@@ -33,7 +33,7 @@
 
 <script type="text/javascript">
   if ($('#eventPosts').children().length == 0){
-    $('#eventPosts').html("<div class=\"moreinfo text-center\" > <img src='/assets/box.svg' width='200' height='200' style=\" margin-top: 30px;\">     <div style=\" font-size: 14px; font-weight: 900; margin-top: 10px;\">This is an empty discussion box, start the conversation.</div></div>");
+    $('#eventPosts').html("<div class=\"moreinfo text-center\" > <img src='<%= asset_path('box.svg') %>' width='200' height='200' style=\" margin-top: 30px;\">     <div style=\" font-size: 14px; font-weight: 900; margin-top: 10px;\">This is an empty discussion box, start the conversation.</div></div>");
   }
 
 
