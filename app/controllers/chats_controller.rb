@@ -28,15 +28,26 @@ class ChatsController < ApplicationController
     render partial: 'list_messages', locals: { messages: @messages }
   end
 
+
   def ajax_messages
     @messages = Message.users_messages(current_user, @active_user).between_range(@start, @last)
     render partial: 'ajax_messages', locals: { messages: @messages }
   end
 
+  def list_user
+    selected_user = User.find(params[:id])
 
-  # def test_active
-  #   @test_active_user = User.find(params[:id])
-  # end 
+
+    render json: {
+      id: selected_user.id,
+      name: selected_user.name,
+      last_name: selected_user.last_name,
+      email: selected_user.email,
+      avatar: selected_user.avatar_url(:thumb),
+      interests: selected_user.followingI
+    }
+  end
+
 
   private
 
@@ -70,7 +81,7 @@ class ChatsController < ApplicationController
   # TODO (Andy Lee): Consider and implement messaing request & limit feature for users 
   def get_users
     filteredRelation = (current_user.following + current_user.followers)
-    listOfContacts = current_user.friends + filteredRelation.uniq
+    listOfContacts = (current_user.friends + filteredRelation).uniq
     @users = listOfContacts.sort_by &:updated_at
   end
 

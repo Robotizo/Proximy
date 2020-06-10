@@ -1,12 +1,67 @@
 
 
-.newStart{
+.centered{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  color: white;
+  font-weight: 900;
+}
+.card-overlay {
+  background: rgba(0, 0, 0, 0.2);
+  height: 135px;
+  margin: auto;
+}
+
+
+.infoWindowInterests{
+  margin: 5px 10px 7px 10px;
+  font-weight: 800;
+  color: grey;
+  font-size: 12px;
+}
+.infoWindowName{
+  margin: 10px;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+
+#imgcontainer
+{
+opacity:0.5;
+background-color: Black;
+z-index:10;
+}
+#imgcontainer img
+{
+      Z-index: 5;
+}
+
+
+.chat__message--user {
+
+  width: 18%;
+  float: left;
+  position: fixed;
+  overflow-y: scroll;
+  left: 82%;
+  height: 100vh;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+.chat__main--active-user{
+
   font-weight: 900;
   position: relative;
   bottom: 35px;
   text-align: center;
 }
-
 
 .emoji-wysiwyg-editor{
   height: auto !important;
@@ -66,7 +121,7 @@ img.emoji {
   padding-right: 5px;
   top: 55px;
   bottom: 0;
-  width: 25%;
+  width: 24%;
   float: left;
   position: fixed;
   overflow-y: scroll;
@@ -90,11 +145,11 @@ img.emoji {
 }
 
 .chat__message--panel {
-  width: 75%;
+  width: 58%;
   float: left;
   position: fixed;
   overflow-y: scroll;
-  left: 25%;
+  left: 24%;
   height: 100vh;
 }
 
@@ -118,7 +173,7 @@ img.emoji {
   overflow-y: scroll;
   bottom: 0px;
   background-color: white;
-  width: 75%;
+  width: 58%;
 }
 
 .uploadItems {
@@ -186,7 +241,7 @@ label {
 
 .imageSent {
   object-fit: contain;
-  width: 400px;
+  width: 300px;
   height: auto;
 }
 

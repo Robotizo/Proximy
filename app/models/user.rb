@@ -133,7 +133,7 @@ class User < ApplicationRecord
 
 
     def is_friends?(other_user)
-      friends.include?(other_user)
+      inverse_friends.include?(other_user)
     end 
 
 

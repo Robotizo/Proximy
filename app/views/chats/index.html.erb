@@ -1,6 +1,9 @@
 <%= stylesheet_link_tag "chats", :media => "all" %>
 <%= stylesheet_link_tag "users", :media => "all" %>
 
+
+
+
 <!-- chat__main--wrapper -->
 <div class="chat__main--wrapper">
   <input type="hidden" class="input__active--user" name="active_user" value="-1">
@@ -17,76 +20,81 @@
     </div>
   </div> <!-- /.chat__contact--panel -->
 
-  <!-- chat__message--panel -->
-  <div class="chat__main--sub-section chat__message--panel">
-    
-    <!-- #messages -->
-    <div id="messages">
-      <div class="text-center">
-        <div class=" noReqArea">
-          <%= image_tag("chatBubbles.png", class: "noReqIcon") %>
-        </div>
-        <div class="noReqText">
-          Select someone to start chatting
-        </div>
-      </div>
-    </div> 
-    <!-- /#messages -->
-
-
-<div class="newStart"></div>
-    <!-- chat__message--panel-input -->
-    <div class="messageField chat__message--panel-input">
-      <form class="form__message-new">
-        <div class="uploadItems">
-
-
-<!-- 
-
-          <div class="col_4">
-            <div class="form-group">
-              <label for="doc">
-                <input class="form__input-attachment-doc" id="doc" type="file" accept=".xls,.xlsx,.pdf,.docx">
-                <img src='<%= asset_path 'attachment.svg' %>' id="doc">
-              </label>
-            </div>
-          </div> -->
-
-
-
-
-
-
-          <div class="col-md-12">
-            <div class="form-group">
-              <label for="image">
-                <input class="form__input-attachment" id="image" type="file">
-                <img src='<%= asset_path 'attachment.svg' %>' id="image">
-              </label>
-            </div>
+    <!-- chat__message--panel -->
+    <div class="chat__main--sub-section chat__message--panel">
+      
+      <!-- #messages -->
+      <div id="messages">
+        <div class="text-center">
+          <div class=" noReqArea">
+            <%= image_tag("chatBubbles.png", class: "noReqIcon") %>
           </div>
-
-<!--           <div class="col_4">
-            <div class="form-group">
-              <label for="image">
-                <input class="form__input-attachment-image" id="image" type="file" accept=".png,.jpg,.gif">
-                <img src='<%= asset_path 'attachment.svg' %>' id="image">
-              </label>
-            </div>
-          </div> -->
-
-        </div>
-        <div class="messageForm">
-          <div class="form-group">
-            <textarea class="form-control form__input-body" placeholder="Type message here..."  style="height: 45px;" data-emojiable="true"></textarea>
+          <div class="noReqText">
+            Select someone to start chatting
           </div>
         </div>
-        <div class="sendButton">
-          <%= image_submit_tag "sendMessage.png", class: "iconImageMessage" %>
-        </div>
-      </form>
-    </div> <!-- /.chat__message--panel-input -->
-  </div> <!-- /.chat__message--panel -->
+      </div> 
+      <!-- /#messages -->
+
+
+  <div class="chat__main--active-user"></div>
+      <!-- chat__message--panel-input -->
+      <div class="messageField chat__message--panel-input">
+        <form class="form__message-new">
+          <div class="uploadItems">
+
+
+
+  <!-- 
+
+            <div class="col_4">
+              <div class="form-group">
+                <label for="doc">
+                  <input class="form__input-attachment-doc" id="doc" type="file" accept=".xls,.xlsx,.pdf,.docx">
+                  <img src='<%= asset_path 'attachment.svg' %>' id="doc">
+                </label>
+              </div>
+            </div> -->
+
+
+
+
+
+
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="image">
+                  <input class="form__input-attachment" id="image" type="file">
+                  <img src='<%= asset_path 'attachment.svg' %>' id="image">
+                </label>
+              </div>
+            </div>
+
+  <!--           <div class="col_4">
+              <div class="form-group">
+                <label for="image">
+                  <input class="form__input-attachment-image" id="image" type="file" accept=".png,.jpg,.gif">
+                  <img src='<%= asset_path 'attachment.svg' %>' id="image">
+                </label>
+              </div>
+            </div> -->
+
+          </div>
+          <div class="messageForm">
+            <div class="form-group">
+              <textarea class="form-control form__input-body" placeholder="Type message here..."  style="height: 45px;" data-emojiable="true"></textarea>
+            </div>
+          </div>
+          <div class="sendButton">
+            <%= image_submit_tag "sendMessage.png", class: "iconImageMessage" %>
+          </div>
+        </form>
+      </div> <!-- /.chat__message--panel-input -->
+    </div> <!-- /.chat__message--panel -->
+    <div class="chat__message--user">
+      
+    </div>
+
 </div> <!-- /.chat__main--wrapper -->
 
 <input type="hidden" name="user_name" id="the_user_name" value="">
@@ -111,36 +119,153 @@
     const $inputCurrentUser = $('.input__current--user')
 
 
-    function count_messages() {       
-      var length = $messages.children().length;
-      console.log(length);
-      if(length > 0){
-        console.log("has messages");
-        $('.newStart').empty();
-      }
-      else{
-        $('.newStart').html('<div>This is a new conversation, say hi to *name*! </div>');
-      }
-    }
 
 
-    function chnage_id(){
-      window.history.pushState(null, null, "/chats/" + selectedUserId);
-    }
 
     const messagesElement = document.querySelector('#messages');
     const itemsToAdd = 10
 
 
     $('.chat__contact--element').on('click', (e) => {
-
-
-
+      var length = $messages.children().length
 
       const $htmlBody = $('html, body')
       const $selectedContactElement = $(e.currentTarget)
       const selectedUserId = $selectedContactElement.data('id')
       // const isFriendRequest = $selectedContactElement.data('is-friend-request')
+
+
+
+
+      // get info of selected user
+      $.ajax({
+        type: "GET", 
+        url: "/chats/user_info/" + selectedUserId,
+        success: (response) => {
+          console.log(response);
+          $('.chat__main--active-user').html(`<div>Say hi to ${response.name}! </div>`)
+          .show().fadeOut(2500);
+
+          if( response.interests.length > 0 ){
+
+               $('.chat__message--user').html(`
+                <img src="${response.avatar}"  style="width: 100%; cursor: auto;">
+                <div class="infoWindowName">
+                  ${response.name} ${response.last_name}
+                </div>
+
+                <div class="infoWindowInterests">
+                  ${response.name}'s interests
+                </div>
+                <div class="row">
+                  <div class="col-md-6 noPad3Desk" >
+                    <div style="background-image: url('${response.interests[0].image.thumb.url}'); background-size:cover;">
+                      <div class="card-overlay">
+                        <div class="centered">
+                          ${response.interests[0].name}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                <div class="row">
+                  <div class="col-md-6 noPad3Desk" >
+                    <div style="background-image: url('${response.interests[4].image.thumb.url}'); background-size:cover;">
+                      <div class="card-overlay">
+                        <div class="centered">
+                          ${response.interests[4].name}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="row">
+                  <div class="col-md-6 noPad3Desk" >
+                    <div style="background-image: url('${response.interests[6].image.thumb.url}'); background-size:cover;">
+                      <div class="card-overlay">
+                        <div class="centered">
+                          ${response.interests[6].name}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                            <div class="row">
+                  <div class="col-md-6 noPad3Desk" >
+                    <div style="background-image: url('${response.interests[7].image.thumb.url}'); background-size:cover;">
+                      <div class="card-overlay">
+                        <div class="centered">
+                          ${response.interests[7].name}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                <div class="row">
+                  <div class="col-md-6 noPad3Desk" >
+                    <div style="background-image: url('${response.interests[1].image.thumb.url}'); background-size:cover;">
+                      <div class="card-overlay">
+                       <div class="centered">
+                          ${response.interests[1].name}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                <div class="row">
+                  <div class="col-md-6 noPad3Desk" >
+                    <div style="background-image: url('${response.interests[3].image.thumb.url}'); background-size:cover;">
+                      <div class="card-overlay">
+                       <div class="centered">
+                          ${response.interests[3].name}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+       
+        
+
+  
+                </div>
+
+                `);
+
+
+
+
+
+             }else{
+
+                  $('.chat__message--user').html(`<img src="${response.avatar}"  style="width: 100%; cursor: auto;"><div class="infoWindowName">${response.name} ${response.last_name}</div>`);
+             }
+       
+        }
+      });
+
+
+
+        $.ajax({
+          type: "GET", 
+          url: "/chats/list_messages/" + selectedUserId,
+          data: {
+            id: selectedUserId 
+          },
+          success: (data, textStatus, jqXHR) => {
+            $messages.html(data)
+
+          },
+          error: (jqXHR, textStatus, errorThrown) => {}
+        })
+
+
+
       
       let pageNumber = 0;
 
@@ -156,44 +281,6 @@
       $messages.animate({ scrollTop: $(document).height() + "1000px" }, "slow")
 
 
-        // Need to figure out a way to get user id into index in controller
-
-        // $.ajax({
-        //   method: "GET",
-        //   url: "/chats/",
-        //   data: { id: selectedUserId  }
-        // })
-
-        // $.ajax({
-        //   url: "/chats/test_active/" + selectedUserId,
-        //   type: "GET",
-        //   data:  {
-        //     id: selectedUserId 
-        //   },
-        //   success: function(){
-        //     alert('Saved Successfully and');
-        //   },
-        //   error:function(){
-        //    alert('Error');
-        //   }
-        // });
-
-
-
-
-      $.ajax({
-        type: "GET", 
-        url: "/chats/list_messages/" + selectedUserId,
-        data: {
-          id: selectedUserId 
-        },
-        success: (data, textStatus, jqXHR) => {
-          $messages.html(data)
-          count_messages();
-          // window.history.pushState(null, null, "/chats/" + selectedUserId);
-        },
-        error: (jqXHR, textStatus, errorThrown) => {}
-      })
 
 
 

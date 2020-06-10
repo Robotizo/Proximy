@@ -2,15 +2,15 @@
 
 <% if user.id != current_user.id %>
 <div class="chat__contact--element" data-id="<%= user.id %>">
-	<div class="oneThird">
+	<div class="oneThird noselect">
 		<%= image_tag(user.avatar_url(:thumb), class: "userImageChat") if user.avatar? %>
 	</div>
 	<div class="col-md-8">
-  		<span class="userNameChat"><%= user.name %> <%= user.last_name %><span>
+  		<span class="userNameChat noselect"><%= user.name %> <%= user.last_name %><span>
   		<% if current_user.is_friends?(user) %>
-  			<div class="is_friends">Friends</div>
+  			<div class="is_friends noselect">Friends</div>
   		<% else %>
-  			<div class="is_friends_not">Not friends yet</div>
+  			<div class="is_friends_not noselect">Not friends yet</div>
   		<% end %>
   	</div>
   
