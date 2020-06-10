@@ -10,3 +10,6 @@ App is on a beta test trial. We plan to do testing among friends next week. We m
 - [ ] Notifications page re-do 
 
 **Almost done :muscle:**
+
+
+v1.1.1
