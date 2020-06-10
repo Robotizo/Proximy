@@ -3166,7 +3166,7 @@
 </div>
 
 
-<div class="fixedState">
+<div class="fixedState popup">
   <%= button_to user_path, method: :get, class: "fileBtnSubmit" do %>
   
     <span class="editsText">Confirm</span>
@@ -3174,19 +3174,33 @@
     <span id="newCount"></span>
     
   <% end %>
+
+  <span class="popuptext" id="myPopup">To continue select a minimum of 8 interests</span>
+
 </div>
+
+<script type="text/javascript">
+  
+
+</script>
 
 
 
 <script type="text/javascript">
   //Limit of 8
 
+  $(document).ready( function(){
+    $('#myPopup').addClass('show');
+  });
+
+
+
   if('<%= current_user.followingI.count %>' > 8){
-    $('.specialA').attr('disabled', false);
-    $('.specialA').css('opacity', '1');
+    $('.fileBtnSubmit').attr('disabled', false);
+    $('.fileBtnSubmit').css('opacity', '1');
   }else{
-    $('.specialA').attr('disabled', true);
-    $('.specialA').css('opacity', '0.5');
+    $('.fileBtnSubmit').attr('disabled', true);
+    $('.fileBtnSubmit').css('opacity', '0.5');
   }
 
   
@@ -3199,35 +3213,6 @@
 
 
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-
-      <div class="special-modal-body">
-      <%= image_tag("welcome.png", class: "welcomeIcon") %>
-      </div>
-      <div class="welcomeTitle">
-        Welcome to Proximy
-      </div>
-       <div class="welcomeText">
-        We'll start you off by asking you a few question to make your experience better. <br><br>
-        Firstly, tell us what interests you. 
-      </div>
-
-
-      
-
-    </div>
-
-
-  </div>
-
- 
-      <div class="fixedStatePro"  data-dismiss="modal" >
-          <div class="editsTextPro">Let's start</div>
-        </div>
-
-</div>
 
 
 
