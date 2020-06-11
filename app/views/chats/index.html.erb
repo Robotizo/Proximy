@@ -8,6 +8,7 @@
 <div class="chat__main--wrapper">
   <input type="hidden" class="input__active--user" name="active_user" value="-1">
   <input type="hidden" class="input__current--user" name="current_user" value="<%= current_user.id %>">
+<!--   <%= audio_tag("notif.mp3", class: "sound") %> -->
 
   <!-- chat__contact--panel -->
   <div class="chat__main--sub-section chat__contact--panel">
@@ -92,7 +93,7 @@
       </div> <!-- /.chat__message--panel-input -->
     </div> <!-- /.chat__message--panel -->
     <div class="chat__message--user">
-      
+      <div id="loader">Loading...</div>
     </div>
 
 </div> <!-- /.chat__main--wrapper -->

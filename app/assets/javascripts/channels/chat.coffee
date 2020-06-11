@@ -5,7 +5,6 @@ jQuery(document).on 'turbolinks:load', ->
   $newMessageForm = $('.form__message-new')
   $newMessageBody = $newMessageForm.find('.form__input-body')
   $newMessageAttachment = $newMessageForm.find('.form__input-attachment')
-  $newConvo = $('.newStart')
 
   # $newMessageImageAttachment = $newMessageForm.find('.form__input-attachment-image')
   # $newMessageDocumentAttachment = $newMessageForm.find('.form__input-attachment-doc')
@@ -100,7 +99,7 @@ jQuery(document).on 'turbolinks:load', ->
         
     send_message: (message, file_uri, original_name) ->
       @perform 'send_message', message: message, file_uri: file_uri, original_name: original_name
-      $newConvo.empty()
+   
 
     $newMessageForm.submit (e) ->
       if !!!$inputActiveUser.val()

@@ -1037,7 +1037,7 @@ $(document).on("turbolinks:load", function(){
       var pos = {lat: <%= @event.latitude %> , lng: <%= @event.longitude %> };
       // The map, centered at Uluru
       var map = new google.maps.Map(
-          document.getElementById('map'), {zoom: 12, center: pos});
+          document.getElementById('map'), {zoom: 12, center: pos, disableDefaultUI: true});
       // The marker, positioned at Uluru
       var marker = new google.maps.Marker({position: pos, map: map});
     }

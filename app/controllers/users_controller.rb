@@ -171,6 +171,7 @@ class UsersController < ApplicationController
       if @user.save
         sign_in(@user)
         @user.login_increment
+        UserMailer.registration_confirmation(@user).deliver
 
         #UserMailer.registration_confirmation(@user).deliver
         format.html { redirect_to after_signup_path(:age)}
