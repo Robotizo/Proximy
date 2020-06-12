@@ -66,6 +66,18 @@ class EventsController < ApplicationController
     @eventsFollow = Event.find(params = followingEventsIds).sort_by &:event_date
     @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
     @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
+    events = Event.all
+
+    respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @events }
+      end
+  end
+
+
+  def test
+    eventsJson = Event.all
+    render json: eventsJson
   end
 
   # GET /events/1

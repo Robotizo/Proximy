@@ -28,16 +28,46 @@
 
 /* Button Start */
 
-.marginSetsB{
+
+
+.marginSetsB img{
   margin-top: 0em !important;
   border-radius: 12px 12px 0px 0px;
+  -webkit-border-radius: 12px 12px 0px 0px;
+  -moz-border-radius: 12px 12px 0px 0px;
+  -khtml-border-radius:  12px 12px 0px 0px !important;
   height: 244px;
 }
 
 
 
+.marginSetsB{
+  margin-top: 0em !important;
+  border-radius: 12px 12px 0px 0px;
+  -webkit-border-radius: 12px 12px 0px 0px;
+  -moz-border-radius: 12px 12px 0px 0px;
+  height: 244px;
+}
+
+
+
+.marginSetsC img{
+  border-radius: 10px 10px 0px 0px;
+  -webkit-border-radius: 10px 10px 0px 0px;
+  -moz-border-radius: 10px 10px 0px 0px;
+  -khtml-border-radius:  10px 10px 0px 0px !important;
+  width: 100%;
+  background-color: white;
+  height: 215px;
+    
+}
+
+
 .marginSetsC{
   border-radius: 10px 10px 0px 0px;
+  -webkit-border-radius: 10px 10px 0px 0px;
+  -moz-border-radius: 10px 10px 0px 0px;
+  -khtml-border-radius:  10px 10px 0px 0px !important;
   width: 100%;
   background-color: white;
   height: 215px;

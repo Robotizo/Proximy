@@ -1,0 +1,26 @@
+ <%= stylesheet_link_tag "lazy-load-images.min", :media => "all" %>
+<%= javascript_include_tag 'lazy-load-images.min', 'data-turbolinks-track': 'reload' %>       
+        <% collide = current_user.followingI.ids & event.fgE.ids %>
+          <% if Date.today <= event.event_date %>
+
+            <div class="col-md-4 col-xs-12 testMarge">
+              
+                <div class="elementBox">
+   
+                <a href="events/<%= event.id %>" data-method="get" data-href="<%= event.image_url(:event) %>" class="lazy-load replace marginSetsB">
+                  <%= image_tag(event.image_url(:preview), class: "eventImageDisplayIndex preview") if event.image? %>
+                </a>
+
+          <%= link_to event, method: :get, class: "specialA" do %>
+
+                  <div class="eventContentDisc">
+                    <div class="eventDateDisc"><%= event.event_date.strftime('%B %e') %></div>
+                  </div>
+                  <div class="eventTitleDisc"><%= truncate(event.title, length: 35) %></div>
+                    <div class="sharedIntsEvents">
+                      <%= collide.count %> Shared interests
+                    </div>
+                </div>
+              <% end %>
+              </div>
+          <% end %>

@@ -16,6 +16,7 @@
 <div class="container mobileArea indexMar">
 
  <%= render 'eventsMenu' %>
+<!--  <%= button_tag "Tag", class: "t1" %> -->
 
   <div class="tab-content" id="events-nav-content">
     <div class="tab-pane active" id="events" role="events-tab-pane" aria-labelledby="events-tab">
@@ -25,7 +26,8 @@
 
       <div class="complete">
 
-          <%= render "events" %>
+        <%= render @events %>
+
           
       </div>
 
@@ -37,7 +39,41 @@
 
 
 
+
+
 </div>
+
+<!-- 
+
+
+<script type="text/javascript">
+  $('.t1').click(function (){
+
+    $.ajax({
+      type:"GET",
+      url:"events/test",
+      dataType: "json",
+      data: {},
+      success:function(result){
+        console.log(result)
+
+        $('.complete').html(`<div>Say hi to ${result[].title}! </div>`);
+      }
+    })
+  })
+
+</script>
+
+ -->
+
+
+
+
+
+
+
+
+
 
 
 

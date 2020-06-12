@@ -16,9 +16,22 @@
 .marginSetsB{
   margin-top: 0em !important;
   border-radius: 12px 12px 0px 0px;
+  -webkit-border-radius: 12px 12px 0px 0px;
+  -moz-border-radius: 12px 12px 0px 0px;
+  -khtml-border-radius:  12px 12px 0px 0px !important;
   height: 224px;
 }
 
+
+
+.marginSetsB img{
+  margin-top: 0em !important;
+  border-radius: 12px 12px 0px 0px;
+  -webkit-border-radius: 12px 12px 0px 0px;
+  -moz-border-radius: 12px 12px 0px 0px;
+  -khtml-border-radius:  12px 12px 0px 0px !important;
+  height: 224px;
+}
 
 
 .groupImageSec1{
@@ -26,8 +39,24 @@
   margin: 0 auto;
 }
 
+
+.marginSetsC img{
+  border-radius: 10px 10px 0px 0px;
+  -webkit-border-radius: 10px 10px 0px 0px;
+  -moz-border-radius: 10px 10px 0px 0px;
+  -khtml-border-radius:  10px 10px 0px 0px !important;
+  width: 100%;
+  background-color: white;
+  height: 215px;
+    
+}
+
+
 .marginSetsC{
   border-radius: 10px 10px 0px 0px;
+  -webkit-border-radius: 10px 10px 0px 0px;
+  -moz-border-radius: 10px 10px 0px 0px;
+  -khtml-border-radius:  10px 10px 0px 0px !important;
   width: 100%;
   background-color: white;
   height: 215px;
@@ -38,15 +67,43 @@
 .marginSetsA{
   margin-top: 0em !important;
   border-radius: 15px;
+    -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -khtml-border-radius:  15px;
 
       height: 130px;
     width: 130px;
 
 }
 
+.marginSetsA img{
+  margin-top: 0em !important;
+  border-radius: 15px;
+    -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -khtml-border-radius:  15px;
+
+      height: 130px;
+    width: 130px;
+
+}
+
+.coverImage img{
+    margin-top: 0em !important;
+    border-radius: 12px 12px 0px 0px;
+  -webkit-border-radius: 12px 12px 0px 0px;
+  -moz-border-radius: 12px 12px 0px 0px;
+  -khtml-border-radius:  12px 12px 0px 0px !important;
+    width: 100%;
+      height: 200px;
+}
+
 .coverImage{
     margin-top: 0em !important;
     border-radius: 12px 12px 0px 0px;
+  -webkit-border-radius: 12px 12px 0px 0px;
+  -moz-border-radius: 12px 12px 0px 0px;
+  -khtml-border-radius:  12px 12px 0px 0px !important;
     width: 100%;
       height: 200px;
 }
@@ -342,7 +399,7 @@ div.scrollMembersUsers a {
 .sharedInts{
   margin: 5px 8px 5px 8px;
   font-weight: 900;
-      color: #6d95b0;
+      color: #508cf7;
 }
 
 .editsUserIcon{

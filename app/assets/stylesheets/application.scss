@@ -27,6 +27,14 @@ $nprogress-zindex: 10100;
 @import 'nprogress-bootstrap';
 
 
+.replace img{
+  border-radius: 12px 12px 0px 0px !important;
+}
+
+.preview img{
+  border-radius: 12px 12px 0px 0px !important;
+}
+
 
 /* POPUP */
 .noselect {
@@ -100,9 +108,6 @@ $nprogress-zindex: 10100;
 
 
 
-
-
-* {-webkit-font-smoothing: antialiased;}
 
   .stepsIcon{
     margin: 5px;

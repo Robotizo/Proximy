@@ -87,6 +87,17 @@ img:hover > .eventTitleDisc{
 .marginSetsB{
   margin-top: 0em !important;
   border-radius: 12px 12px 0px 0px;
+  -webkit-border-radius: 12px 12px 0px 0px;
+  -moz-border-radius: 12px 12px 0px 0px;
+  -khtml-border-radius:  12px 12px 0px 0px !important;
+}
+
+.marginSetsB img{
+  margin-top: 0em !important;
+  border-radius: 12px 12px 0px 0px;
+  -webkit-border-radius: 12px 12px 0px 0px;
+  -moz-border-radius: 12px 12px 0px 0px;
+  -khtml-border-radius:  12px 12px 0px 0px !important;
 
 }
 
@@ -95,8 +106,23 @@ img:hover > .eventTitleDisc{
 .marginSetsA{
   margin-top: 0em !important;
   border-radius: 12px 12px 0px 0px;
+  -webkit-border-radius: 12px 12px 0px 0px;
+  -moz-border-radius: 12px 12px 0px 0px;
+  -khtml-border-radius:  12px 12px 0px 0px !important;
   max-height: 500px;
 }
+
+
+.marginSetsA img{
+  margin-top: 0em !important;
+  border-radius: 12px 12px 0px 0px;
+  -webkit-border-radius: 12px 12px 0px 0px;
+  -moz-border-radius: 12px 12px 0px 0px;
+  -khtml-border-radius:  12px 12px 0px 0px !important;
+  max-height: 500px;
+}
+
+
 
 .dateContent{
   color: #757575;
@@ -108,6 +134,7 @@ img:hover > .eventTitleDisc{
   margin-bottom: 10px;
     float: left;
   width: 100%;
+  position: relative;
 }
 
 .postImage{
@@ -589,7 +616,7 @@ div.scrollMembersEvents .seeMore {
 .sharedIntsEvents{
   margin: 5px 8px 5px 8px;
   font-weight: 900;
-  color: #6d95b0;
+  color: #508cf7;
   margin-top: -72px;
 }
 
@@ -854,7 +881,7 @@ div .panel-interest{
 
 .address{
   font-weight: 300;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .testMarge{
@@ -1899,6 +1926,7 @@ div.scrollGroupsI a {
   margin-left: 15px;
   margin-right: 15px;
   margin-bottom: 15px;
+  display: block !important;
 }
 
 .test{
@@ -2126,6 +2154,7 @@ div.scrollEvents a {
   float: left;
   width: 100%;
   margin-bottom: 30px;
+  position: relative;
 }
 .userSignWithin{
 	padding: 6px;

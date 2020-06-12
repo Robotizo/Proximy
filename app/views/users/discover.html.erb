@@ -53,7 +53,7 @@
 
           <div class="discoverTitleSec">
             <div class="discoverName"><%= truncate(user.name.gsub(/\s.+/, '')) %></div>
-          <% if current_user.friends.include?(user) %>
+          <% if current_user.is_friends?(user) %>
             <div class="friendsInDiscover">Already friends</div>
           <% else %>
             <div class="discoverNum"><%= collide.count %> shared interests</div>

@@ -66,6 +66,7 @@
   resources :events do
     collection do 
       get :myevents
+      get 'test'
     end
 
     member do 
