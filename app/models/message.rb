@@ -6,11 +6,14 @@ class Message < ApplicationRecord
 
   after_create_commit :broadcast_message
 
+
   include AttachmentUploader[:attachment]
+
 
   scope :sent_messages, ->(sender, receiver) { where(sender_id: sender.id, receiver_id: receiver.id) }
   scope :between_range, ->(from, to) { where('messages.id >= ?', from).where('messages.id < ?', to) }
   scope :ordered, -> { order(:id) }
+
 
   def attachment_name=(name)
     @attachment_name = name

@@ -14,6 +14,7 @@ gem 'unsplash'
 gem "lazyload-rails"
 gem "omniauth-facebook"
 gem 'omniauth'
+gem "aws-sdk-s3"
 
 
 # Use clearance for simple auth without devise
