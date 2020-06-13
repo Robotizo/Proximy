@@ -16,6 +16,7 @@ elsif Rails.env.production?
 	s3_options = {
     access_key_id:     ENV['S3_ACCESS_KEY'],
     secret_access_key: ENV['S3_SECRET_KEY'],
+    region:            ENV['S3_REGION'],
     bucket:            ENV['S3_BUCKET']
   }
 
@@ -55,3 +56,30 @@ Shrine.plugin :determine_mime_type # check MIME TYPE
 #                                ]
 #   validate_max_size 1.megabyte # limit file size to 1MB
 # end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
