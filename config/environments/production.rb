@@ -72,7 +72,7 @@ Rails.application.configure do
     port:                 587,
     domain:               'www.proximy.ca',
     user_name:            'brandon.caiza',
-    password:             '<%= ENV["SENDGRID_PASS"] %>',
+    password:             ENV["SENDGRID_PASS"],
     authentication:       'plain',
     enable_starttls_auto: true  
   }
