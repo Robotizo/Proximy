@@ -3,6 +3,99 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+.none{
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+  
+
+}
+
+.none2{
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+  
+
+}
+
+.msg{
+  background: #525252;
+  width: 200px;
+  text-align: center;
+  border-radius: 100px;
+  color: white;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 12px;
+  float: left;
+  margin: 12px 0px;
+}
+
+.inviteLinkArea{
+  border: 1px solid #508cf7;
+  display: inline-flex;
+  padding: 8px;
+  border-radius: 300px;
+  margin-bottom: 5px;
+}
+
+.inviteLinkText{
+  font-weight: 800;
+  font-size: 12px;
+  padding-top: 2px;
+}
+
+
+
+.inviteLinkAreaFB{
+  border: 1px solid #508cf7;
+  display: inline-flex;
+  padding: 8px;
+  border-radius: 300px;
+  margin-bottom: 5px;
+}
+
+.linkToCopy{
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  opacity: 0;
+}
+
+
+
+.inviteButtonDesign{
+  background-color: white;
+  border-radius: 8px;
+    height: 45px;
+    width: 100%;
+    color: #508cf7;
+    font-weight: 700;
+    box-shadow: 0px 0px 4px 0px #e2e2e2;
+    border: 0px !important;
+    width: 100%;
+    float: left;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+
+
+.inviteButtonDesign:hover{
+  background-color: #6c95af;
+  transition: 0.3s;
+  color: white;
+}
+
+.inviteButton{
+  margin-top: 18px;
+  margin-bottom: 10px;
+
+
+}
+
+
 .eventImageDisplay{
   width: 100%;
     border-radius: 10px 10px 0px 0px;

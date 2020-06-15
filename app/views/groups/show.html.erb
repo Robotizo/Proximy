@@ -2,6 +2,12 @@
 <%= stylesheet_link_tag "groups", :media => "all" %>
 <%= stylesheet_link_tag "animate", :media => "all" %>
 
+<% content_for :head do %>
+  <meta property="og:title" content="<%= @group.title %>" />
+  <meta property="og:image" content="<%= @group.image_url %>" />
+  <meta property="og:description" content="<%= @group.description %>" />
+<% end %>
+
 
 <%= stylesheet_link_tag "lazy-load-images.min", :media => "all" %>
 <%= javascript_include_tag 'lazy-load-images.min', 'data-turbolinks-track': 'reload' %>
@@ -169,6 +175,11 @@
 
       </div>
 
+           <div class="col-md-12 col-xs-12 noPad3 inviteButton" data-target="#show-inv" data-toggle="modal">
+           <%= button_tag "Invite friends", class: "btn btn-primary inviteButtonDesign" %>
+        </div>
+
+
 
 
 
@@ -184,6 +195,8 @@
         </div>
 
 
+
+
           <div class="col-md-6 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" id="follow_formDes">
 
 
@@ -194,6 +207,10 @@
         
    
             </div>
+
+     <div class="col-md-12 col-xs-12 noPad3 inviteButton" data-target="#show-inv" data-toggle="modal">
+           <%= button_tag "Invite friends", class: "btn btn-primary inviteButtonDesign" %>
+        </div>
 
 
 
@@ -555,6 +572,12 @@ $(function () {
 </div>
 
 
+
+<div class="modal fade" id="show-inv" role="dialog">
+ 
+      <%= render 'groups/inviteModalGroups' %>
+
+</div>
 
 
 

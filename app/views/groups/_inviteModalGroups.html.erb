@@ -1,0 +1,205 @@
+  <style type="text/css">
+
+    .modal-content {
+	    border-radius: 11px;
+	    padding: 25px;
+	  }
+
+
+	  .modal.in .modal-dialog{
+	    margin-top: 40px !important;
+	  }
+
+	.inviteLinkIcon{
+	    width:25px; /*width of your image*/
+	   height:25px;
+	    margin:0; /* If you want no margin */
+	   padding:0; 
+
+	  background: url(<%= asset_path 'chain.svg' %>) no-repeat 0 0; 
+	  background-size: 25px 25px;
+	}
+
+	.inviteLinkIcon:hover{
+
+
+	    width:25px; /*width of your image*/
+	   height:25px;
+	    margin:0; /* If you want no margin */
+	   padding:0; 
+
+	  background: url(<%= asset_path 'chainHover.svg' %>) no-repeat 0 0; 
+	  background-size: 25px 25px;
+	  transition: 0.2s ease-in-out;
+	  background-color: #508cf7;
+	}
+
+
+	.inviteLinkFB{
+	    width:25px; /*width of your image*/
+	   height:25px;
+	    margin:0; /* If you want no margin */
+	   padding:0; 
+
+	  background: url(<%= asset_path 'messenger.svg' %>) no-repeat 0 0; 
+	  background-size: 25px 25px;
+	}
+
+	.inviteLinkFB:hover{
+
+
+	    width:25px; /*width of your image*/
+	   height:25px;
+	    margin:0; /* If you want no margin */
+	   padding:0; 
+
+	  background: url(<%= asset_path 'messengerHover.svg' %>) no-repeat 0 0; 
+	  background-size: 25px 25px;
+	  transition: 0.2s ease-in-out;
+	  background-color: #508cf7;
+	}
+
+</style>
+
+<script type="text/javascript">
+  $(function() {
+    $('.inviteLinkIcon').hover(function() {
+      $('.inviteLinkArea').css('background-color', '#508cf7');
+    }, function() {
+      // on mouseout, reset the background colour
+      $('.inviteLinkArea').css('background-color', '');
+    });
+  });
+
+  $(function() {
+    $('.inviteLinkFB').hover(function() {
+      $('.inviteLinkAreaFB').css('background-color', '#508cf7');
+    }, function() {
+      // on mouseout, reset the background colour
+      $('.inviteLinkAreaFB').css('background-color', '');
+    });
+  });
+</script>
+
+   <button type="button" class="closeInts" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="modal-dialog" role="document" style="width: 20%;">
+          <div class="modal-content" style="float: left;">
+            <div class="text-center">
+
+              <div class="col-md-6">
+                <div class="inviteLinkArea"> <div class="inviteLinkIcon"> &nbsp;</div> </div><div class="inviteLinkText">Copy event link</div>
+                 <input class="linkToCopy"  value="<%= request.original_url %>" />
+              </div>
+
+
+              <div class="col-md-6">
+                    
+
+
+                <div class="inviteLinkAreaFB"> <div class="inviteLinkFB"> &nbsp;</div> </div><div class="inviteLinkText">Share on Messenger</div>
+
+              </div>
+        
+
+             
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="none animated pulse"></div>
+        <div class="none2 animated pulse"></div>
+
+<script type="text/javascript">
+
+
+  $('.inviteLinkAreaFB').click(function(){
+    FB.ui({
+      method: 'send',
+      link: 'proximy.ca/groups/<%= @group.id %>'
+    });
+  });
+
+</script>
+
+<script type="text/javascript">
+
+  $('.inviteFriend').one('click', function () {
+    $(".none2").html("<div class=\"msg animated pulse\">Invitation Sent</div>").hide().fadeIn(500);
+     setTimeout(function(){
+          $(".none2").fadeOut("1000");
+     },4000)
+  })
+
+
+
+
+  $('div.inviteLinkArea').click(function(){
+    $(this).siblings('.linkToCopy').select();      
+    document.execCommand("copy");
+  });
+
+
+
+  $('div.inviteLinkAreaMobile').click(function(){
+    $(this).siblings('.linkToCopy').select();      
+    document.execCommand("copy");
+  });
+
+
+$('div.inviteLinkAreaMobile').one('click', function(e) {
+  $(".noneMobile").append("<div class=\"msg animated pulse\">Copied</div>").hide().fadeIn(500);
+   setTimeout(function(){
+        $(".noneMobile").fadeOut("1000");
+   },4000)
+
+ 
+});
+
+
+$('div.inviteLinkArea').one('click', function(e) {
+  $(".none").append("<div class=\"msg animated pulse\">Copied</div>").hide().fadeIn(500);
+   setTimeout(function(){
+        $(".none").fadeOut("1000");
+   },4000)
+
+ 
+});
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
