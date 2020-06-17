@@ -48,6 +48,11 @@ $nprogress-zindex: 10100;
 }
 
 
+.logoMobile{
+  height: 64px;
+  margin: 12px;
+}
+
 /* Popup container - can be anything you want */
 .popup {
   position: relative;
@@ -1131,8 +1136,21 @@ body{
 
 @media screen and (max-width: 776px){
 
+  .agreements{
+    font-size: 9px;
+  }
+  .legalLinks{
+    font-size: 9px;
+  }
+
+
+
+.fileBtnSubmitSign{
+  width: 99%;
+}
+
 	#theRest{
-		margin-bottom: 60px;
+		margin-bottom: 0px;
 	}
 
 	button.closeInts {
@@ -1350,8 +1368,9 @@ body{
 		width: 45px;
 	}
 	body{
-		margin-bottom: 70px;
-		margin-top: 50px;
+		margin-bottom: 56px;
+    margin-top: 0px !important;
+    float: left;
 	}
 
 	.topNav{

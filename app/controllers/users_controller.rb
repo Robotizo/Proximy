@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authorize, except: [:new, :create, :confirm_email]
+  
   def countInterests
     @user = current_user
     @user.update_attributes(sign_in_count: 2)
@@ -172,10 +173,11 @@ class UsersController < ApplicationController
         sign_in(@user)
         @user.login_increment
         # UserMailer.registration_confirmation(@user).deliver
-        StatsMailer.new_user_status(@user).deliver
+        # StatsMailer.new_user_status(@user).deliver
 
         #UserMailer.registration_confirmation(@user).deliver
-        format.html { redirect_to after_signup_path(:age)}
+
+        format.html { redirect_to after_signup_path(:age) }
 
         format.json { render :show, status: :created, location: @user }
       else

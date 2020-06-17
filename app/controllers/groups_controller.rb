@@ -106,6 +106,14 @@ class GroupsController < ApplicationController
     followingGroupIds = @group.followersG.map(&:id)
     @groupFollowers = User.find(params = followingGroupIds).sort_by &:updated_at
 
+    @fullyFriends = current_user.friends
+
+    @group_invite = GroupInvite.new
+
+
+    @groupInvites = GroupInvite.where(group_id: @group.id)
+    @groupInvites = GroupInvite.where(group_id: @group.id)
+
 
     @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
     @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)

@@ -9,6 +9,7 @@
 .inviteLinkAreaMobile{
 
   display: inline-flex;
+  width: 100%;
 
 }
 
@@ -401,9 +402,9 @@ div.scrollMembersInterests .seeMore {
   background-color: white;
   color: white;
   border: 0px !important;
-  background-color: #84b0ff;
+  background-color: #6ba0ff;
   width: 100%;
-  border-radius: 0px 0px 8px 8px;
+  border-radius: 8px;
   font-weight: 900;
 }
 
@@ -414,9 +415,9 @@ div.scrollMembersInterests .seeMore {
     border: 0px !important;
     background-color: #2eb930;
     width: 100%;
-    border-radius: 0px 0px 8px 8px;
+    border-radius: 10px;
     font-weight: 900;
-    padding: 5px;
+    padding: 7px;
 }
 
 
@@ -426,14 +427,18 @@ div.scrollMembersInterests .seeMore {
 border: 0px !important;
     background-color: #2eb930;
     width: 100%;
-  border-radius: 0px 0px 8px 8px;
+ 
   font-weight: 900;
 }
 
 
 
 .invite{
+  width: 100%;
   text-align: center;
+  /* padding-top: 61px; */
+  position: absolute;
+  top: 294px;
 }
 
 
@@ -632,6 +637,14 @@ div.scrollMembersEvents .seeMore {
   box-shadow:0 0 11px rgba(33, 33, 33, 0.2);
   
 }
+
+.elementBoxAuto{
+  box-shadow: 0px 0px 4px 0px #e2e2e2;
+  height: 318px;
+  border-radius: 11px;
+  transition: box-shadow .3s;
+}
+
 
 
 .editsUserIcon{
@@ -2290,7 +2303,45 @@ div.scrollEvents a {
 }
 
 
+  .modal-login-mobile{
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+
+  }
+
+
 @media screen and (max-width: 776px){
+
+  .eventContentDiscMob{
+    top: -64px;
+  }
+
+  .eventImageDisplayIndex{
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+    object-fit: cover;
+    height: 212px !important; 
+
+  }
+
+
+  .marginSetsB img{
+    height: 212px !important; 
+  }
+
+  .modal-login-mobile{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+
+  }
+  .iconImage{
+    height: 45px;
+    border-radius: 300px;
+  }
+
+  .followersSec{
+    margin: 6px;
+  }
   .feedbackButton2{
 font-weight: 700 !important;
     background-color: #e7f3ff;
@@ -2302,14 +2353,11 @@ font-weight: 700 !important;
     font-size: 14px;
     /* margin-top: 12em; */
     /* left: 50px; */
-    position: absolute;
-    left: 0;
-    right: 0;
+
     margin-left: auto;
     margin-right: auto;
     /* top: 25em; */
-    bottom: 100px;
-    position: absolute;
+
     outline: none !important;
     -webkit-transition: 0.3s;
     transition: 0.3s;
@@ -2342,22 +2390,17 @@ font-weight: 700 !important;
   }
   .noneMobile{
     width: 200px;
-    margin: 0 auto;
-    text-align: center;
+   position: fixed;
+   top: 100px;
+
+
+  
+
+
 }
 
-  img.marginSetsB{
-  margin-top: 0em !important;
-  border-radius: 12px 12px 0px 0px;
-  height: 244px !important;
-}
 
-  img.eventImageDisplayMob{
-    border-radius: 0px;
-    width: 70%;
-    margin-top: 10px;
-    height: 244px !important;
-  }
+
 
   .footerMobileAlert{
     font-size: 12px;
@@ -2366,13 +2409,14 @@ font-weight: 700 !important;
   }
   .lp_footer{
 
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom: 0;
     height: 50px;
     width: 100%;
+    background-color: white;
     overflow: hidden;
-      border-top: 1px solid #0000001a;
+    border-top: 1px solid #0000001a;
 }
 
 
@@ -2380,7 +2424,8 @@ font-weight: 700 !important;
   .eventMobileAlert{
     font-size: 19px;
     font-weight: 900;
-    margin-top: 3em;
+ 
+
   }
   .invitedFriend{
     background-color: white;
@@ -2414,7 +2459,7 @@ font-weight: 700 !important;
   .backButton{
       float: left;
     background-color: white;
-    margin: 10px;
+    margin: 17px;
     position: absolute;
     border-radius: 100px;
     transition: 0.3s;
@@ -2424,16 +2469,26 @@ font-weight: 700 !important;
 
 
 /* Rework Start */
-.elementBox{
+  .elementBox{
 
-  padding-bottom: 15px;
-    height: auto;
-    margin: 30px;
-    height: 260px;
-}
-.editsText{
-  display: none;
-}
+    padding-bottom: 15px;
+      height: auto;
+      width: 100% !important;
+   
+      height: 280px;
+  }
+
+  .elementBoxAuto{
+
+    padding-bottom: 15px;
+      height: auto;
+      width: 100% !important;
+   
+
+  }
+  .editsText{
+    display: none;
+  }
 
   .fixedState {
       right: 15px;
@@ -2441,10 +2496,7 @@ font-weight: 700 !important;
       width: 130px;
       text-align: center;
   }
-  .groupImage2{
-    height: 150px;
-    width: 150px;
-  }
+
 
 
   div.scrollMembersEvents{
@@ -2483,7 +2535,9 @@ font-weight: 700 !important;
 /* Rework End */
 
   .textOps{
-    font-size: 12px;
+    font-size: 9px;
+    margin-top: 5px !important; 
+    margin-bottom: 0px;
   }
 
   .buttonsEvent{
@@ -2768,7 +2822,7 @@ font-weight: 700 !important;
 		border-radius: 0px;
 	}
 	.followerNameSec{
-		font-size: 12px;
+		font-size: 10px;
 		font-weight: 900 !important;
 	}
 

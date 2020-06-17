@@ -16,6 +16,8 @@ class Group < ApplicationRecord
 	has_many :active_relationships_interests_to_groups, class_name: "InterestsRelationshipsToGroup", foreign_key: "frI_id", dependent: :destroy
 	has_many :fgI, through: :active_relationships_interests_to_groups, source: :fdI
 
+	has_many :groupinvite 
+
 
 	def fwI(interests)
       fgI << interests

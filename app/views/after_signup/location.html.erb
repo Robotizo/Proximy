@@ -93,14 +93,17 @@
 
 <div class="container noPad3">
 
+
+
   
-<div class="col-md-12 text-center">
-  <%= image_tag("circleBlue.svg", class: "stepsIcon") %>
-   <%= image_tag("circleBlue.svg", class: "stepsIcon") %>
-    <%= image_tag("circleBlue.svg", class: "stepsIcon") %>
-     <%= image_tag("circleBlue.svg", class: "stepsIcon") %>
-  
-</div>
+ <div class="col-md-12 col-xs-12 avatarInfo text-center">
+	<div class="col-md-12  col-xs-12  text-center">
+	  <%= image_tag("circleBlue.svg", class: "stepsIcon") %>
+	   <%= image_tag("circleBlue.svg", class: "stepsIcon") %>
+	    <%= image_tag("circleBlue.svg", class: "stepsIcon") %>
+	     <%= image_tag("circleBlue.svg", class: "stepsIcon") %>
+	  
+	</div>
 
 
 
@@ -108,7 +111,7 @@
 
 
 
-<div class="mobileArea col-md-12 col-xs-12 text-center noPad3">
+<div class="mobileArea col-md-12 col-xs-12  text-center noPad3">
 	     <div class="logoParent">
     	<%= image_tag("logoIcon.png", class: "logoImg") %>
 	</div>
@@ -181,12 +184,14 @@
 
 
 	
-<% end %>
+		<% end %>
 
 
 
 </div>
+</div>
 
+</div>
 
 
 
@@ -204,6 +209,13 @@
         border-radius: 8px;
         margin: 0 auto;
        }
+
+@media (max-width: 776px) {
+	#map{
+		width: 100%;
+	}
+}
+
     </style>
 
 

@@ -1,0 +1,6 @@
+    <% @group_invites.each do |group_invite| %>
+      <tr>
+        <td><%= group_invite.group_id %></td>
+        <td><%= link_to 'Show', group_invite %></td>
+      </tr>
+    <% end %>

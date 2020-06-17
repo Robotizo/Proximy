@@ -5,7 +5,13 @@ class AfterSignupController < ApplicationController
 
 
 	# :interests
-
+	def finish_wizard_path
+		if request.user_agent =~ /Mobile/
+			events_path
+		else
+			root_path
+		end
+	end
 
 	def show
 		if signed_in?
@@ -60,6 +66,7 @@ class AfterSignupController < ApplicationController
 			when :location
 			
 				@user = current_user
+
 			end
 		    render_wizard
 		end

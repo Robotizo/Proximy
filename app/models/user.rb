@@ -85,6 +85,13 @@ class User < ApplicationRecord
   has_many :sent_invites, class_name: "NotificationEvent", foreign_key: "sender_id"
 
 
+
+  has_many :invitations_groups, class_name: "GroupInvite", foreign_key: "recipient_id"
+
+  has_many :sent_invites_groups, class_name: "GroupInvite", foreign_key: "sender_id"
+
+
+
   has_many :friendships
   has_many :friends, through: :friendships
 

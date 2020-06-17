@@ -3,6 +3,51 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+
+.invite{
+  width: 100%;
+  text-align: center;
+  /* padding-top: 61px; */
+  position: absolute;
+  top: 294px;
+}
+
+
+
+.inviteFriend{
+  background-color: white;
+  color: white;
+  border: 0px !important;
+  background-color: #6ba0ff;
+  width: 100%;
+  border-radius: 8px;
+  font-weight: 900;
+}
+
+.invitedFriend{
+    background-color: white;
+    color: white;
+    border: 0px !important;
+    background-color: #2eb930;
+    width: 100%;
+    border-radius: 10px;
+    font-weight: 900;
+    padding: 7px;
+}
+
+
+
+.invitedFriend:hover{
+  background-color: white;
+  color: white;
+border: 0px !important;
+    background-color: #2eb930;
+    width: 100%;
+  font-weight: 900;
+}
+
+
+
 .none{
     width: 200px;
     margin: 0 auto;

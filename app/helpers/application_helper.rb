@@ -8,6 +8,9 @@ module ApplicationHelper
 	  return "desktop"
 	end
 
+
+	
+
 	def show_photo(size)
     	Unsplash::Photo.find("tAKXap853rY")[:urls][size.to_sym]
   	end

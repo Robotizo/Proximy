@@ -1,6 +1,8 @@
  Rails.application.routes.draw do
 
 
+
+
   get 'auth/:provider/callback', to: 'sessions#create'
 
 
@@ -48,6 +50,14 @@
   
 
   resources :notification_events
+
+  resources :group_invites
+
+
+
+
+
+
   resources :locations
   resources :conversations, only: [:new, :create, :show, :index]
 

@@ -3013,6 +3013,11 @@ div.scrollMembersInterests .seeMore {
 
 
 @media screen and (max-width: 776px) {
+  .infoOnLocation{
+    font-size: 14px;
+    font-weight: 800;
+    padding-top: 3em;
+  }
   .discoverName{
     font-size: 14px;
   }
@@ -3274,7 +3279,7 @@ div.scrollMembersInterests .seeMore {
   }
 
   .fileBtnSubmit {
-     padding: 1rem 0px;
+     width: 100%;
   }
 
 
@@ -3285,8 +3290,9 @@ div.scrollMembersInterests .seeMore {
      
 
   #map{
-    border-radius: 0px !important;
-    height: 300px !important;
+    border-radius: 5px !important;
+    height: 150px !important;
+
   }
 
   .userDistance{
@@ -3318,7 +3324,7 @@ div.scrollMembersInterests .seeMore {
   .fixedState{
     right: 15px;
     bottom: 25px;
-    width: 130px;
+    width: 170px;
     text-align: center;
 
   }
@@ -3595,10 +3601,6 @@ div.scrollMembersInterests .seeMore {
   }
 
 
-  .mobileArea {
-
-    margin-top: -90px;
-  }
   .connArea {
     top: -84px;
     position: relative;

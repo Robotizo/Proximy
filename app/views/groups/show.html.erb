@@ -4,7 +4,7 @@
 
 <% content_for :head do %>
   <meta property="og:title" content="<%= @group.title %>" />
-  <meta property="og:image" content="<%= @group.image_url %>" />
+  <meta property="og:image" content="<%= @group.cover_image_url %>" />
   <meta property="og:description" content="<%= @group.description %>" />
 <% end %>
 
@@ -364,18 +364,7 @@
 
 
 
-<script type="text/javascript">
-$(function () { 
-  if ($(window).width() < 960) {
-     $(".mobileVE").removeClass("col-md-6");
-     $(".mobileVE").removeClass("userEvents");
 
-  }
-  else {
-    $(".deskVE").removeClass("scrollMembersEvents");
-  }
-});
-</script>
 
 
 <!-- Event Section Start -->
@@ -393,7 +382,7 @@ $(function () {
 
 <!-- Work area START Nov 18 -->
 
-<div class="scrollMembersEvents deskVE">
+<div class="deskVE">
 
       <% @group_events.each do |group_event| %>
 

@@ -1,0 +1,28 @@
+<%= form_for(@group_invites) do |f| %>
+
+
+
+
+
+  <div class="field">
+    <%= f.label :group_id %>
+    <%= f.collection_select(:group_id, @groups, :id, :title, {prompt: "Choose a Event"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :recipient_id %>
+    <%= f.collection_select(:recipient_id, @users, :id, :name, {prompt: "Choose a User"}) %>
+  </div>
+
+  
+
+  <div class="field">
+    <%= f.label :sender_id %>
+    <%= f.hidden_field :sender_id, value: current_user.id %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

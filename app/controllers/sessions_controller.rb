@@ -4,6 +4,7 @@ class SessionsController < Clearance::SessionsController
 
 	
 	def new
+		session[:test] = 'hi'
 	end
 
 	def create

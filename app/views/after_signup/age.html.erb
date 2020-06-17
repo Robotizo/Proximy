@@ -170,7 +170,7 @@
 
  
 <div class="fixedState is-disabled">
-  <%= f.button "Continue", class: "fileBtnSubmit is-disabled",   data: {disable_with: "<i class='fa fa-circle-o-notch fa-spin'></i> Building..."} %>
+  <%= f.button "Continue", class: "fileBtnSubmit is-disabled", disabled: true, data: {disable_with: "<i class='fa fa-circle-o-notch fa-spin'></i> Building..."} %>
 </div>
 
 
@@ -207,8 +207,11 @@
   
 $(document).ready( function(){
      $('#user_date_of_birth_2i, #user_date_of_birth_3i, #user_date_of_birth_1i').change( function() {
-                    $('.fileBtnSubmit').attr('disabled',false);
-                    $('.fixedState, .fileBtnSubmit').removeClass('is-disabled');
+        if($('#user_date_of_birth_2i').val() != '' && $('#user_date_of_birth_1i').val() != '' && $('#user_date_of_birth_3i').val() != ''){
+            $('.fileBtnSubmit').attr('disabled',false);
+            $('.fixedState, .fileBtnSubmit').removeClass('is-disabled');
+        }
+                  
             }
          );
     });

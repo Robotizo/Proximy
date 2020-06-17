@@ -8,6 +8,9 @@
 
 
 
+
+<% if mobile_device != "mobile" %>
+
 <div class="backButton">
   <%= link_to 'javascript:history.back()' do %>
         <%= image_tag("left-arrow.png", class: "leftArrow") %>
@@ -22,6 +25,7 @@
     <div class="tab-pane active" id="events" role="events-tab-pane" aria-labelledby="events-tab">
 
       <h2 class="topTitle2">Discover Events</h2>
+
 
 
       <div class="complete">
@@ -43,6 +47,14 @@
 
 </div>
 
+
+<% else %>
+
+    <%= render 'eventsIndexMobile' %>
+
+
+
+<% end %>
 <!-- 
 
 

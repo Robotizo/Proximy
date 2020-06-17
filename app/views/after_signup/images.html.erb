@@ -71,6 +71,9 @@
   .is-disabled{
     opacity: 0.5;
   }
+  .miniModuleArea{
+    padding-top: 50px;
+  }
 </style>
 
 
@@ -102,9 +105,13 @@
 
 
   @media screen and (max-width: 776px){
-  .avatarInfo{
-    margin-top: -70px;
-  }
+
+    .miniModuleArea{
+      padding-top: 10px;
+    }
+    .miniModule{
+      width: 100%;
+    }
     .noPadTemp{
     padding-right: 2px !important;
     padding-left: 0px;
@@ -185,12 +192,12 @@
 <%= form_for @user, url: wizard_path, method: :put do |f| %>
 
   <div class="col-md-2"></div>
-  <div class="col-md-4" style=" margin-top: 50px;">
+  <div class="col-md-4 miniModuleArea" >
     <%= render 'users/miniModule' %>
 
   </div>
 
-    <div class=" col-md-4 col-xs-12 noPad3" style=" margin-top: 50px;">
+    <div class=" col-md-4 col-xs-12 noPad3 miniModuleArea" >
 
      <span style="width: 200px;">
         <label class="btn btn-primary fileBtnDiv">
