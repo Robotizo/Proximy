@@ -156,6 +156,8 @@
   
   get 'chats/list_messages/:id', :to => 'chats#list_messages'
   get 'chats/ajax_messages', :to => 'chats#ajax_messages'
+  post 'chats/read_messages/:id', :to => 'chats#read_messages'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 

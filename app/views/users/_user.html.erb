@@ -1,7 +1,11 @@
 <%= stylesheet_link_tag "users", :media => "all" %>
 
 <% if user.id != current_user.id %>
+<% if user.has_unread_messages %>
+<div class="chat__contact--element has-unread-messages" data-id="<%= user.id %>">
+<% else %>
 <div class="chat__contact--element" data-id="<%= user.id %>">
+<% end %>
 	<div class="oneThird">
 		<%= image_tag(user.avatar_url(:thumb), class: "userImageChat") if user.avatar? %>
 	</div>
@@ -16,5 +20,7 @@
   
 </div>
 <% end %>
+
+
 
 

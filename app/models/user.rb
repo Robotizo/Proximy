@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   include Clearance::User
+  
+  attr_accessor :has_unread_messages
 
   validates :name, presence: true
   validates :last_name, presence: true

@@ -12,8 +12,6 @@ jQuery(document).on 'turbolinks:load', ->
   
   currentUser = $inputCurrentUser.val()
 
-
-    
   if true
     App.chat = App.cable.subscriptions.create {
       channel: 'ChatChannel'
@@ -42,7 +40,6 @@ jQuery(document).on 'turbolinks:load', ->
           # #   $(".messageAlert").fadeOut("1000");
           # # , 6000
 
-      
       if activeUser != -1
         if data['receiver_id'] == currentUser
           if data['sender_id'] == activeUser
@@ -54,15 +51,20 @@ jQuery(document).on 'turbolinks:load', ->
                 messageTemplate = "<div class='message align-left'><span class='receiverMessage'>#{data['message']}</span></div>"
               $messages.append messageTemplate
               $messages.animate { scrollTop: $(document).height() + "1000px" }, "slow"
+              # make message status as read
+              $.ajax '/chats/read_messages/' + data['message_id'],
+                type: 'POST'
+                dataType: 'json'
+                error: (jqXHR, textStatus, errorThrown) ->
+                    alert textStatus
+                success: (data, textStatus, jqXHR) ->
+                    console.log('success')
 
           else
             selector = ".chat__contact--element[data-id='#{data['sender_id']}']"
             $(selector).addClass('is-new-message')
+            $(selector).addClass('has_unread_messages')
 
-
-
-
-        
         if data['message']
           if data['sender_id'] == currentUser
 

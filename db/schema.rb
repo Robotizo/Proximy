@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200607063426) do
+ActiveRecord::Schema.define(version: 20200615230339) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -188,6 +188,7 @@ ActiveRecord::Schema.define(version: 20200607063426) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.text     "attachment_data"
+    t.boolean  "read_status"
   end
 
   create_table "notification_events", force: :cascade do |t|

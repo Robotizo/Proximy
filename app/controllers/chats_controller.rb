@@ -5,9 +5,7 @@ class ChatsController < ApplicationController
   before_action :get_notifications, only: %i[index]
   before_action :set_active_user, only: %i[list_messages ajax_messages]
   before_action :filter_page_number, only: %i[ajax_messages]
-  before_action :check, only: [:index]
-
-
+  # before_action :check, only: [:index]
 
   def check
     if signed_in?
@@ -22,9 +20,10 @@ class ChatsController < ApplicationController
 
   end
 
-
   def list_messages
     @messages = Message.users_messages(current_user, @active_user).last(10)
+    @unread_messages = Message.users_messages(current_user, @active_user).unread_messages
+
     render partial: 'list_messages', locals: { messages: @messages }
   end
 
@@ -33,7 +32,10 @@ class ChatsController < ApplicationController
     render partial: 'ajax_messages', locals: { messages: @messages }
   end
 
-
+  def read_messages
+    message = Message.find(params[:id])
+    message.read!
+  end
   # def test_active
   #   @test_active_user = User.find(params[:id])
   # end 
@@ -71,12 +73,19 @@ class ChatsController < ApplicationController
   def get_users
     filteredRelation = (current_user.following + current_user.followers)
     listOfContacts = current_user.friends + filteredRelation.uniq
-    @users = listOfContacts.sort_by &:updated_at
+
+    @users = User.all
+
+    @users.each do |user|
+      unread_messages_cnt = Message.users_messages(user, current_user).unread_messages.length
+
+      if unread_messages_cnt == 0
+        user.has_unread_messages = false
+      else
+        user.has_unread_messages = true
+      end
+    end
   end
-
-
-
-
 
   def get_notifications
     @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
