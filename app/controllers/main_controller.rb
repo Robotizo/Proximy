@@ -1,4 +1,14 @@
 class MainController < ApplicationController
+	before_action :check_mobile, only: [:index]
+
+
+
+  def check_mobile
+      if request.user_agent =~ /Mobile/
+        redirect_to events_path
+      end
+  end 
+
 
 	def index
 		if signed_in?
