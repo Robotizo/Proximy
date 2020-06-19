@@ -9,7 +9,7 @@
 
 
 
-<% if mobile_device != "mobile"  or mobile_device != "tablet" %>
+<% if !mobile? %>
 
 <div class="backButton">
   <%= link_to 'javascript:history.back()' do %>

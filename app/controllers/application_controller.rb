@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   after_action :set_vary_header
+  helper_method :mobile?
   include Clearance::Controller
 
 
@@ -45,6 +46,10 @@ class ApplicationController < ActionController::Base
 		      response.headers["Vary"] = "accept"
 		    end
   		end
+
+  		def mobile? # has to be in here because it has access to "request"
+	      request.user_agent =~ /\b(Android|iPhone|iPad|Windows Phone|Opera Mobi|Kindle|BackBerry|PlayBook)\b/i
+	    end
 
 
 end

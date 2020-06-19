@@ -39,7 +39,7 @@
   <body>
 
 
-<% if mobile_device != "mobile" %>
+<% if !mobile? %>
   <%= render "layouts/navDesk" %>
 <% end %>
 
