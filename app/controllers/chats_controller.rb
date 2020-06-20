@@ -23,6 +23,7 @@ class ChatsController < ApplicationController
   def list_messages
     @messages = Message.users_messages(current_user, @active_user).last(10)
     @unread_messages = Message.users_messages(current_user, @active_user).unread_messages
+    @unread_messages.update_all(read_status: true)
 
     render partial: 'list_messages', locals: { messages: @messages }
   end
