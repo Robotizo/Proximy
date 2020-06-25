@@ -11,6 +11,14 @@ class UsersController < ApplicationController
       end
   end 
 
+
+
+  def blocked
+    @user = current_user
+    @blockedUsers = current_user.blocks
+
+  end
+
   
   def countInterests
     @user = current_user
@@ -28,7 +36,7 @@ class UsersController < ApplicationController
 
 
 
-    @users = User.all.where.not(avatar: [nil, ""]).where.not(image: [nil, ""]).sort_by {|user| user.userInterests(current_user) + user.ccLocation(current_user.latitude, current_user.longitude) }.reverse
+    @users = User.all.where.not(avatar: [nil, ""]).where.not(image: [nil, ""]).where.not(id: [current_user.blocks.ids]).where.not(id: [current_user.blockers.ids]).sort_by {|user| user.userInterests(current_user) + user.ccLocation(current_user.latitude, current_user.longitude) }.reverse
 
 
 
@@ -110,6 +118,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    $new_unread_messages_cnt = Message.current_user_unread(current_user).unread_messages.length
     @users = User.all.sort_by {|user| user.userInterests(current_user) + user.ccLocation(current_user.latitude, current_user.longitude) }.reverse
     @user = current_user
     @latTest = params[:lat]
@@ -125,7 +134,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
 
-    
+    $new_unread_messages_cnt = Message.current_user_unread(current_user).unread_messages.length
 
     @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
     @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)

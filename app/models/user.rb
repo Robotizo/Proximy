@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   include Clearance::User
 
+  attr_accessor :has_unread_messages
+
   validates :name, presence: true
   validates :last_name, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -63,6 +65,17 @@ class User < ApplicationRecord
 
   has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
+
+
+
+
+  has_many :blocked_relationships_active, class_name: "BlockingRelationship", foreign_key: "blocker_id", dependent: :destroy
+  has_many :blocks, through: :blocked_relationships_active, source: :blocked
+
+
+  has_many :blocked_relationships_passive, class_name: "BlockingRelationship", foreign_key: "blocked_id", dependent: :destroy
+  has_many :blockers, through: :blocked_relationships_passive, source: :blocker
+
 
 
 
@@ -142,6 +155,21 @@ class User < ApplicationRecord
     def is_friends?(other_user)
       inverse_friends.include?(other_user)
     end 
+
+
+
+    def block(other_user)
+      blocks << other_user
+    end
+
+    def unblock(other_user)
+      blocks.delete(other_user)
+    end
+
+    def blocked?(other_user)
+      blocks.include?(other_user)
+    end
+
 
 
     def follow(other_user)

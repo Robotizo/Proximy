@@ -3,6 +3,9 @@
 
 
 
+  resources :blocking_relationships, only: [:create, :destroy]
+
+  
   get 'auth/:provider/callback', to: 'sessions#create'
 
 
@@ -17,6 +20,8 @@
 
 
   resources :test_users
+
+
 
 
 
@@ -127,6 +132,7 @@
       get :discover
       put 'countInterests'
       put 'countDismiss'
+
     end
     
     member do
@@ -134,6 +140,7 @@
       get :interests
       get :interestsMenu
       get :location
+      get :blocked
       get :avatar
       patch :save_avatar
       get :confirm_email
@@ -167,6 +174,7 @@
   get 'chats/user_info/:id', :to => 'chats#list_user'
   get 'chats/list_messages/:id', :to => 'chats#list_messages'
   get 'chats/ajax_messages', :to => 'chats#ajax_messages'
+  post 'chats/read_messages/:id', :to => 'chats#read_messages'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 

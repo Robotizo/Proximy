@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200615011312) do
+ActiveRecord::Schema.define(version: 20200618215928) do
+
+  create_table "blocking_relationships", force: :cascade do |t|
+    t.integer  "blocker_id"
+    t.integer  "blocked_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blocked_id"], name: "index_blocking_relationships_on_blocked_id"
+    t.index ["blocker_id", "blocked_id"], name: "index_blocking_relationships_on_blocker_id_and_blocked_id", unique: true
+    t.index ["blocker_id"], name: "index_blocking_relationships_on_blocker_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -193,9 +203,10 @@ ActiveRecord::Schema.define(version: 20200615011312) do
     t.integer  "sender_id"
     t.integer  "receiver_id"
     t.text     "body"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.text     "attachment_data"
+    t.boolean  "read_status",     default: false
   end
 
   create_table "notification_events", force: :cascade do |t|

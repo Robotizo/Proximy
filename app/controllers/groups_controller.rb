@@ -75,10 +75,9 @@ class GroupsController < ApplicationController
   def index
 
 
-
-
     @groups = Group.all.sort_by {|group| group.groupsInterest(current_user)}.reverse
     @user = current_user
+    $new_unread_messages_cnt = Message.current_user_unread(current_user).unread_messages.length
 
     followingGroupsIds = @user.followingG.map(&:id)
     @groupsFollow = Group.find(params = followingGroupsIds).sort_by &:updated_at
@@ -103,8 +102,9 @@ class GroupsController < ApplicationController
     
     @group_events = @group.events.where('event_date >= ?', Date.today).sort_by &:event_date
     @interests = Interest.all
-    followingGroupIds = @group.followersG.map(&:id)
+    followingGroupIds = @group.followersG.where.not(id: [current_user.blocks.ids]).where.not(id: [current_user.blockers.ids]).map(&:id)
     @groupFollowers = User.find(params = followingGroupIds).sort_by &:updated_at
+    $new_unread_messages_cnt = Message.current_user_unread(current_user).unread_messages.length
 
     @fullyFriends = current_user.friends
 
@@ -125,6 +125,7 @@ class GroupsController < ApplicationController
   # GET /groups/new
   def new
     @group = Group.new
+    $new_unread_messages_cnt = Message.current_user_unread(current_user).unread_messages.length
   end
 
   # GET /groups/1/edit

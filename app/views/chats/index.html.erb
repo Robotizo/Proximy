@@ -13,8 +13,12 @@
   <!-- chat__contact--panel -->
   <div class="chat__main--sub-section chat__contact--panel">
     <div class="contactMargin">
-      <%= render @users %>
 
+      <%= render @users %>
+ 
+
+
+     
       <div class="proximyLogo">
         <%= image_tag("logoIcon.png", class: "logoMain") %>
       </div>
@@ -130,10 +134,16 @@
     $('.chat__contact--element').on('click', (e) => {
       var length = $messages.children().length
 
+
+      $('.messageRed').remove();
+
+
       const $htmlBody = $('html, body')
       const $selectedContactElement = $(e.currentTarget)
       const selectedUserId = $selectedContactElement.data('id')
       // const isFriendRequest = $selectedContactElement.data('is-friend-request')
+     
+
       jQuery.ajaxSetup({
         beforeSend: function() {
            $('#loader').show();
@@ -275,6 +285,8 @@
 
       
       let pageNumber = 0;
+
+       $selectedContactElement.removeClass('has-unread-messages');
 
 
      

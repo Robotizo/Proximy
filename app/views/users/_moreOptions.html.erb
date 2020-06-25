@@ -1,0 +1,27 @@
+
+
+    <% if @user != current_user %>
+      <div class="dropdown user_options noselect">
+        <div class="more_options dropdown-toggle" type="button" data-toggle="dropdown">
+          ...
+        </div>
+        <ul class="dropdown-menu ">
+          <li>
+           <%= render 'block' %>
+          </li>
+          
+        </ul>
+      </div>
+    <% else %>
+    <div class="dropdown user_options noselect">
+        <div class="more_options dropdown-toggle" type="button" data-toggle="dropdown">
+          ...
+        </div>
+        <ul class="dropdown-menu ">
+          <li>
+            Blocked Users
+          </li>
+          
+        </ul>
+      </div>
+    <% end %>

@@ -40,6 +40,9 @@
 
     <div class="col-md-12 col-xs-12 followBtn connArea2 text-center">
 
+   <% if current_user.id != @user.id %>
+    <%= render 'moreOptions' %>
+  <% end %>
 
     <% if current_user.id == @user.id %>
 
@@ -54,6 +57,9 @@
               <% end %>
 
             </div>
+
+
+
 
 
 
@@ -131,9 +137,6 @@
     <% end %>
 
     <!-- Message Request END -->
-
-
-
 
 
 
@@ -297,6 +300,8 @@
 
 
         <div class="col-md-12 col-xs-12 followBtn connArea2 text-center">
+
+           <%= render 'moreOptions' %>
 
 
         <% if current_user.id == @user.id %>

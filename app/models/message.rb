@@ -1,6 +1,6 @@
 class Message < ApplicationRecord
   belongs_to :sender, class_name: "User", foreign_key: "sender_id"
-  belongs_to :reeiver, class_name: "User", foreign_key: "receiver_id"
+  belongs_to :receiver, class_name: "User", foreign_key: "receiver_id"
 
   validates :body, presence: true, unless: :attachment_data
 
@@ -11,6 +11,16 @@ class Message < ApplicationRecord
 
 
   scope :sent_messages, ->(sender, receiver) { where(sender_id: sender.id, receiver_id: receiver.id) }
+
+
+
+  scope :received_messages, -> (receiver) { where(receiver_id: receiver.id) }
+
+
+  scope :unread_messages, ->() { where(read_status: false) }
+
+
+  
   scope :between_range, ->(from, to) { where('messages.id >= ?', from).where('messages.id < ?', to) }
   scope :ordered, -> { order(:id) }
 
@@ -22,6 +32,12 @@ class Message < ApplicationRecord
   def attachment_name
     @attachment_name
   end
+
+
+  def self.current_user_unread(receiver)
+    self.received_messages(receiver)
+  end 
+
     
   def self.users_messages(sender, receiver)
     self.sent_messages(sender, receiver).or(self.sent_messages(receiver, sender)).ordered
@@ -29,6 +45,10 @@ class Message < ApplicationRecord
 
   def self.base_index
     self.order(:id).first.id
+  end
+
+  def read!
+    self.update_attribute(:read_status, true)
   end
 
   private

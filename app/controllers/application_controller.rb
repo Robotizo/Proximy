@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
 
 
 
+
+
+
+
     def update_friendship
     	@friendship = Friendship.find(params[:id])
     	@friendship.update_attribute(:status, "accepted")
@@ -47,9 +51,10 @@ class ApplicationController < ActionController::Base
 		    end
   		end
 
-  		def mobile? # has to be in here because it has access to "request"
+
+	   def mobile? # has to be in here because it has access to "request"
 	      request.user_agent =~ /\b(Android|iPhone|iPad|Windows Phone|Opera Mobi|Kindle|BackBerry|PlayBook)\b/i
-	    end
+	   end
 
 
 end

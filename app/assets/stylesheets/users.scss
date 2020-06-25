@@ -3,6 +3,25 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+
+.user_options{
+position: absolute !important;
+    top: -316px !important;
+    font-size: 30px;
+    left: 14px;
+}
+
+.more_options{
+    background-color: white;
+    color: #508cf7;
+   
+    border-radius: 300px;
+    line-height: 21px;
+    height: 40px !important;
+    width: 40px !important;
+}
+
+
 option{
   background-color: green; 
 }

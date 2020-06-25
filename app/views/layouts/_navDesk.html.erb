@@ -131,7 +131,9 @@
          <div class="textHover">
             <%= image_tag("notifications.png", class: "ImageNav") %>   
             <% if @userFriendships.present? or @eventNotifs.present? %>
-              <%= image_tag("redCircle.png", class: "notificationsNav") %>   
+               <span class="notificationsNav">
+              <%= image_tag("redCircle.png", class: "redChats") %>  
+            </span>   
             <% end %>
           <span class="textHoverShow">Notifications</span>
         </div>
@@ -143,10 +145,17 @@
 
 
     <%= link_to chats_path, method: :get, class: "specialA dispNone" do %>
-      <div class="navTitleEnd1 <%= 'activeNav' if current_page?(chats_path)  %>">
+      <div class="navTitleEnd1 chatsTab <%= 'activeNav' if current_page?(chats_path)  %>">
 
          <div class="textHover">
-            <%= (image_tag("chat.png", class: "ImageNav")) %>
+          <%= (image_tag("chat.png", class: "ImageNav t1")) %>
+          <span class="notificationsNavChats"></span>
+            <% unless $new_unread_messages_cnt == 0 %>
+            <span class="notificationsNav">
+              <%= image_tag("redCircle.png", class: "redChats messageRed") %>  
+            </span> 
+            <% end %>
+            
             <span class="textHoverShow">Chats</span>
         </div>
       </div>

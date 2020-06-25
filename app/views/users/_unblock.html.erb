@@ -1,0 +1,22 @@
+
+
+
+
+
+<style type="text/css">
+	.unblockButton{
+		width: 100%;
+		font-weight: 600;
+		color: #508cf7;
+	}
+
+
+
+</style>
+
+<%= form_for(current_user.blocked_relationships_active.find_by(blocked_id: user.id),html: { method: :delete } ) do |f| %>
+  <%= f.submit "Unblock", class: "btn unblockButton" %>
+<% end %>
+
+
+

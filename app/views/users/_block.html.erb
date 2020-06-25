@@ -1,0 +1,10 @@
+<%= stylesheet_link_tag "users", :media => "all" %>
+
+<%= form_for(current_user.blocked_relationships_active.build, method: :post) do |f| %>
+  <%= hidden_field_tag :blocked_id, @user.id %>
+  <%= submit_tag "Block User", class: "itemButton" %>
+<% end %>
+
+
+
+

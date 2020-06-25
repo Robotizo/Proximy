@@ -59,6 +59,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+    $new_unread_messages_cnt = Message.current_user_unread(current_user).unread_messages.length
     @events = Event.all.sort_by {|event| event.eventsInterest(current_user)}.reverse
     @user = current_user
     @user_events = @user.events.order(:event_date)
@@ -86,13 +87,14 @@ class EventsController < ApplicationController
 
 
     if signed_in?
+      $new_unread_messages_cnt = Message.current_user_unread(current_user).unread_messages.length
       @notification_event = NotificationEvent.new
       @event_posts = @event.event_posts
       @eventInvites = NotificationEvent.where(event_id: @event.id)
       @fullyFriends = current_user.friends
       @eventNotifs = EventNotif.all
       @interests = Interest.all
-      followingEventIds = @event.followersE.map(&:id)
+      followingEventIds = @event.followersE.where.not(id: [current_user.blocks.ids]).where.not(id: [current_user.blockers.ids]).map(&:id)
       @eventFollowers = User.find(params = followingEventIds).sort_by &:updated_at
       @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
       @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
@@ -110,6 +112,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    $new_unread_messages_cnt = Message.current_user_unread(current_user).unread_messages.length
   end
 
   # GET /events/1/edit
