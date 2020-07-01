@@ -121,7 +121,7 @@ body{
 
       <div id="movie-area">
 
-        <%= video_tag(["Proximy.mp4"], controls: false, autoplay: true, muted: true, loop: true, class: "lp_main_image", playsinline: true) %>
+        <%= video_tag(["https://proximyapp.s3.amazonaws.com/videos/Proximy+Rnd+2.mp4"], controls: false, autoplay: true, muted: true, loop: true, class: "lp_main_image", playsinline: true) %>
 
         <div class="textWithin fadeIn animated delay-1s">New experiences start here</div>
         <div class="textWithin fadeIn animated delay-1s"><%= button_to "Get Started", sign_in_path, method: :get, class: "loginButton" %></div>
@@ -216,7 +216,7 @@ body{
 
   <div class="section">
     <div class="lp_section">
-      <div class="col-md-7 " data-aos="fade-up">
+      <div class="col-md-7 col-xs-12" data-aos="fade-up">
         <%= image_tag("lp_main.png", class: "lp_3") %>
       </div>
       <div class="col-md-5">

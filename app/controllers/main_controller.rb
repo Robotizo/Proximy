@@ -4,9 +4,11 @@ class MainController < ApplicationController
 
 
   def check_mobile
+  	if signed_in?
       if request.user_agent =~ /Mobile/
         redirect_to events_path
       end
+    end
   end 
 
 
