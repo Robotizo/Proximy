@@ -80,11 +80,11 @@ body{
     var scrollWidth = $('.scrollmenu').width();
     $('.scrollmenu').animate({ scrollLeft: scrollWidth + (scrollWidth + 100)},
       {
-        duration: 25000,
+        duration: 30000,
         complete: function (){
           $('.scrollmenu').animate({ scrollLeft: 0 },
           {
-            duration: 25000, 
+            duration: 30000, 
             complete: function () {
               animateThis();
             }
@@ -121,7 +121,7 @@ body{
 
       <div id="movie-area">
 
-        <%= video_tag(["https://proximyapp.s3.amazonaws.com/videos/Proximy+Rnd+2.mp4"], controls: false, autoplay: true, muted: true, loop: true, class: "lp_main_image", playsinline: true) %>
+        <%= video_tag(["https://proximyapp.s3.amazonaws.com/videos/proximy.mp4"], controls: false, autoplay: true, muted: true, loop: true, class: "lp_main_image", playsinline: true) %>
 
         <div class="textWithin fadeIn animated delay-1s">New experiences start here</div>
         <div class="textWithin fadeIn animated delay-1s"><%= button_to "Get Started", sign_in_path, method: :get, class: "loginButton" %></div>
