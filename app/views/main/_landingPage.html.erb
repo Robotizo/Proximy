@@ -126,7 +126,7 @@ body{
 
       <div id="movie-area">
 
-        <%= video_tag(["https://proximyapp.s3.amazonaws.com/videos/proximy.mp4"], controls: false, autoplay: true, muted: true, loop: true, class: "lp_main_image", playsinline: true) %>
+        <%= video_tag(["https://proximyapp.s3.amazonaws.com/videos/proximyLandingVideo.mp4"], controls: false, autoplay: true, muted: true, loop: true, class: "lp_main_image", playsinline: true) %>
 
         <div class="textWithin fadeIn animated delay-1s">New experiences start here</div>
         <div class="textWithin fadeIn animated delay-1s"><%= button_to "Get Started", sign_in_path, method: :get, class: "loginButton" %></div>
@@ -213,7 +213,7 @@ body{
 <hr>
 </div>
 
-<div class="container">
+<div class="container noPad3">
 
 
 <div class="scrollSec">
@@ -222,9 +222,9 @@ body{
   <div class="section">
     <div class="lp_section">
       <div class="col-md-7 col-xs-12" data-aos="fade-up">
-        <%= image_tag("lp_main.png", class: "lp_3") %>
+        <%= image_tag("https://proximyapp.s3.amazonaws.com/images/lp_main.jpg", class: "lp_3") %>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-5 col-xs-12">
         <div class="lp_title_sub">
          Discover like-minded people near you based on common interests
         </div>
@@ -241,14 +241,14 @@ body{
 
   <div class="lp_section switchPos">
 
-    <div class="col-md-5">
+    <div class="col-md-5 col-xs-12">
       <div class="lp_title_sub">
         Start a conversation with new people 
       </div>
     </div>
 
-      <div class="col-md-7 " data-aos="fade-up">
-      <%= image_tag("lp_message.png", class: "lp_3") %>
+      <div class="col-md-7 col-xs-12" data-aos="fade-up">
+      <%= image_tag("https://proximyapp.s3.amazonaws.com/images/lp_message.jpg", class: "lp_3") %>
     </div>
     
   </div>
@@ -261,11 +261,11 @@ body{
 
     <div class="lp_section">
 
-      <div class="col-md-7" data-aos="fade-up">
-        <%= image_tag("lp_events.png", class: "lp_3") %>
+      <div class="col-md-7 col-xs-12" data-aos="fade-up">
+        <%= image_tag("https://proximyapp.s3.amazonaws.com/images/lp_events.jpg", class: "lp_3") %>
       </div>
 
-      <div class="col-md-5">
+      <div class="col-md-5 col-xs-12">
         <div class="lp_title_sub">
           Create and attend personalized events with people near you
         </div>
@@ -286,7 +286,7 @@ body{
 
 
 
-      <div class="col-md-5">
+      <div class="col-md-5 col-xs-12">
         <div class="lp_title_sub">
           Create and join personalized groups 
         </div>
@@ -294,8 +294,8 @@ body{
         
       </div>
 
-      <div class="col-md-7" data-aos="fade-up">
-        <%= image_tag("lp_groups.png", class: "lp_3") %>
+      <div class="col-md-7 col-xs-12" data-aos="fade-up">
+        <%= image_tag("https://proximyapp.s3.amazonaws.com/images/lp_groups.jpg", class: "lp_3") %>
       </div>
       
     </div>
@@ -359,11 +359,11 @@ body{
 <!-- Footer -->
 <footer class="lp_footer">
 <div class="lp_footer_content container noPad3" >
-  <div class="col-md-2 col-xs-12">
+  <div class="col-md-2 col-xs-12 noPad3">
     <%= image_tag("logoFooter.png", class: "logoFooter") %>
 
   </div>
-  <div class="col-md-10 col-xs-12">
+  <div class="col-md-10 col-xs-12 noPad3">
     <div class="col-md-4 col-xs-12 text-left">
       <div class="legalTitle" style="margin-top: 15px;">
         Legal

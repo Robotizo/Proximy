@@ -22,7 +22,15 @@ Rails.application.config.assets.precompile += %w( jquery.waitforimages.js )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+
+# Main Section
 Rails.application.config.assets.precompile += %w( main.css )
+Rails.application.config.assets.precompile += %w( main_mobile.css )
+
+
+
+
+
 Rails.application.config.assets.precompile += %w( users.css )
 Rails.application.config.assets.precompile += %w( groups.css )
 Rails.application.config.assets.precompile += %w( events.css )
