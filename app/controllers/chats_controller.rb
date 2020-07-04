@@ -7,8 +7,6 @@ class ChatsController < ApplicationController
   before_action :filter_page_number, only: %i[ajax_messages]
   before_action :check, only: [:index]
 
-
-
   def check
     if signed_in?
       if !current_user.avatar? & !current_user.image?
@@ -17,7 +15,6 @@ class ChatsController < ApplicationController
     end
   end 
 
-
   def index
     @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
       @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
@@ -25,14 +22,12 @@ class ChatsController < ApplicationController
 
   end
 
-
   def list_messages
     @messages = Message.users_messages(current_user, @active_user).last(10)
     @unread_messages = Message.users_messages(current_user, @active_user).unread_messages
     @unread_messages.update_all(read_status: true)
     render partial: 'list_messages', locals: { messages: @messages }
   end
-
 
   def ajax_messages
     @messages = Message.users_messages(current_user, @active_user).between_range(@start, @last)
@@ -47,7 +42,6 @@ class ChatsController < ApplicationController
   def list_user
     selected_user = User.find(params[:id])
 
-
     render json: {
       id: selected_user.id,
       name: selected_user.name,
@@ -58,8 +52,25 @@ class ChatsController < ApplicationController
     }
   end
 
+  def set_online
+    if current_user.is_offline?
+      current_user.online!
+      send_status_changed_notification(true)
+    end
+  end
+
+  def set_offline
+    if current_user.is_online?
+      current_user.offline!
+      send_status_changed_notification(false)
+    end
+  end
 
   private
+
+  def send_status_changed_notification(status)
+    ActionCable.server.broadcast 'user_status_channel', user_id: current_user.id, status: status
+  end
 
   def filter_page_number
     @page_number = params[:page_number]
@@ -90,8 +101,6 @@ class ChatsController < ApplicationController
   # Display only friends and followers for now
   # TODO (Andy Lee): Consider and implement messaing request & limit feature for users 
   def get_users
-
-
     filteredRelation = (current_user.following + current_user.followers)
     listOfContacts = (current_user.friends + filteredRelation).uniq.map(&:id)
 
@@ -107,57 +116,9 @@ class ChatsController < ApplicationController
         user.has_unread_messages = true
       end 
     end
-
   end
-
-
-
-
 
   def get_notifications
     @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
