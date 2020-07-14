@@ -1,0 +1,123 @@
+
+<!-- Event Section Start -->
+
+<div class="eventsSection">
+
+
+<div class="col-md-12 noPad3Desk">
+<div class="col-md-6 noPad3Desk">
+  <div class="col-md-6 noPad3Desk">
+    
+    <div class="titleSec">Upcoming Events</div>
+  </div>
+
+  <% if current_user == @group.user %>
+
+    <div class="col-md-6 noPad3Desk">
+       <%= button_to "Create event", new_event_path, method: :get, class: "btn btn-admin-spacing" %>
+  </div>
+
+  <% end %>
+</div>
+</div>
+     
+
+
+    <% if !@group_events.empty? %>
+
+<!-- Work area START Nov 18 -->
+
+      <%= render 'groupEvents' %>
+
+
+
+
+
+<!-- Work area END Nov 18 -->
+    <% else %>
+      <div class="noFollowSec">
+        <div class="noFollowSecText">There are no upcoming events.</div>
+      </div>
+    <% end %>
+
+</div>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$(function () { 
+  if ($(window).width() < 960) {
+     $(".mobileVU").removeClass("col-md-3");
+     $(".mobileVU").removeClass("text-center");
+
+
+  }
+  else {
+    $(".deskVU").removeClass("scrollMembersUsers");
+  }
+});
+</script>
+
+
+
+<div class="newsfeed">
+
+
+
+    <div class="titleSec">Group Members</div>
+
+
+
+  <div class="scrollMembersUsers deskVU ">
+    <% if !@groupFollowers.empty? %> 
+      <%  @groupFollowers.last(8).reverse.each do |groupFollower| %>
+
+      <span class="col-md-3 text-center mobileVU">
+
+      <%= link_to groupFollower, method: :get, class: "specialA" do %>
+  
+        <div class="followersSec">
+        
+            <div class="eImage">
+              <div class="followerImageSec"><%= image_tag(groupFollower.avatar_url(:thumb), class: "groupImage2") if groupFollower.avatar? %></div>
+              <div class="followerNameSec"><%= truncate(groupFollower.name.gsub(/\s.+/, ''), length: 20) %></div>
+            </div>
+        
+        </div>
+  
+      <% end %>
+    </span>
+
+      <% end %>
+
+
+    <% else %>
+      <div class="noFollowSec">
+        <div class="noFollowSecText">This group has no members.</div>
+      </div>
+    <% end %>
+
+</div>
+
+
+
+
+
+
+
+    <div class="laterPostBox2">
+
+      <div class="showAllPosts" data-toggle="modal" data-target="#show-users"><button type="button" class="btn btnShowAll">Show Users</button></div>
+    </div>
+
+
+</div>
+
+
+    

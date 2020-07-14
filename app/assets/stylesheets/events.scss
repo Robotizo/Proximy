@@ -3,6 +3,105 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 
+
+
+
+/* Group Hosting Start */
+
+.slick-list{
+  padding: 2px !important; 
+}
+
+.moduleGroups{
+  width: 590px;
+}
+
+.groupHostingTitle{
+  font-size: 16px;
+  font-weight: 900;
+  padding: 15px;
+  text-align: left;
+}
+
+
+
+.groupModule {
+  float: left;
+  margin-bottom: 30px;
+  box-shadow: 0px 0px 4px 0px #e2e2e2;
+  border-radius: 11px;
+  background-color: #f3f7fb;
+  width: 100%;
+}
+
+
+.groupsSelection{
+  padding: 15px;
+  padding-top: 0px;
+
+}
+
+
+.groupBox{
+    height: auto;
+    width: 180px;
+    background-color: white;
+    margin: 5px;
+    box-shadow: 0px 0px 2px 0px #bdbdbd;
+    border-radius: 7px;
+}
+
+
+.groupBox:focus{
+  outline: none !important;
+}
+
+
+
+
+.groupBox-coverimage{
+  width: 100%;
+  object-fit: cover;
+  height: 85px;
+  border-radius: 7px 7px 0px 0px;
+
+}
+
+
+.groupBox-image{
+
+    width: 65px;
+
+    object-fit: cover;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0px 0px 2px 0px #bdbdbd;
+}
+
+.groupBox-infoarea{
+  position: relative;
+  top: -25px;
+}
+
+
+.groupBox-title{
+  margin-top: 10px;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+
+
+
+
+/* Group Hosting End */
+
+
+
+
+
+
 /* Select Panel Start */
 
 
@@ -739,7 +838,6 @@ div.scrollMembersEvents .seeMore {
   background-color: #f3f7fb;
   width: 100%;
   padding-bottom: 20px;
-
 }
 
 .ImageIDerComm{

@@ -140,116 +140,19 @@ $('.chatsTab').click(function () {
 
 </script>
 
-    <div id="mySidenav2" class="sidenav2">
+<!--     <div id="mySidenav2" class="sidenav2">
 
       <div>
         <span class="sideTitle2" href="javascript:void(0)">Create</span>
         <a href="javascript:void(0)" class="closebtn2" onclick="closeNav2()"> &times;</a>
       </div>
       
-<div class="overallCreate">
-
-      <%= link_to new_event_path, class: "specialA navElement" do %>
-        <div class="menuSec"> 
-            <span class="menuElements">
-              <%= image_tag("event.png", class: "ImageNavB") %>
-            </span>
-              <%= label_tag "Create Event", nil, class: "ImageNavB" %>
-        </div> 
-      <% end %>
-
-            <%= link_to new_group_path, class: "specialA navElement" do %>
-        <div class="menuSec"> 
-            <span class="menuElements">
-              <%= image_tag("groups.png", class: "ImageNavB") %>
-            </span>
-              <%= label_tag "Create Group", nil, class: "ImageNavB" %>
-        </div> 
-      <% end %>
 
 
 
-  </div>
+    </div> -->
 
 
-    </div>
-
-    <div class="mobNav">
-        <nav class="bottomNav">
-       
-
-          <% if session[:user_id] %>
-
-          <span style="cursor:pointer" onclick="openNav2()" >
-            <div class="navTitleEndMob">
-              <%= image_tag("create.png", class: "ImageNavB") %>
-                
-            </div>
-          </span>
-
-          <%= link_to groups_path, class: "specialA" do %>
-            <div class="navTitleEndMob  <%= 'activeNav' if current_page?(groups_path) or current_page?(mygroups_groups_path) %>">
-              <% if current_page?(groups_path) %>
-                <%= image_tag("groupsActive.png", class: "ImageNavB") %>
-              <% else %>
-                <%= image_tag("groups.png", class: "ImageNavB") %>
-              <% end %>
-                
-            </div>
-          <% end %>
-
-
-          <%= link_to root_path, class: "specialA" do %>
-            <div class="navTitleEndMob  <%= 'activeNav' if current_page?(root_path) %>">
-            <% if current_page?(root_path) %>
-              <%= image_tag("homeActive.png", class: "ImageNavB") %>
-            <% else %>
-              <%= image_tag("home.png", class: "ImageNavB") %>
-            <% end %>
-                
-            </div>
-          <% end %>
-
-
-
-          <%= link_to events_path, class: "specialA" do %>
-            <div class="navTitleEndMob  <%= 'activeNav' if current_page?(events_path) or current_page?(myevents_events_path) %>">
-              <% if current_page?(events_path) %>
-                <%= image_tag("eventActive.png", class: "ImageNavB") %>
-              <% else %>
-                <%= image_tag("event.png", class: "ImageNavB") %>
-              <% end %>
-                
-            </div>
-          <% end %>
-
-
-          <%= link_to notifications_path, class: "specialA" do %>
-            <div class="navTitleEndMob <%= 'activeNav' if current_page?(notifications_path) %>">
-              <% if current_page?(notifications_path) %>
-                <%= image_tag("notificationsActive.png", class: "ImageNavB") %>
-                <% if @userFriendships.present? or @eventNotifs.present? %>
-                  <%= image_tag("redCircle.png", class: "notificationsNav") %>   
-                <% end %>
-              <% else %>
-                <%= image_tag("notifications.png", class: "ImageNavB") %>
-                <% if @userFriendships.present? or @eventNotifs.present? %>
-                  <%= image_tag("redCircle.png", class: "notificationsNav") %>   
-                <% end %>
-              <% end %>
-                
-            </div>
-          <% end %>
-
-
-          <% end %>
-
-
-
-
-   
-      </nav>
-    </div>
 
 
   </body>

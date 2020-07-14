@@ -1,10 +1,12 @@
-<%= form_for(group_post) do |f| %>
-  <% if group_post.errors.any? %>
+<%= stylesheet_link_tag "posts", :media => "all" %>
+
+<%= form_for @group_post, remote: true do |f| %>
+  <% if @group_post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(group_post.errors.count, "error") %> prohibited this group_post from being saved:</h2>
 
       <ul>
-      <% group_post.errors.full_messages.each do |message| %>
+      <% @group_post.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,42 +14,28 @@
   <% end %>
 
 
-<div class="extraInf">
-  <div class="s1">
-    <%= image_tag(@group.image_url(:thumb), class: "userImage") if @group.image? %>
-   
-  </div>
 
-
-   <div class="eventName"><%= @group.title %></div>
-</div>
 
 
 
     <%= f.hidden_field(:group_id, value: params[:group_id]) %>
 
-    <div class="s2">
-
-      <%= f.text_area :content, class: "form-control reduxForm", placeholder: "Make an announcement..." %>
 
 
+   <div class="col-md-8 noPad3Desk">
 
-<label class="btn btn-primary fileBtnDiv">
-    <div><%= f.file_field :image, class: "fileBtn form-control", id: "filetag" %></div>
-     Upload an Image
-</label>
+      <%= f.text_area :content, class: "form-control reduxForm", placeholder: "Ask questions, write comments, etc." , required: true %>
 
 
-
-    <img src="" id="preview">
-     
 </div>
 
 
-         
 
-  <div class="actions col-md-12 create">
-    <%= f.submit "Share", class: "fileBtnSubmit" %>
+
+
+
+  <div class=" col-md-4 noPad3Desk">
+    <%= f.button "Share", class: "fileBtnSubmit", data: {disable_with: "<i class='fa fa-circle-o-notch fa-spin'></i> Building..."} %>
   </div>
 <% end %>
 
@@ -56,6 +44,7 @@
 
 
 
+<!--
 
 <script>
 var fileTag = document.getElementById("filetag"),
@@ -81,3 +70,5 @@ function changeImage(input) {
 
   
 </script>
+
+-->

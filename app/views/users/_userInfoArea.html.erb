@@ -10,7 +10,7 @@
 
 
       
-          <a href="<%= @user.image_url %>" class="lazy-load replace marginSetsA">
+          <a href="<%= @user.image_url(:event) %>" class="lazy-load replace marginSetsA">
                 <%= image_tag(@user.image_url(:preview), class: "eventImageDisplay preview") if @user.image? %>
            </a>
 
@@ -121,7 +121,7 @@
     <% if current_user.following?(@user) %>
     
           <div class="col-md-4 col-xs-6 noPad3 text-center">
-              <%= link_to chats_path, method: :get, class: "specialA" do %>
+              <%= link_to chats_path, method: :get, class: "specialA" do %> 
 
                 <%= image_tag("message.png", class: "iconImage") %>
                 <div class="textOps">

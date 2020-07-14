@@ -32,11 +32,14 @@ class GroupPostsController < ApplicationController
 
     respond_to do |format|
       if @group_post.save
+        format.js
         format.html { redirect_to @group_post.group, notice: 'Your post was successfully created.' }
         format.json { render :show, status: :created, location: @group_post }
+    
       else
         format.html { render :new }
         format.json { render json: @group_post.errors, status: :unprocessable_entity }
+
       end
     end
   end

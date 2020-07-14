@@ -1,0 +1,21 @@
+<%= stylesheet_link_tag "users", :media => "all" %>
+
+<%= form_for(current_user.active_relationships.build, method: :post) do |f| %>
+  <%= hidden_field_tag :followed_id, @group.user.id %>
+  <%= button_tag(class: "messageAdminBtn") do %>
+
+     <div class="col-md-2 noPad3Desk text-left">
+
+      <%= image_tag(@group.user.avatar_url(:thumb), class: "organizerAv ") %>
+       
+     </div>
+      <div class="col-md-9" style="margin-top: 17px; font-size: 12px;">
+        Send message to group leader
+     </div>
+
+    <% end %>
+<% end %>
+
+
+
+

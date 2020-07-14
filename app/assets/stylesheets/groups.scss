@@ -5,6 +5,181 @@
 
 
 
+
+
+
+
+/* Post Area Start */
+
+.moduleGroups{
+  background-color: white;
+    float: left;
+    width: 100%;
+}
+
+.event_post_area{
+  margin-top: 20px;
+}
+
+
+.buttonSection{
+  padding-left: 24px; 
+  margin-bottom: 10px;
+    float: left;
+  width: 100%;
+  position: relative;
+}
+
+
+.postSection{
+  margin: 10px;
+  float: left;
+  width: 100%;
+}
+
+.postUserImage{
+  width: 100%;
+  border-radius: 8px;
+}
+
+
+.postUserName{
+  font-size: 18px;
+  font-weight: 700;
+  color: #508CF7;
+
+}
+
+.dateContent{
+  color: #757575;
+  padding-right: 0px;
+  margin-top: -15px;
+}
+
+.postContent{
+   background-color: #e7f3ff;
+   min-height: 90px;
+   padding: 10px !important;
+   border-radius: 8px;
+}
+
+
+
+/* Post Area End */
+
+/* Tab Control Start */
+
+.nav-pills > li + li{
+  margin-left: 0px;
+}
+
+.tab-pane:not(.active) {
+    display: none !important; 
+}
+
+
+.nav-pills > li{
+  width: 50% ;
+  text-align: center;
+}
+
+.nav-pills > li.active > div, .nav-pills > li.active > div:hover, .nav-pills > li.active > div:focus{
+      color: #508CF7;
+    background-color: #e7f3ff;
+   
+}
+
+#events-nav {
+    padding: 10px;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 18px;
+}
+
+
+.nav-tabs > li > a{
+      padding: 10px;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    font-size: 18px;
+}
+
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+        color: #508CF7;
+    background-color: #e7f3ff;
+    border: 0px !important;
+}
+
+
+
+
+.tab-content > .active{
+      display: block !important;
+}
+
+.nav-pills{
+   margin-top: 10px;
+
+  font-size: 20px;
+}
+
+.nav-link {
+  padding: 10px;
+   border-radius: 8px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+
+/* Tab Control End */
+
+.messageAdminBtn{
+  background-color: white;
+  width: 100%;
+  float: left;
+
+  border-radius: 8px;
+
+    color: #508cf7;
+    font-weight: 700;
+    box-shadow: 0px 0px 4px 0px #e2e2e2;
+    border: 0px !important;
+
+    font-size: 14px;
+    font-weight: 900;
+    transition: 0.2s;
+}
+
+
+.messageAdminBtn:hover{
+  background-color: #508cf7;
+  color: white;
+}
+
+
+
+.organizerAv {
+    width: 40px;
+    height: 40px;
+    margin: 7px 50px;
+    border-radius: 300px;
+}
+.btn-admin-spacing{
+
+    font-weight: 900;
+    margin-top: 15px;
+    color: #508CF7;
+    margin-bottom: 15px;
+    background-color: #e7f3ff;
+    transition: 0.2s;
+}
+
+.btn-admin-spacing:hover{
+    color: white;
+    background-color: #508CF7;
+}
+
 .card{
   margin-top: 50px !important;
 }
@@ -1378,20 +1553,19 @@ div#modalPostImage {
 }
 
 .connectBtn{
-    background-color: #ffffff;
-    color: #6c95af;
-    font-weight: 600;
-    padding: 10px 30px;
-    border-radius: 5px;
-    border: 1px solid #6c95af;
-     width: 100%;
-
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: 1px solid #508cf721;
+  outline: none !important;
+  color: #508CF7;
+  background-color: #e7f3ff;
 }
 
-
 .connectBtn:hover{
-  background-color: #6c95af;
-  color: white;
+  background-color: #508CF7;
+  color: white !important;
   opacity: 1;
   transition: 0.3s;
 }
@@ -2077,9 +2251,7 @@ div.scrollEvents a {
 	padding: 15px;
 }
 
-.postContent{
-	font-size: 16px;
-}
+
 
 .postUserSec{
 	float: left;

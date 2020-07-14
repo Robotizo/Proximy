@@ -183,7 +183,7 @@ class EventsController < ApplicationController
       followingGroupsIds = current_user.followingG.map(&:id)
       groupsFollow = Group.find(params = followingGroupsIds).sort_by &:updated_at
       user_groups = current_user.groups
-      @overallGroups = groupsFollow + user_groups
+      @groups_owned = user_groups
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -36,6 +36,7 @@ class MainController < ApplicationController
 			    # end
 
 			$new_unread_messages_cnt = Message.current_user_unread(current_user).unread_messages.length
+
 				
 			@user = current_user
 

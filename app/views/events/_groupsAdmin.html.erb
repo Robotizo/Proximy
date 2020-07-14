@@ -1,0 +1,76 @@
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<%= stylesheet_link_tag "slick-theme", :media => "all" %>
+
+<div class="sliderGroups">
+
+<% @groups_owned.each do |group| %>
+	<div class="groupBox">
+		<div>
+			<%= image_tag(group.cover_image_url(:event), class: "groupBox-coverimage") %>
+		</div>
+		<div class="groupBox-infoarea">
+			<div>
+				<%= image_tag(group.image_url(:group), class: "groupBox-image") %>
+			</div>
+			<div class="groupBox-title">
+				<%= truncate(group.title, length: 25) %>
+			</div>
+			<div class="groupBox-title">
+				<%= f.radio_button :group_id, group.id, class: "radioGroup" %>
+			</div>
+		</div>
+	</div>
+
+<% end %>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+	  $('.sliderGroups').slick({
+		  dots: false,
+		  infinite: false,
+		  speed: 300,
+		  slidesToShow: 1,
+		  centerMode: false,
+		  variableWidth: true
+		});
+
+	  $('.groupBox').click(function (event) {   
+
+		$('.radioGroup').prop('checked', false);
+	    var val =  $(this).find('input:radio').prop('checked')?false:true;
+	    $(this).find('input:radio').prop('checked', val);
+		checkedValue = $(this).find('input:radio').val();
+		$('.groupBox').css({'boxShadow': '0px 0px 0px 0px'});
+		$(this).css({'boxShadow': '0px 0px 0px 2px #4f8cf69e'});
+
+	});
+		      
+	$('input:radio').bind('click mousedown', (function() {
+
+    var isChecked;
+
+    return function(event) {
+        if(event.type == 'click') {
+
+            if(isChecked) {
+                isChecked = $('').checked = false;
+            } 
+            else {
+           
+                isChecked = true;
+
+            }
+	    } 
+	    else {
+	        isChecked = this.checked;
+	    }
+		}})());
+	});
+
+
+
+
+</script>

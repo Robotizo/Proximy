@@ -209,12 +209,39 @@
 
 <div class="col-md-12 col-xs-12 noPad3">
 
-    <div class="labelSide">
-      <%= f.label "Group Hosting" %>
-    </div>
+<% if @groups_owned.count > 0 %>
   <div class="field">
-    <%= f.collection_select(:group_id, @overallGroups, :id, :title, {prompt: "Choose a Group"}, class: "form-control") %>
+    <div class="text-center moduleGroups">
+
+      <div class="groupModule">
+
+
+
+
+        <div class="groupHostingArea">
+          <div class="groupHostingTitle">
+            Hosted by group
+          </div>
+          <div class="groupsSelection">
+                <%= render 'groupsAdmin', f: f  %>
+
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+    </div>
+      
   </div>
+<% end %>
+
+
+
+
+
   <div class="field">
     <div class="labelSide">
       <%= f.label :description %>

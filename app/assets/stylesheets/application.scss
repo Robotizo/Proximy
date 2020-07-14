@@ -26,6 +26,9 @@ $nprogress-zindex: 10100;
 @import 'nprogress';
 @import 'nprogress-bootstrap';
 
+.lazy-load img{
+  object-fit: cover !important;
+}
 
 .replace img{
   border-radius: 12px 12px 0px 0px !important;
@@ -1053,6 +1056,7 @@ button{
 	padding: 7px;
 	display: inline-block;
 	color: white;
+  height: 55px;
 }
 
 

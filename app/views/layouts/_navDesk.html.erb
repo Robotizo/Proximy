@@ -28,6 +28,7 @@
 
   <% end %>
 
+
     <%  if signed_in? %>
 
 
@@ -47,53 +48,7 @@
 
      
 
-    <div id="mySidenav" class="sidenav">
-          <span class="sideTitle" href="javascript:void(0)">Menu</span><a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times;</a>
 
-
-
-<%= link_to current_user, method: :get, class: "specialA navElement" do %>
-  <div class="menuSec"> 
-
-            <span class="menuElements">
-              <%= image_tag("user.png", class: "ImageNavB") %>
-            </span>
-              <%= label_tag "Profile" %>
-
-      
-                
-              
-  </div> 
-<% end %>
-   
-<%= link_to edit_user_path(current_user), class: "specialA navElement" do %>
-<div class="menuSec"> 
-           <span class="menuElements">
-            <%= image_tag("settings.png", class: "ImageNavB") %>
-          </span>
-
-          <%= label_tag "Settings" %>
-</div> 
-<% end %>
-
-
-
-          <hr>
-
-<%= link_to logout_path,  method: :delete, data: {confirm: 'Are you sure?'}, class: "specialA navElement" do %>    
-  <div class="menuSec"> 
-              <span class="menuElements">
-              <%= image_tag("out.png", class: "ImageNavB") %>
-            </span>
-            <%= label_tag "Sign Out" %>
-
-
-          </div>
-<% end %>
-
-
-
-  </div> 
 
 
 

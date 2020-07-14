@@ -1,0 +1,62 @@
+<div class="deskVE">
+
+      <% @group_events.each do |group_event| %>
+
+
+      <% if Date.today <= group_event.event_date %>
+
+
+        <span class="col-md-6 userEvents mobileVE">
+        
+    
+            <div class="elementBox">
+            
+                <div class="eventImage">
+
+              <a href="/events/<%= group_event.id %>" data-method="get" data-href="<%= group_event.image_url %>" class="lazy-load replace marginSetsB">
+                  <%= image_tag(group_event.image_url(:preview), class: "eventImageDisplay preview") if group_event.image? %>
+                </a>
+
+
+
+                </div>
+
+      <%= link_to group_event, method: :get, class: "specialA" do %>
+                    <div class="eventContent1">
+                        <div class="eventDateI"><%= group_event.event_date.strftime('%B %e') %></div>
+                      </div>
+
+
+                 <div class="eventOverall">
+                    <div class="eventContent">
+                      <div class="titleGroups"><%= truncate(group_event.title, length: 30)%></div> 
+                    </div>
+
+                  <% if group_event.user.present? %>
+                    <div class="creatorSign">
+                      <div class="imageUserEvent">
+
+                        <%= image_tag(group_event.user.avatar_url(:thumb), class: "userImage2") if group_event.user.avatar? %>
+                      </div>
+                      <div class="contentUserPost">
+                        <span class="poster"><%= group_event.user.name %></span>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+                
+            
+            </div>
+      
+          <% end %>
+        </span>
+
+
+      <% end %>
+
+
+
+      <% end %>
+
+
+</div>

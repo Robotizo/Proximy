@@ -105,6 +105,7 @@ class GroupsController < ApplicationController
     followingGroupIds = @group.followersG.where.not(id: [current_user.blocks.ids]).where.not(id: [current_user.blockers.ids]).map(&:id)
     @groupFollowers = User.find(params = followingGroupIds).sort_by &:updated_at
     $new_unread_messages_cnt = Message.current_user_unread(current_user).unread_messages.length
+    @group_posts = @group.group_posts
 
     @fullyFriends = current_user.friends
 

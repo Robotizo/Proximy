@@ -83,482 +83,57 @@
 <div class="col-md-4 col-xs-12 scrollNorm">
 
 
-  <div class="text-center module1">
+ <%= render 'groupInfoModule' %>
 
-<div class="innerModule">
-
-  
-
-
-         <a href="<%= @group.cover_image_url %>" class="lazy-load replace coverImage">
-              <%= image_tag(@group.cover_image_url(:preview), class: "groupImageCover preview") if @group.cover_image? %>
-            </a>
-
-
-  <div class="titleInfo">
-    <div class="col-md-12 col-xs-12 connArea">
-      <div class="groupImageSec1">
-
-
-             <a href="<%= @group.image_url %>" class="lazy-load replace marginSetsA">
-                  <%= image_tag(@group.image_url(:preview), class: "groupImage1 preview") if @group.image? %>
-                </a>
-
-
-
-
-      </div>
-    </div>
-    <div class="groupInfoSec">
-      <div>
-        <div class="groupTitle"><%= @group.title %></div>  
-
-
-<% if current_user == @group.user %>
-
-
-
-
-      <div class="col-md-3 text-center" id="follow_formDes">
-              <div id="follow_formDes">
-                <% if current_user.followingG?(@group) %>
-                <%= form_for(current_user.active_relationships_groups.find_by(followedG_id: @group.id), html: { method: :delete }) do |f| %>
-                  <%= image_submit_tag "joined.png", class: "iconImage" %>
-                        <div class="textOps">
-                          Joined group
-                        </div>
-                     <% end %>
-                <% else %>
-                    <%= form_for(@group.passive_relationships_groups.build, method: :post) do |f| %>
-                      <%= hidden_field_tag :followedG_id, @group.id %>
-                      <%= image_submit_tag "join.png", class: "iconImage" %>
-                        <div class="textOps">
-                          Join group
-                        </div>
-                    <% end %>
-                <% end %>
-              </div>
-      </div>
-
-
-
-      <div class="col-md-3 text-center" id="follow_formDes">
-          <%= link_to edit_group_path(@group), method: :get, class: "specialA" do %>
-            <%= image_tag("geatInv.png", class: "iconImage") %>
-            <div class="textOps">
-              Group settings
-            </div>
-          <% end %>
-      </div>
-
-      <div class="col-md-3 text-center" id="follow_formDes">
-
-     <%= link_to interests_group_path(@group), method: :get,  class: "specialA" do %>
-
-          <%= image_tag("filterInv.png", class: "iconImage") %>
-          <div class="textOps">
-            Edit interests
-          </div>
-        <% end %>
-            
-  
-      </div>
-
-      <div class="col-md-3 noPad3 text-center" data-target="#show-interests" data-toggle="modal" id="follow_formDes">
-
-
-        <%= image_submit_tag "interestsInv.png", class: "iconImage" %>
-        <div class="textOps">
-          View interests
-        </div>
-  
-
-      </div>
-
-           <div class="col-md-12 col-xs-12 noPad3 inviteButton" data-target="#show-inv" data-toggle="modal">
-           <%= button_tag "Invite friends", class: "btn btn-primary inviteButtonDesign" %>
-        </div>
-
-
-
-
-
-
-<% else %>
-
-        <div id="follow_formDes" class="col-md-6 col-xs-6  text-center">
-          <% if current_user.followingG?(@group) %>
-            <%= render 'unfollowGroup' %>
-          <% else %>
-            <%= render 'followGroup' %>
-          <% end %>
-        </div>
-
-
-
-
-          <div class="col-md-6 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" id="follow_formDes">
-
-
-              <%= image_submit_tag "interestsLong.png", class: "iconImage" %>
-              <div class="textOps">
-                View interests
-              </div>
-        
-   
-            </div>
-
-     <div class="col-md-12 col-xs-12 noPad3 inviteButton" data-target="#show-inv" data-toggle="modal">
-           <%= button_tag "Invite friends", class: "btn btn-primary inviteButtonDesign" %>
-        </div>
-
-
-
-
-
-
-
-<% end %>
-
-
-
-
-
-          </div>
-        </div>
-      </div>
-
-
-
-<% if current_user == @group.user %>
-
-
-<div class="col-xs-3 marginMob">
-        <div id="follow_formMob">
-                <% if current_user.followingG?(@group) %>
-                <%= form_for(current_user.active_relationships_groups.find_by(followedG_id: @group.id), html: { method: :delete }) do |f| %>
-                  <%= image_submit_tag "joined.png", class: "iconImage" %>
-                        <div class="textOps">
-                          Joined group
-                        </div>
-                     <% end %>
-                <% else %>
-                    <%= form_for(@group.passive_relationships_groups.build, method: :post) do |f| %>
-                      <%= hidden_field_tag :followedG_id, @group.id %>
-                      <%= image_submit_tag "join.png", class: "iconImage" %>
-                        <div class="textOps">
-                          Join group
-                        </div>
-                    <% end %>
-                <% end %>
-        </div>
 
 </div>
 
 
-<div class="col-xs-3 marginMob text-center" id="follow_formMob">
-          <%= link_to edit_group_path(@group), class: "specialA" do %>
-            <%= image_tag("geatInv.png", class: "iconImage") %>
-            <div class="textOps">
-              Edit group
-            </div>
-          <% end %>
+  <div class="mobileArea col-md-8">
 
-</div>
-<div class="col-xs-3 marginMob text-center" id="follow_formMob">
-       
-     <%= link_to interests_group_path(@group),  class: "specialA" do %>
-
-          <%= image_tag("filterInv.png", class: "iconImage") %>
-          <div class="textOps">
-            Edit interests
-          </div>
-        <% end %>
-            
-</div>
-
-
-  <div class="col-md-offset-1 col-md-4 col-xs-3 noPad3 text-center" data-target="#show-interests" data-toggle="modal" id="follow_formMob">
-
-
-      <%= image_submit_tag "interestsInv.png", class: "iconImage" %>
-      <div class="textOps">
-        View interests
+  <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <li class="nav-item active">
+      <div class="nav-link active" id="v-pills-info-tab" data-toggle="pill" href="#v-pills-info" role="tab" aria-controls="v-pills-info" aria-selected="true">
+        Information
       </div>
+    </li>
+    <li class="nav-item">
+      <div class="nav-link" id="v-pills-new-disc-tab" data-toggle="pill" href="#v-pills-new-disc" role="tab" aria-controls="v-pills-new-disc" aria-selected="false">
+        Discussion
+      </div>
+    </li>
+  </ul>
 
+
+
+  <div class="tab-content" id="v-pills-tabContent">
+    <div class="tab-pane fade show active in" id="v-pills-info">
+
+          <%= render 'groupInfoSection' %>
 
     </div>
 
 
+    <div class="tab-pane fade " id="v-pills-new-disc">
+       <%= render 'groupDiscussions' %>
 
-<% else %>
-<div class="col-xs-6 marginMob">
-        <div id="follow_formMob">
-          <% if current_user.followingG?(@group) %>
-            <%= render 'unfollowGroup' %>
-          <% else %>
-            <%= render 'followGroup' %>
-          <% end %>
-        </div>
+    </div>
 
-</div>
-
-
-          <div class="col-md-offset-1 col-md-4 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" id="follow_formMob">
-
-
-              <%= image_submit_tag "interestsLong.png", class: "iconImage" %>
-              <div class="textOps">
-                View interests
-              </div>
-        
-   
-            </div>
-
-
-<% end %>
-
-
-
-<div class="userInfoArea">
-  <div class="userInfoElement">
-
-      <div class="infoTitle">
-        <%= image_tag("info.png", class: "miniIcon") %>  Description
-      </div>
-      <div class="infoContent">
-        <%= @group.description %>
-      </div>
 
   </div>
-</div>
 
 
 
 
 
 
-
-
-</div>
-
-
-
-
-
-
-</div>
-
-
-</div>
-
-
-<!-- Group Intro End -->
-
-
-
-
-
-
-<div class="mobileArea col-md-8">
-
-
-
-
-
-
-<!-- Event Section Start -->
-
-<div class="eventsSection">
-
-
-
-    <div class="titleSec">Upcoming Events</div>
-
-
-
-
-    <% if !@group_events.empty? %>
-
-<!-- Work area START Nov 18 -->
-
-<div class="deskVE">
-
-      <% @group_events.each do |group_event| %>
-
-
-      <% if Date.today <= group_event.event_date %>
-
-
-        <span class="col-md-6 userEvents mobileVE">
-        
-    
-            <div class="elementBox">
-            
-                <div class="eventImage">
-
-              <a href="/events/<%= group_event.id %>" data-method="get" data-href="<%= group_event.image_url(:event) %>" class="lazy-load replace marginSetsB">
-                  <%= image_tag(group_event.image_url(:preview), class: "eventImageDisplay preview") if group_event.image? %>
-                </a>
-
-
-
-                </div>
-
-      <%= link_to group_event, method: :get, class: "specialA" do %>
-                    <div class="eventContent1">
-                        <div class="eventDateI"><%= group_event.event_date.strftime('%B %e') %></div>
-                      </div>
-
-
-                 <div class="eventOverall">
-                    <div class="eventContent">
-                      <div class="titleGroups"><%= truncate(group_event.title, length: 30)%></div> 
-                    </div>
-
-                  <% if group_event.user.present? %>
-                    <div class="creatorSign">
-                      <div class="imageUserEvent">
-
-                        <%= image_tag(group_event.user.avatar_url(:thumb), class: "userImage2") if group_event.user.avatar? %>
-                      </div>
-                      <div class="contentUserPost">
-                        <span class="poster"><%= group_event.user.name %></span>
-                      </div>
-                    </div>
-                  <% end %>
-                </div>
-                
-            
-            </div>
-      
-          <% end %>
-        </span>
-
-
-      <% end %>
-
-
-
-      <% end %>
+  </div>
 
 
 </div>
 
 
 
-
-
-
-<!-- Work area END Nov 18 -->
-
-</div>
-
-
-
-
-    <% else %>
-      <div class="noFollowSec">
-        <div class="noFollowSecText">There are no upcoming events.</div>
-      </div>
-    <% end %>
-    
-
-
-
-
-<!-- Event Section End -->
-
-
-
-
-
-
-
-
-
-<script type="text/javascript">
-$(function () { 
-  if ($(window).width() < 960) {
-     $(".mobileVU").removeClass("col-md-3");
-     $(".mobileVU").removeClass("text-center");
-
-
-  }
-  else {
-    $(".deskVU").removeClass("scrollMembersUsers");
-  }
-});
-</script>
-
-
-
-
-<div class="newsfeed">
-
-
-
-    <div class="titleSec">Group Members</div>
-
-
-
-  <div class="scrollMembersUsers deskVU ">
-    <% if !@groupFollowers.empty? %> 
-      <%  @groupFollowers.last(8).reverse.each do |groupFollower| %>
-
-      <span class="col-md-3 text-center mobileVU">
-
-      <%= link_to groupFollower, method: :get, class: "specialA" do %>
-  
-        <div class="followersSec">
-        
-            <div class="eImage">
-              <div class="followerImageSec"><%= image_tag(groupFollower.avatar_url(:thumb), class: "groupImage2") if groupFollower.avatar? %></div>
-              <div class="followerNameSec"><%= truncate(groupFollower.name.gsub(/\s.+/, ''), length: 20) %></div>
-            </div>
-        
-        </div>
-  
-      <% end %>
-    </span>
-
-      <% end %>
-
-
-    <% else %>
-      <div class="noFollowSec">
-        <div class="noFollowSecText">This group has no members.</div>
-      </div>
-    <% end %>
-
-</div>
-
-
-
-
-
-
-
-    <div class="laterPostBox2">
-
-      <div class="showAllPosts" data-toggle="modal" data-target="#show-users"><button type="button" class="btn btnShowAll">Show Users</button></div>
-    </div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-</div>
-
-
-</div>
 
 
 

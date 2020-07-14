@@ -1,0 +1,16 @@
+        <div class="postSection">
+          <div class="col-md-2">
+            <%= image_tag(group_post.user.avatar_url(:thumb), class: "postUserImage") %>
+          </div>
+          <div class="col-md-9 postContent">
+            <div class="postUserName">
+              <%= group_post.user.name %>
+            </div>
+            <div>
+              <%= group_post.content %>
+            </div>
+          </div>
+          <div class="col-md-12 text-right col-md-pull-1 dateContent">
+            <%= group_post.created_at.to_time.strftime('%B %e') %>
+          </div>
+        </div>
