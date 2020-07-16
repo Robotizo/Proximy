@@ -13,7 +13,7 @@
             
                 <div class="eventImage">
 
-              <a href="/events/<%= group_event.id %>" data-method="get" data-href="<%= group_event.image_url %>" class="lazy-load replace marginSetsB">
+              <a href="/events/<%= group_event.id %>" data-method="get" data-href="<%= group_event.image_url(:event) %>" class="lazy-load replace marginSetsB">
                   <%= image_tag(group_event.image_url(:preview), class: "eventImageDisplay preview") if group_event.image? %>
                 </a>
 
