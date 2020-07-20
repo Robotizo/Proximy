@@ -124,7 +124,6 @@ jQuery(document).on 'turbolinks:load', ->
         sender_id: $inputCurrentUser.val(),
         receiver_id: $inputActiveUser.val()
       }
-
       if $.trim(messageBody).length > 0 or $newMessageAttachment.get(0).files.length > 0 
         #Scroll Top
         if $newMessageAttachment.get(0).files.length > 0 # if file is chosen

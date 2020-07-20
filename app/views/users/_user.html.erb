@@ -1,26 +1,27 @@
 <%= stylesheet_link_tag "users", :media => "all" %>
 
 <% if user.id != current_user.id %>
+	<% if user.has_unread_messages %>
+		<div class="chat__contact--element has-unread-messages" data-id="<%= user.id %>">
+	<% else %>
+		<div class="chat__contact--element" data-id="<%= user.id %>">
+	<% end %>
 
-<% if user.has_unread_messages %>
-
-  <div class="chat__contact--element has-unread-messages" data-id="<%= user.id %>">
-<% else %>
-<div class="chat__contact--element" data-id="<%= user.id %>">
-<% end %>
 	<div class="oneThird noselect">
 		<%= image_tag(user.avatar_url(:thumb), class: "userImageChat") if user.avatar? %>
 	</div>
 	<div class="col-md-8">
-  		<span class="userNameChat noselect"><%= user.name %> <%= user.last_name %><span>
-  		<% if current_user.is_friends?(user) %>
-  			<div class="is_friends noselect">Friends</div>
-  		<% else %>
-  			<div class="is_friends_not noselect">Not friends yet</div>
-  		<% end %>
-  	</div>
-  
-</div>
+		<span class="userNameChat noselect"><%= user.name %> <%= user.last_name %><span>
+		<% if current_user.is_friends?(user) %>
+			<div class="is_friends noselect">Friends</div>
+		<% else %>
+			<div class="is_friends_not noselect">Not friends yet</div>
+		<% end %>
+	</div>
+	<% if user.online_status == true %>
+		<span class="chat__contact--element-status online" data-user-id="<%= user.id %>"></span>
+	<% else %>
+		<span class="chat__contact--element-status offline" data-user-id="<%= user.id %>"></span>
+	<% end %>
+  </div>
 <% end %>
-
-
