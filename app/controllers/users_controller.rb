@@ -1,15 +1,15 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authorize, except: [:new, :create, :confirm_email]
-  before_action :check_mobile, only: [:index, :show]
+  # before_action :check_mobile, only: [:index, :show]
 
 
 
-  def check_mobile
-      if request.user_agent =~ /Mobile/
-        redirect_to events_path, notice: 'For mobile functionality is limited.'
-      end
-  end 
+  # def check_mobile
+  #     if request.user_agent =~ /Mobile/
+  #       redirect_to events_path, notice: 'For mobile functionality is limited.'
+  #     end
+  # end 
 
 
 

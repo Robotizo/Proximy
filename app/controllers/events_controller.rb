@@ -59,20 +59,25 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    $new_unread_messages_cnt = Message.current_user_unread(current_user).unread_messages.length
-    @events = Event.all.sort_by {|event| event.eventsInterest(current_user)}.reverse
-    @user = current_user
-    @user_events = @user.events.order(:event_date)
-    followingEventsIds = @user.followingE.map(&:id)
-    @eventsFollow = Event.find(params = followingEventsIds).sort_by &:event_date
-    @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
-    @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
-    events = Event.all
+    if signed_in?
+      $new_unread_messages_cnt = Message.current_user_unread(current_user).unread_messages.length
+      @events = Event.all.sort_by {|event| event.eventsInterest(current_user)}.reverse
+      @user = current_user
+      @user_events = @user.events.order(:event_date)
+      followingEventsIds = @user.followingE.map(&:id)
+      @eventsFollow = Event.find(params = followingEventsIds).sort_by &:event_date
+      @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
+      @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
+      events = Event.all
 
-    respond_to do |format|
-        format.html # index.html.erb
-        format.json { render json: @events }
-      end
+      respond_to do |format|
+          format.html # index.html.erb
+          format.json { render json: @events }
+        end
+    else
+      redirect_to root_path
+    end
+
   end
 
 
@@ -111,6 +116,11 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
+    if params[:search].present?
+      @items = Unsplash::Photo.search(params[:search])
+    end
+
+
     @event = Event.new
     $new_unread_messages_cnt = Message.current_user_unread(current_user).unread_messages.length
   end

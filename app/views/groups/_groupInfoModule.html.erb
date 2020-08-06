@@ -29,6 +29,8 @@
         <div class="groupTitle"><%= @group.title %></div>  
 
 
+<% if signed_in? %>
+
 <% if current_user == @group.user %>
 
 
@@ -158,14 +160,19 @@
 
 <% end %>
 
+<% else %>
 
 
+<% end %>
 
 
           </div>
         </div>
       </div>
 
+
+
+<% if signed_in? %>
 
 
 <% if current_user == @group.user %>
@@ -255,6 +262,8 @@
 
 
 <% end %>
+<% end %>
+
 
 
 

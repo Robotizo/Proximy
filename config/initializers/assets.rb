@@ -27,6 +27,16 @@ Rails.application.config.assets.precompile += %w( jquery.waitforimages.js )
 Rails.application.config.assets.precompile += %w( main.css )
 Rails.application.config.assets.precompile += %w( main_mobile.css )
 
+# Sessions Section
+Rails.application.config.assets.precompile += %w( sessions_mobile.css )
+
+# Users Section
+Rails.application.config.assets.precompile += %w( users_mobile.css )
+
+# Groups Section
+Rails.application.config.assets.precompile += %w( groups_mobile.css )
+
+
 
 
 

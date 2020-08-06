@@ -173,6 +173,8 @@
 
 
 <div class="userInfoArea">
+
+  <% if @user.bio.present? or @user.country.present? %>
   <div class="userInfoElement">
 
   <% if @user.bio.present? %>
@@ -220,6 +222,7 @@
   <% end %>
 
    </div>
+   <% end %>
 
 </div>
 

@@ -1776,7 +1776,7 @@ div .show-more[aria-expanded="true"]{
 
 
 .fileBtnDiv, .form-control, .date{
-	width: 80%;
+	width: 90%;
 	margin: 10px 40px 40px 0;
   font-weight: 900;
 
@@ -2415,6 +2415,14 @@ div.scrollEvents a {
 
 @media screen and (max-width: 776px){
 
+  .sharedIntsEvents{
+    margin: 5px 8px 5px 8px;
+    font-weight: 900;
+    color: #a4a4a4;
+    margin-top: -72px;
+  }
+
+
   .eventContentDiscMob{
     top: -64px;
   }
@@ -3015,7 +3023,7 @@ font-weight: 700 !important;
 
   .form-control, .btn{
     font-weight: 700;
-    font-size: 12px;
+    font-size: 14px;
     width:100%;
   }
 

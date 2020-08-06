@@ -341,6 +341,23 @@ class User < ApplicationRecord
   end
 
 
+  def online!
+    self.update_attribute(:online_status, true)
+  end
+
+  def offline!
+    self.update_attribute(:online_status, false)
+  end
+
+  def is_online?
+    online_status == true
+  end
+
+  def is_offline?
+    online_status == false
+  end
+
+
 
 
   private

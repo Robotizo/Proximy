@@ -1,0 +1,64 @@
+<%= stylesheet_link_tag 'main_mobile', media: 'all' %>
+<div class="backButton">
+  <%= link_to 'javascript:history.back()' do %>
+        <%= image_tag("left-arrow.png", class: "leftArrow") %>
+  <% end %>
+</div>
+
+<div>
+	<div class="text-center">
+		<%= image_tag("logoIcon.png", class: "logoMobile ") %>
+	</div>
+
+		<div class="userImage">
+		<%= image_tag(current_user.avatar_url, class: "userAvatar") %>
+	</div>
+
+
+	 <div class="titleSec container">People Near You</div>
+
+	<% @users.each do |user| %>
+	    <% collide = current_user.followingI.ids & user.followingI.ids %>
+
+	    <% unless user.id == current_user.id %>
+	        <%= link_to user, method: :get, class: "specialA" do %>
+	        <div class="col-xs-6 " data-aos="fade-up" >
+	          <div class="elementBoxPpl">
+
+
+	       
+
+	      <% if user.avatar.present? %>
+	          <a href="/users/<%= user.id %>" data-href="<%= user.avatar_url(:thumb) %>" data-method="get" class="lazy-load replace userImagesDisc">
+	                <%= image_tag(user.avatar_url(:thumb), class: "userImagesDisc preview") if @user.avatar? %>
+	        
+	           </a>
+	      <% else %>
+	      <% end %>
+	     
+
+	          <div class="discoverTitleSec">
+	            <div class="discoverName"><%= truncate(user.name.gsub(/\s.+/, '')) %></div>
+	          <% if current_user.is_friends?(user) %>
+	            <div class="friendsInDiscover">Already friends</div>
+	          <% else %>
+	            <div class="discoverNum"><%= collide.count %> shared interests</div>
+	          <% end %>
+	            
+	          </div>
+
+
+	          
+
+	          </div>
+	        </div>
+	     
+
+
+
+	        <% end %>
+	      <% end %>
+	    <% end %>
+
+
+</div>

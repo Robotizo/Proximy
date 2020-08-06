@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag 'main', media: 'all' %>
-<%= stylesheet_link_tag 'main_mobile', media: 'all' %>
+
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -41,6 +41,8 @@
 <!-- Signed in -->
 
 <% if current_user.avatar.present? & current_user.image.present?  %> 
+
+<% if !mobile? %>
 
 <div style="margin-top: 60px;">
   <div class="container">
@@ -164,6 +166,13 @@
 
 </body>
 
+
+
+
+
+
+
+
 <% if current_user.sign_in_count == 1 %>
 
 <script type="text/javascript">
@@ -174,6 +183,23 @@
 </script>
 
 <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <script>
 
@@ -274,6 +300,14 @@
 
 
   </script>
+
+  <% else %>
+
+
+
+    <%= render 'mobileMainIndex' %>
+
+  <% end %>
 
 
 

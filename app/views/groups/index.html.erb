@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag "groups", :media => "all" %>
+<%= stylesheet_link_tag "groups_mobile", :media => "all" %>
 <%= javascript_include_tag 'groups', 'data-turbolinks-track': 'reload' %>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
@@ -25,6 +26,8 @@
 
 </style>
 
+
+<% if !mobile? %>
 <div class="backButton">
   <%= link_to 'javascript:history.back()' do %>
         <%= image_tag("left-arrow.png", class: "leftArrow") %>
@@ -56,27 +59,7 @@
   </div>
 
 
-<!--
- <script>
 
-
-
-      function load_partial() {     
-            $("div.groups").replaceWith('<%= escape_javascript(render partial: 'groups') %>');
-                          }
-
-
- $("img").ready(function () {
-      
-      load_partial()
-
-  });
-
-
-  </script>
-
-
-=->
 
 
 
@@ -85,6 +68,14 @@
 
 
 </div>
+
+<% else %>
+
+    <%= render 'groupsIndexMobile' %>
+
+
+
+<% end %>
 <div class="col-md-12 col-xs-12">
   
 <br>
@@ -98,61 +89,6 @@
 
 
 
-
-      <!--
-
-      <div class="ph-item">
-          <div class="ph-col-3 marginSkeleton">
-            <div class="boxEventSkeleton">
-              <div class="ph-picture"></div>
-              <div class="ph-row">
-                <div class="ph-col-8 big"></div>
-              </div>
-              <div class="ph-row">
-                <div class="ph-col-6 big"></div>
-              </div>
-            </div>
-          </div>
-          <div class="ph-col-3 marginSkeleton">
-            <div class="boxEventSkeleton">
-              <div class="ph-picture"></div>
-              <div class="ph-row">
-                <div class="ph-col-8 big"></div>
-              </div>
-              <div class="ph-row">
-                <div class="ph-col-6 big"></div>
-              </div>
-    
-            </div>
-          </div>
-
-          <div class="ph-col-3 marginSkeleton">
-            <div class="boxEventSkeleton">
-              <div class="ph-picture"></div>
-              <div class="ph-row">
-                <div class="ph-col-8 big"></div>
-              </div>
-              <div class="ph-row">
-                <div class="ph-col-6 big"></div>
-              </div>
-      
-            </div>
-          </div>
-          <div class="ph-col-3 marginSkeleton">
-            <div class="boxEventSkeleton">
-              <div class="ph-picture"></div>
-              <div class="ph-row">
-                <div class="ph-col-8 big"></div>
-              </div>
-              <div class="ph-row">
-                <div class="ph-col-6 big"></div>
-              </div>
-            </div>
-          </div>
-
-
-      </div>
--->
 
 
 

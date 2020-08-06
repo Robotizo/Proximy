@@ -12,16 +12,15 @@
                }
            </style>
   
-        <div class="logoParent">
-            <%= image_tag("logoIcon.png", class: "logoImg") %>
-        </div>
-        <div class="logoParent">
-            <div style="font-size: 18px; font-weight: 900;">Welcome to Proximy</div>
-        </div>
+
+
 
 
 
             <div class="text-center logField">
+                      <div class="logoParent">
+            <%= image_tag("logoIcon.png", class: "logoImg") %>
+        </div>
                 <div class="logField-edits">
                     <%= form_for(:session, url: session_path) do |f| %>
                     <div class="emailField">

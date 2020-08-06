@@ -99,7 +99,7 @@ class GroupsController < ApplicationController
   # GET /groups/1.json
   def show
 
-    
+  if signed_in?
     @group_events = @group.events.where('event_date >= ?', Date.today).sort_by &:event_date
     @interests = Interest.all
     followingGroupIds = @group.followersG.where.not(id: [current_user.blocks.ids]).where.not(id: [current_user.blockers.ids]).map(&:id)
@@ -118,6 +118,13 @@ class GroupsController < ApplicationController
 
     @userFriendships = Friendship.where(friend_id: current_user.id, status: "pending")
     @eventNotifs = EventNotif.where(user_id: current_user, is_checked: false)
+  else
+    @group_events = @group.events.where('event_date >= ?', Date.today).sort_by &:event_date
+    followingGroupIds = @group.followersG.map(&:id)
+    @group_posts = @group.group_posts
+    @groupFollowers = User.find(params = followingGroupIds).sort_by &:updated_at
+    @interests = Interest.all
+  end
 
 
 

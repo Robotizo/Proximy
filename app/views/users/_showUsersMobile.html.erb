@@ -1,0 +1,119 @@
+<%= stylesheet_link_tag "users_mobile", :media => "all" %>
+<div class="backButton">
+  <%= link_to 'javascript:history.back()' do %>
+        <%= image_tag("left-arrow.png", class: "leftArrow") %>
+  <% end %>
+</div>
+
+
+<div class="text-center container">
+	<%= image_tag("logoIcon.png", class: "logoMobile ") %>
+
+      <div class="userImage">
+    <%= image_tag(current_user.avatar_url, class: "userAvatar") %>
+  </div>
+
+
+  <div class="elementBoxMob ">
+
+      <a href="<%= @user.image_url %>" class="lazy-load replace coverImage">
+              <%= image_tag(@user.image_url(:preview), class: "groupImageCover preview") if @user.image? %>
+            </a>
+      <div class="groupImageSec1">
+
+    
+
+         
+                  <%= image_tag(@user.avatar_url(:thumb), class: "groupImageMobile", lazy: true) %>
+           
+
+
+
+
+      </div>
+
+        <div class="groupTitleDisc"><%= truncate(@user.name, length: 35) %> <%= truncate(@user.last_name, length: 35) %></div>
+  
+
+  </div>
+
+<% if current_user != @user %>
+
+    <div class="elementBoxMob col-xs-12" style="margin-top: 15px; padding-top: 15px;">
+
+       <% if !signed_in? %>
+		  <div class="col-md-4 col-xs-6 noPad3 text-center">
+
+		      <div class="modalSignUp" data-target="#accessModal" data-toggle="modal" >
+		         <%= image_submit_tag "attendLong.png", class: "iconImage" %>
+		          <div class="textOps">
+		            Log in to attend
+		          </div>
+
+		     </div>
+
+		    </div>
+		<% else %>
+
+		      <% if current_user.friends.include?(@user) %>
+		        <div class="col-md-6 col-xs-6 noPad3 text-center">
+                  <% if @acceptedFriendships.collect(&:user_id).include?(@user.id) %>
+                    <%= image_submit_tag "friends.png", class: "iconImage" %>
+                      <div class="textOps">
+                        Friends
+                      </div>
+                  <% end %>
+                 </div>
+
+                  
+              <% else %>
+              	<div class="col-md-6 col-xs-6 noPad3 text-center">
+                	<%= render 'befriend' %>
+            	</div>
+              <% end %>
+          
+		<% end %>
+
+		    <div class="col-md-4 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" >
+
+
+              <%= image_submit_tag "interestsLong.png", class: "iconImage" %>
+              <div class="textOps">
+                Interests in common
+              </div>
+        
+   
+            </div>
+  
+
+  	</div>
+  <% else %>
+
+  <% end %>
+
+
+
+
+
+  	 <div class="elementBoxMob col-xs-12" style="margin-top: 15px; ">
+
+        <div class="eventInfoTitle">Events Joined</div>
+        <div style="padding-top: 10px;">
+         <%= render 'userEventsMobile' %>
+        </div>
+
+  	</div>
+
+  	<div class="elementBoxMob col-xs-12" style="margin-top: 15px; ">
+
+        <div class="eventInfoTitle">Groups Joined</div>
+        <div style="padding-top: 10px;">
+         <%= render 'userGroupsMobile' %>
+        </div>
+
+  	</div>
+
+
+
+</div>
+

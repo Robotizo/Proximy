@@ -1,15 +1,15 @@
 class MainController < ApplicationController
-	before_action :check_mobile, only: [:index]
+	# before_action :check_mobile, only: [:index]
 
 
 
-  def check_mobile
-  	if signed_in?
-      if request.user_agent =~ /Mobile/
-        redirect_to events_path
-      end
-    end
-  end 
+ #  def check_mobile
+ #  	if signed_in?
+ #      if request.user_agent =~ /Mobile/
+ #        redirect_to events_path
+ #      end
+ #    end
+ #  end 
 
 
 

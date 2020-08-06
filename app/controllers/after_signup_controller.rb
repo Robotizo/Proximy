@@ -6,11 +6,9 @@ class AfterSignupController < ApplicationController
 
 	# :interests
 	def finish_wizard_path
-		if request.user_agent =~ /Mobile/
-			events_path
-		else
+
 			root_path
-		end
+	
 	end
 
 	def show

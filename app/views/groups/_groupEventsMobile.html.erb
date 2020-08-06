@@ -1,0 +1,83 @@
+
+<%= stylesheet_link_tag "groups_mobile", :media => "all" %>
+<style type="text/css">
+	.elementBoxMob{
+		margin-bottom: 10px;
+		float: left;
+	
+
+	}
+
+	.eventImageDisplayLoaded img{
+		height: 80px;
+		border-radius: 5px 0px 0px 5px !important;
+	}
+
+
+	.eventImageDisplayLoaded {
+		height: 80px;
+		border-radius: 5px 0px 0px 5px !important;
+	}
+
+	.eventImageMob {
+		height: 80px;
+		border-radius: 5px 0px 0px 5px !important;
+	}
+
+	.eventImageMob img{
+		height: 80px;
+		border-radius: 5px 0px 0px 5px !important;
+	}
+</style>
+
+
+<% if @group_events.present? %>
+<% @group_events.each do |group_event| %>
+
+
+
+
+
+	<div class="col-xs-12 noPad3">
+		<div class="elementBoxEvents">
+			<div class="col-xs-4 noPad3">
+				
+              <a href="/events/<%= group_event.id %>" data-method="get" data-href="<%= group_event.image_url(:event) %>" class="lazy-load replace eventImageDisplayLoaded">
+                  <%= image_tag(group_event.image_url(:preview), class: "eventImageMob preview") if group_event.image? %>
+                </a>
+
+
+			</div>
+			<%= link_to group_event, method: :get, class: "specialA" do %>
+
+			<div class="col-xs-8 noPad3">
+				<div class="eventInfoTitleModule">
+					<%= group_event.title %>
+				</div>
+				<div class="eventInfoTitleModuleDate">
+					<%= group_event.event_date.strftime('%B %e') %>
+				</div>
+
+			</div>
+			<% end %>
+			 	
+		</div>
+	
+	</div>
+
+
+
+
+<% end %>
+<% else %>
+	<div class="eventInfoTitleModule text-center">
+		There are no upcoming events
+	</div>
+<% end %>
+
+
+
+
+
+
+

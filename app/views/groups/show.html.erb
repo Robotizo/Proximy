@@ -36,6 +36,31 @@
 
 </style>
 
+
+<style type="text/css">
+  input{
+    margin: -2px;
+  }
+  
+.interestCard{
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+
+    .modal-content {
+    border-radius: 11px;
+    padding: 25px;
+  }
+
+
+  .modal.in .modal-dialog{
+    margin-top: 40px !important;
+  }
+
+
+</style>
+
 <script type="text/javascript">
   $(document).ready(function () {
    
@@ -66,6 +91,8 @@
 <% end %>
 
 
+
+<% if !mobile? %>
 
 
 <div class="backButton">
@@ -131,7 +158,6 @@
 
 
 </div>
-
 
 
 
@@ -263,6 +289,32 @@
       </div>
     </div>
   </div>
+
+
+
+
+<% else %>
+  <%= render 'showGroupsMobile' %>
+<% end %>
+
+
+
+
+<!-- Modal 4 -->
+<% if !signed_in? %>
+<div class="modal fade bd-example-modal-sm" id="accessModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-login-mobile">
+    <div class="modal-content mobileSignUp"> 
+
+   <%= render 'sessions/loginForm' %>
+        
+    </div>
+  </div>
+</div>
+<% end %>
+<!-- /Modal 4 -->
+
+
 
 
 

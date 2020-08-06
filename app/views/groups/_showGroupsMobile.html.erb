@@ -1,0 +1,176 @@
+<%= stylesheet_link_tag "groups_mobile", :media => "all" %>
+<div class="backButton">
+  <%= link_to 'javascript:history.back()' do %>
+        <%= image_tag("left-arrow.png", class: "leftArrow") %>
+  <% end %>
+</div>
+
+
+<div class="text-center container">
+	<%= image_tag("logoIcon.png", class: "logoMobile ") %>
+
+
+  <div class="userImage">
+    <%= image_tag(current_user.avatar_url, class: "userAvatar") %>
+  </div>
+
+
+
+
+  <div class="elementBoxMob ">
+
+      <a href="<%= @group.cover_image_url %>" class="lazy-load replace coverImage">
+              <%= image_tag(@group.cover_image_url(:preview), class: "groupImageCover preview") if @group.cover_image? %>
+            </a>
+      <div class="groupImageSec1">
+
+
+             <a href="<%= @group.image_url %>" class="lazy-load replace groupImageMobile">
+                  <%= image_tag(@group.image_url(:preview), class: "groupImage1 preview") if @group.image? %>
+                </a>
+
+
+
+
+      </div>
+
+        <div class="groupTitleDisc"><%= truncate(@group.title, length: 35) %></div>
+  
+
+  </div>
+
+
+    <div class="elementBoxMob col-xs-12" style="margin-top: 15px; padding-top: 15px;">
+
+
+
+       <% if !signed_in? %>
+		  <div class="col-md-4 col-xs-6 noPad3 text-center">
+
+		      <div class="modalSignUp" data-target="#accessModal" data-toggle="modal" >
+		         <%= image_submit_tag "attendLong.png", class: "iconImage" %>
+		          <div class="textOps">
+		            Log in to attend
+		          </div>
+
+		     </div>
+
+		    </div>
+		<% else %>
+
+          <% if current_user.followingG?(@group) %>
+          <div class="col-md-6 col-xs-6 noPad3 text-center">
+            <%= render partial: "unfollowGroup" %>
+          </div>
+          <% else %>
+          <div class="col-md-6 col-xs-6 noPad3 text-center">
+            <%= render partial: "followGroup" %>
+          </div>
+          <% end %>
+
+
+		<% end %>
+
+		    <div class="col-md-4 col-xs-6 noPad3 text-center" data-target="#show-interests" data-toggle="modal" >
+
+
+              <%= image_submit_tag "interestsLong.png", class: "iconImage" %>
+              <div class="textOps">
+                View interests
+              </div>
+        
+   
+            </div>
+  
+
+  	</div>
+
+
+
+  	<div class="elementBoxMob col-xs-12" style="margin-top: 15px; ">
+
+        <div class="eventInfoTitle">Upcoming Events</div>
+        <div style="padding-top: 10px;">
+         <%= render 'groupEventsMobile' %>
+        </div>
+
+  	</div>
+
+  	<div class="elementBoxMob col-xs-12" style="margin-top: 15px;">
+
+        <div class="eventInfoTitle">Group Members</div>
+
+
+
+
+		    <div class=" noPad3" style="margin-top: 5px;">
+
+		    <% if !@groupFollowers.empty? %>
+		      <%  @groupFollowers.reverse.first(8).each do |groupFollower| %>
+		      <span class="col-xs-4 text-center noPad3">
+
+
+
+
+
+		  
+		        <div class="followersSec">
+		        
+		            <div class="eImage">
+		              <div class="followerImageSec"><%= image_tag(groupFollower.avatar_url(:thumb), class: "groupImage2") if groupFollower.avatar? %></div>
+		              <div class="followerNameSec"><%= truncate(groupFollower.name.gsub(/\s.+/, ''), length: 20) %></div>
+		            </div>
+		        
+		        </div>
+
+
+
+
+		    </span>
+		      <% end %>
+
+
+
+
+
+
+		    <% else %>
+		      	<div class="noFollowSec">
+		        	<div class="noFollowSecText">This event has no attendees.</div>
+			     </div>
+	    <% end %>
+
+		</div>
+     
+      
+
+
+  	</div>
+
+  	<div class="elementBoxMob col-xs-12" style="margin-top: 15px; ">
+
+        <div class="eventInfoTitle">Description</div>
+         <div class="eventInfoText"><%= @group.description %></div>
+
+  	</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

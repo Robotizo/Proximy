@@ -1771,7 +1771,7 @@ div.scrollMembersEvents a {
 
 
 
-
+/*
 
 @media (min-width: 768px) {
 
@@ -1792,7 +1792,7 @@ div.scrollMembersEvents a {
 
 
 
-
+*/
 
 
 
@@ -2218,7 +2218,7 @@ div#modalPostImage {
   margin-bottom: 10px;
 }
 
-@media screen and (max-width: 1200px){
+/*@media screen and (max-width: 1200px){
   .grid-item, .grid-sizer {
     width: calc(100%);
     margin-bottom: 20px;
@@ -2230,7 +2230,7 @@ div#modalPostImage {
     width: calc(100%);
     margin-bottom: 20px;
   }
-}
+}*/
 
 /* END MASONRY */
 
@@ -2377,7 +2377,7 @@ img.userImage2 {
   margin-bottom: 15px;
 }
 
-@media (min-width: 576px) {
+/*@media (min-width: 576px) {
   .card-deck {
     -ms-flex-flow: row wrap;
     flex-flow: row wrap;
@@ -2395,7 +2395,7 @@ img.userImage2 {
     margin-bottom: 0;
     margin-left: 15px;
   }
-}
+}*/
 
 .card-group {
   display: -ms-flexbox;
@@ -2408,7 +2408,7 @@ img.userImage2 {
   margin-bottom: 15px;
 }
 
-@media (min-width: 576px) {
+/*@media (min-width: 576px) {
   .card-group {
     -ms-flex-flow: row wrap;
     flex-flow: row wrap;
@@ -2446,13 +2446,13 @@ img.userImage2 {
   .card-group > .card:not(:first-child) .card-footer {
     border-bottom-left-radius: 0;
   }
-}
+}*/
 
 .card-columns .card {
   margin-bottom: 0.75rem;
 }
 
-@media (min-width: 576px) {
+/*@media (min-width: 576px) {
   .card-columns {
     -webkit-column-count: 3;
     -moz-column-count: 3;
@@ -2468,7 +2468,7 @@ img.userImage2 {
     width: 100%;
   }
 }
-
+*/
 .accordion > .card {
   overflow: hidden;
 }
@@ -2565,7 +2565,7 @@ img.userImage2 {
   }
 
 /* Specific scalling events HS */
-@media screen and (max-width: 776px){
+/*@media screen and (max-width: 776px){
   @media screen and (min-width: 400px){
     div.scrollMembersEvents {
       height: 305px;
@@ -2584,11 +2584,11 @@ img.userImage2 {
       height: 290px;
     }
   }
-}
+}*/
 
 /* Specific scalling events HS */
 
-
+/*
 @media screen and (max-width: 776px){
 
   .lp_outside_title_1{
@@ -2652,118 +2652,7 @@ img.userImage2 {
         font-size: 16px;
 
   }
-  .padExtraR{
-    padding-right: 0px;
-    padding-left: 0px;
-  }
-  .padExtraL{
-    padding-right: 0px;
-    padding-left: 0px;
-        margin-top: 20px;
-  }
-  .eventR{
-    width: 100%;
-  }
-  .eventsArea{
-    margin-top: 10px;
-  }
-  .eventTitleMod{
-    margin-left: 0px;
-    font-size: 16px;
 
-  }
-  .card-img-top{
-    border-top-left-radius: calc(0.75rem - 1px);
-    border-top-right-radius: calc(0.75rem - 1px);
-  }
-
-  .viewAll {
-    height: 100px;
-    margin-top: -110px;
-    margin-left: 10px;
-    margin-right: 30px;
-  }
-  .pp-section.active{
-    .together1{
-      -webkit-animation: fadeInUp 0.9s; /* Safari, Chrome and Opera > 12.1 */
-      -moz-animation: fadeInUp 0.9s; /* Firefox < 16 */
-      -ms-animation: fadeInUp 0.9s; /* Internet Explorer */
-      -o-animation: fadeInUp 0.9s; /* Opera < 12.1 */
-      animation: fadeInUp 0.9s;
-    }
-    .together2{
-      -webkit-animation: fadeInUp 0.9s; /* Safari, Chrome and Opera > 12.1 */
-      -moz-animation: fadeInUp 0.9s; /* Firefox < 16 */
-      -ms-animation: fadeInUp 0.9s; /* Internet Explorer */
-      -o-animation: fadeInUp 0.9s; /* Opera < 12.1 */
-      animation: fadeInUp 0.9s;
-    }
-
-    .together3{
-      -webkit-animation: fadeInUp 0.9s; /* Safari, Chrome and Opera > 12.1 */
-      -moz-animation: fadeInUp 0.9s; /* Firefox < 16 */
-      -ms-animation: fadeInUp 0.9s; /* Internet Explorer */
-      -o-animation: fadeInUp 0.9s; /* Opera < 12.1 */
-      animation: fadeInUp 0.9s;
-    }
-    .together4{
-      -webkit-animation: fadeInUp 0.9s; /* Safari, Chrome and Opera > 12.1 */
-      -moz-animation: fadeInUp 0.9s; /* Firefox < 16 */
-      -ms-animation: fadeInUp 0.9s; /* Internet Explorer */
-      -o-animation: fadeInUp 0.9s; /* Opera < 12.1 */
-      animation: fadeInUp 0.9s;
-    }
-    .together5{
-      -webkit-animation: fadeInUp 0.9s; /* Safari, Chrome and Opera > 12.1 */
-      -moz-animation: fadeInUp 0.9s; /* Firefox < 16 */
-      -ms-animation: fadeInUp 0.9s; /* Internet Explorer */
-      -o-animation: fadeInUp 0.9s; /* Opera < 12.1 */
-      animation: fadeInUp 0.9s;
-    }
-    .together6{
-      -webkit-animation: fadeInUp 0.9s; /* Safari, Chrome and Opera > 12.1 */
-      -moz-animation: fadeInUp 0.9s; /* Firefox < 16 */
-      -ms-animation: fadeInUp 0.9s; /* Internet Explorer */
-      -o-animation: fadeInUp 0.9s; /* Opera < 12.1 */
-      animation: fadeInUp 0.9s;
-    }
-  }
-  #pp-nav ul, .pp-slidesNav ul{
-    display: none;
-  }
-  .together4{
-    display: block;
-    position: absolute;
-    /* top: -552px; */
-    top: 220px;
-    /* left: -240px; */
-    left: calc(33% - 105px);
-    margin: auto;
-  }
-  .together5{
-    display: block;
-    position: absolute;
-    /* top: -552px; */
-    top: 220px;
-    /* left: -240px; */
-    left: calc(66% - 105px);
-    margin: auto;
-  }
-  .together6{
-    display: block;
-    position: absolute;
-    /* top: -552px; */
-    top: 220px;
-    /* left: -240px; */
-    left: calc(99% - 105px);
-    margin: auto;
-  }
-  .together5{
-    
-  }
-  .together6{
-    
-  }
   #pp-nav.right{
     right: -5px !important;
   }
@@ -2918,9 +2807,9 @@ img.userImage2 {
   }
 }
 
+*/
 
-
-@media screen and (max-width: 776px){
+/*@media screen and (max-width: 776px){
 
   .showMobile{
     display: block !important;
@@ -3066,7 +2955,7 @@ img.userImage2 {
     top: 11%;
     left: 50%;
     text-align: center;
-    /* margin-right: -50%; */
+
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
   }
@@ -3117,4 +3006,4 @@ img.userImage2 {
     left: 50%;
   }
 }
-
+*/

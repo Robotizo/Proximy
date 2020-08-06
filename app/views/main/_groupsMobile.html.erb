@@ -1,0 +1,52 @@
+
+
+
+       <div>
+
+
+      <% @groups.first(8).each do |group| %>
+      <% collide = current_user.followingI.ids & group.fgI.ids %>
+
+
+
+      <span class="col-xs-6 mobileVE ">
+        <%= link_to group, method: :get, class: "specialA" do %>
+          <div class="elementBox boxGMod">
+
+
+
+       
+            <a href="groups/<%= group.id %>" data-method="get" data-href="<%= group.image_url(:group) %>" class="lazy-load replace marginSetsC">
+                  <%= image_tag(group.image_url(:preview), class: "groupImageDisc preview") if group.image? %>
+                </a>
+
+
+<%= link_to group, method: :get, class: "specialA" do %>
+
+
+              <div class="groupTitleDiscG"><%= truncate(group.title, length: 25) %></div>
+                <div class="sharedIntsG">
+                  <%= collide.count %> Shared interests
+                </div>
+        <% end %>
+          </div>
+        <% end %>
+      </span>
+
+
+
+      <% end %>
+
+        <span class="col-xs-12 mobileVE testMargeMore">
+          <%= link_to groups_path, method: :get, class: "specialA" do %>
+          <div class="testMargeIn">
+            
+              See more groups ...
+            
+          </div>
+          <% end %>
+      </span>
+
+
+
+  </div>

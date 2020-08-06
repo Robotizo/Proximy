@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag "groups", :media => "all" %>
+<%= stylesheet_link_tag "groups_mobile", :media => "all" %>
 
 <%= form_for(current_user.active_relationships_groups.find_by(followedG_id: @group.id), html: { method: :delete }) do |f| %>
 

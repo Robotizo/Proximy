@@ -1,0 +1,328 @@
+
+@media screen and (min-width: 1800px){
+	.logField{
+		width: 70%;
+		text-align: center;
+		margin-left: 16%;
+		margin-right: 16%;
+
+	}
+
+}
+.fileBtnDiv, .form-control{
+	width: 100%;
+	margin: 10px 0;
+	font-weight: 600;
+    font-size: 16px;
+}
+.fileBtnDiv{
+	border-color: #2e6da4;
+	background-color: #7fa6be;
+	.fileBtn{
+		display: none;
+	}
+}
+.logoParent{
+	width: 100%;
+	text-align: center;
+}
+
+
+.leftDiv{
+	left: 0;
+}
+.rightDiv{
+	right: 0;
+	background: #fff;
+}
+.iconImg{
+	position: fixed;
+	border: 1px #fff solid;
+	width: auto;
+	height: auto;
+	max-width: 15%;
+	max-height: 70%;
+
+	top: 50%;
+	left: 25%;
+	-ms-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.centerDiv{
+	width: 28em;
+    height: 49em;
+    position: inherit;
+    top: 0;
+    margin-top: 80px !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+
+.centerDiv2{
+	width: 27em;
+    height: 45em;
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  	
+	margin: auto;
+}
+
+
+
+@media screen and (min-width: 1800px){
+	.logField{
+		width: 70%;
+		text-align: center;
+		margin-left: 16%;
+		margin-right: 16%;
+
+	}
+
+	.mainDiv{
+		vertical-align: middle;
+	}
+}
+
+@media screen and (max-width: 776px){
+	.content-wrap{
+		padding-bottom: 150px;
+	}
+
+	.mobileAppAdArea{
+		background-color: black;
+	  position: absolute;
+	  bottom: 0;
+	  width: 100%;
+	  height: 150px;
+	}
+	
+	.agreements{
+		font-size: 9px;
+	}
+	.legalLinks{
+		font-size: 9px;
+	}
+	.titleSign{
+		font-size: 30px;
+	}
+
+	.whiteContainerLeft {
+	    position: absolute;
+	    width: calc(100% - 30px);
+	    min-height: calc(100vh - 200px);
+	    top: 0;
+	    left: 0;
+	    margin: 15px;
+	    border-radius: 8px;
+	}
+
+	.whiteContainer {
+	    display: -webkit-box;
+	    display: flex;
+	    -webkit-box-pack: center;
+	    justify-content: center;
+	    -webkit-box-align: center;
+	    align-items: center;
+	    position: absolute;
+	    width: calc(100% - 30px);
+	    min-height: calc(100vh - 250px);
+	    background-color: white;
+	    top: 0;
+	    right: 0;
+	    margin: 15px;
+	    margin-top: 50px !important;
+	    border-radius: 8px;
+	    box-shadow: 0 0 0 0;
+	    /* background-color: white; */
+	}
+	.imageHere{
+		 position: fixed;
+	    padding: 0;
+	    margin: 0;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100vh !important;
+	}
+
+	.marginSetsA{
+		position: fixed;
+	    padding: 0;
+	    margin: 0;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100vh !important;
+	}
+
+	.marginSetsA img{
+		position: fixed;
+	    padding: 0;
+	    margin: 0;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    object-fit: cover;
+	    height: 100vh !important;
+	}
+	.centerDiv{
+		width: auto;
+	}
+	.centerDiv2{
+		width: auto;
+	}
+
+
+	.logField-edits input{
+	    background: rgba(216, 216, 216, 0.5);
+	    border: none;
+	    color: black;
+	    font-size: 14px;
+	}
+
+
+
+	.loginSec2{
+		margin: 10px 20px;
+	}
+	.emailField{
+		margin: 32px 20px;
+		outline: none !important;
+	}
+	.passField{
+		margin: 32px 20px;
+		outline: none !important;
+	}
+
+	.logoImg{
+		margin-top: 0%;
+	}
+	.signUp{
+		font-size: 14px;
+		width: 100%;
+		color: #7fa6be;
+		background-color: white;	
+	}	
+	.leftDiv{
+		display: none;
+	}
+	.leftDiv2{
+		display: none;
+	}
+	.rightDiv{
+
+		width: 100%;
+		height: fit-content;
+		min-height: 100%;
+		clear: both;
+		display: flex;
+		flex-flow: column;
+	}
+
+	.rightDiv2{
+
+		width: 100%;
+		height: fit-content;
+		min-height: 100%;
+		clear: both;
+		display: flex;
+		flex-flow: column;
+	}
+	.mainDiv{
+		width: 100%;
+		margin-top: 0px;
+		padding: 10px;
+		flex: 0 1 auto;
+
+	}
+	.mobileBottom{
+		flex: 1 1 auto;
+		background: #fff url("/assets/bk_inv.png");
+	}
+	.form-control, input.btn, .fileBtnDiv{
+		height: 6vh;
+		min-height: 40px;
+		vertical-align: middle;
+		font-size: 14px;
+		font-weight: 700 !important;
+
+	}
+	.logoImg{
+		width: 60%;
+		height: auto;
+	}
+	.fileField{
+		display: table;
+		width: 100%;
+		margin: 10px 0;
+	}
+	.fileBtnDiv{
+		display: table-cell;
+		vertical-align: middle;
+		height: 50px;
+	}
+
+
+	.leftDiv{
+		display: none;
+	}
+	.rightDiv{
+		width: 100%;
+		height: fit-content;
+		min-height: 100%;
+		clear: both;
+		display: flex;
+		flex-flow: column;
+	}
+	.mainDiv{
+		width: 90%;
+		margin-top: 0px;
+		padding: 10px;
+		flex: 0 1 auto;
+	}
+	.mobileBottom{
+		flex: 1 1 auto;
+		background: #fff url("/assets/bk_inv.png");
+	}
+
+	.logoImg{
+		width: 80%;
+		height: auto;
+	}
+	.fileField{
+		display: table;
+		width: 100%;
+		margin: 10px 0;
+	}
+	.fileBtnDiv{
+		display: table-cell;
+		vertical-align: middle;
+		height: 50px;
+	}
+	.newUser{
+		background: white;
+		.mainDiv{
+			background: white;
+
+			.logoParent{
+				background: white url("/assets/proximy-logo.png") no-repeat;
+				background-size: contain;
+				background-position: center;
+			}
+		}
+		.mobileBottom{
+			background: #6c94b2 url("/assets/bk_inv.png");
+		}
+	}
+
+}

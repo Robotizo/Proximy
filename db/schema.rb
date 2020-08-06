@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200618215928) do
+ActiveRecord::Schema.define(version: 20200716194229) do
 
   create_table "blocking_relationships", force: :cascade do |t|
     t.integer  "blocker_id"
@@ -267,6 +267,7 @@ ActiveRecord::Schema.define(version: 20200618215928) do
     t.string   "uid"
     t.string   "gender"
     t.date     "date_of_birth"
+    t.boolean  "online_status",                   default: false
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end

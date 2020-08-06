@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag "groups", :media => "all" %>
+<%= stylesheet_link_tag "groups_mobile", :media => "all" %>
 
 <%= form_for(@group.passive_relationships_groups.build, method: :post) do |f| %>
 	<%= hidden_field_tag :followedG_id, @group.id %>

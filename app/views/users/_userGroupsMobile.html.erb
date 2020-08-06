@@ -1,0 +1,80 @@
+
+<%= stylesheet_link_tag "groups_mobile", :media => "all" %>
+<style type="text/css">
+	.elementBoxMob{
+		margin-bottom: 10px;
+		float: left;
+	
+
+	}
+
+	.eventImageDisplayLoaded img{
+		height: 80px;
+		border-radius: 5px 0px 0px 5px !important;
+	}
+
+
+	.eventImageDisplayLoaded {
+		height: 80px;
+		border-radius: 5px 0px 0px 5px !important;
+	}
+
+	.eventImageMob {
+		height: 80px;
+		border-radius: 5px 0px 0px 5px !important;
+	}
+
+	.eventImageMob img{
+		height: 80px;
+		border-radius: 5px 0px 0px 5px !important;
+	}
+</style>
+
+
+<% if @groupsFollow.present? %>
+<% @groupsFollow.each do |groupsFollowing| %>
+
+
+
+
+
+	<div class="col-xs-12 noPad3">
+		<div class="elementBoxEvents">
+			<div class="col-xs-4 noPad3">
+				
+              <a href="/groups/<%= groupsFollowing.id %>" data-method="get" data-href="<%= groupsFollowing.image_url(:group) %>" class="lazy-load replace eventImageDisplayLoaded">
+                  <%= image_tag(groupsFollowing.image_url(:preview), class: "eventImageMob preview") if groupsFollowing.image? %>
+                </a>
+
+
+			</div>
+			<%= link_to groupsFollowing, method: :get, class: "specialA" do %>
+
+			<div class="col-xs-8 noPad3">
+				<div class="eventInfoTitleModule">
+					<%= groupsFollowing.title %>
+				</div>
+
+			</div>
+			<% end %>
+			 	
+		</div>
+	
+	</div>
+
+
+
+
+<% end %>
+<% else %>
+	<div class="eventInfoTitleModule text-center">
+		There are no upcoming events
+	</div>
+<% end %>
+
+
+
+
+
+
+

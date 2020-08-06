@@ -1,4 +1,5 @@
- <%= stylesheet_link_tag "sessions", :media => "all" %>
+<%= stylesheet_link_tag "sessions", :media => "all" %>
+<%= stylesheet_link_tag "sessions_mobile", :media => "all" %>
 
 
 <style type="text/css">
@@ -12,9 +13,8 @@
 
 
 
-
-  <body onload="getLocation()">
-  	<%= form_for(user) do |f| %>
+<body onload="getLocation()">
+<%= form_for(user) do |f| %>
 
 
 
@@ -23,12 +23,11 @@
 
 
 
-
-	<div class="col-md-12 noPad3">
+<div class="col-md-12 noPad3">
 		<div class="col-md-12 noPad3">
-<div class="titleSign">
-  	Start connecting.
-</div>
+      <div class="titleSign">
+        	Start connecting.
+      </div>
 
 
 
@@ -40,56 +39,68 @@
 
 
 
-	  <div class="field col-md-6 noPad3">
+    	  <div class="field col-md-6 noPad3">
 
-	    <%= f.text_field :last_name, class: "form-control", placeholder: "Last name" %>
-	  </div>
+    	    <%= f.text_field :last_name, class: "form-control", placeholder: "Last name" %>
+    	  </div>
 
-  <div class="field field col-xs-12 noPad3">
+      <div class="field field col-xs-12 noPad3">
 
-    <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
-  </div>
+        <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+      </div>
 
-    <div class="field">
-    <%= f.hidden_field :latitude, class: "form-control", id: "latField" %>
-  </div>
-
-
-  <div class="field">
-    <%= f.hidden_field :longitude, class: "form-control", id: "lonField"  %>
-  </div>
-
-
-	  <div class="field col-xs-12 noPad3">
-	    <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
-	  </div>
-
-
-	
-	  <div class="text-center signButton  col-xs-12 noPad3">
-	        <%= f.button "Confirm", class: "fileBtnSubmit2", data: {disable_with: "<i class='fa fa-circle-o-notch fa-spin'></i> Building..."} %>
-	    </div>
-
-      <div class="text-center col-xs-12 noPad3">
-          <%= link_to "Log in", login_path, method: :get, class: "fileBtnSubmitSign2" %>
+        <div class="field">
+        <%= f.hidden_field :latitude, class: "form-control", id: "latField" %>
       </div>
 
 
-<div class="col-md-12 col-xs-12">
+      <div class="field">
+        <%= f.hidden_field :longitude, class: "form-control", id: "lonField"  %>
+      </div>
 
-      <div class="agreements">By creating an account you agree to <%= link_to "Terms & Conditions", terms_path, method: :get, class: "legalLinks" %> and <%= link_to "Privacy Policy", privacy_path, method: :get, class: "legalLinks" %>.</div>
+
+    	  <div class="field col-xs-12 noPad3">
+    	    <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+    	  </div>
+
+
+    	
+    	  <div class="text-center signButton  col-xs-12 noPad3">
+    	        <%= f.button "Confirm", class: "fileBtnSubmit2", data: {disable_with: "<i class='fa fa-circle-o-notch fa-spin'></i> Building..."} %>
+    	    </div>
+
+          <div class="text-center col-xs-12 noPad3">
+              <%= link_to "Log in", login_path, method: :get, class: "fileBtnSubmitSign2" %>
+          </div>
+
+
+      <div class="col-md-12 col-xs-12">
+
+            <div class="agreements">By creating an account you agree to <%= link_to "Terms & Conditions", terms_path, method: :get, class: "legalLinks" %> and <%= link_to "Privacy Policy", privacy_path, method: :get, class: "legalLinks" %>.</div>
+
+      </div>
+
+
+
+</div>
+
 </div>
 
 
 
-
-  	<% end %>
-
-  	</div>
 </div>
-</div>
+
+
+
+<% end %>
+
+
 
   </body>
+
+
+
+
 
 
 

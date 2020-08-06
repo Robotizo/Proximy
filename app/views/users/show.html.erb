@@ -26,6 +26,7 @@
 
 
 
+<% if !mobile? %>
 
 <% if flash[:notice] %>
 <div class="alert animated pulse " role="alert">
@@ -438,9 +439,6 @@ $(function () {
 
 
 
-
-
-
           <span class="col-md-4 userEventsNonF mobileVG noselect">
 
               <div class="elementBox boxGMod">
@@ -500,6 +498,11 @@ $(function () {
 
     </div>
   </div>
+
+<% else %>
+  <%= render 'showUsersMobile' %>
+<% end %>
+
 
 
 

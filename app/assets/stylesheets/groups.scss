@@ -5,6 +5,12 @@
 
 
 
+  .modal-login-mobile{
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+
+  }
+
 
 
 
@@ -874,6 +880,7 @@ div.scrollMembersUsers a {
 
 
 
+
 .iconImage{
   height: 55px;
   border-radius: 10px;
@@ -885,7 +892,6 @@ div.scrollMembersUsers a {
 .iconImage:hover{
   box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
-
 
 
 .panel-default > .panel-interest{
@@ -1724,7 +1730,7 @@ div .show-more[aria-expanded="true"]{
 
 
 .fileBtnDiv, .form-control {
-  width: 80%;
+  width: 90%;
   margin: 10px 0px 40px 0;
   font-weight: 900;
 
@@ -2511,10 +2517,7 @@ div.scrollEvents{
     margin-top: -30px;
   }
 
-  .groupImage2{
-    height: 150px;
-    width: 150px;
-  }
+
 
   .userInfoArea{
     margin-top: 10px;
@@ -2641,13 +2644,7 @@ div.scrollEvents{
 
   }
 
-  .noPad3:first-child{
-    padding-right: 2px !important;
-  }
 
-  .noPad3:first-child{
-    padding-left: 2px !important;
-  }
 
     .fileBtnDiv{
         padding: 1rem 0px;

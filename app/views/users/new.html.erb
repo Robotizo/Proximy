@@ -9,8 +9,10 @@
   body {
     height: 100vh;
     margin: 0;
-    overflow-y: hidden !important;
+  }
 
+  .marginSetsA{
+    height: 100vh;
   }
 
 </style>
@@ -22,32 +24,27 @@
 <!-- for the background image: -->
 
 
-
-    <a href="<%= asset_path 'signUp.jpg' %>" class="lazy-load replace marginSetsA" disabled="disabled">
+    <% if !mobile?  %>
+        <a href="<%= asset_path 'signUp.jpg' %>" class="lazy-load replace marginSetsA" disabled="disabled">
           <%= image_tag("signUpSmall.jpg", class: "imageHere preview")  %>
-     </a>
-
-
-<div class="whiteContainer">
-        <div class="logoParent">
-                <%= image_tag("proximyNew.png", class: "logoImg2") %>
-          </div>
-
-</div>
+        </a>
+    <% end %>
 
 
 
 
+    <div class="whiteContainer">
+      <div class="whitePlatform">
 
 
-<div class="whiteContainer">
-  <div class="whitePlatform">
+    <%= render 'signUp', user: @user %>
+
+      </div>
+    </div>
 
 
-<%= render 'signUp', user: @user %>
 
-  </div>
-</div>
+
 
 
 <script type="text/javascript">

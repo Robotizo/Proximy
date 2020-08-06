@@ -22,6 +22,10 @@
 
 
 <body>
+
+
+<% if !mobile? %>
+
   <div class="backButton">
   <%= link_to 'javascript:history.back()' do %>
         <%= image_tag("left-arrow.png", class: "leftArrow") %>
@@ -76,6 +80,16 @@
        </div>
 
 </div>
+
+<% else %>
+
+
+  <%= render 'discoverMobile' %>
+
+
+<% end %>
+
+
 </body>
 
 

@@ -1,0 +1,172 @@
+
+
+
+
+
+@media screen and (max-width: 776px){
+
+	.sharedInts{
+		color: #a4a4a4 !important;
+	}
+	.eventContent{
+		padding-top: 10px !important;
+	}
+	.marginSetsC{
+		height: 128px !important;
+	}
+
+	.groupImageDisc img{
+		height: 128px !important;
+	}
+	
+		.followersSec{
+			margin: 6px !important;
+		}
+	  .eventInfoTitleModuleLocation{
+	  	text-align: left;
+	    width: 100%;
+	    padding: 0px 0px 4px 10px;
+	    position: relative;
+	    font-weight: 900;
+
+	    
+	    font-size: 8px;
+	    white-space: normal;
+	  }
+	  .eventInfoTitleModuleDate{
+	    text-align: left;
+	    width: 100%;
+	    padding: 0px 0px 4px 10px;
+	    position: relative;
+	    font-weight: 900;
+	    color: #508cf7;
+	    
+	    font-size: 10px;
+	    white-space: normal;
+	  }
+	  .eventInfoTitleModule{
+	    text-align: left;
+	    width: 100%;
+	    padding: 8px 0px 4px 10px;
+	    position: relative;
+	    font-weight: 900;
+	    
+	    font-size: 12px;
+	    white-space: normal;
+	  }
+
+	 .eventInfoTitle{
+	    text-align: left;
+	    width: 100%;
+	    padding: 15px 0px 4px 0px;
+	    position: relative;
+	    font-weight: 900;
+	    
+	    font-size: 14px;
+	    white-space: normal;
+	  }
+
+	  .eventInfoText{
+	    text-align: left;
+	    width: 100%;
+	    padding: 10px 0px 4px 0px;
+	    position: relative;
+	    font-weight: 400;
+
+	    
+	    font-size: 12px;
+	    white-space: normal;
+	  }
+
+	.textOps {
+    	font-size: 9px;
+    	margin-top: 5px !important;
+    	margin-bottom: 0px;
+	}
+
+	.iconImage{
+    	height: 45px;
+    	border-radius: 300px;
+  	}
+	 .modal-login-mobile{
+    	padding-left: 0px !important;
+    	padding-right: 0px !important;
+
+  	}
+	.groupTitleDisc{
+		text-align: center;
+		font-size: 17px;
+		font-weight: 900;
+
+	}
+
+
+
+	.coverImage img {
+	    height: 150px;
+	    object-fit: cover;
+	}
+	.coverImage{
+		height: 150px;
+	}
+	.groupImageMobile img{
+		height: 110px !important;
+		width: 110px !important;
+		margin: auto;
+		border-radius: 15px;
+	}
+
+	.groupImageMobile{
+		border-radius: 15px;
+		
+	}
+
+
+
+	.groupImageSec1{
+		width: 110px !important;
+		    margin: 0 auto;
+		        margin-top: -50px;
+	}
+
+
+	.elementBoxEvents{
+		width: 100%;
+		box-shadow: 0px 0px 4px 0px #e2e2e2;
+	    height: auto;
+	    border-radius: 5px;
+	    -webkit-transition: box-shadow .3s;
+	    transition: box-shadow .3s;
+	   	float: left;
+	   	margin-bottom: 15px;
+
+	}
+
+
+
+
+
+	.elementBoxMob{
+		width: 100%;
+		box-shadow: 0px 0px 4px 0px #e2e2e2;
+	    height: auto;
+	    border-radius: 11px;
+	    -webkit-transition: box-shadow .3s;
+	    transition: box-shadow .3s;
+	    padding-bottom: 15px;
+	}
+
+
+
+
+	.backButton{
+	    float: left;
+	    background-color: white;
+	    margin: 17px;
+	    position: absolute;
+	    border-radius: 100px;
+	    transition: 0.3s;
+	    z-index: 100;
+	    margin-left: 5px;
+    }
+}

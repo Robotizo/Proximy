@@ -1,0 +1,49 @@
+
+
+  <div>
+
+
+
+      <% @events.first(5).each do |event| %>
+      <% collide = current_user.followingI.ids & event.fgE.ids %>
+      <div class=" mobileVE">
+        <%= link_to event, method: :get,  class: "specialA" do %>
+          <div class="elementBox">
+   
+                <a href="events/<%= event.id %>" data-method="get" data-href="<%= event.image_url(:event) %>" class="lazy-load replace eventImage">
+                  <%= image_tag(event.image_url(:preview), class: "groupImageDisc preview") if event.image? %>
+                </a>
+
+      
+
+  <%= link_to event, method: :get, class: "specialA" do %>
+
+              <div class="eventContentDisc">
+                <div class="eventDateDisc"><%= event.event_date.strftime('%B %e') %></div>
+              </div>
+
+              <div class="groupTitleDisc"><%= truncate(event.title, length: 35) %></div>
+              <div class="sharedInts">
+                <%= collide.count %> Shared interests
+              </div>
+          </div>
+         <% end %>
+         <% end %>
+
+
+        </div>
+
+      <% end %>
+      <span class="col-md-4 mobileVE testMargeMore">
+        <%= link_to events_path, method: :get, class: "specialA" do %>
+        <div class="testMargeIn">
+          
+            See more events ...
+          
+        </div>
+        <% end %>
+      </span>
+    
+
+
+    </div>

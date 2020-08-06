@@ -12,9 +12,7 @@ class PostsController < ApplicationController
   def index
 
     if params[:search].present?
-      @bears = Unsplash::Photo.search(params[:search])
-    else 
-      @bears = Unsplash::Photo.search("Bear")
+      @items = Unsplash::Photo.search(params[:search])
     end
 
 

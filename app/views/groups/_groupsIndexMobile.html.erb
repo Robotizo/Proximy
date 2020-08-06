@@ -9,19 +9,23 @@
 
 <%= image_tag("logoIcon.png", class: "logoMobile ") %>
 
+
+
 	<div class="userImage">
 		<%= image_tag(current_user.avatar_url, class: "userAvatar") %>
 	</div>
-
-
 </div>
-    <h2 class="topTitle2 text-left">Discover Events</h2>
+
+
+
+
+    <h2 class="topTitle2 text-left">Discover Groups</h2>
 
 
 
       <div class="complete">
 
-        <%= render @events %>
+        <%= render 'groups' %>
 
           
       </div>

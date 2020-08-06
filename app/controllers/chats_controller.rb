@@ -59,7 +59,26 @@ class ChatsController < ApplicationController
   end
 
 
+  def set_online
+    if current_user.is_offline?
+      current_user.online!
+      send_status_changed_notification(true)
+    end
+  end
+
+  def set_offline
+    if current_user.is_online?
+      current_user.offline!
+      send_status_changed_notification(false)
+    end
+  end
+
+
   private
+
+  def send_status_changed_notification(status)
+    ActionCable.server.broadcast 'user_status_channel', user_id: current_user.id, status: status
+  end
 
   def filter_page_number
     @page_number = params[:page_number]

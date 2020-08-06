@@ -175,6 +175,12 @@
   get 'chats/list_messages/:id', :to => 'chats#list_messages'
   get 'chats/ajax_messages', :to => 'chats#ajax_messages'
   post 'chats/read_messages/:id', :to => 'chats#read_messages'
+
+    # custom routes for diverse ajax calls
+  post 'chats/set_online', :to => 'chats#set_online'
+  post 'chats/set_offline', :to => 'chats#set_offline'
+
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
