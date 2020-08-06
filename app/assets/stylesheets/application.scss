@@ -1197,6 +1197,7 @@ body{
   .userAvatar{
        height: 50px;
        width:  50px;
+       object-fit: cover;
     margin: 12px;
     margin-top: 20px;
     border-radius: 300px;
