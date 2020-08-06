@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag "sessions", :media => "all" %>
+<%= stylesheet_link_tag "sessions_mobile", :media => "all" %>
 <%= stylesheet_link_tag "animate", :media => "all" %>
 <%= stylesheet_link_tag 'main', media: 'all' %>
 
@@ -27,6 +28,12 @@ body{
   margin-top: 0px !important;
 }
 
+@media screen and (max-width: 776px){
+
+  .agreements{
+    font-size: 14px;
+  }
+}
 </style>
 
 

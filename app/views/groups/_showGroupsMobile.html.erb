@@ -9,10 +9,12 @@
 <div class="text-center container">
 	<%= image_tag("logoIcon.png", class: "logoMobile ") %>
 
-
+<% if signed_in? %>
   <div class="userImage">
     <%= image_tag(current_user.avatar_url, class: "userAvatar") %>
   </div>
+
+<% end %>
 
 
 

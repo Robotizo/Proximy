@@ -1,4 +1,4 @@
-
+<%= stylesheet_link_tag 'main_mobile', media: 'all' %>
 
 
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
@@ -334,15 +334,10 @@ body{
 
           <div class="col-md-12 text-center" style="margin-top: 15px;">
 
-            <div class="showMobile">
-              <%= render "test_users/form" %>
-            </div>
+   
 
-
-            <div class="showMobileDont">
              <%= button_to "Create an account", signup_path, method: :get, class: "feedbackButton2" %>
-            </div>
-
+   
 
 
             

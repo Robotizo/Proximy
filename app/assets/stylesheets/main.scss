@@ -2588,7 +2588,7 @@ img.userImage2 {
 
 /* Specific scalling events HS */
 
-/*
+
 @media screen and (max-width: 776px){
 
   .lp_outside_title_1{
@@ -2606,210 +2606,11 @@ img.userImage2 {
     display: block !important;
   }
 
-  .groupTitleDisc{
-    top: -70px;
-    height: 60px;
-  }
-  .groupTitleDiscG{
-    height: 75px;
-  }
-  .eventContentDisc{
-    top: -64px;
-  }
-  .eventDateDisc{
-    font-size: 17px;
-  }
-  .elementBox {
-      width: 275px;
-      height: 290px;
-  }
-  .testMargeMore{
-    position: relative;
-    top: -100px;
-  }
-  .testMargeIn{
-    padding: 30px 30px 30px 30px;
-  }
-  .scrollMembers::-webkit-scrollbar {
-    height: 5px;
-  }
-  .scrollMembersEvents::-webkit-scrollbar {
-    height: 5px;
-  }
 
-
-  .scrollMembersGroups::-webkit-scrollbar {
-    height: 5px;
-  }
-
-  .leftSideTopMod {
-    font-size: 30px;
-    color: white;
-    font-weight: 700;
-    margin-top: 50px;
-  }
-  .eventTitle{
-        font-size: 16px;
-
-  }
-
-  #pp-nav.right{
-    right: -5px !important;
-  }
-  .groupTitle{
-    margin-left: 7%;
-    font-size: 12px;
-  }
-  .group{
-    width: 90%;
-  }
-  .allLower{
-    position: absolute;
-    top: 120px;
-    right: 50%;
-    left: 0;
-    bottom: 0;
-    text-align: center;
-  }
-  .allEvenLower{
-    position: absolute;
-    top: 120px;
-    right: 0;
-    left: 50%;
-    bottom: 0;
-    text-align: center;
-  }
-
-
-  .oneLower{
-    top: 155px;
-  }
-  .twoLower{
-    top: 155px;
-  }
-  .oneEvenLower{
-    display: none;
-  }
-  .twoEvenLower{
-    display: none;
-  }
-
-  .eventL{
-    width: 90%;
-  }
-  .leftSideSubTop{
-    margin-top: 10px;
-    font-size: 12px;
-    margin-left: 5%;
-    margin-right: 5%;
-  }
-  .one{
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 50%;
-    text-align: center;
-  }
-
-
-
-  .two{
-    position: absolute;
-    top: 47%;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    text-align: center;
-  }
-  .leftSideTop{
-    font-size: 30px;
-  }
-  .together1{
-    left: calc(33% - 105px);
-  }
-  .together2{
-    left: calc(66% - 105px);
-  }
-  .together3{
-    left: calc(99% - 105px);
-  }
-  .profile2name{
-    display: none;
-  }
-  .sec50{
-    display: none;
-  }
-  .profile1{
-    width: 88px;
-  }
-  .profile1name{
-    font-size: 12px;
-  }
-  .name {
-    font-size: 28px;
-    color: white;
-    z-index: 100;
-    width: 80%;
-    font-weight: 700;
-    position: absolute;
-    top: 58%;
-    left: 50%;
-    text-align: center;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
-  .nameSub {
-    font-size: 16px;
-    color: white;
-    z-index: 100;
-    font-weight: 200;
-    width: 88%;
-    position: absolute;
-    top: 73%;
-    text-align: center;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  } 
-  .btnFront{
-    font-size: 15px;
-  }
-  .title{
-        font-size: 27px;
-  }
-
-  .scrollMembers::-webkit-scrollbar {
-    height: 5px;
-  }
-  .mobNavs{
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-  .titleSec{
-    font-size: 20px;
-  }
-  .followerNameSec{
-    font-weight: 900;
-  }
-
-  .followersSec{
-        margin: 0px 8px 8px 8px;
-  }
-
-  .pencilButton{
-    display: none !important;
-  }
-
-  .scrollMembers{
-    padding-left: 0px;
-    padding-right: 0px;
-  }
 }
 
-*/
 
-/*@media screen and (max-width: 776px){
+@media screen and (max-width: 776px){
 
   .showMobile{
     display: block !important;
@@ -2821,14 +2622,14 @@ img.userImage2 {
 
 
   .loginButton{
-    display: none;
+    width: 90%;
   }
 
     .loginButton2{
     display: none;
   }
   .feedbackButton2{
-    width: 80%;
+    width: 80% !important;
   }
 
 
@@ -2870,140 +2671,7 @@ img.userImage2 {
 
 
 
-  .testMarge{
-    padding: 0px;
-  }
 
 
-  div.scrollMembers a{
-    padding: 0px !important;
-  }
-
-  .leftSideTop{
-    margin-top: 30px;
-  }
-  .interets7{
-    display: none;
-  }
-  .interets3{
-    display: none;
-  }
-  .profileImg2{
-    display: none;
-  }
-  .profileName{
-    display: none;
-  }
-  .interets5 {
-    width: 150px;
-    position: absolute;
-    top: -19%;
-    bottom: 0;
-    left: -196px;
-    right: 0;
-    margin: auto;
-  }
-  .interets6 {
-    width: 150px;
-    position: absolute;
-    top: -19%;
-    bottom: 0;
-    left: 50%;
-    right: 0;
-    margin: auto;
-  }
-  .interets1 {
-    width: 150px;
-    position: absolute;
-    top: -73%;
-    bottom: 0;
-    left: -196px;
-    right: 0;
-    margin: auto;
-  }
-  .interets2 {
-    width: 150px;
-    position: absolute;
-    top: -73%;
-    bottom: 0;
-    left: 50%;
-    right: 0;
-    margin: auto;
-  }
-  .postImage1 {
-    display: none;
-  }
-  .postImage2 {
-    display: none;
-  }
-  .postImage3 {
-    display: none;
-  }
-  .postImage4 {
-    display: none;
-  }
-  .postImage5{
-    display: none;
-  }
-  .leftSide {
-    font-size: 28px;
-    color: white;
-    z-index: 100;
-    width: 59%;
-    font-weight: 700;
-    position: absolute;
-    top: 11%;
-    left: 50%;
-    text-align: center;
-
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
-  .leftSideSub {
-    font-size: 16px;
-    color: white;
-    z-index: 100;
-    font-weight: 200;
-    width: 90%;
-    position: absolute;
-    top: 30%;
-    text-align: center;
-    left: 50%;
-    margin-right: -50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
-  .button{
-    top: 56%;
-  }
-  .btnFront {
-    padding: .75em 0em;
-    width: 300px;
-  }
-  .btnFront2{
-    padding: .75em 0em;
-    width: 300px;
-  }
-  .button2{
-    top: 66%;
-  }
-  .logoImage {
-    width: 74%;
-    position: absolute;
-    top: -74%;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-  }
-  .titleSub {
-    font-size: 16px;
-    padding-left: 40px;
-    padding-right: 40px;
-    text-align: center;
-    font-weight: 200;
-    top: 31%;
-    left: 50%;
-  }
 }
-*/
+

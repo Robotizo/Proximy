@@ -1,5 +1,7 @@
 
 @media screen and (min-width: 1800px){
+
+
 	.logField{
 		width: 70%;
 		text-align: center;
@@ -94,6 +96,16 @@
 }
 
 @media screen and (max-width: 776px){
+	.loginSec{
+		width: 90%;
+	}
+	.logField-edits{
+		width: 95%;
+	}
+
+		.logField{
+		margin: 0px !important;
+	}
 	.content-wrap{
 		padding-bottom: 150px;
 	}
@@ -258,7 +270,7 @@
 
 	}
 	.logoImg{
-		width: 60%;
+		width: 20%;
 		height: auto;
 	}
 	.fileField{
@@ -295,10 +307,7 @@
 		background: #fff url("/assets/bk_inv.png");
 	}
 
-	.logoImg{
-		width: 80%;
-		height: auto;
-	}
+
 	.fileField{
 		display: table;
 		width: 100%;
