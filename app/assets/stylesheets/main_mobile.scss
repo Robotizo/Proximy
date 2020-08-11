@@ -1,6 +1,35 @@
 
 
 @media screen and (max-width: 776px){
+	.lp_title_sub_text_note{
+		font-size: 16px;
+	    font-weight: 400;
+	    letter-spacing: -1px;
+	    text-align: center;
+	    margin-top: 20px;
+	    margin-right: 20px;
+	    margin-left: 20px;
+	}
+	.lp_title_sub_text{
+		font-size: 16px;
+	}
+	.lp_text{
+		font-size: 20px;
+	}
+	.lp_outside_title_1{
+		font-size: 23px;
+	    margin-top: 50px;
+	    margin-bottom: 20px;
+	}
+	.lp_outside_title_2{
+		font-size: 22px !important;
+	}
+	.lp_main{
+		padding-bottom: 2rem;
+	}
+	.lp_app_icons{
+		height: 60px;
+	}
 	.backButton{
 		float: left;
 	    background-color: white;
